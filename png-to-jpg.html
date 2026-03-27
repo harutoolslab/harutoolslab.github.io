@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 
-<title>PNG JPG 変換｜無料・一瞬で変換・インストール不要</title>
-
-<meta name="description" content="PNGをJPGに無料で変換できるツールです。インストール不要で、ブラウザ上ですぐに画像変換が可能です。スマホ・PC対応。">
+<title>PNGをJPGに変換｜無料オンラインツール</title>
+<meta name="description" content="PNG画像をJPGに変換できる無料ツール。ファイルサイズを軽くしながら簡単に変換できます。スマホ・PC対応。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,117 +13,106 @@ body {
   font-family: sans-serif;
   text-align: center;
   padding: 20px;
+  background: #fafafa;
 }
 
-h1, h2 {
-  margin-top: 30px;
-}
+h1 { margin-bottom: 10px; }
 
 #drop {
   border: 2px dashed #999;
   padding: 40px;
   margin: 20px auto;
-  max-width: 300px;
-  cursor: pointer;
+  max-width: 320px;
+  background: #fff;
 }
 
-#drop:hover {
-  background: #f5f5f5;
-}
+#drop:hover { background: #f5f5f5; }
 
 input, button {
   margin: 10px;
   padding: 10px;
-}
-
-button {
   font-size: 16px;
 }
 
-img {
-  max-width: 200px;
-  margin: 10px;
-}
+button { cursor: pointer; }
 
 .section {
   max-width: 700px;
-  margin: auto;
+  margin: 40px auto;
   text-align: left;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
 }
 
-.download-btn {
-  display: block;
-  margin: 5px auto;
+.ad {
+  margin: 30px 0;
+  padding: 20px;
+  background: #eee;
 }
 </style>
 </head>
 
 <body>
 
-<h1>PNG JPG 変換ツール</h1>
+<h1>PNGをJPGに変換（無料・オンライン）</h1>
 
-<p>PNG画像をJPGに簡単に変換できる無料ツールです。</p>
+<p>
+PNG画像をJPG形式に変換できます。<br>
+ファイルサイズを軽くしながら簡単に変換できます。
+</p>
 
-<!-- ツール -->
-<div id="drop">ここにPNG画像をドラッグ</div>
+<div class="ad">広告</div>
 
-<input type="file" id="upload" accept="image/png" multiple>
-<br>
+<div id="drop">PNG画像をドラッグ＆ドロップ</div>
 
-<input type="text" id="filename" placeholder="ファイル名（空欄なら元の名前）">
-<br>
+<input type="file" id="upload" accept="image/png" multiple><br>
 
-<button onclick="convert()">変換する</button>
+<button onclick="run()">変換する</button>
 
 <div id="result"></div>
 
-<!-- 説明 -->
+<div class="ad">広告</div>
+
 <div class="section">
-
-<h2>PNGをJPGに変換するツール</h2>
-<p>
-このページでは、PNG画像をJPG形式に簡単に変換できる無料ツールを提供しています。
-インストール不要で、スマートフォンやPCからすぐに利用できます。
-</p>
-
 <h2>使い方</h2>
-<ol>
-<li>画像をアップロード</li>
-<li>変換ボタンを押す</li>
-<li>ダウンロード</li>
-</ol>
-
-<h2>PNGとJPGの違い</h2>
 <p>
-PNGは高画質で透明背景に対応していますが、ファイルサイズが大きくなりやすいです。
-JPGは圧縮によりサイズを小さくでき、WebやSNSに適しています。
+1. PNG画像を選択またはドラッグ<br>
+2. 変換ボタンを押す<br>
+3. JPGをダウンロード
 </p>
-
-<h2>メリット</h2>
-<ul>
-<li>ファイルサイズを小さくできる</li>
-<li>アップロードが速くなる</li>
-<li>Web表示が軽くなる</li>
-</ul>
-
-<h2>よくある質問</h2>
-<p><b>Q. 無料で使えますか？</b><br>はい、完全無料です。</p>
-<p><b>Q. 画像は保存されますか？</b><br>保存されません。ブラウザ内で処理されます。</p>
-<p><b>Q. スマホでも使えますか？</b><br>はい、使用可能です。</p>
-
 </div>
 
-<!-- 内部リンク -->
 <div class="section">
-<h2>他のツール</h2>
-<a href="jpg-to-png.html">JPG→PNG変換</a><br>
-<a href="image-compress.html">画像圧縮</a><br>
+<h2>特徴</h2>
+<ul>
+<li>完全無料</li>
+<li>インストール不要</li>
+<li>スマホ・PC対応</li>
+<li>ブラウザ上で処理（安全）</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>関連ツール</h2>
+<a href="jpg-to-png.html">JPGをPNGに変換する</a><br>
+<a href="image-compress.html">画像を圧縮する</a><br>
+<a href="image-resize.html">画像サイズを変更する</a><br>
+<a href="heic-to-png.html">HEICをPNGに変換する</a><br>
 <a href="index.html">トップページ</a>
 </div>
 
 <script>
+// ===== 共通処理 =====
 
 const drop = document.getElementById("drop");
+const upload = document.getElementById("upload");
+
+let files = [];
+
+upload.addEventListener("change", e => {
+  files = e.target.files;
+});
 
 drop.addEventListener("dragover", e => {
   e.preventDefault();
@@ -132,76 +120,62 @@ drop.addEventListener("dragover", e => {
 });
 
 drop.addEventListener("dragleave", () => {
-  drop.style.background = "";
+  drop.style.background = "#fff";
 });
 
 drop.addEventListener("drop", e => {
   e.preventDefault();
-  document.getElementById("upload").files = e.dataTransfer.files;
-  drop.style.background = "";
+  files = e.dataTransfer.files;
+  drop.style.background = "#fff";
 });
 
-function convert() {
+function run(){
+  if(files.length === 0){
+    alert("ファイルを選択してください");
+    return;
+  }
+  process(files);
+}
 
-  const files = document.getElementById("upload").files;
-  if (files.length === 0) return alert("画像を選択してください");
+// ===== ツール処理 =====
 
-  const nameInput = document.getElementById("filename").value.trim();
+function process(files){
   const result = document.getElementById("result");
-  result.innerHTML = "";
+  result.innerHTML = "変換中...";
 
-  Array.from(files).forEach((file, index) => {
+  for(let file of files){
 
     const img = new Image();
-    const reader = new FileReader();
-
-    reader.onload = e => img.src = e.target.result;
+    img.src = URL.createObjectURL(file);
 
     img.onload = () => {
-
       const canvas = document.createElement("canvas");
       canvas.width = img.width;
       canvas.height = img.height;
 
       const ctx = canvas.getContext("2d");
 
-      // 背景白（透過対策）
+      // 背景を白にする（透明対策）
       ctx.fillStyle = "#ffffff";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.drawImage(img, 0, 0);
 
-      const jpg = canvas.toDataURL("image/jpeg", 0.9);
+      canvas.toBlob(blob => {
+        const url = URL.createObjectURL(blob);
 
-      const preview = document.createElement("img");
-      preview.src = jpg;
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = file.name.replace(/\.png/i, ".jpg");
+        a.textContent = a.download;
 
-      const link = document.createElement("a");
+        result.appendChild(a);
+        result.appendChild(document.createElement("br"));
 
-      let filename;
-
-      if (nameInput) {
-        filename = nameInput.replace(/\.jpg$/i, "") + "_" + (index+1);
-      } else {
-        filename = file.name.replace(/\.png$/i, "");
-      }
-
-      link.href = jpg;
-      link.download = filename + ".jpg";
-      link.innerText = filename + ".jpg をダウンロード";
-      link.className = "download-btn";
-
-      result.appendChild(preview);
-      result.appendChild(link);
-
+      }, "image/jpeg", 0.9);
     };
-
-    reader.readAsDataURL(file);
-
-  });
-
+  }
 }
-
 </script>
 
 </body>
