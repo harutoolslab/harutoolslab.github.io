@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<title>PNG 圧縮ツール 無料・高画質・オンライン</title>
+
+<meta name="description" content="PNG画像を無料で圧縮できるオンラインツールです。画質を保ちながらファイルサイズを削減。スマホ・PC対応、インストール不要。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+#drop {
+  border: 2px dashed #999;
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 300px;
+}
+
+input, button {
+  margin: 10px;
+  padding: 10px;
+}
+
+img {
+  max-width: 200px;
+  margin: 10px;
+}
+
+.section {
+  max-width: 700px;
+  margin: auto;
+  text-align: left;
+}
+</style>
+</head>
+
+<body>
+
+<h1>PNG 圧縮ツール</h1>
+
+<p>PNG画像のファイルサイズを簡単に圧縮できます。</p>
+
+<div id="drop">ここにPNG画像をドラッグ</div>
+
+<input type="file" id="upload" accept="image/png" multiple><br>
+
+<label>圧縮率</label><br>
+<input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.7">
+<p id="qval">0.7</p>
+
+<button onclick="compress()">圧縮する</button>
+
+<div id="result"></div>
+
+<div class="section">
+<h2>PNGを圧縮する方法</h2>
+<p>
+PNG画像をアップロードするだけで簡単に圧縮できます。
+ブラウザ内で処理されるため安全です。
+</p>
+</div>
+
+<div class="section">
+<h2>関連ツール</h2>
+<a href="jpg-to-png.html">JPG→PNG</a><br>
+<a href="png-to-jpg.html">PNG→JPG</a><br>
+<a href="image-compress.html">画像圧縮</a><br>
+<a href="index.html">トップ</a>
+</div>
+
+<script>
+
+const drop = document.getElementById("drop");
+const q = document.getElementById("quality");
+const qval = document.getElementById("qval");
+
+q.oninput = () => qval.innerText = q.value;
+
+drop.addEventListener("dragover", e => {
+  e.preventDefault();
+  drop.style.background = "#eee";
+});
+
+drop.addEventListener("dragleave", () => {
+  drop.style.background = "";
+});
+
+drop.addEventListener("drop", e => {
+  e.preventDefault();
+  document.getElementById("upload").files = e.dataTransfer.files;
+  drop.style.background = "";
+});
+
+function compress() {
+
+  const files = document.getElementById("upload").files;
+  if (files.length === 0) return alert("PNG画像を選択してください");
+
+  const quality = parseFloat(q.value);
+  const result = document.getElementById("result");
+  result.innerHTML = "";
+
+  Array.from(files).forEach(file => {
+
+    const img = new Image();
+    const reader = new FileReader();
+
+    reader.onload = e => img.src = e.target.result;
+
+    img.onload = () => {
+
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+
+      // PNG → JPEG圧縮（軽量化）
+      const compressed = canvas.toDataURL("image/jpeg", quality);
+
+      const preview = document.createElement("img");
+      preview.src = compressed;
+
+      const link = document.createElement("a");
+      link.href = compressed;
+      link.download = file.name.replace(".png", "_compressed.jpg");
+      link.innerText = "ダウンロード";
+
+      result.appendChild(preview);
+      result.appendChild(link);
+
+    };
+
+    reader.readAsDataURL(file);
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
