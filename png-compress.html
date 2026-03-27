@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 
-<title>PNG 圧縮ツール 無料・高画質・オンライン</title>
-
-<meta name="description" content="PNG画像を無料で圧縮できるオンラインツールです。画質を保ちながらファイルサイズを削減。スマホ・PC対応、インストール不要。">
+<title>PNG圧縮｜無料オンラインで画質を保ったまま軽量化</title>
+<meta name="description" content="PNG画像を圧縮してファイルサイズを小さくする無料ツール。画質を保ちながら軽量化できます。スマホ・PC対応。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,74 +13,99 @@ body {
   font-family: sans-serif;
   text-align: center;
   padding: 20px;
+  background: #fafafa;
 }
 
 #drop {
   border: 2px dashed #999;
   padding: 40px;
   margin: 20px auto;
-  max-width: 300px;
+  max-width: 320px;
+  background: #fff;
 }
 
 input, button {
   margin: 10px;
   padding: 10px;
-}
-
-img {
-  max-width: 200px;
-  margin: 10px;
+  font-size: 16px;
 }
 
 .section {
   max-width: 700px;
-  margin: auto;
+  margin: 40px auto;
   text-align: left;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.ad {
+  margin: 30px 0;
+  padding: 20px;
+  background: #eee;
 }
 </style>
 </head>
 
 <body>
 
-<h1>PNG 圧縮ツール</h1>
+<h1>PNG圧縮（無料・オンライン）</h1>
 
-<p>PNG画像のファイルサイズを簡単に圧縮できます。</p>
+<p>
+PNG画像の画質を保ったままファイルサイズを小さくできます。<br>
+透過画像にも対応しています。
+</p>
 
-<div id="drop">ここにPNG画像をドラッグ</div>
+<div class="ad">広告</div>
+
+<div id="drop">PNG画像をドラッグ＆ドロップ</div>
 
 <input type="file" id="upload" accept="image/png" multiple><br>
 
-<label>圧縮率</label><br>
-<input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.7">
-<p id="qval">0.7</p>
-
-<button onclick="compress()">圧縮する</button>
+<button onclick="run()">圧縮する</button>
 
 <div id="result"></div>
 
+<div class="ad">広告</div>
+
 <div class="section">
-<h2>PNGを圧縮する方法</h2>
+<h2>使い方</h2>
 <p>
-PNG画像をアップロードするだけで簡単に圧縮できます。
-ブラウザ内で処理されるため安全です。
+1. PNG画像を選択<br>
+2. 圧縮ボタンを押す<br>
+3. ダウンロード
 </p>
 </div>
 
 <div class="section">
+<h2>特徴</h2>
+<ul>
+<li>PNGのまま圧縮</li>
+<li>透過画像対応</li>
+<li>無料・インストール不要</li>
+<li>ブラウザで安全に処理</li>
+</ul>
+</div>
+
+<div class="section">
 <h2>関連ツール</h2>
-<a href="jpg-to-png.html">JPG→PNG</a><br>
-<a href="png-to-jpg.html">PNG→JPG</a><br>
-<a href="image-compress.html">画像圧縮</a><br>
-<a href="index.html">トップ</a>
+<a href="image-compress.html">画像を圧縮する（JPG対応）</a><br>
+<a href="jpg-to-png.html">JPGをPNGに変換する</a><br>
+<a href="png-to-jpg.html">PNGをJPGに変換する</a><br>
+<a href="index.html">トップページ</a>
 </div>
 
 <script>
+// ===== 共通処理 =====
 
 const drop = document.getElementById("drop");
-const q = document.getElementById("quality");
-const qval = document.getElementById("qval");
+const upload = document.getElementById("upload");
 
-q.oninput = () => qval.innerText = q.value;
+let files = [];
+
+upload.addEventListener("change", e => {
+  files = e.target.files;
+});
 
 drop.addEventListener("dragover", e => {
   e.preventDefault();
@@ -89,33 +113,35 @@ drop.addEventListener("dragover", e => {
 });
 
 drop.addEventListener("dragleave", () => {
-  drop.style.background = "";
+  drop.style.background = "#fff";
 });
 
 drop.addEventListener("drop", e => {
   e.preventDefault();
-  document.getElementById("upload").files = e.dataTransfer.files;
-  drop.style.background = "";
+  files = e.dataTransfer.files;
+  drop.style.background = "#fff";
 });
 
-function compress() {
+function run(){
+  if(files.length === 0){
+    alert("ファイルを選択してください");
+    return;
+  }
+  process(files);
+}
 
-  const files = document.getElementById("upload").files;
-  if (files.length === 0) return alert("PNG画像を選択してください");
+// ===== ツール処理 =====
 
-  const quality = parseFloat(q.value);
+function process(files){
   const result = document.getElementById("result");
-  result.innerHTML = "";
+  result.innerHTML = "圧縮中...";
 
-  Array.from(files).forEach(file => {
+  for(let file of files){
 
     const img = new Image();
-    const reader = new FileReader();
-
-    reader.onload = e => img.src = e.target.result;
+    img.src = URL.createObjectURL(file);
 
     img.onload = () => {
-
       const canvas = document.createElement("canvas");
       canvas.width = img.width;
       canvas.height = img.height;
@@ -123,28 +149,21 @@ function compress() {
       const ctx = canvas.getContext("2d");
       ctx.drawImage(img, 0, 0);
 
-      // PNG → JPEG圧縮（軽量化）
-      const compressed = canvas.toDataURL("image/jpeg", quality);
+      canvas.toBlob(blob => {
+        const url = URL.createObjectURL(blob);
 
-      const preview = document.createElement("img");
-      preview.src = compressed;
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = file.name;
+        a.textContent = a.download;
 
-      const link = document.createElement("a");
-      link.href = compressed;
-      link.download = file.name.replace(".png", "_compressed.jpg");
-      link.innerText = "ダウンロード";
+        result.appendChild(a);
+        result.appendChild(document.createElement("br"));
 
-      result.appendChild(preview);
-      result.appendChild(link);
-
+      }, "image/png", 0.8);
     };
-
-    reader.readAsDataURL(file);
-
-  });
-
+  }
 }
-
 </script>
 
 </body>
