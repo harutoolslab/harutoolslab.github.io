@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<title>HEICをPNGに変換｜無料オンラインツール</title>
+<meta name="description" content="HEIC画像をPNGに変換できる無料ツール。iPhoneの写真を簡単にPNG形式に変換できます。ブラウザで安全に処理。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- HEIC変換ライブラリ -->
+<script src="https://cdn.jsdelivr.net/npm/heic2any/dist/heic2any.min.js"></script>
+
+<style>
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+  background: #fafafa;
+}
+
+#drop {
+  border: 2px dashed #999;
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 320px;
+  background: #fff;
+}
+
+.section {
+  max-width: 700px;
+  margin: 40px auto;
+  text-align: left;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.ad {
+  margin: 30px 0;
+  padding: 20px;
+  background: #eee;
+}
+</style>
+</head>
+
+<body>
+
+<h1>HEICをPNGに変換（無料・オンライン）</h1>
+
+<p>
+HEIC画像（iPhone写真）をPNGに変換できます。<br>
+インストール不要でブラウザ上で安全に処理されます。
+</p>
+
+<div class="ad">広告</div>
+
+<div id="drop">HEICファイルをドラッグ＆ドロップ</div>
+<input type="file" id="upload" accept=".heic" multiple><br>
+
+<button onclick="run()">変換する</button>
+
+<div id="result"></div>
+
+<div class="ad">広告</div>
+
+<div class="section">
+<h2>使い方</h2>
+<p>
+1. HEICファイルを選択<br>
+2. 変換ボタンを押す<br>
+3. PNGをダウンロード
+</p>
+</div>
+
+<div class="section">
+<h2>関連ツール</h2>
+<a href="jpg-to-png.html">JPGをPNGに変換する</a><br>
+<a href="png-to-jpg.html">PNGをJPGに変換する</a><br>
+<a href="image-compress.html">画像を圧縮する</a>
+</div>
+
+<script>
+const drop = document.getElementById("drop");
+const upload = document.getElementById("upload");
+
+let files = [];
+
+upload.addEventListener("change", e => {
+  files = e.target.files;
+});
+
+drop.addEventListener("dragover", e => {
+  e.preventDefault();
+  drop.style.background = "#eee";
+});
+
+drop.addEventListener("dragleave", () => {
+  drop.style.background = "#fff";
+});
+
+drop.addEventListener("drop", e => {
+  e.preventDefault();
+  files = e.dataTransfer.files;
+  drop.style.background = "#fff";
+});
+
+function run(){
+  if(files.length === 0){
+    alert("ファイルを選択してください");
+    return;
+  }
+  process(files);
+}
+
+async function process(files){
+  const result = document.getElementById("result");
+  result.innerHTML = "変換中...";
+
+  for (let file of files) {
+    try {
+      const blob = await heic2any({
+        blob: file,
+        toType: "image/png"
+      });
+
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = file.name.replace(/\.heic$/i, ".png");
+      a.textContent = a.download;
+
+      result.appendChild(a);
+      result.appendChild(document.createElement("br"));
+
+    } catch (e) {
+      result.innerHTML += "変換失敗: " + file.name + "<br>";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
