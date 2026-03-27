@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<title>画像をWebPに変換｜無料オンラインツール</title>
+<meta name="description" content="画像（PNG・JPG）をWebPに変換できる無料ツール。ファイルサイズを軽くしながら高画質を保てます。スマホ・PC対応。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+  background: #fafafa;
+}
+
+#drop {
+  border: 2px dashed #999;
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 320px;
+  background: #fff;
+}
+
+#drop:hover { background: #f5f5f5; }
+
+input, button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.section {
+  max-width: 700px;
+  margin: 40px auto;
+  text-align: left;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.ad {
+  margin: 30px 0;
+  padding: 20px;
+  background: #eee;
+}
+</style>
+</head>
+
+<body>
+
+<h1>画像をWebPに変換（無料・オンライン）</h1>
+
+<p>
+PNG・JPG画像をWebP形式に変換できます。<br>
+軽量で高画質なWebPに簡単に変換できます。
+</p>
+
+<div class="ad">広告</div>
+
+<div id="drop">画像をドラッグ＆ドロップ</div>
+
+<input type="file" id="upload" accept="image/png, image/jpeg" multiple><br>
+
+<div class="tool-box">
+<label>画質（軽さ調整）</label><br>
+<input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.8">
+<p id="qval">0.8</p>
+</div>
+
+<button onclick="run()">変換する</button>
+
+<div id="result"></div>
+
+<div class="ad">広告</div>
+
+<div class="section">
+<h2>使い方</h2>
+<p>
+1. 画像を選択またはドラッグ<br>
+2. 画質を調整<br>
+3. 変換ボタンを押す<br>
+4. ダウンロード
+</p>
+</div>
+
+<div class="section">
+<h2>特徴</h2>
+<ul>
+<li>WebPで軽量化</li>
+<li>画質調整可能</li>
+<li>無料・インストール不要</li>
+<li>ブラウザで安全に処理</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>関連ツール</h2>
+<a href="png-to-jpg.html">PNGをJPGに変換する</a><br>
+<a href="jpg-to-png.html">JPGをPNGに変換する</a><br>
+<a href="image-compress.html">画像を圧縮する</a><br>
+<a href="index.html">トップページ</a>
+</div>
+
+<script>
+// ===== 共通処理 =====
+
+const drop = document.getElementById("drop");
+const upload = document.getElementById("upload");
+
+let files = [];
+
+upload.addEventListener("change", e => {
+  files = e.target.files;
+});
+
+drop.addEventListener("dragover", e => {
+  e.preventDefault();
+  drop.style.background = "#eee";
+});
+
+drop.addEventListener("dragleave", () => {
+  drop.style.background = "#fff";
+});
+
+drop.addEventListener("drop", e => {
+  e.preventDefault();
+  files = e.dataTransfer.files;
+  drop.style.background = "#fff";
+});
+
+function run(){
+  if(files.length === 0){
+    alert("ファイルを選択してください");
+    return;
+  }
+  process(files);
+}
+
+// ===== ツール処理 =====
+
+const quality = document.getElementById("quality");
+const qval = document.getElementById("qval");
+
+quality.addEventListener("input", () => {
+  qval.textContent = quality.value;
+});
+
+function process(files){
+  const result = document.getElementById("result");
+  result.innerHTML = "変換中...";
+
+  for(let file of files){
+
+    const img = new Image();
+    img.src = URL.createObjectURL(file);
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+
+      canvas.toBlob(blob => {
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = file.name.replace(/\.(png|jpg|jpeg)/i, ".webp");
+        a.textContent = a.download;
+
+        result.appendChild(a);
+        result.appendChild(document.createElement("br"));
+
+      }, "image/webp", parseFloat(quality.value));
+    };
+  }
+}
+</script>
+
+</body>
+</html>
