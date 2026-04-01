@@ -3,106 +3,175 @@
 <head>
 <meta charset="UTF-8">
 
-<title>無料オンラインツール集｜画像変換・圧縮・リサイズ</title>
-<meta name="description" content="画像変換・圧縮・リサイズができる無料オンラインツール集。PNG・JPG・WebP・HEIC対応。インストール不要で簡単に使えます。">
-
+<!-- ★SEO設定：サイト全体の入り口として最適化 -->
+<title>【サイト名】｜無料・登録不要のオンライン画像・PDF編集ツール集</title>
+<meta name="description" content="画像圧縮、形式変換、PDF編集など、ブラウザだけで使える35種類以上の便利ツールを無料で提供。インストール不要でスマホ対応。プライバシー重視の安全設計です。">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+/* 既存の変数を流用 */
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
 body {
-  font-family: sans-serif;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+header { text-align: center; margin: 40px 0; }
+h1 { font-size: 2rem; color: #111; }
+.hero-desc { color: var(--text-sub); max-width: 700px; margin: 0 auto; }
+
+/* ツールグリッドレイアウト */
+.tool-section { margin-bottom: 50px; }
+.section-title { font-size: 1.4rem; border-bottom: 2px solid var(--primary); display: inline-block; margin-bottom: 20px; padding-bottom: 5px; }
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.tool-card {
+  background: var(--card-bg);
+  padding: 25px 15px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--text-main);
   text-align: center;
-  padding: 20px;
-  background: #fafafa;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid transparent;
 }
 
-h1 { margin-bottom: 10px; }
-
-.section {
-  max-width: 800px;
-  margin: 40px auto;
-  text-align: left;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  border-color: var(--primary);
 }
 
-a {
-  display: block;
-  margin: 8px 0;
-}
+.tool-card span { font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 5px; }
+.tool-card small { color: var(--text-sub); font-size: 0.85rem; }
 
-.ad {
-  margin: 30px 0;
-  padding: 20px;
-  background: #eee;
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin-bottom: 20px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .tool-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tool-card { padding: 15px 10px; }
+  .tool-card span { font-size: 0.95rem; }
 }
 </style>
 </head>
-
 <body>
 
-<h1>無料オンラインツール集</h1>
+<div class="container">
+  <header>
+    <h1>【サイト名】</h1>
+    <p class="hero-desc">ブラウザで完結。登録不要・完全無料で使えるクリエイティブツール集</p>
+  </header>
 
-<p>
-画像の変換・圧縮・リサイズができる無料ツールサイトです。<br>
-すべてブラウザ上で動作し、インストール不要で簡単に使えます。
-</p>
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot"><div>Advertisement</div></div>
 
-<div class="ad">広告</div>
+  <!-- 人気・基本ツール -->
+  <section class="tool-section">
+    <h2 class="section-title">画像圧縮・変換</h2>
+    <div class="tool-grid">
+      <a href="image-compress.html" class="tool-card"><span>画像圧縮</span><small>容量を軽量化</small></a>
+      <a href="image-resize.html" class="tool-card"><span>リサイズ</span><small>サイズ変更</small></a>
+      <a href="image-to-webp.html" class="tool-card"><span>WebP変換</span><small>次世代形式へ</small></a>
+      <a href="jpg-to-png.html" class="tool-card"><span>JPG → PNG</span><small>透過対応形式へ</small></a>
+      <a href="png-to-jpg.html" class="tool-card"><span>PNG → JPG</span><small>背景白で変換</small></a>
+      <a href="webp-to-png.html" class="tool-card"><span>WebP → PNG</span><small>汎用形式へ</small></a>
+    </div>
+  </section>
 
-<!-- 画像変換 -->
-<div class="section">
-<h2>画像変換ツール</h2>
+  <!-- 編集ツール -->
+  <section class="tool-section">
+    <h2 class="section-title">加工・編集</h2>
+    <div class="tool-grid">
+      <a href="image-cropper-rounded.html" class="tool-card"><span>切り抜き</span><small>角丸・自由選択</small></a>
+      <a href="image-filter-tool.html" class="tool-card"><span>フィルタ加工</span><small>色調補正・エフェクト</small></a>
+      <a href="add-text.html" class="tool-card"><span>文字入れ</span><small>テキスト追加</small></a>
+      <a href="mosaic-blur.html" class="tool-card"><span>モザイク・ぼかし</span><small>プライバシー保護</small></a>
+      <a href="image-rotate.html" class="tool-card"><span>回転・反転</span><small>向きの調整</small></a>
+      <a href="image-watermark.html" class="tool-card"><span>透かし追加</span><small>著作権保護</small></a>
+      <a href="png-transparent.html" class="tool-card"><span>背景透過</span><small>切り抜き処理</small></a>
+      <a href="square-image-maker.html" class="tool-card"><span>正方形加工</span><small>SNSアイコン用</small></a>
+    </div>
+  </section>
 
-<p>
-画像形式を簡単に変換できます。PNG・JPG・WebP・HEICに対応しています。
-</p>
+  <!-- PDF・特殊ツール -->
+  <section class="tool-section">
+    <h2 class="section-title">PDF・ドキュメント</h2>
+    <div class="tool-grid">
+      <a href="pdf-merge.html" class="tool-card"><span>PDF結合</span><small>複数ファイルを一つに</small></a>
+      <a href="pdf-split.html" class="tool-card"><span>PDF分割</span><small>ページを抽出</small></a>
+      <a href="image-to-pdf.html" class="tool-card"><span>画像 → PDF</span><small>書類作成に</small></a>
+      <a href="pdf-to-image.html" class="tool-card"><span>PDF → 画像</span><small>各ページをJPG化</small></a>
+    </div>
+  </section>
 
-<a href="jpg-to-png.html">JPGをPNGに変換する</a>
-<a href="png-to-jpg.html">PNGをJPGに変換する</a>
-<a href="webp-to-jpg.html">WebPをJPGに変換する</a>
-<a href="webp-to-png.html">WebPをPNGに変換する</a>
-<a href="image-to-webp.html">画像をWebPに変換する</a>
-<a href="heic-to-png.html">HEICをPNGに変換する</a>
-</div>
+  <!-- その他便利ツール -->
+  <section class="tool-section">
+    <h2 class="section-title">その他便利ツール</h2>
+    <div class="tool-grid">
+      <a href="qr-generator.html" class="tool-card"><span>QR作成</span><small>URLをコード化</small></a>
+      <a href="color-picker.html" class="tool-card"><span>カラーピッカー</span><small>色情報の取得</small></a>
+      <a href="favicon-generator.html" class="tool-card"><span>ファビコン作成</span><small>サイトアイコン</small></a>
+      <a href="remove-exif.html" class="tool-card"><span>Exif削除</span><small>位置情報の消去</small></a>
+      <a href="dot-art-maker.html" class="tool-card"><span>ドット絵変換</span><small>レトロ風加工</small></a>
+    </div>
+  </section>
 
-<!-- 画像編集 -->
-<div class="section">
-<h2>画像編集ツール</h2>
+  <!-- 広告枠：中部 -->
+  <div class="ad-slot"><div>Advertisement</div></div>
 
-<p>
-画像のサイズ変更や圧縮ができます。
-</p>
+  <!-- SEOコンテンツ：収益化のために非常に重要 -->
+  <article class="info-section">
+    <h2>【サイト名】の特長</h2>
+    <p>当サイトは、クリエイターやビジネスマンの「ちょっとした手間」を解消するためのオンラインツール集です。35種類以上のツールをすべて無料で、ログインなしですぐにご利用いただけます。</p>
+    
+    <h3>1. 安全なローカル処理</h3>
+    <p>多くのツールと異なり、画像やPDFの処理はすべてお客様のブラウザ上で行われます。ファイルがサーバーにアップロードされることはないため、機密書類なども安心して処理できます。</p>
+    
+    <h3>2. 高速＆インストール不要</h3>
+    <p>専用ソフトをインストールする必要はありません。最新のブラウザテクノロジー（PWA対応ツール含む）を活用し、高速な動作を実現しています。</p>
+  </article>
 
-<a href="image-compress.html">画像を圧縮する</a>
-<a href="png-compress.html">PNGを圧縮する</a>
-<a href="image-resize.html">画像サイズを変更する</a>
-</div>
+  <!-- 広告枠：下部 -->
+  <div class="ad-slot"><div>Advertisement</div></div>
 
-<div class="ad">広告</div>
-
-<!-- 特徴 -->
-<div class="section">
-<h2>このサイトの特徴</h2>
-<ul>
-<li>完全無料で使える</li>
-<li>インストール不要</li>
-<li>スマホ・PC対応</li>
-<li>ブラウザ上で安全に処理</li>
-</ul>
-</div>
-
-<!-- FAQ -->
-<div class="section">
-<h2>よくある質問</h2>
-
-<h3>本当に無料ですか？</h3>
-<p>はい、すべて無料でご利用いただけます。</p>
-
-<h3>安全ですか？</h3>
-<p>このサイトのツールはブラウザ内で処理され、ファイルは外部に送信されません。</p>
-
+  <footer>
+    &copy; 2026 【サイト名】 | <a href="#" style="color:#999; margin-left:10px;">利用規約</a> | <a href="#" style="color:#999; margin-left:10px;">プライバシーポリシー</a>
+  </footer>
 </div>
 
 </body>
