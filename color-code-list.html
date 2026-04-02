@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<!-- ★SEO設定：はるツール カラーコード一覧用 -->
+<title>カラーコード一覧｜Web制作・デザインに便利なHEXコピー機能付き「はるツール」</title>
+<meta name="description" content="Webデザインやプログラミングでよく使われるカラーコード（HEX形式）の一覧です。クリックするだけでコードを自動コピー。基本色からパステル、トレンドカラーまで網羅しています。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* メインコンテンツ */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+/* カテゴリー見出し */
+h3.category-title {
+  text-align: left;
+  border-left: 4px solid var(--primary);
+  padding-left: 10px;
+  margin: 30px 0 15px;
+  font-size: 1.2rem;
+}
+
+/* カラーグリッド */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 15px;
+}
+
+.color-box {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  padding: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.color-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.color-box:active { transform: scale(0.95); }
+
+.color-preview {
+  height: 60px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.color-code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #555;
+}
+
+/* コピー通知演出 */
+.copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* 解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>カラーコード一覧（HEX）</h1>
+    <p class="tagline">クリックひとつでカラーコードをコピー。制作を少しだけスムーズに。</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <main class="main-card" id="color-app">
+    <!-- JSでここにカラーカテゴリーが生成されます -->
+  </main>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <article class="info-section">
+    <h2>カラーコード一覧の使い方</h2>
+    <p>
+      このページでは、Webサイト制作やアプリ開発、デザイン作業で頻繁に使用される主要なカラーコードをまとめています。
+      それぞれのカラーボックスをクリックするだけで、HEX形式（#6桁）のコードがクリップボードにコピーされます。
+    </p>
+
+    <h3>カラーコードとは？</h3>
+    <p>
+      カラーコード（16進数カラーコード）は、コンピュータ上で色を表現するための形式です。
+      「#RRGGBB」の形式で表され、赤(Red)、緑(Green)、青(Blue)の3つの要素をそれぞれ00からFFまでの16進数で指定することで、1,600万色以上の色を表現できます。
+    </p>
+
+    <h2>よくある質問</h2>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. コピーしたコードが貼り付けられません。</strong>
+      <p>A. お使いのブラウザの権限設定によりクリップボードへのアクセスが制限されている場合があります。アドレスバー横の鍵アイコンから権限を確認してください。</p>
+    </div>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. RGBやRGBA形式はありますか？</strong>
+      <p>A. 現在は最も一般的なHEX形式のみの表示ですが、順次RGB形式への切り替え機能も追加予定です。</p>
+    </div>
+
+    <h3>関連ツール</h3>
+    <ul>
+      <li><a href="brightness-contrast.html">画像の明るさ調整</a></li>
+      <li><a href="image-resize.html">画像サイズ変更</a></li>
+      <li><a href="add-text.html">画像に文字入れ</a></li>
+    </ul>
+  </article>
+
+  <footer>
+    &copy; 2026 はるツール | <a href="privacy.html" style="color:#999;">利用規約・プライバシーポリシー</a>
+  </footer>
+</div>
+
+<!-- コピー通知用 -->
+<div id="toast" class="copy-toast">コピーしました！</div>
+
+<script>
+const colorData = [
+  {
+    title: "基本色（Standard Colors）",
+    colors: ["#000000", "#ffffff", "#ff0000", "#00ff00", "#0000ff", "#ffff00", "#00ffff", "#ff00ff"]
+  },
+  {
+    title: "モノトーン・グレースケール",
+    colors: ["#333333", "#666666", "#999999", "#cccccc", "#eeeeee", "#f5f5f5", "#fafafa", "#ffffff"]
+  },
+  {
+    title: "パステルカラー",
+    colors: ["#ffb7b2", "#ffdac1", "#e2f0cb", "#b5ead7", "#c7ceea", "#ff9aa2", "#fcf4dd", "#d0f4de"]
+  },
+  {
+    title: "ビジネス・Webセーフ",
+    colors: ["#007bff", "#6c757d", "#28a745", "#dc3545", "#ffc107", "#17a2b8", "#343a40", "#f8f9fa"]
+  },
+  {
+    title: "トレンド・くすみカラー",
+    colors: ["#8d99ae", "#2b2d42", "#edf2f4", "#ef233c", "#d90429", "#5f0f40", "#9a031e", "#fb8b24"]
+  }
+];
+
+const app = document.getElementById('color-app');
+const toast = document.getElementById('toast');
+
+function showToast(code) {
+  toast.textContent = `${code} をコピーしました！`;
+  toast.style.opacity = '1';
+  setTimeout(() => {
+    toast.style.opacity = '0';
+  }, 2000);
+}
+
+colorData.forEach(category => {
+  // カテゴリータイトル作成
+  const title = document.createElement('h3');
+  title.className = 'category-title';
+  title.textContent = category.title;
+  app.appendChild(title);
+
+  // グリッド作成
+  const grid = document.createElement('div');
+  grid.className = 'color-grid';
+
+  category.colors.forEach(code => {
+    const box = document.createElement('div');
+    box.className = 'color-box';
+    box.innerHTML = `
+      <div class="color-preview" style="background: ${code}"></div>
+      <div class="color-code">${code.toUpperCase()}</div>
+    `;
+
+    box.addEventListener('click', () => {
+      navigator.clipboard.writeText(code).then(() => {
+        showToast(code.toUpperCase());
+      });
+    });
+
+    grid.appendChild(box);
+  });
+
+  app.appendChild(grid);
+});
+</script>
+
+</body>
+</html>

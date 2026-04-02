@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<!-- ★SEO設定 -->
+<title>丸抜き・角丸カット｜画像を丸く切り抜き（ドラッグ＆サイズ調整）「はるツール」</title>
+<meta name="description" content="ブラウザ上で画像を正円（丸抜き）や角丸に切り抜ける無料ツール。切り抜く位置を直接ドラッグで移動でき、サイズ調整も自由自在。SNSアイコン作成に最適。背景透明のPNG形式で保存可能。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+  user-select: none; /* ドラッグ中のテキスト選択防止 */
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* アップロードエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+}
+
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* 編集用レイアウト */
+#preview-zone { display: none; }
+.editor-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* プレビュー表示（左） */
+.preview-pane {
+  flex: 1; min-width: 300px; max-width: 500px; position: relative;
+  background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee), 
+                    linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee);
+  background-size: 20px 20px; background-position: 0 0, 10px 10px;
+  border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+#stage { position: relative; width: 100%; line-height: 0; overflow: hidden; cursor: crosshair; }
+#img-bg { width: 100%; height: auto; opacity: 0.3; pointer-events: none; }
+#mask-overlay {
+  position: absolute; overflow: hidden; box-shadow: 0 0 0 2000px rgba(0,0,0,0.6);
+  border: 2px solid #fff; box-sizing: border-box; cursor: move; z-index: 10; touch-action: none;
+}
+#img-foreground { position: absolute; max-width: none; pointer-events: none; }
+
+/* 操作パネル（右） */
+.control-pane { flex: 1; min-width: 300px; max-width: 400px; text-align: left; }
+.control-group { margin-bottom: 25px; }
+.label { display: block; font-weight: bold; margin-bottom: 12px; color: #444; font-size: 0.95rem; }
+
+.radio-group { display: flex; gap: 20px; }
+.radio-group label { cursor: pointer; display: flex; align-items: center; gap: 6px; }
+.radio-group input { accent-color: var(--primary); }
+
+.slider-container { background: #f8f9fa; padding: 15px; border-radius: 8px; }
+.slider-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.slider-label { font-size: 0.85rem; color: var(--text-sub); width: 85px; }
+.slider { flex: 1; height: 6px; accent-color: var(--primary); cursor: pointer; }
+.slider-val { font-size: 0.85rem; font-weight: bold; color: var(--primary); width: 40px; text-align: right; }
+
+.btn-main {
+  background: var(--success);
+  color: white; border: none; padding: 16px;
+  border-radius: 12px; font-weight: bold; font-size: 1.1rem; width: 100%;
+  cursor: pointer; transition: 0.2s; box-shadow: 0 4px 12px rgba(40,167,69,0.2);
+}
+.btn-main:hover { transform: translateY(-2px); }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .editor-layout { flex-direction: column; align-items: center; }
+  .preview-pane, .control-pane { width: 100%; max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+   <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>丸抜き・角丸カット</h1>
+    <p class="tagline">画像を正円や角丸に。ドラッグで位置を直感的に調整できます。</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <main class="main-card">
+    <!-- 画像入力エリア -->
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">ここに画像をドラッグ＆ドロップ</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <input type="file" id="file-input" accept="image/png,image/jpeg" style="display:none;">
+    </div>
+
+    <!-- プレビュー＆編集エリア -->
+    <div id="preview-zone">
+      <div class="editor-layout">
+        <!-- 左側：プレビュー -->
+        <div class="preview-pane">
+          <div id="stage">
+            <img src="" id="img-bg" alt="Preview Background">
+            <div id="mask-overlay">
+              <img src="" id="img-foreground" alt="Preview Foreground">
+            </div>
+          </div>
+        </div>
+
+        <!-- 右側：設定 -->
+        <div class="control-pane">
+          <div class="control-group">
+            <span class="label">1. 切り抜き形状</span>
+            <div class="radio-group">
+              <label><input type="radio" name="shape" value="circle" checked> 正円</label>
+              <label><input type="radio" name="shape" value="rounded"> 角丸</label>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <span class="label">2. サイズと位置を調整</span>
+            <div class="slider-container">
+              <div class="slider-row" id="size-row">
+                <span class="slider-label">切り抜きサイズ</span>
+                <input type="range" id="size-slider" class="slider" min="10" max="100" value="80">
+                <span class="slider-val" id="size-val">80%</span>
+              </div>
+              <div class="slider-row" id="radius-row" style="display:none;">
+                <span class="slider-label">角の丸み</span>
+                <input type="range" id="radius-slider" class="slider" min="0" max="50" value="10">
+                <span class="slider-val" id="radius-val">10%</span>
+              </div>
+              <p style="font-size:11px; color:#999; margin:10px 0 0;">※プレビュー上の円を直接ドラッグして移動できます。</p>
+            </div>
+            <!-- 座標管理用（非表示） -->
+            <input type="range" id="pos-x" min="0" max="100" value="50" style="display:none;">
+            <input type="range" id="pos-y" min="0" max="100" value="50" style="display:none;">
+          </div>
+
+          <button class="btn-main" onclick="downloadImage()">透過PNGとして保存</button>
+          <div style="margin-top:20px; text-align:center;">
+            <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer; font-size:0.9rem;">別の画像を選ぶ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>丸抜き・角丸カットとは？</h2>
+    <p>「丸抜き・角丸カット」は、ブラウザ上で簡単に画像を正円（丸型）や角丸に切り抜けるオンラインツールです。SNSのアイコン作成やWebサイト用の素材加工に最適です。プライバシーに配慮し、画像はサーバーに送信されずにお手元の端末で処理されます。</p>
+
+    <h3>このツールのメリット</h3>
+    <ul>
+      <li><strong>直感的ドラッグ操作：</strong> 切り抜き範囲を直接マウスや指で動かして調整できます。</li>
+      <li><strong>完全無料・登録不要：</strong> 面倒な会員登録なしですぐにご利用いただけます。</li>
+      <li><strong>透過PNG対応：</strong> 切り抜いた外側を透明にして保存できるため、どんな場所にも馴染みます。</li>
+    </ul>
+
+    <h2>使い方の手順</h2>
+    <ol>
+      <li>上のエリアに画像をドラッグ＆ドロップするか、ボタンから画像を選びます。</li>
+      <li>「正円」か「角丸」を選択し、スライダーで大きさを調整します。</li>
+      <li>プレビューの明るい部分をドラッグして、切り抜きたい位置へ移動させます。</li>
+      <li>「透過PNGとして保存」ボタンを押して結果をダウンロードします。</li>
+    </ol>
+
+<article class="info-section">
+    <h2>よくある質問（FAQ）</h2>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. 完全に「円形」に切り抜くことはできますか？</strong>
+      <p>A. はい、可能です。切り抜き範囲を正方形（1:1）に指定し、角丸の半径を最大に設定することで、綺麗な円形として切り抜くことができます。</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. 切り抜いた後の「角の外側」はどうなりますか？</strong>
+      <p>A. 角丸の外側は「透明」として処理されます。そのため、保存形式は透過情報を保持できるPNG形式を推奨しています。</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. SNSのアイコン用にサイズを指定できますか？</strong>
+      <p>A. はい。自由な比率での切り抜きはもちろん、特定のピクセル数に合わせて調整も可能です。LINEやX（旧Twitter）のアイコン作成に最適です。</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. 画質は劣化しますか？</strong>
+      <p>A. 可能な限り元の解像度を維持して処理します。ブラウザのCanvas機能を使用して高品質にレンダリングするため、一般的な編集ソフトと遜色ない仕上がりになります。</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. 編集中の画像がサーバーにアップロードされることはありますか？</strong>
+      <p>A. 一切ありません。すべての加工工程はお客様のブラウザ内（ローカル）で完結します。プライバシーが気になる自撮り写真や個人情報を含む画像でも、安心してご利用いただけます。</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. 料金や回数制限はありますか？</strong>
+      <p>A. 完全無料で、利用回数の制限もありません。何枚でも納得がいくまで切り抜きを試していただけます。</p>
+    </div>
+  
+
+<canvas id="export-canvas" style="display:none;"></canvas>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const imgBg = document.getElementById('img-bg');
+const imgFore = document.getElementById('img-foreground');
+const mask = document.getElementById('mask-overlay');
+const sizeSlider = document.getElementById('size-slider');
+const radiusSlider = document.getElementById('radius-slider');
+const posX = document.getElementById('pos-x');
+const posY = document.getElementById('pos-y');
+const shapeRadios = document.getElementsByName('shape');
+
+let originalImg = null;
+let currentStageW, currentStageH, currentMaskS;
+
+// 基本イベント
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, (e) => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+['dragenter', 'dragover'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.add('active'), false);
+});
+['dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.remove('active'), false);
+});
+dropArea.addEventListener('drop', (e) => handleFiles(e.dataTransfer.files), false);
+fileInput.addEventListener('change', function() { handleFiles(this.files); });
+
+function handleFiles(files) {
+  const file = files[0];
+  if (file && file.type.startsWith('image/')) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      originalImg = new Image();
+      originalImg.onload = () => {
+        imgBg.src = e.target.result;
+        imgFore.src = e.target.result;
+        dropArea.style.display = 'none';
+        previewZone.style.display = 'block';
+        setTimeout(updateUI, 50);
+      };
+      originalImg.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+function updateUI() {
+  if (!originalImg) return;
+  const shape = document.querySelector('input[name="shape"]:checked').value;
+  
+  document.getElementById('size-val').innerText = sizeSlider.value + '%';
+  document.getElementById('radius-val').innerText = radiusSlider.value + '%';
+
+  currentStageW = imgBg.offsetWidth;
+  currentStageH = imgBg.offsetHeight;
+  imgFore.style.width = currentStageW + 'px';
+
+  if (shape === 'circle') {
+    document.getElementById('size-row').style.display = 'flex';
+    document.getElementById('radius-row').style.display = 'none';
+    mask.style.borderRadius = '50%';
+    const minEdge = Math.min(currentStageW, currentStageH);
+    currentMaskS = minEdge * (sizeSlider.value / 100);
+    mask.style.width = currentMaskS + 'px';
+    mask.style.height = currentMaskS + 'px';
+
+    const left = (currentStageW - currentMaskS) * (posX.value / 100);
+    const top = (currentStageH - currentMaskS) * (posY.value / 100);
+    mask.style.left = left + 'px';
+    mask.style.top = top + 'px';
+    imgFore.style.left = -left + 'px';
+    imgFore.style.top = -top + 'px';
+  } else {
+    document.getElementById('size-row').style.display = 'none';
+    document.getElementById('radius-row').style.display = 'flex';
+    const r = Math.min(currentStageW, currentStageH) * (radiusSlider.value / 100);
+    mask.style.borderRadius = r + 'px';
+    mask.style.width = '100%'; mask.style.height = '100%';
+    mask.style.left = '0'; mask.style.top = '0';
+    imgFore.style.left = '0'; imgFore.style.top = '0';
+  }
+}
+
+// 編集イベント
+[sizeSlider, radiusSlider].forEach(el => el.addEventListener('input', updateUI));
+shapeRadios.forEach(el => el.addEventListener('change', updateUI));
+
+// ドラッグロジック
+let isDragging = false;
+let startX, startY, startLeft, startTop;
+
+const startDrag = e => {
+  const shape = document.querySelector('input[name="shape"]:checked').value;
+  if (shape !== 'circle') return;
+  isDragging = true;
+  startX = e.clientX || e.touches[0].clientX;
+  startY = e.clientY || e.touches[0].clientY;
+  startLeft = parseFloat(mask.style.left) || 0;
+  startTop = parseFloat(mask.style.top) || 0;
+};
+
+const onDrag = e => {
+  if (!isDragging) return;
+  const clientX = e.clientX || (e.touches ? e.touches[0].clientX : 0);
+  const clientY = e.clientY || (e.touches ? e.touches[0].clientY : 0);
+  let newLeft = startLeft + (clientX - startX);
+  let newTop = startTop + (clientY - startY);
+  newLeft = Math.max(0, Math.min(newLeft, currentStageW - currentMaskS));
+  newTop = Math.max(0, Math.min(newTop, currentStageH - currentMaskS));
+  posX.value = (newLeft / (currentStageW - currentMaskS)) * 100;
+  posY.value = (newTop / (currentStageH - currentMaskS)) * 100;
+  updateUI();
+};
+
+mask.addEventListener('mousedown', startDrag);
+mask.addEventListener('touchstart', startDrag, {passive: true});
+window.addEventListener('mousemove', onDrag);
+window.addEventListener('touchmove', onDrag, {passive: false});
+window.addEventListener('mouseup', () => isDragging = false);
+window.addEventListener('touchend', () => isDragging = false);
+
+function downloadImage() {
+  const canvas = document.getElementById('export-canvas');
+  const ctx = canvas.getContext('2d');
+  const shape = document.querySelector('input[name="shape"]:checked').value;
+  const nw = originalImg.naturalWidth;
+  const nh = originalImg.naturalHeight;
+
+  if (shape === 'circle') {
+    const s = Math.min(nw, nh) * (sizeSlider.value / 100);
+    canvas.width = s; canvas.height = s;
+    ctx.beginPath();
+    ctx.arc(s/2, s/2, s/2, 0, Math.PI * 2);
+    ctx.clip();
+    const sx = (nw - s) * (posX.value / 100);
+    const sy = (nh - s) * (posY.value / 100);
+    ctx.drawImage(originalImg, sx, sy, s, s, 0, 0, s, s);
+  } else {
+    canvas.width = nw; canvas.height = nh;
+    const r = Math.min(nw, nh) * (radiusSlider.value / 100);
+    ctx.beginPath();
+    ctx.roundRect(0, 0, nw, nh, r);
+    ctx.clip();
+    ctx.drawImage(originalImg, 0, 0);
+  }
+  const link = document.createElement('a');
+  link.download = 'crop-' + Date.now() + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+</script>
+
+</body>
+</html>

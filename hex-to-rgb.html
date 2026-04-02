@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<!-- ★SEO設定 -->
+<title>HEX RGB 変換｜16進数カラーコードを相互変換「はるツール」</title>
+<meta name="description" content="HEX（#FFFFFF形式）をRGB（255, 255, 255形式）に瞬時に変換。リアルタイムでの色プレビューやCSSコピー機能付き。Webデザインやコーディングに最適な無料オンラインツール。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 入力エリア */
+.converter-ui {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.input-group {
+  margin-bottom: 25px;
+}
+
+.label-title {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.5rem;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: monospace;
+  transition: border-color 0.3s;
+}
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* カラープレビュー */
+#color-preview {
+  width: 100%;
+  height: 100px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  background-color: #ff0000;
+}
+
+/* 結果エリア */
+.result-box {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.result-value {
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: monospace;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 15px;
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-primary:hover { background: var(--primary-hover); }
+
+.btn-copy {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>HEX → RGB 変換ツール</h1>
+    <p class="tagline">カラーコードを素早く変換。CSSデザインやコーディングに便利。</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <main class="main-card">
+    <div class="converter-ui">
+      <!-- プレビュー表示 -->
+      <div id="color-preview">
+        <span id="preview-text" style="color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); font-weight: bold;">PREVIEW</span>
+      </div>
+
+      <div class="input-group">
+        <label class="label-title">HEXカラーコードを入力</label>
+        <input type="text" id="hexInput" placeholder="#FF0000" maxlength="7" oninput="liveConvert()">
+      </div>
+
+      <div class="result-box">
+        <label class="label-title">変換結果 (RGB)</label>
+        <div id="resultValue" class="result-value">rgb(255, 0, 0)</div>
+        <div class="btn-row">
+          <button class="btn-copy" onclick="copyToClipboard()">CSSをコピー</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 広告枠：中部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>HEXとRGBの変換について</h2>
+    <p>
+      Web制作やグラフィックデザインの世界では、色は主に「HEX（16進数）」または「RGB（10進数）」のどちらかで指定されます。
+      当ツールを使えば、CSSで使いたいカラーコードを簡単に相互変換し、そのままコピーしてプロジェクトに利用できます。
+    </p>
+
+    <h3>HEX（16進数カラーコード）とは？</h3>
+    <p>
+      「#」に続く6桁の英数字（例：#FF5733）で色を表現します。最初の2桁が赤（R）、真ん中の2桁が緑（G）、最後の2桁が青（B）の強さを表しています。
+      HTMLやCSSで最も一般的に利用される形式です。
+    </p>
+
+    <h3>RGBとは？</h3>
+    <p>
+      Red（赤）、Green（緑）、Blue（青）の3つの光の三原色を、それぞれ0〜255の数値で指定する方式です。
+      「rgb(255, 87, 51)」のように表記され、透明度を加えた「rgba()」形式もWebデザインで頻繁に使用されます。
+    </p>
+
+    <h2>よくある質問（FAQ）</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. 「#」を付けずに入力しても変換できますか？</span>
+      <p>A. はい、当ツールは「#」の有無を自動判別するため、「FF0000」のような入力でも正しく変換されます。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. 3桁のHEX（例：#F00）にも対応していますか？</span>
+      <p>A. はい、短縮形式の3桁コードも自動的に6桁として解釈して変換します。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. 逆にRGBからHEXへの変換は可能ですか？</span>
+      <p>A. 現在はHEXからRGBへの変換に特化していますが、入力欄を拡張したアップデートを順次予定しています。</p>
+    </div>
+  </article>
+
+  <!-- 広告枠：下部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <footer>
+    &copy; 2026 はるツール | <a href="privacy.html" style="color:#999;">利用規約・プライバシーポリシー</a>
+  </footer>
+</div>
+
+<script>
+function liveConvert() {
+  let hex = document.getElementById('hexInput').value.trim();
+  const resultDiv = document.getElementById('resultValue');
+  const preview = document.getElementById('color-preview');
+  const previewText = document.getElementById('preview-text');
+
+  // #の除去
+  if (hex.startsWith('#')) {
+    hex = hex.slice(1);
+  }
+
+  // 3桁の場合は6桁に拡張
+  if (hex.length === 3) {
+    hex = hex.split('').map(char => char + char).join('');
+  }
+
+  // バリデーション
+  if (hex.length === 6) {
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+
+    if (!isNaN(r) && !isNaN(g) && !isNaN(b)) {
+      const rgbString = `rgb(${r}, ${g}, ${b})`;
+      resultDiv.textContent = rgbString;
+      preview.style.backgroundColor = `#${hex}`;
+      
+      // 視認性のためにプレビュー文字色を変更（輝度計算）
+      const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+      previewText.style.color = brightness > 128 ? '#333' : '#fff';
+      return;
+    }
+  }
+  
+  // 不正な値の時
+  resultDiv.textContent = "正しいHEXを入力してください";
+}
+
+function copyToClipboard() {
+  const text = document.getElementById('resultValue').textContent;
+  if (text.includes('rgb')) {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.btn-copy');
+      const originalText = btn.textContent;
+      btn.textContent = "コピー完了！";
+      btn.style.background = "#155724";
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = "var(--success)";
+      }, 1500);
+    });
+  } else {
+    alert("有効な値を入力してください");
+  }
+}
+
+// 初期化（#ff0000をデフォルト表示）
+window.onload = () => {
+  document.getElementById('hexInput').value = "#ff0000";
+  liveConvert();
+};
+</script>
+
+</body>
+</html>

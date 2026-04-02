@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<!-- ★SEO設定 -->
+<title>画像反転ツール｜左右・上下反転（ミラー反転）を無料で簡単に「はるツール」</title>
+<meta name="description" content="画像を左右反転・上下反転できる無料オンラインツール。ワンクリックで簡単にミラー反転が可能。インストール不要・スマホ対応。ブラウザ内で処理するためプライバシー面も安全です。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+}
+
+.btn-select {
+  background: var(--primary);
+  color: white; border: none;
+  padding: 12px 30px; border-radius: 50px;
+  font-weight: bold; cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* プレビュー＆操作エリア */
+#preview-zone { display: none; margin-top: 20px; }
+.img-container {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 20px;
+  background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee), 
+                    linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+#image-preview { max-width: 100%; max-height: 500px; display: block; }
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+.btn-action {
+  background: #fff; border: 2px solid var(--primary); color: var(--primary);
+  padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer;
+  transition: 0.2s; min-width: 120px;
+}
+.btn-action:hover { background: var(--primary); color: #fff; }
+
+.btn-download {
+  background: var(--success);
+  color: white; border: none; padding: 15px 40px;
+  border-radius: 50px; font-weight: bold; font-size: 1.1rem;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>画像反転ツール</h1>
+    <p class="tagline">左右反転（ミラー）・上下反転をワンクリックで。SNS用や資料作成に。</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <main class="main-card">
+    <!-- 画像入力エリア -->
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">画像をドラッグ＆ドロップ</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <input type="file" id="file-input" accept="image/*" style="display:none;">
+    </div>
+
+    <!-- プレビュー＆操作エリア -->
+    <div id="preview-zone">
+      <div class="img-container">
+        <img id="image-preview" src="" alt="Preview">
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-action" onclick="flip('horizontal')">↔ 左右反転</button>
+        <button class="btn-action" onclick="flip('vertical')">↕ 上下反転</button>
+      </div>
+
+      <div>
+        <button class="btn-download" onclick="downloadImage()">反転した画像を保存</button>
+      </div>
+
+      <div style="margin-top:20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">別の画像を選ぶ</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>画像反転ツールとは？</h2>
+    <p>「画像反転ツール」は、ブラウザ上で画像を左右・上下に反転（ミラー処理）できる無料ツールです。インストール不要で、スマホやPCからどなたでも簡単にご利用いただけます。自撮り写真の向きを直したり、デザインのバランスを確認したりする際に便利です。</p>
+
+    <h3>主な機能と活用シーン</h3>
+    <ul>
+      <li><strong>左右反転（ミラー）：</strong> 鏡に映したような状態にします。自撮りの向きの修正や、左右対称のデザイン作成に。</li>
+      <li><strong>上下反転：</strong> 上下を逆さまにします。クリエイティブな加工や逆さま写真の修正に。</li>
+      <li><strong>プライバシー保護：</strong> 画像データはサーバーへ送信されず、お使いのブラウザ内だけで処理されるため安全です。</li>
+    </ul>
+
+    <h2>使い方の手順</h2>
+    <ol>
+      <li>上のエリアに画像をドラッグ＆ドロップするか、ファイルを選択します。</li>
+      <li>「左右反転」または「上下反転」ボタンを押して、好みの向きに調整します。</li>
+      <li>「反転した画像を保存」ボタンをクリックして、加工済みの画像をダウンロードします。</li>
+    </ol>
+
+    <h2>よくある質問</h2>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. 料金はかかりますか？</strong>
+      <p>A. いいえ、完全無料でご利用いただけます。制限もありません。</p>
+    </div>
+    <div class="faq-item">
+      <strong style="color:var(--primary);">Q. 画質は変わりますか？</strong>
+      <p>A. 元の解像度を維持したまま処理を行いますが、Canvasを通した書き出しとなるため、PNG形式での高品質な保存となります。</p>
+    </div>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <footer>
+    &copy; 2026 はるツール | <a href="#" style="color:#999;">利用規約・プライバシーポリシー</a>
+  </footer>
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const imagePreview = document.getElementById('image-preview');
+
+let originalImg = new Image();
+
+// ファイル入力
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+
+dropArea.addEventListener('drop', e => {
+  handleFiles(e.dataTransfer.files);
+}, false);
+
+fileInput.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(files) {
+  const file = files[0];
+  if (file && file.type.startsWith('image/')) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      originalImg.onload = () => {
+        imagePreview.src = e.target.result;
+        dropArea.style.display = 'none';
+        previewZone.style.display = 'block';
+      };
+      originalImg.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+// 反転処理
+function flip(type) {
+  if (!imagePreview.src) return;
+
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  
+  // 現在プレビューに表示されている画像の状態を取得
+  const currentImg = new Image();
+  currentImg.onload = () => {
+    canvas.width = currentImg.width;
+    canvas.height = currentImg.height;
+
+    ctx.save();
+    if (type === 'horizontal') {
+      ctx.translate(canvas.width, 0);
+      ctx.scale(-1, 1);
+    } else {
+      ctx.translate(0, canvas.height);
+      ctx.scale(1, -1);
+    }
+    ctx.drawImage(currentImg, 0, 0);
+    ctx.restore();
+
+    imagePreview.src = canvas.toDataURL('image/png');
+  };
+  currentImg.src = imagePreview.src;
+}
+
+// 保存
+function downloadImage() {
+  const link = document.createElement('a');
+  link.download = 'flipped-' + Date.now() + '.png';
+  link.href = imagePreview.src;
+  link.click();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<!-- ★SEO設定 -->
+<title>画像に透かしを入れるツール｜無料オンラインで文字追加「はるツール」</title>
+<meta name="description" content="画像にテキストの透かし（ウォーターマーク）を簡単に追加。サイズ、色、透明度、位置を自由に調整。縁取りや影の設定も可能。ブラウザ内処理でプライバシーも安心。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* アップロード前 */
+#upload-zone {
+  border: 3px dashed var(--primary);
+  padding: 60px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: rgba(0, 123, 255, 0.02);
+  transition: 0.3s;
+}
+#upload-zone:hover { background: rgba(0, 123, 255, 0.05); }
+
+/* ワークエリア */
+#work-zone { display: none; }
+
+.editor-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  margin-top: 20px;
+}
+@media (max-width: 800px) {
+  .editor-layout { grid-template-columns: 1fr; }
+}
+
+.preview-box {
+  background: #eee;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+#preview { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+/* コントロールパネル */
+.controls {
+  text-align: left;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+}
+.control-group { margin-bottom: 15px; }
+.control-group label { display: block; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
+.input-text { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+.input-select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; }
+.slider { width: 100%; accent-color: var(--primary); }
+
+.checkbox-group { display: flex; gap: 15px; margin-top: 10px; }
+.checkbox-group label { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+
+/* ボタン */
+.btn-run {
+  background: var(--primary); color: white; border: none;
+  width: 100%; padding: 12px; border-radius: 8px; font-weight: bold;
+  cursor: pointer; margin-bottom: 10px;
+}
+.btn-dl {
+  background: var(--success); color: white; border: none;
+  width: 100%; padding: 15px; border-radius: 50px; font-weight: bold;
+  font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>画像に透かしを入れるツール</h1>
+    <p class="tagline">著作権保護や盗用防止に。文字を重ねて安全に共有。</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <main class="main-card">
+    <!-- ステップ1: アップロード -->
+    <div id="upload-zone" onclick="document.getElementById('file-input').click()">
+      <div style="font-size: 1.2rem; font-weight: bold;">画像をアップロードして開始</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">(JPG, PNG, WebP対応)</p>
+      <input type="file" id="file-input" accept="image/*" style="display:none;">
+    </div>
+
+    <!-- ステップ2: 編集エリア -->
+    <div id="work-zone">
+      <div class="editor-layout">
+        <div class="preview-box">
+          <img id="preview" alt="プレビュー">
+        </div>
+
+        <div class="controls">
+          <div class="control-group">
+            <label>透かしテキスト</label>
+            <input type="text" id="wm-text" class="input-text" placeholder="© 2026 Haru Tool" oninput="run()">
+          </div>
+
+          <div class="control-group">
+            <label>配置位置</label>
+            <select id="wm-pos" class="input-select" onchange="run()">
+              <option value="center">中央</option>
+              <option value="top-left">左上</option>
+              <option value="top-right">右上</option>
+              <option value="bottom-left">左下</option>
+              <option value="bottom-right" selected>右下</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>文字サイズ: <span id="sizeVal">40</span>px</label>
+            <input type="range" id="wm-size" class="slider" min="10" max="300" value="40" oninput="run()">
+          </div>
+
+          <div class="control-group">
+            <label>透明度: <span id="alphaVal">0.5</span></label>
+            <input type="range" id="wm-alpha" class="slider" min="0.1" max="1" step="0.1" value="0.5" oninput="run()">
+          </div>
+
+          <div class="control-group">
+            <label>文字色</label>
+            <input type="color" id="wm-color" value="#ffffff" style="width:100%; height:40px; cursor:pointer;" onchange="run()">
+          </div>
+
+          <div class="checkbox-group">
+            <label><input type="checkbox" id="wm-stroke" checked onchange="run()"> 縁取り</label>
+            <label><input type="checkbox" id="wm-shadow" checked onchange="run()"> 影</label>
+          </div>
+
+          <hr style="border:none; border-top:1px solid #ddd; margin:20px 0;">
+          
+          <button class="btn-dl" onclick="download()">画像を保存する</button>
+          <div style="margin-top:15px; text-align:center;">
+            <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer; font-size:0.8rem;">別の画像に変える</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>画像に透かし（ウォーターマーク）を入れる理由</h2>
+    <p>SNSやブログに写真を投稿する際、自分の作品であることを証明したり、無断転載を防止したりするために「透かし」は非常に有効です。名前やサイトURL、コピーライトマーク（©）を薄く重ねることで、画像の雰囲気を損なわずに著作権を主張できます。</p>
+
+    <h3>このツールの特徴</h3>
+    <ul>
+      <li><strong>完全無料・登録不要：</strong> ブラウザを開くだけですぐに使えます。</li>
+      <li><strong>高機能な調整：</strong> 位置、サイズ、透明度だけでなく、視認性を高める「縁取り」や「影」の追加も可能です。</li>
+      <li><strong>安心のセキュリティ：</strong> 画像データはどこにも送信されません。あなたのPC・スマホ内だけで加工が完了します。</li>
+    </ul>
+
+    <h2>使い方のコツ</h2>
+    <p><strong>1. 透明度の調整：</strong> 透かしを目立たせたくない場合は、透明度を0.2〜0.4程度に設定するのがおすすめです。</p>
+    <p><strong>2. 縁取りと影：</strong> 背景が白っぽい写真に白い文字を入れると消えてしまいます。「縁取り」をオンにすることで、どんな背景でも文字が読みやすくなります。</p>
+    <p><strong>3. 配置：</strong> 一般的には右下や中央が好まれます。重要な被写体を隠さない位置を選びましょう。</p>
+<h2>よくある質問（FAQ）</h2>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. 自分の名前以外に、ロゴ画像を透かしとして入れることはできますか？</strong>
+      <p>A. 現在、本ツールは「テキスト（文字）」の追加に特化しています。ロゴ画像を重ねたい場合は、当サイトの「画像重ね合わせツール」をご利用いただくことで、画像を透かしとして配置することが可能です。</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. 複数の画像に一括で透かしを入れられますか？</strong>
+      <p>A. 現在は1枚ずつの処理に対応しています。ブラウザの負荷を抑え、1枚ずつ丁寧に位置を調整していただくための設計となっております。複数枚の対応は今後のアップデートを検討中です。</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. 一度入れた透かしを、後からこのツールで消すことはできますか？</strong>
+      <p>A. いいえ、できません。透かしは画像データの一部として合成されるため、保存した後に文字だけを取り除くことは不可能です。元の画像（バックアップ）は必ず手元に残しておくことをおすすめします。</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. 漢字やひらがな、特殊な記号も使えますか？</strong>
+      <p>A. はい、お使いのデバイスにインストールされている標準フォントを使用して、日本語や記号（©など）も問題なく入力・合成できます。</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. 透かしを入れると写真の画質は劣化しますか？</strong>
+      <p>A. 可能な限り元の解像度を維持して処理します。最終的にPNG形式で保存されるため、JPEGのように保存を繰り返すことによる極端な劣化を抑えることができます。</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. プライバシーが心配ですが、写真はどこかに送信されますか？</strong>
+      <p>A. いいえ。当サイトのツールはすべて「クライアントサイド（ブラウザ内）」で処理が完結します。画像データが私たちのサーバーに送信されることは一切ありませんので、安心してご利用ください。</p>
+    </div>
+
+  </article>
+
+
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <footer>
+    &copy; 2026 はるツール | <a href="#" style="color:#999;">プライバシーポリシー</a>
+  </footer>
+</div>
+
+<script>
+const fileInput = document.getElementById('file-input');
+const uploadZone = document.getElementById('upload-zone');
+const workZone = document.getElementById('work-zone');
+const preview = document.getElementById('preview');
+
+let originalImg = new Image();
+let canvas = document.createElement("canvas");
+let ctx = canvas.getContext("2d");
+
+// ファイル選択
+fileInput.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    originalImg.onload = () => {
+      canvas.width = originalImg.width;
+      canvas.height = originalImg.height;
+      document.getElementById('wm-size').max = Math.floor(originalImg.width / 2);
+      
+      uploadZone.style.display = 'none';
+      workZone.style.display = 'block';
+      run(); // 初期描画
+    };
+    originalImg.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+function run() {
+  const text = document.getElementById("wm-text").value || "Sample Watermark";
+  const pos = document.getElementById("wm-pos").value;
+  const alpha = parseFloat(document.getElementById("wm-alpha").value);
+  const fontSize = parseInt(document.getElementById("wm-size").value);
+  const color = document.getElementById("wm-color").value;
+  const useStroke = document.getElementById("wm-stroke").checked;
+  const useShadow = document.getElementById("wm-shadow").checked;
+
+  document.getElementById('sizeVal').innerText = fontSize;
+  document.getElementById('alphaVal').innerText = alpha;
+
+  // キャンバスリセットと背景描画
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.globalAlpha = 1.0;
+  ctx.drawImage(originalImg, 0, 0);
+
+  // 透かしの設定
+  ctx.font = `bold ${fontSize}px sans-serif`;
+  ctx.globalAlpha = alpha;
+  ctx.fillStyle = color;
+  ctx.textBaseline = "alphabetic";
+
+  // 影の設定
+  if (useShadow) {
+    ctx.shadowColor = "rgba(0,0,0,0.8)";
+    ctx.shadowBlur = fontSize / 5;
+  } else {
+    ctx.shadowBlur = 0;
+  }
+
+  const textWidth = ctx.measureText(text).width;
+  let x, y;
+  const margin = 30;
+
+  // 位置計算
+  switch(pos) {
+    case "center":
+      x = (canvas.width - textWidth) / 2;
+      y = (canvas.height + fontSize / 2) / 2;
+      break;
+    case "top-left":
+      x = margin;
+      y = fontSize + margin;
+      break;
+    case "top-right":
+      x = canvas.width - textWidth - margin;
+      y = fontSize + margin;
+      break;
+    case "bottom-left":
+      x = margin;
+      y = canvas.height - margin;
+      break;
+    case "bottom-right":
+      x = canvas.width - textWidth - margin;
+      y = canvas.height - margin;
+      break;
+  }
+
+  // 縁取り
+  if (useStroke) {
+    ctx.strokeStyle = "rgba(0,0,0,0.8)";
+    ctx.lineWidth = fontSize / 12;
+    ctx.strokeText(text, x, y);
+  }
+
+  // 本文描画
+  ctx.fillText(text, x, y);
+
+  // プレビュー反映
+  preview.src = canvas.toDataURL("image/png");
+}
+
+function download() {
+  const link = document.createElement("a");
+  link.href = canvas.toDataURL("image/png");
+  link.download = "watermarked-" + Date.now() + ".png";
+  link.click();
+}
+</script>
+
+</body>
+</html>

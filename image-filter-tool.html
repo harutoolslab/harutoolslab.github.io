@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<!-- ★SEO設定 -->
+<title>画像フィルター加工｜無料・オンラインでセピアやネガ反転に簡単変換「はるツール」</title>
+<meta name="description" content="画像をセピア調、ネガ（色反転）、モノクロなどのフィルターで簡単に一括加工できる無料オンラインツールです。インストール不要・スマホ対応。ブラウザ内で処理するためプライバシー面も安全です。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+}
+
+.btn-select {
+  background: var(--primary);
+  color: white; border: none;
+  padding: 12px 30px; border-radius: 50px;
+  font-weight: bold; cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* プレビュー・操作 */
+#preview-zone { display: none; margin-top: 30px; border-top: 1px solid #eee; padding-top: 30px; }
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px; margin-bottom: 30px;
+}
+.preview-item { background: #f8f9fa; padding: 10px; border-radius: 8px; border: 1px solid #eee; }
+.preview-item img { width: 100%; height: 120px; object-fit: cover; border-radius: 4px; }
+.preview-item span { font-size: 11px; color: #999; display: block; margin-top: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.control-panel {
+  background: #f8f9fa; padding: 25px; border-radius: 12px;
+  display: inline-block; width: 100%; max-width: 500px; margin-bottom: 20px;
+}
+.filter-select {
+  padding: 10px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; width: 200px;
+}
+
+.btn-run {
+  background: var(--success); color: white; border: none;
+  padding: 15px 40px; border-radius: 50px; font-weight: bold; font-size: 1.1rem;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.2); transition: 0.2s;
+}
+.btn-run:hover { transform: translateY(-2px); background: #218838; }
+
+/* 結果エリア */
+#result-area { margin-top: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
+.download-link {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #fff; border: 1px solid #ddd; padding: 10px 15px;
+  border-radius: 8px; margin-bottom: 10px; text-decoration: none; color: var(--primary);
+  font-weight: bold; font-size: 0.9rem;
+}
+.download-link:hover { background: #f0f7ff; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>画像フィルター加工</h1>
+    <p class="tagline">セピア、ネガ、モノクロなど。複数の画像を一括でエモく加工。</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <main class="main-card">
+    <!-- 画像入力エリア -->
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">画像をドラッグ＆ドロップ</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択（複数可）</button>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
+
+    <!-- 操作・プレビュー -->
+    <div id="preview-zone">
+      <div class="control-panel">
+        <label style="font-weight: bold; margin-right: 10px;">フィルター効果：</label>
+        <select id="filter-type" class="filter-select">
+          <option value="sepia(100%)">セピア (レトロ)</option>
+          <option value="invert(100%)">ネガ (色反転)</option>
+          <option value="grayscale(100%)">モノクロ (白黒)</option>
+          <option value="blur(5px)">ぼかし (弱)</option>
+          <option value="hue-rotate(90deg)">色相回転 (アート)</option>
+        </select>
+        <div style="margin-top: 20px;">
+          <button class="btn-run" onclick="runFilter()">加工を実行する</button>
+        </div>
+      </div>
+
+      <div id="preview-grid" class="preview-grid"></div>
+      <div id="result-area"></div>
+      
+      <div style="margin-top:20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">全リセット</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>画像フィルター加工ツールとは？</h2>
+    <p>当ツールは、ブラウザだけで写真に様々なフィルター効果を適用できるオンラインツールです。特別なソフトは不要で、SNS用のアイコンやWebサイトの素材を瞬時に「エモい」雰囲気に変えることができます。</p>
+
+    <h3>利用できる主なフィルター</h3>
+    <ul>
+      <li><strong>セピア：</strong> 古い写真のような温かみのある茶褐色の色調に変換します。</li>
+      <li><strong>ネガ（反転）：</strong> 色を完全に反転させ、フィルムのネガのようなアーティスティックな表現にします。</li>
+      <li><strong>モノクロ：</strong> 色彩をなくし、光と影を強調したクラシックな白黒写真にします。</li>
+      <li><strong>ぼかし：</strong> 背景をぼかしたり、プライバシー保護のために全体を柔らかく加工します。</li>
+    </ul>
+
+    <h2>使い方の手順</h2>
+    <ol>
+      <li>加工したい画像を1枚、または複数選択します。</li>
+      <li>ドロップダウンから適用したいフィルターの種類を選びます。</li>
+      <li>「加工を実行する」をクリックします。</li>
+      <li>表示されたダウンロードリンクから加工済み画像を保存します。</li>
+    </ol>
+
+    <h2>よくある質問</h2>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. 画質は低下しますか？</strong>
+      <p>A. ブラウザの描画機能（Canvas）を使用しており、一般的な利用には十分な高画質を維持します。形式は透過対応のPNGで出力されます。</p>
+    </div>
+    <div class="faq-item">
+      <strong style="color:var(--primary);">Q. プライバシーは大丈夫？</strong>
+      <p>A. 画像はサーバーに一切送信されません。全ての処理はお使いのブラウザ内（デバイスのメモリ上）で完結するため、安心してご利用いただけます。</p>
+    </div>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <footer>
+    &copy; 2026 はるツール | <a href="#" style="color:#999;">利用規約・プライバシーポリシー</a>
+  </footer>
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const previewGrid = document.getElementById('preview-grid');
+const resultArea = document.getElementById('result-area');
+
+let currentFiles = [];
+
+// ファイル入力ハンドラ
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+
+dropArea.addEventListener('drop', e => {
+  handleFiles(e.dataTransfer.files);
+}, false);
+
+fileInput.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(files) {
+  currentFiles = Array.from(files).filter(f => f.type.startsWith('image/'));
+  if (currentFiles.length === 0) return;
+
+  previewGrid.innerHTML = "";
+  resultArea.innerHTML = "";
+  dropArea.style.display = 'none';
+  previewZone.style.display = 'block';
+
+  currentFiles.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const div = document.createElement('div');
+      div.className = 'preview-item';
+      div.innerHTML = `<img src="${e.target.result}"><span>${file.name}</span>`;
+      previewGrid.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+// フィルター実行
+async function runFilter() {
+  const filterValue = document.getElementById('filter-type').value;
+  resultArea.innerHTML = "<p style='text-align:center; color:var(--primary); font-weight:bold;'>処理中...</p>";
+
+  const linksFragment = document.createDocumentFragment();
+
+  for (const file of currentFiles) {
+    const img = new Image();
+    const objectURL = URL.createObjectURL(file);
+    img.src = objectURL;
+
+    await new Promise(resolve => {
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        ctx.filter = filterValue;
+        ctx.drawImage(img, 0, 0);
+
+        const a = document.createElement('a');
+        a.className = 'download-link';
+        a.download = `filter_${file.name.split('.')[0]}.png`;
+        a.href = canvas.toDataURL('image/png');
+        a.innerHTML = `<span>💾 ${file.name}</span> <span style="font-size:12px;">ダウンロード</span>`;
+        
+        linksFragment.appendChild(a);
+        URL.revokeObjectURL(objectURL);
+        resolve();
+      };
+    });
+  }
+
+  resultArea.innerHTML = "<p style='color:var(--success); font-weight:bold; margin-bottom:10px;'>✅ 加工完了！クリックして保存：</p>";
+  resultArea.appendChild(linksFragment);
+}
+</script>
+
+</body>
+</html>
