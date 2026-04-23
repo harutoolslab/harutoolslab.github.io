@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<!-- ★SEO設定 -->
-<title>画像比較ツール｜2枚の画像をスライダーでビフォーアフター比較「はるツール」</title>
-<meta name="description" content="2枚の画像を左右スライダーで直感的に比較できる無料オンラインツール。レタッチ前後やデザイン修正の確認に最適。ブラウザ内処理でプライバシーも安心。">
+<title>Image Comparison Tool | Before & After Slider - HaruTools Lab</title>
+<meta name="description" content="A free online tool to compare two images side-by-side with an intuitive slider. Perfect for checking photo retouches, design changes, or image compression. Private browser-based processing.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +40,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Card */
 .main-card {
   background: var(--card-bg);
   padding: 30px 20px;
@@ -56,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* アップロードセクション */
+/* Upload Section */
 .upload-grid {
   display: flex;
   justify-content: center;
@@ -80,9 +79,9 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .upload-box strong { display: block; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem; }
 .file-name { font-size: 0.85rem; color: var(--text-sub); word-break: break-all; }
 
-/* 比較ビューアー */
+/* Comparison Viewer */
 .compare-wrapper {
-  display: none; /* 初期は非表示 */
+  display: none; /* Initially hidden */
   position: relative;
   width: 100%;
   max-width: 800px;
@@ -92,7 +91,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   line-height: 0;
   user-select: none;
-  touch-action: pan-y; /* 横スライドのみ奪う */
+  touch-action: pan-y;
 }
 
 .img-before { width: 100%; height: auto; display: block; }
@@ -114,7 +113,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   max-width: none;
 }
 
-/* スライダーハンドル */
+/* Slider Handle */
 .slider-handle {
   position: absolute;
   top: 50%; left: 50%;
@@ -156,7 +155,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   font-weight: bold;
 }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -172,110 +171,102 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Utilities
     </a>
   </div>
-    <h1>画像比較（ビフォーアフター）</h1>
-    <p class="tagline">2枚の画像をスライダーで重ねて、違いを直感的に確認できます。</p>
+    <h1>Image Comparison (Before & After)</h1>
+    <p class="tagline">Overlay two images and use the slider to intuitively spot the differences.</p>
   </header>
 
-  <!-- 広告枠：上部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <main class="main-card">
     <div id="setup-view">
       <div class="upload-grid">
         <div class="upload-box" onclick="document.getElementById('file1').click()">
-          <strong>画像1 (左側/Before)</strong>
-          <span id="name1" class="file-name">クリックして選択</span>
+          <strong>Image 1 (Left/Before)</strong>
+          <span id="name1" class="file-name">Click to select</span>
           <input type="file" id="file1" accept="image/*" style="display:none">
         </div>
         <div class="upload-box" onclick="document.getElementById('file2').click()">
-          <strong>画像2 (右側/After)</strong>
-          <span id="name2" class="file-name">クリックして選択</span>
+          <strong>Image 2 (Right/After)</strong>
+          <span id="name2" class="file-name">Click to select</span>
           <input type="file" id="file2" accept="image/*" style="display:none">
         </div>
       </div>
-      <p style="color:var(--text-sub); font-size:0.9rem;">※2枚選ぶと比較画面が表示されます</p>
+      <p style="color:var(--text-sub); font-size:0.9rem;">* Select two images to start the comparison</p>
     </div>
 
     <div id="compare-view" class="compare-wrapper">
-      <!-- 下層画像 -->
       <img src="" id="img1" class="img-before">
       <span class="label-tag" style="left:15px;">BEFORE</span>
 
-      <!-- 上層画像コンテナ -->
       <div class="img-after-wrap" id="after-wrap">
         <img src="" id="img2">
         <span class="label-tag" style="right:15px;">AFTER</span>
       </div>
 
-      <!-- スライダーつまみ -->
       <div class="slider-handle" id="handle">◀ ▶</div>
     </div>
 
     <div id="controls" style="display:none;">
-      <button class="btn-reset" onclick="location.reload()">画像を入れ替える</button>
+      <button class="btn-reset" onclick="location.reload()">Reset Images</button>
     </div>
   </main>
 
-  <!-- 広告枠：中部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <!-- SEOコンテンツ -->
   <article class="info-section">
-    <h2>画像比較ツールとは？</h2>
+    <h2>What is the Image Comparison Tool?</h2>
     <p>
-      このツールは、2枚の画像を1つのキャンバス上で重ね合わせ、スライダーを左右に動かすことで変化を視覚的に比較できるツールです。
-      「レタッチ前後の写真」「Webサイトのデザイン修正」「画像の圧縮による画質劣化」など、微細な違いを確認したいシーンに最適です。
+      This utility allows you to overlay two images on a single canvas and visually compare changes by dragging a slider back and forth. 
+      It is ideal for scenarios like reviewing photo retouches, website design revisions, or checking quality loss after image compression.
     </p>
 
-    <h3>このツールの特徴</h3>
+    <h3>Key Features</h3>
     <ul>
-      <li><strong>直感的な操作：</strong> 中央のハンドルをドラッグするだけで、瞬時にビフォーアフターを切り替えられます。</li>
-      <li><strong>インストール不要：</strong> ブラウザだけで動作するため、PCでもスマホでもすぐにご利用いただけます。</li>
-      <li><strong>プライバシーに配慮：</strong> 画像処理はあなたの端末内で行われます。サーバーに画像が保存されることはありません。</li>
+      <li><strong>Intuitive Control:</strong> Simply drag the center handle to switch between before and after shots instantly.</li>
+      <li><strong>No Installation Required:</strong> Works entirely in your web browser on both mobile and desktop.</li>
+      <li><strong>Privacy Focused:</strong> Image processing is done locally on your device. Your images are never uploaded to any server.</li>
     </ul>
 
-    <h2>使い方のコツ</h2>
+    <h2>Tips for Best Results</h2>
     <ol>
-      <li><strong>サイズを合わせる：</strong> できるだけ同じ解像度（縦横比）の画像を使用すると、ズレがなく綺麗に比較できます。</li>
-      <li><strong>構図を揃える：</strong> 定点観測した写真や、同じ位置で書き出したデザインデータなどの比較に最も威力を発揮します。</li>
-      <li><strong>スマホでも操作可能：</strong> 画面上の青いボタンを指でスライドさせるだけでOKです。</li>
+      <li><strong>Match Dimensions:</strong> Using images with the same resolution (aspect ratio) ensures a seamless comparison without alignment issues.</li>
+      <li><strong>Consistent Composition:</strong> This tool is most effective for fixed-point photography or design files exported from the same position.</li>
+      <li><strong>Mobile Friendly:</strong> On smartphones, simply slide the blue button with your finger to operate.</li>
     </ol>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. 対応しているファイル形式は？</span>
-      <p>A. 一般的な画像形式（JPG, PNG, WebP, GIFなど）に対応しています。</p>
+      <span class="faq-q">Q. Which file formats are supported?</span>
+      <p>A. Most common image formats are supported, including JPG, PNG, WebP, and GIF.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 画像の左右（前後）を入れ替えるには？</span>
-      <p>A. 「画像を入れ替える」ボタンから再度アップロードし直すか、1枚目と2枚目の選択を逆にしてお試しください。</p>
+      <span class="faq-q">Q. How do I swap the left and right images?</span>
+      <p>A. Use the "Reset Images" button to upload them again, or simply select the files in the reverse order.</p>
     </div>
 
-    <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="rgb-to-hex.html">RGB → HEX 変換ツール</a></li>
-      <li><a href="hex-to-rgb.html">HEX → RGB 変換ツール</a></li>
-      <li><a href="color-picker.html">カラーピッカー</a></li>
-      <li><a href="image-measure.html">画像比較メジャー＆分度器</a></li>
-      <li><a href="color-code-list.html">カラーコード一覧（HEX）</a></li>
+      <li><a href="rgb-to-hex.html">RGB to HEX Converter</a></li>
+      <li><a href="hex-to-rgb.html">HEX to RGB Converter</a></li>
+      <li><a href="color-picker.html">Color Picker</a></li>
+      <li><a href="image-measure.html">Image Measure & Protractor</a></li>
+      <li><a href="color-code-list.html">Color Code List (HEX)</a></li>
     </ul>
   </article>
 
-  <!-- 広告枠：下部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="privacy.html" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+<footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -313,12 +304,12 @@ function startCompare() {
   compareView.style.display = 'block';
   controls.style.display = 'block';
 
-  // 下層画像が読み込まれたら上層のサイズを同期
+  // Sync foreground size when background image loads
   img1.onload = () => {
     img2.style.width = img1.offsetWidth + 'px';
     img2.style.height = img1.offsetHeight + 'px';
   };
-  // すでに読み込まれている場合の保険
+  // Fallback if image is already loaded
   if(img1.complete) {
     img2.style.width = img1.offsetWidth + 'px';
     img2.style.height = img1.offsetHeight + 'px';
@@ -329,14 +320,14 @@ function startCompare() {
   const sliding = (e) => {
     if (!active) return;
     
-    // イベントから座標を取得
+    // Get coordinates from event
     const clientX = e.pageX || (e.touches ? e.touches[0].pageX : 0);
     const rect = compareView.getBoundingClientRect();
     let x = clientX - rect.left - window.scrollX;
     
     let width = compareView.offsetWidth;
     
-    // 範囲制限
+    // Constraints
     if (x < 0) x = 0;
     if (x > width) x = width;
     
@@ -345,15 +336,14 @@ function startCompare() {
     handle.style.left = pos + "%";
   };
 
-  // マウスイベント
+  // Mouse Events
   handle.addEventListener('mousedown', () => active = true);
   window.addEventListener('mouseup', () => active = false);
   window.addEventListener('mousemove', sliding);
 
-  // タッチイベント
+  // Touch Events
   handle.addEventListener('touchstart', (e) => {
     active = true;
-    // スクロールを阻害しないよう受動的にしない
   }, {passive: true});
   window.addEventListener('touchend', () => active = false);
   window.addEventListener('touchmove', sliding, {passive: true});
