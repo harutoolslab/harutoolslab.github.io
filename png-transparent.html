@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<!-- ★SEO設定 -->
-<title>PNG透過ツール｜画像の背景を透明にする無料オンラインツール「はるツール」</title>
-<meta name="description" content="PNG画像の背景や特定の色を透明にできる無料オンラインツールです。許容範囲を調整して自然に透過可能。サーバーに画像を保存しないため安全です。ロゴ作成や素材加工に。">
+<title>PNG Transparency Tool | Make Image Background Transparent Online - HaruTools Lab</title>
+<meta name="description" content="Free online tool to make PNG backgrounds or specific colors transparent. Adjust tolerance for natural transparency. Secure processing as images are never saved to a server. Ideal for logos and design assets.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +40,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Tool Area */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -56,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drag & Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 50px 20px;
@@ -82,7 +81,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-top: 15px;
 }
 
-/* プレビュー＆操作エリア */
+/* Preview & Action Area */
 #preview-zone { display: none; margin-top: 20px; }
 .preview-item {
   margin-bottom: 30px;
@@ -90,7 +89,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   padding: 20px;
   border-radius: 12px;
   border: 1px solid #eee;
-  /* 透過確認用の背景 */
+  /* Background for checking transparency */
   background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%), 
                     linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%);
   background-size: 20px 20px;
@@ -140,7 +139,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   font-size: 0.9rem;
 }
 
-/* SEO解説セクション */
+/* Info Content Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -156,95 +155,89 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Tool Collection
     </a>
   </div>
-    <h1>PNG透過ツール</h1>
-    <p class="tagline">特定の色を指定して透明に変換。ロゴの背景削除などに便利です。</p>
+    <h1>PNG Transparency Tool</h1>
+    <p class="tagline">Convert specific colors to transparent. Perfect for removing background from logos.</p>
   </header>
 
-  <!-- 広告枠：上部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <main class="main-card">
-    <!-- 画像入力エリア -->
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">画像をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Images Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select Files</button>
       <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
     </div>
 
-    <!-- 設定＆実行エリア -->
     <div id="preview-zone">
       <div class="settings-box">
         <div class="setting-item">
-          <label style="font-weight:bold;">透過する色:</label>
+          <label style="font-weight:bold;">Color to Transparent:</label>
           <input type="color" id="target-color" value="#ffffff" style="width:50px; height:30px; cursor:pointer;">
         </div>
         <div class="setting-item">
-          <label style="font-weight:bold;">許容範囲:</label>
+          <label style="font-weight:bold;">Tolerance:</label>
           <input type="range" id="tolerance" min="0" max="150" value="50">
           <span id="tol-val" style="width:30px; font-weight:bold;">50</span>
         </div>
       </div>
       
-      <button class="btn-run" onclick="run()">透過を実行する</button>
+      <button class="btn-run" onclick="run()">Apply Transparency</button>
       <div id="status" style="margin-top:15px; font-weight:bold; color:var(--primary);"></div>
 
       <div id="preview-container" style="margin-top:30px;"></div>
       
       <div style="margin-top:30px; border-top:1px solid #eee; padding-top:20px;">
-        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">画像をリセット</button>
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Reset Image</button>
       </div>
     </div>
   </main>
 
-  <!-- 広告枠：中部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
-  <!-- SEOコンテンツ -->
   <article class="info-section">
-    <h2>PNG透過ツールとは？</h2>
-    <p>「PNG透過ツール」は、画像内の特定の色を指定し、その部分を透明（透過）に変換できる無料のオンラインツールです。主に白い背景を消してロゴ素材を作ったり、写真から不要な単色背景を取り除いたりする際に使用されます。</p>
+    <h2>What is the PNG Transparency Tool?</h2>
+    <p>The "PNG Transparency Tool" is a free online utility that allows you to specify a color within an image and make it transparent. It is widely used for removing white backgrounds to create logo assets or stripping solid color backgrounds from photos.</p>
 
-    <h3>このツールのメリット</h3>
+    <h3>Benefits of This Tool</h3>
     <ul>
-      <li><strong>インストール不要：</strong> ブラウザだけで完結するため、スマホやPCを選ばず即座に使用可能です。</li>
-      <li><strong>プライバシー安全：</strong> 画像処理はすべてお使いのデバイス上で行われます。画像データがサーバーへアップロードされることはないため、機密性の高いロゴなども安心です。</li>
-      <li><strong>許容範囲の調整：</strong> 背景が完全な単色でない場合でも、「許容範囲」を上げることで境界線をきれいに透過できます。</li>
+      <li><strong>No Installation Required:</strong> Works directly in your browser. Use it instantly on mobile or PC.</li>
+      <li><strong>Privacy Secure:</strong> All image processing happens locally on your device. Image data is never uploaded to a server, keeping your sensitive logos and designs safe.</li>
+      <li><strong>Adjustable Tolerance:</strong> Even if the background isn't a perfectly solid color, increasing the "Tolerance" helps you achieve a clean, smooth edge.</li>
     </ul>
 
-    <h2>使い方のコツ</h2>
-    <p><strong>1. 色の選択：</strong> 「透過する色」で背景の色を選びます（デフォルトは白です）。</p>
-    <p><strong>2. 許容範囲の調整：</strong> 透過した後に境界線がガタガタしたり、色が残ってしまったりする場合は、許容範囲を「60〜100」程度に上げるとスムーズに消えることが多いです。</p>
-    <p><strong>3. 保存形式：</strong> 透過情報はPNG形式でのみ保持されるため、変換後は自動的にPNGとしてダウンロードされます。</p>
+    <h2>Tips for Use</h2>
+    <p><strong>1. Select Color:</strong> Use the "Color to Transparent" picker to choose your background color (default is white).</p>
+    <p><strong>2. Adjust Tolerance:</strong> If the edges look jagged or some color remains after processing, try increasing the tolerance to around "60–100" for a smoother result.</p>
+    <p><strong>3. Save Format:</strong> Since transparency information is only preserved in PNG format, your converted images will automatically download as PNG files.</p>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. 写真の背景を複雑なものから切り抜けますか？</span>
-      <p>A. 本ツールは「特定の色」を基準に透過するため、背景が単色（白、青、緑など）の場合に最も効果を発揮します。風景などの複雑な背景を消す場合は、AI系の切り抜きツールとの併用をおすすめします。</p>
+      <span class="faq-q">Q. Can I remove complex backgrounds from photos?</span>
+      <p>A. This tool works best when the background is a solid color (like white, blue, or green). For complex backgrounds like landscapes, we recommend using an AI-based background removal tool.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 透過したはずなのに背景が黒や白になります。</span>
-      <p>A. 保存した画像をプレビューするアプリによっては、透明部分が便宜上白や黒で表示されることがあります。WordやWebサイト等に配置して、後ろが透けているか確認してください。</p>
+      <span class="faq-q">Q. The background looks black or white after I made it transparent.</span>
+      <p>A. Depending on your image viewer app, transparent areas may be displayed as white or black for convenience. Try placing the image in a Word document or on a website to verify the transparency.</p>
     </div>
-      <h3>関連ツール</h3>
+      <h3>Related Tools</h3>
     <ul>
-      <li><a href="image-cropper-rounded.html">丸抜き・角丸カット</a></li>
-      <li><a href="square-image-maker.html">多機能正方形メーカー</a></li>
-      <li><a href="brightness-contrast.html">画像の明るさ・コントラスト調整</a></li>
-      <li><a href="mosaic-blur.html">モザイク・ぼかし加工ツール</a></li>
+      <li><a href="image-cropper-rounded.html">Round/Rounded Corner Cropper</a></li>
+      <li><a href="square-image-maker.html">Square Image Maker</a></li>
+      <li><a href="brightness-contrast.html">Brightness & Contrast Adjustment</a></li>
+      <li><a href="mosaic-blur.html">Mosaic & Blur Tool</a></li>
     </ul>
   </article>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="#" style="color:#999;">プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -258,12 +251,12 @@ const status = document.getElementById('status');
 
 let files = [];
 
-// スライダー表示更新
+// Update slider display
 toleranceSlider.addEventListener('input', () => {
   tolValDisplay.textContent = toleranceSlider.value;
 });
 
-// ドラッグ&ドロップ処理
+// Drag & Drop Handling
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
   dropArea.addEventListener(eventName, e => {
     e.preventDefault();
@@ -292,7 +285,7 @@ function handleFiles(selectedFiles) {
     reader.onload = (e) => {
       const div = document.createElement("div");
       div.className = "preview-item";
-      div.innerHTML = `<p style="font-size:12px; color:#666;">元画像: ${file.name}</p>
+      div.innerHTML = `<p style="font-size:12px; color:#666;">Original Image: ${file.name}</p>
                        <img src="${e.target.result}" data-name="${file.name}">`;
       previewContainer.appendChild(div);
     };
@@ -302,7 +295,7 @@ function handleFiles(selectedFiles) {
 
 function run() {
   if (files.length === 0) return;
-  status.textContent = "透過処理中...";
+  status.textContent = "Processing...";
   
   const targetHex = document.getElementById('target-color').value;
   const tol = Number(toleranceSlider.value);
@@ -311,7 +304,7 @@ function run() {
   const gT = parseInt(targetHex.substr(3,2), 16);
   const bT = parseInt(targetHex.substr(5,2), 16);
 
-  // プレビューコンテナ内の画像を走査して変換
+  // Traverse and convert images in preview container
   const items = previewContainer.querySelectorAll('.preview-item');
   
   items.forEach(item => {
@@ -333,7 +326,7 @@ function run() {
       for (let i = 0; i < data.length; i += 4) {
         let r = data[i], g = data[i+1], b = data[i+2];
 
-        // ユークリッド距離で色の近さを判定
+        // Determine color proximity using Euclidean distance
         let diff = Math.sqrt(
           Math.pow(r - rT, 2) +
           Math.pow(g - gT, 2) +
@@ -341,7 +334,7 @@ function run() {
         );
 
         if (diff < tol) {
-          // 近ければ透明にする（境界を滑らかにするため線形補間）
+          // Make transparent if close (using linear interpolation for smooth edges)
           let alpha = diff / tol;
           data[i+3] = data[i+3] * alpha;
         }
@@ -349,12 +342,12 @@ function run() {
 
       ctx.putImageData(imageData, 0, 0);
       
-      // 結果の置き換え
+      // Replace result
       const dataUrl = canvas.toDataURL("image/png");
       item.innerHTML = `
-        <p style="font-size:12px; color:var(--success); font-weight:bold;">透過完了</p>
+        <p style="font-size:12px; color:var(--success); font-weight:bold;">Transparency Applied</p>
         <canvas width="${canvas.width}" height="${canvas.height}"></canvas>
-        <a href="${dataUrl}" download="transparent_${img.getAttribute('data-name')}.png" class="btn-download">保存する (PNG)</a>
+        <a href="${dataUrl}" download="transparent_${img.getAttribute('data-name')}.png" class="btn-download">Save Image (PNG)</a>
       `;
       const resultCanvas = item.querySelector('canvas');
       resultCanvas.getContext('2d').putImageData(imageData, 0, 0);
@@ -362,7 +355,7 @@ function run() {
     tempImg.src = img.src;
   });
 
-  status.textContent = "完了しました！";
+  status.textContent = "Done!";
 }
 </script>
 
