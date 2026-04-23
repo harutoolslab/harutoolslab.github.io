@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<!-- ★SEO設定 -->
-<title>画像比較メジャー＆分度器｜無料・オンラインで角度や比率を計測「はるツール」</title>
-<meta name="description" content="画像上の2点間の距離や角度を簡単に計測・比較できる無料オンラインツールです。回転・移動可能な分度器を重ねて精密な解析が可能です。インストール不要・スマホ対応。">
+<title>Image Measure & Protractor | Online Angle & Ratio Measurement Tool - HaruTools Lab</title>
+<meta name="description" content="A free online tool to measure distances, ratios, and angles between points on an image. Overlay a moveable, rotatable protractor for precise analysis. No installation required.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -15,7 +14,7 @@
   --primary: #007bff;
   --primary-hover: #0056b3;
   --success: #28a745;
-  --accent: #ff1744; /* 基準線用 */
+  --accent: #ff1744; /* Reference line */
   --bg-color: #f4f7f9;
   --card-bg: #ffffff;
   --text-main: #333333;
@@ -25,7 +24,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -33,7 +32,7 @@ body {
 
 .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -42,12 +41,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Card */
 .main-card {
   background: var(--card-bg);
   padding: 30px 20px;
@@ -57,7 +56,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Upload Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 60px 20px;
@@ -77,7 +76,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   font-weight: bold; cursor: pointer;
 }
 
-/* キャンバス・操作UI */
+/* Workspace UI */
 #work-zone { display: none; }
 .canvas-wrapper {
   background: #333;
@@ -113,7 +112,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 input[type=range] { width: 100px; cursor: pointer; }
 
-/* 計測結果 */
+/* Measurement Results */
 .result-card {
   text-align: left;
   background: #fffde7;
@@ -138,7 +137,7 @@ input[type=range] { width: 100px; cursor: pointer; }
 }
 .btn-tool:hover { background: #eee; }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 
@@ -151,41 +150,39 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Utilities
     </a>
   </div>
-    <h1>画像比較メジャー＆分度器</h1>
-    <p class="tagline">画像上の長さ比率と角度を精密に測定。比率計算も一瞬で。</p>
+    <h1>Image Measure & Protractor</h1>
+    <p class="tagline">Precisely measure ratios and angles on images. Batch ratio calculations in an instant.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <main class="main-card">
-    <!-- 入力エリア -->
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">画像をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Image Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select File</button>
       <input type="file" id="file-input" accept="image/*" style="display:none;">
     </div>
 
-    <!-- ワークエリア -->
     <div id="work-zone">
       <div class="control-panel">
-        <button class="btn-tool" onclick="toggleProtractor()" id="prot-btn" style="background: var(--primary); color:white; border:none;">分度器を表示</button>
+        <button class="btn-tool" onclick="toggleProtractor()" id="prot-btn" style="background: var(--primary); color:white; border:none;">Show Protractor</button>
         
         <div id="prot-sliders" class="prot-controls" style="display:none;">
-          <label style="font-size:12px;">サイズ</label>
+          <label style="font-size:12px;">Size</label>
           <input type="range" id="size-reg" min="50" max="800" value="250" oninput="draw()">
-          <label style="font-size:12px;">回転</label>
+          <label style="font-size:12px;">Rotate</label>
           <input type="range" id="rotate-reg" min="0" max="360" value="0" oninput="draw()">
           <span id="angle-val" style="font-weight:bold; min-width:35px;">0°</span>
         </div>
 
-        <button class="btn-tool" onclick="undo()">1つ戻す</button>
-        <button class="btn-tool" onclick="clearLines()">全て消去</button>
+        <button class="btn-tool" onclick="undo()">Undo</button>
+        <button class="btn-tool" onclick="clearLines()">Clear All</button>
       </div>
 
       <div class="canvas-wrapper">
@@ -193,80 +190,79 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
       </div>
 
       <div id="result-box" class="result-card">
-        <div style="font-weight:bold; margin-bottom:10px; border-bottom:2px solid #fbc02d; display:inline-block;">📏 計測結果</div>
-        <div id="results-list">2点をクリックして線を引いてください。</div>
-        <p style="font-size: 0.8rem; color: #795548; margin-top: 15px;">※ 最初の線（赤）が基準（100%）となります。</p>
+        <div style="font-weight:bold; margin-bottom:10px; border-bottom:2px solid #fbc02d; display:inline-block;">📏 Measurement Results</div>
+        <div id="results-list">Click two points to draw a measurement line.</div>
+        <p style="font-size: 0.8rem; color: #795548; margin-top: 15px;">* The first line (Red) is the reference (100%).</p>
       </div>
 
-      <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">別の画像に変更</button>
+      <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Change Image</button>
     </div>
   </main>
 
  <article class="info-section">
-    <h2>画像比較メジャー＆分度器とは？</h2>
-    <p>写真や図面画像の上で「2点間の距離の比率」や「角度」を測定できる、インストール不要の解析ツールです。最初に引いた線を基準（100%）として、他の箇所の長さが何％かを自動算出します。また、移動・回転可能な透過分度器を使って、微細な角度も視覚的に把握できます。</p>
+    <h2>What is the Image Measure & Protractor?</h2>
+    <p>This is a browser-based analysis tool that allows you to measure "length ratios" and "angles" on photos or technical drawings. By setting the first line you draw as the reference (100%), it automatically calculates the percentage of other lengths. A movable, transparent protractor is also available to visually verify precise angles.</p>
 
-    <h3>主な活用シーン</h3>
+    <h3>Key Use Cases</h3>
     <ul>
-      <li><strong>デザイン・UIチェック：</strong> 要素の間隔や比率がガイドライン通りか確認。</li>
-      <li><strong>スポーツ・フォーム解析：</strong> 姿勢や関節の角度を写真からデジタル計測。</li>
-      <li><strong>DIY・サイズ見積：</strong> 写真に写した定規を基準にして、他の箇所の長さを推定。</li>
-      <li><strong>リハビリ・姿勢診断：</strong> 体の傾きや歪みを数値で記録。</li>
+      <li><strong>Design & UI Check:</strong> Verify if element spacing and ratios match style guidelines.</li>
+      <li><strong>Sports & Form Analysis:</strong> Digitally measure posture and joint angles from photos.</li>
+      <li><strong>DIY & Sizing Estimates:</strong> Use a ruler in the photo as a reference to estimate other dimensions.</li>
+      <li><strong>Rehabilitation & Posture Diagnosis:</strong> Record body tilt or misalignment with numerical data.</li>
     </ul>
 
-    <h3>使い方のコツ</h3>
-    <p><strong>実寸（cm）を知るには：</strong> 写真の中に定規やコインなど「サイズが既知の物」を一緒に写してください。その物の端から端までを最初の線（No.1）として引くことで、他の箇所の比率から実寸を逆算しやすくなります。</p>
+    <h3>Tips for Accurate Use</h3>
+    <p><strong>To find actual dimensions (cm/inch):</strong> Include an object of known size (like a ruler or coin) in the photo. Draw your first line (No.1) across that object. You can then easily calculate the actual size of other items based on the percentage relative to that reference.</p>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. どのようにして長さを測るのですか？</strong>
-      <p>A. 画像上の測りたい始点をクリックし、そのまま終点までドラッグするだけで、リアルタイムにピクセル（px）単位の距離が表示されます。</p>
+      <strong style="color:var(--primary);">Q. How do I measure lengths?</strong>
+      <p>A. Simply click the starting point on the image and drag to the endpoint. The distance will be displayed in pixels (px) in real-time.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. ピクセル（px）以外の単位でも測れますか？</strong>
-      <p>A. 基本はデジタル画面上のサイズである「ピクセル」での表示となります。印刷物などの「mm（ミリ）」を知りたい場合は、画像の解像度（DPI）に基づいて計算する必要がありますが、画面設計やWebデザインの確認にはpx計測が最適です。</p>
+      <strong style="color:var(--primary);">Q. Can I measure in units other than pixels (px)?</strong>
+      <p>A. The tool primarily displays "pixels," the native unit of digital screens. To find real-world measurements like "mm," you would need to calculate based on the image's resolution (DPI). However, px measurement is ideal for web and UI design checks.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 角度を測ることはできますか？</strong>
-      <p>A. はい、始点と終点の位置関係から、水平線に対する角度も自動で算出されます。画像内のオブジェクトがどれくらい傾いているかの確認に便利です。</p>
+      <strong style="color:var(--primary);">Q. Can I measure angles?</strong>
+      <p>A. Yes. The angle relative to the horizontal axis is automatically calculated based on the position of your starting and ending points. This is useful for checking the tilt of objects in an image.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 測ったデータがサーバーに送られることはありますか？</strong>
-      <p>A. ありません。画像データの読み込みから計測処理まで、すべてお客様のブラウザ内で完結します。機密性の高い設計図やスクリーンショットでも、安心して計測いただけます。</p>
+      <strong style="color:var(--primary);">Q. Is my data sent to a server?</strong>
+      <p>A. No. All processing, from loading the image to measuring, happens entirely within your browser. You can safely measure sensitive blueprints or confidential screenshots.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 大きな画像でも正確に測れますか？</strong>
-      <p>A. ブラウザの表示倍率（ズーム）に関わらず、画像本来の解像度に基づいて正確な数値を算出します。細かい部分を測りたい場合は、ブラウザのズーム機能を使って拡大して操作することをおすすめします。</p>
+      <strong style="color:var(--primary);">Q. Can I accurately measure large images?</strong>
+      <p>A. Regardless of your browser's zoom level, the tool calculates values based on the original resolution of the image. For fine details, we recommend using the browser's zoom feature to enlarge the view while you work.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 料金はかかりますか？</strong>
-      <p>A. 完全無料で、何度でも制限なくご利用いただけます。会員登録なども一切不要です。</p>
+      <strong style="color:var(--primary);">Q. Is there a fee?</strong>
+      <p>A. The tool is completely free with no usage limits. No registration is required.</p>
     </div>
 
-   <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="rgb-to-hex.html">RGB → HEX 変換ツール</a></li>
-      <li><a href="hex-to-rgb.html">HEX → RGB 変換ツール</a></li>
-      <li><a href="color-picker.html">カラーピッカー</a></li>
-      <li><a href="image-compare.html">画像比較</a></li>
-      <li><a href="color-code-list.html">カラーコード一覧（HEX）</a></li>
+      <li><a href="rgb-to-hex.html">RGB to HEX Converter</a></li>
+      <li><a href="hex-to-rgb.html">HEX to RGB Converter</a></li>
+      <li><a href="color-picker.html">Color Picker</a></li>
+      <li><a href="image-compare.html">Image Compare</a></li>
+      <li><a href="color-code-list.html">Color Code List (HEX)</a></li>
     </ul>
    
   </article>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="#" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -289,7 +285,7 @@ let showProt = false;
 let protX = 0, protY = 0;
 let isDraggingProt = false;
 
-// ファイル読み込み
+// File Loading
 fileInput.addEventListener('change', function() { handleFile(this.files[0]); });
 dropArea.addEventListener('click', () => fileInput.click());
 dropArea.addEventListener('dragover', e => { e.preventDefault(); dropArea.classList.add('active'); });
@@ -320,12 +316,12 @@ function handleFile(file) {
 
 function toggleProtractor() {
   showProt = !showProt;
-  document.getElementById('prot-btn').innerText = showProt ? "分度器を隠す" : "分度器を表示";
+  document.getElementById('prot-btn').innerText = showProt ? "Hide Protractor" : "Show Protractor";
   protSliders.style.display = showProt ? "inline-flex" : "none";
   draw();
 }
 
-// 座標取得
+// Coordinate Retrieval
 function getMousePos(e) {
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
@@ -335,7 +331,7 @@ function getMousePos(e) {
   return { x: (clientX - rect.left) * scaleX, y: (clientY - rect.top) * scaleY };
 }
 
-// イベント
+// Events
 canvas.addEventListener('mousedown', startAction);
 canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startAction(e); }, {passive: false});
 
@@ -384,7 +380,7 @@ function draw() {
     const angle = Math.abs(Math.atan2(l.end.y - l.start.y, l.end.x - l.start.x) * 180 / Math.PI);
     const color = i === 0 ? "#ff1744" : "#00e676";
     
-    // 線描画
+    // Draw Line
     ctx.beginPath();
     ctx.lineWidth = Math.max(3, canvas.width/500);
     ctx.strokeStyle = color;
@@ -393,15 +389,15 @@ function draw() {
     ctx.lineTo(l.end.x, l.end.y);
     ctx.stroke();
 
-    // ラベル
+    // Label
     ctx.fillStyle = color;
     ctx.font = `bold ${Math.max(14, canvas.width/60)}px sans-serif`;
     ctx.fillText(`No.${i+1}`, l.start.x + 10, l.start.y - 10);
 
-    const ratioText = i === 0 ? "基準 (100%)" : ((dist / baseDist) * 100).toFixed(1) + "%";
-    resHtml += `<div class="result-item"><span style="color:${color}">● No.${i+1}</span> <span>角度: ${angle.toFixed(1)}°</span> <span>比率: ${ratioText}</span></div>`;
+    const ratioText = i === 0 ? "Reference (100%)" : ((dist / baseDist) * 100).toFixed(1) + "%";
+    resHtml += `<div class="result-item"><span style="color:${color}">● No.${i+1}</span> <span>Angle: ${angle.toFixed(1)}°</span> <span>Ratio: ${ratioText}</span></div>`;
   });
-  resultsList.innerHTML = resHtml || "2点をクリックして計測を開始してください。";
+  resultsList.innerHTML = resHtml || "Click two points to start measuring.";
 }
 
 function drawProtractor() {
@@ -438,7 +434,7 @@ function drawProtractor() {
   }
   ctx.restore();
   
-  // 中心点
+  // Center Point
   ctx.beginPath(); ctx.arc(protX, protY, 8, 0, Math.PI*2);
   ctx.fillStyle = "red"; ctx.fill();
   ctx.strokeStyle = "white"; ctx.lineWidth = 2; ctx.stroke();
