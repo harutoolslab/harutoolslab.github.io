@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<!-- ★SEO設定 -->
-<title>HEX RGB 変換｜16進数カラーコードを相互変換「はるツール」</title>
-<meta name="description" content="HEX（#FFFFFF形式）をRGB（255, 255, 255形式）に瞬時に変換。リアルタイムでの色プレビューやCSSコピー機能付き。Webデザインやコーディングに最適な無料オンラインツール。">
+<title>HEX to RGB Converter | Simple Color Code Conversion - HaruTools Lab</title>
+<meta name="description" content="Instantly convert HEX color codes (#FFFFFF) to RGB format (255, 255, 255). Features real-time preview and CSS copy functionality. Perfect for web design and coding.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +40,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Card */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -56,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* 入力エリア */
+/* UI Area */
 .converter-ui {
   max-width: 500px;
   margin: 0 auto;
@@ -89,7 +88,7 @@ input[type="text"]:focus {
   border-color: var(--primary);
 }
 
-/* カラープレビュー */
+/* Color Preview */
 #color-preview {
   width: 100%;
   height: 100px;
@@ -103,7 +102,7 @@ input[type="text"]:focus {
   background-color: #ff0000;
 }
 
-/* 結果エリア */
+/* Result Box */
 .result-box {
   background: #f8f9fa;
   padding: 20px;
@@ -148,7 +147,7 @@ input[type="text"]:focus {
   cursor: pointer;
 }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -164,96 +163,89 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Utilities
     </a>
   </div>
-    <h1>HEX → RGB 変換ツール</h1>
-    <p class="tagline">カラーコードを素早く変換。CSSデザインやコーディングに便利。</p>
+    <h1>HEX to RGB Converter</h1>
+    <p class="tagline">Instantly convert color codes for your CSS design and coding projects.</p>
   </header>
 
-  <!-- 広告枠：上部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <main class="main-card">
     <div class="converter-ui">
-      <!-- プレビュー表示 -->
       <div id="color-preview">
         <span id="preview-text" style="color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); font-weight: bold;">PREVIEW</span>
       </div>
 
       <div class="input-group">
-        <label class="label-title">HEXカラーコードを入力</label>
+        <label class="label-title">Enter HEX Color Code</label>
         <input type="text" id="hexInput" placeholder="#FF0000" maxlength="7" oninput="liveConvert()">
       </div>
 
       <div class="result-box">
-        <label class="label-title">変換結果 (RGB)</label>
+        <label class="label-title">Result (RGB)</label>
         <div id="resultValue" class="result-value">rgb(255, 0, 0)</div>
         <div class="btn-row">
-          <button class="btn-copy" onclick="copyToClipboard()">CSSをコピー</button>
+          <button class="btn-copy" onclick="copyToClipboard()">Copy CSS</button>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- 広告枠：中部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <!-- SEOコンテンツ -->
   <article class="info-section">
-    <h2>HEXとRGBの変換について</h2>
+    <h2>About HEX and RGB Conversion</h2>
     <p>
-      Web制作やグラフィックデザインの世界では、色は主に「HEX（16進数）」または「RGB（10進数）」のどちらかで指定されます。
-      当ツールを使えば、CSSで使いたいカラーコードを簡単に相互変換し、そのままコピーしてプロジェクトに利用できます。
+      In the world of web development and graphic design, colors are primarily specified in either "HEX (Hexadecimal)" or "RGB (Red, Green, Blue)". 
+      This tool allows you to easily convert between these color codes, enabling you to copy and paste them directly into your CSS or design software.
     </p>
 
-    <h3>HEX（16進数カラーコード）とは？</h3>
+    <h3>What is HEX?</h3>
     <p>
-      「#」に続く6桁の英数字（例：#FF5733）で色を表現します。最初の2桁が赤（R）、真ん中の2桁が緑（G）、最後の2桁が青（B）の強さを表しています。
-      HTMLやCSSで最も一般的に利用される形式です。
+      HEX codes are 6-digit alphanumeric strings following a "#" symbol (e.g., #FF5733). The first two digits represent Red (R), the middle two represent Green (G), and the final two represent Blue (B). This is the most common format used in HTML and CSS.
     </p>
 
-    <h3>RGBとは？</h3>
+    <h3>What is RGB?</h3>
     <p>
-      Red（赤）、Green（緑）、Blue（青）の3つの光の三原色を、それぞれ0〜255の数値で指定する方式です。
-      「rgb(255, 87, 51)」のように表記され、透明度を加えた「rgba()」形式もWebデザインで頻繁に使用されます。
+      RGB defines a color by the intensity of Red, Green, and Blue light, each on a scale from 0 to 255. 
+      It is written as "rgb(255, 87, 51)". In web design, you might also see "rgba()", which includes an Alpha channel for transparency.
     </p>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. 「#」を付けずに入力しても変換できますか？</span>
-      <p>A. はい、当ツールは「#」の有無を自動判別するため、「FF0000」のような入力でも正しく変換されます。</p>
+      <span class="faq-q">Q. Can I convert without the "#" symbol?</span>
+      <p>A. Yes, this tool automatically detects whether the "#" is present. Inputs like "FF0000" will work perfectly.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 3桁のHEX（例：#F00）にも対応していますか？</span>
-      <p>A. はい、短縮形式の3桁コードも自動的に6桁として解釈して変換します。</p>
+      <span class="faq-q">Q. Does it support 3-digit HEX codes (e.g., #F00)?</span>
+      <p>A. Yes, shorthand 3-digit codes are automatically interpreted and converted as 6-digit codes.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 逆にRGBからHEXへの変換は可能ですか？</span>
-      <p>A. 現在はHEXからRGBへの変換に特化していますが、入力欄を拡張したアップデートを順次予定しています。</p>
+      <span class="faq-q">Q. Can I convert RGB back to HEX?</span>
+      <p>A. Currently, this tool is specialized for HEX to RGB conversion. We are planning an update to support bidirectional conversion soon.</p>
     </div>
-    <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="rgb-to-hex.html">RGB → HEX 変換ツール</a></li>
-      <li><a href="color-picker.html">カラーピッカー</a></li>
-      <li><a href="image-measure.html">画像比較メジャー＆分度器</a></li>
-      <li><a href="image-compare.html">画像比較</a></li>
-      <li><a href="color-code-list.html">カラーコード一覧（HEX）</a></li>
+      <li><a href="rgb-to-hex.html">RGB to HEX Converter</a></li>
+      <li><a href="color-picker.html">Color Picker</a></li>
+      <li><a href="image-measure.html">Image Measure & Protractor</a></li>
+      <li><a href="image-compare.html">Image Comparison</a></li>
+      <li><a href="color-code-list.html">Color Code List (HEX)</a></li>
     </ul>
   </article>
 
-  <!-- 広告枠：下部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="privacy.html" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -263,17 +255,17 @@ function liveConvert() {
   const preview = document.getElementById('color-preview');
   const previewText = document.getElementById('preview-text');
 
-  // #の除去
+  // Remove #
   if (hex.startsWith('#')) {
     hex = hex.slice(1);
   }
 
-  // 3桁の場合は6桁に拡張
+  // Shorthand expansion
   if (hex.length === 3) {
     hex = hex.split('').map(char => char + char).join('');
   }
 
-  // バリデーション
+  // Validation
   if (hex.length === 6) {
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
@@ -284,15 +276,15 @@ function liveConvert() {
       resultDiv.textContent = rgbString;
       preview.style.backgroundColor = `#${hex}`;
       
-      // 視認性のためにプレビュー文字色を変更（輝度計算）
+      // Accessibility: change text color based on brightness
       const brightness = (r * 299 + g * 587 + b * 114) / 1000;
       previewText.style.color = brightness > 128 ? '#333' : '#fff';
       return;
     }
   }
   
-  // 不正な値の時
-  resultDiv.textContent = "正しいHEXを入力してください";
+  // Error handling
+  resultDiv.textContent = "Please enter a valid HEX code";
 }
 
 function copyToClipboard() {
@@ -301,7 +293,7 @@ function copyToClipboard() {
     navigator.clipboard.writeText(text).then(() => {
       const btn = document.querySelector('.btn-copy');
       const originalText = btn.textContent;
-      btn.textContent = "コピー完了！";
+      btn.textContent = "Copied!";
       btn.style.background = "#155724";
       setTimeout(() => {
         btn.textContent = originalText;
@@ -309,11 +301,11 @@ function copyToClipboard() {
       }, 1500);
     });
   } else {
-    alert("有効な値を入力してください");
+    alert("Please enter a valid value");
   }
 }
 
-// 初期化（#ff0000をデフォルト表示）
+// Initialize (Default to #ff0000)
 window.onload = () => {
   document.getElementById('hexInput').value = "#ff0000";
   liveConvert();
