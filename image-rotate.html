@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
   
-<title>画像回転ツール｜無料・オンラインで写真の向きを簡単修正「はるツール」</title>
-<meta name="description" content="画像を90度・180度・270度に回転できる無料オンラインツールです。スマホで撮った写真の向きをワンクリックで修正。インストール不要・ブラウザ内処理で安全です。">
+<title>Image Rotation Tool | Rotate Photos Online for Free - HaruTools Lab</title>
+<meta name="description" content="Free online tool to rotate images 90, 180, or 270 degrees. Easily fix the orientation of photos taken on your smartphone. No installation required, secure browser-side processing.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +24,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +32,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +41,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Tool Area */
 .main-card {
   background: var(--card-bg);
   padding: 30px 20px;
@@ -56,7 +56,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drag & Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 60px 20px;
@@ -78,7 +78,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   box-shadow: 0 4px 15px rgba(0,123,255,0.2);
 }
 
-/* プレビュー＆操作エリア */
+/* Preview & Control Area */
 #work-zone { display: none; margin-top: 20px; }
 .preview-container {
   display: inline-block;
@@ -116,7 +116,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.3);
 }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -130,89 +130,88 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Utilities
     </a>
   </div>
-    <h1>画像回転ツール</h1>
-    <p class="tagline">写真の向きをワンクリックで修正。90度・180度回転をブラウザで。</p>
+    <h1>Image Rotation Tool</h1>
+    <p class="tagline">Correct photo orientation with one click. Rotate 90° or 180° instantly in your browser.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <main class="main-card">
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">画像をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Image Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select File</button>
       <input type="file" id="file-input" accept="image/*" style="display:none;">
     </div>
 
     <div id="work-zone">
       <div class="preview-container">
-        <img id="image-preview" src="" alt="回転プレビュー">
+        <img id="image-preview" src="" alt="Rotation Preview">
       </div>
 
       <div class="rotate-controls">
-        <button class="btn-rotate" onclick="rotate(-90)">↺ 左に90°</button>
-        <button class="btn-rotate" onclick="rotate(90)">↻ 右に90°</button>
+        <button class="btn-rotate" onclick="rotate(-90)">↺ Left 90°</button>
+        <button class="btn-rotate" onclick="rotate(90)">↻ Right 90°</button>
         <button class="btn-rotate" onclick="rotate(180)">⇅ 180°</button>
       </div>
 
       <div>
-        <button class="btn-download" onclick="downloadImage()">回転した画像を保存</button>
+        <button class="btn-download" onclick="downloadImage()">Save Rotated Image</button>
       </div>
 
       <div style="margin-top:20px;">
-        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">別の画像を選ぶ</button>
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Choose a different image</button>
       </div>
     </div>
   </main>
 
   <article class="info-section">
-    <h2>画像回転ツールとは？</h2>
-    <p>「画像回転ツール」は、写真やイラストの向きをブラウザ上で簡単に変更できる無料ツールです。スマホで撮影した時に意図せず横向きになってしまった写真や、上下逆さまの画像を正しい向きに直すことができます。インストール不要で、PC・スマホどちらからでもすぐに使えます。</p>
+    <h2>What is the Image Rotation Tool?</h2>
+    <p>The "Image Rotation Tool" is a free online utility that allows you to easily change the orientation of photos and illustrations directly in your browser. Whether you have a smartphone photo that accidentally ended up sideways or an upside-down image, you can fix it instantly. No installation is required, and it works on both PC and mobile devices.</p>
 
-    <h3>このツールのメリット</h3>
+    <h3>Benefits of This Tool</h3>
     <ul>
-      <li><strong>ワンクリックで回転：</strong> 左右90度、180度の回転が瞬時に行えます。</li>
-      <li><strong>劣化なしの保存：</strong> 回転処理をブラウザ内で行い、高品質なPNG形式で保存可能です。</li>
-      <li><strong>プライバシー保護：</strong> 画像はサーバーに送信されません。あなたの端末内（ブラウザ）で処理が完結するため安全です。</li>
+      <li><strong>One-Click Rotation:</strong> Rotate 90 degrees left/right or 180 degrees instantly.</li>
+      <li><strong>High-Quality Save:</strong> Processing is done within the browser, and you can save the result in high-quality PNG format.</li>
+      <li><strong>Privacy Focused:</strong> Images are never sent to a server. Processing is completed entirely within your terminal (browser) for maximum security.</li>
     </ul>
 
-    <h2>使い方の手順</h2>
+    <h2>How to Use</h2>
     <ol>
-      <li>上のエリアに画像をドラッグ＆ドロップ、またはボタンからファイルを選択します。</li>
-      <li>「右に90°」「左に90°」「180°」のボタンを使って、画像の向きを調整します。</li>
-      <li>向きが決まったら「回転した画像を保存」ボタンをクリックしてダウンロードします。</li>
+      <li>Drag and drop an image into the area above, or click the button to select a file.</li>
+      <li>Use the "Right 90°", "Left 90°", or "180°" buttons to adjust the image orientation.</li>
+      <li>Once the orientation is correct, click the "Save Rotated Image" button to download.</li>
     </ol>
 
-    <h2>よくある質問</h2>
+    <h2>Frequently Asked Questions</h2>
     <div style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. iPhoneやAndroidでも使えますか？</strong>
-      <p>A. はい、ブラウザ上で動作するため、スマホのフォトライブラリから画像を選んでそのまま回転・保存が可能です。</p>
+      <strong style="color:var(--primary);">Q. Can I use this on iPhone or Android?</strong>
+      <p>A. Yes! Since it runs in the browser, you can select images from your mobile photo library to rotate and save them directly.</p>
     </div>
     <div>
-      <strong style="color:var(--primary);">Q. 複数の画像を一括で回転できますか？</strong>
-      <p>A. 現在は1枚ずつの処理に対応しています。精度高く向きを確認しながら保存するのに最適です。</p>
+      <strong style="color:var(--primary);">Q. Can I rotate multiple images at once?</strong>
+      <p>A. Currently, the tool processes one image at a time. This ensures you can verify the orientation with high precision before saving.</p>
     </div>
-      <h3>関連ツール</h3>
+      <h3>Related Tools</h3>
     <ul>
-      <li><a href="image-flip.html">画像反転ツール</a></li>
-      <li><a href="image-overlay.html">画像重ね合わせツール</a></li>
-      <li><a href="brightness-contrast.html">画像の明るさ・コントラスト調整</a></li>
-      <li><a href="mosaic-blur.html">モザイク・ぼかし加工ツール</a></li>
+      <li><a href="image-flip.html">Image Flip Tool</a></li>
+      <li><a href="image-overlay.html">Image Overlay Tool</a></li>
+      <li><a href="brightness-contrast.html">Brightness & Contrast Adjustment</a></li>
+      <li><a href="mosaic-blur.html">Mosaic & Blur Tool</a></li>
     </ul>
   </article>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="#" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -224,7 +223,7 @@ const imagePreview = document.getElementById('image-preview');
 let originalImg = new Image();
 let currentAngle = 0;
 
-// ファイル入力処理
+// File Input Handling
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
   dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
 });
@@ -254,19 +253,19 @@ function handleFiles(files) {
   }
 }
 
-// 回転処理
+// Rotation Logic
 function rotate(deg) {
   currentAngle = (currentAngle + deg) % 360;
   if (currentAngle < 0) currentAngle += 360;
   renderCanvas();
 }
 
-// キャンバス描画
+// Canvas Rendering
 function renderCanvas() {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
 
-  // 90度または270度のときは幅と高さを入れ替える
+  // Swap width and height for 90 or 270 degree rotations
   if (currentAngle === 90 || currentAngle === 270) {
     canvas.width = originalImg.height;
     canvas.height = originalImg.width;
@@ -282,7 +281,7 @@ function renderCanvas() {
   imagePreview.src = canvas.toDataURL('image/png');
 }
 
-// 保存
+// Save Image
 function downloadImage() {
   const link = document.createElement('a');
   link.download = 'rotated-' + Date.now() + '.png';
