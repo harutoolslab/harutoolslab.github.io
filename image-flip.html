@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<!-- ★SEO設定 -->
-<title>画像反転ツール｜左右・上下反転（ミラー反転）を無料で簡単に「はるツール」</title>
-<meta name="description" content="画像を左右反転・上下反転できる無料オンラインツール。ワンクリックで簡単にミラー反転が可能。インストール不要・スマホ対応。ブラウザ内で処理するためプライバシー面も安全です。">
+<title>Online Image Flipper | Mirror Image Horizontally & Vertically for Free - HaruTools Lab</title>
+<meta name="description" content="Free online tool to flip images horizontally or vertically. Easily mirror your photos with one click. No installation required. Secure browser-side processing for your privacy.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +40,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Tool Area */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -56,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drag & Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 50px 20px;
@@ -79,7 +78,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-top: 15px;
 }
 
-/* プレビュー＆操作エリア */
+/* Preview & Control Area */
 #preview-zone { display: none; margin-top: 20px; }
 .img-container {
   position: relative;
@@ -117,7 +116,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.3);
 }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -131,91 +130,87 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Utilities
     </a>
   </div>
-    <h1>画像反転ツール</h1>
-    <p class="tagline">左右反転（ミラー）・上下反転をワンクリックで。SNS用や資料作成に。</p>
+    <h1>Image Flip Tool</h1>
+    <p class="tagline">Flip horizontally (Mirror) or vertically with one click. Perfect for social media and design work.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <main class="main-card">
-    <!-- 画像入力エリア -->
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">画像をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Image Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select File</button>
       <input type="file" id="file-input" accept="image/*" style="display:none;">
     </div>
 
-    <!-- プレビュー＆操作エリア -->
     <div id="preview-zone">
       <div class="img-container">
         <img id="image-preview" src="" alt="Preview">
       </div>
 
       <div class="action-buttons">
-        <button class="btn-action" onclick="flip('horizontal')">↔ 左右反転</button>
-        <button class="btn-action" onclick="flip('vertical')">↕ 上下反転</button>
+        <button class="btn-action" onclick="flip('horizontal')">↔ Flip Horizontal</button>
+        <button class="btn-action" onclick="flip('vertical')">↕ Flip Vertical</button>
       </div>
 
       <div>
-        <button class="btn-download" onclick="downloadImage()">反転した画像を保存</button>
+        <button class="btn-download" onclick="downloadImage()">Save Flipped Image</button>
       </div>
 
       <div style="margin-top:20px;">
-        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">別の画像を選ぶ</button>
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Select another image</button>
       </div>
     </div>
   </main>
 
-  <!-- SEOコンテンツ -->
   <article class="info-section">
-    <h2>画像反転ツールとは？</h2>
-    <p>「画像反転ツール」は、ブラウザ上で画像を左右・上下に反転（ミラー処理）できる無料ツールです。インストール不要で、スマホやPCからどなたでも簡単にご利用いただけます。自撮り写真の向きを直したり、デザインのバランスを確認したりする際に便利です。</p>
+    <h2>What is the Image Flip Tool?</h2>
+    <p>The "Image Flip Tool" is a free online utility that allows you to flip images horizontally or vertically (mirror effect) directly in your browser. No installation is required, and it works seamlessly on smartphones and PCs. It's incredibly useful for fixing the orientation of selfies or checking the balance of a design.</p>
 
-    <h3>主な機能と活用シーン</h3>
+    <h3>Key Features & Use Cases</h3>
     <ul>
-      <li><strong>左右反転（ミラー）：</strong> 鏡に映したような状態にします。自撮りの向きの修正や、左右対称のデザイン作成に。</li>
-      <li><strong>上下反転：</strong> 上下を逆さまにします。クリエイティブな加工や逆さま写真の修正に。</li>
-      <li><strong>プライバシー保護：</strong> 画像データはサーバーへ送信されず、お使いのブラウザ内だけで処理されるため安全です。</li>
+      <li><strong>Flip Horizontal (Mirror):</strong> Creates a mirror-like effect. Useful for correcting selfie orientations or creating symmetrical designs.</li>
+      <li><strong>Flip Vertical:</strong> Turns the image upside down. Perfect for creative editing or fixing upside-down photos.</li>
+      <li><strong>Privacy Focused:</strong> Your image data is never sent to a server. All processing happens entirely within your browser for maximum security.</li>
     </ul>
 
-    <h2>使い方の手順</h2>
+    <h2>How to Use</h2>
     <ol>
-      <li>上のエリアに画像をドラッグ＆ドロップするか、ファイルを選択します。</li>
-      <li>「左右反転」または「上下反転」ボタンを押して、好みの向きに調整します。</li>
-      <li>「反転した画像を保存」ボタンをクリックして、加工済みの画像をダウンロードします。</li>
+      <li>Drag and drop an image into the box above, or click "Select File."</li>
+      <li>Click the "Flip Horizontal" or "Flip Vertical" buttons to achieve your desired orientation.</li>
+      <li>Click the "Save Flipped Image" button to download your processed image.</li>
     </ol>
 
-    <h2>よくある質問</h2>
+    <h2>Frequently Asked Questions</h2>
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 料金はかかりますか？</strong>
-      <p>A. いいえ、完全無料でご利用いただけます。制限もありません。</p>
+      <strong style="color:var(--primary);">Q. Is there any cost?</strong>
+      <p>A. No, this tool is completely free to use with no hidden fees or limits.</p>
     </div>
     <div class="faq-item">
-      <strong style="color:var(--primary);">Q. 画質は変わりますか？</strong>
-      <p>A. 元の解像度を維持したまま処理を行いますが、Canvasを通した書き出しとなるため、PNG形式での高品質な保存となります。</p>
+      <strong style="color:var(--primary);">Q. Does it change the image quality?</strong>
+      <p>A. We maintain the original resolution as much as possible. Since the output is rendered via Canvas, the image is saved in high-quality PNG format.</p>
     </div>
-    <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="image-rotate.html">画像回転ツール</a></li>
-      <li><a href="image-overlay.html">画像重ね合わせツール</a></li>
-      <li><a href="brightness-contrast.html">画像の明るさ・コントラスト調整</a></li>
-      <li><a href="mosaic-blur.html">モザイク・ぼかし加工ツール</a></li>
+      <li><a href="image-rotate.html">Image Rotate Tool</a></li>
+      <li><a href="image-overlay.html">Image Overlay Tool</a></li>
+      <li><a href="brightness-contrast.html">Brightness & Contrast Adjustment</a></li>
+      <li><a href="mosaic-blur.html">Mosaic & Blur Tool</a></li>
     </ul>
   </article>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="#" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -226,7 +221,7 @@ const imagePreview = document.getElementById('image-preview');
 
 let originalImg = new Image();
 
-// ファイル入力
+// File Input Logic
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
   dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
 });
@@ -255,14 +250,14 @@ function handleFiles(files) {
   }
 }
 
-// 反転処理
+// Flip Logic
 function flip(type) {
   if (!imagePreview.src) return;
 
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
   
-  // 現在プレビューに表示されている画像の状態を取得
+  // Get current state of the previewed image
   const currentImg = new Image();
   currentImg.onload = () => {
     canvas.width = currentImg.width;
@@ -284,7 +279,7 @@ function flip(type) {
   currentImg.src = imagePreview.src;
 }
 
-// 保存
+// Download Logic
 function downloadImage() {
   const link = document.createElement('a');
   link.download = 'flipped-' + Date.now() + '.png';
