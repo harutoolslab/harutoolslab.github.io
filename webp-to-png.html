@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<!-- ★SEO設定：はるツール WebPをPNGに変換用 -->
-<title>WebPをPNGに変換｜無料・透過対応・オンライン一括変換「はるツール」</title>
-<meta name="description" content="WebP（ウェッピー）画像をPNG形式に一括変換できる無料ツールです。透過情報を保持したまま高画質で変換可能。インストール不要、ブラウザ完結でプライバシーも安全です。">
+<title>Convert WebP to PNG | Free, Transparent, Online Bulk Converter - HaruTools Lab</title>
+<meta name="description" content="Free online tool to bulk convert WebP images to PNG. Maintain transparency and high quality without losing any details. No installation required, secure browser-based processing.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +40,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Tool Main Area */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -56,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 40px 20px;
@@ -77,7 +76,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 20px;
 }
 
-/* 結果エリア */
+/* Result Area */
 #result-zone { margin-top: 30px; text-align: left; }
 .result-item {
   background: white; padding: 12px 18px; border-radius: 8px; border: 1px solid #eee;
@@ -86,7 +85,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .download-link { color: var(--primary); font-weight: bold; text-decoration: none; border: 1px solid var(--primary); padding: 4px 12px; border-radius: 4px; }
 .download-link:hover { background: var(--primary); color: white; }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -102,82 +101,81 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Tool Collection
     </a>
   </div>
-    <h1>WebPをPNGに変換</h1>
-    <p class="tagline">WebP画像を、透過を維持したまま汎用性の高いPNG形式に変換します。</p>
+    <h1>WebP to PNG Converter</h1>
+    <p class="tagline">Convert WebP images to the versatile PNG format while keeping transparency intact.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <main class="main-card">
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">WebP画像をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop WebP images here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select Files</button>
       <input type="file" id="file-input" accept="image/webp" multiple style="display:none;">
     </div>
 
-    <button class="btn-run" onclick="run()">PNGに変換する</button>
+    <button class="btn-run" onclick="run()">Convert to PNG</button>
 
     <div id="result-zone"></div>
   </main>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <article class="info-section">
-    <h2>WebPをPNGに変換ツールとは？</h2>
+    <h2>What is the WebP to PNG Converter?</h2>
     <p>
-      WebP（ウェッピー）は軽量な画像形式ですが、古い画像編集ソフトや特定のOS環境では正しく開けないことがあります。
-      「はるツール」のWebP-PNG変換ツールは、互換性の問題を解決するために、高品質なPNG形式へ変換するための無料ツールです。
-      特に透過（透明）背景を持つロゴやイラストの変換に最適です。
+      WebP is a modern, lightweight image format, but it can be difficult to open in older software or certain operating systems. 
+      The WebP to PNG converter at HaruTools Lab is a free tool built to solve these compatibility issues by providing high-quality PNG conversions. 
+      It is especially ideal for logos and illustrations that feature transparent backgrounds.
     </p>
 
-    <h3>このツールの特徴</h3>
+    <h3>Key Features</h3>
     <ul>
-      <li><strong>透過情報を保持：</strong> WebPに含まれるアルファチャンネル（透明度）を維持したままPNGに出力します。</li>
-      <li><strong>劣化のない変換：</strong> Canvasレンダリングにより、元の画質を損なうことなく変換可能です。</li>
-      <li><strong>インストール不要：</strong> ブラウザのみで動作するため、ウイルス感染のリスクがなく安全です。</li>
+      <li><strong>Preserve Transparency:</strong> Maintains the alpha channel (transparency) of your original WebP file during the PNG output.</li>
+      <li><strong>Lossless Conversion:</strong> Uses canvas rendering to ensure your image quality remains high without any visual degradation.</li>
+      <li><strong>No Installation Needed:</strong> Works entirely in your browser, keeping your device safe from potential viruses or malware.</li>
     </ul>
 
-    <h2>使い方の手順</h2>
+    <h2>How to Use</h2>
     <ol>
-      <li>変換したいWebP画像をエリア内にドラッグ、またはボタンから選択します。</li>
-      <li>「PNGに変換する」ボタンをクリックします。</li>
-      <li>表示されたリストの「保存」ボタンから、変換後のPNGをダウンロードします。</li>
+      <li>Drag and drop the WebP images you want to convert into the area above, or use the "Select Files" button.</li>
+      <li>Click the "Convert to PNG" button.</li>
+      <li>Click the "Save" button in the list below to download your converted PNG files.</li>
     </ol>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. 透過背景が黒くなったりしませんか？</span>
-      <p>A. いいえ。本ツールはPNGのアルファチャンネルに対応しているため、WebPの透明な部分はそのまま透明な状態でPNGに変換されます。</p>
+      <span class="faq-q">Q. Will transparent backgrounds turn black?</span>
+      <p>A. No. Our tool supports PNG alpha channels, so transparent areas in your WebP file will remain transparent in the resulting PNG.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 複数の画像を一度に変換できますか？</span>
-      <p>A. はい、可能です。複数のファイルを同時に選択またはドラッグして、一括で変換処理を行うことができます。</p>
+      <span class="faq-q">Q. Can I convert multiple images at once?</span>
+      <p>A. Yes! You can select or drag multiple files at the same time to perform bulk conversions instantly.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 画質は落ちますか？</span>
-      <p>A. PNGは可逆圧縮形式ですので、WebPからデコードされたデータを高品質に保持します。変換による目立った画質劣化はありません。</p>
+      <span class="faq-q">Q. Does the image quality drop?</span>
+      <p>A. Since PNG is a lossless format, it preserves the data decoded from the WebP file with high fidelity. There is no noticeable loss in quality after conversion.</p>
     </div>
 
-    <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="webp-to-jpg.html">WebPをJPGに変換</a></li>
-      <li><a href="image-to-webp.html">画像をWebPに変換</a></li>
-      <li><a href="png-to-jpg.html">PNGをJPGに変換</a></li>
-      <li><a href="image-resize.html">画像リサイズ</a></li>
+      <li><a href="webp-to-jpg.html">WebP to JPG</a></li>
+      <li><a href="image-to-webp.html">Image to WebP</a></li>
+      <li><a href="png-to-jpg.html">PNG to JPG</a></li>
+      <li><a href="image-resize.html">Image Resizer</a></li>
     </ul>
   </article>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="privacy.html" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -187,7 +185,7 @@ const resultZone = document.getElementById('result-zone');
 
 let selectedFiles = [];
 
-// ドラッグ&ドロップイベント
+// Drag & Drop events
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
   dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
 });
@@ -210,17 +208,17 @@ fileInput.addEventListener('change', function() {
 
 function showStatus() {
   if (selectedFiles.length > 0) {
-    resultZone.innerHTML = `<p style="text-align:center; color:var(--primary); font-weight:bold;">${selectedFiles.length} 個のWebPファイルが準備できました。</p>`;
+    resultZone.innerHTML = `<p style="text-align:center; color:var(--primary); font-weight:bold;">${selectedFiles.length} WebP file(s) are ready.</p>`;
   }
 }
 
 function run() {
-  if (selectedFiles.length === 0) return alert("画像を選択してください");
+  if (selectedFiles.length === 0) return alert("Please select an image.");
 
-  resultZone.innerHTML = "<p style='text-align:center;'>変換中...</p>";
+  resultZone.innerHTML = "<p style='text-align:center;'>Converting...</p>";
 
   Array.from(selectedFiles).forEach(file => {
-    // MIMEタイプチェック（念のため）
+    // MIME type check (as a precaution)
     if (file.type !== "" && !file.type.includes("webp") && !file.name.toLowerCase().endsWith(".webp")) return;
 
     const img = new Image();
@@ -233,7 +231,7 @@ function run() {
       canvas.height = img.height;
 
       const ctx = canvas.getContext("2d");
-      // そのまま描画（アルファチャンネルを維持）
+      // Render directly to maintain alpha channel
       ctx.drawImage(img, 0, 0);
 
       canvas.toBlob(blob => {
@@ -249,7 +247,7 @@ function run() {
         const link = document.createElement("a");
         link.href = downloadUrl;
         link.download = fileName;
-        link.textContent = "保存";
+        link.textContent = "Save";
         link.className = "download-link";
 
         item.appendChild(nameLabel);
