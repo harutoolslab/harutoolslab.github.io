@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
   
-<title>JPGをPNGに変換｜無料・高画質・オンライン一括変換「はるツール」</title>
-<meta name="description" content="JPG画像をPNG形式に一括変換できる無料ツールです。画質を保ったまま、ブラウザ上で安全に変換。インストール不要でスマホ・PCどちらでもすぐにお使いいただけます。">
+<title>Convert JPG to PNG | Free, High-Quality & Online Batch Converter - HaruTools Lab</title>
+<meta name="description" content="Free online tool to batch convert JPG images to PNG format. Convert safely in your browser while maintaining image quality. Works on mobile and PC without any installation.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +24,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +32,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +41,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Card Area */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -56,7 +56,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drag & Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 40px 20px;
@@ -77,7 +77,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 20px;
 }
 
-/* 結果エリア */
+/* Results Area */
 #result-zone { margin-top: 30px; text-align: left; }
 .result-item {
   background: white; padding: 12px 18px; border-radius: 8px; border: 1px solid #eee;
@@ -86,7 +86,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .download-link { color: var(--primary); font-weight: bold; text-decoration: none; border: 1px solid var(--primary); padding: 4px 12px; border-radius: 4px; }
 .download-link:hover { background: var(--primary); color: white; }
 
-/* SEO解説セクション */
+/* SEO Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -102,76 +102,75 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Utility Collection
     </a>
   </div>
-    <h1>JPGをPNGに変換</h1>
-    <p class="tagline">JPG（JPEG）画像を、汎用性の高いPNG形式へ変換します。</p>
+    <h1>JPG to PNG Converter</h1>
+    <p class="tagline">Convert JPG (JPEG) images to the versatile PNG format.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <main class="main-card">
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">JPG画像をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop JPG Images</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select Files</button>
       <input type="file" id="file-input" accept="image/jpeg" multiple style="display:none;">
     </div>
 
-    <button class="btn-run" onclick="run()">PNGに変換する</button>
+    <button class="btn-run" onclick="run()">Convert to PNG</button>
 
     <div id="result-zone"></div>
   </main>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <article class="info-section">
-    <h2>JPGをPNGに変換ツールとは？</h2>
+    <h2>What is the JPG to PNG Converter?</h2>
     <p>
-      「はるツール」のJPG-PNG変換ツールは、写真などでよく使われるJPG形式を、より高品質で透過情報なども扱えるPNG形式に変換するためのツールです。
-      複数のファイルをまとめて処理できる一括変換に対応しており、ブラウザだけで完結するため非常に高速かつ安全です。
+      The HaruTools Lab JPG to PNG Converter is a utility designed to transform standard JPG images into the high-quality PNG format, which supports transparency and lossless compression. 
+      This tool features batch processing to handle multiple files at once and runs entirely within your browser for speed and security.
     </p>
 
-    <h3>このツールの特徴</h3>
+    <h3>Key Features</h3>
     <ul>
-      <li><strong>完全無料：</strong> 登録や制限なしで、何枚でも変換いただけます。</li>
-      <li><strong>高画質変換：</strong> 再圧縮による劣化を抑え、元の画質を維持したまま変換します。</li>
-      <li><strong>プライバシー保護：</strong> 画像はサーバーにアップロードされず、あなたのブラウザ内だけで処理されます。</li>
+      <li><strong>Completely Free:</strong> Convert as many images as you want without registration or limits.</li>
+      <li><strong>High-Quality Conversion:</strong> Maintains original image quality while minimizing degradation during the process.</li>
+      <li><strong>Privacy Protection:</strong> Your images are never uploaded to a server; all processing happens locally on your browser.</li>
     </ul>
 
-    <h2>使い方の手順</h2>
+    <h2>How to Use</h2>
     <ol>
-      <li>変換したいJPG画像をエリア内にドラッグ、またはボタンから選択します。</li>
-      <li>「PNGに変換する」ボタンをクリックします。</li>
-      <li>変換されたファイル名が表示されたら、右側のボタンから保存してください。</li>
+      <li>Drag and drop JPG images into the area or select them using the button.</li>
+      <li>Click the "Convert to PNG" button.</li>
+      <li>Once the converted filenames appear, click the "Save" button to download each file.</li>
     </ol>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. JPGをPNGに変換すると画質は良くなりますか？</span>
-      <p>A. PNGは可逆圧縮形式ですが、元のJPGがすでに圧縮されているため、変換によって元の画質以上に向上することはありません。ただし、今後の編集による劣化を防ぐことができます。</p>
+      <span class="faq-q">Q. Does converting JPG to PNG improve quality?</span>
+      <p>A. PNG is a lossless format, but since the original JPG is already compressed, the quality won't improve beyond the original source. However, it prevents further quality loss during future edits.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 変換後にファイルサイズが大きくなったのですが？</span>
-      <p>A. PNGはJPGよりもデータ保持量が多いため、ファイルサイズが大きくなる傾向があります。容量を抑えたい場合は、当サイトの「画像圧縮ツール」を併用してください。</p>
+      <span class="faq-q">Q. Why did the file size increase after conversion?</span>
+      <p>A. PNG files often carry more data than JPGs to preserve image details, which can result in larger file sizes. If you need to save space, consider using our "Image Compression Tool" after conversion.</p>
     </div>
 
-    <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="png-to-jpg.html">PNGをJPGに変換</a></li>
-      <li><a href="image-compress.html">画像を圧縮する</a></li>
-      <li><a href="image-to-webp.html">画像をWebPに変換</a></li>
+      <li><a href="png-to-jpg.html">PNG to JPG Converter</a></li>
+      <li><a href="image-compress.html">Compress Images</a></li>
+      <li><a href="image-to-webp.html">Convert Image to WebP</a></li>
     </ul>
   </article>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="privacy.html" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -181,7 +180,7 @@ const resultZone = document.getElementById('result-zone');
 
 let selectedFiles = [];
 
-// ドラッグ&ドロップイベント
+// Drag & Drop Events
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
   dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
 });
@@ -204,14 +203,14 @@ fileInput.addEventListener('change', function() {
 
 function showStatus() {
   if (selectedFiles.length > 0) {
-    resultZone.innerHTML = `<p style="text-align:center; color:var(--primary); font-weight:bold;">${selectedFiles.length} 個のJPGファイルが準備できました。</p>`;
+    resultZone.innerHTML = `<p style="text-align:center; color:var(--primary); font-weight:bold;">${selectedFiles.length} JPG file(s) ready for conversion.</p>`;
   }
 }
 
 function run() {
-  if (selectedFiles.length === 0) return alert("画像を選択してください");
+  if (selectedFiles.length === 0) return alert("Please select an image.");
 
-  resultZone.innerHTML = "<p style='text-align:center;'>変換中...</p>";
+  resultZone.innerHTML = "<p style='text-align:center;'>Converting...</p>";
 
   Array.from(selectedFiles).forEach(file => {
     const img = new Image();
@@ -240,7 +239,7 @@ function run() {
         const link = document.createElement("a");
         link.href = downloadUrl;
         link.download = fileName;
-        link.textContent = "保存";
+        link.textContent = "Save";
         link.className = "download-link";
 
         item.appendChild(nameLabel);
