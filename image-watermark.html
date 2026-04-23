@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<!-- ★SEO設定 -->
-<title>画像に透かしを入れるツール｜無料オンラインで文字追加「はるツール」</title>
-<meta name="description" content="画像にテキストの透かし（ウォーターマーク）を簡単に追加。サイズ、色、透明度、位置を自由に調整。縁取りや影の設定も可能。ブラウザ内処理でプライバシーも安心。">
+<title>Add Watermark to Image | Free Online Text Watermark - HaruTools Lab</title>
+<meta name="description" content="Easily add text watermarks to your images. Adjust size, color, opacity, and position freely. Features outline and shadow settings. Private and secure browser-side processing.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +40,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Card */
 .main-card {
   background: var(--card-bg);
   padding: 30px 20px;
@@ -56,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* アップロード前 */
+/* Upload Zone */
 #upload-zone {
   border: 3px dashed var(--primary);
   padding: 60px 20px;
@@ -67,7 +66,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 #upload-zone:hover { background: rgba(0, 123, 255, 0.05); }
 
-/* ワークエリア */
+/* Work Area */
 #work-zone { display: none; }
 
 .editor-layout {
@@ -91,7 +90,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 #preview { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-/* コントロールパネル */
+/* Control Panel */
 .controls {
   text-align: left;
   background: #f8f9fa;
@@ -107,7 +106,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .checkbox-group { display: flex; gap: 15px; margin-top: 10px; }
 .checkbox-group label { display: flex; align-items: center; gap: 5px; cursor: pointer; }
 
-/* ボタン */
+/* Buttons */
 .btn-run {
   background: var(--primary); color: white; border: none;
   width: 100%; padding: 12px; border-radius: 8px; font-weight: bold;
@@ -119,7 +118,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.2);
 }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 
@@ -132,146 +131,136 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Utility Collection
     </a>
   </div>
-    <h1>画像に透かしを入れるツール</h1>
-    <p class="tagline">著作権保護や盗用防止に。文字を重ねて安全に共有。</p>
+    <h1>Add Watermark to Image</h1>
+    <p class="tagline">Protect your copyright and prevent image theft. Share safely with custom watermarks.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <main class="main-card">
-    <!-- ステップ1: アップロード -->
     <div id="upload-zone" onclick="document.getElementById('file-input').click()">
-      <div style="font-size: 1.2rem; font-weight: bold;">画像をアップロードして開始</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">(JPG, PNG, WebP対応)</p>
+      <div style="font-size: 1.2rem; font-weight: bold;">Upload an Image to Start</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">(Supports JPG, PNG, WebP)</p>
       <input type="file" id="file-input" accept="image/*" style="display:none;">
     </div>
 
-    <!-- ステップ2: 編集エリア -->
     <div id="work-zone">
       <div class="editor-layout">
         <div class="preview-box">
-          <img id="preview" alt="プレビュー">
+          <img id="preview" alt="Preview">
         </div>
 
         <div class="controls">
           <div class="control-group">
-            <label>透かしテキスト</label>
-            <input type="text" id="wm-text" class="input-text" placeholder="© 2026 Haru Tool" oninput="run()">
+            <label>Watermark Text</label>
+            <input type="text" id="wm-text" class="input-text" placeholder="© 2026 HaruTools Lab" oninput="run()">
           </div>
 
           <div class="control-group">
-            <label>配置位置</label>
+            <label>Position</label>
             <select id="wm-pos" class="input-select" onchange="run()">
-              <option value="center">中央</option>
-              <option value="top-left">左上</option>
-              <option value="top-right">右上</option>
-              <option value="bottom-left">左下</option>
-              <option value="bottom-right" selected>右下</option>
+              <option value="center">Center</option>
+              <option value="top-left">Top Left</option>
+              <option value="top-right">Top Right</option>
+              <option value="bottom-left">Bottom Left</option>
+              <option value="bottom-right" selected>Bottom Right</option>
             </select>
           </div>
 
           <div class="control-group">
-            <label>文字サイズ: <span id="sizeVal">40</span>px</label>
+            <label>Font Size: <span id="sizeVal">40</span>px</label>
             <input type="range" id="wm-size" class="slider" min="10" max="300" value="40" oninput="run()">
           </div>
 
           <div class="control-group">
-            <label>透明度: <span id="alphaVal">0.5</span></label>
+            <label>Opacity: <span id="alphaVal">0.5</span></label>
             <input type="range" id="wm-alpha" class="slider" min="0.1" max="1" step="0.1" value="0.5" oninput="run()">
           </div>
 
           <div class="control-group">
-            <label>文字色</label>
+            <label>Text Color</label>
             <input type="color" id="wm-color" value="#ffffff" style="width:100%; height:40px; cursor:pointer;" onchange="run()">
           </div>
 
           <div class="checkbox-group">
-            <label><input type="checkbox" id="wm-stroke" checked onchange="run()"> 縁取り</label>
-            <label><input type="checkbox" id="wm-shadow" checked onchange="run()"> 影</label>
+            <label><input type="checkbox" id="wm-stroke" checked onchange="run()"> Outline</label>
+            <label><input type="checkbox" id="wm-shadow" checked onchange="run()"> Shadow</label>
           </div>
 
           <hr style="border:none; border-top:1px solid #ddd; margin:20px 0;">
           
-          <button class="btn-dl" onclick="download()">画像を保存する</button>
+          <button class="btn-dl" onclick="download()">Save Image</button>
           <div style="margin-top:15px; text-align:center;">
-            <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer; font-size:0.8rem;">別の画像に変える</button>
+            <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer; font-size:0.8rem;">Choose Different Image</button>
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- SEOコンテンツ -->
   <article class="info-section">
-    <h2>画像に透かし（ウォーターマーク）を入れる理由</h2>
-    <p>SNSやブログに写真を投稿する際、自分の作品であることを証明したり、無断転載を防止したりするために「透かし」は非常に有効です。名前やサイトURL、コピーライトマーク（©）を薄く重ねることで、画像の雰囲気を損なわずに著作権を主張できます。</p>
+    <h2>Why Should You Use a Watermark?</h2>
+    <p>When posting photos to social media or blogs, using a watermark is an effective way to prove authorship and prevent unauthorized reproduction. By overlaying your name, website URL, or copyright mark (©), you can claim your rights without ruining the aesthetic of the image.</p>
 
-    <h3>このツールの特徴</h3>
+    <h3>Key Features</h3>
     <ul>
-      <li><strong>完全無料・登録不要：</strong> ブラウザを開くだけですぐに使えます。</li>
-      <li><strong>高機能な調整：</strong> 位置、サイズ、透明度だけでなく、視認性を高める「縁取り」や「影」の追加も可能です。</li>
-      <li><strong>安心のセキュリティ：</strong> 画像データはどこにも送信されません。あなたのPC・スマホ内だけで加工が完了します。</li>
+      <li><strong>100% Free & No Registration:</strong> Start using it immediately just by opening your browser.</li>
+      <li><strong>Advanced Adjustments:</strong> Beyond position and size, you can add outlines and shadows to ensure visibility against any background.</li>
+      <li><strong>Secure Privacy:</strong> Your images are never sent to a server. All processing is done locally on your PC or smartphone.</li>
     </ul>
 
-    <h2>使い方のコツ</h2>
-    <p><strong>1. 透明度の調整：</strong> 透かしを目立たせたくない場合は、透明度を0.2〜0.4程度に設定するのがおすすめです。</p>
-    <p><strong>2. 縁取りと影：</strong> 背景が白っぽい写真に白い文字を入れると消えてしまいます。「縁取り」をオンにすることで、どんな背景でも文字が読みやすくなります。</p>
-    <p><strong>3. 配置：</strong> 一般的には右下や中央が好まれます。重要な被写体を隠さない位置を選びましょう。</p>
-<h2>よくある質問（FAQ）</h2>
+    <h2>Pro Tips for Best Results</h2>
+    <p><strong>1. Adjust Opacity:</strong> If you want the watermark to be subtle, try setting the opacity between 0.2 and 0.4.</p>
+    <p><strong>2. Outlines and Shadows:</strong> White text often disappears on bright backgrounds. Turn on "Outline" to make your text readable regardless of the image's colors.</p>
+    <p><strong>3. Placement:</strong> Usually, the bottom right or the center is preferred. Choose a spot that doesn't hide the main subject of your photo.</p>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 自分の名前以外に、ロゴ画像を透かしとして入れることはできますか？</strong>
-      <p>A. 現在、本ツールは「テキスト（文字）」の追加に特化しています。ロゴ画像を重ねたい場合は、当サイトの「画像重ね合わせツール」をご利用いただくことで、画像を透かしとして配置することが可能です。</p>
+      <strong style="color:var(--primary);">Q. Can I use a logo image instead of text?</strong>
+      <p>A. Currently, this tool is optimized for text watermarks. To overlay a logo image, please use our "Image Overlay Tool" to place one image on top of another.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 複数の画像に一括で透かしを入れられますか？</strong>
-      <p>A. 現在は1枚ずつの処理に対応しています。ブラウザの負荷を抑え、1枚ずつ丁寧に位置を調整していただくための設計となっております。複数枚の対応は今後のアップデートを検討中です。</p>
+      <strong style="color:var(--primary);">Q. Can I watermark multiple images at once?</strong>
+      <p>A. Currently, we support processing one image at a time. This allows you to carefully adjust the position for each specific photo. Batch processing is being considered for future updates.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 一度入れた透かしを、後からこのツールで消すことはできますか？</strong>
-      <p>A. いいえ、できません。透かしは画像データの一部として合成されるため、保存した後に文字だけを取り除くことは不可能です。元の画像（バックアップ）は必ず手元に残しておくことをおすすめします。</p>
+      <strong style="color:var(--primary);">Q. Can I remove a watermark later with this tool?</strong>
+      <p>A. No, you cannot. The watermark is merged into the image data itself. It is impossible to remove just the text after saving. We strongly recommend keeping a backup of your original image.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 漢字やひらがな、特殊な記号も使えますか？</strong>
-      <p>A. はい、お使いのデバイスにインストールされている標準フォントを使用して、日本語や記号（©など）も問題なく入力・合成できます。</p>
+      <strong style="color:var(--primary);">Q. Does watermarking reduce image quality?</strong>
+      <p>A. We process images to maintain the original resolution as much as possible. Since the final result is saved in PNG format, you can avoid the degradation associated with repeated JPEG saving.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 透かしを入れると写真の画質は劣化しますか？</strong>
-      <p>A. 可能な限り元の解像度を維持して処理します。最終的にPNG形式で保存されるため、JPEGのように保存を繰り返すことによる極端な劣化を抑えることができます。</p>
+      <strong style="color:var(--primary);">Q. Is my privacy safe? Are photos uploaded?</strong>
+      <p>A. No photos are uploaded. All HaruTools Lab utilities run entirely on the "client-side" (in your browser). Your data stays on your device.</p>
     </div>
 
-    <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. プライバシーが心配ですが、写真はどこかに送信されますか？</strong>
-      <p>A. いいえ。当サイトのツールはすべて「クライアントサイド（ブラウザ内）」で処理が完結します。画像データが私たちのサーバーに送信されることは一切ありませんので、安心してご利用ください。</p>
-    </div>
-      <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="image-cropper-rounded.html">丸抜き・角丸カット</a></li>
-      <li><a href="square-image-maker.html">多機能正方形メーカー</a></li>
-      <li><a href="brightness-contrast.html">画像の明るさ・コントラスト調整</a></li>
-      <li><a href="mosaic-blur.html">モザイク・ぼかし加工ツール</a></li>
+      <li><a href="image-cropper-rounded.html">Circle/Rounded Corner Crop</a></li>
+      <li><a href="square-image-maker.html">Multifunctional Square Maker</a></li>
+      <li><a href="brightness-contrast.html">Brightness & Contrast Adjustment</a></li>
+      <li><a href="mosaic-blur.html">Mosaic & Blur Tool</a></li>
     </ul>
-
   </article>
 
-
-
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="#" style="color:#999;">プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -284,7 +273,7 @@ let originalImg = new Image();
 let canvas = document.createElement("canvas");
 let ctx = canvas.getContext("2d");
 
-// ファイル選択
+// File Selection
 fileInput.addEventListener('change', e => {
   const file = e.target.files[0];
   if (!file) return;
@@ -298,7 +287,7 @@ fileInput.addEventListener('change', e => {
       
       uploadZone.style.display = 'none';
       workZone.style.display = 'block';
-      run(); // 初期描画
+      run(); // Initial draw
     };
     originalImg.src = ev.target.result;
   };
@@ -317,18 +306,18 @@ function run() {
   document.getElementById('sizeVal').innerText = fontSize;
   document.getElementById('alphaVal').innerText = alpha;
 
-  // キャンバスリセットと背景描画
+  // Reset canvas and draw background
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.globalAlpha = 1.0;
   ctx.drawImage(originalImg, 0, 0);
 
-  // 透かしの設定
+  // Watermark settings
   ctx.font = `bold ${fontSize}px sans-serif`;
   ctx.globalAlpha = alpha;
   ctx.fillStyle = color;
   ctx.textBaseline = "alphabetic";
 
-  // 影の設定
+  // Shadow settings
   if (useShadow) {
     ctx.shadowColor = "rgba(0,0,0,0.8)";
     ctx.shadowBlur = fontSize / 5;
@@ -340,7 +329,7 @@ function run() {
   let x, y;
   const margin = 30;
 
-  // 位置計算
+  // Position calculation
   switch(pos) {
     case "center":
       x = (canvas.width - textWidth) / 2;
@@ -364,17 +353,17 @@ function run() {
       break;
   }
 
-  // 縁取り
+  // Outline
   if (useStroke) {
     ctx.strokeStyle = "rgba(0,0,0,0.8)";
     ctx.lineWidth = fontSize / 12;
     ctx.strokeText(text, x, y);
   }
 
-  // 本文描画
+  // Draw main text
   ctx.fillText(text, x, y);
 
-  // プレビュー反映
+  // Reflect in preview
   preview.src = canvas.toDataURL("image/png");
 }
 
