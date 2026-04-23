@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+  
+<title>画像回転ツール｜無料・オンラインで写真の向きを簡単修正「はるツール」</title>
+<meta name="description" content="画像を90度・180度・270度に回転できる無料オンラインツールです。スマホで撮った写真の向きをワンクリックで修正。インストール不要・ブラウザ内処理で安全です。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 60px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+}
+
+.btn-select {
+  background: var(--primary);
+  color: white; border: none;
+  padding: 12px 30px; border-radius: 50px;
+  font-weight: bold; cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+}
+
+/* プレビュー＆操作エリア */
+#work-zone { display: none; margin-top: 20px; }
+.preview-container {
+  display: inline-block;
+  max-width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  background: #eee;
+  border-radius: 8px;
+  line-height: 0;
+}
+#image-preview {
+  max-width: 100%;
+  max-height: 500px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.rotate-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+.btn-rotate {
+  background: #fff; border: 2px solid var(--primary); color: var(--primary);
+  padding: 10px 15px; border-radius: 8px; font-weight: bold; cursor: pointer;
+  transition: 0.2s; min-width: 100px;
+}
+.btn-rotate:hover { background: var(--primary); color: #fff; }
+
+.btn-download {
+  background: var(--success);
+  color: white; border: none; padding: 15px 40px;
+  border-radius: 50px; font-weight: bold; font-size: 1.1rem;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>画像回転ツール</h1>
+    <p class="tagline">写真の向きをワンクリックで修正。90度・180度回転をブラウザで。</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">画像をドラッグ＆ドロップ</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <input type="file" id="file-input" accept="image/*" style="display:none;">
+    </div>
+
+    <div id="work-zone">
+      <div class="preview-container">
+        <img id="image-preview" src="" alt="回転プレビュー">
+      </div>
+
+      <div class="rotate-controls">
+        <button class="btn-rotate" onclick="rotate(-90)">↺ 左に90°</button>
+        <button class="btn-rotate" onclick="rotate(90)">↻ 右に90°</button>
+        <button class="btn-rotate" onclick="rotate(180)">⇅ 180°</button>
+      </div>
+
+      <div>
+        <button class="btn-download" onclick="downloadImage()">回転した画像を保存</button>
+      </div>
+
+      <div style="margin-top:20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">別の画像を選ぶ</button>
+      </div>
+    </div>
+  </main>
+
+  <article class="info-section">
+    <h2>画像回転ツールとは？</h2>
+    <p>「画像回転ツール」は、写真やイラストの向きをブラウザ上で簡単に変更できる無料ツールです。スマホで撮影した時に意図せず横向きになってしまった写真や、上下逆さまの画像を正しい向きに直すことができます。インストール不要で、PC・スマホどちらからでもすぐに使えます。</p>
+
+    <h3>このツールのメリット</h3>
+    <ul>
+      <li><strong>ワンクリックで回転：</strong> 左右90度、180度の回転が瞬時に行えます。</li>
+      <li><strong>劣化なしの保存：</strong> 回転処理をブラウザ内で行い、高品質なPNG形式で保存可能です。</li>
+      <li><strong>プライバシー保護：</strong> 画像はサーバーに送信されません。あなたの端末内（ブラウザ）で処理が完結するため安全です。</li>
+    </ul>
+
+    <h2>使い方の手順</h2>
+    <ol>
+      <li>上のエリアに画像をドラッグ＆ドロップ、またはボタンからファイルを選択します。</li>
+      <li>「右に90°」「左に90°」「180°」のボタンを使って、画像の向きを調整します。</li>
+      <li>向きが決まったら「回転した画像を保存」ボタンをクリックしてダウンロードします。</li>
+    </ol>
+
+    <h2>よくある質問</h2>
+    <div style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. iPhoneやAndroidでも使えますか？</strong>
+      <p>A. はい、ブラウザ上で動作するため、スマホのフォトライブラリから画像を選んでそのまま回転・保存が可能です。</p>
+    </div>
+    <div>
+      <strong style="color:var(--primary);">Q. 複数の画像を一括で回転できますか？</strong>
+      <p>A. 現在は1枚ずつの処理に対応しています。精度高く向きを確認しながら保存するのに最適です。</p>
+    </div>
+      <h3>関連ツール</h3>
+    <ul>
+      <li><a href="image-flip.html">画像反転ツール</a></li>
+      <li><a href="image-overlay.html">画像重ね合わせツール</a></li>
+      <li><a href="brightness-contrast.html">画像の明るさ・コントラスト調整</a></li>
+      <li><a href="mosaic-blur.html">モザイク・ぼかし加工ツール</a></li>
+    </ul>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <footer> &copy; 2026 はるツール | <a href="terms.html" style="color:#999;">利用規約</a> | <a href="privacy.html" style="color:#999;">プライバシーポリシー</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const workZone = document.getElementById('work-zone');
+const imagePreview = document.getElementById('image-preview');
+
+let originalImg = new Image();
+let currentAngle = 0;
+
+// ファイル入力処理
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+
+dropArea.addEventListener('drop', e => {
+  handleFiles(e.dataTransfer.files);
+}, false);
+
+fileInput.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(files) {
+  const file = files[0];
+  if (file && file.type.startsWith('image/')) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      originalImg.onload = () => {
+        currentAngle = 0;
+        renderCanvas();
+        dropArea.style.display = 'none';
+        workZone.style.display = 'block';
+      };
+      originalImg.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+// 回転処理
+function rotate(deg) {
+  currentAngle = (currentAngle + deg) % 360;
+  if (currentAngle < 0) currentAngle += 360;
+  renderCanvas();
+}
+
+// キャンバス描画
+function renderCanvas() {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+
+  // 90度または270度のときは幅と高さを入れ替える
+  if (currentAngle === 90 || currentAngle === 270) {
+    canvas.width = originalImg.height;
+    canvas.height = originalImg.width;
+  } else {
+    canvas.width = originalImg.width;
+    canvas.height = originalImg.height;
+  }
+
+  ctx.translate(canvas.width / 2, canvas.height / 2);
+  ctx.rotate(currentAngle * Math.PI / 180);
+  ctx.drawImage(originalImg, -originalImg.width / 2, -originalImg.height / 2);
+
+  imagePreview.src = canvas.toDataURL('image/png');
+}
+
+// 保存
+function downloadImage() {
+  const link = document.createElement('a');
+  link.download = 'rotated-' + Date.now() + '.png';
+  link.href = imagePreview.src;
+  link.click();
+}
+</script>
+
+</body>
+</html>
