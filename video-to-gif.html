@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
   
-<title>動画をGIFに変換｜無料・登録不要のオンライン便利ツール</title>
-<meta name="description" content="動画からGIFアニメーションを作成できる無料ツール。サイズやフレーム数を調整して軽量なGIFを簡単に作れます。インストール不要、ブラウザ完結の安全設計。">
+<title>Video to GIF Converter | Free & Online - HaruTools Lab</title>
+<meta name="description" content="Convert your videos to GIF animations for free. Adjust size and frame rate to create optimized GIFs easily. No installation required, works entirely in your browser.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
@@ -26,7 +26,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -34,7 +34,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -43,12 +43,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Tool Main Area */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -58,7 +58,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 50px 20px;
@@ -84,7 +84,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-top: 15px;
 }
 
-/* プレビュー＆設定エリア */
+/* Preview & Settings */
 #preview-zone { display: none; margin-top: 20px; }
 video { max-width: 100%; max-height: 400px; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 20px; }
 
@@ -123,7 +123,7 @@ video { max-width: 100%; max-height: 400px; border-radius: 8px; box-shadow: var(
   font-weight: bold;
 }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -139,22 +139,22 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
         <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-          無料オンラインツール集「はるツール」
+          HaruTools Lab | Free Online Tool Collection
         </a>
     </div>
-    <h1>動画をGIFに変換</h1>
-    <p class="tagline">お手持ちの動画から、SNSやブログに便利なGIFを作成できます</p>
+    <h1>Video to GIF Converter</h1>
+    <p class="tagline">Easily create GIFs from your videos for social media, blogs, and more.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <main class="main-card">
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">変換したい動画をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop video to convert</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select File</button>
       <input type="file" id="file-input" accept="video/*" style="display:none;">
     </div>
 
@@ -162,80 +162,79 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
       <video id="video-preview" controls></video>
       
       <div class="settings-box">
-        <label>幅（px）※未入力なら元のサイズを維持</label>
-        <input type="number" id="width-input" placeholder="例：400">
+        <label>Width (px) *Leave blank to keep original size</label>
+        <input type="number" id="width-input" placeholder="e.g., 400">
 
-        <label>フレーム数（多いほど滑らかですが、ファイルが重くなります）</label>
+        <label>Frame Count (Higher is smoother, but increases file size)</label>
         <input type="number" id="frames-input" value="20">
       </div>
 
-      <button class="btn-run" onclick="run()">GIFを作成する</button>
+      <button class="btn-run" onclick="run()">Create GIF</button>
       <div id="status-msg" style="margin-top:15px; font-weight:bold; color:var(--primary);"></div>
       
       <div id="result-area"></div>
 
       <div style="margin-top:20px;">
-        <button onclick="location.reload()" style="background:#f0f0f0; color:#666; border:none; padding:8px 20px; border-radius:8px; cursor:pointer;">別の動画を選ぶ</button>
+        <button onclick="location.reload()" style="background:#f0f0f0; color:#666; border:none; padding:8px 20px; border-radius:8px; cursor:pointer;">Select another video</button>
       </div>
     </div>
   </main>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <article class="info-section">
-    <h2>動画をGIFに変換するメリット</h2>
-    <p>GIF（ジフ）は、複数の画像を連続して表示することでアニメーションを表現できる画像形式です。再生ボタンを押さなくても自動でループ再生されるため、SNSやブログで目を引きやすく、マニュアル動画などにも適しています。</p>
+    <h2>Why Convert Video to GIF?</h2>
+    <p>GIF is an image format that creates animation by displaying multiple images in sequence. Since they loop automatically without needing to press play, they are highly engaging for social media, blogs, and instructional guides.</p>
 
     <ul>
-      <li><strong>自動再生：</strong> 動画と違い、読み込まれた瞬間に再生が始まります。</li>
-      <li><strong>互換性：</strong> ほとんどの環境やブラウザ、SNSアプリでそのまま表示可能です。</li>
-      <li><strong>手軽な共有：</strong> 動画ファイルよりブログや掲示板に貼りやすいのが特徴です。</li>
+      <li><strong>Autoplay:</strong> Unlike video files, GIFs start playing immediately upon loading.</li>
+      <li><strong>Compatibility:</strong> GIFs work across almost all browsers, email clients, and social media apps.</li>
+      <li><strong>Easy Sharing:</strong> It is often simpler to embed a GIF in a blog or forum than a raw video file.</li>
     </ul>
 
-    <h3>GIF作成のポイントと注意点</h3>
+    <h3>Tips for Great GIFs</h3>
     <ul>
-      <li><strong>ファイルサイズ：</strong> 長い動画をGIFにすると容量が非常に大きくなります。数秒の短い動画にするのがコツです。</li>
-      <li><strong>フレーム数：</strong> 滑らかにしたい場合は数値を上げますが、その分ファイルサイズが増加します。</li>
-      <li><strong>画質：</strong> GIFは最大256色のため、元の動画よりも少し質感が落ちる場合があります。</li>
+      <li><strong>File Size:</strong> Converting long videos to GIF results in very large files. It’s best to keep your GIFs short (a few seconds).</li>
+      <li><strong>Frame Rate:</strong> Increase the frame count for smoother motion, but keep an eye on the increasing file size.</li>
+      <li><strong>Quality:</strong> GIFs are limited to 256 colors, so there may be a slight loss in visual fidelity compared to the original video.</li>
     </ul>
 
-    <h2>使い方の手順</h2>
+    <h2>How to Use</h2>
     <ol>
-      <li>上のエリアに動画をドラッグ＆ドロップ、または選択して読み込みます。</li>
-      <li>ビデオプレイヤーが表示されるので、必要に応じて「幅」や「フレーム数」を入力します。</li>
-      <li>「GIFを作成する」ボタンを押します。処理には数秒〜数十秒かかります。</li>
-      <li>完了するとダウンロードボタンが表示されます。</li>
+      <li>Drag and drop your video into the area above or use the "Select File" button.</li>
+      <li>Adjust the "Width" and "Frame Count" in the settings box if needed.</li>
+      <li>Click "Create GIF." Processing may take a few seconds to a minute depending on the settings.</li>
+      <li>Once finished, click the download button to save your GIF.</li>
     </ol>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. 料金はかかりますか？</span>
-      <p>A. いいえ、当サイトのツールはすべて無料で提供しております。</p>
+      <span class="faq-q">Q. Is there any fee?</span>
+      <p>A. No, all tools on this site are provided completely free of charge.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. プライバシーは安全ですか？</span>
-      <p>A. はい。動画データはサーバーに送信されず、すべてお客様のブラウザ内で処理されます。外部にデータが漏れることはありません。</p>
+      <span class="faq-q">Q. Is my privacy safe?</span>
+      <p>A. Yes. Your video data is never sent to our servers; all processing happens locally within your browser. Your data remains private.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 音声は入りますか？</span>
-      <p>A. いいえ。GIF形式は画像データのため、音声を含めることはできません。無声のアニメーションになります。</p>
+      <span class="faq-q">Q. Does it include audio?</span>
+      <p>A. No. The GIF format is an image-based format and cannot contain audio. The output will be a silent animation.</p>
     </div>
-    <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="heic-to-png.html">HEICをPNGに変換</a></li>
-      <li><a href="png-to-jpg.html">PNGをJPGに変換</a></li>
+      <li><a href="heic-to-png.html">Convert HEIC to PNG</a></li>
+      <li><a href="png-to-jpg.html">Convert PNG to JPG</a></li>
     </ul>
   </article>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="terms.html" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -248,7 +247,7 @@ const statusMsg = document.getElementById('status-msg');
 
 let currentVideoFile = null;
 
-// ドラッグ&ドロップイベント
+// Drag & Drop events
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
   dropArea.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); }, false);
 });
@@ -272,14 +271,14 @@ function handleFiles(files) {
     dropArea.style.display = 'none';
     previewZone.style.display = 'block';
   } else {
-    alert('動画ファイルを選択してください。');
+    alert('Please select a valid video file.');
   }
 }
 
 function run() {
   if (!currentVideoFile) return;
 
-  statusMsg.innerHTML = "GIFを作成中... (ブラウザを閉じないでください)";
+  statusMsg.innerHTML = "Creating GIF... (Please do not close this browser tab)";
   resultArea.innerHTML = "";
 
   const widthInput = document.getElementById("width-input").value;
@@ -296,7 +295,7 @@ function run() {
   canvas.width = targetWidth;
   canvas.height = targetHeight;
 
-  // gif.js設定
+  // gif.js configuration
   const gif = new GIF({
     workers: 2,
     quality: 10,
@@ -306,13 +305,13 @@ function run() {
   });
 
   let captured = 0;
-  // 動画をリセットしてキャプチャ開始
+  // Reset video and start capture
   videoPreview.pause();
   videoPreview.currentTime = 0;
 
   function capture() {
     if (captured >= frameCount) {
-      statusMsg.innerHTML = "レンダリング中...";
+      statusMsg.innerHTML = "Rendering...";
       gif.render();
       return;
     }
@@ -321,14 +320,14 @@ function run() {
     gif.addFrame(ctx, {copy: true, delay: 150});
 
     captured++;
-    // 少しずつ時間を進める
+    // Advance video time
     videoPreview.currentTime += 0.15;
 
-    // 動画のデコード待ち時間を考慮してsetTimeout
+    // Timeout to allow for video decoding
     setTimeout(capture, 150);
   }
 
-  // 動画のメタデータ読み込み後に実行
+  // Run after video metadata is loaded
   if (videoPreview.readyState >= 2) {
     capture();
   } else {
@@ -337,13 +336,13 @@ function run() {
 
   gif.on("finished", blob => {
     const url = URL.createObjectURL(blob);
-    statusMsg.innerHTML = "完成しました！";
+    statusMsg.innerHTML = "Conversion Complete!";
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "haru_tool_output.gif";
+    a.download = "HaruTools Lab_output.gif";
     a.className = "download-link";
-    a.textContent = "GIFをダウンロードする";
+    a.textContent = "Download GIF";
 
     resultArea.appendChild(a);
   });
