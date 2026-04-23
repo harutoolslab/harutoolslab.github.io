@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
   <meta name="google-adsense-account" content="ca-pub-2295804002960949">
 
-<!-- ★SEO設定 -->
-<title>画像モザイク・ぼかし加工ツール｜無料・登録不要で簡単にプライバシー保護</title>
-<meta name="description" content="画像にモザイクやぼかしを入れられる無料オンラインツールです。スライダーで強さを自由に調整可能。ブラウザ内で処理するため、画像がサーバーに送信されず安全です。複数画像の一括処理にも対応。">
+<title>Mosaic & Blur Tool | Free Online Privacy Protection - HaruTools Lab</title>
+<meta name="description" content="Free online tool to add mosaic or blur effects to your images. Adjust intensity with a slider. Safe processing within your browser—images are never sent to a server. Supports batch processing.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -25,7 +24,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -33,7 +32,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -42,12 +41,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Card */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -57,7 +56,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drag & Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 50px 20px;
@@ -83,7 +82,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-top: 15px;
 }
 
-/* プレビュー＆操作エリア */
+/* Preview & Controls */
 #preview-zone { display: none; margin-top: 20px; }
 .preview-item {
   margin-bottom: 20px;
@@ -138,7 +137,7 @@ input[type="range"] { width: 200px; cursor: pointer; }
   margin: 5px;
 }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -154,103 +153,96 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Tool Collection
     </a>
   </div>
-    <h1>モザイク・ぼかし加工ツール</h1>
-    <p class="tagline">ブラウザ上で簡単にプライバシー保護。複数画像も一括処理。</p>
+    <h1>Mosaic & Blur Tool</h1>
+    <p class="tagline">Protect your privacy easily in your browser. Batch processing supported.</p>
   </header>
 
-  <!-- 広告枠：上部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <main class="main-card">
-    <!-- 画像入力エリア -->
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">ここに画像をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Images Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select Files</button>
       <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
     </div>
 
-    <!-- プレビュー＆操作エリア -->
     <div id="preview-zone">
       <div class="controls">
         <div class="slider-container">
-          <label for="mosaic-size" style="font-weight:bold;">加工の強さ</label>
+          <label for="mosaic-size" style="font-weight:bold;">Intensity</label>
           <input type="range" id="mosaic-size" min="2" max="60" value="15">
           <span id="mosaic-value" style="width:30px; font-weight:bold;">15</span>
         </div>
-        <button class="btn-run" onclick="run()">実行する</button>
-        <button class="btn-download" onclick="downloadAll()">一括保存</button>
+        <button class="btn-run" onclick="run()">Apply Effect</button>
+        <button class="btn-download" onclick="downloadAll()">Download All</button>
       </div>
 
       <div id="preview-container"></div>
       
       <div style="margin-top:20px;">
-        <button onclick="location.reload()" style="background:#666; color:white; border:none; padding:8px 20px; border-radius:50px; cursor:pointer;">別の画像を選ぶ</button>
+        <button onclick="location.reload()" style="background:#666; color:white; border:none; padding:8px 20px; border-radius:50px; cursor:pointer;">Choose Different Images</button>
       </div>
       <div id="result-status" style="margin-top: 15px; font-weight: bold; color: var(--success);"></div>
     </div>
   </main>
 
-  <!-- 広告枠：中部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
-  <!-- SEOコンテンツ -->
   <article class="info-section">
-    <h2>モザイク・ぼかし加工ツールとは？</h2>
-    <p>このツールは、写真に含まれる顔や車のナンバープレート、住所などの個人情報を隠すために、簡単に「モザイク」や「ぼかし」をかけられる無料のオンラインツールです。インストール不要で、スマホやPCのブラウザからすぐにご利用いただけます。</p>
+    <h2>What is the Mosaic & Blur Tool?</h2>
+    <p>This tool is a free online utility designed to hide sensitive information in photos, such as faces, license plates, or addresses. You can easily apply "mosaic" or "blur" effects to protect your privacy. No installation is required; it works instantly in your PC or smartphone browser.</p>
 
-    <h3>このツールの特徴</h3>
+    <h3>Key Features</h3>
     <ul>
-      <li><strong>プライバシー安全設計：</strong> 画像はサーバーにアップロードされません。すべての処理はお手元のデバイス（ブラウザ）内で行われるため、機密情報が含まれる画像でも安心して加工できます。</li>
-      <li><strong>強さの調整が可能：</strong> スライダーを動かすだけで、うっすらとしたぼかしから、中身が判別できない強力なモザイクまで自由に調整できます。</li>
-      <li><strong>複数枚同時処理：</strong> 大量の写真があっても、一括で読み込み・変換・保存が可能です。</li>
+      <li><strong>Privacy-First Design:</strong> Images are never uploaded to a server. All processing happens locally on your device (browser), making it safe even for confidential information.</li>
+      <li><strong>Adjustable Intensity:</strong> Use the slider to control the effect, ranging from a light blur to a heavy mosaic where content is completely unrecognizable.</li>
+      <li><strong>Batch Processing:</strong> Upload, convert, and save multiple photos simultaneously to save time.</li>
     </ul>
 
-    <h2>使い方の手順</h2>
+    <h2>How to Use</h2>
     <ol>
-      <li>上のエリアに加工したい画像をドラッグ＆ドロップするか、「ファイルを選択」ボタンで画像を選びます。</li>
-      <li>「加工の強さ」スライダーを調整します。数字が大きいほどモザイクが粗くなります。</li>
-      <li>「実行する」ボタンをクリックして加工を適用します。</li>
-      <li>「一括保存」ボタンまたは各画像をクリックして加工済みの画像を保存します。</li>
+      <li>Drag and drop images into the area above or click "Select Files" to choose photos.</li>
+      <li>Adjust the "Intensity" slider. Higher numbers result in a coarser mosaic effect.</li>
+      <li>Click the "Apply Effect" button to process the images.</li>
+      <li>Click "Download All" or individual images to save the edited files.</li>
     </ol>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. 料金はかかりますか？</span>
-      <p>A. いいえ、すべての機能を無料でご利用いただけます。</p>
+      <span class="faq-q">Q. Is there any fee?</span>
+      <p>A. No, all features are completely free to use.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. アップロードした画像がサーバーに保存されることはありますど？</span>
-      <p>A. ありません。本ツールは「クライアントサイド（ブラウザ内）」で完結する仕組みを採用しており、データが外部へ送信されることはありません。</p>
+      <span class="faq-q">Q. Are my uploaded images saved on the server?</span>
+      <p>A. No. This tool works entirely "client-side" within your browser. Your data is never transmitted externally.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. モザイクとぼかしの違いは何ですか？</span>
-      <p>A. 本ツールでは、画素をブロック状に平均化する手法をとっています。強さを弱くすると自然な「ぼかし」に、強くするとデジタルな「モザイク」のような見た目になります。</p>
+      <span class="faq-q">Q. What is the difference between mosaic and blur?</span>
+      <p>A. This tool uses a pixel-averaging method. Lower settings create a natural "blur" look, while higher settings produce a digital "mosaic" appearance.</p>
     </div>
-      <h3>関連ツール</h3>
+      <h3>Related Tools</h3>
     <ul>
-      <li><a href="image-cropper-rounded.html">丸抜き・角丸カット</a></li>
-      <li><a href="square-image-maker.html">多機能正方形メーカー</a></li>
-      <li><a href="brightness-contrast.html">画像の明るさ・コントラスト調整</a></li>
-      <li><a href="mosaic-blur.html">モザイク・ぼかし加工ツール</a></li>
+      <li><a href="image-cropper-rounded.html">Circle & Rounded Crop</a></li>
+      <li><a href="square-image-maker.html">Square Image Maker</a></li>
+      <li><a href="brightness-contrast.html">Brightness & Contrast Adjustment</a></li>
+      <li><a href="mosaic-blur.html">Mosaic & Blur Tool</a></li>
     </ul>
   </article>
 
-  <!-- 広告枠：下部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 あなたのサイト名 | <a href="#" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -265,12 +257,12 @@ const resultStatus = document.getElementById('result-status');
 let files = [];
 let originalImages = [];
 
-// スライダーの値表示
+// Slider value display
 mosaicSlider.addEventListener('input', () => {
   mosaicValue.textContent = mosaicSlider.value;
 });
 
-// ドラッグ&ドロップの処理
+// Drag & Drop Handling
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
   dropArea.addEventListener(eventName, e => {
     e.preventDefault();
@@ -322,7 +314,7 @@ function handleFiles(selectedFiles) {
 
 function run() {
   if (originalImages.length === 0) return;
-  resultStatus.textContent = "処理中...";
+  resultStatus.textContent = "Processing...";
   
   setTimeout(() => {
     const size = parseInt(mosaicSlider.value);
@@ -339,7 +331,7 @@ function run() {
       
       const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-      // モザイク処理ロジック
+      // Mosaic Processing Logic
       for (let y = 0; y < canvas.height; y += size) {
         for (let x = 0; x < canvas.width; x += size) {
           let r = 0, g = 0, b = 0, a = 0, count = 0;
@@ -374,7 +366,7 @@ function run() {
       ctx.putImageData(imgData, 0, 0);
       imgElement.src = canvas.toDataURL("image/png");
     });
-    resultStatus.textContent = "加工が完了しました！";
+    resultStatus.textContent = "Processing complete!";
   }, 100);
 }
 
