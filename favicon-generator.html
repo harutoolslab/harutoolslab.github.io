@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<!-- ★SEO設定 -->
-<title>ファビコン生成｜画像(PNG/JPG)をマルチアイコンICO形式に変換「はるツール」</title>
-<meta name="description" content="画像ファイルをWebサイト用のファビコン(favicon.ico)に一括変換。16pxから128pxまで複数のサイズを1つのICOファイルに集約できます。ブラウザ内処理なので安全・高画質。">
+<title>Favicon Generator | Convert PNG/JPG to Multi-size ICO - HaruTools Lab</title>
+<meta name="description" content="Convert your image files to favicon.ico for websites. Create a single ICO file containing multiple sizes from 16px to 128px. Safe, high-quality, and browser-based processing.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +40,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Tool Area */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -56,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drag & Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 50px 20px;
@@ -84,7 +83,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-top: 15px;
 }
 
-/* ツール操作エリア */
+/* Tool Operation Area */
 #preview-zone { display: none; margin-top: 30px; }
 
 .tool-box {
@@ -119,7 +118,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .btn-run:disabled { background: #ccc; cursor: not-allowed; box-shadow: none; }
 
-/* プレビュー表示 */
+/* Preview Display */
 .preview-container {
   display: flex;
   flex-wrap: wrap;
@@ -136,10 +135,10 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .preview-item span { display: block; font-size: 11px; margin-top: 5px; color: var(--text-sub); }
 
-/* ステータス表示 */
+/* Status Display */
 #status { margin-top: 15px; font-weight: bold; color: var(--primary); min-height: 1.6em; }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -157,28 +156,25 @@ canvas { display: none; }
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      Free Online Utilities "HaruTools Lab"
     </a>
   </div>
-    <h1>ファビコン生成</h1>
-    <p class="tagline">PNG/JPG画像を、マルチサイズ対応のfavicon.icoに変換します。</p>
+    <h1>Favicon Generator</h1>
+    <p class="tagline">Convert PNG/JPG images to multi-size compatible favicon.ico files.</p>
   </header>
 
-  <!-- 広告枠：上部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <main class="main-card">
-    <!-- 画像入力エリア -->
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">画像をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('upload').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Image Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('upload').click()">Select File</button>
       <input type="file" id="upload" accept="image/png,image/jpeg" style="display:none;">
     </div>
 
-    <!-- プレビュー＆操作エリア -->
     <div id="preview-zone">
       <div class="preview-container">
         <div class="preview-item" id="item-128"><img id="p128" width="64" height="64"><span>128px</span></div>
@@ -189,83 +185,78 @@ canvas { display: none; }
 
       <div class="tool-box">
         <div class="size-options">
-          <strong>含めるサイズ：</strong><br>
+          <strong>Include Sizes:</strong><br>
           <label><input type="checkbox" class="size-check" value="16" checked> 16x16</label>
           <label><input type="checkbox" class="size-check" value="32" checked> 32x32</label>
           <label><input type="checkbox" class="size-check" value="48" checked> 48x48</label>
           <label><input type="checkbox" class="size-check" value="64"> 64x64</label>
           <label><input type="checkbox" class="size-check" value="128"> 128x128</label>
         </div>
-        <button id="dl-btn" class="btn-run" onclick="generateIco()" disabled>favicon.ico を作成して保存</button>
+        <button id="dl-btn" class="btn-run" onclick="generateIco()" disabled>Create & Save favicon.ico</button>
         <div id="status"></div>
       </div>
 
       <div style="margin-top:20px;">
-        <button onclick="location.reload()" style="background:none; color:var(--text-sub); border:none; text-decoration:underline; cursor:pointer;">別の画像を選ぶ</button>
+        <button onclick="location.reload()" style="background:none; color:var(--text-sub); border:none; text-decoration:underline; cursor:pointer;">Choose another image</button>
       </div>
     </div>
   </main>
 
-  <!-- 広告枠：中部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <!-- SEOコンテンツ -->
   <article class="info-section">
-    <h2>ファビコン生成（favicon.ico変換）とは？</h2>
+    <h2>What is the Favicon Generator?</h2>
     <p>
-      当ツールは、お手持ちの画像（PNGやJPG）をWebサイトのアイコンとして使われる「favicon.ico」形式に変換するオンラインツールです。
-      単一の画像ではなく、複数の解像度を1つのファイルに集約する**マルチアイコン形式**を作成できるのが特徴です。
+      This tool is an online utility that converts your images (PNG or JPG) into the "favicon.ico" format used for website icons. 
+      Its key feature is the ability to create a **multi-icon format**, which bundles multiple resolutions into a single file.
     </p>
 
-    <h3>このツールのメリット</h3>
+    <h3>Benefits of This Tool</h3>
     <ul>
-      <li><strong>マルチサイズ対応：</strong> ブラウザのタブ用（16px）やデスクトップ用（32px以上）など、最適なサイズを自動で出し分けられるICOファイルを生成します。</li>
-      <li><strong>完全無料・登録不要：</strong> すべての機能を無料でご利用いただけます。</li>
-      <li><strong>プライバシー保護：</strong> 画像処理はブラウザ内（JavaScript）で完結。サーバーへ画像が送信されることはありません。</li>
+      <li><strong>Multi-size Support:</strong> Generates an ICO file that automatically provides the best resolution for different environments, such as browser tabs (16px) or desktop shortcuts (32px+).</li>
+      <li><strong>Completely Free & No Signup:</strong> Access all features for free with no account required.</li>
+      <li><strong>Privacy Protection:</strong> All image processing is done locally in your browser (JavaScript). Your images are never sent to a server.</li>
     </ul>
 
-    <h2>使い方の手順</h2>
+    <h2>How to Use</h2>
     <ol>
-      <li>ファビコンにしたい画像をアップロードします。正方形の画像が最適です。</li>
-      <li>icoファイルに含めたいサイズを選択します（16x16, 32x32, 48x48が一般的です）。</li>
-      <li>「作成して保存」ボタンを押し、ダウンロードされた `favicon.ico` をWebサイトに設定します。</li>
+      <li>Upload the image you want to use as a favicon. Square images work best.</li>
+      <li>Select the sizes you want to include in the .ico file (16x16, 32x32, and 48x48 are standard).</li>
+      <li>Click the "Create & Save" button and add the downloaded `favicon.ico` to your website's root directory.</li>
     </ol>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. なぜ複数のサイズを1つにまとめるのですか？</span>
-      <p>A. 表示場所（タブ、ショートカット、お気に入り一覧など）によって必要な解像度が異なるためです。マルチサイズICOにすることで、どの環境でも鮮明に表示されます。</p>
+      <span class="faq-q">Q. Why combine multiple sizes into one file?</span>
+      <p>A. Because different locations (tabs, shortcuts, bookmarks, etc.) require different resolutions. Using a multi-size ICO ensures your icon looks sharp in every environment.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 透過画像（背景なし）は維持されますか？</span>
-      <p>A. はい。背景が透過されたPNG画像を元にすれば、透過を維持したままICO形式に変換可能です。</p>
+      <span class="faq-q">Q. Is transparency maintained?</span>
+      <p>A. Yes. If you use a PNG with a transparent background as your source, the transparency will be preserved in the ICO format.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 推奨される元画像のサイズは？</span>
-      <p>A. 256x256ピクセル以上の、正方形のPNG画像が最も綺麗に仕上がります。</p>
+      <span class="faq-q">Q. What is the recommended source image size?</span>
+      <p>A. A square PNG image of 256x256 pixels or larger will yield the cleanest results.</p>
     </div>
-     <h3>関連ツール</h3>
+     <h3>Related Tools</h3>
     <ul>
-      <li><a href="qr-generator.html">QRコード作成ツール</a></li>
-      <li><a href="remove-exif.html">Exif情報削除ツール</a></li>
-      <li><a href="image-compress.html">画像圧縮ツール</a></li>
-      <li><a href="png-to-jpg.html">PNGをJPGに変換</a></li>
+      <li><a href="qr-generator.html">QR Code Generator</a></li>
+      <li><a href="remove-exif.html">Exif Data Remover</a></li>
+      <li><a href="image-compress.html">Image Compressor</a></li>
+      <li><a href="png-to-jpg.html">PNG to JPG Converter</a></li>
     </ul>
   </article>
 
-  <!-- 広告枠：下部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="privacy.html" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
-<!-- 動的生成用キャンバス保持 -->
 <div id="canvas-store"></div>
 
 <script>
@@ -276,7 +267,7 @@ const dlBtn = document.getElementById('dl-btn');
 const status = document.getElementById('status');
 const allSizes = [16, 32, 48, 64, 128];
 
-// ドラッグ＆ドロップイベント
+// Drag & Drop events
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
   dropArea.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); }, false);
 });
@@ -299,7 +290,7 @@ upload.addEventListener('change', function() {
 function handleFiles(files) {
   const file = files[0];
   if (!file || !file.type.startsWith('image/')) {
-    alert('画像ファイルを選択してください。');
+    alert('Please select an image file.');
     return;
   }
 
@@ -314,7 +305,7 @@ function handleFiles(files) {
         const cvs = document.createElement('canvas');
         cvs.id = `c${s}`; cvs.width = s; cvs.height = s;
         const ctx = cvs.getContext('2d');
-        // アスペクト比を維持せず正方形にリサイズ（ファビコンの標準動作）
+        // Resize to square (Standard favicon behavior)
         ctx.drawImage(img, 0, 0, s, s);
         canvasStore.appendChild(cvs);
 
@@ -328,7 +319,7 @@ function handleFiles(files) {
       dropArea.style.display = 'none';
       previewZone.style.display = 'block';
       dlBtn.disabled = false;
-      status.innerText = "画像を読み込みました。";
+      status.innerText = "Image loaded successfully.";
     };
     img.src = event.target.result;
   };
@@ -339,13 +330,13 @@ async function generateIco() {
   const selectedSizes = Array.from(document.querySelectorAll('.size-check:checked')).map(cb => parseInt(cb.value));
   
   if (selectedSizes.length === 0) {
-    alert("サイズを1つ以上選択してください");
+    alert("Please select at least one size.");
     return;
   }
 
-  status.innerText = "ICOファイルを生成中...";
+  status.innerText = "Generating ICO file...";
 
-  // ICOヘッダー: 0, 0, 1, 0, (画像数), 0
+  // ICO header: 0, 0, 1, 0, (Count), 0
   const header = new Uint8Array([0, 0, 1, 0, selectedSizes.length, 0]);
   let offset = 6 + selectedSizes.length * 16;
   const entries = [];
@@ -355,11 +346,11 @@ async function generateIco() {
     const canvas = document.getElementById(`c${s}`);
     if (!canvas) continue;
     
-    // PNGとして出力
+    // Output as PNG
     const blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
     const bytes = new Uint8Array(await blob.arrayBuffer());
     
-    // ディレクトリエントリ (16 bytes)
+    // Directory entry (16 bytes)
     const entry = new Uint8Array(16);
     entry[0] = s >= 256 ? 0 : s; // Width
     entry[1] = s >= 256 ? 0 : s; // Height
@@ -391,7 +382,7 @@ async function generateIco() {
   a.href = URL.createObjectURL(new Blob([final], {type: 'image/x-icon'}));
   a.download = 'favicon.ico';
   a.click();
-  status.innerText = "保存が完了しました！";
+  status.innerText = "Saved successfully!";
 }
 </script>
 
