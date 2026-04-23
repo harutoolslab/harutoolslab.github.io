@@ -1,16 +1,14 @@
-
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
   <meta name="google-adsense-account" content="ca-pub-2295804002960949">
   
 
-<!-- ★SEO設定：はるツール 明るさ・コントラスト調整用 -->
-<title>画像の明るさ・コントラスト調整｜無料・オンライン一括編集「はるツール」</title>
-<meta name="description" content="画像の明るさとコントラストをオンラインで簡単に調整できる無料ツールです。暗い写真を明るくしたり、ぼんやりした写真にメリハリをつけたりできます。複数画像の一括処理に対応、ブラウザ完結で安全です。">
+<title>Adjust Image Brightness & Contrast | Free Online Batch Editor - HaruTools Lab</title>
+<meta name="description" content="Free online tool to easily adjust image brightness and contrast. Brighten dark photos or enhance clarity in seconds. Supports batch processing for multiple images. Secure and browser-based.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -27,7 +25,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -35,7 +33,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -44,12 +42,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Card */
 .main-card {
   background: var(--card-bg);
   padding: 30px 20px;
@@ -59,7 +57,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* アップロードエリア */
+/* Upload Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 30px 20px;
@@ -70,7 +68,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 #drop-area:hover { background: rgba(0, 123, 255, 0.05); }
 
-/* コントロールパネル */
+/* Controls Panel */
 .controls-panel {
   background: #f8f9fa;
   padding: 20px;
@@ -97,7 +95,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .btn-download:disabled { background: #ccc; cursor: not-allowed; }
 
-/* プレビューエリア */
+/* Preview Area */
 #preview-container { 
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
@@ -110,7 +108,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .preview-item img { max-width: 100%; border-radius: 4px; display: block; margin: 10px auto 0; }
 .file-name { font-size: 0.75rem; color: var(--text-sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-/* 解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 
@@ -123,80 +121,79 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+       Free Online Utilities "HaruTools Lab"
     </a>
   </div>
-    <h1>画像の明るさ・コントラスト調整</h1>
-    <p class="tagline">スライダーを動かすだけで、写真の明るさとメリハリを補正します。</p>
+    <h1>Adjust Image Brightness & Contrast</h1>
+    <p class="tagline">Simply move the sliders to correct the brightness and clarity of your photos.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <main class="main-card">
     <div id="drop-area" onclick="document.getElementById('file-input').click()">
-      <div style="font-size: 1.1rem; font-weight: bold;">画像をドラッグ＆ドロップ、またはクリック</div>
+      <div style="font-size: 1.1rem; font-weight: bold;">Drag & drop images here, or click to upload</div>
       <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
     </div>
 
     <div class="controls-panel">
       <div class="slider-group">
-        <label>明るさ</label>
+        <label>Brightness</label>
         <input type="range" id="brightness" min="-100" max="100" value="0">
         <span class="value-badge" id="b-val">0</span>
       </div>
       <div class="slider-group">
-        <label>コントラスト</label>
+        <label>Contrast</label>
         <input type="range" id="contrast" min="-100" max="100" value="0">
         <span class="value-badge" id="c-val">0</span>
       </div>
-      <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">※調整はプレビューにリアルタイム反映されます。</p>
+      <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">*Adjustments are reflected in the preview in real-time.</p>
     </div>
 
-    <button class="btn-download" id="dl-btn" onclick="downloadAll()" disabled>画像を保存する</button>
+    <button class="btn-download" id="dl-btn" onclick="downloadAll()" disabled>Download Images</button>
 
     <div id="preview-container"></div>
   </main>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <article class="info-section">
-    <h2>明るさ・コントラスト調整ツールの特徴</h2>
+    <h2>Features of the Brightness & Contrast Tool</h2>
     <p>
-      逆光で暗くなってしまった写真や、色がくすんで見える画像を数秒で補正できるツールです。
-      専用のソフトを起動することなく、ブラウザ上で直感的に編集が完了します。
+      This tool allows you to correct photos that have become dark due to backlighting or images that appear dull in seconds. 
+      You can complete your edits intuitively on your browser without launching dedicated software.
     </p>
 
-    <h3>調整のコツ</h3>
+    <h3>Adjustment Tips</h3>
     <ul>
-      <li><strong>明るさ（Brightness）：</strong> 写真全体を明るく、または暗くします。露出不足の写真を救済するのに役立ちます。</li>
-      <li><strong>コントラスト（Contrast）：</strong> 明るい部分と暗い部分の差を強調します。値を上げると色がハッキリし、下げると柔らかな印象になります。</li>
+      <li><strong>Brightness:</strong> Makes the entire photo lighter or darker. Useful for rescuing underexposed photos.</li>
+      <li><strong>Contrast:</strong> Emphasizes the difference between light and dark areas. Increasing the value makes colors sharper, while decreasing it creates a softer impression.</li>
     </ul>
 
-    <h2>よくある質問</h2>
+    <h2>Frequently Asked Questions</h2>
     <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
-      <strong style="color: var(--primary);">Q. 編集後の画質は劣化しますか？</strong>
-      <p>A. プレビューおよび保存にはブラウザの描画機能（Canvas）を使用します。保存時は高品質なPNG形式で出力されるため、編集による目立った劣化を抑えています。</p>
+      <strong style="color: var(--primary);">Q. Does the image quality degrade after editing?</strong>
+      <p>A. We use browser rendering (Canvas) for previewing and saving. Images are exported in high-quality PNG format, minimizing noticeable degradation from editing.</p>
     </div>
     <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
-      <strong style="color: var(--primary);">Q. 一括で同じ設定を適用できますか？</strong>
-      <p>A. はい。複数の画像をアップロードすると、スライダーの設定がすべての画像に対して同時に適用されます。同じライティングで撮った複数の写真をまとめて補正する際に便利です。</p>
+      <strong style="color: var(--primary);">Q. Can I apply the same settings to multiple images at once?</strong>
+      <p>A. Yes. When you upload multiple images, the slider settings are applied to all images simultaneously. This is convenient for correcting multiple photos taken under the same lighting.</p>
     </div>
 
-    <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="image-compress.html">画像を圧縮する</a></li>
-      <li><a href="image-resize.html">画像サイズを変更する</a></li>
-      <li><a href="png-to-jpg.html">PNGをJPGに変換</a></li>
+      <li><a href="image-compress.html">Compress Images</a></li>
+      <li><a href="image-resize.html">Resize Image</a></li>
+      <li><a href="png-to-jpg.html">Convert PNG to JPG</a></li>
     </ul>
   </article>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="privacy.html" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -228,7 +225,7 @@ function handleFiles(files) {
       img.onload = () => {
         originalImages.push({ img, name: file.name });
         addPreviewItem(idx, file.name);
-        applyFilters(); // 初期表示にフィルター適用
+        applyFilters(); // Apply filters on initial load
       };
     };
     reader.readAsDataURL(file);
@@ -242,7 +239,7 @@ function addPreviewItem(idx, name) {
   previewContainer.appendChild(item);
 }
 
-// スライダーイベント
+// Slider events
 [bSlider, cSlider].forEach(slider => {
   slider.addEventListener('input', () => {
     bValLabel.textContent = bSlider.value;
@@ -295,7 +292,7 @@ function downloadAll() {
   });
 }
 
-// ドラッグ&ドロップ制御
+// Drag & Drop control
 const dropArea = document.getElementById('drop-area');
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(n => {
   dropArea.addEventListener(n, e => { e.preventDefault(); e.stopPropagation(); });
