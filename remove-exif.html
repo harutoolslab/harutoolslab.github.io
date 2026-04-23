@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<!-- ★SEO設定 -->
-<title>Exif情報削除ツール｜無料・オンラインで写真の位置情報を消去「はるツール」</title>
-<meta name="description" content="写真から位置情報（GPS）や撮影日時などのExifデータを完全に削除できる無料オンラインツールです。ブラウザ内処理なのでプライバシーも安心。一括削除・スマホ対応。">
+<title>Exif Data Remover | Remove GPS and Metadata from Photos Online - HaruTools Lab</title>
+<meta name="description" content="Free online tool to completely remove Exif data, including GPS location and date taken, from your photos. Secure browser-based processing ensures your privacy. Supports bulk removal and mobile.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +40,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Tool Area */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -56,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drag & Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 50px 20px;
@@ -82,7 +81,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-top: 15px;
 }
 
-/* プレビュー＆操作エリア */
+/* Preview & Action Area */
 #preview-zone { display: none; margin-top: 30px; }
 #preview-container {
   display: grid;
@@ -119,7 +118,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .btn-run:active { transform: scale(0.98); }
 
-/* 結果表示 */
+/* Results */
 #result-area { margin-top: 30px; display: none; text-align: left; background: #f0fff4; padding: 20px; border-radius: 12px; }
 .download-link {
   display: block;
@@ -136,7 +135,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .download-link:hover { background: var(--success); color: #fff; }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -152,86 +151,81 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Tool Collection
     </a>
   </div>
-    <h1>Exif情報削除ツール</h1>
-    <p class="tagline">写真から位置情報・撮影日時などのメタデータを一括で消去します。</p>
+    <h1>Exif Data Remover</h1>
+    <p class="tagline">Easily strip GPS, date, and metadata from your photos in bulk.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <main class="main-card">
-    <!-- 画像入力エリア -->
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">画像をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Images Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select Files</button>
       <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
     </div>
 
-    <!-- プレビュー＆操作エリア -->
     <div id="preview-zone">
       <div id="preview-container"></div>
       
       <div style="margin: 20px 0;">
-        <p style="font-size: 0.9rem; color: var(--text-sub);">「実行」ボタンを押すと、すべてのメタデータを除去した画像を生成します。</p>
-        <button class="btn-run" onclick="run()">消去を実行する</button>
+        <p style="font-size: 0.9rem; color: var(--text-sub);">Click the button below to generate images without metadata.</p>
+        <button class="btn-run" onclick="run()">Remove Metadata</button>
       </div>
 
       <div id="status" style="margin-top:15px; font-weight:bold; color:var(--primary);"></div>
       
       <div id="result-area">
-        <h3 style="margin-top:0; font-size:1.1rem; color:#2c7a7b;">✨ 削除完了！画像を保存してください</h3>
+        <h3 style="margin-top:0; font-size:1.1rem; color:#2c7a7b;">✨ Done! Please save your images</h3>
         <div id="download-list"></div>
-        <button onclick="location.reload()" style="margin-top:15px; background:none; border:none; color:#666; text-decoration:underline; cursor:pointer; font-size:0.8rem;">他の写真を処理する</button>
+        <button onclick="location.reload()" style="margin-top:15px; background:none; border:none; color:#666; text-decoration:underline; cursor:pointer; font-size:0.8rem;">Process more photos</button>
       </div>
     </div>
   </main>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <article class="info-section">
-    <h2>Exif情報削除の重要性</h2>
-    <p>スマートフォンやデジタルカメラで撮影した写真には、<strong>Exif（イグジフ）データ</strong>と呼ばれるメタデータが自動的に埋め込まれています。これには撮影した瞬間のGPS位置情報、日時、カメラの機種名、さらにはレンズの設定などが含まれます。</p>
+    <h2>Why Remove Exif Data?</h2>
+    <p>Photos taken with smartphones or digital cameras contain embedded metadata called <strong>Exif (Exchangeable Image File Format)</strong>. This data includes the exact GPS coordinates, the date and time of the shot, camera model, and lens settings.</p>
     
-    
+    <h3>Protect Your Privacy</h3>
+    <p>Uploading photos with embedded GPS data to social media, blogs, or marketplaces can <strong>leak your home address or daily routines to strangers</strong>. To protect your privacy, it is highly recommended to strip this information before sharing photos publicly.</p>
 
-    <h3>なぜ位置情報を消すべきか</h3>
-    <p>SNSやブログ、フリマアプリなどに位置情報が含まれたままの写真をアップロードすると、<strong>自宅の場所が特定されたり、生活圏内が他人に漏洩したりするリスク</strong>があります。プライバシーを守るためには、公開前にこれらの情報を完全に除去することが推奨されます。</p>
+    <h3>How This Tool Works</h3>
+    <p>Unlike standard Exif editors, our tool uses the browser's "Canvas" function. It reads only the raw color pixels of the image and redraws them as a new file. This process physically severs the link to the original metadata, ensuring <strong>100% reliable data removal</strong>.</p>
 
-    <h3>当ツールの仕組み</h3>
-    <p>一般的なExif削除ソフトとは異なり、当ツールはブラウザの「Canvas」機能を使用して、画像から純粋な色のデータ（ピクセル）のみを読み取り、新しい画像として描き直します。この過程で元のメタデータとの物理的な繋がりが完全に断たれるため、<strong>100%確実に情報を消去</strong>できます。</p>
-
-    <h2>このツールの特徴</h2>
+    <h2>Key Features</h2>
     <ul>
-      <li><strong>プライバシー保護：</strong> 画像処理はすべてあなたのブラウザ上で行われます。写真が当サイトのサーバーにアップロードされることは一切ありません。</li>
-      <li><strong>一括処理：</strong> 複数の写真を一度に選択して、まとめてExif情報を削除できます。</li>
-      <li><strong>高画質保存：</strong> 画質劣化を最小限に抑えるため、高品質なJPG形式で書き出しを行います。</li>
+      <li><strong>Privacy First:</strong> All processing is done locally in your browser. Your photos are never uploaded to our servers.</li>
+      <li><strong>Bulk Processing:</strong> Select and process multiple photos at once to save time.</li>
+      <li><strong>High Quality:</strong> Outputs images in high-quality JPG format to minimize visual degradation.</li>
     </ul>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. 削除されたことはどうやって確認できますか？</span>
-      <p>A. 保存した画像のプロパティ（詳細情報）を確認してください。「位置情報」や「カメラのモデル」などの項目がすべて空欄になっていれば成功です。</p>
+      <span class="faq-q">Q. How can I verify that the data is gone?</span>
+      <p>A. Check the properties or details of the saved image. If fields like "Location" or "Camera Model" are empty, the removal was successful.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. AndroidやiPhoneでも使えますか？</span>
-      <p>A. はい、ブラウザ上で動作するため、最新のスマホブラウザであればそのままご利用いただけます。</p>
+      <span class="faq-q">Q. Does it work on Android or iPhone?</span>
+      <p>A. Yes, since it runs in the browser, it is compatible with modern mobile browsers on both Android and iOS.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 写真の画質は落ちますか？</span>
-      <p>A. 描き直しの際にわずかな圧縮がかかりますが、通常のSNS投稿やWeb閲覧において、目視で違いがわかるレベルの劣化はほぼありません。</p>
+      <span class="faq-q">Q. Will the image quality decrease?</span>
+      <p>A. A slight compression occurs during the redrawing process, but for social media or web use, there is typically no noticeable difference in quality.</p>
     </div>
   </article>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="#" style="color:#999;">プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -245,7 +239,7 @@ const status = document.getElementById('status');
 
 let files = [];
 
-// ドラッグ&ドロップ処理
+// Drag & Drop Handling
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
   dropArea.addEventListener(eventName, e => {
     e.preventDefault();
@@ -291,7 +285,7 @@ function handleFiles(selectedFiles) {
 async function run() {
   if (files.length === 0) return;
   
-  status.textContent = "処理中...";
+  status.textContent = "Processing...";
   downloadList.innerHTML = "";
   resultArea.style.display = "none";
 
@@ -315,17 +309,17 @@ async function processImage(file) {
       canvas.width = img.width;
       canvas.height = img.height;
 
-      // Canvasに描画することでメタデータを物理的に遮断
+      // Physically sever metadata by drawing to Canvas
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-      // 高品質JPGで出力
+      // Output as high-quality JPG
       const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
       
       const link = document.createElement("a");
       link.href = dataUrl;
       link.className = "download-link";
       link.download = `cleaned_${file.name.split('.')[0]}.jpg`;
-      link.innerHTML = `⬇️ ${file.name} を保存`;
+      link.innerHTML = `⬇️ Save ${file.name}`;
       
       downloadList.appendChild(link);
       
