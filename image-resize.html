@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<!-- ★SEO設定：はるツール 画像リサイズ用 -->
-<title>画像リサイズ｜無料オンラインでサイズ変更・一括処理「はるツール」</title>
-<meta name="description" content="画像の幅・高さを指定して簡単にサイズ変更できる無料ツールです。PNG・JPGに対応。インストール不要でブラウザ上で安全にリサイズ。スマホ・PCどちらでも利用可能です。">
+<title>Image Resizer | Batch Resize Images Online for Free - HaruTools Lab</title>
+<meta name="description" content="A free online tool to easily resize images by specifying width and height. Supports PNG and JPG. Secure browser-side processing without installation. Works on mobile and PC.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +40,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Card */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -56,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drag & Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 40px 20px;
@@ -72,7 +71,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   border-radius: 50px; font-weight: bold; cursor: pointer; margin-top: 15px;
 }
 
-/* 設定エリア */
+/* Config Panel */
 .config-panel { margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 12px; }
 .input-group { margin: 10px; display: inline-block; text-align: left; }
 .input-group label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 5px; color: #555; }
@@ -85,7 +84,7 @@ input[type="number"] {
   border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 10px;
 }
 
-/* 結果エリア */
+/* Result Area */
 #result-zone { margin-top: 30px; text-align: left; }
 .result-item {
   background: white; padding: 10px 15px; border-radius: 8px; border: 1px solid #eee;
@@ -93,7 +92,7 @@ input[type="number"] {
 }
 .download-link { color: var(--primary); font-weight: bold; text-decoration: none; }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -109,88 +108,87 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
    <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Utility Collection
     </a>
   </div>
-    <h1>画像リサイズ</h1>
-    <p class="tagline">画像の幅（px）と高さ（px）を指定して、瞬時にサイズを変更します。</p>
+    <h1>Image Resizer</h1>
+    <p class="tagline">Specify the width (px) and height (px) to instantly resize your images.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <main class="main-card">
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">画像をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Images Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select Files</button>
       <input type="file" id="file-input" accept="image/png, image/jpeg" multiple style="display:none;">
     </div>
 
     <div class="config-panel">
       <div class="input-group">
-        <label>幅 (px)</label>
-        <input type="number" id="width" placeholder="例：800">
+        <label>Width (px)</label>
+        <input type="number" id="width" placeholder="e.g., 800">
       </div>
       <div class="input-group">
-        <label>高さ (px)</label>
-        <input type="number" id="height" placeholder="例：600">
+        <label>Height (px)</label>
+        <input type="number" id="height" placeholder="e.g., 600">
       </div>
       <br>
-      <button class="btn-run" onclick="run()">リサイズを実行する</button>
+      <button class="btn-run" onclick="run()">Run Resize</button>
     </div>
 
     <div id="result-zone"></div>
   </main>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <article class="info-section">
-    <h2>画像リサイズツールとは？</h2>
+    <h2>What is the Image Resizer?</h2>
     <p>
-      「はるツール」の画像リサイズツールは、お手持ちの画像を指定した解像度（ピクセル）に変換するための無料ツールです。
-      ブログのアイキャッチ画像のサイズ統一や、SNSの投稿規定に合わせたサイズ変更などに非常に便利です。
+      The Image Resizer by HaruTools Lab is a free tool designed to convert your images to a specific resolution (pixels). 
+      It is perfect for unifying sizes for blog thumbnails or adjusting images to meet social media requirements.
     </p>
 
-    <h3>このツールの特徴</h3>
+    <h3>Tool Features</h3>
     <ul>
-      <li><strong>インストール不要：</strong> ブラウザだけで完結するため、スマホからでもすぐに使えます。</li>
-      <li><strong>一括処理：</strong> 複数の画像を選択して、同じサイズに一気に変換できます。</li>
-      <li><strong>プライバシー保護：</strong> 画像はサーバーに送信されず、すべてブラウザ内で処理されるため安心です。</li>
+      <li><strong>No Installation Required:</strong> Works entirely in your browser, even on smartphones.</li>
+      <li><strong>Batch Processing:</strong> Select multiple images and convert them all to the same size at once.</li>
+      <li><strong>Privacy Protection:</strong> Images are never sent to a server; everything is processed locally on your device.</li>
     </ul>
 
-    <h2>使い方の手順</h2>
+    <h2>How to Use</h2>
     <ol>
-      <li>サイズを変更したい画像をエリア内にドラッグ、または選択します。</li>
-      <li>変更後の「幅」と「高さ」をピクセル単位で入力します。</li>
-      <li>「リサイズを実行する」ボタンをクリックします。</li>
-      <li>変換された画像の下にあるファイル名をクリックして保存します。</li>
+      <li>Drag and drop images into the area or click to select files.</li>
+      <li>Enter the desired "Width" and "Height" in pixels.</li>
+      <li>Click the "Run Resize" button.</li>
+      <li>Click the filename below the resized image preview to save it.</li>
     </ol>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. リサイズすると画質は落ちますか？</span>
-      <p>A. 画像を拡大する場合は画質が粗くなることがありますが、縮小する場合は高品質なリサイズ処理（キャンバス描画）を行っているため、劣化は最小限に抑えられます。</p>
+      <span class="faq-q">Q. Will resizing reduce image quality?</span>
+      <p>A. Upscaling images may result in some pixelation, but downscaling uses high-quality canvas rendering to keep quality loss to a minimum.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 透過PNGは維持されますか？</span>
-      <p>A. 本ツールはJPEG形式での出力を基本としているため、透明部分は白または黒に変換される場合があります。透過を維持したい場合は、専用の背景透過ツールをご利用ください。</p>
+      <span class="faq-q">Q. Is transparency in PNGs maintained?</span>
+      <p>A. This tool currently outputs images in JPEG format, so transparent areas may be converted to white or black. If you need to keep transparency, please use a dedicated background removal tool.</p>
     </div>
 
-    <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="image-compress.html">画像を圧縮する</a></li>
-      <li><a href="png-to-jpg.html">PNGをJPGに変換</a></li>
-      <li><a href="heic-to-png.html">HEICをPNGに変換</a></li>
+      <li><a href="image-compress.html">Image Compressor</a></li>
+      <li><a href="png-to-jpg.html">PNG to JPG Converter</a></li>
+      <li><a href="heic-to-png.html">HEIC to PNG Converter</a></li>
     </ul>
   </article>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="privacy.html" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -200,7 +198,7 @@ const resultZone = document.getElementById('result-zone');
 
 let selectedFiles = [];
 
-// イベント防止
+// Prevent default drag behaviors
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
   dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
 });
@@ -224,7 +222,7 @@ fileInput.addEventListener('change', function() {
 
 function updateStatus() {
   if (selectedFiles.length > 0) {
-    resultZone.innerHTML = `<p style="text-align:center; color:var(--primary); font-weight:bold;">${selectedFiles.length} 個のファイルが選択されています。サイズを入力して実行してください。</p>`;
+    resultZone.innerHTML = `<p style="text-align:center; color:var(--primary); font-weight:bold;">${selectedFiles.length} file(s) selected. Enter dimensions and run.</p>`;
   }
 }
 
@@ -232,13 +230,13 @@ function run() {
   const widthInput = document.getElementById("width").value;
   const heightInput = document.getElementById("height").value;
 
-  if (selectedFiles.length === 0) return alert("ファイルを選択してください");
-  if (!widthInput || !heightInput) return alert("幅と高さを入力してください");
+  if (selectedFiles.length === 0) return alert("Please select a file first.");
+  if (!widthInput || !heightInput) return alert("Please enter both width and height.");
 
   const width = parseInt(widthInput);
   const height = parseInt(heightInput);
 
-  resultZone.innerHTML = "<p style='text-align:center;'>リサイズ中...</p>";
+  resultZone.innerHTML = "<p style='text-align:center;'>Resizing...</p>";
 
   Array.from(selectedFiles).forEach(file => {
     const img = new Image();
@@ -260,19 +258,19 @@ function run() {
         item.className = "result-item";
         
         const nameLabel = document.createElement("span");
-        nameLabel.textContent = file.name + " → リサイズ完了";
+        nameLabel.textContent = file.name + " → Done";
         
         const link = document.createElement("a");
         link.href = downloadUrl;
         link.download = "resized_" + file.name;
-        link.textContent = "保存する";
+        link.textContent = "Save Image";
         link.className = "download-link";
 
         item.appendChild(nameLabel);
         item.appendChild(link);
         resultZone.appendChild(item);
         
-        // メモリ解放
+        // Cleanup memory
         URL.revokeObjectURL(url);
       }, "image/jpeg", 0.9);
     };
