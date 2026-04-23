@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
   <meta name="google-adsense-account" content="ca-pub-2295804002960949">
 
-<title>QRコード作成ツール｜無料・商用OK・登録不要でURLをQR化「はるツール」</title>
-<meta name="description" content="URLやテキストを即座にQRコードに変換できる無料オンラインツールです。色やサイズのカスタマイズ、高品質な画像保存が可能。商用利用無料で会員登録も不要です。">
+<title>QR Code Generator | Free, Commercial Use, No Registration - HaruTools Lab</title>
+<meta name="description" content="Free online tool to instantly convert URLs or text into QR codes. Customize colors and sizes with high-quality image downloads. No registration required and free for commercial use.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -26,7 +26,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -34,7 +34,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -43,12 +43,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Tool Main Area */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -83,7 +83,7 @@ input[type="text"]:focus {
   margin-bottom: 20px;
 }
 
-/* QR表示エリア */
+/* QR Display Area */
 #qr-display-area {
   margin: 30px 0;
   display: flex;
@@ -103,7 +103,7 @@ input[type="text"]:focus {
 #qrcode img { margin: 0 auto; max-width: 100%; height: auto; }
 
 .btn-download {
-  display: none; /* 生成されるまで非表示 */
+  display: none; 
   background: var(--success);
   color: white;
   border: none;
@@ -117,7 +117,7 @@ input[type="text"]:focus {
 }
 .btn-download:hover { transform: translateY(-2px); opacity: 0.9; }
 
-/* SEO解説セクション */
+/* SEO Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -137,97 +137,96 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Tool Collection
     </a>
   </div>
-    <h1>QRコード作成ツール</h1>
-    <p class="tagline">URLやテキストを入力するだけで、自分だけのQRコードを即座に作成。</p>
+    <h1>QR Code Generator</h1>
+    <p class="tagline">Instantly create your own QR code by entering a URL or text.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <main class="main-card">
     <div class="input-group">
-      <label for="text">QRコードにするURLまたはテキスト</label>
+      <label for="text">URL or Text for QR Code</label>
       <input type="text" id="text" placeholder="https://example.com" oninput="generateQR()">
     </div>
 
     <div class="settings-grid">
       <div class="input-group">
-        <label for="size">画像のサイズ</label>
+        <label for="size">Image Size</label>
         <select id="size" onchange="generateQR()">
-          <option value="128">小さい (128x128)</option>
-          <option value="256" selected>標準 (256x256)</option>
-          <option value="512">大きい (512x512)</option>
-          <option value="1024">特大 (1024x1024)</option>
+          <option value="128">Small (128x128)</option>
+          <option value="256" selected>Standard (256x256)</option>
+          <option value="512">Large (512x512)</option>
+          <option value="1024">Extra Large (1024x1024)</option>
         </select>
       </div>
       <div class="input-group">
-        <label for="colorDark">コードの色</label>
+        <label for="colorDark">Code Color</label>
         <input type="color" id="colorDark" value="#000000" style="width:100%; height:52px; padding:4px; cursor:pointer; border:2px solid #eee; border-radius:10px; box-sizing:border-box;" onchange="generateQR()">
       </div>
     </div>
 
     <div id="qr-display-area">
       <div id="qrcode"></div>
-      <p id="placeholder-text" style="color:#aaa; font-size:0.9rem;">URLを入力するとここにQRコードが表示されます</p>
+      <p id="placeholder-text" style="color:#aaa; font-size:0.9rem;">The QR code will appear here after you enter content</p>
     </div>
     
-    <button id="download-btn" class="btn-download" onclick="downloadQR()">作成した画像を保存する</button>
+    <button id="download-btn" class="btn-download" onclick="downloadQR()">Save QR Code Image</button>
   </main>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <article class="info-section">
-    <h2>QRコード作成ツールとは？</h2>
-    <p>「QRコード作成ツール」は、WebサイトのURLや任意のテキスト情報を読み取り可能なQRコード画像に変換できる無料のオンラインサービスです。チラシ、名刺、ポスター、SNSのプロフィール紹介など、幅広い用途で活用いただけます。</p>
+    <h2>What is the QR Code Generator?</h2>
+    <p>The "QR Code Generator" is a free online service that converts website URLs or any text information into readable QR code images. You can use these codes for flyers, business cards, posters, social media profiles, and more.</p>
 
-    <h3>このツールの特徴</h3>
+    <h3>Key Features</h3>
     <ul>
-      <li><strong>登録不要・完全無料：</strong> 会員登録やログインの手間なく、すべての機能を商用・個人問わず無料でご利用いただけます。</li>
-      <li><strong>プライバシー安全設計：</strong> 生成処理はすべてブラウザ上のJavaScriptで行われます。入力したデータがサーバーに送信されたり、ログとして保存されることはありません。</li>
-      <li><strong>柔軟なカスタマイズ：</strong> 用途に合わせてサイズ（128px〜1024px）や色を自由に変更可能です。</li>
+      <li><strong>No Registration Required:</strong> Use all features for free for both commercial and personal projects without logging in.</li>
+      <li><strong>Privacy First:</strong> The generation process happens entirely in your browser using JavaScript. Your data is never sent to a server or saved as a log.</li>
+      <li><strong>Flexible Customization:</strong> Adjust the size (128px to 1024px) and color to fit your specific needs.</li>
     </ul>
 
-    <h2>QRコードの活用アイデア</h2>
-    <p><strong>1. 店舗のSNSフォロワー増加に：</strong> Instagramや公式LINE、X（旧Twitter）のプロフィールURLをQRコードにしてレジ横やテーブルに設置することで、スムーズなフォローを促せます。</p>
-    <p><strong>2. 名刺やポートフォリオに：</strong> ご自身のポートフォリオサイトや連絡先をQRコード化して名刺に載せることで、相手がスマホで即座にアクセスできるようになります。</p>
-    <p><strong>3. イベントの案内板に：</strong> 地図アプリの共有URLや、イベントの申し込みフォームをQRコードにすれば、参加者の利便性が大幅に向上します。</p>
+    <h2>Ideas for Using QR Codes</h2>
+    <p><strong>1. Boost Social Media Following:</strong> Turn your Instagram, TikTok, or X (Twitter) profile URL into a QR code and place it at checkout counters or on tables to encourage instant follows.</p>
+    <p><strong>2. Business Cards & Portfolios:</strong> Add a QR code to your business card linking to your portfolio or contact info, making it easy for people to access your work with one scan.</p>
+    <p><strong>3. Event Signage:</strong> Increase convenience for attendees by linking QR codes to event registration forms or Google Maps locations.</p>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. 作成したQRコードに期限はありますか？</span>
-      <p>A. 期限はありません。リンク先のURLが有効である限り、作成したQRコードはずっとお使いいただけます。ただし、URL自体を変更（削除）した場合はアクセスできなくなりますのでご注意ください。</p>
+      <span class="faq-q">Q. Do the generated QR codes have an expiration date?</span>
+      <p>A. No, they do not expire. As long as the destination URL remains active, your QR code will work indefinitely. Please note that if you delete or change the URL itself, the QR code will no longer reach the intended page.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 色を変えても読み取りに影響はありませんか？</span>
-      <p>A. コードを明るい色にしたり、背景色と近い色にすると読み取りづらくなります。できるだけ「背景は白」「コードは濃い色」の組み合わせを推奨します。配布・印刷前に、必ずご自身のスマホでテスト読み取りを行ってください。</p>
+      <span class="faq-q">Q. Does changing the color affect scannability?</span>
+      <p>A. Yes, it can. Codes with light colors or those similar to the background color are harder to scan. We strongly recommend a high-contrast combination like "White Background" and "Dark Code." Always test with your own phone before printing.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 商用利用は可能ですか？</span>
-      <p>A. はい、商用・営利目的での利用も制限なく可能です。</p>
+      <span class="faq-q">Q. Is commercial use allowed?</span>
+      <p>A. Yes, commercial and profit-driven use is permitted without any restrictions.</p>
     </div>
     
-    <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="favicon-generator.html">ファビコン生成</a></li>
-      <li><a href="remove-exif.html">Exif情報削除ツール</a></li>
-      <li><a href="image-compress.html">画像圧縮ツール</a></li>
-      <li><a href="png-to-jpg.html">PNGをJPGに変換</a></li>
+      <li><a href="favicon-generator.html">Favicon Generator</a></li>
+      <li><a href="remove-exif.html">Exif Data Remover</a></li>
+      <li><a href="image-compress.html">Image Compressor</a></li>
+      <li><a href="png-to-jpg.html">PNG to JPG Converter</a></li>
     </ul>
   </article>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="#" style="color:#999;">プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -241,7 +240,7 @@ function generateQR() {
   const downloadBtn = document.getElementById("download-btn");
   const placeholder = document.getElementById("placeholder-text");
 
-  // コンテナを一旦クリア
+  // Clear container
   qrContainer.innerHTML = "";
 
   if (textInput.trim() === "") {
@@ -254,7 +253,7 @@ function generateQR() {
   placeholder.style.display = "none";
   qrContainer.style.display = "block";
 
-  // QRコード生成 (QRCode.js)
+  // QR Code Generation (QRCode.js)
   qrGenerator = new QRCode(qrContainer, {
     text: textInput,
     width: parseInt(sizeValue),
@@ -264,7 +263,7 @@ function generateQR() {
     correctLevel : QRCode.CorrectLevel.H
   });
 
-  // ライブラリのレンダリング完了後にボタンを表示
+  // Show button after rendering
   setTimeout(() => {
     downloadBtn.style.display = "inline-block";
   }, 100);
@@ -273,12 +272,12 @@ function generateQR() {
 function downloadQR() {
   const img = document.querySelector("#qrcode img");
   if (!img) {
-    // Canvasの場合がある（ライブラリの仕様）
+    // Handling cases where it renders as Canvas
     const canvas = document.querySelector("#qrcode canvas");
     if (canvas) {
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
-      link.download = "qrcode_harutool.png";
+      link.download = "qrcode_HaruTools_Lab.png";
       link.click();
       return;
     }
@@ -287,11 +286,11 @@ function downloadQR() {
 
   const link = document.createElement("a");
   link.href = img.src;
-  link.download = "qrcode_harutool.png";
+  link.download = "qrcode_HaruTools_Lab.png";
   link.click();
 }
 
-// ページ読み込み時に空文字で初期化
+// Initialize on page load
 window.onload = generateQR;
 </script>
 
