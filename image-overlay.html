@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<!-- ★SEO設定 -->
-<title>画像重ね合わせツール｜2枚を透過合成してPNG保存「はるツール」</title>
-<meta name="description" content="2枚の画像を重ね合わせ、それぞれの透明度を個別に調整。合成した状態をPNGとしてダウンロードできる無料ツール。ブラウザ内処理でプライバシーも安全。">
+<title>Image Overlay Tool | Merge 2 Images with Transparency Online - HaruTools Lab</title>
+<meta name="description" content="Free online tool to overlay two images and adjust individual transparency. Merge photos and download as PNG. Private and secure browser-side processing.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +40,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Card Area */
 .main-card {
   background: var(--card-bg);
   padding: 30px 20px;
@@ -56,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* アップロードエリア */
+/* Upload Grid */
 .upload-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -77,7 +76,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .upload-box strong { display: block; color: var(--primary); margin-bottom: 8px; }
 .file-name { font-size: 0.85rem; color: var(--text-sub); word-break: break-all; }
 
-/* プレビューエリア */
+/* Preview Area */
 #work-zone { display: none; }
 .preview-window {
   position: relative;
@@ -96,7 +95,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .layer-img { width: 100%; height: auto; display: block; }
 #img-layer2 { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; }
 
-/* コントロールパネル */
+/* Control Panel */
 .control-panel {
   background: #f8f9fa;
   padding: 20px;
@@ -115,7 +114,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.2);
 }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 
@@ -129,33 +128,31 @@ canvas { display: none; }
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Utilities
     </a>
   </div>
-    <h1>画像重ね合わせツール</h1>
-    <p class="tagline">2枚の画像を透過させて合成。透かしの追加やデザイン比較に。</p>
+    <h1>Image Overlay Tool</h1>
+    <p class="tagline">Merge two images with adjustable transparency. Perfect for watermarks or design comparisons.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <main class="main-card">
-    <!-- ステップ1: アップロード -->
     <div id="upload-zone" class="upload-grid">
       <div class="upload-box" onclick="document.getElementById('file1').click()">
-        <strong>背景（画像1）を選択</strong>
-        <span class="file-name" id="name1">クリックしてアップロード</span>
+        <strong>Select Background (Image 1)</strong>
+        <span class="file-name" id="name1">Click to upload</span>
         <input type="file" id="file1" accept="image/*" style="display:none">
       </div>
       <div class="upload-box" onclick="document.getElementById('file2').click()">
-        <strong>重ねる（画像2）を選択</strong>
-        <span class="file-name" id="name2">クリックしてアップロード</span>
+        <strong>Select Overlay (Image 2)</strong>
+        <span class="file-name" id="name2">Click to upload</span>
         <input type="file" id="file2" accept="image/*" style="display:none">
       </div>
     </div>
 
-    <!-- ステップ2: 操作パネル -->
     <div id="work-zone">
       <div class="preview-window">
         <img id="img-layer1" class="layer-img">
@@ -164,95 +161,94 @@ canvas { display: none; }
 
       <div class="control-panel">
         <div class="control-row">
-          <div class="label-flex"><span>画像1 の透明度</span><span id="v1">0%</span></div>
+          <div class="label-flex"><span>Image 1 Transparency</span><span id="v1">0%</span></div>
           <input type="range" id="trans1" class="slider" min="0" max="100" value="0">
         </div>
         <div class="control-row">
-          <div class="label-flex"><span>画像2 の透明度</span><span id="v2">50%</span></div>
+          <div class="label-flex"><span>Image 2 Transparency</span><span id="v2">50%</span></div>
           <input type="range" id="trans2" class="slider" min="0" max="100" value="50">
         </div>
         <div style="font-size: 0.8rem; color: var(--text-sub); text-align: center;">
-          ※画像1のサイズを基準に合成されます
+          *The output will be sized based on Image 1
         </div>
       </div>
 
       <div class="action-buttons">
-        <button class="btn-dl" onclick="downloadImage()">合成して保存</button>
+        <button class="btn-dl" onclick="downloadImage()">Merge & Save Image</button>
         <div style="margin-top:15px;">
-          <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">最初からやり直す</button>
+          <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Start Over</button>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- SEOコンテンツ -->
   <article class="info-section">
-    <h2>画像重ね合わせツールとは？</h2>
-    <p>2枚の画像を上下に重ね、それぞれの不透明度（透過率）を調整して1枚の画像に合成できるオンラインツールです。ブラウザ上で全ての処理が完結するため、画像がサーバーに送信されることはなく、プライバシー面でも安心してご利用いただけます。</p>
+    <h2>What is the Image Overlay Tool?</h2>
+    <p>This is a free online tool that allows you to layer two images and adjust their opacity (transparency) to merge them into a single file. Since all processing is done locally within your browser, your images are never uploaded to a server, ensuring 100% privacy and security.</p>
 
-    <h3>主な活用シーン</h3>
+    <h3>Key Use Cases</h3>
     <ul>
-      <li><strong>透かし（ロゴ）の挿入：</strong> 写真の上にロゴ画像を重ね、透明度を下げて配置。</li>
-      <li><strong>デザインの比較：</strong> 修正前と修正後の画像を重ねて、微細な変化を確認。</li>
-      <li><strong>コラージュ・アート作成：</strong> 2枚の風景写真を混ぜ合わせて幻想的な画像を作成。</li>
-      <li><strong>比較検証：</strong> 2つのグラフや地図を重ねて差異をチェック。</li>
+      <li><strong>Insert Watermarks:</strong> Place a logo over a photo and lower its opacity for a professional look.</li>
+      <li><strong>Design Comparison:</strong> Layer "before" and "after" images to spot subtle differences.</li>
+      <li><strong>Double Exposure Art:</strong> Blend two scenic photos to create a dreamy, artistic effect.</li>
+      <li><strong>Data Verification:</strong> Overlay two charts or maps to check for discrepancies.</li>
     </ul>
 
-    <h2>使い方の流れ</h2>
+    <h2>How to Use</h2>
     <ol>
-      <li>「背景（画像1）」と「重ねる（画像2）」のエリアをそれぞれクリックして画像を選びます。</li>
-      <li>画像が表示されたら、スライダーを左右に動かして透明度を微調整します。</li>
-      <li>「合成して保存」ボタンを押すと、PNG形式でダウンロードされます。</li>
+      <li>Click on the upload boxes to select your "Background (Image 1)" and "Overlay (Image 2)".</li>
+      <li>Once the images appear, use the sliders to fine-tune the transparency of each layer.</li>
+      <li>Click the "Merge & Save Image" button to download the result as a PNG file.</li>
     </ol>
 
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 2枚の画像をどのように重ねるのですか？</strong>
-      <p>A. ベースとなる「背景画像」を先に読み込み、その後に「重ねる画像（ロゴやイラストなど）」を追加します。重ねた画像はマウスやタッチ操作で自由に移動・リサイズが可能です。</p>
+      <strong style="color:var(--primary);">Q. How are the images layered?</strong>
+      <p>A. The "Background" (Image 1) is placed at the bottom, and the "Overlay" (Image 2) is placed on top. The top image can be adjusted to let the bottom one show through.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 重ねる画像の「透明度」を調整できますか？</strong>
-      <p>A. はい、スライダーを使って透明度（不透明度）を0%〜100%の間で自由に調整できます。透かし（ウォーターマーク）を入れたい場合にも最適です。</p>
+      <strong style="color:var(--primary);">Q. Can I adjust the transparency for watermarks?</strong>
+      <p>A. Yes, you can freely adjust the transparency from 0% to 100% using the sliders. This is ideal for adding subtle watermarks to your work.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 背景が透明なPNG画像はそのまま使えますか？</strong>
-      <p>A. はい、対応しています。背景が透過されたPNG形式のロゴなどを読み込めば、背景画像の上に綺麗に合成することができます。</p>
+      <strong style="color:var(--primary);">Q. Does it support transparent PNGs?</strong>
+      <p>A. Yes! If you upload a PNG with a transparent background (like a logo), it will overlay perfectly on top of your background image.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 合成した画像の画質は落ちますか？</strong>
-      <p>A. 可能な限り高品質を維持します。ブラウザのCanvas上で高解像度レンダリングを行い、最終的に劣化の少ないPNGまたはJPG形式で保存いただけます。</p>
+      <strong style="color:var(--primary);">Q. Does the image quality drop after merging?</strong>
+      <p>A. We aim to maintain the highest quality possible. The tool renders the images at high resolution using the browser's Canvas API and saves them in PNG format to avoid degradation.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. アップロードした画像がサーバーに保存されることはありますか？</strong>
-      <p>A. 一切ありません。「はるツール」の他のツールと同様、すべての処理はお使いのブラウザ内で行われます。プライベートな写真でも安心して合成作業を行ってください。</p>
+      <strong style="color:var(--primary);">Q. Are my photos stored on your server?</strong>
+      <p>A. Absolutely not. Like all HaruTools Lab utilities, everything happens in your browser. Your private photos stay on your device.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. スマホでも操作できますか？</strong>
-      <p>A. はい、iPhoneやAndroidのブラウザに対応しています。ピンチイン・アウト操作やスワイプで、直感的に画像の配置を調整できます。</p>
+      <strong style="color:var(--primary);">Q. Can I use this on a mobile device?</strong>
+      <p>A. Yes, the tool is fully compatible with iOS and Android browsers. You can intuitively adjust layouts and transparency on your smartphone.</p>
     </div>
-    <h3>関連ツール</h3>
+
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="image-rotate.html">画像回転ツール</a></li>
-      <li><a href="image-flip.html">画像反転ツール</a></li>
-      <li><a href="brightness-contrast.html">画像の明るさ・コントラスト調整</a></li>
-      <li><a href="mosaic-blur.html">モザイク・ぼかし加工ツール</a></li>
+      <li><a href="image-rotate.html">Image Rotate Tool</a></li>
+      <li><a href="image-flip.html">Image Flip Tool</a></li>
+      <li><a href="brightness-contrast.html">Brightness & Contrast Adjustment</a></li>
+      <li><a href="mosaic-blur.html">Mosaic & Blur Tool</a></li>
     </ul>
   </article>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="#" style="color:#999;">利用規約</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <canvas id="canvas"></canvas>
@@ -304,17 +300,17 @@ function downloadImage() {
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
 
-  // 画像1のサイズを基準にする
+  // Base the canvas size on Image 1
   canvas.width = img1.naturalWidth;
   canvas.height = img1.naturalHeight;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // 画像1を描画
+  // Draw Image 1
   ctx.globalAlpha = (100 - t1.value) / 100;
   ctx.drawImage(img1, 0, 0);
 
-  // 画像2を描画
+  // Draw Image 2
   ctx.globalAlpha = (100 - t2.value) / 100;
   ctx.drawImage(img2, 0, 0, canvas.width, canvas.height);
 
