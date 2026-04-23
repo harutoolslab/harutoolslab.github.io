@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
   
-<!-- ★SEO設定 -->
-<title>画像モノクロ化ツール｜無料・オンラインで簡単に白黒変換「はるツール」</title>
-<meta name="description" content="画像をきれいなモノクロ（白黒）に変換できる無料オンラインツールです。インストール不要・スマホ対応。ブラウザ内で処理するため、アップロードした画像がサーバーに保存される心配がなくプライバシーも安全です。">
+<title>Image to Monochrome Converter | Free Online Black & White Tool - HaruTools Lab</title>
+<meta name="description" content="Free online tool to convert images to beautiful monochrome (black and white). No installation required. Works in your browser, keeping your photos private and secure. Supports batch processing.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -25,7 +24,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -33,7 +32,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -42,12 +41,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Tool Main Area */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -57,7 +56,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drag & Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 50px 20px;
@@ -83,7 +82,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-top: 15px;
 }
 
-/* プレビュー＆結果エリア */
+/* Preview & Result Area */
 #preview-zone { display: none; margin-top: 20px; }
 .preview-item {
   margin-bottom: 20px;
@@ -124,7 +123,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 #result-links a:hover { text-decoration: underline; }
 
-/* SEO解説セクション */
+/* SEO Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -140,105 +139,98 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Tool Collection
     </a>
   </div>
-    <h1>画像モノクロ化ツール</h1>
-    <p class="tagline">ブラウザ上で一瞬で白黒写真に。複数画像の一括処理も対応。</p>
+    <h1>Image to Monochrome Converter</h1>
+    <p class="tagline">Instantly turn photos into black and white. Supports batch processing.</p>
   </header>
 
-  <!-- 広告枠：上部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <main class="main-card">
-    <!-- 画像入力エリア -->
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">ここに画像をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Images Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select Files</button>
       <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
     </div>
 
-    <!-- プレビュー＆操作エリア -->
     <div id="preview-zone">
       <div id="preview-container"></div>
       
       <div class="tool-box">
-        <p>「モノクロに変換」ボタンを押すと、すべての画像が加工されます。</p>
-        <button class="btn-run" onclick="run()">モノクロに変換</button>
+        <p>Click "Convert to Monochrome" to process all images.</p>
+        <button class="btn-run" onclick="run()">Convert to Monochrome</button>
       </div>
 
       <div id="result-links" style="margin-top: 20px;"></div>
 
       <div style="margin-top:20px; border-top: 1px solid #eee; padding-top: 20px;">
-        <button onclick="location.reload()" style="background:#666; color:white; border:none; padding:10px 25px; border-radius:50px; cursor:pointer;">別の画像を選ぶ</button>
+        <button onclick="location.reload()" style="background:#666; color:white; border:none; padding:10px 25px; border-radius:50px; cursor:pointer;">Choose Different Images</button>
       </div>
     </div>
   </main>
 
-  <!-- 広告枠：中部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
-  <!-- SEOコンテンツ -->
   <article class="info-section">
-    <h2>画像モノクロ化ツールとは？</h2>
-    <p>当ツールは、お手持ちの画像をきれいなモノクロ（白黒）に変換できる無料オンラインツールです。特別な画像編集ソフトをインストールすることなく、ブラウザだけでグレースケール変換が完了します。色の情報を排除することで、写真にアーティスティックな雰囲気を与えたり、印刷時のインクを節約したりするメリットがあります。</p>
+    <h2>What is the Image Monochrome Converter?</h2>
+    <p>This tool is a free online utility that allows you to convert your images into clean monochrome (black and white). Without installing any special software, you can complete grayscale conversion directly in your browser. Removing color information can give photos an artistic atmosphere or help save ink during printing.</p>
 
-    <h3>このツールのメリット</h3>
+    <h3>Benefits of This Tool</h3>
     <ul>
-      <li><strong>完全無料：</strong> すべての機能を制限なく無料でご利用いただけます。</li>
-      <li><strong>プライバシー保護：</strong> 画像はサーバーに送信されず、ブラウザ内で処理されるため、外部へ漏洩する心配がありません。</li>
-      <li><strong>一括処理：</strong> 複数の画像を選択して、一度にまとめてモノクロ化することが可能です。</li>
+      <li><strong>100% Free:</strong> Use all features without any limits or registration.</li>
+      <li><strong>Privacy First:</strong> Images are processed within your browser and never sent to a server, ensuring your data stays private.</li>
+      <li><strong>Batch Processing:</strong> Select multiple images and convert them all to monochrome at once.</li>
     </ul>
 
-    <h2>使い方の手順</h2>
+    <h2>How to Use</h2>
     <ol>
-      <li>上のエリアに画像をドラッグ＆ドロップするか、「ファイルを選択」から画像を選びます。</li>
-      <li>選択した画像が表示されたら、「モノクロに変換」ボタンを押します。</li>
-      <li>変換完了後、表示されるダウンロードリンクをクリックして画像を保存します。</li>
+      <li>Drag and drop images into the area above, or click "Select Files" to choose images.</li>
+      <li>Once the previews appear, click the "Convert to Monochrome" button.</li>
+      <li>After conversion, click the download links to save your images.</li>
     </ol>
 
-    <h2>モノクロ変換がうまくいかない場合</h2>
+    <h2>Troubleshooting</h2>
     <ul>
-      <li><strong>ファイル形式の確認：</strong> JPG, PNG, WebPなどの一般的な画像形式を使用してください。</li>
-      <li><strong>ブラウザ環境：</strong> Google ChromeやSafariの最新版での利用を推奨します。</li>
-      <li><strong>待ち時間：</strong> 高解像度の画像の場合、処理に数秒かかることがあります。</li>
+      <li><strong>Supported Formats:</strong> Please use common image formats like JPG, PNG, or WebP.</li>
+      <li><strong>Browser Environment:</strong> We recommend using the latest versions of Google Chrome or Safari.</li>
+      <li><strong>Processing Time:</strong> For high-resolution images, processing may take a few seconds.</li>
     </ul>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. スマホでも利用できますか？</span>
-      <p>A. はい、iPhoneやAndroidなどのスマートフォン、タブレットからでもインストール不要でご利用いただけます。</p>
+      <span class="faq-q">Q. Can I use this on a smartphone?</span>
+      <p>A. Yes, you can use it on iPhone, Android, and tablets without any installation.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 変換された画像の画質はどうなりますか？</span>
-      <p>A. 元の解像度を維持したまま色情報のみを変換します。ダウンロード時には高品質なPNG形式で保存されます。</p>
+      <span class="faq-q">Q. What happens to the image quality?</span>
+      <p>A. The tool maintains the original resolution while only converting the color information. Images are saved in high-quality PNG format.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 安全ですか？</span>
-      <p>A. はい。すべての処理はお使いのデバイス上で行われます。サーバーへのアップロードは一切行われないため、非常に安全です。</p>
+      <span class="faq-q">Q. Is it safe to use?</span>
+      <p>A. Absolutely. All processing happens on your device. Since nothing is uploaded to a server, it is highly secure.</p>
     </div>
-    <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="square-image-maker.html">多機能正方形メーカー</a></li>
-      <li><a href="image-filter-tool.html">画像フィルター加工</a></li>
-      <li><a href="brightness-contrast.html">画像の明るさ・コントラスト調整</a></li>
-      <li><a href="image-cropper-rounded.html">丸抜き・角丸カット</a></li>
+      <li><a href="square-image-maker.html">Square Image Maker</a></li>
+      <li><a href="image-filter-tool.html">Photo Filters</a></li>
+      <li><a href="brightness-contrast.html">Brightness & Contrast Adjustment</a></li>
+      <li><a href="image-cropper-rounded.html">Circle & Rounded Crop</a></li>
     </ul>
   </article>
 
-  <!-- 広告枠：下部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
   
-  <footer>
-    &copy; 2026 はるツール | <a href="#" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+<footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -295,12 +287,12 @@ function handleFiles(selectedFiles) {
       reader.readAsDataURL(file);
     });
   } else {
-    alert('画像ファイルを選択してください。');
+    alert('Please select valid image files.');
   }
 }
 
 function run() {
-  resultLinks.innerHTML = "<p>処理中...</p>";
+  resultLinks.innerHTML = "<p>Processing...</p>";
   setTimeout(() => {
     processImages(files);
   }, 300);
@@ -322,15 +314,15 @@ async function processImages(selectedFiles) {
         canvas.width = img.width;
         canvas.height = img.height;
 
-        // モノクロフィルタの適用
+        // Apply monochrome filter
         ctx.filter = 'grayscale(100%)';
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-        // 結果のダウンロードリンク
+        // Result download link
         const link = document.createElement("a");
         link.href = canvas.toDataURL("image/png");
         link.download = `monochrome_${file.name}`;
-        link.innerHTML = `<span style="color:var(--success);">✓</span> 【${file.name}】をダウンロード`;
+        link.innerHTML = `<span style="color:var(--success);">✓</span> Download [${file.name}]`;
         
         resultLinks.appendChild(link);
         
@@ -340,7 +332,7 @@ async function processImages(selectedFiles) {
     });
   }
   
-  resultLinks.insertAdjacentHTML('afterbegin', '<p style="color:var(--success); font-weight:bold;">変換が完了しました！リンクをクリックして保存してください。</p>');
+  resultLinks.insertAdjacentHTML('afterbegin', '<p style="color:var(--success); font-weight:bold;">Conversion complete! Click the links below to save.</p>');
 }
 </script>
 
