@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<title>Convertir WebP a PNG | Gratis, con transparencia y conversión por lotes - HaruTools Lab</title>
+<meta name="description" content="Herramienta gratuita para convertir imágenes WebP a formato PNG en lotes. Mantiene la transparencia y la alta calidad. Sin instalación, funciona en el navegador y protege tu privacidad.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Espacio publicitario */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Encabezado */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Área principal de la herramienta */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Área de arrastrar y soltar */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active { background: rgba(0, 123, 255, 0.1); border-color: var(--primary-hover); }
+
+.btn-select {
+  background: var(--primary); color: white; border: none; padding: 12px 30px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; margin-top: 15px;
+}
+
+.btn-run {
+  background: var(--success); color: white; border: none; padding: 15px 40px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 20px;
+}
+
+/* Área de resultados */
+#result-zone { margin-top: 30px; text-align: left; }
+.result-item {
+  background: white; padding: 12px 18px; border-radius: 8px; border: 1px solid #eee;
+  margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;
+}
+.download-link { color: var(--primary); font-weight: bold; text-decoration: none; border: 1px solid var(--primary); padding: 4px 12px; border-radius: 4px; }
+.download-link:hover { background: var(--primary); color: white; }
+
+/* Sección informativa */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab - Colección de herramientas online gratuitas
+    </a>
+  </div>
+    <h1>Convertir WebP a PNG</h1>
+    <p class="tagline">Convierte imágenes WebP al formato PNG de alta compatibilidad manteniendo la transparencia.</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Anuncio</span>Etiqueta publicitaria aquí</div>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta imágenes WebP aquí</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivos</button>
+      <input type="file" id="file-input" accept="image/webp" multiple style="display:none;">
+    </div>
+
+    <button class="btn-run" onclick="run()">Convertir a PNG</button>
+
+    <div id="result-zone"></div>
+  </main>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Anuncio</span>Etiqueta publicitaria aquí</div>
+  </div>
+
+  <article class="info-section">
+    <h2>¿Qué es la herramienta para convertir WebP a PNG?</h2>
+    <p>
+      WebP es un formato de imagen ligero, pero algunos editores de fotos antiguos o sistemas operativos específicos pueden tener problemas para abrirlos. 
+      La herramienta de HaruTools Lab es una utilidad gratuita diseñada para resolver problemas de compatibilidad convirtiendo tus archivos a PNG de alta calidad. 
+      Es ideal para logotipos e ilustraciones que requieren conservar el fondo transparente.
+    </p>
+
+    <h3>Características de esta herramienta</h3>
+    <ul>
+      <li><strong>Mantiene la transparencia:</strong> Conserva el canal alfa (transparencia) del WebP original al generar el archivo PNG.</li>
+      <li><strong>Conversión sin pérdida:</strong> Gracias al renderizado por Canvas, la conversión se realiza manteniendo la calidad de imagen original.</li>
+      <li><strong>Sin instalación:</strong> Funciona completamente en el navegador, lo que garantiza seguridad y evita riesgos de virus.</li>
+    </ul>
+
+    <h2>Instrucciones de uso</h2>
+    <ol>
+      <li>Arrastra las imágenes WebP al área de carga o selecciónalas con el botón.</li>
+      <li>Haz clic en el botón "Convertir a PNG".</li>
+      <li>Descarga el PNG convertido usando el botón "Guardar" de la lista que aparece.</li>
+    </ol>
+
+    <h2>Preguntas frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿El fondo transparente se volverá negro?</span>
+      <p>R. No. Esta herramienta es totalmente compatible con el canal alfa de PNG, por lo que las partes transparentes del WebP seguirán siendo transparentes.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Puedo convertir varias imágenes a la vez?</span>
+      <p>R. Sí, es posible. Puedes seleccionar o arrastrar múltiples archivos simultáneamente para procesarlos todos en lote.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Se pierde calidad de imagen?</span>
+      <p>R. PNG es un formato de compresión sin pérdida, por lo que mantiene los datos decodificados de WebP con alta fidelidad. No habrá una degradación visual notable tras la conversión.</p>
+    </div>
+
+    <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="webp-to-jpg.html">Convertir WebP a JPG</a></li>
+      <li><a href="image-to-webp.html">Convertir imagen a WebP</a></li>
+      <li><a href="png-to-jpg.html">Convertir PNG a JPG</a></li>
+      <li><a href="image-resize.html">Redimensionar imagen</a></li>
+    </ul>
+  </article>
+
+<footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const resultZone = document.getElementById('result-zone');
+
+let selectedFiles = [];
+
+// Eventos de arrastrar y soltar
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+['dragenter', 'dragover'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.add('active'), false);
+});
+['dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', e => {
+  selectedFiles = e.dataTransfer.files;
+  showStatus();
+}, false);
+
+fileInput.addEventListener('change', function() {
+  selectedFiles = this.files;
+  showStatus();
+});
+
+function showStatus() {
+  if (selectedFiles.length > 0) {
+    resultZone.innerHTML = `<p style="text-align:center; color:var(--primary); font-weight:bold;">${selectedFiles.length} archivo(s) WebP listos.</p>`;
+  }
+}
+
+function run() {
+  if (selectedFiles.length === 0) return alert("Por favor, selecciona una imagen");
+
+  resultZone.innerHTML = "<p style='text-align:center;'>Convirtiendo...</p>";
+
+  Array.from(selectedFiles).forEach(file => {
+    // Comprobación simple de tipo
+    if (file.type !== "" && !file.type.includes("webp") && !file.name.toLowerCase().endsWith(".webp")) return;
+
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.src = url;
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      const ctx = canvas.getContext("2d");
+      // Dibujar directamente (mantiene el canal alfa)
+      ctx.drawImage(img, 0, 0);
+
+      canvas.toBlob(blob => {
+        const downloadUrl = URL.createObjectURL(blob);
+        const fileName = file.name.replace(/\.webp$/i, "") + ".png";
+        
+        const item = document.createElement("div");
+        item.className = "result-item";
+        
+        const nameLabel = document.createElement("span");
+        nameLabel.textContent = fileName;
+        
+        const link = document.createElement("a");
+        link.href = downloadUrl;
+        link.download = fileName;
+        link.textContent = "Guardar";
+        link.className = "download-link";
+
+        item.appendChild(nameLabel);
+        item.appendChild(link);
+        resultZone.appendChild(item);
+        
+        URL.revokeObjectURL(url);
+      }, "image/png");
+    };
+  });
+}
+</script>
+
+</body>
+</html>

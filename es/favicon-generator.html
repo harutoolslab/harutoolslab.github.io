@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<title>Generador de Favicon | Convierte imágenes (PNG/JPG) a formato ICO multitaño - HaruTools Lab</title>
+<meta name="description" content="Convierte tus archivos de imagen en favicons (favicon.ico) para sitios web. Puedes agrupar múltiples tamaños desde 16px hasta 128px en un solo archivo ICO. Seguro y de alta calidad.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Espacio publicitario */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Cabecera */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Área principal de la herramienta */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Área de arrastrar y soltar */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
+}
+
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* Área de operación de la herramienta */
+#preview-zone { display: none; margin-top: 30px; }
+
+.tool-box {
+  margin: 20px auto;
+  padding: 25px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  max-width: 500px;
+  text-align: left;
+}
+
+.size-options { margin-bottom: 20px; }
+.size-options label {
+  display: inline-block;
+  margin: 5px 15px 5px 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+.size-options input[type="checkbox"] { transform: scale(1.2); margin-right: 8px; }
+
+.btn-run {
+  width: 100%;
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+.btn-run:disabled { background: #ccc; cursor: not-allowed; box-shadow: none; }
+
+/* Vista previa */
+.preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+.preview-item {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  display: none;
+}
+.preview-item span { display: block; font-size: 11px; margin-top: 5px; color: var(--text-sub); }
+
+/* Visualización de estado */
+#status { margin-top: 15px; font-weight: bold; color: var(--primary); min-height: 1.6em; }
+
+/* Sección de explicación SEO */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+canvas { display: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab: Herramientas Gratuitas Online
+    </a>
+  </div>
+    <h1>Generador de Favicon</h1>
+    <p class="tagline">Convierte imágenes PNG/JPG en archivos favicon.ico con múltiples tamaños.</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Anuncio aquí</div>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta tu imagen aquí</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('upload').click()">Seleccionar archivo</button>
+      <input type="file" id="upload" accept="image/png,image/jpeg" style="display:none;">
+    </div>
+
+    <div id="preview-zone">
+      <div class="preview-container">
+        <div class="preview-item" id="item-128"><img id="p128" width="64" height="64"><span>128px</span></div>
+        <div class="preview-item" id="item-48"><img id="p48" width="48" height="48"><span>48px</span></div>
+        <div class="preview-item" id="item-32"><img id="p32" width="32" height="32"><span>32px</span></div>
+        <div class="preview-item" id="item-16"><img id="p16" width="16" height="16"><span>16px</span></div>
+      </div>
+
+      <div class="tool-box">
+        <div class="size-options">
+          <strong>Tamaños a incluir:</strong><br>
+          <label><input type="checkbox" class="size-check" value="16" checked> 16x16</label>
+          <label><input type="checkbox" class="size-check" value="32" checked> 32x32</label>
+          <label><input type="checkbox" class="size-check" value="48" checked> 48x48</label>
+          <label><input type="checkbox" class="size-check" value="64"> 64x64</label>
+          <label><input type="checkbox" class="size-check" value="128"> 128x128</label>
+        </div>
+        <button id="dl-btn" class="btn-run" onclick="generateIco()" disabled>Crear y guardar favicon.ico</button>
+        <div id="status"></div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <button onclick="location.reload()" style="background:none; color:var(--text-sub); border:none; text-decoration:underline; cursor:pointer;">Elegir otra imagen</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Anuncio aquí</div>
+  </div>
+
+  <article class="info-section">
+    <h2>¿Qué es el Generador de Favicon (conversión a favicon.ico)?</h2>
+    <p>
+      Esta es una herramienta online que convierte tus imágenes (PNG o JPG) al formato "favicon.ico" utilizado para los iconos de sitios web.
+      Lo que nos diferencia es la capacidad de crear un **formato multitaño**, que agrupa varias resoluciones en un solo archivo.
+    </p>
+
+    <h3>Ventajas de esta herramienta</h3>
+    <ul>
+      <li><strong>Soporte multitaño:</strong> Genera archivos ICO que pueden mostrar automáticamente el tamaño óptimo para pestañas del navegador (16px) o accesos directos de escritorio (32px o más).</li>
+      <li><strong>Completamente gratis y sin registro:</strong> Todas las funciones están disponibles de forma gratuita.</li>
+      <li><strong>Protección de privacidad:</strong> El procesamiento de imágenes se realiza íntegramente dentro del navegador (JavaScript). Tus imágenes nunca se envían al servidor.</li>
+    </ul>
+
+    <h2>Pasos para su uso</h2>
+    <ol>
+      <li>Sube la imagen que deseas convertir en favicon. Las imágenes cuadradas son ideales.</li>
+      <li>Selecciona los tamaños que deseas incluir en el archivo ICO (lo común es 16x16, 32x32 y 48x48).</li>
+      <li>Haz clic en "Crear y guardar" y configura el archivo `favicon.ico` descargado en tu sitio web.</li>
+    </ol>
+
+    <h2>Preguntas frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Por qué agrupar múltiples tamaños en uno solo?</span>
+      <p>R. Porque la resolución necesaria varía según el lugar de visualización (pestañas, accesos directos, listas de favoritos, etc.). Al usar un ICO multitaño, se garantiza una visualización nítida en cualquier entorno.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Se mantiene la transparencia de la imagen?</span>
+      <p>R. Sí. Si utilizas una imagen PNG con fondo transparente como origen, puedes convertirla al formato ICO manteniendo dicha transparencia.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Cuál es el tamaño recomendado para la imagen original?</span>
+      <p>R. Una imagen PNG cuadrada de 256x256 píxeles o más ofrecerá el mejor resultado.</p>
+    </div>
+      <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="qr-generator.html">Generador de códigos QR</a></li>
+      <li><a href="remove-exif.html">Eliminar información Exif</a></li>
+      <li><a href="image-compress.html">Compresión de imágenes</a></li>
+      <li><a href="png-to-jpg.html">Convertir PNG a JPG</a></li>
+    </ul>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Anuncio aquí</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de uso</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+</div>
+
+<div id="canvas-store"></div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const upload = document.getElementById('upload');
+const previewZone = document.getElementById('preview-zone');
+const dlBtn = document.getElementById('dl-btn');
+const status = document.getElementById('status');
+const allSizes = [16, 32, 48, 64, 128];
+
+// Eventos de arrastrar y soltar
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.add('active'), false);
+});
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', e => {
+  upload.files = e.dataTransfer.files;
+  handleFiles(upload.files);
+});
+
+upload.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(files) {
+  const file = files[0];
+  if (!file || !file.type.startsWith('image/')) {
+    alert('Por favor, seleccione un archivo de imagen.');
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = event => {
+    const img = new Image();
+    img.onload = () => {
+      const canvasStore = document.getElementById('canvas-store');
+      canvasStore.innerHTML = '';
+      
+      allSizes.forEach(s => {
+        const cvs = document.createElement('canvas');
+        cvs.id = `c${s}`; cvs.width = s; cvs.height = s;
+        const ctx = cvs.getContext('2d');
+        // Redimensionar a cuadrado (comportamiento estándar de favicon)
+        ctx.drawImage(img, 0, 0, s, s);
+        canvasStore.appendChild(cvs);
+
+        const pImg = document.getElementById(`p${s}`);
+        if (pImg) {
+          pImg.src = cvs.toDataURL();
+          document.getElementById(`item-${s}`).style.display = 'block';
+        }
+      });
+      
+      dropArea.style.display = 'none';
+      previewZone.style.display = 'block';
+      dlBtn.disabled = false;
+      status.innerText = "Imagen cargada correctamente.";
+    };
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+async function generateIco() {
+  const selectedSizes = Array.from(document.querySelectorAll('.size-check:checked')).map(cb => parseInt(cb.value));
+  
+  if (selectedSizes.length === 0) {
+    alert("Por favor, seleccione al menos un tamaño.");
+    return;
+  }
+
+  status.innerText = "Generando archivo ICO...";
+
+  // Cabecera ICO: 0, 0, 1, 0, (cantidad de imágenes), 0
+  const header = new Uint8Array([0, 0, 1, 0, selectedSizes.length, 0]);
+  let offset = 6 + selectedSizes.length * 16;
+  const entries = [];
+  const imageData = [];
+
+  for (const s of selectedSizes) {
+    const canvas = document.getElementById(`c${s}`);
+    if (!canvas) continue;
+    
+    // Exportar como PNG
+    const blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
+    const bytes = new Uint8Array(await blob.arrayBuffer());
+    
+    // Entrada de directorio (16 bytes)
+    const entry = new Uint8Array(16);
+    entry[0] = s >= 256 ? 0 : s; // Width
+    entry[1] = s >= 256 ? 0 : s; // Height
+    entry[2] = 0; // Color palette
+    entry[3] = 0; // Reserved
+    entry[4] = 1; // Color planes
+    entry[5] = 0;
+    entry[6] = 32; // Bits per pixel
+    entry[7] = 0;
+    
+    const len = bytes.length;
+    // Tamaño de los datos
+    entry[8] = len & 0xFF; entry[9] = (len >> 8) & 0xFF; entry[10] = (len >> 16) & 0xFF; entry[11] = (len >> 24) & 0xFF;
+    // Desplazamiento de los datos
+    entry[12] = offset & 0xFF; entry[13] = (offset >> 8) & 0xFF; entry[14] = (offset >> 16) & 0xFF; entry[15] = (offset >> 24) & 0xFF;
+
+    entries.push(entry);
+    imageData.push(bytes);
+    offset += len;
+  }
+
+  const final = new Uint8Array(offset);
+  final.set(header, 0);
+  let pos = 6;
+  entries.forEach(e => { final.set(e, pos); pos += 16; });
+  imageData.forEach(d => { final.set(d, pos); pos += d.length; });
+
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([final], {type: 'image/x-icon'}));
+  a.download = 'favicon.ico';
+  a.click();
+  status.innerText = "¡Guardado completado!";
+}
+</script>
+
+</body>
+</html>

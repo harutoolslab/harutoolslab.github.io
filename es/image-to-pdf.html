@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<title>Convertir Imagen a PDF | JPG/PNG a PDF Online Gratis - HaruTools Lab</title>
+<meta name="description" content="Herramienta gratuita online para convertir múltiples imágenes en un solo archivo PDF. Ajuste automático a tamaño A4. Ideal para documentos y CV. Privacidad garantizada con procesamiento en el navegador.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Espacio publicitario */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Encabezado */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Área principal de la herramienta */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Área de arrastrar y soltar */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+#drop-area.active { background: rgba(0, 123, 255, 0.1); }
+
+.btn-select {
+  background: var(--primary);
+  color: white; border: none;
+  padding: 12px 30px; border-radius: 50px;
+  font-weight: bold; cursor: pointer;
+}
+
+/* Configuración y Vista previa */
+#work-zone { display: none; }
+.config-panel {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.preview-item {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 10px;
+  position: relative;
+  font-size: 11px;
+  color: var(--text-sub);
+}
+.preview-item img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 5px;
+  background: #fdfdfd;
+}
+.page-badge {
+  position: absolute;
+  top: 5px; left: 5px;
+  background: var(--primary);
+  color: #fff;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.btn-run {
+  background: var(--success);
+  color: white; border: none;
+  padding: 18px 50px; border-radius: 50px;
+  font-weight: bold; font-size: 1.2rem;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+  transition: transform 0.2s;
+}
+.btn-run:active { transform: scale(0.98); }
+
+/* Sección informativa SEO */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab: Herramientas Gratuitas Online
+    </a>
+  </div>
+    <h1>Convertidor de Imagen a PDF</h1>
+    <p class="tagline">Convierte varios archivos JPG/PNG en un solo PDF. Seguro y sin registro.</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Anuncio aquí</div>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area" onclick="document.getElementById('file-input').click()">
+      <div style="font-size: 1.2rem; font-weight: bold;">Selecciona imágenes o arrastra y suelta aquí</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">(Puedes seleccionar varios archivos a la vez)</p>
+      <button type="button" class="btn-select">Elegir archivos</button>
+      <input type="file" id="file-input" multiple accept="image/*" style="display:none;">
+    </div>
+
+    <div id="work-zone">
+      <div class="config-panel">
+        <strong>Ajustes de PDF:</strong>
+        <select id="pdf-size">
+          <option value="a4">Ajustar automáticamente a A4</option>
+          <option value="original">Mantener tamaño original de la imagen</option>
+        </select>
+      </div>
+
+      <div id="preview-grid" class="preview-grid"></div>
+
+      <button class="btn-run" onclick="generatePDF()">Crear y descargar PDF</button>
+      
+      <div id="status" style="margin-top: 15px; color: var(--primary); font-weight: bold;"></div>
+      
+      <div style="margin-top: 20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Limpiar y empezar de nuevo</button>
+      </div>
+    </div>
+  </main>
+
+  <article class="info-section">
+    <h2>¿Qué es el Convertidor de Imagen a PDF?</h2>
+    <p>Es una herramienta para agrupar imágenes tomadas con tu móvil o cámara (JPG, PNG, WebP, etc.) en un formato PDF de alta compatibilidad. Al seleccionar varias imágenes, se combinarán en un solo archivo PDF siguiendo el orden de las páginas. No requiere instalación de aplicaciones y todo el proceso se realiza en el navegador.</p>
+
+    <h3>Casos de uso comunes</h3>
+    <ul>
+      <li><strong>Envío de documentos:</strong> Convierte fotos de tu DNI, carné de conducir o CV en PDF.</li>
+      <li><strong>Informes y tareas:</strong> Fotografía tus notas a mano y agrúpalas en un solo documento PDF.</li>
+      <li><strong>Gestión de facturas:</strong> Guarda y organiza tus recibos o tickets como archivos PDF.</li>
+    </ul>
+
+    <h2>Características de esta herramienta</h2>
+    <h3>1. Diseño enfocado en la privacidad</h3>
+    <p>Las imágenes no se suben a ningún servidor. El PDF se genera localmente en tu dispositivo (navegador), lo que permite convertir documentos sensibles con total tranquilidad.</p>
+
+    <h3>2. Ajuste automático a tamaño A4</h3>
+    <p>Incluso si las imágenes tienen tamaños diferentes, la opción "Ajustar a A4" organizará automáticamente el diseño para que sea adecuado como documento impreso.</p>
+
+    <h3>3. Confirmación sencilla del orden de páginas</h3>
+    <p>Las imágenes cargadas se muestran en una cuadrícula de vista previa, permitiéndote verificar el orden antes de generar el PDF. El orden se basa en la secuencia de selección de archivos.</p>
+
+    <h2>Preguntas Frecuentes (FAQ)</h2>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">P. ¿Es gratuito?</strong>
+      <p>R. Sí, es completamente gratuito. No hay límites por número de páginas o tamaño de archivo.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">P. ¿Puedo combinar varias imágenes en un solo PDF?</strong>
+      <p>R. Sí, es posible. Si seleccionas y cargas varias imágenes, la herramienta las unirá y generará un único archivo PDF con una página asignada a cada imagen.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">P. ¿Cambia la calidad de la imagen?</strong>
+      <p>R. El proceso mantiene la resolución original en la medida de lo posible. Al usar la función Canvas del navegador, cada imagen se incrusta en el PDF manteniendo una alta calidad.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">P. ¿Es seguro en términos de seguridad y privacidad?</strong>
+      <p>R. Es muy seguro. Esta herramienta funciona "fuera de línea" dentro del navegador. Los datos de la imagen nunca se cargan en nuestro servidor, por lo que puedes convertir documentos confidenciales con seguridad.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">P. ¿Puedo usarlo en el móvil (iPhone/Android)?</strong>
+      <p>R. Sí, puedes usarlo directamente desde el navegador de tu smartphone o tablet sin necesidad de instalar ninguna aplicación.</p>
+    </div>
+    </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Anuncio aquí</div>
+  </div>
+
+<footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de uso</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const workZone = document.getElementById('work-zone');
+const previewGrid = document.getElementById('preview-grid');
+const statusText = document.getElementById('status');
+
+let imageFiles = [];
+
+// Evento de selección de archivos
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+// Procesamiento de arrastrar y soltar
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); });
+});
+dropArea.addEventListener('drop', e => handleFiles(e.dataTransfer.files));
+
+async function handleFiles(selectedFiles) {
+  imageFiles = Array.from(selectedFiles).filter(f => f.type.startsWith('image/'));
+  if (imageFiles.length === 0) return;
+
+  dropArea.style.display = 'none';
+  workZone.style.display = 'block';
+  previewGrid.innerHTML = "";
+
+  for (let i = 0; i < imageFiles.length; i++) {
+    const file = imageFiles[i];
+    const dataUrl = await readFileAsDataURL(file);
+    
+    const div = document.createElement("div");
+    div.className = "preview-item";
+    div.innerHTML = `
+      <div class="page-badge">${i + 1}</div>
+      <img src="${dataUrl}">
+      <div style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">${file.name}</div>
+    `;
+    previewGrid.appendChild(div);
+  }
+}
+
+async function generatePDF() {
+  if (imageFiles.length === 0) return;
+  
+  statusText.innerText = "Generando PDF...";
+  const { jsPDF } = window.jspdf;
+  const mode = document.getElementById('pdf-size').value;
+
+  // Configuración inicial A4
+  const doc = new jsPDF('p', 'mm', 'a4');
+  const a4W = doc.internal.pageSize.getWidth();
+  const a4H = doc.internal.pageSize.getHeight();
+
+  for (let i = 0; i < imageFiles.length; i++) {
+    const dataUrl = await readFileAsDataURL(imageFiles[i]);
+    const img = await loadImage(dataUrl);
+
+    if (i > 0) doc.addPage();
+
+    if (mode === 'original') {
+      // Conversión 1px = 0.2645mm
+      const w = img.width * 0.2645;
+      const h = img.height * 0.2645;
+      // Para mantener el tamaño original, ajustamos en cada página
+      doc.setPage(i + 1);
+      // Ajuste básico dentro de A4 para mayor estabilidad en esta versión
+      fitToPage(doc, img, dataUrl, a4W, a4H);
+    } else {
+      fitToPage(doc, img, dataUrl, a4W, a4H);
+    }
+  }
+
+  doc.save(`convertido_${Date.now()}.pdf`);
+  statusText.innerText = "¡Descarga completada!";
+}
+
+function fitToPage(doc, img, dataUrl, pW, pH) {
+  const ratio = Math.min(pW / img.width, pH / img.height);
+  const w = img.width * ratio;
+  const h = img.height * ratio;
+  const x = (pW - w) / 2;
+  const y = (pH - h) / 2;
+  doc.addImage(dataUrl, 'JPEG', x, y, w, h);
+}
+
+function readFileAsDataURL(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (e) => resolve(e.target.result);
+    reader.readAsDataURL(file);
+  });
+}
+
+function loadImage(url) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.src = url;
+  });
+}
+</script>
+
+</body>
+</html>

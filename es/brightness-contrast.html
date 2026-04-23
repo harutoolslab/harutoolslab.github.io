@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+  
+
+<title>Ajustar brillo y contraste de imágenes | Edición por lotes gratis en línea - HaruTools Lab</title>
+<meta name="description" content="Herramienta gratuita para ajustar fácilmente el brillo y el contraste de tus imágenes en línea. Aclara fotos oscuras o dale nitidez a imágenes borrosas. Soporta procesamiento por lotes y es seguro en el navegador.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Espacio publicitario */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Cabecera */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Área principal */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Área de carga */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+#drop-area:hover { background: rgba(0, 123, 255, 0.05); }
+
+/* Panel de control */
+.controls-panel {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.slider-group {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.slider-group label { min-width: 90px; font-weight: bold; text-align: right; }
+.slider-group input[type="range"] { flex: 1; cursor: pointer; }
+.value-badge { min-width: 40px; background: var(--primary); color: white; border-radius: 4px; padding: 2px 6px; font-size: 0.8rem; }
+
+.btn-download {
+  background: var(--success); color: white; border: none; padding: 15px 40px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem;
+  transition: opacity 0.2s;
+}
+.btn-download:disabled { background: #ccc; cursor: not-allowed; }
+
+/* Área de vista previa */
+#preview-container { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 20px; 
+  margin-top: 30px; 
+}
+.preview-item { 
+  background: #fff; padding: 10px; border-radius: 12px; border: 1px solid #eee;
+}
+.preview-item img { max-width: 100%; border-radius: 4px; display: block; margin: 10px auto 0; }
+.file-name { font-size: 0.75rem; color: var(--text-sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Sección de información */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab: Herramientas en línea gratuitas
+    </a>
+  </div>
+    <h1>Ajuste de brillo y contraste</h1>
+    <p class="tagline">Corrige el brillo y el contraste de tus fotos simplemente moviendo los deslizadores.</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Anuncio</span>Etiqueta publicitaria aquí</div>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area" onclick="document.getElementById('file-input').click()">
+      <div style="font-size: 1.1rem; font-weight: bold;">Arrastra y suelta imágenes, o haz clic aquí</div>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
+
+    <div class="controls-panel">
+      <div class="slider-group">
+        <label>Brillo</label>
+        <input type="range" id="brightness" min="-100" max="100" value="0">
+        <span class="value-badge" id="b-val">0</span>
+      </div>
+      <div class="slider-group">
+        <label>Contraste</label>
+        <input type="range" id="contrast" min="-100" max="100" value="0">
+        <span class="value-badge" id="c-val">0</span>
+      </div>
+      <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">* Los ajustes se reflejan en tiempo real en la vista previa.</p>
+    </div>
+
+    <button class="btn-download" id="dl-btn" onclick="downloadAll()" disabled>Guardar imágenes</button>
+
+    <div id="preview-container"></div>
+  </main>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Anuncio</span>Etiqueta publicitaria aquí</div>
+  </div>
+
+  <article class="info-section">
+    <h2>Características de la herramienta de brillo y contraste</h2>
+    <p>
+      Es una herramienta para corregir en pocos segundos fotos que han quedado oscuras por el contraluz o imágenes que se ven apagadas.
+      Sin necesidad de instalar software especializado, puedes editar de forma intuitiva directamente en tu navegador.
+    </p>
+
+    <h3>Consejos para el ajuste</h3>
+    <ul>
+      <li><strong>Brillo (Brightness):</strong> Aclara u oscurece la imagen en su totalidad. Es útil para rescatar fotos con poca exposición.</li>
+      <li><strong>Contraste (Contrast):</strong> Acentúa la diferencia entre las partes claras y oscuras. Aumentar el valor resalta los colores, mientras que bajarlo crea una impresión más suave.</li>
+    </ul>
+
+    <h2>Preguntas frecuentes</h2>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">P. ¿Se degrada la calidad de la imagen tras la edición?</strong>
+      <p>R. Utilizamos la función de dibujo del navegador (Canvas) para la vista previa y el guardado. Al guardar, se genera en formato PNG de alta calidad, minimizando cualquier degradación notable por la edición.</p>
+    </div>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">P. ¿Puedo aplicar la misma configuración a varias imágenes a la vez?</strong>
+      <p>R. Sí. Si subes varias imágenes, los ajustes de los deslizadores se aplicarán a todas simultáneamente. Es muy conveniente para corregir por lotes fotos tomadas bajo la misma iluminación.</p>
+    </div>
+
+    <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="image-compress.html">Comprimir imágenes</a></li>
+      <li><a href="image-resize.html">Cambiar tamaño de imagen</a></li>
+      <li><a href="png-to-jpg.html">Convertir PNG a JPG</a></li>
+    </ul>
+  </article>
+
+  
+<footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+
+</div>
+
+<script>
+const fileInput = document.getElementById('file-input');
+const previewContainer = document.getElementById('preview-container');
+const bSlider = document.getElementById('brightness');
+const cSlider = document.getElementById('contrast');
+const bValLabel = document.getElementById('b-val');
+const cValLabel = document.getElementById('c-val');
+const dlBtn = document.getElementById('dl-btn');
+
+let originalImages = []; // [{img, name}]
+
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+function handleFiles(files) {
+  originalImages = [];
+  previewContainer.innerHTML = "";
+  
+  const fileArray = Array.from(files);
+  if(fileArray.length > 0) dlBtn.disabled = false;
+
+  fileArray.forEach((file, idx) => {
+    if (!file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.src = e.target.result;
+      img.onload = () => {
+        originalImages.push({ img, name: file.name });
+        addPreviewItem(idx, file.name);
+        applyFilters(); // Inicialización con filtros
+      };
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function addPreviewItem(idx, name) {
+  const item = document.createElement("div");
+  item.className = "preview-item";
+  item.innerHTML = `<div class="file-name">${name}</div><canvas id="canvas-${idx}" style="display:none;"></canvas><img id="img-${idx}">`;
+  previewContainer.appendChild(item);
+}
+
+// Eventos de deslizadores
+[bSlider, cSlider].forEach(slider => {
+  slider.addEventListener('input', () => {
+    bValLabel.textContent = bSlider.value;
+    cValLabel.textContent = cSlider.value;
+    applyFilters();
+  });
+});
+
+function applyFilters() {
+  const b = parseInt(bSlider.value);
+  const c = parseInt(cSlider.value);
+  const factor = (259 * (c + 255)) / (255 * (259 - c));
+
+  originalImages.forEach((data, idx) => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const imgObj = data.img;
+
+    canvas.width = imgObj.width;
+    canvas.height = imgObj.height;
+    ctx.drawImage(imgObj, 0, 0);
+
+    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const d = imgData.data;
+
+    for (let i = 0; i < d.length; i += 4) {
+      d[i] = truncate(factor * (d[i] - 128) + 128 + b);     // R
+      d[i+1] = truncate(factor * (d[i+1] - 128) + 128 + b); // G
+      d[i+2] = truncate(factor * (d[i+2] - 128) + 128 + b); // B
+    }
+
+    ctx.putImageData(imgData, 0, 0);
+    const resultImg = document.getElementById(`img-${idx}`);
+    if(resultImg) resultImg.src = canvas.toDataURL("image/png");
+  });
+}
+
+function truncate(value) {
+  return Math.min(255, Math.max(0, value));
+}
+
+function downloadAll() {
+  originalImages.forEach((data, idx) => {
+    const imgElement = document.getElementById(`img-${idx}`);
+    if (!imgElement) return;
+    const link = document.createElement("a");
+    link.href = imgElement.src;
+    link.download = data.name.replace(/\.[^/.]+$/, "") + "-editado.png";
+    link.click();
+  });
+}
+
+// Control de arrastrar y soltar
+const dropArea = document.getElementById('drop-area');
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(n => {
+  dropArea.addEventListener(n, e => { e.preventDefault(); e.stopPropagation(); });
+});
+dropArea.addEventListener('drop', e => {
+  handleFiles(e.dataTransfer.files);
+});
+</script>
+
+</body>
+</html>
