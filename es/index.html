@@ -2,210 +2,256 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-  <meta name="google-site-verification" content="jWDFJLwlaulsCJD9GNUFzzeZeTvLEzBHY0kWB140450" />
-  
-<title>HaruTools Lab｜Herramientas online gratuitas para editar imágenes y PDF</title>
-<link rel="icon" href="/favicon.ico">
-<meta name="description" content="Ofrecemos más de 35 herramientas útiles como compresión de imágenes, conversión de formatos y edición de PDF directamente en tu navegador. Gratis, sin instalación y compatible con móviles. Diseño seguro centrado en la privacidad.">
+  
+<title>Convertir JPG a PNG | Gratis, alta calidad y conversión por lotes online - HaruTools Lab</title>
+<meta name="description" content="Herramienta gratuita para convertir imágenes JPG a formato PNG por lotes. Convierte de forma segura en tu navegador manteniendo la calidad. Sin instalación, funciona en móviles y PC.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* 既存の変数を流用 */
 :root {
-  --primary: #007bff;
-  --primary-hover: #0056b3;
-  --bg-color: #f4f7f9;
-  --card-bg: #ffffff;
-  --text-main: #333333;
-  --text-sub: #666666;
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  margin: 0; padding: 0; line-height: 1.6;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
 }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Espacio publicitario */
 .ad-slot {
-  margin: 20px auto; padding: 15px;
-  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
-  color: #999; font-size: 12px; text-align: center; min-height: 90px;
-  display: flex; align-items: center; justify-content: center;
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Encabezado */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Área principal de la herramienta */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-header { text-align: center; margin: 40px 0; }
-h1 { font-size: 2.2rem; color: #111; margin-bottom: 10px; }
-.hero-desc { color: var(--text-sub); max-width: 700px; margin: 0 auto; }
+/* Área de arrastrar y soltar */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active { background: rgba(0, 123, 255, 0.1); border-color: var(--primary-hover); }
 
-/* ツールグリッドレイアウト */
-.tool-section { margin-bottom: 50px; }
-.section-title { font-size: 1.4rem; border-bottom: 2px solid var(--primary); display: inline-block; margin-bottom: 20px; padding-bottom: 5px; }
-
-.tool-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 15px;
+.btn-select {
+  background: var(--primary); color: white; border: none; padding: 12px 30px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; margin-top: 15px;
 }
 
-.tool-card {
-  background: var(--card-bg);
-  padding: 20px 15px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  text-decoration: none;
-  color: var(--text-main);
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border: 1px solid transparent;
+.btn-run {
+  background: var(--success); color: white; border: none; padding: 15px 40px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 20px;
 }
 
-.tool-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-  border-color: var(--primary);
+/* Área de resultados */
+#result-zone { margin-top: 30px; text-align: left; }
+.result-item {
+  background: white; padding: 12px 18px; border-radius: 8px; border: 1px solid #eee;
+  margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;
 }
+.download-link { color: var(--primary); font-weight: bold; text-decoration: none; border: 1px solid var(--primary); padding: 4px 12px; border-radius: 4px; }
+.download-link:hover { background: var(--primary); color: white; }
 
-.tool-card span { font-weight: bold; font-size: 1rem; display: block; margin-bottom: 5px; }
-.tool-card small { color: var(--text-sub); font-size: 0.8rem; line-height: 1.2; }
-
-/* SEO解説セクション */
-.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; }
-.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin-bottom: 20px; }
+/* Sección informativa */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
 
 footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
-
-@media (max-width: 600px) {
-  .tool-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .tool-card { padding: 15px 10px; }
-  .tool-card span { font-size: 0.9rem; }
-}
 </style>
 </head>
 <body>
 
 <div class="container">
-  <header>
-    <h1>HaruTools Lab</h1>
-    <p class="hero-desc">Todo en tu navegador. Un conjunto de herramientas creativas gratuitas y sin necesidad de registro.</p>
-  </header>
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Colección de herramientas online gratuitas "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Convertir JPG a PNG</h1>
+    <p class="tagline">Convierte imágenes JPG (JPEG) al formato PNG de alta compatibilidad.</p>
+  </header>
 
-  <div class="ad-slot"><div>Advertisement</div></div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Anuncio</span>Etiqueta publicitaria aquí</div>
+  </div>
 
-  <section class="tool-section">
-    <h2 class="section-title">Compresión y Conversión de Imagen</h2>
-    <div class="tool-grid">
-      <a href="image-compress.html" class="tool-card"><span>Compresión por lotes</span><small>Reduce el tamaño drásticamente</small></a>
-      <a href="png-compress.html" class="tool-card"><span>Comprimir PNG</span><small>Mantiene la transparencia</small></a>
-      <a href="image-to-webp.html" class="tool-card"><span>Convertir a WebP</span><small>Formato de última generación</small></a>
-      <a href="webp-to-jpg.html" class="tool-card"><span>WebP → JPG</span><small>A formato universal</small></a>
-      <a href="webp-to-png.html" class="tool-card"><span>WebP → PNG</span><small>Compatible con transparencia</small></a>
-      <a href="jpg-to-png.html" class="tool-card"><span>JPG → PNG</span><small>Convertir a formato PNG</small></a>
-      <a href="png-to-jpg.html" class="tool-card"><span>PNG → JPG</span><small>Convierte con fondo blanco</small></a>
-      <a href="heic-to-png.html" class="tool-card"><span>HEIC → PNG</span><small>Fotos de iPhone a PNG</small></a>
-      <a href="video-to-gif.html" class="tool-card"><span>Vídeo → GIF</span><small>Crea animaciones de vídeo</small></a>
-    </div>
-  </section>
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta imágenes JPG aquí</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivos</button>
+      <input type="file" id="file-input" accept="image/jpeg" multiple style="display:none;">
+    </div>
 
-  <section class="tool-section">
-    <h2 class="section-title">Procesamiento y Edición de Imagen</h2>
-    <div class="tool-grid">
-      <a href="image-resize.html" class="tool-card"><span>Redimensionar</span><small>Cambia ancho y alto</small></a>
-      <a href="image-cropper-rounded.html" class="tool-card"><span>Recortar</span><small>Bordes redondeados y libre</small></a>
-      <a href="square-image-maker.html" class="tool-card"><span>Ajuste cuadrado</span><small>Añade márgenes para RRSS</small></a>
-      <a href="image-filter-tool.html" class="tool-card"><span>Filtros</span><small>Corrección de color y efectos</small></a>
-      <a href="brightness-contrast.html" class="tool-card"><span>Brillo / Contraste</span><small>Ajusta luz y sombras</small></a>
-      <a href="monochrome-pwa.html" class="tool-card"><span>Monocromo</span><small>Efecto B/N y sepia</small></a>
-      <a href="mosaic-blur.html" class="tool-card"><span>Mosaico y Desenfoque</span><small>Oculta información privada</small></a>
-      <a href="png-transparent.html" class="tool-card"><span>Fondo transparente</span><small>Elimina un color específico</small></a>
-      <a href="add-text.html" class="tool-card"><span>Añadir texto</span><small>Escribe sobre la imagen</small></a>
-      <a href="image-watermark.html" class="tool-card"><span>Marca de agua</span><small>Logos anti-copia</small></a>
-      <a href="image-rotate.html" class="tool-card"><span>Rotar</span><small>90 grados y ajustes</small></a>
-      <a href="image-flip.html" class="tool-card"><span>Voltear</span><small>Horizontal y vertical</small></a>
-      <a href="image-overlay.html" class="tool-card"><span>Superponer</span><small>Combina dos imágenes</small></a>
-    </div>
-  </section>
+    <button class="btn-run" onclick="run()">Convertir a PNG</button>
 
-  <section class="tool-section">
-    <h2 class="section-title">Color, Análisis y Comparación</h2>
-    <div class="tool-grid">
-      <a href="rgb-to-hex.html" class="tool-card"><span>RGB → HEX</span><small>Convertir códigos de color</small></a>
-      <a href="hex-to-rgb.html" class="tool-card"><span>HEX → RGB</span><small>Convertir códigos de color</small></a>
-      <a href="color-picker.html" class="tool-card"><span>Cuentagotas</span><small>Obtén colores de la pantalla</small></a>
-      <a href="color-code-list.html" class="tool-card"><span>Lista de colores</span><small>Nombres y códigos</small></a>
-      <a href="image-compare.html" class="tool-card"><span>Comparar imágenes</span><small>Verifica cambios lado a lado</small></a>
-      <a href="image-measure.html" class="tool-card"><span>Medición</span><small>Mide tamaños en la imagen</small></a>
-    </div>
-  </section>
+    <div id="result-zone"></div>
+  </main>
 
-  <section class="tool-section">
-    <h2 class="section-title">PDF y Documentos</h2>
-    <div class="tool-grid">
-      <a href="pdf-split.html" class="tool-card"><span>Unir PDF</span><small>Combina varios en uno</small></a>
-      <a href="image-to-pdf.html" class="tool-card"><span>Imagen → PDF</span><small>Convierte fotos a PDF</small></a>
-      <a href="pdf-to-image.html" class="tool-card"><span>PDF → Imagen</span><small>PDF a JPG/PNG</small></a>
-    </div>
-  </section>
+  <div class="ad-slot">
+    <div><span class="ad-label">Anuncio</span>Etiqueta publicitaria aquí</div>
+  </div>
 
-  <section class="tool-section">
-    <h2 class="section-title">Otras Herramientas Útiles</h2>
-    <div class="tool-grid">
-      <a href="qr-generator.html" class="tool-card"><span>Generador QR</span><small>URL o texto a código QR</small></a>
-      <a href="favicon-generator.html" class="tool-card"><span>Crear Favicon</span><small>Genera iconos .ico</small></a>
-      <a href="remove-exif.html" class="tool-card"><span>Eliminar Exif</span><small>Borra datos de ubicación</small></a>
-      <a href="dot-art-maker.html" class="tool-card"><span>Arte Pixelado</span><small>Convierte fotos a Pixel Art</small></a>
-    </div>
-  </section>
+  <article class="info-section">
+    <h2>¿Qué es la herramienta de conversión JPG a PNG?</h2>
+    <p>
+      La herramienta de HaruTools Lab permite transformar el formato JPG, común en fotografías, al formato PNG, que ofrece mayor calidad y soporte para transparencias. 
+      Es compatible con el procesamiento por lotes para manejar múltiples archivos a la vez, y al funcionar íntegramente en el navegador, es extremadamente rápida y segura.
+    </p>
 
-  <div class="ad-slot"><div>Advertisement</div></div>
+    <h3>Características de esta herramienta</h3>
+    <ul>
+      <li><strong>Completamente gratis:</strong> Sin registros ni límites, puedes convertir tantas imágenes como desees.</li>
+      <li><strong>Alta calidad:</strong> Minimiza la degradación por re-compresión, manteniendo la fidelidad de la imagen original.</li>
+      <li><strong>Protección de privacidad:</strong> Tus imágenes no se suben al servidor; se procesan localmente en tu navegador.</li>
+    </ul>
 
-  <article class="info-section">
-    <h2>Características de HaruTools Lab</h2>
-    <p>Nuestro sitio ofrece más de 35 tipos de herramientas online útiles para el diseño web y la gestión de redes sociales, todas de forma gratuita. Puedes usarlas de inmediato sin necesidad de iniciar sesión.</p>
-    
-    <h3>Procesamiento seguro en el navegador</h3>
-    <p>Todo el procesamiento se realiza localmente en tu navegador. Tus datos confidenciales, como imágenes o archivos PDF, nunca se envían ni se guardan en nuestros servidores. Es seguro incluso para uso empresarial donde la seguridad es prioritaria.</p>
-    
-    <h3>Uso comercial permitido</h3>
-    <p>Los datos creados o procesados con estas herramientas pueden ser utilizados para fines comerciales, tanto por individuos como por empresas. No es necesario incluir ninguna atribución o crédito.</p>
+    <h2>Pasos para su uso</h2>
+    <ol>
+      <li>Arrastra las imágenes JPG al área de carga o selecciónalas mediante el botón.</li>
+      <li>Haz clic en el botón "Convertir a PNG".</li>
+      <li>Cuando aparezca el nombre del archivo convertido, guárdalo usando el botón de la derecha.</li>
+    </ol>
 
-   <h2>Preguntas frecuentes (FAQ)</h2>
-    <div class="faq-item">
-      <span class="faq-q">P. ¿Tiene algún coste?</span>
-      <p>R. No, todas las herramientas de este sitio se ofrecen de forma gratuita. El servicio se mantiene gracias a los ingresos publicitarios, por lo que no hay cargos adicionales.</p>
-    </div>
-    <div class="faq-item">
-      <span class="faq-q">P. ¿Se guardan mis imágenes en el servidor?</span>
-      <p>R. No. Esta herramienta realiza todo el procesamiento en el "lado del cliente" (tu navegador). Los datos de imagen no se envían a servidores externos y tu privacidad está totalmente protegida.</p>
-    </div>
-    <div class="faq-item">
-      <span class="faq-q">P. ¿Puedo usarlo en el móvil?</span>
-      <p>R. Sí, puedes usarlo en smartphones como iPhone y Android, así como en tablets, sin necesidad de instalación.</p>
-    </div>
-    <div class="faq-item">
-      <span class="faq-q">P. ¿Puedo procesar varias imágenes a la vez?</span>
-      <p>R. Actualmente, esta herramienta admite el procesamiento de imágenes una por una. Si necesitas procesar varias, por favor súbelas individualmente o espera a futuras actualizaciones.</p>
-    </div>
-    <div class="faq-item">
-      <span class="faq-q">P. ¿Cómo queda la calidad de las imágenes convertidas?</span>
-      <p>R. Está optimizado para mantener la máxima calidad original posible. Al convertir a ciertos formatos puede haber una ligera compresión, pero no afecta al uso general.</p>
-    </div>
-  </article>
+    <h2>Preguntas frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Mejorará la calidad al convertir JPG a PNG?</span>
+      <p>R. PNG es un formato sin pérdida, pero como el JPG original ya está comprimido, la calidad no superará a la original. Sin embargo, evita que la imagen se degrade más en futuras ediciones.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Por qué el tamaño del archivo aumentó después de la conversión?</span>
+      <p>R. PNG tiende a ser más pesado que JPG porque almacena más información de datos. Si necesitas reducir el peso, utiliza nuestra "Herramienta de compresión de imágenes".</p>
+    </div>
 
-  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+    <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="png-to-jpg.html">Convertir PNG a JPG</a></li>
+      <li><a href="image-compress.html">Comprimir imágenes</a></li>
+      <li><a href="image-to-webp.html">Convertir imágenes a WebP</a></li>
+    </ul>
+  </article>
+
+<footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
 
 </div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const resultZone = document.getElementById('result-zone');
+
+let selectedFiles = [];
+
+// Eventos de arrastrar y soltar
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+['dragenter', 'dragover'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.add('active'), false);
+});
+['dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', e => {
+  selectedFiles = e.dataTransfer.files;
+  showStatus();
+}, false);
+
+fileInput.addEventListener('change', function() {
+  selectedFiles = this.files;
+  showStatus();
+});
+
+function showStatus() {
+  if (selectedFiles.length > 0) {
+    resultZone.innerHTML = `<p style="text-align:center; color:var(--primary); font-weight:bold;">Se han preparado ${selectedFiles.length} archivos JPG.</p>`;
+  }
+}
+
+function run() {
+  if (selectedFiles.length === 0) return alert("Por favor, selecciona una imagen");
+
+  resultZone.innerHTML = "<p style='text-align:center;'>Convirtiendo...</p>";
+
+  Array.from(selectedFiles).forEach(file => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.src = url;
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+
+      canvas.toBlob(blob => {
+        const downloadUrl = URL.createObjectURL(blob);
+        const fileName = file.name.replace(/\.jpg|\.jpeg/i, "") + ".png";
+        
+        const item = document.createElement("div");
+        item.className = "result-item";
+        
+        const nameLabel = document.createElement("span");
+        nameLabel.style.fontSize = "0.9rem";
+        nameLabel.textContent = fileName;
+        
+        const link = document.createElement("a");
+        link.href = downloadUrl;
+        link.download = fileName;
+        link.textContent = "Guardar";
+        link.className = "download-link";
+
+        item.appendChild(nameLabel);
+        item.appendChild(link);
+        resultZone.appendChild(item);
+        
+        URL.revokeObjectURL(url);
+      }, "image/png");
+    };
+  });
+}
+</script>
 
 </body>
 </html>
