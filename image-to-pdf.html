@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
   <meta name="google-adsense-account" content="ca-pub-2295804002960949">
 
-<!-- ★SEO設定 -->
-<title>画像からPDF変換ツール｜複数JPG/PNGをまとめて1枚に「はるツール」</title>
-<meta name="description" content="複数の画像をまとめて1枚のPDFに変換できる無料オンラインツール。A4サイズへの自動調整機能付き。スマホで撮った書類や履歴書のPDF化に最適。ブラウザ内処理でプライバシーも安心。">
+<title>Image to PDF Converter | Combine JPG/PNG into One PDF - HaruTools Lab</title>
+<meta name="description" content="Free online tool to combine multiple images into a single PDF file. Features auto-adjustment to A4 size. Perfect for digitizing documents or resumes from your smartphone. Secure browser-side processing.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ★PDF生成ライブラリ jsPDF を読み込み -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
@@ -28,7 +26,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -36,7 +34,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -45,12 +43,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Tool Area */
 .main-card {
   background: var(--card-bg);
   padding: 30px 20px;
@@ -60,7 +58,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drag & Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 50px 20px;
@@ -79,7 +77,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   font-weight: bold; cursor: pointer;
 }
 
-/* 設定・プレビュー */
+/* Setup & Preview */
 #work-zone { display: none; }
 .config-panel {
   background: #f8f9fa;
@@ -144,7 +142,7 @@ select {
 }
 .btn-run:active { transform: scale(0.98); }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 
@@ -157,105 +155,101 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Utility Collection
     </a>
   </div>
-    <h1>画像からPDF変換ツール</h1>
-    <p class="tagline">複数のJPG/PNGをまとめて1枚のPDFに。登録不要で安全に変換。</p>
+    <h1>Image to PDF Converter</h1>
+    <p class="tagline">Combine multiple JPG/PNG images into a single PDF. Secure conversion without registration.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <main class="main-card">
-    <!-- 入力エリア -->
     <div id="drop-area" onclick="document.getElementById('file-input').click()">
-      <div style="font-size: 1.2rem; font-weight: bold;">画像を選択、またはドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">(複数枚まとめて選択できます)</p>
-      <button type="button" class="btn-select">ファイルを選ぶ</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Select or Drag & Drop Images</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">(You can select multiple files at once)</p>
+      <button type="button" class="btn-select">Choose Files</button>
       <input type="file" id="file-input" multiple accept="image/*" style="display:none;">
     </div>
 
-    <!-- ワークエリア -->
     <div id="work-zone">
       <div class="config-panel">
-        <strong>PDFサイズ設定:</strong>
+        <strong>PDF Page Size:</strong>
         <select id="pdf-size">
-          <option value="a4">A4サイズに自動調整</option>
-          <option value="original">画像の元のサイズを維持</option>
+          <option value="a4">Auto-adjust to A4 Size</option>
+          <option value="original">Keep Original Image Size</option>
         </select>
       </div>
 
       <div id="preview-grid" class="preview-grid"></div>
 
-      <button class="btn-run" onclick="generatePDF()">PDFを作成してダウンロード</button>
+      <button class="btn-run" onclick="generatePDF()">Create & Download PDF</button>
       
       <div id="status" style="margin-top: 15px; color: var(--primary); font-weight: bold;"></div>
       
       <div style="margin-top: 20px;">
-        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">クリアしてやり直す</button>
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Clear and Start Over</button>
       </div>
     </div>
   </main>
 
   <article class="info-section">
-    <h2>画像からPDF変換ツールとは？</h2>
-    <p>スマホやデジカメで撮影した画像（JPG, PNG, WebPなど）を、汎用性の高いPDF形式に変換してまとめるツールです。複数の画像を選択すれば、1つのPDFファイルの中にページ順に結合されます。アプリのインストールは一切不要で、すべてブラウザ上で処理が完結します。</p>
+    <h2>What is the Image to PDF Converter?</h2>
+    <p>This tool allows you to convert images (JPG, PNG, WebP, etc.) taken with your smartphone or digital camera into a universally compatible PDF format. By selecting multiple images, they will be merged into a single PDF file in the order of your choice. No app installation is required; all processing happens directly in your browser.</p>
 
-    <h3>主な活用シーン</h3>
+    <h3>Common Use Cases</h3>
     <ul>
-      <li><strong>書類の提出：</strong> スマホで撮った免許証や保険証、履歴書の写真をPDF化。</li>
-      <li><strong>レポート・課題：</strong> 手書きのノートを撮影して、1枚のPDF資料に集約。</li>
-      <li><strong>電子帳簿保存：</strong> 領収書やレシートをPDFとして保存・管理。</li>
+      <li><strong>Submitting Documents:</strong> Convert photos of IDs, insurance cards, or resumes into professional PDFs.</li>
+      <li><strong>Reports & Assignments:</strong> Capture handwritten notes and compile them into a single PDF document.</li>
+      <li><strong>Digital Record Keeping:</strong> Save and manage receipts or invoices as PDF files.</li>
     </ul>
 
-    <h2>このツールの特徴</h2>
-    <h3>1. プライバシーに配慮した設計</h3>
-    <p>画像はサーバーにアップロードされません。あなたのデバイス内（ブラウザ）でPDFを作成するため、重要な書類の画像も安心して変換できます。</p>
+    <h2>Features of This Tool</h2>
+    <h3>1. Privacy-First Design</h3>
+    <p>Your images are never uploaded to a server. Since the PDF is generated within your device's browser, you can safely convert sensitive documents without worry.</p>
 
-    <h3>2. A4サイズへの自動フィット機能</h3>
-    <p>バラバラのサイズの画像でも「A4サイズに合わせる」設定を選べば、書類として適切なレイアウトに自動調整されます。</p>
+    <h3>2. Automatic A4 Fit</h3>
+    <p>Even with images of varying sizes, choosing the "Auto-adjust to A4" setting will ensure they are laid out correctly for standard document printing.</p>
 
-    <h3>3. ページ順の確認が簡単</h3>
-    <p>アップロードした画像はプレビューとして表示され、PDF化される順番を確認できます。並び順はファイルを選択した順序に基づきます。</p>
+    <h3>3. Easy Page Order Verification</h3>
+    <p>Uploaded images are shown in a preview grid, allowing you to confirm the sequence before conversion. The order is determined by the sequence in which you select the files.</p>
 
-<article class="info-section">
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 料金はかかりますか？</strong>
-      <p>A. いいえ、完全無料でご利用いただけます。枚数やファイルサイズによる制限もありません。</p>
+      <strong style="color:var(--primary);">Q. Is there a fee to use this tool?</strong>
+      <p>A. No, it is completely free to use. There are no limits on the number of pages or file size.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 複数の画像を1つのPDFにまとめられますか？</strong>
-      <p>A. はい、可能です。複数の画像を選択してアップロードすれば、それらを結合して1枚ずつページが割り当てられた1つのPDFファイルとして出力します。</p>
+      <strong style="color:var(--primary);">Q. Can I merge multiple images into one PDF?</strong>
+      <p>A. Yes. If you upload multiple images, they will be combined into a single PDF file with one image per page.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 画質は変わりますか？</strong>
-      <p>A. 元の解像度を最大限に維持したままPDF化処理を行いますが、ブラウザのCanvas機能を経由するため、各画像が高品質な状態でPDF内に埋め込まれます。</p>
+      <strong style="color:var(--primary);">Q. Does the image quality change?</strong>
+      <p>A. We maintain the original resolution as much as possible. Since it uses the browser's Canvas functionality, images are embedded into the PDF in a high-quality state.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. セキュリティやプライバシーは安全ですか？</strong>
-      <p>A. 非常に安全です。本ツールは「オフライン（ブラウザ内）」で動作します。画像データが当サイトのサーバーにアップロードされることは一切ないため、機密書類なども安心して変換いただけます。</p>
+      <strong style="color:var(--primary);">Q. Is my data secure?</strong>
+      <p>A. Very secure. This tool operates "offline" within your browser. Image data is never sent to our servers, so your confidential documents remain private.</p>
     </div>
 
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. スマホ（iPhone/Android）でも使えますか？</strong>
-      <p>A. はい、スマートフォンやタブレットのブラウザからも、アプリのインストール不要でそのままご利用いただけます。</p>
+      <strong style="color:var(--primary);">Q. Does it work on smartphones?</strong>
+      <p>A. Yes, you can use it directly from the browser on iPhone, Android, or tablet devices without installing any apps.</p>
     </div>
-    </article>
+  </article>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="#" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -267,10 +261,10 @@ const statusText = document.getElementById('status');
 
 let imageFiles = [];
 
-// ファイル選択イベント
+// File selection event
 fileInput.addEventListener('change', e => handleFiles(e.target.files));
 
-// ドラッグ&ドロップ処理
+// Drag & Drop handling
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
   dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); });
 });
@@ -302,11 +296,11 @@ async function handleFiles(selectedFiles) {
 async function generatePDF() {
   if (imageFiles.length === 0) return;
   
-  statusText.innerText = "PDFを生成中...";
+  statusText.innerText = "Generating PDF...";
   const { jsPDF } = window.jspdf;
   const mode = document.getElementById('pdf-size').value;
 
-  // 初期設定 A4
+  // Initial setup: A4
   const doc = new jsPDF('p', 'mm', 'a4');
   const a4W = doc.internal.pageSize.getWidth();
   const a4H = doc.internal.pageSize.getHeight();
@@ -318,13 +312,12 @@ async function generatePDF() {
     if (i > 0) doc.addPage();
 
     if (mode === 'original') {
-      // 1px = 0.2645mm 換算で描画
+      // Conversion: 1px = 0.2645mm
       const w = img.width * 0.2645;
       const h = img.height * 0.2645;
-      // 元サイズ維持の場合、各ページを画像サイズに合わせる
+      // In 'original' mode, we still fit it within A4 for stability across versions,
+      // but the logic can be expanded to dynamic page sizes if needed.
       doc.setPage(i + 1);
-      // setPageSize は古いバージョン等で使えない場合があるため、簡易的にA4内に配置
-      // 本格的には doc = new jsPDF({format: [w, h]}) が理想だが、ループ内ではA4フィットが安定
       fitToPage(doc, img, dataUrl, a4W, a4H);
     } else {
       fitToPage(doc, img, dataUrl, a4W, a4H);
@@ -332,7 +325,7 @@ async function generatePDF() {
   }
 
   doc.save(`converted_${Date.now()}.pdf`);
-  statusText.innerText = "ダウンロードが完了しました！";
+  statusText.innerText = "Download Complete!";
 }
 
 function fitToPage(doc, img, dataUrl, pW, pH) {
