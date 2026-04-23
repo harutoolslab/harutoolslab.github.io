@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<!-- ★SEO設定 -->
+<title>ドット絵メーカー｜グリッド表示・背景透過・保存「はるツール」</title>
+<meta name="description" content="初心者でも使いやすい無料のオンラインドット絵作成ツール。正確なグリッド線を表示しながら1マスずつ描画でき、背景透過PNGでの拡大保存にも対応。Web素材やアイコン作りに。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* コントロールパネル */
+.control-panel {
+  display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; align-items: center;
+  background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 20px;
+}
+
+.tool-btn {
+  padding: 8px 20px; border: 1px solid #ddd; background: #fff; border-radius: 8px;
+  cursor: pointer; font-weight: bold; transition: 0.2s;
+}
+.tool-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+/* キャンバスエリア：背景白 ＋ グリッド線 */
+.canvas-scroll-viewer {
+  width: 100%; max-height: 60vh; overflow: auto;
+  background: #ccc; border: 2px solid #333; border-radius: 4px;
+  margin: 20px 0; display: flex; justify-content: center; align-items: center;
+}
+
+.canvas-wrapper {
+  display: inline-block;
+  background-color: #ffffff;
+  /* グリッド線の描画 */
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+  line-height: 0;
+}
+
+#pixel-canvas {
+  image-rendering: pixelated;
+  cursor: crosshair;
+  display: block;
+}
+
+/* パレット */
+.palette-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
+.palette-color {
+  width: 32px; height: 32px; border: 1px solid #ddd; border-radius: 6px;
+  cursor: pointer; transition: transform 0.1s;
+}
+.palette-color:hover { transform: scale(1.1); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+/* 保存セクション */
+.save-panel { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
+.btn-run {
+  background: var(--success); color: white; border: none; padding: 12px 40px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>ドット絵メーカー</h1>
+    <p class="tagline">グリッド線付きで描きやすい。透過PNG保存対応。</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <main class="main-card">
+    <!-- 設定 -->
+    <div class="control-panel">
+      キャンバス：
+      <select id="width-select" style="padding: 5px; border-radius: 5px;"></select> × 
+      <select id="height-select" style="padding: 5px; border-radius: 5px;"></select>
+      <button class="tool-btn" onclick="initCanvas()" style="margin-left:10px;">リセット</button>
+      <div style="margin-left:20px;">
+        拡大：<input type="range" id="zoom-range" min="5" max="60" value="20" oninput="updateZoom()">
+      </div>
+    </div>
+
+    <!-- ツール -->
+    <div class="control-panel">
+      <input type="color" id="color-picker" value="#333333" style="width:50px; height:38px; cursor:pointer; border:none; background:none;">
+      <button id="pen-tool" class="tool-btn active" onclick="setTool('pen')">ペン</button>
+      <button id="eraser-tool" class="tool-btn" onclick="setTool('eraser')">消しゴム</button>
+      <button class="tool-btn" onclick="addColorToPalette()">色の保存</button>
+    </div>
+
+    <!-- パレット -->
+    <div class="palette-container" id="palette"></div>
+
+    <!-- キャンバス本体 -->
+    <div class="canvas-scroll-viewer">
+      <div class="canvas-wrapper" id="canvas-wrapper">
+        <canvas id="pixel-canvas"></canvas>
+      </div>
+    </div>
+
+    <!-- 保存 -->
+    <div class="save-panel">
+      保存サイズ：
+      <select id="scale-select" style="padding: 10px; border-radius: 8px; border:1px solid #ddd;">
+        <option value="1">等倍 (1:1)</option>
+        <option value="16">16倍拡大</option>
+        <option value="32" selected>32倍拡大 (推奨)</option>
+        <option value="64">64倍拡大</option>
+      </select>
+      <button class="btn-run" onclick="download()" style="margin-left:15px;">画像を保存する</button>
+    </div>
+  </main>
+
+  <!-- 広告枠：中部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>グリッド線付きドット絵メーカーとは？</h2>
+    <p>
+      このツールは、1マスずつ正確に色を置いていく「ドット絵（ピクセルアート）」制作に特化したオンラインエディタです。
+      背景を白に固定し、さらに薄いグレーのグリッド線を表示させることで、初心者の方でも迷わずにドットを打つことができます。
+    </p>
+
+    <h3>このツールのメリット</h3>
+    <ul>
+      <li><strong>完全無料・登録不要：</strong> ブラウザだけで今すぐ描き始められます。</li>
+      <li><strong>グリッド線表示：</strong> ズーム倍率に合わせて補助線が動くため、常にマスの位置が把握できます。</li>
+      <li><strong>高品質書き出し：</strong> ドットの質感を維持したまま、SNS等で使いやすいサイズに拡大して透過PNG保存可能です。</li>
+    </ul>
+
+    <h2>使い方の手順</h2>
+    <ol>
+      <li>キャンバスのサイズ（16×16など）を選択し、リセットボタンを押します。</li>
+      <li>ペンツールとカラーピッカーを使って、キャンバスに絵を描きます。</li>
+      <li>「色の保存」を使うとお気に入りの色をパレットにストックできます。</li>
+      <li>保存サイズを選び、「画像を保存する」ボタンでダウンロードします。</li>
+    </ol>
+
+    <h2>よくある質問（FAQ）</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. 料金はかかりますか？</span>
+      <p>A. いいえ、当サイトのツールはすべて無料で提供しております。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. 背景を透明にして保存できますか？</span>
+      <p>A. はい。何も塗っていない部分は自動的に透明として処理され、透過PNG形式で保存されます。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. スマホでも利用できますか？</span>
+      <p>A. はい、iPhoneやAndroidから指先でドットを打つことが可能です。ズーム機能を活用してください。</p>
+    </div>
+
+     <h3>関連ツール</h3>
+    <ul>
+      <li><a href="qr-generator.html">QRコード作成ツール</a></li>
+      <li><a href="favicon-generator.html">ファビコン生成</a></li>
+      <li><a href="remove-exif.html">Exif情報削除ツール</a></li>
+      <li><a href="image-compress.html">画像圧縮ツール</a></li>
+      <li><a href="png-to-jpg.html">PNGをJPGに変換</a></li>
+    </ul>
+    
+  </article>
+
+  <!-- 広告枠：下部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <footer> &copy; 2026 はるツール | <a href="terms.html" style="color:#999;">利用規約</a> | <a href="privacy.html" style="color:#999;">プライバシーポリシー</a> </footer>
+</div>
+
+<script>
+const sizes = [16, 32, 48, 64, 80, 128];
+const defaultColors = ["#000000", "#ffffff", "#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff", "#888888", "#ff9900", "#993300", "#663399"];
+
+const canvas = document.getElementById('pixel-canvas');
+const ctx = canvas.getContext('2d');
+const wrapper = document.getElementById('canvas-wrapper');
+const wSelect = document.getElementById('width-select');
+const hSelect = document.getElementById('height-select');
+const colorPicker = document.getElementById('color-picker');
+const palette = document.getElementById('palette');
+const zoomRange = document.getElementById('zoom-range');
+
+let isDrawing = false;
+let currentTool = 'pen';
+
+// サイズ選択肢生成
+sizes.forEach(s => {
+  wSelect.add(new Option(s, s));
+  hSelect.add(new Option(s, s));
+});
+wSelect.value = 32; hSelect.value = 32;
+
+function initPalette() {
+  palette.innerHTML = "";
+  defaultColors.forEach(color => createPaletteItem(color));
+}
+
+function createPaletteItem(color) {
+  const div = document.createElement('div');
+  div.className = 'palette-color';
+  div.style.backgroundColor = color;
+  div.onclick = () => { colorPicker.value = color; setTool('pen'); };
+  palette.appendChild(div);
+}
+
+function addColorToPalette() { createPaletteItem(colorPicker.value); }
+
+function updateZoom() {
+  const zoom = parseInt(zoomRange.value);
+  canvas.style.width = (canvas.width * zoom) + "px";
+  canvas.style.height = (canvas.height * zoom) + "px";
+  wrapper.style.backgroundSize = `${zoom}px ${zoom}px`;
+}
+
+function initCanvas(isInitial = false) {
+  if(!isInitial && !confirm("現在のイラストを消去してリセットしますか？")) return;
+  const w = parseInt(wSelect.value);
+  const h = parseInt(hSelect.value);
+  canvas.width = w; canvas.height = h;
+  if (w >= 64) zoomRange.value = 10;
+  else zoomRange.value = 20;
+  updateZoom();
+  ctx.clearRect(0, 0, w, h);
+}
+
+function setTool(tool) {
+  currentTool = tool;
+  document.getElementById('pen-tool').classList.toggle('active', tool === 'pen');
+  document.getElementById('eraser-tool').classList.toggle('active', tool === 'eraser');
+}
+
+function getPos(e) {
+  const rect = canvas.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  const x = Math.floor((clientX - rect.left) * (canvas.width / rect.width));
+  const y = Math.floor((clientY - rect.top) * (canvas.height / rect.height));
+  return {x, y};
+}
+
+function handleDraw(e) {
+  if (!isDrawing) return;
+  const {x, y} = getPos(e);
+  if (x >= 0 && x < canvas.width && y >= 0 && y < canvas.height) {
+    if (currentTool === 'pen') {
+      ctx.fillStyle = colorPicker.value;
+      ctx.fillRect(x, y, 1, 1);
+    } else {
+      ctx.clearRect(x, y, 1, 1);
+    }
+  }
+}
+
+canvas.addEventListener('mousedown', (e) => { isDrawing = true; handleDraw(e); });
+canvas.addEventListener('mousemove', handleDraw);
+window.addEventListener('mouseup', () => isDrawing = false);
+
+canvas.addEventListener('touchstart', (e) => { 
+  isDrawing = true; handleDraw(e); e.preventDefault(); 
+}, {passive: false});
+canvas.addEventListener('touchmove', (e) => { 
+  handleDraw(e); e.preventDefault(); 
+}, {passive: false});
+window.addEventListener('touchend', () => isDrawing = false);
+
+function download() {
+  const scale = parseInt(document.getElementById('scale-select').value);
+  const offCanvas = document.createElement('canvas');
+  offCanvas.width = canvas.width * scale;
+  offCanvas.height = canvas.height * scale;
+  const offCtx = offCanvas.getContext('2d');
+  offCtx.imageSmoothingEnabled = false;
+  offCtx.drawImage(canvas, 0, 0, offCanvas.width, offCanvas.height);
+  const link = document.createElement('a');
+  link.download = `pixelart_${canvas.width}x${canvas.height}.png`;
+  link.href = offCanvas.toDataURL("image/png");
+  link.click();
+}
+
+window.onload = () => {
+  initCanvas(true);
+  initPalette();
+};
+</script>
+
+</body>
+</html>
