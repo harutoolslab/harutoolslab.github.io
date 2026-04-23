@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<!-- ★SEO設定 -->
-<title>画像フィルター加工｜無料・オンラインでセピアやネガ反転に簡単変換「はるツール」</title>
-<meta name="description" content="画像をセピア調、ネガ（色反転）、モノクロなどのフィルターで簡単に一括加工できる無料オンラインツールです。インストール不要・スマホ対応。ブラウザ内で処理するためプライバシー面も安全です。">
+<title>Online Image Filter Tool | Free Sepia, Invert & Grayscale Effects - HaruTools Lab</title>
+<meta name="description" content="A free online tool to apply various filters like sepia, invert (negative), and grayscale to your images in batches. No installation required. Secure browser-side processing.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -24,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -32,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -41,12 +40,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Card */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -56,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Upload Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 50px 20px;
@@ -80,7 +79,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-top: 15px;
 }
 
-/* プレビュー・操作 */
+/* Preview & Controls */
 #preview-zone { display: none; margin-top: 30px; border-top: 1px solid #eee; padding-top: 30px; }
 .preview-grid {
   display: grid;
@@ -106,7 +105,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .btn-run:hover { transform: translateY(-2px); background: #218838; }
 
-/* 結果エリア */
+/* Result Area */
 #result-area { margin-top: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
 .download-link {
   display: flex; align-items: center; justify-content: space-between;
@@ -116,7 +115,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .download-link:hover { background: #f0f7ff; }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -130,39 +129,37 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Utilities
     </a>
   </div>
-    <h1>画像フィルター加工</h1>
-    <p class="tagline">セピア、ネガ、モノクロなど。複数の画像を一括でエモく加工。</p>
+    <h1>Image Filter Tool</h1>
+    <p class="tagline">Sepia, Invert, Grayscale, and more. Apply artistic filters to multiple images at once.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
   <main class="main-card">
-    <!-- 画像入力エリア -->
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">画像をドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択（複数可）</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Images Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select Files (Multiple allowed)</button>
       <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
     </div>
 
-    <!-- 操作・プレビュー -->
     <div id="preview-zone">
       <div class="control-panel">
-        <label style="font-weight: bold; margin-right: 10px;">フィルター効果：</label>
+        <label style="font-weight: bold; margin-right: 10px;">Filter Effect:</label>
         <select id="filter-type" class="filter-select">
-          <option value="sepia(100%)">セピア (レトロ)</option>
-          <option value="invert(100%)">ネガ (色反転)</option>
-          <option value="grayscale(100%)">モノクロ (白黒)</option>
-          <option value="blur(5px)">ぼかし (弱)</option>
-          <option value="hue-rotate(90deg)">色相回転 (アート)</option>
+          <option value="sepia(100%)">Sepia (Retro)</option>
+          <option value="invert(100%)">Invert (Negative)</option>
+          <option value="grayscale(100%)">Grayscale (B&W)</option>
+          <option value="blur(5px)">Blur (Light)</option>
+          <option value="hue-rotate(90deg)">Hue Rotate (Artistic)</option>
         </select>
         <div style="margin-top: 20px;">
-          <button class="btn-run" onclick="runFilter()">加工を実行する</button>
+          <button class="btn-run" onclick="runFilter()">Apply Filter</button>
         </div>
       </div>
 
@@ -170,57 +167,55 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
       <div id="result-area"></div>
       
       <div style="margin-top:20px;">
-        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">全リセット</button>
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Reset All</button>
       </div>
     </div>
   </main>
 
-  <!-- SEOコンテンツ -->
   <article class="info-section">
-    <h2>画像フィルター加工ツールとは？</h2>
-    <p>当ツールは、ブラウザだけで写真に様々なフィルター効果を適用できるオンラインツールです。特別なソフトは不要で、SNS用のアイコンやWebサイトの素材を瞬時に「エモい」雰囲気に変えることができます。</p>
+    <h2>What is the Image Filter Tool?</h2>
+    <p>This is an online tool that allows you to apply various filter effects to your photos directly in your browser. No special software is required, and you can instantly transform your social media icons or website assets into artistic pieces.</p>
 
-    <h3>利用できる主なフィルター</h3>
+    <h3>Main Available Filters</h3>
     <ul>
-      <li><strong>セピア：</strong> 古い写真のような温かみのある茶褐色の色調に変換します。</li>
-      <li><strong>ネガ（反転）：</strong> 色を完全に反転させ、フィルムのネガのようなアーティスティックな表現にします。</li>
-      <li><strong>モノクロ：</strong> 色彩をなくし、光と影を強調したクラシックな白黒写真にします。</li>
-      <li><strong>ぼかし：</strong> 背景をぼかしたり、プライバシー保護のために全体を柔らかく加工します。</li>
+      <li><strong>Sepia:</strong> Gives your photos a warm, brownish tone like old vintage photographs.</li>
+      <li><strong>Invert (Negative):</strong> Completely reverses the colors for a creative, film-negative look.</li>
+      <li><strong>Grayscale:</strong> Removes all color to emphasize light and shadow in a classic black and white style.</li>
+      <li><strong>Blur:</strong> Softens the image, perfect for background effects or light privacy protection.</li>
     </ul>
 
-    <h2>使い方の手順</h2>
+    <h2>How to Use</h2>
     <ol>
-      <li>加工したい画像を1枚、または複数選択します。</li>
-      <li>ドロップダウンから適用したいフィルターの種類を選びます。</li>
-      <li>「加工を実行する」をクリックします。</li>
-      <li>表示されたダウンロードリンクから加工済み画像を保存します。</li>
+      <li>Select one or more images you want to process.</li>
+      <li>Choose the desired filter from the dropdown menu.</li>
+      <li>Click "Apply Filter" to process the images.</li>
+      <li>Save the processed images using the provided download links.</li>
     </ol>
 
-    <h2>よくある質問</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">Q. 画質は低下しますか？</strong>
-      <p>A. ブラウザの描画機能（Canvas）を使用しており、一般的な利用には十分な高画質を維持します。形式は透過対応のPNGで出力されます。</p>
+      <strong style="color:var(--primary);">Q. Does the image quality decrease?</strong>
+      <p>A. We use the browser's Canvas rendering, which maintains high quality suitable for most general uses. Images are exported in transparent PNG format.</p>
     </div>
     <div class="faq-item">
-      <strong style="color:var(--primary);">Q. プライバシーは大丈夫？</strong>
-      <p>A. 画像はサーバーに一切送信されません。全ての処理はお使いのブラウザ内（デバイスのメモリ上）で完結するため、安心してご利用いただけます。</p>
+      <strong style="color:var(--primary);">Q. Is my privacy protected?</strong>
+      <p>A. Yes. Your images are never sent to a server. All processing is done entirely within your browser (locally on your device's memory), so you can use it with peace of mind.</p>
     </div>
-      <h3>関連ツール</h3>
+      <h3>Related Tools</h3>
     <ul>
-      <li><a href="image-cropper-rounded.html">丸抜き・角丸カット</a></li>
-      <li><a href="square-image-maker.html">多機能正方形メーカー</a></li>
-      <li><a href="brightness-contrast.html">画像の明るさ・コントラスト調整</a></li>
-      <li><a href="mosaic-blur.html">モザイク・ぼかし加工ツール</a></li>
+      <li><a href="image-cropper-rounded.html">Circle & Rounded Corner Crop</a></li>
+      <li><a href="square-image-maker.html">Square Image Maker</a></li>
+      <li><a href="brightness-contrast.html">Brightness & Contrast Adjustment</a></li>
+      <li><a href="mosaic-blur.html">Mosaic & Blur Tool</a></li>
     </ul>
   </article>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="#" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -232,7 +227,7 @@ const resultArea = document.getElementById('result-area');
 
 let currentFiles = [];
 
-// ファイル入力ハンドラ
+// File Input Handlers
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
   dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
 });
@@ -266,10 +261,10 @@ function handleFiles(files) {
   });
 }
 
-// フィルター実行
+// Run Filter
 async function runFilter() {
   const filterValue = document.getElementById('filter-type').value;
-  resultArea.innerHTML = "<p style='text-align:center; color:var(--primary); font-weight:bold;'>処理中...</p>";
+  resultArea.innerHTML = "<p style='text-align:center; color:var(--primary); font-weight:bold;'>Processing...</p>";
 
   const linksFragment = document.createDocumentFragment();
 
@@ -292,7 +287,7 @@ async function runFilter() {
         a.className = 'download-link';
         a.download = `filter_${file.name.split('.')[0]}.png`;
         a.href = canvas.toDataURL('image/png');
-        a.innerHTML = `<span>💾 ${file.name}</span> <span style="font-size:12px;">ダウンロード</span>`;
+        a.innerHTML = `<span>💾 ${file.name}</span> <span style="font-size:12px;">Download</span>`;
         
         linksFragment.appendChild(a);
         URL.revokeObjectURL(objectURL);
@@ -301,7 +296,7 @@ async function runFilter() {
     });
   }
 
-  resultArea.innerHTML = "<p style='color:var(--success); font-weight:bold; margin-bottom:10px;'>✅ 加工完了！クリックして保存：</p>";
+  resultArea.innerHTML = "<p style='color:var(--success); font-weight:bold; margin-bottom:10px;'>✅ Processing Complete! Click to save:</p>";
   resultArea.appendChild(linksFragment);
 }
 </script>
