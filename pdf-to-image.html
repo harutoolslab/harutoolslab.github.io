@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
   
-<!-- ★SEO設定 -->
-<title>PDFから画像変換ツール｜無料・オンラインで各ページをJPG保存「はるツール」</title>
-<meta name="description" content="PDFファイルの各ページを高品質な画像（JPG）に変換して抽出できる無料オンラインツールです。ブラウザ内処理で安全。インストール不要で1ページずつ画像化できます。">
+<title>PDF to Image Converter | Free Online PDF to JPG - HaruTools Lab</title>
+<meta name="description" content="Free online tool to convert PDF pages into high-quality JPG images. Secure browser-side processing. No installation required. Extract each page as an image instantly.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ★PDF解析ライブラリ pdf.js を読み込み -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
 <style>
@@ -28,7 +26,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -36,7 +34,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -45,12 +43,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Tool Area */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -60,7 +58,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drag & Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 50px 20px;
@@ -86,7 +84,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-top: 15px;
 }
 
-/* 結果表示エリア */
+/* Result Area */
 #result-zone { display: none; margin-top: 30px; }
 #result-container {
   display: grid;
@@ -121,7 +119,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .download-link:hover { opacity: 0.8; }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -137,98 +135,91 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Tool Collection
     </a>
   </div>
-    <h1>PDFから画像変換ツール</h1>
-    <p class="tagline">PDFの各ページを高品質なJPG画像に変換して保存できます。</p>
+    <h1>PDF to Image Converter</h1>
+    <p class="tagline">Convert each page of your PDF into a high-quality JPG image.</p>
   </header>
 
-  <!-- 広告枠：上部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <main class="main-card">
-    <!-- ファイル入力エリア -->
     <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">PDFをドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">または</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">ファイルを選択</button>
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop PDF Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select File</button>
       <input type="file" id="file-input" accept="application/pdf" style="display:none;">
     </div>
 
-    <!-- 変換プロセス・結果表示 -->
     <div id="result-zone">
       <div id="status" style="font-weight: bold; color: var(--primary); margin-bottom: 20px;"></div>
       
       <div id="result-container"></div>
       
       <div style="text-align:center; margin-top:40px;">
-        <button onclick="location.reload()" style="background:#666; color:white; border:none; padding:10px 30px; border-radius:50px; cursor:pointer; font-weight:bold;">別のPDFを変換する</button>
+        <button onclick="location.reload()" style="background:#666; color:white; border:none; padding:10px 30px; border-radius:50px; cursor:pointer; font-weight:bold;">Convert Another PDF</button>
       </div>
     </div>
   </main>
 
-  <!-- 広告枠：中部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
-  <!-- SEOコンテンツ -->
   <article class="info-section">
-    <h2>PDFから画像変換ツールとは？</h2>
-    <p>「PDFから画像変換ツール」は、お手持ちのPDFファイルを解析し、各ページを個別のJPG画像として抽出できる無料のオンラインサービスです。資料の一部を画像として活用したい時や、SNSにPDFの内容をアップロードしたい時に役立ちます。</p>
+    <h2>What is the PDF to Image Converter?</h2>
+    <p>The "PDF to Image Converter" is a free online service that analyzes your PDF files and extracts each page as an individual JPG image. This is useful when you want to use a specific part of a document as an image or upload PDF content to social media platforms.</p>
 
-    <h3>このツールの特徴</h3>
+    <h3>Features of This Tool</h3>
     <ul>
-      <li><strong>高品質レンダリング：</strong> 2.0倍のスケールで描画するため、文字や図解もくっきりと画像化されます。</li>
-      <li><strong>プライバシー保護：</strong> 最新の「pdf.js」を使用し、変換処理はすべてあなたのブラウザ上で行われます。ファイルがサーバーにアップロードされることは一切ないため、機密書類でも安心です。</li>
-      <li><strong>完全無料・登録不要：</strong> 面倒な会員登録やインストールは不要。いつでもすぐに使えます。</li>
+      <li><strong>High-Quality Rendering:</strong> Images are rendered at a 2.0x scale, ensuring that text and diagrams remain sharp and clear.</li>
+      <li><strong>Privacy Protection:</strong> Using the latest "pdf.js" library, all conversion processes happen entirely within your browser. Since no files are uploaded to a server, it is safe even for confidential documents.</li>
+      <li><strong>Free & No Registration:</strong> No annoying registrations or installations required. Use it instantly, anytime.</li>
     </ul>
 
-    <h2>こんな時に便利です</h2>
-    <p><strong>1. SNSへの投稿に：</strong> InstagramやX（Twitter）などはPDFを直接投稿できませんが、JPGに変換することでスライド形式で内容を紹介できるようになります。</p>
-    <p><strong>2. プレゼン資料への貼り付け：</strong> PDFの1ページだけを画像として、PowerPointやExcelに貼り付けたい時に便利です。</p>
-    <p><strong>3. スマホでの閲覧に：</strong> 画像形式にすれば、専用アプリがなくてもスマホの「写真」アプリや「カメラロール」で手軽に内容を確認できます。</p>
+    <h2>Perfect For These Situations</h2>
+    <p><strong>1. Social Media Posts:</strong> Platforms like Instagram or X (Twitter) do not support direct PDF uploads. By converting them to JPG, you can share your content in a slide format.</p>
+    <p><strong>2. Inserting into Presentations:</strong> Convenient when you want to paste just one page of a PDF as an image into PowerPoint or Excel.</p>
+    <p><strong>3. Mobile Viewing:</strong> By converting to an image format, you can easily view content in your smartphone's "Photos" app or camera roll without needing a dedicated PDF reader.</p>
 
-    <h2>よくある質問（FAQ）</h2>
+    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. 変換後の画質はどうなりますか？</span>
-      <p>A. 本ツールでは標準で高解像度設定（200%スケール）を採用しているため、細かい文字まで鮮明に保存できます。</p>
+      <span class="faq-q">Q. How is the quality after conversion?</span>
+      <p>A. This tool uses a high-resolution setting (200% scale) by default, allowing you to save images with clear details, even for small text.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. スマホでも使えますか？</span>
-      <p>A. はい、iPhoneやAndroidのブラウザから直接ご利用いただけます。</p>
+      <span class="faq-q">Q. Can I use it on my smartphone?</span>
+      <p>A. Yes, it can be used directly from iPhone or Android browsers.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 大容量のPDFでも大丈夫ですか？</span>
-      <p>A. ページ数が多い場合、ブラウザのメモリを使用するため処理に時間がかかることがありますが、一般的な書類であれば問題なく動作します。</p>
+      <span class="faq-q">Q. Can I process large PDF files?</span>
+      <p>A. For PDFs with many pages, the process might take some time as it uses browser memory, but it works fine for standard documents.</p>
     </div>
 
     
-    <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="pdf-split.html">PDF結合ツール</a></li>
-      <li><a href="image-to-pdf.html">画像からPDF変換ツール/a></li>
-      <li><a href="image-compress.html">画像圧縮ツール</a></li>
-      <li><a href="png-to-jpg.html">PNGをJPGに変換</a></li>
+      <li><a href="pdf-split.html">PDF Merge Tool</a></li>
+      <li><a href="image-to-pdf.html">Image to PDF Tool</a></li>
+      <li><a href="image-compress.html">Image Compressor</a></li>
+      <li><a href="png-to-jpg.html">PNG to JPG Converter</a></li>
     </ul>
     
   </article>
 
-  <!-- 広告枠：下部 -->
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
-  <footer>
-    &copy; 2026 はるツール | <a href="#" style="color:#999;">プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
-// pdf.js のワーカー設定
+// Configure pdf.js worker
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
 const dropArea = document.getElementById('drop-area');
@@ -237,7 +228,7 @@ const resultZone = document.getElementById('result-zone');
 const resultContainer = document.getElementById('result-container');
 const status = document.getElementById('status');
 
-// ドラッグ&ドロップ処理
+// Drag & Drop Handling
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
   dropArea.addEventListener(eventName, e => {
     e.preventDefault();
@@ -264,26 +255,26 @@ fileInput.addEventListener('change', function() {
 
 async function processPdf(file) {
   if (file.type !== "application/pdf") {
-    alert("PDFファイルを選択してください");
+    alert("Please select a valid PDF file.");
     return;
   }
 
-  // 画面切り替え
+  // Switch display
   dropArea.style.display = 'none';
   resultZone.style.display = 'block';
-  status.innerHTML = "PDFを解析中...";
+  status.innerHTML = "Analyzing PDF...";
   resultContainer.innerHTML = "";
 
   try {
     const arrayBuffer = await file.arrayBuffer();
     const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
 
-    status.innerHTML = `全 ${pdf.numPages} ページを画像に変換しています...`;
+    status.innerHTML = `Converting all ${pdf.numPages} pages to images...`;
 
     for (let i = 1; i <= pdf.numPages; i++) {
       const page = await pdf.getPage(i);
       
-      // 高画質化のためスケール2.0でレンダリング
+      // Render at scale 2.0 for high quality
       const viewport = page.getViewport({ scale: 2.0 });
       const canvas = document.createElement("canvas");
       const context = canvas.getContext("2d");
@@ -292,28 +283,28 @@ async function processPdf(file) {
 
       await page.render({ canvasContext: context, viewport: viewport }).promise;
 
-      // 画像データ生成
+      // Generate image data
       const dataUrl = canvas.toDataURL("image/jpeg", 0.9);
       
-      // アイテム作成
+      // Create item
       const div = document.createElement("div");
       div.className = "result-item";
       div.innerHTML = `
-        <div style="font-size:0.8rem; color:#888; margin-bottom:10px;">${i} / ${pdf.numPages} ページ</div>
+        <div style="font-size:0.8rem; color:#888; margin-bottom:10px;">Page ${i} / ${pdf.numPages}</div>
         <img src="${dataUrl}" alt="Page ${i}">
-        <a href="${dataUrl}" download="page_${i}.jpg" class="download-link">保存する</a>
+        <a href="${dataUrl}" download="page_${i}.jpg" class="download-link">Save Image</a>
       `;
       resultContainer.appendChild(div);
       
-      // 進捗更新
-      status.innerHTML = `${pdf.numPages}ページ中 ${i} ページ目を処理済み...`;
+      // Update progress
+      status.innerHTML = `Processed page ${i} of ${pdf.numPages}...`;
     }
 
-    status.innerHTML = `<span style="color:var(--success);">✨ 変換がすべて完了しました！</span>`;
+    status.innerHTML = `<span style="color:var(--success);">✨ Conversion complete!</span>`;
 
   } catch (error) {
     console.error(error);
-    status.innerHTML = `<span style="color:red;">エラーが発生しました。ファイルが壊れているか、暗号化されている可能性があります。</span>`;
+    status.innerHTML = `<span style="color:red;">An error occurred. The file may be corrupted or encrypted.</span>`;
   }
 }
 </script>
