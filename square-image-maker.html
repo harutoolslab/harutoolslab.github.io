@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
   <meta name="google-adsense-account" content="ca-pub-2295804002960949">
   
 
-<!-- ★SEO設定 -->
-<title>多機能正方形メーカー｜無料・オンラインでSNS用画像に余白追加・背景調整</title>
-<meta name="description" content="横長・縦長の写真を、トリミングせずに「ぼかし背景」や「好きな色の背景」でおしゃれな正方形に加工できる無料オンラインツールです。Instagram(インスタ)などのSNS投稿に最適。">
+<title>Square Image Maker | Add Background to Photos Without Cropping - HaruTools Lab</title>
+<meta name="description" content="A free online tool to convert landscape or portrait photos into stylish square images. Add blur backgrounds or custom colors without cropping. Perfect for Instagram and social media.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -26,7 +25,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -34,7 +33,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -43,12 +42,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Header */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Main Card */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -58,7 +57,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Drop Area */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 40px 20px;
@@ -84,7 +83,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-top: 15px;
 }
 
-/* 設定エリア */
+/* Tool Box */
 .tool-box {
   margin: 20px auto;
   padding: 20px;
@@ -97,7 +96,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .setting-item label { display: block; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
 select, input[type="range"], input[type="color"] { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ddd; }
 
-/* 実行ボタン */
+/* Run Button */
 .btn-run {
   background: var(--success);
   color: white;
@@ -110,7 +109,7 @@ select, input[type="range"], input[type="color"] { width: 100%; padding: 8px; bo
   box-shadow: 0 4px 15px rgba(40,167,69,0.2);
 }
 
-/* プレビュー・結果エリア */
+/* Preview/Result Container */
 #preview-container, #result-container { margin-top: 30px; }
 .preview-item, .result-item {
   background: #fff;
@@ -129,7 +128,7 @@ select, input[type="range"], input[type="color"] { width: 100%; padding: 8px; bo
   border-bottom: 2px solid var(--primary);
 }
 
-/* SEO解説セクション */
+/* Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -143,120 +142,117 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      無料オンラインツール集「はるツール」
+      HaruTools Lab | Free Online Tools
     </a>
   </div>
-    <h1>多機能正方形メーカー</h1>
-    <p class="tagline">写真を切らずにおしゃれな正方形へ。背景ぼかし・色指定も自由自在。</p>
+    <h1>Versatile Square Maker</h1>
+    <p class="tagline">Turn your photos into stylish squares without cropping. Customize blur and colors easily.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <main class="main-card">
-    <!-- 画像入力エリア -->
     <div id="drop-area">
-      <div style="font-size: 1.1rem; font-weight: bold;">クリックまたはドラッグ＆ドロップ</div>
-      <p style="color: var(--text-sub); margin: 5px 0;">(複数選択・一括処理対応)</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">画像を選択</button>
+      <div style="font-size: 1.1rem; font-weight: bold;">Click or Drag & Drop Images</div>
+      <p style="color: var(--text-sub); margin: 5px 0;">(Supports multiple files & bulk processing)</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select Images</button>
       <input type="file" id="file-input" multiple accept="image/*" style="display:none;">
     </div>
 
     <div id="preview-container"></div>
 
-    <!-- 設定ボックス -->
     <div class="tool-box">
       <div class="setting-item">
-        <label>背景モード</label>
+        <label>Background Mode</label>
         <select id="bg-mode" onchange="toggleInputs()">
-          <option value="blur">背景ぼかし（元の画像）</option>
-          <option value="color">単色指定</option>
-          <option value="grad">グラデーション</option>
+          <option value="blur">Blurred Background (Original Image)</option>
+          <option value="color">Solid Color</option>
+          <option value="grad">Gradient</option>
         </select>
       </div>
 
       <div id="blur-settings">
         <div class="setting-item">
-          <label>ぼかし具合</label>
+          <label>Blur Amount</label>
           <input type="range" id="blur-range" min="0" max="50" value="20">
         </div>
         <div class="setting-item">
-          <label>背景の明るさ</label>
+          <label>Background Brightness</label>
           <input type="range" id="bg-brightness" min="50" max="200" value="120">
         </div>
       </div>
 
       <div id="color-settings" style="display:none;">
         <div class="setting-item">
-          <label>背景色</label>
+          <label>Background Color</label>
           <input type="color" id="bg-color" value="#ffffff">
         </div>
       </div>
 
       <div id="grad-settings" style="display:none;">
         <div class="setting-item">
-          <label>開始色</label>
+          <label>Start Color</label>
           <input type="color" id="grad-1" value="#e0c3fc">
         </div>
         <div class="setting-item">
-          <label>終了色</label>
+          <label>End Color</label>
           <input type="color" id="grad-2" value="#8ec5fc">
         </div>
       </div>
     </div>
 
-    <button class="btn-run" onclick="run()">実行して正方形にする</button>
+    <button class="btn-run" onclick="run()">Create Square Images</button>
     <div id="status" style="margin-top: 15px; font-weight: bold; color: var(--primary);"></div>
     
     <div id="result-container"></div>
   </main>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <article class="info-section">
-    <h2>画像を切り抜かずに正方形にするメリット</h2>
-    <p>InstagramなどのSNSでは、正方形以外の画像は端が切れて表示されることがあります。このツールを使えば、元の画像を一切削ることなく、おしゃれな余白を追加して投稿に最適な形に整えられます。</p>
+    <h2>Why Use a Square Maker Without Cropping?</h2>
+    <p>On social platforms like Instagram, non-square images can sometimes be cut off in the grid view. By using this tool, you can keep your original photo intact while adding stylish padding to make it a perfect square fit for any post.</p>
 
-    <h3>主な機能と特徴</h3>
+    <h3>Key Features</h3>
     <ul>
-      <li><strong>背景ぼかし：</strong> 写真の雰囲気を壊さず、奥行きのある加工が可能です。</li>
-      <li><strong>明るさ調整：</strong> 背景を暗くしてメインを引き立たせたり、明るくして爽やかにできます。</li>
-      <li><strong>プライバシー設計：</strong> 画像はサーバーに送信されず、あなたのブラウザ内で処理されるため安心です。</li>
-      <li><strong>一括処理：</strong> 複数の写真を一気に同じ設定で正方形に変換できます。</li>
+      <li><strong>Blurred Background:</strong> Create a sense of depth without distracting from the main subject.</li>
+      <li><strong>Brightness Control:</strong> Darken the background to make the subject pop or brighten it for a clean look.</li>
+      <li><strong>Privacy Focused:</strong> Your images are processed entirely in your browser and are never sent to a server.</li>
+      <li><strong>Bulk Conversion:</strong> Process multiple photos at once with the same settings to save time.</li>
     </ul>
 
-    <h2>使い方の手順</h2>
+    <h2>How to Use</h2>
     <ol>
-      <li>上のエリアに画像をドラッグ＆ドロップするか、「画像を選択」ボタンを押します。</li>
-      <li>「背景モード」を選び、お好みでぼかし具合や色を調整します。</li>
-      <li>「実行」ボタンを押すと、変換された画像が下に表示されます。</li>
-      <li>「この画像を保存する」をクリックして完了です。</li>
+      <li>Drag and drop images into the area above or click "Select Images."</li>
+      <li>Choose a "Background Mode" and adjust the blur or color to your liking.</li>
+      <li>Click the "Create Square Images" button to generate the new files.</li>
+      <li>Click "Download this image" to save your work.</li>
     </ol>
 
-    <h2>よくある質問</h2>
+    <h2>Frequently Asked Questions</h2>
     <div class="faq-item" style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
-      <p style="font-weight:bold; color:var(--primary); margin-bottom:5px;">Q. 画質は劣化しますか？</p>
-      <p>A. 高画質な書き出し設定(JPEG 92%)を採用しているため、SNS投稿に十分な美しさを保ちます。</p>
+      <p style="font-weight:bold; color:var(--primary); margin-bottom:5px;">Q. Does the image quality decrease?</p>
+      <p>A. We use high-quality output settings (JPEG 92%) to ensure your photos look great on social media.</p>
     </div>
     <div class="faq-item" style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
-      <p style="font-weight:bold; color:var(--primary); margin-bottom:5px;">Q. 利用は無料ですか？</p>
-      <p>A. はい、すべての機能を完全無料でご利用いただけます。登録も不要です。</p>
+      <p style="font-weight:bold; color:var(--primary); margin-bottom:5px;">Q. Is this tool free?</p>
+      <p>A. Yes, all features are completely free to use with no registration required.</p>
     </div>
-    <h3>関連ツール</h3>
+    <h3>Related Tools</h3>
     <ul>
-      <li><a href="image-cropper-rounded.html">丸抜き・角丸カット</a></li>
-      <li><a href="image-filter-tool.html">画像フィルター加工</a></li>
-      <li><a href="brightness-contrast.html">画像の明るさ・コントラスト調整</a></li>
-      <li><a href="mosaic-blur.html">モザイク・ぼかし加工ツール</a></li>
+      <li><a href="image-cropper-rounded.html">Circular & Rounded Cutter</a></li>
+      <li><a href="image-filter-tool.html">Image Filter Effects</a></li>
+      <li><a href="brightness-contrast.html">Brightness & Contrast Adjustment</a></li>
+      <li><a href="mosaic-blur.html">Mosaic & Blur Tool</a></li>
     </ul>
   </article>
 
-  <footer>
-    &copy; 2026 多機能正方形 | <a href="#" style="color:#999;">利用規約・プライバシーポリシー</a>
-  </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
 </div>
 
 <script>
@@ -268,7 +264,7 @@ const status = document.getElementById('status');
 
 let files = [];
 
-// 背景入力切り替え
+// Toggle background inputs
 function toggleInputs() {
   const mode = document.getElementById("bg-mode").value;
   document.getElementById("blur-settings").style.display = (mode === 'blur') ? 'block' : 'none';
@@ -276,7 +272,7 @@ function toggleInputs() {
   document.getElementById("grad-settings").style.display = (mode === 'grad') ? 'block' : 'none';
 }
 
-// ドラッグ&ドロップイベント
+// Drag & Drop events
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
   dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); });
 });
@@ -294,7 +290,7 @@ fileInput.addEventListener('change', e => handleFiles(e.target.files));
 
 function handleFiles(selectedFiles) {
   files = Array.from(selectedFiles);
-  previewContainer.innerHTML = "<p style='font-weight:bold;'>選択中の画像:</p>"; 
+  previewContainer.innerHTML = "<p style='font-weight:bold;'>Selected images:</p>"; 
   files.forEach(file => {
     if (!file.type.startsWith('image/')) return;
     const reader = new FileReader();
@@ -311,9 +307,9 @@ function handleFiles(selectedFiles) {
 }
 
 function run() {
-  if(files.length === 0){ alert("ファイルを選択してください"); return; }
-  status.innerHTML = "処理中...";
-  resultContainer.innerHTML = "<h3>変換結果</h3>"; 
+  if(files.length === 0){ alert("Please select a file"); return; }
+  status.innerHTML = "Processing...";
+  resultContainer.innerHTML = "<h3>Conversion Results</h3>"; 
   setTimeout(() => process(files), 300);
 }
 
@@ -338,7 +334,7 @@ async function process(selectedFiles) {
         canvas.width = size;
         canvas.height = size;
 
-        // 背景処理
+        // Background processing
         if (mode === 'blur') {
           ctx.save();
           ctx.filter = `blur(${blurVal}px) brightness(${brightnessVal}%) saturate(90%)`;
@@ -356,7 +352,7 @@ async function process(selectedFiles) {
           ctx.fillRect(0, 0, size, size);
         }
 
-        // メイン描画
+        // Main drawing
         let dw, dh, x, y;
         if (img.width > img.height) {
           dw = size; dh = size * (img.height / img.width);
@@ -372,7 +368,7 @@ async function process(selectedFiles) {
         div.className = "result-item";
         div.innerHTML = `
           <img src="${dataUrl}">
-          <p><a href="${dataUrl}" download="square_${file.name.split('.')[0]}.jpg" class="download-link">この画像を保存する</a></p>
+          <p><a href="${dataUrl}" download="square_${file.name.split('.')[0]}.jpg" class="download-link">Download this image</a></p>
         `;
         resultContainer.appendChild(div);
         
@@ -381,7 +377,7 @@ async function process(selectedFiles) {
       };
     });
   }
-  status.innerHTML = "すべての変換が完了しました！";
+  status.innerHTML = "All conversions complete!";
 }
 </script>
 
