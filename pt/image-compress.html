@@ -2,41 +2,41 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<title>Compressor de Imagens | Gratuito, Ajuste de Qualidade e Redução em Massa - HaruTools Lab</title>
-<meta name="description" content="Ferramenta gratuita para comprimir o tamanho de ficheiros de imagem facilmente no seu navegador. Reduza o peso para a Web ou redes sociais enquanto ajusta a qualidade. Seguro, sem envio de imagens para o servidor.">
+<title>Compressor de Imagem | Gratuito, Ajuste de Qualidade, Redução em Lote - HaruTools Lab</title>
+<meta name="description" content="Ferramenta gratuita para comprimir o tamanho de ficheiros de imagem diretamente no navegador. Reduza o peso das suas fotos para Web ou redes sociais enquanto ajusta a qualidade. Seguro, sem envio para servidores.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root {
-  --primary: #007bff;
-  --primary-hover: #0056b3;
-  --success: #28a745;
-  --bg-color: #f4f7f9;
-  --card-bg: #ffffff;
-  --text-main: #333333;
-  --text-sub: #666666;
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  margin: 0; padding: 0; line-height: 1.6;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
 }
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* Slot de anúncio */
+/* Espaço Publicitário */
 .ad-slot {
-  margin: 20px auto; padding: 15px;
-  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
-  color: #999; font-size: 12px; text-align: center; min-height: 90px;
-  display: flex; align-items: center; justify-content: center;
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
@@ -45,39 +45,39 @@ header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* Área principal da ferramenta */
+/* Área Principal da Ferramenta */
 .main-card {
-  background: var(--card-bg);
-  padding: 40px 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  text-align: center;
-  margin-bottom: 30px;
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 /* Área de Drag & Drop */
 #drop-area {
-  border: 3px dashed var(--primary);
-  padding: 40px 20px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: rgba(0, 123, 255, 0.02);
+  border: 3px dashed var(--primary);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
 }
 #drop-area.active { background: rgba(0, 123, 255, 0.1); border-color: var(--primary-hover); }
 
 .btn-select {
-  background: var(--primary); color: white; border: none; padding: 12px 30px;
-  border-radius: 50px; font-weight: bold; cursor: pointer; margin-top: 15px;
+  background: var(--primary); color: white; border: none; padding: 12px 30px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; margin-top: 15px;
 }
 
-/* Painel de configurações */
+/* Painel de Configuração */
 .config-panel { margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 12px; }
 .config-row { margin-bottom: 15px; }
 input[type="range"] { width: 80%; max-width: 300px; vertical-align: middle; }
 input[type="text"] { padding: 10px; border: 1px solid #ddd; border-radius: 8px; width: 80%; max-width: 300px; }
 
-/* Área de resultados */
+/* Área de Resultados */
 #result-zone { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
 .result-item { background: white; padding: 15px; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
 .result-item img { max-width: 100%; border-radius: 4px; }
@@ -86,7 +86,7 @@ input[type="text"] { padding: 10px; border: 1px solid #ddd; border-radius: 8px; 
 
 .btn-run { background: var(--primary); color: white; border: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
 
-/* Secção de informações SEO */
+/* Secção SEO */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -99,83 +99,83 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 <body>
 
 <div class="container">
-  <header>
-    <div style="font-size: 0.9rem; margin-bottom: 5px;">
-    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      Coleção de ferramentas online gratuitas "HaruTools Lab"
-    </a>
-  </div>
-    <h1>Compressor de Imagens</h1>
-    <p class="tagline">Ajuste livremente a qualidade para otimizar o tamanho dos ficheiros de imagem.</p>
-  </header>
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab - Ferramentas Online Gratuitas
+    </a>
+  </div>
+    <h1>Compressor de Imagem</h1>
+    <p class="tagline">Ajuste a qualidade livremente e otimize o tamanho dos seus ficheiros.</p>
+  </header>
 
-  <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Espaço para publicidade</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Anúncio</div>
+  </div>
 
-  <main class="main-card">
-    <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">Arraste e solte as imagens aqui</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">ou</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Selecionar Ficheiros</button>
-      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
-    </div>
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arraste imagens aqui</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">ou</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Selecionar Ficheiros</button>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
 
-    <div class="config-panel">
-      <div class="config-row">
-        <label style="font-weight: bold;">Qualidade (Compressão): <span id="qval" style="color:var(--primary);">0.7</span></label><br>
-        <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.7">
-      </div>
-      <div class="config-row">
-        <input type="text" id="filename" placeholder="Nome do ficheiro (vazio para manter original)">
-      </div>
-      <button class="btn-run" onclick="compress()">Comprimir Imagens</button>
-    </div>
+    <div class="config-panel">
+      <div class="config-row">
+        <label style="font-weight: bold;">Qualidade (Taxa de Compressão): <span id="qval" style="color:var(--primary);">0.7</span></label><br>
+        <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.7">
+      </div>
+      <div class="config-row">
+        <input type="text" id="filename" placeholder="Nome do ficheiro (vazio para nome original)">
+      </div>
+      <button class="btn-run" onclick="compress()">Comprimir Imagens</button>
+    </div>
 
-    <div id="result-zone"></div>
-  </main>
+    <div id="result-zone"></div>
+  </main>
 
-  <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Espaço para publicidade</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Anúncio</div>
+  </div>
 
-  <article class="info-section">
-    <h2>O que é a ferramenta de compressão de imagens?</h2>
-    <p>O compressor de imagens do "HaruTools Lab" é uma ferramenta que permite reduzir drasticamente o tamanho do ficheiro (capacidade) mantendo a aparência visual nítida. É ideal para aumentar a velocidade de carregamento de blogs, enviar por e-mail ou cumprir limites de capacidade em redes sociais.</p>
+  <article class="info-section">
+    <h2>O que é o compressor de imagens?</h2>
+    <p>O compressor de imagem do "HaruTools Lab" é uma ferramenta que permite reduzir drasticamente o tamanho do ficheiro (capacidade) mantendo a aparência visual. É ideal para acelerar o carregamento de blogs, enviar por e-mail ou cumprir limites de tamanho em redes sociais.</p>
 
-    <h3>Vantagens desta ferramenta</h3>
-    <ul>
-      <li><strong>Processamento em massa:</strong> Comprima várias imagens de uma só vez e guarde-as individualmente.</li>
-      <li><strong>Ajuste em tempo real:</strong> Pode especificar a taxa de compressão desejada movendo o slider de qualidade.</li>
-      <li><strong>Segurança garantida:</strong> Todo o processamento de imagem é feito no seu navegador. As fotografias nunca são enviadas para o servidor.</li>
-    </ul>
+    <h3>Vantagens desta ferramenta</h3>
+    <ul>
+      <li><strong>Processamento em Lote:</strong> Comprima várias imagens ao mesmo tempo e guarde-as individualmente.</li>
+      <li><strong>Ajuste em Tempo Real:</strong> Use o cursor de qualidade para especificar a taxa de compressão desejada.</li>
+      <li><strong>Segurança Total:</strong> Todo o processamento de imagem ocorre no seu navegador. As suas fotos nunca são carregadas para um servidor.</li>
+    </ul>
 
-    <h2>Passos para utilizar</h2>
-    <ol>
-      <li>Arraste ou selecione as imagens que deseja comprimir para dentro da área.</li>
-      <li>Ajuste a taxa de compressão com o slider "Qualidade" (recomenda-se cerca de 0.7 para um bom equilíbrio).</li>
-      <li>Clique no botão "Comprimir Imagens".</li>
-      <li>Verifique o tamanho após a compressão e guarde com o botão "Download".</li>
-    </ol>
+    <h2>Passos para Utilização</h2>
+    <ol>
+      <li>Arraste ou selecione as imagens que deseja comprimir para a área indicada.</li>
+      <li>Ajuste a taxa de compressão no cursor de "Qualidade" (recomendamos cerca de 0.7 para um bom equilíbrio).</li>
+      <li>Clique no botão "Comprimir Imagens".</li>
+      <li>Verifique o tamanho após a compressão e clique no botão "Descarregar" para guardar.</li>
+    </ol>
 
-    <h2>Perguntas Frequentes (FAQ)</h2>
-    <div class="faq-item">
-      <span class="faq-q">Q. Até que tamanho posso reduzir?</span>
-      <p>R. Depende da imagem original, mas com uma configuração de qualidade de 0.7, pode esperar uma redução de tamanho entre 50% a 80%.</p>
-    </div>
-    <div class="faq-item">
-      <span class="faq-q">Q. Quais os formatos de ficheiro suportados?</span>
-      <p>R. Suporta os principais formatos de imagem (JPG, PNG, WebP, etc.). O ficheiro de saída será no formato JPEG, que possui alta eficiência de compressão.</p>
-    </div>
+    <h2>Perguntas Frequentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. Quanto posso reduzir no tamanho?</span>
+      <p>R. Depende da imagem original, mas com a configuração de qualidade em 0.7, pode esperar uma redução entre 50% a 80%.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. Quais são os formatos de ficheiro suportados?</span>
+      <p>R. Suporta os principais formatos (JPG, PNG, WebP, etc.). O ficheiro de saída será no formato JPEG devido à sua alta eficiência de compressão.</p>
+    </div>
 
-    <h3>Ferramentas Relacionadas</h3>
-    <ul>
-      <li><a href="heic-to-png.html">Converter HEIC para PNG</a></li>
-      <li><a href="png-to-jpg.html">Converter PNG para JPG</a></li>
-    </ul>
-  </article>
+    <h3>Ferramentas Relacionadas</h3>
+    <ul>
+      <li><a href="heic-to-png.html">Converter HEIC para PNG</a></li>
+      <li><a href="png-to-jpg.html">Converter PNG para JPG</a></li>
+    </ul>
+  </article>
 
- <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Uso</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Utilização</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
 </div>
 
 <script>
@@ -189,72 +189,72 @@ qRange.oninput = () => qValDisp.innerText = qRange.value;
 
 // Eventos de Drag & Drop
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
-  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
 });
 ['dragenter', 'dragover'].forEach(name => {
-  dropArea.addEventListener(name, () => dropArea.classList.add('active'), false);
+  dropArea.addEventListener(name, () => dropArea.classList.add('active'), false);
 });
 ['dragleave', 'drop'].forEach(name => {
-  dropArea.addEventListener(name, () => dropArea.classList.remove('active'), false);
+  dropArea.addEventListener(name, () => dropArea.classList.remove('active'), false);
 });
 
 dropArea.addEventListener('drop', e => {
-  fileInput.files = e.dataTransfer.files;
+  fileInput.files = e.dataTransfer.files;
 }, false);
 
 function compress() {
-  const files = fileInput.files;
-  if (files.length === 0) return alert("Por favor, selecione uma imagem");
+  const files = fileInput.files;
+  if (files.length === 0) return alert("Por favor, selecione uma imagem");
 
-  const quality = parseFloat(qRange.value);
-  const nameInput = document.getElementById("filename").value.trim();
-  resultZone.innerHTML = "";
+  const quality = parseFloat(qRange.value);
+  const nameInput = document.getElementById("filename").value.trim();
+  resultZone.innerHTML = "";
 
-  Array.from(files).forEach((file, index) => {
-    if (!file.type.startsWith('image/')) return;
+  Array.from(files).forEach((file, index) => {
+    if (!file.type.startsWith('image/')) return;
 
-    const reader = new FileReader();
-    reader.onload = e => {
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.createElement("canvas");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0);
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
 
-        const compressedData = canvas.toDataURL("image/jpeg", quality);
-        
-        // Criação do card de resultado
-        const item = document.createElement("div");
-        item.className = "result-item";
+        const compressedData = canvas.toDataURL("image/jpeg", quality);
+        
+        // Criação do cartão de resultado
+        const item = document.createElement("div");
+        item.className = "result-item";
 
-        const previewImg = document.createElement("img");
-        previewImg.src = compressedData;
+        const previewImg = document.createElement("img");
+        previewImg.src = compressedData;
 
-        const beforeSize = (file.size / 1024).toFixed(1);
-        const afterSize = (compressedData.length * 0.75 / 1024).toFixed(1);
-        
-        const info = document.createElement("div");
-        info.className = "size-info";
-        info.innerHTML = `<strong>${beforeSize}KB</strong> → <span style="color:var(--success); font-weight:bold;">${afterSize}KB</span>`;
+        const beforeSize = (file.size / 1024).toFixed(1);
+        const afterSize = (compressedData.length * 0.75 / 1024).toFixed(1);
+        
+        const info = document.createElement("div");
+        info.className = "size-info";
+        info.innerHTML = `<strong>${beforeSize}KB</strong> → <span style="color:var(--success); font-weight:bold;">${afterSize}KB</span>`;
 
-        const link = document.createElement("a");
-        let fname = nameInput ? `${nameInput}_${index+1}.jpg` : file.name.replace(/\..+$/, "") + "_compressed.jpg";
-        link.href = compressedData;
-        link.download = fname;
-        link.innerText = "Download";
-        link.className = "download-link";
+        const link = document.createElement("a");
+        let fname = nameInput ? `${nameInput}_${index+1}.jpg` : file.name.replace(/\..+$/, "") + "_compressed.jpg";
+        link.href = compressedData;
+        link.download = fname;
+        link.innerText = "Descarregar";
+        link.className = "download-link";
 
-        item.appendChild(previewImg);
-        item.appendChild(info);
-        item.appendChild(link);
-        resultZone.appendChild(item);
-      };
-      img.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  });
+        item.appendChild(previewImg);
+        item.appendChild(info);
+        item.appendChild(link);
+        resultZone.appendChild(item);
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
 }
 </script>
 
