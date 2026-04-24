@@ -2,141 +2,140 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
-  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
 
-<title>Convertidor de RGB a HEX | Herramienta de conversión de códigos de color - HaruTools Lab</title>
-<meta name="description" content="Herramienta online gratuita para convertir valores RGB (0-255) a códigos de color hexadecimales HEX (#RRGGBB). Ideal para diseño web y CSS. Incluye vista previa de color en tiempo real.">
+<title>Convertidor de RGB a HEX | Herramienta de Códigos de Color - HaruTools Lab</title>
+<meta name="description" content="Herramienta online gratuita para convertir valores RGB (0-255) a códigos de color HEX hexadecimales (#RRGGBB). Ideal para diseño web y CSS. Incluye vista previa en tiempo real.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root {
-  --primary: #007bff;
-  --primary-hover: #0056b3;
-  --success: #28a745;
-  --bg-color: #f4f7f9;
-  --card-bg: #ffffff;
-  --text-main: #333333;
-  --text-sub: #666666;
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  margin: 0; padding: 0; line-height: 1.6;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
 }
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
 /* Espacio publicitario */
 .ad-slot {
-  margin: 20px auto; padding: 15px;
-  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
-  color: #999; font-size: 12px; text-align: center; min-height: 90px;
-  display: flex; align-items: center; justify-content: center;
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* Cabecera */
+/* Encabezado */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
 /* Área principal */
 .main-card {
-  background: var(--card-bg);
-  padding: 40px 20px;
-max-width: 800px;
-margin: 0 auto 30px auto;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  text-align: center;
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-/* Entradas RGB */
+/* Área de entrada */
 .rgb-inputs {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
 .input-field {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .input-field label {
-  font-weight: bold;
-  font-size: 0.8rem;
-  margin-bottom: 5px;
-  color: var(--text-sub);
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  color: var(--text-sub);
 }
 
 .input-field input {
-  width: 70px;
-  padding: 12px;
-  border: 2px solid #eee;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  text-align: center;
-  transition: border-color 0.2s;
+  width: 70px;
+  padding: 12px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: border-color 0.2s;
 }
 
 .input-field input:focus {
-  border-color: var(--primary);
-  outline: none;
+  border-color: var(--primary);
+  outline: none;
 }
 
-/* Vista previa de color */
+/* Vista previa */
 #color-preview {
-  width: 100px;
-  height: 100px;
-  margin: 20px auto;
-  border-radius: 50%;
-  border: 4px solid white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  background-color: #007bff;
-  transition: background-color 0.1s ease;
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background-color: #007bff;
+  transition: background-color 0.1s ease;
 }
 
 /* Resultado */
 .result-box {
-  margin: 30px 0;
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 12px;
-  display: inline-block;
-  min-width: 250px;
+  margin: 30px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  display: inline-block;
+  min-width: 250px;
 }
 
 #hex-result {
-  font-size: 2.2rem;
-  font-weight: bold;
-  font-family: 'Courier New', Courier, monospace;
-  color: #111;
-  display: block;
-  margin-bottom: 15px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  color: #111;
+  display: block;
+  margin-bottom: 15px;
 }
 
 .btn-copy {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 .btn-copy:hover { background: var(--primary-hover); }
 
-/* Sección SEO informativa */
+/* Sección informativa SEO */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -146,109 +145,109 @@ margin: 0 auto 30px auto;
 footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
 
 @media (max-width: 500px) {
-  .rgb-inputs { gap: 8px; }
-  .input-field input { width: 60px; padding: 10px; }
+  .rgb-inputs { gap: 8px; }
+  .input-field input { width: 60px; padding: 10px; }
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <header>
-    <div style="font-size: 0.9rem; margin-bottom: 5px;">
-    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      Colección de Herramientas Online | HaruTools Lab
-    </a>
-  </div>
-    <h1>Convertidor de RGB a HEX</h1>
-    <p class="tagline">Convierte valores de color RGB al formato estándar HEX (hexadecimal) utilizado en la web.</p>
-  </header>
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab | Herramientas Online Gratuitas
+    </a>
+  </div>
+    <h1>Convertidor de RGB a HEX</h1>
+    <p class="tagline">Convierte valores de color RGB al código HEX (hexadecimal) estándar para la web.</p>
+  </header>
 
-    <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Espacio para anuncio</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espacio para anuncios</div>
+  </div>
 
-  <main class="main-card">
-    <div class="rgb-inputs">
-      <div class="input-field">
-        <label>ROJO (R)</label>
-        <input type="number" id="r" value="0" min="0" max="255" oninput="updateColor()">
-      </div>
-      <div class="input-field">
-        <label>VERDE (G)</label>
-        <input type="number" id="g" value="123" min="0" max="255" oninput="updateColor()">
-      </div>
-      <div class="input-field">
-        <label>AZUL (B)</label>
-        <input type="number" id="b" value="255" min="0" max="255" oninput="updateColor()">
-      </div>
-    </div>
+  <main class="main-card">
+    <div class="rgb-inputs">
+      <div class="input-field">
+        <label>ROJO</label>
+        <input type="number" id="r" value="0" min="0" max="255" oninput="updateColor()">
+      </div>
+      <div class="input-field">
+        <label>VERDE</label>
+        <input type="number" id="g" value="123" min="0" max="255" oninput="updateColor()">
+      </div>
+      <div class="input-field">
+        <label>AZUL</label>
+        <input type="number" id="b" value="255" min="0" max="255" oninput="updateColor()">
+      </div>
+    </div>
 
-    <div id="color-preview"></div>
+    <div id="color-preview"></div>
 
-    <div class="result-box">
-      <span id="hex-result">#007bff</span>
-      <button class="btn-copy" onclick="copyToClipboard()">Copiar HEX</button>
-    </div>
-    
-    <p style="font-size: 0.8rem; color: #999;">La conversión se realiza en tiempo real al ingresar los valores.</p>
-  </main>
+    <div class="result-box">
+      <span id="hex-result">#007bff</span>
+      <button class="btn-copy" onclick="copyToClipboard()">Copiar HEX</button>
+    </div>
+    
+    <p style="font-size: 0.8rem; color: #999;">Al ingresar los valores, la conversión se realiza en tiempo real.</p>
+  </main>
 
-    <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Espacio para anuncio</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espacio para anuncios</div>
+  </div>
 
-    <article class="info-section">
-    <h2>Cómo funciona la conversión de RGB a HEX</h2>
-    <p>Existen varias formas en las que las computadoras procesan el color, pero las más representativas son <strong>RGB</strong> y <strong>HEX</strong>. En el desarrollo web y la programación, es necesario alternar entre ellos, y esta herramienta facilita esa transición al instante.</p>
+  <article class="info-section">
+    <h2>¿Cómo funciona la conversión de RGB a HEX?</h2>
+    <p>Existen varias formas en que las computadoras procesan el color, siendo <strong>RGB</strong> y <strong>HEX</strong> las más representativas. En el diseño web y la programación, es necesario alternar entre ellas, y esta herramienta facilita esa transición al instante.</p>
 
-    <h3>¿Qué es RGB?</h3>
-    <p>Representa los tres colores primarios de la luz: "Red" (Rojo), "Green" (Verde) y "Blue" (Azul). Cada componente se expresa en 256 niveles, del 0 al 255. Si todos son 0 (0, 0, 0) resulta en "Negro", y si todos son 255 (255, 255, 255) resulta en "Blanco".</p>
+    <h3>¿Qué es RGB?</h3>
+    <p>Representa los tres colores primarios de la luz: "Red (Rojo)", "Green (Verde)" y "Blue (Azul)". Cada componente se mide en una escala de 256 niveles (del 0 al 255). Si todos son 0 (0, 0, 0) obtenemos el "negro", y si todos son 255 (255, 255, 255) obtenemos el "blanco".</p>
 
-    <h3>¿Qué es HEX (Código de color hexadecimal)?</h3>
-    <p>Es el formato que convierte cada valor RGB a hexadecimal (0-9, a-f), colocándolos en pares de dos dígitos precedidos por un "#" (ejemplo: #ff0000). Es el formato más común para especificar colores en HTML y CSS.</p>
+    <h3>¿Qué es HEX (Código de color hexadecimal)?</h3>
+    <p>Es un formato que convierte cada valor RGB a sistema hexadecimal (0-9, a-f), colocándolos en pares precedidos por un símbolo "#" (ejemplo: #ff0000). Es el formato más común para especificar colores en HTML y CSS.</p>
 
-    <h3>Método de cálculo</h3>
-    <p>Cada valor RGB se divide por 16, y se utiliza el cociente y el resto para obtener la representación hexadecimal.</p>
-    <ul>
-      <li>Ejemplo: Si el Rojo (R) es 255</li>
-      <li>255 ÷ 16 = 15 con un resto de 15</li>
-      <li>Como 15 es "f" en hexadecimal, 255 se convierte en "ff".</li>
-    </ul>
+    <h3>Método de cálculo de la conversión</h3>
+    <p>Cada valor RGB se divide por 16, y se utiliza el cociente y el resto para determinar los dígitos hexadecimales.</p>
+    <ul>
+      <li>Ejemplo: Si el R (rojo) es 255</li>
+      <li>255 ÷ 16 = 15 con un resto de 15</li>
+      <li>Como 15 es "f" en hexadecimal, 255 se convierte en "ff".</li>
+    </ul>
 
-    <h2>Cómo usar esta herramienta</h2>
-    <ol>
-      <li><strong>Ingresa los valores RGB:</strong> Introduce un número entre 0 y 255 en los campos R, G y B.</li>
-      <li><strong>Verifica el color:</strong> El color de la vista previa circular cambiará según tu entrada.</li>
-      <li><strong>Copia el HEX:</strong> Presiona el botón de copiar debajo del código que empieza con "#" y pégalo en tu código CSS o diseño.</li>
-    </ol>
+    <h2>Cómo usar esta herramienta</h2>
+    <ol>
+      <li><strong>Ingresar valores RGB:</strong> Escribe un número entre 0 y 255 en las casillas R, G y B.</li>
+      <li><strong>Verificar el color:</strong> El color de la vista previa circular cambiará según los datos ingresados.</li>
+      <li><strong>Copiar el HEX:</strong> Haz clic en el botón de copiar debajo del código que empieza con "#" y pégalo en tu código CSS o diseño.</li>
+    </ol>
 
-    <h2>Preguntas frecuentes (FAQ)</h2>
-    <div class="faq-item">
-      <span class="faq-q">¿Tiene algún costo?</span>
-      <p>No, todas las herramientas de este sitio se ofrecen de forma gratuita. No es necesario registrarse y puedes usarlas libremente para diseño web o desarrollo.</p>
-    </div>
-    <div class="faq-item">
-      <span class="faq-q">¿Se envían los colores ingresados a algún servidor externo?</span>
-      <p>No. Esta herramienta realiza todos los cálculos en el "lado del cliente" (dentro de tu navegador). Tu privacidad está totalmente protegida.</p>
-    </div>
-    <div class="faq-item">
-      <span class="faq-q">¿Puedo usarlo en mi móvil?</span>
-      <p>Sí, puedes usarlo en smartphones iPhone y Android, así como en tablets, sin necesidad de instalación.</p>
-    </div>
-     <h3>Herramientas relacionadas</h3>
-    <ul>
-      <li><a href="hex-to-rgb.html">Convertidor de HEX a RGB</a></li>
-      <li><a href="color-picker.html">Selector de color</a></li>
-      <li><a href="image-measure.html">Regla y transportador para imágenes</a></li>
-      <li><a href="image-compare.html">Comparador de imágenes</a></li>
-      <li><a href="color-code-list.html">Lista de códigos de color (HEX)</a></li>
-    </ul>
-  </article>
+    <h2>Preguntas frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Tiene algún costo usar la herramienta?</span>
+      <p>R. No, todas las herramientas de nuestro sitio se ofrecen de forma gratuita. No se requiere registro para usarlas en tus proyectos de diseño o desarrollo.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Los colores que ingreso se envían a algún servidor?</span>
+      <p>R. No. Esta herramienta realiza todos los cálculos en el "lado del cliente" (dentro de tu navegador). Tu privacidad está totalmente protegida.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Puedo usarla en mi móvil?</span>
+      <p>R. Sí, funciona perfectamente en smartphones como iPhone o Android, así como en tabletas, sin necesidad de instalación.</p>
+    </div>
+     <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="hex-to-rgb.html">Convertidor de HEX a RGB</a></li>
+      <li><a href="color-picker.html">Selector de color</a></li>
+      <li><a href="image-measure.html">Regla y transportador para imágenes</a></li>
+      <li><a href="image-compare.html">Comparador de imágenes</a></li>
+      <li><a href="color-code-list.html">Lista de códigos de color (HEX)</a></li>
+    </ul>
+  </article>
 
-    <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Espacio para anuncio</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espacio para anuncios</div>
+  </div>
 
 <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de uso</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
 
@@ -256,42 +255,42 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 
 <script>
 function toHex(value) {
-  // Validación en caso de que el valor esté vacío o fuera de rango
-  let num = parseInt(value);
-  if (isNaN(num)) num = 0;
-  if (num < 0) num = 0;
-  if (num > 255) num = 255;
-  
-  const hex = num.toString(16);
-  return hex.length === 1 ? "0" + hex : hex;
+  // Validación en caso de valores vacíos o fuera de rango
+  let num = parseInt(value);
+  if (isNaN(num)) num = 0;
+  if (num < 0) num = 0;
+  if (num > 255) num = 255;
+  
+  const hex = num.toString(16);
+  return hex.length === 1 ? "0" + hex : hex;
 }
 
 function updateColor() {
-  const r = document.getElementById("r").value;
-  const g = document.getElementById("g").value;
-  const b = document.getElementById("b").value;
+  const r = document.getElementById("r").value;
+  const g = document.getElementById("g").value;
+  const b = document.getElementById("b").value;
 
-  const hex = "#" + toHex(r) + toHex(g) + toHex(b);
-  
-  // Actualizar vista previa y resultado
-  document.getElementById("hex-result").textContent = hex;
-  document.getElementById("color-preview").style.backgroundColor = hex;
+  const hex = "#" + toHex(r) + toHex(g) + toHex(b);
+  
+  // Actualizar vista previa y resultado
+  document.getElementById("hex-result").textContent = hex;
+  document.getElementById("color-preview").style.backgroundColor = hex;
 }
 
 function copyToClipboard() {
-  const hexText = document.getElementById("hex-result").textContent;
-  
-  navigator.clipboard.writeText(hexText).then(() => {
-    const btn = document.querySelector(".btn-copy");
-    const originalText = btn.textContent;
-    btn.textContent = "¡Copiado!";
-    btn.style.backgroundColor = "#28a745";
-    
-    setTimeout(() => {
-      btn.textContent = originalText;
-      btn.style.backgroundColor = "";
-    }, 2000);
-  });
+  const hexText = document.getElementById("hex-result").textContent;
+  
+  navigator.clipboard.writeText(hexText).then(() => {
+    const btn = document.querySelector(".btn-copy");
+    const originalText = btn.textContent;
+    btn.textContent = "¡Copiado!";
+    btn.style.backgroundColor = "#28a745";
+    
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.backgroundColor = "";
+    }, 2000);
+  });
 }
 
 // Reflejar visualización inicial
