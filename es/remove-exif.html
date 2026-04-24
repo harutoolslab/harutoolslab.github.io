@@ -2,41 +2,41 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<title>Eliminar Exif de Fotos | Quitar ubicación de fotos gratis online - HaruTools Lab</title>
-<meta name="description" content="Herramienta online gratuita para eliminar por completo datos Exif como ubicación (GPS) y fecha de captura de tus fotos. Privacidad segura: procesado en el navegador. Soporta lote y móviles.">
+<title>Eliminar metadatos Exif | Borrar geolocalización de fotos online gratis - HaruTools Lab</title>
+<meta name="description" content="Herramienta online gratuita para eliminar datos Exif de tus fotos, como la geolocalización (GPS) y la fecha de captura. Proceso en el navegador para máxima privacidad. Compatible con móviles.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root {
-  --primary: #007bff;
-  --primary-hover: #0056b3;
-  --success: #28a745;
-  --bg-color: #f4f7f9;
-  --card-bg: #ffffff;
-  --text-main: #333333;
-  --text-sub: #666666;
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  margin: 0; padding: 0; line-height: 1.6;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
 }
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* Espacio Publicitario */
+/* Espacio publicitario */
 .ad-slot {
-  margin: 20px auto; padding: 15px;
-  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
-  color: #999; font-size: 12px; text-align: center; min-height: 90px;
-  display: flex; align-items: center; justify-content: center;
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
@@ -45,97 +45,97 @@ header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* Área Principal */
+/* Área principal de la herramienta */
 .main-card {
-  background: var(--card-bg);
-  padding: 40px 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  text-align: center;
-  margin-bottom: 30px;
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-/* Área de Arrastrar y Soltar */
+/* Área de arrastrar y soltar */
 #drop-area {
-  border: 3px dashed var(--primary);
-  padding: 50px 20px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: rgba(0, 123, 255, 0.02);
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
 }
 #drop-area.active {
-  background: rgba(0, 123, 255, 0.1);
-  border-color: var(--primary-hover);
-  transform: scale(1.01);
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
 }
 .btn-select {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
-  margin-top: 15px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
 }
 
-/* Vista Previa */
+/* Área de vista previa y controles */
 #preview-zone { display: none; margin-top: 30px; }
 #preview-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
-  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
 }
 .preview-item {
-  background: #f8f9fa;
-  padding: 10px;
-  border-radius: 12px;
-  border: 1px solid #eee;
-  position: relative;
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  position: relative;
 }
 .preview-item img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 .file-info { font-size: 10px; color: #888; margin-top: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .btn-run {
-  background: var(--success);
-  color: white;
-  border: none;
-  padding: 15px 50px;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
-  transition: transform 0.2s;
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 15px 50px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+  transition: transform 0.2s;
 }
 .btn-run:active { transform: scale(0.98); }
 
-/* Visualización de Resultados */
+/* Visualización de resultados */
 #result-area { margin-top: 30px; display: none; text-align: left; background: #f0fff4; padding: 20px; border-radius: 12px; }
 .download-link {
-  display: block;
-  background: #fff;
-  color: var(--success);
-  text-decoration: none;
-  padding: 10px 15px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid var(--success);
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: all 0.2s;
+  display: block;
+  background: #fff;
+  color: var(--success);
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid var(--success);
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.2s;
 }
 .download-link:hover { background: var(--success); color: #fff; }
 
-/* Sección Informativa SEO */
+/* Sección SEO */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -148,83 +148,83 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 <body>
 
 <div class="container">
-  <header>
-    <div style="font-size: 0.9rem; margin-bottom: 5px;">
-    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      HaruTools Lab | Herramientas Online Gratuitas
-    </a>
-  </div>
-    <h1>Limpiar Metadatos Exif</h1>
-    <p class="tagline">Elimina ubicación, fecha y otros metadatos de tus fotos de forma masiva.</p>
-  </header>
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab | Herramientas Online Gratuitas
+    </a>
+  </div>
+    <h1>Eliminar Metadatos Exif</h1>
+    <p class="tagline">Elimine la ubicación GPS, fecha de captura y otros metadatos de sus fotos fácilmente.</p>
+  </header>
 
-  <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Anuncio</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Anuncio</span>Aquí el código de publicidad</div>
+  </div>
 
-  <main class="main-card">
-        <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta imágenes</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivos</button>
-      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
-    </div>
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arrastre y suelte imágenes aquí</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivos</button>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
 
-        <div id="preview-zone">
-      <div id="preview-container"></div>
-      
-      <div style="margin: 20px 0;">
-        <p style="font-size: 0.9rem; color: var(--text-sub);">Presiona el botón "Ejecutar" para generar imágenes sin metadatos.</p>
-        <button class="btn-run" onclick="run()">Ejecutar limpieza</button>
-      </div>
+    <div id="preview-zone">
+      <div id="preview-container"></div>
+      
+      <div style="margin: 20px 0;">
+        <p style="font-size: 0.9rem; color: var(--text-sub);">Al hacer clic en "Ejecutar", se generarán versiones de las imágenes sin metadatos.</p>
+        <button class="btn-run" onclick="run()">Ejecutar eliminación</button>
+      </div>
 
-      <div id="status" style="margin-top:15px; font-weight:bold; color:var(--primary);"></div>
-      
-      <div id="result-area">
-        <h3 style="margin-top:0; font-size:1.1rem; color:#2c7a7b;">✨ ¡Limpieza completada! Guarda tus imágenes</h3>
-        <div id="download-list"></div>
-        <button onclick="location.reload()" style="margin-top:15px; background:none; border:none; color:#666; text-decoration:underline; cursor:pointer; font-size:0.8rem;">Procesar más fotos</button>
-      </div>
-    </div>
-  </main>
+      <div id="status" style="margin-top:15px; font-weight:bold; color:var(--primary);"></div>
+      
+      <div id="result-area">
+        <h3 style="margin-top:0; font-size:1.1rem; color:#2c7a7b;">✨ ¡Listo! Guarde sus imágenes</h3>
+        <div id="download-list"></div>
+        <button onclick="location.reload()" style="margin-top:15px; background:none; border:none; color:#666; text-decoration:underline; cursor:pointer; font-size:0.8rem;">Procesar otras fotos</button>
+      </div>
+    </div>
+  </main>
 
-  <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Anuncio</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Anuncio</span>Aquí el código de publicidad</div>
+  </div>
 
-  <article class="info-section">
-    <h2>Importancia de eliminar los datos Exif</h2>
-    <p>Las fotos tomadas con smartphones o cámaras digitales contienen metadatos llamados <strong>datos Exif</strong>. Estos incluyen la ubicación GPS del momento exacto de la captura, la fecha y hora, el modelo de la cámara e incluso los ajustes del lente.</p>
-    
-    <h3>¿Por qué deberías borrar la ubicación?</h3>
-    <p>Subir fotos con ubicación a redes sociales, blogs o aplicaciones de venta conlleva el <strong>riesgo de que extraños identifiquen tu domicilio o rutina diaria</strong>. Para proteger tu privacidad, se recomienda eliminar esta información antes de compartir cualquier archivo públicamente.</p>
+  <article class="info-section">
+    <h2>Importancia de eliminar los datos Exif</h2>
+    <p>Las fotos tomadas con smartphones o cámaras digitales incluyen metadatos invisibles llamados <strong>datos Exif</strong>. Estos pueden contener la ubicación GPS exacta del momento de la captura, la fecha, el modelo de cámara e incluso configuraciones de la lente.</p>
 
-    <h3>Cómo funciona esta herramienta</h3>
-    <p>A diferencia de otros softwares, esta herramienta utiliza la función "Canvas" del navegador para leer solo los datos de color puros (píxeles) y redibujar la imagen desde cero. En este proceso, se corta cualquier vínculo físico con los metadatos originales, asegurando una <strong>eliminación de información del 100%</strong>.</p>
+    <h3>¿Por qué borrar la geolocalización?</h3>
+    <p>Al subir fotos a redes sociales, blogs o apps de venta con la ubicación incluida, existe el riesgo de que <strong>extraños identifiquen su domicilio o rutinas diarias</strong>. Para proteger su privacidad, se recomienda eliminar esta información antes de compartir cualquier imagen públicamente.</p>
 
-    <h2>Características de la herramienta</h2>
-    <ul>
-      <li><strong>Protección de Privacidad:</strong> Todo el procesamiento ocurre en tu navegador. Tus fotos nunca se suben a nuestro servidor.</li>
-      <li><strong>Procesamiento por Lote:</strong> Puedes seleccionar múltiples fotos a la vez y limpiar sus datos Exif de forma masiva.</li>
-      <li><strong>Calidad Conservada:</strong> Exportamos en formato JPG de alta calidad para minimizar la pérdida de detalle.</li>
-    </ul>
+    <h3>Cómo funciona nuestra herramienta</h3>
+    <p>A diferencia de otros softwares, esta herramienta utiliza la función "Canvas" del navegador para leer únicamente los datos de color (píxeles) y recrear la imagen desde cero. En este proceso, el vínculo físico con los metadatos originales se rompe por completo, garantizando una <strong>eliminación 100% segura de la información</strong>.</p>
 
-    <h2>Preguntas Frecuentes (FAQ)</h2>
-    <div class="faq-item">
-      <span class="faq-q">¿Cómo puedo confirmar que se han borrado?</span>
-      <p>Verifica las propiedades o información detallada de la imagen guardada. Si campos como "Ubicación" o "Modelo de cámara" están vacíos, el proceso fue exitoso.</p>
-    </div>
-    <div class="faq-item">
-      <span class="faq-q">¿Funciona en Android o iPhone?</span>
-      <p>Sí, al funcionar directamente en el navegador, es compatible con cualquier smartphone moderno.</p>
-    </div>
-    <div class="faq-item">
-      <span class="faq-q">¿Pierde calidad la foto?</span>
-      <p>Se aplica una ligera compresión al redibujar la imagen, pero para redes sociales o uso web general, la diferencia es imperceptible a simple vista.</p>
-    </div>
-  </article>
+    <h2>Características de la herramienta</h2>
+    <ul>
+      <li><strong>Protección de Privacidad:</strong> Todo el procesamiento ocurre localmente en su navegador. Sus fotos nunca se suben a nuestros servidores.</li>
+      <li><strong>Procesamiento por lotes:</strong> Puede seleccionar múltiples fotos a la vez para borrar sus datos Exif simultáneamente.</li>
+      <li><strong>Calidad Conservada:</strong> Realizamos la exportación en formato JPG de alta calidad para minimizar la pérdida de fidelidad visual.</li>
+    </ul>
 
- <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Condiciones de uso</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+    <h2>Preguntas Frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Cómo puedo confirmar que se han borrado los datos?</span>
+      <p>R. Verifique las propiedades o detalles de la imagen guardada. Si campos como "Ubicación" o "Modelo de cámara" están vacíos, la eliminación fue exitosa.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Puedo usarlo en Android o iPhone?</span>
+      <p>R. Sí, al funcionar directamente en el navegador, es compatible con cualquier dispositivo móvil moderno.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Baja la calidad de la foto?</span>
+      <p>R. Al recrear la imagen se aplica una ligera compresión, pero la diferencia es imperceptible al ojo humano en redes sociales o visualización web estándar.</p>
+    </div>
+  </article>
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de uso</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
 
 </div>
 
@@ -239,95 +239,95 @@ const status = document.getElementById('status');
 
 let files = [];
 
-// Procesamiento de Arrastrar y Soltar
+// Procesamiento de arrastrar y soltar
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-  dropArea.addEventListener(eventName, e => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, false);
+  dropArea.addEventListener(eventName, e => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, false);
 });
 
 dropArea.addEventListener('dragover', () => dropArea.classList.add('active'));
 dropArea.addEventListener('dragleave', () => dropArea.classList.remove('active'));
 
 dropArea.addEventListener('drop', (e) => {
-  dropArea.classList.remove('active');
-  handleFiles(e.dataTransfer.files);
+  dropArea.classList.remove('active');
+  handleFiles(e.dataTransfer.files);
 });
 
 fileInput.addEventListener('change', function() {
-  handleFiles(this.files);
+  handleFiles(this.files);
 });
 
 function handleFiles(selectedFiles) {
-  files = Array.from(selectedFiles).filter(file => file.type.startsWith('image/'));
-  if (files.length === 0) return;
+  files = Array.from(selectedFiles).filter(file => file.type.startsWith('image/'));
+  if (files.length === 0) return;
 
-  previewContainer.innerHTML = "";
-  dropArea.style.display = 'none';
-  previewZone.style.display = 'block';
+  previewContainer.innerHTML = "";
+  dropArea.style.display = 'none';
+  previewZone.style.display = 'block';
 
-  files.forEach(file => {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const div = document.createElement("div");
-      div.className = "preview-item";
-      div.innerHTML = `
-        <img src="${e.target.result}">
-        <div class="file-info">${file.name}</div>
-      `;
-      previewContainer.appendChild(div);
-    };
-    reader.readAsDataURL(file);
-  });
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const div = document.createElement("div");
+      div.className = "preview-item";
+      div.innerHTML = `
+        <img src="${e.target.result}">
+        <div class="file-info">${file.name}</div>
+      `;
+      previewContainer.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
 }
 
 async function run() {
-  if (files.length === 0) return;
-  
-  status.textContent = "Procesando...";
-  downloadList.innerHTML = "";
-  resultArea.style.display = "none";
+  if (files.length === 0) return;
+  
+  status.textContent = "Procesando...";
+  downloadList.innerHTML = "";
+  resultArea.style.display = "none";
 
-  for (const file of files) {
-    await processImage(file);
-  }
+  for (const file of files) {
+    await processImage(file);
+  }
 
-  status.textContent = "";
-  resultArea.style.display = "block";
+  status.textContent = "";
+  resultArea.style.display = "block";
 }
 
 async function processImage(file) {
-  return new Promise(resolve => {
-    const img = new Image();
-    const objectURL = URL.createObjectURL(file);
-    
-    img.onload = () => {
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
+  return new Promise(resolve => {
+    const img = new Image();
+    const objectURL = URL.createObjectURL(file);
+    
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
 
-      canvas.width = img.width;
-      canvas.height = img.height;
+      canvas.width = img.width;
+      canvas.height = img.height;
 
-      // Al dibujar en el Canvas se eliminan físicamente los metadatos
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      // Al dibujar en el Canvas, se bloquean físicamente los metadatos
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-      // Exportar como JPG de alta calidad
-      const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
-      
-      const link = document.createElement("a");
-      link.href = dataUrl;
-      link.className = "download-link";
-      link.download = `limpio_${file.name.split('.')[0]}.jpg`;
-      link.innerHTML = `⬇️ Guardar ${file.name}`;
-      
-      downloadList.appendChild(link);
-      
-      URL.revokeObjectURL(objectURL);
-      resolve();
-    };
-    img.src = objectURL;
-  });
+      // Salida en JPG de alta calidad
+      const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
+      
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.className = "download-link";
+      link.download = `limpia_${file.name.split('.')[0]}.jpg`;
+      link.innerHTML = `⬇️ Guardar ${file.name}`;
+      
+      downloadList.appendChild(link);
+      
+      URL.revokeObjectURL(objectURL);
+      resolve();
+    };
+    img.src = objectURL;
+  });
 }
 </script>
 
