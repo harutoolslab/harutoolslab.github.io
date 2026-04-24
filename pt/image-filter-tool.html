@@ -5,8 +5,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<title>Filtros de Imagem | Converter para sépia ou negativo online e grátis - HaruTools Lab</title>
-<meta name="description" content="Ferramenta online gratuita para aplicar filtros como sépia, negativo (inversão de cores) e monocromático em várias imagens de uma só vez. Sem instalação, compatível com telemóvel/celular. Processamento local para sua segurança.">
+<title>Filtros de Imagem | Converter para Sépia ou Negativo Online e Grátis - HaruTools Lab</title>
+<meta name="description" content="Ferramenta online gratuita para processar imagens em lote com filtros como sépia, negativo (inversão de cores) e monocromático. Sem instalação, compatível com smartphone e seguro para a sua privacidade.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -31,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* Slot de anúncio */
+/* Espaço Publicitário */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -45,7 +45,7 @@ header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* Área principal da ferramenta */
+/* Área Principal da Ferramenta */
 .main-card {
   background: var(--card-bg);
   padding: 40px 20px;
@@ -55,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* Área de arrastar e soltar */
+/* Área de Drag & Drop */
 #drop-area {
   border: 3px dashed var(--primary);
   padding: 50px 20px;
@@ -105,7 +105,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .btn-run:hover { transform: translateY(-2px); background: #218838; }
 
-/* Área de resultados */
+/* Área de Resultados */
 #result-area { margin-top: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
 .download-link {
   display: flex; align-items: center; justify-content: space-between;
@@ -115,7 +115,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .download-link:hover { background: #f0f7ff; }
 
-/* Secção de informações SEO */
+/* Secção Informativa SEO */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -129,22 +129,22 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      Coleção de ferramentas online gratuitas "HaruTools Lab"
+      HaruTools Lab - Coleção de Ferramentas Online Gratuitas
     </a>
   </div>
     <h1>Filtros de Imagem</h1>
-    <p class="tagline">Sépia, Negativo, Monocromático e mais. Edite várias imagens de uma só vez.</p>
+    <p class="tagline">Sépia, Negativo, Monocromático e muito mais. Processe várias imagens de uma só vez.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Espaço para publicidade</div>
+    <div><span class="ad-label">Advertisement</span>Anúncio</div>
   </div>
 
   <main class="main-card">
         <div id="drop-area">
       <div style="font-size: 1.2rem; font-weight: bold;">Arraste e solte as imagens aqui</div>
       <p style="color: var(--text-sub); margin: 10px 0;">ou</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Selecionar Ficheiros (múltiplos)</button>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Selecionar Ficheiros (Múltiplos)</button>
       <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
     </div>
 
@@ -153,13 +153,13 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
         <label style="font-weight: bold; margin-right: 10px;">Efeito de Filtro:</label>
         <select id="filter-type" class="filter-select">
           <option value="sepia(100%)">Sépia (Retro)</option>
-          <option value="invert(100%)">Negativo (Inverter cores)</option>
-          <option value="grayscale(100%)">Monocromático (P&B)</option>
-          <option value="blur(5px)">Desfoque (Leve)</option>
-          <option value="hue-rotate(90deg)">Rotação de Matriz (Arte)</option>
+          <option value="invert(100%)">Negativo (Inversão)</option>
+          <option value="grayscale(100%)">Monocromático (B&W)</option>
+          <option value="blur(5px)">Desfoque (Suave)</option>
+          <option value="hue-rotate(90deg)">Rotação de Matiz (Artístico)</option>
         </select>
         <div style="margin-top: 20px;">
-          <button class="btn-run" onclick="runFilter()">Aplicar Filtro</button>
+          <button class="btn-run" onclick="runFilter()">Executar Processamento</button>
         </div>
       </div>
 
@@ -173,37 +173,37 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   </main>
 
     <article class="info-section">
-    <h2>O que é a Ferramenta de Filtros de Imagem?</h2>
-    <p>Esta é uma ferramenta online que permite aplicar diversos efeitos de filtro às suas fotos diretamente no navegador. Não necessita de software especial; transforme instantaneamente os seus ícones de redes sociais ou materiais para websites com uma atmosfera artística.</p>
+    <h2>O que é a ferramenta de Filtros de Imagem?</h2>
+    <p>Esta é uma ferramenta online que permite aplicar diversos efeitos de filtro às suas fotos diretamente no navegador. Não necessita de software especial e pode transformar instantaneamente ícones de redes sociais ou materiais para websites numa atmosfera única.</p>
 
     <h3>Principais Filtros Disponíveis</h3>
     <ul>
-      <li><strong>Sépia:</strong> Converte a imagem para tons de castanho quente, como numa fotografia antiga.</li>
-      <li><strong>Negativo (Inversão):</strong> Inverte completamente as cores, criando uma expressão artística semelhante ao negativo de um filme.</li>
-      <li><strong>Monocromático:</strong> Remove as cores, enfatizando luzes e sombras numa clássica foto a preto e branco.</li>
-      <li><strong>Desfoque (Blur):</strong> Desfoca o fundo ou suaviza a imagem inteira para proteção de privacidade.</li>
+      <li><strong>Sépia:</strong> Converte a foto para tons acastanhados quentes, como uma fotografia antiga.</li>
+      <li><strong>Negativo (Inversão):</strong> Inverte completamente as cores, criando uma expressão artística semelhante a um negativo de filme.</li>
+      <li><strong>Monocromático:</strong> Remove as cores, enfatizando luzes e sombras numa clássica fotografia a preto e branco.</li>
+      <li><strong>Desfoque:</strong> Desfoca o fundo ou suaviza toda a imagem para proteção de privacidade.</li>
     </ul>
 
-    <h2>Passos para utilizar</h2>
+    <h2>Passos para Utilização</h2>
     <ol>
       <li>Selecione uma ou mais imagens que deseja processar.</li>
       <li>Escolha o tipo de filtro que deseja aplicar no menu suspenso.</li>
-      <li>Clique em "Aplicar Filtro".</li>
-      <li>Guarde as imagens processadas através dos links de descarga exibidos.</li>
-  </ol>
+      <li>Clique em "Executar Processamento".</li>
+      <li>Guarde as imagens processadas através dos links de download apresentados.</li>
+    </ol>
 
     <h2>Perguntas Frequentes</h2>
     <div class="faq-item" style="margin-bottom: 20px;">
       <strong style="color:var(--primary);">P. A qualidade da imagem diminui?</strong>
-      <p>R. Utilizamos a função de renderização do navegador (Canvas), mantendo uma qualidade elevada para uso geral. O ficheiro é exportado em formato PNG compatível com transparência.</p>
+      <p>R. Utilizamos a função de renderização do navegador (Canvas), mantendo uma alta qualidade suficiente para uso geral. O ficheiro é exportado em formato PNG com suporte para transparência.</p>
     </div>
     <div class="faq-item">
-      <strong style="color:var(--primary);">P. A minha privacidade está segura?</strong>
-      <p>R. As imagens nunca são enviadas para o servidor. Todo o processamento é feito localmente no seu navegador (na memória do seu dispositivo), garantindo total segurança.</p>
+      <strong style="color:var(--primary);">P. É seguro para a minha privacidade?</strong>
+      <p>R. As imagens não são enviadas para o servidor em momento algum. Todo o processamento é concluído dentro do seu navegador (na memória do dispositivo), garantindo total segurança.</p>
     </div>
       <h3>Ferramentas Relacionadas</h3>
     <ul>
-      <li><a href="image-cropper-rounded.html">Recorte Circular e Arredondado</a></li>
+      <li><a href="image-cropper-rounded.html">Recorte Circular e Cantos Arredondados</a></li>
       <li><a href="square-image-maker.html">Criador de Imagens Quadradas</a></li>
       <li><a href="brightness-contrast.html">Ajuste de Brilho e Contraste</a></li>
       <li><a href="mosaic-blur.html">Ferramenta de Mosaico e Desfoque</a></li>
@@ -211,10 +211,10 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   </article>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Espaço para publicidade</div>
+    <div><span class="ad-label">Advertisement</span>Anúncio</div>
   </div>
 
-  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Uso</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Utilização</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
 
 </div>
 
@@ -227,7 +227,7 @@ const resultArea = document.getElementById('result-area');
 
 let currentFiles = [];
 
-// File Input Handler
+// Handler de entrada de ficheiros
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
   dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
 });
@@ -261,10 +261,10 @@ function handleFiles(files) {
   });
 }
 
-// Run Filter
+// Execução do filtro
 async function runFilter() {
   const filterValue = document.getElementById('filter-type').value;
-  resultArea.innerHTML = "<p style='text-align:center; color:var(--primary); font-weight:bold;'>Processando...</p>";
+  resultArea.innerHTML = "<p style='text-align:center; color:var(--primary); font-weight:bold;'>A processar...</p>";
 
   const linksFragment = document.createDocumentFragment();
 
@@ -285,7 +285,7 @@ async function runFilter() {
 
         const a = document.createElement('a');
         a.className = 'download-link';
-        a.download = `filter_${file.name.split('.')[0]}.png`;
+        a.download = `filtro_${file.name.split('.')[0]}.png`;
         a.href = canvas.toDataURL('image/png');
         a.innerHTML = `<span>💾 ${file.name}</span> <span style="font-size:12px;">Download</span>`;
         
@@ -296,7 +296,7 @@ async function runFilter() {
     });
   }
 
-  resultArea.innerHTML = "<p style='color:var(--success); font-weight:bold; margin-bottom:10px;'>✅ Concluído! Clique para guardar:</p>";
+  resultArea.innerHTML = "<p style='color:var(--success); font-weight:bold; margin-bottom:10px;'>✅ Processamento concluído! Clique para guardar:</p>";
   resultArea.appendChild(linksFragment);
 }
 </script>
