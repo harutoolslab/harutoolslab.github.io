@@ -2,121 +2,121 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<title>Invertir Imagen | Volteo horizontal y vertical (espejo) gratis y fácil - HaruTools Lab</title>
-<meta name="description" content="Herramienta online gratuita para invertir imágenes horizontal y verticalmente. Realiza un efecto espejo con un solo clic. Sin instalación, compatible con móviles y totalmente privado al procesarse en el navegador.">
+<title>Invertir Imágenes Online | Espejo Horizontal y Vertical Gratis - HaruTools Lab</title>
+<meta name="description" content="Herramienta online gratuita para invertir imágenes horizontal y verticalmente. Efecto espejo con un solo clic. Sin instalación, compatible con móviles y totalmente privado al procesarse en tu navegador.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root {
-  --primary: #007bff;
-  --primary-hover: #0056b3;
-  --success: #28a745;
-  --bg-color: #f4f7f9;
-  --card-bg: #ffffff;
-  --text-main: #333333;
-  --text-sub: #666666;
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  margin: 0; padding: 0; line-height: 1.6;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
 }
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Espacio publicitario */
 .ad-slot {
-  margin: 20px auto; padding: 15px;
-  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
-  color: #999; font-size: 12px; text-align: center; min-height: 90px;
-  display: flex; align-items: center; justify-content: center;
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Encabezado */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Área principal */
 .main-card {
-  background: var(--card-bg);
-  padding: 40px 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  text-align: center;
-  margin-bottom: 30px;
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-/* ドラッグ&ドロップエリア */
+/* Área de arrastrar y soltar */
 #drop-area {
-  border: 3px dashed var(--primary);
-  padding: 50px 20px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: rgba(0, 123, 255, 0.02);
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
 }
 #drop-area.active {
-  background: rgba(0, 123, 255, 0.1);
-  border-color: var(--primary-hover);
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
 }
 
 .btn-select {
-  background: var(--primary);
-  color: white; border: none;
-  padding: 12px 30px; border-radius: 50px;
-  font-weight: bold; cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
-  margin-top: 15px;
+  background: var(--primary);
+  color: white; border: none;
+  padding: 12px 30px; border-radius: 50px;
+  font-weight: bold; cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
 }
 
-/* プレビュー＆操作エリア */
+/* Vista previa y controles */
 #preview-zone { display: none; margin-top: 20px; }
 .img-container {
-  position: relative;
-  display: inline-block;
-  max-width: 100%;
-  margin-bottom: 20px;
-  background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee), 
-                    linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 20px;
+  background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee), 
+                    linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
 }
 #image-preview { max-width: 100%; max-height: 500px; display: block; }
 
 .action-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 25px;
-  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
 }
 .btn-action {
-  background: #fff; border: 2px solid var(--primary); color: var(--primary);
-  padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer;
-  transition: 0.2s; min-width: 120px;
+  background: #fff; border: 2px solid var(--primary); color: var(--primary);
+  padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer;
+  transition: 0.2s; min-width: 120px;
 }
 .btn-action:hover { background: var(--primary); color: #fff; }
 
 .btn-download {
-  background: var(--success);
-  color: white; border: none; padding: 15px 40px;
-  border-radius: 50px; font-weight: bold; font-size: 1.1rem;
-  cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+  background: var(--success);
+  color: white; border: none; padding: 15px 40px;
+  border-radius: 50px; font-weight: bold; font-size: 1.1rem;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.3);
 }
 
-/* SEO解説セクション */
+/* Sección informativa SEO */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -127,89 +127,89 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 <body>
 
 <div class="container">
-  <header>
-    <div style="font-size: 0.9rem; margin-bottom: 5px;">
-    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      HaruTools Lab | Herramientas Gratuitas Online
-    </a>
-  </div>
-    <h1>Invertir Imagen</h1>
-    <p class="tagline">Volteo horizontal (espejo) o vertical con un solo clic. Ideal para redes sociales o documentos.</p>
-  </header>
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab | Colección de herramientas online gratuitas
+    </a>
+  </div>
+    <h1>Invertir Imagen Online</h1>
+    <p class="tagline">Inversión horizontal (espejo) y vertical con un solo clic. Ideal para redes sociales y diseño.</p>
+  </header>
 
-  <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Espacio publicitario</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espacio para publicidad</div>
+  </div>
 
-  <main class="main-card">
-        <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta una imagen aquí</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivo</button>
-      <input type="file" id="file-input" accept="image/*" style="display:none;">
-    </div>
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta tu imagen aquí</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivo</button>
+      <input type="file" id="file-input" accept="image/*" style="display:none;">
+    </div>
 
-        <div id="preview-zone">
-      <div class="img-container">
-        <img id="image-preview" src="" alt="Vista previa">
-      </div>
+    <div id="preview-zone">
+      <div class="img-container">
+        <img id="image-preview" src="" alt="Vista previa">
+      </div>
 
-      <div class="action-buttons">
-        <button class="btn-action" onclick="flip('horizontal')">↔ Volteo horizontal</button>
-        <button class="btn-action" onclick="flip('vertical')">↕ Volteo vertical</button>
-      </div>
+      <div class="action-buttons">
+        <button class="btn-action" onclick="flip('horizontal')">↔ Invertir Horizontal</button>
+        <button class="btn-action" onclick="flip('vertical')">↕ Invertir Vertical</button>
+      </div>
 
-      <div>
-        <button class="btn-download" onclick="downloadImage()">Guardar imagen invertida</button>
-      </div>
+      <div>
+        <button class="btn-download" onclick="downloadImage()">Guardar imagen invertida</button>
+      </div>
 
-      <div style="margin-top:20px;">
-        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Elegir otra imagen</button>
-      </div>
-    </div>
-  </main>
+      <div style="margin-top:20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Elegir otra imagen</button>
+      </div>
+    </div>
+  </main>
 
-    <article class="info-section">
-    <h2>¿Qué es la herramienta para invertir imágenes?</h2>
-    <p>La "Herramienta para Invertir Imágenes" es una utilidad gratuita que te permite realizar un volteo horizontal o vertical (efecto espejo) de tus imágenes directamente en el navegador. No requiere instalación y cualquier persona puede usarla fácilmente desde su móvil o PC. Es muy útil para corregir la orientación de selfies o para ajustar el equilibrio de un diseño.</p>
+  <article class="info-section">
+    <h2>¿Qué es la herramienta de invertir imágenes?</h2>
+    <p>La "Herramienta de invertir imágenes" es una aplicación gratuita que permite realizar el efecto espejo de forma horizontal o vertical directamente en tu navegador. No requiere instalación y puede usarse fácilmente desde cualquier móvil o PC. Es ideal para corregir la orientación de selfies o comprobar el equilibrio de un diseño.</p>
 
-    <h3>Funciones principales y casos de uso</h3>
-    <ul>
-      <li><strong>Volteo horizontal (espejo):</strong> Refleja la imagen como si estuviera frente a un espejo. Útil para corregir la dirección de selfies o crear diseños simétricos.</li>
-      <li><strong>Volteo vertical:</strong> Pone la imagen boca abajo. Ideal para ediciones creativas o corregir fotos invertidas.</li>
-      <li><strong>Protección de privacidad:</strong> Los datos de la imagen no se envían al servidor; todo el proceso se realiza localmente en tu navegador, garantizando total seguridad.</li>
-    </ul>
+    <h3>Funciones principales y cuándo usarlas</h3>
+    <ul>
+      <li><strong>Inversión horizontal (Espejo):</strong> Refleja la imagen como si estuviera frente a un espejo. Útil para corregir la dirección de las fotos frontales o crear diseños simétricos.</li>
+      <li><strong>Inversión vertical:</strong> Pone la imagen boca abajo. Ideal para retoques creativos o corregir fotos tomadas al revés.</li>
+      <li><strong>Protección de privacidad:</strong> Tus imágenes no se envían a ningún servidor; todo el proceso ocurre dentro de tu navegador de forma segura.</li>
+    </ul>
 
-    <h2>Pasos para usar la herramienta</h2>
-    <ol>
-      <li>Arrastra y suelta una imagen en el área superior o selecciona un archivo.</li>
-      <li>Pulsa el botón "Volteo horizontal" o "Volteo vertical" para ajustar la orientación a tu gusto.</li>
-      <li>Haz clic en "Guardar imagen invertida" para descargar la imagen procesada.</li>
-    </ol>
+    <h2>Pasos para usar la herramienta</h2>
+    <ol>
+      <li>Arrastra y suelta una imagen en el área superior o haz clic en "Seleccionar archivo".</li>
+      <li>Pulsa los botones "Invertir Horizontal" o "Invertir Vertical" para ajustar la orientación a tu gusto.</li>
+      <li>Haz clic en "Guardar imagen invertida" para descargar la imagen procesada.</li>
+    </ol>
 
-    <h2>Preguntas frecuentes</h2>
-    <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">P. ¿Tiene algún costo?</strong>
-      <p>R. No, se puede utilizar de forma totalmente gratuita y sin restricciones de uso.</p>
-    </div>
-    <div class="faq-item">
-      <strong style="color:var(--primary);">P. ¿Cambia la calidad de la imagen?</strong>
-      <p>R. El proceso mantiene la resolución original, aunque al exportarse mediante Canvas, se guarda en formato PNG de alta calidad.</p>
-    </div>
-    <h3>Herramientas relacionadas</h3>
-    <ul>
-      <li><a href="image-rotate.html">Herramienta de Rotación</a></li>
-      <li><a href="image-overlay.html">Herramienta de Superposición</a></li>
-      <li><a href="brightness-contrast.html">Ajuste de Brillo y Contraste</a></li>
-      <li><a href="mosaic-blur.html">Herramienta de Mosaico y Desenfoque</a></li>
-    </ul>
-  </article>
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">P. ¿Es gratis el servicio?</strong>
+      <p>R. Sí, es completamente gratuito y puedes usarlo sin limitaciones.</p>
+    </div>
+    <div class="faq-item">
+      <strong style="color:var(--primary);">P. ¿Cambia la calidad de la imagen?</strong>
+      <p>R. Mantenemos la resolución original durante el proceso, aunque la exportación se realiza a través de Canvas para ofrecer un guardado de alta calidad en formato PNG.</p>
+    </div>
+    <h3>Otras herramientas</h3>
+    <ul>
+      <li><a href="image-rotate.html">Rotar Imagen</a></li>
+      <li><a href="image-overlay.html">Superponer Imágenes</a></li>
+      <li><a href="brightness-contrast.html">Ajuste de Brillo y Contraste</a></li>
+      <li><a href="mosaic-blur.html">Efecto Mosaico y Desenfoque</a></li>
+    </ul>
+  </article>
 
-  <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Anuncio</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espacio para publicidad</div>
+  </div>
 
-  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de uso</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
 
 </div>
 
@@ -223,68 +223,68 @@ let originalImg = new Image();
 
 // ファイル入力
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
-  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
 });
 
 dropArea.addEventListener('drop', e => {
-  handleFiles(e.dataTransfer.files);
+  handleFiles(e.dataTransfer.files);
 }, false);
 
 fileInput.addEventListener('change', function() {
-  handleFiles(this.files);
+  handleFiles(this.files);
 });
 
 function handleFiles(files) {
-  const file = files[0];
-  if (file && file.type.startsWith('image/')) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      originalImg.onload = () => {
-        imagePreview.src = e.target.result;
-        dropArea.style.display = 'none';
-        previewZone.style.display = 'block';
-      };
-      originalImg.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  }
+  const file = files[0];
+  if (file && file.type.startsWith('image/')) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      originalImg.onload = () => {
+        imagePreview.src = e.target.result;
+        dropArea.style.display = 'none';
+        previewZone.style.display = 'block';
+      };
+      originalImg.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
 }
 
 // 反転処理
 function flip(type) {
-  if (!imagePreview.src) return;
+  if (!imagePreview.src) return;
 
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-  
-  // 現在プレビューに表示されている画像の状態を取得
-  const currentImg = new Image();
-  currentImg.onload = () => {
-    canvas.width = currentImg.width;
-    canvas.height = currentImg.height;
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  
+  // 現在プレビューに表示されている画像の状態を取得
+  const currentImg = new Image();
+  currentImg.onload = () => {
+    canvas.width = currentImg.width;
+    canvas.height = currentImg.height;
 
-    ctx.save();
-    if (type === 'horizontal') {
-      ctx.translate(canvas.width, 0);
-      ctx.scale(-1, 1);
-    } else {
-      ctx.translate(0, canvas.height);
-      ctx.scale(1, -1);
-    }
-    ctx.drawImage(currentImg, 0, 0);
-    ctx.restore();
+    ctx.save();
+    if (type === 'horizontal') {
+      ctx.translate(canvas.width, 0);
+      ctx.scale(-1, 1);
+    } else {
+      ctx.translate(0, canvas.height);
+      ctx.scale(1, -1);
+    }
+    ctx.drawImage(currentImg, 0, 0);
+    ctx.restore();
 
-    imagePreview.src = canvas.toDataURL('image/png');
-  };
-  currentImg.src = imagePreview.src;
+    imagePreview.src = canvas.toDataURL('image/png');
+  };
+  currentImg.src = imagePreview.src;
 }
 
 // 保存
 function downloadImage() {
-  const link = document.createElement('a');
-  link.download = 'flipped-' + Date.now() + '.png';
-  link.href = imagePreview.src;
-  link.click();
+  const link = document.createElement('a');
+  link.download = 'flipped-' + Date.now() + '.png';
+  link.href = imagePreview.src;
+  link.click();
 }
 </script>
 
