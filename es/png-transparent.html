@@ -2,41 +2,41 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<title>Creador de PNG Transparente | Quitar fondo a imágenes online gratis - HaruTools Lab</title>
-<meta name="description" content="Herramienta online gratuita para hacer transparente el fondo o colores específicos de imágenes PNG. Ajusta la tolerancia para un resultado natural. Seguro y privado: las imágenes no se suben al servidor.">
+<title>Herramienta de Transparencia PNG | Hacer el fondo transparente online gratis - HaruTools Lab</title>
+<meta name="description" content="Herramienta online gratuita para hacer transparente el fondo o colores específicos de imágenes PNG. Ajusta la tolerancia para un resultado natural. Seguro y privado: las imágenes no se guardan en el servidor.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root {
-  --primary: #007bff;
-  --primary-hover: #0056b3;
-  --success: #28a745;
-  --bg-color: #f4f7f9;
-  --card-bg: #ffffff;
-  --text-main: #333333;
-  --text-sub: #666666;
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  margin: 0; padding: 0; line-height: 1.6;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
 }
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* Espacio Publicitario */
+/* Espacio publicitario */
 .ad-slot {
-  margin: 20px auto; padding: 15px;
-  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
-  color: #999; font-size: 12px; text-align: center; min-height: 90px;
-  display: flex; align-items: center; justify-content: center;
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
@@ -45,101 +45,100 @@ header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* Área Principal */
+/* Área principal */
 .main-card {
-  background: var(--card-bg);
-  padding: 40px 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  text-align: center;
-  margin-bottom: 30px;
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-/* Área de Carga */
+/* Área de arrastrar y soltar */
 #drop-area {
-  border: 3px dashed var(--primary);
-  padding: 50px 20px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: rgba(0, 123, 255, 0.02);
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
 }
 #drop-area.active {
-  background: rgba(0, 123, 255, 0.1);
-  border-color: var(--primary-hover);
-  transform: scale(1.01);
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
 }
 .btn-select {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
-  margin-top: 15px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
 }
 
-/* Área de Vista Previa */
+/* Vista previa y controles */
 #preview-zone { display: none; margin-top: 20px; }
 .preview-item {
-  margin-bottom: 30px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #eee;
-  /* Fondo para verificar transparencia */
-  background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%), 
-                    linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
+  margin-bottom: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%), 
+                    linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
 }
 .preview-item img, .preview-item canvas {
-  max-width: 100%;
-  max-height: 500px;
-  display: block;
-  margin: 10px auto;
+  max-width: 100%;
+  max-height: 500px;
+  display: block;
+  margin: 10px auto;
 }
 
 .settings-box {
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  align-items: center;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
 }
 
 .setting-item { display: flex; align-items: center; gap: 10px; }
 
 .btn-run {
-  background: var(--success);
-  color: white;
-  border: none;
-  padding: 15px 40px;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
 }
 .btn-download {
-  display: inline-block;
-  margin-top: 15px;
-  background: var(--primary);
-  color: white;
-  text-decoration: none;
-  padding: 8px 25px;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 15px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  padding: 8px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 0.9rem;
 }
 
-/* Sección SEO */
+/* Sección informativa SEO */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -152,89 +151,89 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 <body>
 
 <div class="container">
-  <header>
-    <div style="font-size: 0.9rem; margin-bottom: 5px;">
-    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      HaruTools Lab | Herramientas Online Gratuitas
-    </a>
-  </div>
-    <h1>Creador de PNG Transparente</h1>
-    <p class="tagline">Convierte un color específico en transparente. Ideal para quitar fondos de logotipos.</p>
-  </header>
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab | Herramientas online gratuitas
+    </a>
+  </div>
+    <h1>Herramienta de Transparencia PNG</h1>
+    <p class="tagline">Convierte colores específicos en transparentes. Ideal para quitar fondos de logos.</p>
+  </header>
 
-    <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Anuncio</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espacio para publicidad</div>
+  </div>
 
-  <main class="main-card">
-        <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta la imagen aquí</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivo</button>
-      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
-    </div>
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta tu imagen aquí</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivo</button>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
 
-        <div id="preview-zone">
-      <div class="settings-box">
-        <div class="setting-item">
-          <label style="font-weight:bold;">Color a transparentar:</label>
-          <input type="color" id="target-color" value="#ffffff" style="width:50px; height:30px; cursor:pointer;">
-        </div>
-        <div class="setting-item">
-          <label style="font-weight:bold;">Tolerancia:</label>
-          <input type="range" id="tolerance" min="0" max="150" value="50">
-          <span id="tol-val" style="width:30px; font-weight:bold;">50</span>
-        </div>
-      </div>
-      
-      <button class="btn-run" onclick="run()">Hacer transparente</button>
-      <div id="status" style="margin-top:15px; font-weight:bold; color:var(--primary);"></div>
+    <div id="preview-zone">
+      <div class="settings-box">
+        <div class="setting-item">
+          <label style="font-weight:bold;">Color a transparentar:</label>
+          <input type="color" id="target-color" value="#ffffff" style="width:50px; height:30px; cursor:pointer;">
+        </div>
+        <div class="setting-item">
+          <label style="font-weight:bold;">Tolerancia:</label>
+          <input type="range" id="tolerance" min="0" max="150" value="50">
+          <span id="tol-val" style="width:30px; font-weight:bold;">50</span>
+        </div>
+      </div>
+      
+      <button class="btn-run" onclick="run()">Ejecutar transparencia</button>
+      <div id="status" style="margin-top:15px; font-weight:bold; color:var(--primary);"></div>
 
-      <div id="preview-container" style="margin-top:30px;"></div>
-      
-      <div style="margin-top:30px; border-top:1px solid #eee; padding-top:20px;">
-        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Reiniciar imagen</button>
-      </div>
-    </div>
-  </main>
+      <div id="preview-container" style="margin-top:30px;"></div>
+      
+      <div style="margin-top:30px; border-top:1px solid #eee; padding-top:20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Reiniciar imágenes</button>
+      </div>
+    </div>
+  </main>
 
-    <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Anuncio</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espacio para publicidad</div>
+  </div>
 
-    <article class="info-section">
-    <h2>¿Qué es el Creador de PNG Transparente?</h2>
-    <p>Nuestra herramienta es un servicio online gratuito que permite seleccionar un color específico en una imagen y convertirlo en transparente. Se utiliza principalmente para eliminar fondos blancos de logotipos o quitar fondos de colores sólidos en fotografías para crear recursos gráficos.</p>
+  <article class="info-section">
+    <h2>¿Qué es la Herramienta de Transparencia PNG?</h2>
+    <p>Es una utilidad online gratuita que permite seleccionar un color específico dentro de una imagen y convertirlo en transparente. Se utiliza principalmente para eliminar fondos blancos de logotipos o quitar fondos monocolor de fotografías para convertirlos en recursos de diseño.</p>
 
-    <h3>Beneficios de esta herramienta</h3>
-    <ul>
-      <li><strong>Sin instalación:</strong> Funciona directamente en tu navegador, por lo que puedes usarla al instante en PC o móvil.</li>
-      <li><strong>Privacidad asegurada:</strong> El procesamiento de la imagen ocurre localmente en tu dispositivo. Los datos no se suben al servidor, garantizando la seguridad de tus diseños y logotipos.</li>
-      <li><strong>Ajuste de tolerancia:</strong> Incluso si el fondo no es un color sólido perfecto, puedes ajustar la "tolerancia" para obtener bordes limpios.</li>
-    </ul>
+    <h3>Ventajas de esta herramienta</h3>
+    <ul>
+      <li><strong>Sin instalación:</strong> Funciona directamente en el navegador, disponible para móviles y PC al instante.</li>
+      <li><strong>Privacidad asegurada:</strong> Todo el procesamiento de la imagen se realiza en tu dispositivo. Los datos no se suben al servidor, garantizando seguridad para tus archivos confidenciales.</li>
+      <li><strong>Ajuste de tolerancia:</strong> Incluso si el fondo no es un color sólido perfecto, puedes aumentar la "tolerancia" para obtener bordes limpios.</li>
+    </ul>
 
-    <h2>Consejos de uso</h2>
-    <p><strong>1. Selección de color:</strong> Elige el color de fondo que deseas eliminar (el blanco es el predeterminado).</p>
-    <p><strong>2. Ajuste de tolerancia:</strong> Si después de procesar quedan bordes rugosos o restos de color, intenta subir la tolerancia a "60-100" para un borrado más suave.</p>
-    <p><strong>3. Formato de guardado:</strong> La transparencia solo se mantiene en formato PNG, por lo que la imagen se descargará automáticamente como tal.</p>
+    <h2>Consejos de uso</h2>
+    <p><strong>1. Selección de color:</strong> Elige el color de fondo en "Color a transparentar" (blanco por defecto).</p>
+    <p><strong>2. Ajuste de tolerancia:</strong> Si después de procesar quedan bordes rugosos o restos de color, aumentar la tolerancia entre "60 y 100" suele ayudar a eliminarlos suavemente.</p>
+    <p><strong>3. Formato de guardado:</strong> Dado que la información de transparencia solo se mantiene en formato PNG, el archivo se descargará automáticamente en este formato.</p>
 
-    <h2>Preguntas Frecuentes (FAQ)</h2>
-    <div class="faq-item">
-      <span class="faq-q">P. ¿Puedo quitar fondos complejos de fotos?</span>
-      <p>R. Esta herramienta se basa en "colores específicos", por lo que es más efectiva en fondos de un solo color (blanco, azul, verde, etc.). Para fondos complejos como paisajes, se recomienda usar herramientas basadas en IA en combinación con esta.</p>
-    </div>
-    <div class="faq-item">
-      <span class="faq-q">P. La imagen procesada se ve blanca o negra en mi visor.</span>
-      <p>R. Algunas aplicaciones de visualización muestran la transparencia como blanco o negro por defecto. Prueba a colocar la imagen en Word o en un sitio web para verificar que el fondo es realmente transparente.</p>
-    </div>
-      <h3>Herramientas Relacionadas</h3>
-    <ul>
-      <li><a href="image-cropper-rounded.html">Recorte circular y bordes redondeados</a></li>
-      <li><a href="square-image-maker.html">Creador de imágenes cuadradas</a></li>
-      <li><a href="brightness-contrast.html">Ajuste de brillo y contraste</a></li>
-      <li><a href="mosaic-blur.html">Herramienta de mosaico y desenfoque</a></li>
-    </ul>
-  </article>
+    <h2>Preguntas frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Puedo quitar el fondo de una foto con paisajes complejos?</span>
+      <p>R. Esta herramienta funciona mejor con fondos de un solo color (blanco, azul, verde, etc.). Para fondos complejos, recomendamos combinarla con herramientas basadas en IA.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. He descargado la imagen pero el fondo aparece negro o blanco.</span>
+      <p>R. Algunas aplicaciones de visualización de fotos muestran la transparencia como blanco o negro por conveniencia. Prueba a insertar la imagen en un documento (como Word) o en un sitio web para verificar que el fondo es realmente transparente.</p>
+    </div>
+      <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="image-cropper-rounded.html">Recorte Circular y Redondeado</a></li>
+      <li><a href="square-image-maker.html">Creador de Fotos Cuadradas</a></li>
+      <li><a href="brightness-contrast.html">Ajuste de Brillo y Contraste</a></li>
+      <li><a href="mosaic-blur.html">Herramienta de Mosaico y Desenfoque</a></li>
+    </ul>
+  </article>
 
 <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de uso</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
 
@@ -251,111 +250,115 @@ const status = document.getElementById('status');
 
 let files = [];
 
-// Actualizar visualización del slider
+// スライダー表示更新
 toleranceSlider.addEventListener('input', () => {
-  tolValDisplay.textContent = toleranceSlider.value;
+  tolValDisplay.textContent = toleranceSlider.value;
 });
 
-// Procesamiento de arrastrar y soltar
+// ドラッグ&ドロップ処理
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-  dropArea.addEventListener(eventName, e => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, false);
+  dropArea.addEventListener(eventName, e => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, false);
 });
 
 dropArea.addEventListener('drop', (e) => {
-  handleFiles(e.dataTransfer.files);
+  handleFiles(e.dataTransfer.files);
 }, false);
 
 fileInput.addEventListener('change', function() {
-  handleFiles(this.files);
+  handleFiles(this.files);
 });
 
 function handleFiles(selectedFiles) {
-  files = Array.from(selectedFiles).filter(file => file.type.startsWith('image/'));
-  if (files.length === 0) return;
+  files = Array.from(selectedFiles).filter(file => file.type.startsWith('image/'));
+  if (files.length === 0) return;
 
-  previewContainer.innerHTML = "";
-  dropArea.style.display = 'none';
-  previewZone.style.display = 'block';
+  previewContainer.innerHTML = "";
+  dropArea.style.display = 'none';
+  previewZone.style.display = 'block';
 
-  files.forEach(file => {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const div = document.createElement("div");
-      div.className = "preview-item";
-      div.innerHTML = `<p style="font-size:12px; color:#666;">Imagen original: ${file.name}</p>
-                       <img src="${e.target.result}" data-name="${file.name}">`;
-      previewContainer.appendChild(div);
-    };
-    reader.readAsDataURL(file);
-  });
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const div = document.createElement("div");
+      div.className = "preview-item";
+      // スペイン語に変更: Imagen original
+      div.innerHTML = `<p style="font-size:12px; color:#666;">Imagen original: ${file.name}</p>
+                       <img src="${e.target.result}" data-name="${file.name}">`;
+      previewContainer.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
 }
 
 function run() {
-  if (files.length === 0) return;
-  status.textContent = "Procesando transparencia...";
-  
-  const targetHex = document.getElementById('target-color').value;
-  const tol = Number(toleranceSlider.value);
+  if (files.length === 0) return;
+  // スペイン語に変更: Procesando...
+  status.textContent = "Procesando...";
+  
+  const targetHex = document.getElementById('target-color').value;
+  const tol = Number(toleranceSlider.value);
 
-  const rT = parseInt(targetHex.substr(1,2), 16);
-  const gT = parseInt(targetHex.substr(3,2), 16);
-  const bT = parseInt(targetHex.substr(5,2), 16);
+  const rT = parseInt(targetHex.substr(1,2), 16);
+  const gT = parseInt(targetHex.substr(3,2), 16);
+  const bT = parseInt(targetHex.substr(5,2), 16);
 
-  // Escanear y convertir imágenes en el contenedor de vista previa
-  const items = previewContainer.querySelectorAll('.preview-item');
-  
-  items.forEach(item => {
-    const img = item.querySelector('img');
-    if (!img) return;
+  // プレビューコンテナ内の画像を走査して変換
+  const items = previewContainer.querySelectorAll('.preview-item');
+  
+  items.forEach(item => {
+    const img = item.querySelector('img');
+    if (!img) return;
 
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    const tempImg = new Image();
-    
-    tempImg.onload = () => {
-      canvas.width = tempImg.width;
-      canvas.height = tempImg.height;
-      ctx.drawImage(tempImg, 0, 0);
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const tempImg = new Image();
+    
+    tempImg.onload = () => {
+      canvas.width = tempImg.width;
+      canvas.height = tempImg.height;
+      ctx.drawImage(tempImg, 0, 0);
 
-      let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      let data = imageData.data;
+      let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      let data = imageData.data;
 
-      for (let i = 0; i < data.length; i += 4) {
-        let r = data[i], g = data[i+1], b = data[i+2];
+      for (let i = 0; i < data.length; i += 4) {
+        let r = data[i], g = data[i+1], b = data[i+2];
 
-        // Determinar similitud de color mediante distancia euclidiana
-        let diff = Math.sqrt(
-          Math.pow(r - rT, 2) +
-          Math.pow(g - gT, 2) +
-          Math.pow(b - bT, 2)
-        );
+        // ユークリッド距離で色の近さを判定
+        let diff = Math.sqrt(
+          Math.pow(r - rT, 2) +
+          Math.pow(g - gT, 2) +
+          Math.pow(b - bT, 2)
+        );
 
-        if (diff < tol) {
-          // Hacer transparente si está cerca (interpolación lineal para bordes suaves)
-          let alpha = diff / tol;
-          data[i+3] = data[i+3] * alpha;
-        }
-      }
+        if (diff < tol) {
+          // 近ければ透明にする（境界を滑らかにするため線形補間）
+          let alpha = diff / tol;
+          data[i+3] = data[i+3] * alpha;
+        }
+      }
 
-      ctx.putImageData(imageData, 0, 0);
-      
-      // Reemplazo de resultados
-      const dataUrl = canvas.toDataURL("image/png");
-      item.innerHTML = `
-        <p style="font-size:12px; color:var(--success); font-weight:bold;">Proceso completado</p>
-        <canvas width="${canvas.width}" height="${canvas.height}"></canvas>
-        <a href="${dataUrl}" download="transparente_${img.getAttribute('data-name')}.png" class="btn-download">Guardar (PNG)</a>
-      `;
-      const resultCanvas = item.querySelector('canvas');
-      resultCanvas.getContext('2d').putImageData(imageData, 0, 0);
-    };
-    tempImg.src = img.src;
-  });
+      ctx.putImageData(imageData, 0, 0);
+      
+      // 結果の置き換え
+      const dataUrl = canvas.toDataURL("image/png");
+      // スペイン語に変更: Transparencia completada / Guardar (PNG)
+      item.innerHTML = `
+        <p style="font-size:12px; color:var(--success); font-weight:bold;">Transparencia completada</p>
+        <canvas width="${canvas.width}" height="${canvas.height}"></canvas>
+        <a href="${dataUrl}" download="transparent_${img.getAttribute('data-name')}.png" class="btn-download">Guardar (PNG)</a>
+      `;
+      const resultCanvas = item.querySelector('canvas');
+      resultCanvas.getContext('2d').putImageData(imageData, 0, 0);
+    };
+    tempImg.src = img.src;
+  });
 
-  status.textContent = "¡Listo!";
+  // スペイン語に変更: ¡Completado!
+  status.textContent = "¡Completado!";
 }
 </script>
 
