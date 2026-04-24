@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<title>Criador de Pixel Art | Grade, Fundo Transparente e Exportação - HaruTools Lab</title>
+<meta name="description" content="Uma ferramenta gratuita e fácil de usar para criar pixel art online. Desenhe pixel por pixel com linhas de grade precisas e salve em PNG transparente com ampliação. Ideal para assets web e ícones.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Slot de Anúncio */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Cabeçalho */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Área Principal da Ferramenta */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Painel de Controle */
+.control-panel {
+  display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; align-items: center;
+  background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 20px;
+}
+
+.tool-btn {
+  padding: 8px 20px; border: 1px solid #ddd; background: #fff; border-radius: 8px;
+  cursor: pointer; font-weight: bold; transition: 0.2s;
+}
+.tool-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+/* Visualizador de Canvas */
+.canvas-scroll-viewer {
+  width: 100%; max-height: 60vh; overflow: auto;
+  background: #ccc; border: 2px solid #333; border-radius: 4px;
+  margin: 20px 0; display: flex; justify-content: center; align-items: center;
+}
+
+.canvas-wrapper {
+  display: inline-block;
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+  line-height: 0;
+}
+
+#pixel-canvas {
+  image-rendering: pixelated;
+  cursor: crosshair;
+  display: block;
+}
+
+/* Paleta */
+.palette-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
+.palette-color {
+  width: 32px; height: 32px; border: 1px solid #ddd; border-radius: 6px;
+  cursor: pointer; transition: transform 0.1s;
+}
+.palette-color:hover { transform: scale(1.1); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+/* Painel de Salvar */
+.save-panel { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
+.btn-run {
+  background: var(--success); color: white; border: none; padding: 12px 40px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+
+/* Secção de Informação SEO */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab - Coleção de ferramentas online gratuitas
+    </a>
+  </div>
+    <h1>Criador de Pixel Art</h1>
+    <p class="tagline">Fácil de desenhar com grade. Suporta salvamento em PNG transparente.</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Tag de anúncio aqui</div>
+  </div>
+
+  <main class="main-card">
+    <div class="control-panel">
+      Tela:
+      <select id="width-select" style="padding: 5px; border-radius: 5px;"></select> × 
+      <select id="height-select" style="padding: 5px; border-radius: 5px;"></select>
+      <button class="tool-btn" onclick="initCanvas()" style="margin-left:10px;">Resetar</button>
+      <div style="margin-left:20px;">
+        Zoom: <input type="range" id="zoom-range" min="5" max="60" value="20" oninput="updateZoom()">
+      </div>
+    </div>
+
+    <div class="control-panel">
+      <input type="color" id="color-picker" value="#333333" style="width:50px; height:38px; cursor:pointer; border:none; background:none;">
+      <button id="pen-tool" class="tool-btn active" onclick="setTool('pen')">Lápis</button>
+      <button id="eraser-tool" class="tool-btn" onclick="setTool('eraser')">Borracha</button>
+      <button class="tool-btn" onclick="addColorToPalette()">Salvar Cor</button>
+    </div>
+
+    <div class="palette-container" id="palette"></div>
+
+    <div class="canvas-scroll-viewer">
+      <div class="canvas-wrapper" id="canvas-wrapper">
+        <canvas id="pixel-canvas"></canvas>
+      </div>
+    </div>
+
+    <div class="save-panel">
+      Tamanho de saída:
+      <select id="scale-select" style="padding: 10px; border-radius: 8px; border:1px solid #ddd;">
+        <option value="1">Original (1:1)</option>
+        <option value="16">16x maior</option>
+        <option value="32" selected>32x maior (Recomendado)</option>
+        <option value="64">64x maior</option>
+      </select>
+      <button class="btn-run" onclick="download()" style="margin-left:15px;">Salvar Imagem</button>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Tag de anúncio aqui</div>
+  </div>
+
+  <article class="info-section">
+    <h2>O que é o Criador de Pixel Art com grade?</h2>
+    <p>
+      Esta ferramenta é um editor online especializado na criação de "Pixel Art", onde as cores são colocadas com precisão, pixel por pixel. 
+      Ao fixar o fundo em branco e exibir linhas de grade cinza claro, até mesmo iniciantes podem desenhar sem se perder na tela.
+    </p>
+
+    <h3>Vantagens desta ferramenta</h3>
+    <ul>
+      <li><strong>Totalmente gratuito e sem registo:</strong> Comece a desenhar agora mesmo diretamente no seu navegador.</li>
+      <li><strong>Exibição de Grade:</strong> As linhas auxiliares movem-se de acordo com o zoom, permitindo saber sempre a posição de cada pixel.</li>
+      <li><strong>Exportação de Alta Qualidade:</strong> Mantém a nitidez dos pixels e permite salvar em PNG transparente em tamanhos ideais para redes sociais.</li>
+    </ul>
+
+    <h2>Passos para utilizar</h2>
+    <ol>
+      <li>Selecione o tamanho da tela (ex: 16×16) e clique no botão Resetar.</li>
+      <li>Use a ferramenta Lápis e o seletor de cores para desenhar na tela.</li>
+      <li>Use "Salvar Cor" para guardar as suas cores favoritas na paleta.</li>
+      <li>Escolha o tamanho de saída e clique em "Salvar Imagem" para descarregar.</li>
+    </ol>
+
+    <h2>Perguntas Frequentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. Existe algum custo?</span>
+      <p>R. Não, todas as ferramentas no nosso site são fornecidas gratuitamente.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. Posso salvar com o fundo transparente?</span>
+      <p>R. Sim. As partes não pintadas são processadas automaticamente como transparentes e guardadas em formato PNG.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. Posso usar no telemóvel (celular)?</span>
+      <p>R. Sim, é possível desenhar com os dedos a partir de um iPhone ou Android. Utilize a função de zoom para maior precisão.</p>
+    </div>
+
+      <h3>Ferramentas Relacionadas</h3>
+    <ul>
+      <li><a href="qr-generator.html">Gerador de QR Code</a></li>
+      <li><a href="favicon-generator.html">Gerador de Favicon</a></li>
+      <li><a href="remove-exif.html">Remover dados Exif</a></li>
+      <li><a href="image-compress.html">Compressor de Imagens</a></li>
+      <li><a href="png-to-jpg.html">Converter PNG para JPG</a></li>
+    </ul>
+    
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Tag de anúncio aqui</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Uso</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+</div>
+
+<script>
+const sizes = [16, 32, 48, 64, 80, 128];
+const defaultColors = ["#000000", "#ffffff", "#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff", "#888888", "#ff9900", "#993300", "#663399"];
+
+const canvas = document.getElementById('pixel-canvas');
+const ctx = canvas.getContext('2d');
+const wrapper = document.getElementById('canvas-wrapper');
+const wSelect = document.getElementById('width-select');
+const hSelect = document.getElementById('height-select');
+const colorPicker = document.getElementById('color-picker');
+const palette = document.getElementById('palette');
+const zoomRange = document.getElementById('zoom-range');
+
+let isDrawing = false;
+let currentTool = 'pen';
+
+// Gerar opções de tamanho
+sizes.forEach(s => {
+  wSelect.add(new Option(s, s));
+  hSelect.add(new Option(s, s));
+});
+wSelect.value = 32; hSelect.value = 32;
+
+function initPalette() {
+  palette.innerHTML = "";
+  defaultColors.forEach(color => createPaletteItem(color));
+}
+
+function createPaletteItem(color) {
+  const div = document.createElement('div');
+  div.className = 'palette-color';
+  div.style.backgroundColor = color;
+  div.onclick = () => { colorPicker.value = color; setTool('pen'); };
+  palette.appendChild(div);
+}
+
+function addColorToPalette() { createPaletteItem(colorPicker.value); }
+
+function updateZoom() {
+  const zoom = parseInt(zoomRange.value);
+  canvas.style.width = (canvas.width * zoom) + "px";
+  canvas.style.height = (canvas.height * zoom) + "px";
+  wrapper.style.backgroundSize = `${zoom}px ${zoom}px`;
+}
+
+function initCanvas(isInitial = false) {
+  if(!isInitial && !confirm("Deseja apagar a ilustração atual e resetar?")) return;
+  const w = parseInt(wSelect.value);
+  const h = parseInt(hSelect.value);
+  canvas.width = w; canvas.height = h;
+  if (w >= 64) zoomRange.value = 10;
+  else zoomRange.value = 20;
+  updateZoom();
+  ctx.clearRect(0, 0, w, h);
+}
+
+function setTool(tool) {
+  currentTool = tool;
+  document.getElementById('pen-tool').classList.toggle('active', tool === 'pen');
+  document.getElementById('eraser-tool').classList.toggle('active', tool === 'eraser');
+}
+
+function getPos(e) {
+  const rect = canvas.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  const x = Math.floor((clientX - rect.left) * (canvas.width / rect.width));
+  const y = Math.floor((clientY - rect.top) * (canvas.height / rect.height));
+  return {x, y};
+}
+
+function handleDraw(e) {
+  if (!isDrawing) return;
+  const {x, y} = getPos(e);
+  if (x >= 0 && x < canvas.width && y >= 0 && y < canvas.height) {
+    if (currentTool === 'pen') {
+      ctx.fillStyle = colorPicker.value;
+      ctx.fillRect(x, y, 1, 1);
+    } else {
+      ctx.clearRect(x, y, 1, 1);
+    }
+  }
+}
+
+canvas.addEventListener('mousedown', (e) => { isDrawing = true; handleDraw(e); });
+canvas.addEventListener('mousemove', handleDraw);
+window.addEventListener('mouseup', () => isDrawing = false);
+
+canvas.addEventListener('touchstart', (e) => { 
+  isDrawing = true; handleDraw(e); e.preventDefault(); 
+}, {passive: false});
+canvas.addEventListener('touchmove', (e) => { 
+  handleDraw(e); e.preventDefault(); 
+}, {passive: false});
+window.addEventListener('touchend', () => isDrawing = false);
+
+function download() {
+  const scale = parseInt(document.getElementById('scale-select').value);
+  const offCanvas = document.createElement('canvas');
+  offCanvas.width = canvas.width * scale;
+  offCanvas.height = canvas.height * scale;
+  const offCtx = offCanvas.getContext('2d');
+  offCtx.imageSmoothingEnabled = false;
+  offCtx.drawImage(canvas, 0, 0, offCanvas.width, offCanvas.height);
+  const link = document.createElement('a');
+  link.download = `pixelart_${canvas.width}x${canvas.height}.png`;
+  link.href = offCanvas.toDataURL("image/png");
+  link.click();
+}
+
+window.onload = () => {
+  initCanvas(true);
+  initPalette();
+};
+</script>
+
+</body>
+</html>

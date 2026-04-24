@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+  
+<title>Converter PDF em Imagem | Guardar páginas como JPG online gratuitamente - HaruTools Lab</title>
+<meta name="description" content="Ferramenta online gratuita para converter e extrair cada página de ficheiros PDF em imagens de alta qualidade (JPG). Processamento seguro no navegador. Sem instalação, converta página a página.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Slot de Anúncio */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Cabeçalho */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Área Principal da Ferramenta */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Área de Drop */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
+}
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* Área de Resultados */
+#result-zone { display: none; margin-top: 30px; }
+#result-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.result-item {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  text-align: center;
+}
+.result-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+}
+.download-link {
+  display: inline-block;
+  background: var(--success);
+  color: white;
+  text-decoration: none;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+.download-link:hover { opacity: 0.8; }
+
+/* Secção SEO */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab - Coleção de Ferramentas Online Gratuitas
+    </a>
+  </div>
+    <h1>Converter PDF em Imagem</h1>
+    <p class="tagline">Converta e guarde cada página do seu PDF como imagens JPG de alta qualidade.</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para anúncio</div>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arraste e solte o PDF aqui</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">ou</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Selecionar Ficheiro</button>
+      <input type="file" id="file-input" accept="application/pdf" style="display:none;">
+    </div>
+
+    <div id="result-zone">
+      <div id="status" style="font-weight: bold; color: var(--primary); margin-bottom: 20px;"></div>
+      
+      <div id="result-container"></div>
+      
+      <div style="text-align:center; margin-top:40px;">
+        <button onclick="location.reload()" style="background:#666; color:white; border:none; padding:10px 30px; border-radius:50px; cursor:pointer; font-weight:bold;">Converter outro PDF</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para anúncio</div>
+  </div>
+
+  <article class="info-section">
+    <h2>O que é a Ferramenta de Conversão de PDF em Imagem?</h2>
+    <p>A "Ferramenta de Conversão de PDF em Imagem" é um serviço online gratuito que analisa os seus ficheiros PDF e extrai cada página como uma imagem JPG individual. É ideal para quando deseja utilizar parte de um documento como imagem ou partilhar o conteúdo de um PDF nas redes sociais.</p>
+
+    <h3>Características desta ferramenta</h3>
+    <ul>
+      <li><strong>Renderização de Alta Qualidade:</strong> O desenho é feito numa escala de 2.0x, garantindo que textos e diagramas fiquem nítidos na imagem final.</li>
+      <li><strong>Proteção de Privacidade:</strong> Utilizando a biblioteca "pdf.js", todo o processamento de conversão ocorre localmente no seu navegador. Os ficheiros nunca são enviados para o servidor, garantindo total segurança para documentos confidenciais.</li>
+      <li><strong>Totalmente gratuito e sem registo:</strong> Não necessita de instalações ou registos demorados. Pode usar sempre que precisar.</li>
+    </ul>
+
+    <h2>Útil em várias situações</h2>
+    <p><strong>1. Partilha em Redes Sociais:</strong> Plataformas como o Instagram ou X (Twitter) não permitem a publicação direta de PDFs. Ao converter para JPG, pode partilhar o conteúdo em formato de carrossel ou slide.</p>
+    <p><strong>2. Inserção em Apresentações:</strong> Conveniente para quando quer colar apenas uma página de um PDF como imagem no PowerPoint ou Excel.</p>
+    <p><strong>3. Visualização no Telemóvel:</strong> Em formato de imagem, pode verificar o conteúdo facilmente na galeria ou "Rolo de Câmara" do telemóvel sem precisar de uma aplicação específica para PDFs.</p>
+
+    <h2>Perguntas Frequentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. Como fica a qualidade da imagem após a conversão?</span>
+      <p>R. Esta ferramenta utiliza por defeito uma configuração de alta resolução (escala de 200%), permitindo guardar até os pequenos detalhes do texto de forma clara.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. Posso usar no telemóvel?</span>
+      <p>R. Sim, a ferramenta está disponível diretamente nos navegadores de iPhone e Android.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. Suporta PDFs com muitas páginas ou ficheiros grandes?</span>
+      <p>R. Se o número de páginas for muito elevado, o processamento pode demorar um pouco mais por utilizar a memória do navegador, mas funciona corretamente com documentos comuns.</p>
+    </div>
+
+    
+    <h3>Ferramentas Relacionadas</h3>
+    <ul>
+      <li><a href="pdf-split.html">Combinar PDF</a></li>
+      <li><a href="image-to-pdf.html">Converter Imagem em PDF</a></li>
+      <li><a href="image-compress.html">Comprimir Imagens</a></li>
+      <li><a href="png-to-jpg.html">Converter PNG para JPG</a></li>
+    </ul>
+    
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para anúncio</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Utilização</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+
+</div>
+
+<script>
+// pdf.js のワーカー設定
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const resultZone = document.getElementById('result-zone');
+const resultContainer = document.getElementById('result-container');
+const status = document.getElementById('status');
+
+// ドラッグ&ドロップ処理
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, e => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, false);
+});
+
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.add('active'), false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', (e) => {
+  const file = e.dataTransfer.files[0];
+  if (file) processPdf(file);
+}, false);
+
+fileInput.addEventListener('change', function() {
+  if (this.files[0]) processPdf(this.files[0]);
+});
+
+async function processPdf(file) {
+  if (file.type !== "application/pdf") {
+    alert("Por favor, selecione um ficheiro PDF");
+    return;
+  }
+
+  // 画面切り替え
+  dropArea.style.display = 'none';
+  resultZone.style.display = 'block';
+  status.innerHTML = "A analisar o PDF...";
+  resultContainer.innerHTML = "";
+
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+
+    status.innerHTML = `A converter ${pdf.numPages} páginas em imagens...`;
+
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      
+      // 高画質化のためスケール2.0でレンダリング
+      const viewport = page.getViewport({ scale: 2.0 });
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      await page.render({ canvasContext: context, viewport: viewport }).promise;
+
+      // 画像データ生成
+      const dataUrl = canvas.toDataURL("image/jpeg", 0.9);
+      
+      // アイテム作成
+      const div = document.createElement("div");
+      div.className = "result-item";
+      div.innerHTML = `
+        <div style="font-size:0.8rem; color:#888; margin-bottom:10px;">Página ${i} / ${pdf.numPages}</div>
+        <img src="${dataUrl}" alt="Page ${i}">
+        <a href="${dataUrl}" download="pagina_${i}.jpg" class="download-link">Guardar</a>
+      `;
+      resultContainer.appendChild(div);
+      
+      // 進捗更新
+      status.innerHTML = `A processar página ${i} de ${pdf.numPages}...`;
+    }
+
+    status.innerHTML = `<span style="color:var(--success);">✨ Conversão concluída com sucesso!</span>`;
+
+  } catch (error) {
+    console.error(error);
+    status.innerHTML = `<span style="color:red;">Ocorreu um erro. O ficheiro pode estar corrompido ou protegido por palavra-passe.</span>`;
+  }
+}
+</script>
+
+</body>
+</html>

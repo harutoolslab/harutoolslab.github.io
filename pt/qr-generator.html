@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<title>Gerador de Código QR | Grátis, Uso Comercial e Sem Registo - HaruTools Lab</title>
+<meta name="description" content="Ferramenta online gratuita para converter URLs ou texto em códigos QR instantaneamente. Personalize cores, tamanhos e guarde imagens de alta qualidade. Sem necessidade de registo.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Slot de Anúncio */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Cabeçalho */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Área Principal da Ferramenta */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.input-group { width: 100%; text-align: left; margin-bottom: 20px; }
+label { font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 8px; color: #555; }
+
+input[type="text"], select {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+input[type="text"]:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Área de Visualização do QR */
+#qr-display-area {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200px;
+  justify-content: center;
+}
+
+#qrcode {
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+#qrcode img { margin: 0 auto; max-width: 100%; height: auto; }
+
+.btn-download {
+  display: none; /* Oculto até ser gerado */
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+.btn-download:hover { transform: translateY(-2px); opacity: 0.9; }
+
+/* Secção SEO */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .settings-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab - Coleção de Ferramentas Online Gratuitas
+    </a>
+  </div>
+    <h1>Gerador de Código QR</h1>
+    <p class="tagline">Basta introduzir um URL ou texto para criar instantaneamente o seu próprio código QR.</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para anúncio</div>
+  </div>
+
+  <main class="main-card">
+    <div class="input-group">
+      <label for="text">URL ou Texto para o Código QR</label>
+      <input type="text" id="text" placeholder="https://exemplo.pt" oninput="generateQR()">
+    </div>
+
+    <div class="settings-grid">
+      <div class="input-group">
+        <label for="size">Tamanho da Imagem</label>
+        <select id="size" onchange="generateQR()">
+          <option value="128">Pequeno (128x128)</option>
+          <option value="256" selected>Padrão (256x256)</option>
+          <option value="512">Grande (512x512)</option>
+          <option value="1024">Extra Grande (1024x1024)</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="colorDark">Cor do Código</label>
+        <input type="color" id="colorDark" value="#000000" style="width:100%; height:52px; padding:4px; cursor:pointer; border:2px solid #eee; border-radius:10px; box-sizing:border-box;" onchange="generateQR()">
+      </div>
+    </div>
+
+    <div id="qr-display-area">
+      <div id="qrcode"></div>
+      <p id="placeholder-text" style="color:#aaa; font-size:0.9rem;">Introduza um URL para visualizar aqui o código QR</p>
+    </div>
+    
+    <button id="download-btn" class="btn-download" onclick="downloadQR()">Guardar Imagem Criada</button>
+  </main>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para anúncio</div>
+  </div>
+
+  <article class="info-section">
+    <h2>O que é o Gerador de Código QR?</h2>
+    <p>O "Gerador de Código QR" é um serviço online gratuito que permite converter URLs de websites ou qualquer informação de texto em imagens de códigos QR legíveis. Pode ser utilizado numa vasta gama de aplicações, tais como folhetos, cartões de visita, pósteres e perfis de redes sociais.</p>
+
+    <h3>Características desta ferramenta</h3>
+    <ul>
+      <li><strong>Sem Registo e Totalmente Grátis:</strong> Utilize todas as funções gratuitamente para fins comerciais ou pessoais, sem o incómodo de criar conta ou iniciar sessão.</li>
+      <li><strong>Design Focado na Privacidade:</strong> Todo o processamento de geração é feito via JavaScript no seu navegador. Os dados introduzidos não são enviados para o servidor nem guardados em registos (logs).</li>
+      <li><strong>Personalização Flexível:</strong> Altere livremente o tamanho (128px a 1024px) e a cor de acordo com as suas necessidades.</li>
+    </ul>
+
+    <h2>Ideias para utilizar Códigos QR</h2>
+    <p><strong>1. Aumentar Seguidores nas Redes Sociais:</strong> Converta o URL do seu perfil de Instagram, Facebook ou X (Twitter) num código QR e coloque-o junto à caixa ou nas mesas do seu estabelecimento para incentivar o seguimento imediato.</p>
+    <p><strong>2. Cartões de Visita e Portfólios:</strong> Ao incluir um código QR com o link para o seu site ou contactos no cartão de visita, o destinatário poderá aceder instantaneamente através do smartphone.</p>
+    <p><strong>3. Sinalética de Eventos:</strong> Se transformar o URL de partilha de um mapa ou formulário de inscrição num código QR, a conveniência para os participantes melhorará significativamente.</p>
+
+    <h2>Perguntas Frequentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. Os códigos QR criados têm prazo de validade?</span>
+      <p>R. Não têm validade. Enquanto o URL de destino estiver ativo, o código QR criado poderá ser utilizado permanentemente. No entanto, tenha atenção que, se o URL for alterado ou eliminado, o acesso deixará de funcionar.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. Mudar a cor afeta a leitura do código?</span>
+      <p>R. Se o código for de uma cor muito clara ou próxima da cor de fundo, a leitura torna-se difícil. Recomendamos a combinação "fundo branco" com "código de cor escura". Teste sempre a leitura com o seu smartphone antes de distribuir ou imprimir.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. Posso utilizar para fins comerciais?</span>
+      <p>R. Sim, a utilização para fins comerciais ou lucrativos é permitida sem restrições.</p>
+    </div>
+    
+    <h3>Ferramentas Relacionadas</h3>
+    <ul>
+      <li><a href="favicon-generator.html">Gerador de Favicon</a></li>
+      <li><a href="remove-exif.html">Eliminar Dados Exif</a></li>
+      <li><a href="image-compress.html">Comprimir Imagens</a></li>
+      <li><a href="png-to-jpg.html">Converter PNG para JPG</a></li>
+    </ul>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para anúncio</div>
+  </div>
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Utilização</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+
+</div>
+
+<script>
+let qrGenerator = null;
+
+function generateQR() {
+  const textInput = document.getElementById("text").value;
+  const sizeValue = document.getElementById("size").value;
+  const colorValue = document.getElementById("colorDark").value;
+  const qrContainer = document.getElementById("qrcode");
+  const downloadBtn = document.getElementById("download-btn");
+  const placeholder = document.getElementById("placeholder-text");
+
+  // Limpar contentor
+  qrContainer.innerHTML = "";
+
+  if (textInput.trim() === "") {
+    downloadBtn.style.display = "none";
+    placeholder.style.display = "block";
+    qrContainer.style.display = "none";
+    return;
+  }
+
+  placeholder.style.display = "none";
+  qrContainer.style.display = "block";
+
+  // Gerar Código QR (QRCode.js)
+  qrGenerator = new QRCode(qrContainer, {
+    text: textInput,
+    width: parseInt(sizeValue),
+    height: parseInt(sizeValue),
+    colorDark : colorValue,
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+  });
+
+  // Mostrar botão após renderização
+  setTimeout(() => {
+    downloadBtn.style.display = "inline-block";
+  }, 100);
+}
+
+function downloadQR() {
+  const img = document.querySelector("#qrcode img");
+  if (!img) {
+    const canvas = document.querySelector("#qrcode canvas");
+    if (canvas) {
+      const link = document.createElement("a");
+      link.href = canvas.toDataURL("image/png");
+      link.download = "qrcode_harutools.png";
+      link.click();
+      return;
+    }
+    return;
+  }
+
+  const link = document.createElement("a");
+  link.href = img.src;
+  link.download = "qrcode_harutools.png";
+  link.click();
+}
+
+window.onload = generateQR;
+</script>
+
+</body>
+</html>

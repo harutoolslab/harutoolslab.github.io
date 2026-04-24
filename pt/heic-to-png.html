@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+
+<title>Converter HEIC para PNG | Ferramenta Online Gratuita - HaruTools Lab</title>
+<meta name="description" content="Converta imagens HEIC do iPhone para o formato PNG de forma simples e gratuita. Funciona no navegador, por isso as suas fotos não são enviadas para o servidor. Sem instalação, compatível com smartphone.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/heic2any/dist/heic2any.min.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Slot de Anúncio */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Cabeçalho */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Área Principal da Ferramenta */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Área de Drag & Drop */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
+}
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* Área de Pré-visualização */
+#preview-zone { display: none; margin-top: 20px; }
+#image-preview { max-width: 100%; max-height: 300px; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 20px; }
+
+/* Botão de Conversão / Resultados */
+.btn-run { background: var(--success); color: white; border: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin: 10px; }
+#result-links a { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #eee; border-radius: 8px; color: var(--primary); text-decoration: none; font-weight: bold; border: 1px solid #ddd; }
+
+/* Secção de Informação SEO */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+ <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Coleção de Ferramentas Online Gratuitas "HaruTools Lab"
+    </a>
+  </div>
+   <h1>Converter HEIC para PNG</h1>
+    <p class="tagline">Converta as suas imagens HEIC para PNG de forma segura no seu navegador.</p>
+  </header>
+
+    <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para publicidade</div>
+  </div>
+
+  <main class="main-card">
+        <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arraste e solte ficheiros HEIC aqui</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">ou</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Selecionar Ficheiro</button>
+      <input type="file" id="file-input" accept=".heic" multiple style="display:none;">
+    </div>
+
+        <div id="preview-zone">
+      <p style="font-weight:bold;">A preparar os ficheiros HEIC selecionados...</p>
+      <div id="result-links"></div>
+      <div style="margin-top:20px;">
+        <button class="btn-run" id="run-btn">Converter para PNG e Descarregar</button><br>
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer; margin-top:10px;">Escolher outra imagem</button>
+      </div>
+    </div>
+  </main>
+
+    <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para publicidade</div>
+  </div>
+
+    <article class="info-section">
+    <h2>O que é a ferramenta de conversão de HEIC para PNG?</h2>
+    <p>
+      É uma ferramenta gratuita para converter imagens no formato HEIC (High Efficiency Image Container), tiradas em dispositivos modernos como o iPhone, para o formato PNG, que pode ser visualizado em computadores Windows e navegadores comuns.
+      Pode converter vários ficheiros de uma só vez. Como o processamento é feito inteiramente no seu navegador, a sua privacidade está garantida.
+    </p>
+
+    <h3>Vantagens desta ferramenta</h3>
+    <ul>
+      <li><strong>Totalmente Grátis:</strong> Todas as funções podem ser utilizadas sem limites e sem custos.</li>
+      <li><strong>Conversão em Lote:</strong> Converta vários ficheiros HEIC para PNG simultaneamente.</li>
+      <li><strong>Privacidade Segura:</strong> Os dados das fotos nunca são enviados para os nossos servidores. Tudo é processado localmente no seu dispositivo.</li>
+      <li><strong>Sem Instalação:</strong> Se tiver um navegador como Safari, Chrome ou Edge, pode usar no telemóvel ou PC imediatamente.</li>
+    </ul>
+
+    <h2>Como usar</h2>
+    <ol>
+      <li>Arraste os ficheiros HEIC para dentro da área pontilhada acima ou utilize o botão "Selecionar Ficheiro".</li>
+      <li>Assim que os ficheiros forem carregados, clique no botão "Converter para PNG e Descarregar".</li>
+      <li>Quando a conversão terminar, os ficheiros PNG serão guardados automaticamente (no caso de vários ficheiros, serão guardados sequencialmente).</li>
+    </ol>
+
+    <h2>Perguntas Frequentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. Existem custos associados?</span>
+      <p>R. Não, todas as ferramentas neste site são gratuitas. O site é mantido através de receitas publicitárias, por isso pode usar com total tranquilidade.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. A qualidade da imagem diminui?</span>
+      <p>R. A conversão de HEIC para PNG é processada de forma a manter a qualidade original o máximo possível. Como o PNG é um formato de compressão sem perdas (lossless), a imagem será guardada com nitidez.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. Por que é que alguns ficheiros não convertem?</span>
+      <p>R. A conversão pode falhar se o ficheiro estiver corrompido ou se o tamanho do ficheiro for extremamente grande. Tente novamente num local com boa ligação à internet.</p>
+    </div>
+
+    <h3>Ferramentas Relacionadas</h3>
+    <ul>
+      <li><a href="jpg-to-png.html">Converter JPG para PNG</a></li>
+      <li><a href="png-to-jpg.html">Converter PNG para JPG</a></li>
+      <li><a href="image-compress.html">Comprimir Imagens</a></li>
+    </ul>
+  </article>
+
+    <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para publicidade</div>
+  </div>
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Utilização</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const runBtn = document.getElementById('run-btn');
+const resultLinks = document.getElementById('result-links');
+
+let currentFiles = [];
+
+// Prevenir eventos padrão
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+
+// Alternar estilo de arraste
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.add('active'), false);
+});
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.remove('active'), false);
+});
+
+// Receber ficheiros
+dropArea.addEventListener('drop', e => {
+  currentFiles = e.dataTransfer.files;
+  showPreview();
+}, false);
+
+fileInput.addEventListener('change', function() {
+  currentFiles = this.files;
+  showPreview();
+});
+
+function showPreview() {
+  if (currentFiles.length > 0) {
+    dropArea.style.display = 'none';
+    previewZone.style.display = 'block';
+    resultLinks.innerHTML = `<p>${currentFiles.length} ficheiro(s) carregado(s)</p>`;
+  }
+}
+
+// Processo de execução
+runBtn.addEventListener('click', async () => {
+  if (currentFiles.length === 0) return;
+  
+  runBtn.disabled = true;
+  runBtn.textContent = "A converter...";
+  resultLinks.innerHTML = "";
+
+  for (let file of currentFiles) {
+    try {
+      // Conversão HEIC -> PNG
+      const blob = await heic2any({
+        blob: file,
+        toType: "image/png"
+      });
+
+      const url = URL.createObjectURL(blob);
+      const downloadName = file.name.replace(/\.heic$/i, ".png");
+
+      // Gerar link de download
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = downloadName;
+      a.textContent = "✅ Guardar " + downloadName;
+      resultLinks.appendChild(a);
+      resultLinks.appendChild(document.createElement("br"));
+
+      // Executar download automático
+      a.click();
+
+    } catch (e) {
+      console.error(e);
+      const errorMsg = document.createElement("p");
+      errorMsg.style.color = "red";
+      errorMsg.textContent = "Falha: " + file.name;
+      resultLinks.appendChild(errorMsg);
+    }
+  }
+
+  runBtn.disabled = false;
+  runBtn.textContent = "Conversão concluída (Executar novamente)";
+});
+</script>
+
+</body>
+</html>
