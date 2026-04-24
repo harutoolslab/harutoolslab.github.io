@@ -2,113 +2,113 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<title>Recorte Circular y Esquinas Redondeadas | Cortar imágenes en círculo (Arrastrar y ajustar tamaño) - HaruTools Lab</title>
-<meta name="description" content="Herramienta gratuita para recortar imágenes en círculos perfectos o esquinas redondeadas directamente en tu navegador. Ajusta la posición arrastrando y cambia el tamaño libremente. Ideal para fotos de perfil de redes sociales. Guarda en formato PNG transparente.">
+<title>Recorte Circular y Redondeado | Cortar imágenes en círculo (ajuste manual) - HaruTools Lab</title>
+<meta name="description" content="Herramienta gratuita para recortar imágenes en círculo o con bordes redondeados directamente en tu navegador. Ajusta la posición y el tamaño libremente. Ideal para fotos de perfil de redes sociales. Guarda en formato PNG transparente.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root {
-  --primary: #007bff;
-  --primary-hover: #0056b3;
-  --success: #28a745;
-  --bg-color: #f4f7f9;
-  --card-bg: #ffffff;
-  --text-main: #333333;
-  --text-sub: #666666;
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  margin: 0; padding: 0; line-height: 1.6;
-  user-select: none; /* Evita la selección de texto durante el arrastre */
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+  user-select: none; /* Previene la selección de texto durante el arrastre */
 }
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Espacio para anuncios */
 .ad-slot {
-  margin: 20px auto; padding: 15px;
-  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
-  color: #999; font-size: 12px; text-align: center; min-height: 90px;
-  display: flex; align-items: center; justify-content: center;
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Encabezado */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Área principal */
 .main-card {
-  background: var(--card-bg);
-  padding: 40px 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  text-align: center;
-  margin-bottom: 30px;
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-/* アップロードエリア */
+/* Área de carga */
 #drop-area {
-  border: 3px dashed var(--primary);
-  padding: 50px 20px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: rgba(0, 123, 255, 0.02);
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
 }
 #drop-area.active {
-  background: rgba(0, 123, 255, 0.1);
-  border-color: var(--primary-hover);
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
 }
 
 .btn-select {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
-  margin-top: 15px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
 }
 
-/* 編集用レイアウト */
+/* Layout del editor */
 #preview-zone { display: none; }
 .editor-layout {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-/* プレビュー表示（左） */
+/* Panel de vista previa (izquierda) */
 .preview-pane {
-  flex: 1; min-width: 300px; max-width: 500px; position: relative;
-  background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee), 
-                    linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee);
-  background-size: 20px 20px; background-position: 0 0, 10px 10px;
-  border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  flex: 1; min-width: 300px; max-width: 500px; position: relative;
+  background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee), 
+                    linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee);
+  background-size: 20px 20px; background-position: 0 0, 10px 10px;
+  border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 #stage { position: relative; width: 100%; line-height: 0; overflow: hidden; cursor: crosshair; }
 #img-bg { width: 100%; height: auto; opacity: 0.3; pointer-events: none; }
 #mask-overlay {
-  position: absolute; overflow: hidden; box-shadow: 0 0 0 2000px rgba(0,0,0,0.6);
-  border: 2px solid #fff; box-sizing: border-box; cursor: move; z-index: 10; touch-action: none;
+  position: absolute; overflow: hidden; box-shadow: 0 0 0 2000px rgba(0,0,0,0.6);
+  border: 2px solid #fff; box-sizing: border-box; cursor: move; z-index: 10; touch-action: none;
 }
 #img-foreground { position: absolute; max-width: none; pointer-events: none; }
 
-/* 操作パネル（右） */
+/* Panel de control (derecha) */
 .control-pane { flex: 1; min-width: 300px; max-width: 400px; text-align: left; }
 .control-group { margin-bottom: 25px; }
 .label { display: block; font-weight: bold; margin-bottom: 12px; color: #444; font-size: 0.95rem; }
@@ -119,19 +119,19 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 
 .slider-container { background: #f8f9fa; padding: 15px; border-radius: 8px; }
 .slider-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.slider-label { font-size: 0.85rem; color: var(--text-sub); width: 85px; }
+.slider-label { font-size: 0.85rem; color: var(--text-sub); width: 110px; }
 .slider { flex: 1; height: 6px; accent-color: var(--primary); cursor: pointer; }
 .slider-val { font-size: 0.85rem; font-weight: bold; color: var(--primary); width: 40px; text-align: right; }
 
 .btn-main {
-  background: var(--success);
-  color: white; border: none; padding: 16px;
-  border-radius: 12px; font-weight: bold; font-size: 1.1rem; width: 100%;
-  cursor: pointer; transition: 0.2s; box-shadow: 0 4px 12px rgba(40,167,69,0.2);
+  background: var(--success);
+  color: white; border: none; padding: 16px;
+  border-radius: 12px; font-weight: bold; font-size: 1.1rem; width: 100%;
+  cursor: pointer; transition: 0.2s; box-shadow: 0 4px 12px rgba(40,167,69,0.2);
 }
 .btn-main:hover { transform: translateY(-2px); }
 
-/* SEO解説セクション */
+/* Sección de información SEO */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -139,149 +139,149 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
 
 @media (max-width: 600px) {
-  .editor-layout { flex-direction: column; align-items: center; }
-  .preview-pane, .control-pane { width: 100%; max-width: 100%; }
+  .editor-layout { flex-direction: column; align-items: center; }
+  .preview-pane, .control-pane { width: 100%; max-width: 100%; }
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <header>
-   <div style="font-size: 0.9rem; margin-bottom: 5px;">
-    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      Colección de herramientas online gratuitas "HaruTools Lab"
-    </a>
-  </div>
-    <h1>Recorte Circular y Esquinas Redondeadas</h1>
-    <p class="tagline">Convierte imágenes en círculos o esquinas redondeadas. Ajusta la posición intuitivamente arrastrando.</p>
-  </header>
+  <header>
+   <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab | Herramientas online gratuitas
+    </a>
+  </div>
+    <h1>Recorte Circular y Redondeado</h1>
+    <p class="tagline">Corta tus imágenes en círculo o con bordes redondeados de forma intuitiva.</p>
+  </header>
 
-  <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Espacio para publicidad</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espacio para publicidad</div>
+  </div>
 
-  <main class="main-card">
-    <div id="drop-area">
-      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta una imagen aquí</div>
-      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
-      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivo</button>
-      <input type="file" id="file-input" accept="image/png,image/jpeg" style="display:none;">
-    </div>
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta tu imagen aquí</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivo</button>
+      <input type="file" id="file-input" accept="image/png,image/jpeg" style="display:none;">
+    </div>
 
-    <div id="preview-zone">
-      <div class="editor-layout">
-        <div class="preview-pane">
-          <div id="stage">
-            <img src="" id="img-bg" alt="Preview Background">
-            <div id="mask-overlay">
-              <img src="" id="img-foreground" alt="Preview Foreground">
-            </div>
-          </div>
-        </div>
+    <div id="preview-zone">
+      <div class="editor-layout">
+        <div class="preview-pane">
+          <div id="stage">
+            <img src="" id="img-bg" alt="Preview Background">
+            <div id="mask-overlay">
+              <img src="" id="img-foreground" alt="Preview Foreground">
+            </div>
+          </div>
+        </div>
 
-        <div class="control-pane">
-          <div class="control-group">
-            <span class="label">1. Forma de recorte</span>
-            <div class="radio-group">
-              <label><input type="radio" name="shape" value="circle" checked> Círculo</label>
-              <label><input type="radio" name="shape" value="rounded"> Esquinas redondeadas</label>
-            </div>
-          </div>
+        <div class="control-pane">
+          <div class="control-group">
+            <span class="label">1. Forma de recorte</span>
+            <div class="radio-group">
+              <label><input type="radio" name="shape" value="circle" checked> Círculo</label>
+              <label><input type="radio" name="shape" value="rounded"> Redondeado</label>
+            </div>
+          </div>
 
-          <div class="control-group">
-            <span class="label">2. Ajustar tamaño y posición</span>
-            <div class="slider-container">
-              <div class="slider-row" id="size-row">
-                <span class="slider-label">Tamaño de recorte</span>
-                <input type="range" id="size-slider" class="slider" min="10" max="100" value="80">
-                <span class="slider-val" id="size-val">80%</span>
-              </div>
-              <div class="slider-row" id="radius-row" style="display:none;">
-                <span class="slider-label">Redondeado</span>
-                <input type="range" id="radius-slider" class="slider" min="0" max="50" value="10">
-                <span class="slider-val" id="radius-val">10%</span>
-              </div>
-              <p style="font-size:11px; color:#999; margin:10px 0 0;">* Puedes arrastrar directamente el círculo en la vista previa para moverlo.</p>
-            </div>
-            <input type="range" id="pos-x" min="0" max="100" value="50" style="display:none;">
-            <input type="range" id="pos-y" min="0" max="100" value="50" style="display:none;">
-          </div>
+          <div class="control-group">
+            <span class="label">2. Ajustar tamaño y posición</span>
+            <div class="slider-container">
+              <div class="slider-row" id="size-row">
+                <span class="slider-label">Tamaño</span>
+                <input type="range" id="size-slider" class="slider" min="10" max="100" value="80">
+                <span class="slider-val" id="size-val">80%</span>
+              </div>
+              <div class="slider-row" id="radius-row" style="display:none;">
+                <span class="slider-label">Redondeado</span>
+                <input type="range" id="radius-slider" class="slider" min="0" max="50" value="10">
+                <span class="slider-val" id="radius-val">10%</span>
+              </div>
+              <p style="font-size:11px; color:#999; margin:10px 0 0;">* Puedes arrastrar el área iluminada en la imagen directamente.</p>
+            </div>
+            <input type="range" id="pos-x" min="0" max="100" value="50" style="display:none;">
+            <input type="range" id="pos-y" min="0" max="100" value="50" style="display:none;">
+          </div>
 
-          <button class="btn-main" onclick="downloadImage()">Guardar como PNG transparente</button>
-          <div style="margin-top:20px; text-align:center;">
-            <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer; font-size:0.9rem;">Elegir otra imagen</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+          <button class="btn-main" onclick="downloadImage()">Guardar como PNG transparente</button>
+          <div style="margin-top:20px; text-align:center;">
+            <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer; font-size:0.9rem;">Elegir otra imagen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
-  <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Espacio para publicidad</div>
-  </div>
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espacio para publicidad</div>
+  </div>
 
-  <article class="info-section">
-    <h2>¿Qué es el recorte circular y de esquinas redondeadas?</h2>
-    <p>"Recorte Circular y Esquinas Redondeadas" es una herramienta en línea que permite recortar fácilmente imágenes en círculos perfectos o con esquinas redondeadas directamente en su navegador. Es ideal para crear iconos de redes sociales o procesar materiales para sitios web. Por razones de privacidad, las imágenes no se envían al servidor y se procesan en su propio dispositivo.</p>
+  <article class="info-section">
+    <h2>¿Qué es el recorte circular y redondeado?</h2>
+    <p>Nuestra herramienta de "Recorte Circular y Redondeado" es una aplicación web gratuita que te permite transformar imágenes cuadradas o rectangulares en círculos perfectos o rectángulos con esquinas suavizadas. Es ideal para crear fotos de perfil de redes sociales o elementos visuales para sitios web. Por seguridad, tus imágenes se procesan localmente en tu dispositivo y nunca se envían a nuestros servidores.</p>
 
-    <h3>Ventajas de esta herramienta</h3>
-    <ul>
-      <li><strong>Operación de arrastre intuitiva:</strong> Ajuste el rango de recorte moviéndolo directamente con el ratón o el dedo.</li>
-      <li><strong>Totalmente gratis y sin registro:</strong> Puede usarlo inmediatamente sin necesidad de un molesto registro de membresía.</li>
-      <li><strong>Soporte para PNG transparente:</strong> Puede guardar la imagen con el exterior del recorte transparente, para que se adapte a cualquier lugar.</li>
-    </ul>
+    <h3>Ventajas de esta herramienta</h3>
+    <ul>
+      <li><strong>Operación intuitiva:</strong> Ajusta el área de recorte arrastrando directamente con el ratón o el dedo.</li>
+      <li><strong>Totalmente gratis y sin registro:</strong> Sin formularios ni cuentas; úsalo al instante.</li>
+      <li><strong>Soporte para PNG transparente:</strong> El área exterior al recorte se vuelve transparente, permitiendo que la imagen se adapte a cualquier fondo.</li>
+    </ul>
 
-    <h2>Pasos para su uso</h2>
-    <ol>
-      <li>Arrastre y suelte una imagen en el área superior o elija una imagen con el botón.</li>
-      <li>Seleccione "Círculo" o "Esquinas redondeadas" y ajuste el tamaño con el control deslizante.</li>
-      <li>Arrastre la parte iluminada de la vista previa para moverla a la posición que desea recortar.</li>
-      <li>Presione el botón "Guardar como PNG transparente" para descargar el resultado.</li>
-    </ol>
-  </article>
+    <h2>Pasos para usar la herramienta</h2>
+    <ol>
+      <li>Arrastra tu imagen al área de carga o selecciónala mediante el botón.</li>
+      <li>Elige entre "Círculo" o "Redondeado" y ajusta el tamaño con los controles deslizantes.</li>
+      <li>Arrastra la zona iluminada en la vista previa para centrar el recorte donde prefieras.</li>
+      <li>Haz clic en "Guardar como PNG transparente" para descargar el resultado.</li>
+    </ol>
+  </article>
 
 <article class="info-section">
-    <h2>Preguntas frecuentes (FAQ)</h2>
+    <h2>Preguntas Frecuentes (FAQ)</h2>
 
-    <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">P. ¿Puedo recortar una imagen en un "círculo" perfecto?</strong>
-      <p>R. Sí, es posible. Al especificar el rango de recorte como un cuadrado (1:1) y establecer el radio de la esquina redondeada al máximo, puede recortarla como un círculo perfecto.</p>
-    </div>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">P. ¿Puedo recortar una imagen en un círculo perfecto?</strong>
+      <p>R. Sí. La herramienta ajusta el recorte circular basándose en la proporción 1:1 para asegurar una circunferencia perfecta.</p>
+    </div>
 
-    <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">P. ¿Qué sucede con el "exterior de las esquinas" después del recorte?</strong>
-      <p>R. El exterior de las esquinas redondeadas se procesará como "transparente". Por lo tanto, recomendamos el formato PNG, que puede mantener la información de transparencia.</p>
-    </div>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">P. ¿Qué ocurre con el área exterior a las esquinas redondeadas?</strong>
+      <p>R. Se vuelve transparente. Por ello, recomendamos guardar el resultado en formato PNG, que conserva la transparencia.</p>
+    </div>
 
-    <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">P. ¿Puedo especificar el tamaño para iconos de redes sociales?</strong>
-      <p>R. Sí. Puede recortar con proporciones libres o ajustarlo a un número específico de píxeles. Es ideal para crear iconos de LINE o X (antes Twitter).</p>
-    </div>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">P. ¿Es útil para fotos de perfil de redes sociales?</strong>
+      <p>R. Absolutamente. Es perfecta para preparar imágenes para WhatsApp, Instagram, X (Twitter) o LinkedIn, donde los avatares suelen ser circulares.</p>
+    </div>
 
-    <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">P. ¿Se deteriora la calidad de la imagen?</strong>
-      <p>R. Procesamos manteniendo la resolución original en la medida de lo posible. Al usar la función Canvas del navegador para renderizar en alta calidad, el acabado es comparable al de un software de edición general.</p>
-    </div>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">P. ¿Se pierde calidad de imagen?</strong>
+      <p>R. Procesamos la imagen manteniendo la resolución original en la medida de lo posible utilizando la tecnología Canvas del navegador, lo que garantiza un acabado profesional de alta calidad.</p>
+    </div>
 
-    <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">P. ¿Se suben las imágenes editadas al servidor?</strong>
-      <p>R. Absolutamente no. Todos los procesos de edición se completan dentro de su navegador (localmente). Puede usarlo con confianza incluso con selfies o imágenes que contengan información personal.</p>
-    </div>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">P. ¿Se suben mis fotos a algún servidor?</strong>
+      <p>R. No. Todo el proceso ocurre dentro de tu navegador (localmente). Puedes usar fotos personales o información sensible con total tranquilidad.</p>
+    </div>
 
-    <div class="faq-item" style="margin-bottom: 20px;">
-      <strong style="color:var(--primary);">P. ¿Existen tarifas o límites de uso?</strong>
-      <p>R. Es completamente gratuito y no hay límites en la cantidad de veces que puede usarlo. Puede probar a recortar tantas imágenes como desee hasta estar satisfecho.</p>
-    </div>
-  <h3>Herramientas relacionadas</h3>
-    <ul>
-      <li><a href="square-image-maker.html">Creador de imágenes cuadradas multifunción</a></li>
-      <li><a href="image-filter-tool.html">Procesamiento de filtros de imagen</a></li>
-      <li><a href="brightness-contrast.html">Ajuste de brillo y contraste de imagen</a></li>
-    </ul>
-  </article>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">P. ¿Hay límites de uso?</strong>
+      <p>R. Ninguno. Es 100% gratuita y puedes usarla tantas veces como necesites.</p>
+    </div>
+  <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="square-image-maker.html">Creador de imágenes cuadradas</a></li>
+      <li><a href="image-filter-tool.html">Filtros para fotos</a></li>
+      <li><a href="brightness-contrast.html">Ajuste de brillo y contraste</a></li>
+    </ul>
+  </article>
 
-  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de uso</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
 </div>
 
 <canvas id="export-canvas" style="display:none;"></canvas>
@@ -305,71 +305,71 @@ let currentStageW, currentStageH, currentMaskS;
 
 // 基本イベント
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
-  dropArea.addEventListener(name, (e) => { e.preventDefault(); e.stopPropagation(); }, false);
+  dropArea.addEventListener(name, (e) => { e.preventDefault(); e.stopPropagation(); }, false);
 });
 ['dragenter', 'dragover'].forEach(name => {
-  dropArea.addEventListener(name, () => dropArea.classList.add('active'), false);
+  dropArea.addEventListener(name, () => dropArea.classList.add('active'), false);
 });
 ['dragleave', 'drop'].forEach(name => {
-  dropArea.addEventListener(name, () => dropArea.classList.remove('active'), false);
+  dropArea.addEventListener(name, () => dropArea.classList.remove('active'), false);
 });
 dropArea.addEventListener('drop', (e) => handleFiles(e.dataTransfer.files), false);
 fileInput.addEventListener('change', function() { handleFiles(this.files); });
 
 function handleFiles(files) {
-  const file = files[0];
-  if (file && file.type.startsWith('image/')) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      originalImg = new Image();
-      originalImg.onload = () => {
-        imgBg.src = e.target.result;
-        imgFore.src = e.target.result;
-        dropArea.style.display = 'none';
-        previewZone.style.display = 'block';
-        setTimeout(updateUI, 50);
-      };
-      originalImg.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  }
+  const file = files[0];
+  if (file && file.type.startsWith('image/')) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      originalImg = new Image();
+      originalImg.onload = () => {
+        imgBg.src = e.target.result;
+        imgFore.src = e.target.result;
+        dropArea.style.display = 'none';
+        previewZone.style.display = 'block';
+        setTimeout(updateUI, 50);
+      };
+      originalImg.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
 }
 
 function updateUI() {
-  if (!originalImg) return;
-  const shape = document.querySelector('input[name="shape"]:checked').value;
-  
-  document.getElementById('size-val').innerText = sizeSlider.value + '%';
-  document.getElementById('radius-val').innerText = radiusSlider.value + '%';
+  if (!originalImg) return;
+  const shape = document.querySelector('input[name="shape"]:checked').value;
+  
+  document.getElementById('size-val').innerText = sizeSlider.value + '%';
+  document.getElementById('radius-val').innerText = radiusSlider.value + '%';
 
-  currentStageW = imgBg.offsetWidth;
-  currentStageH = imgBg.offsetHeight;
-  imgFore.style.width = currentStageW + 'px';
+  currentStageW = imgBg.offsetWidth;
+  currentStageH = imgBg.offsetHeight;
+  imgFore.style.width = currentStageW + 'px';
 
-  if (shape === 'circle') {
-    document.getElementById('size-row').style.display = 'flex';
-    document.getElementById('radius-row').style.display = 'none';
-    mask.style.borderRadius = '50%';
-    const minEdge = Math.min(currentStageW, currentStageH);
-    currentMaskS = minEdge * (sizeSlider.value / 100);
-    mask.style.width = currentMaskS + 'px';
-    mask.style.height = currentMaskS + 'px';
+  if (shape === 'circle') {
+    document.getElementById('size-row').style.display = 'flex';
+    document.getElementById('radius-row').style.display = 'none';
+    mask.style.borderRadius = '50%';
+    const minEdge = Math.min(currentStageW, currentStageH);
+    currentMaskS = minEdge * (sizeSlider.value / 100);
+    mask.style.width = currentMaskS + 'px';
+    mask.style.height = currentMaskS + 'px';
 
-    const left = (currentStageW - currentMaskS) * (posX.value / 100);
-    const top = (currentStageH - currentMaskS) * (posY.value / 100);
-    mask.style.left = left + 'px';
-    mask.style.top = top + 'px';
-    imgFore.style.left = -left + 'px';
-    imgFore.style.top = -top + 'px';
-  } else {
-    document.getElementById('size-row').style.display = 'none';
-    document.getElementById('radius-row').style.display = 'flex';
-    const r = Math.min(currentStageW, currentStageH) * (radiusSlider.value / 100);
-    mask.style.borderRadius = r + 'px';
-    mask.style.width = '100%'; mask.style.height = '100%';
-    mask.style.left = '0'; mask.style.top = '0';
-    imgFore.style.left = '0'; imgFore.style.top = '0';
-  }
+    const left = (currentStageW - currentMaskS) * (posX.value / 100);
+    const top = (currentStageH - currentMaskS) * (posY.value / 100);
+    mask.style.left = left + 'px';
+    mask.style.top = top + 'px';
+    imgFore.style.left = -left + 'px';
+    imgFore.style.top = -top + 'px';
+  } else {
+    document.getElementById('size-row').style.display = 'none';
+    document.getElementById('radius-row').style.display = 'flex';
+    const r = Math.min(currentStageW, currentStageH) * (radiusSlider.value / 100);
+    mask.style.borderRadius = r + 'px';
+    mask.style.width = '100%'; mask.style.height = '100%';
+    mask.style.left = '0'; mask.style.top = '0';
+    imgFore.style.left = '0'; imgFore.style.top = '0';
+  }
 }
 
 // 編集イベント
@@ -381,26 +381,26 @@ let isDragging = false;
 let startX, startY, startLeft, startTop;
 
 const startDrag = e => {
-  const shape = document.querySelector('input[name="shape"]:checked').value;
-  if (shape !== 'circle') return;
-  isDragging = true;
-  startX = e.clientX || e.touches[0].clientX;
-  startY = e.clientY || e.touches[0].clientY;
-  startLeft = parseFloat(mask.style.left) || 0;
-  startTop = parseFloat(mask.style.top) || 0;
+  const shape = document.querySelector('input[name="shape"]:checked').value;
+  if (shape !== 'circle') return;
+  isDragging = true;
+  startX = e.clientX || e.touches[0].clientX;
+  startY = e.clientY || e.touches[0].clientY;
+  startLeft = parseFloat(mask.style.left) || 0;
+  startTop = parseFloat(mask.style.top) || 0;
 };
 
 const onDrag = e => {
-  if (!isDragging) return;
-  const clientX = e.clientX || (e.touches ? e.touches[0].clientX : 0);
-  const clientY = e.clientY || (e.touches ? e.touches[0].clientY : 0);
-  let newLeft = startLeft + (clientX - startX);
-  let newTop = startTop + (clientY - startY);
-  newLeft = Math.max(0, Math.min(newLeft, currentStageW - currentMaskS));
-  newTop = Math.max(0, Math.min(newTop, currentStageH - currentMaskS));
-  posX.value = (newLeft / (currentStageW - currentMaskS)) * 100;
-  posY.value = (newTop / (currentStageH - currentMaskS)) * 100;
-  updateUI();
+  if (!isDragging) return;
+  const clientX = e.clientX || (e.touches ? e.touches[0].clientX : 0);
+  const clientY = e.clientY || (e.touches ? e.touches[0].clientY : 0);
+  let newLeft = startLeft + (clientX - startX);
+  let newTop = startTop + (clientY - startY);
+  newLeft = Math.max(0, Math.min(newLeft, currentStageW - currentMaskS));
+  newTop = Math.max(0, Math.min(newTop, currentStageH - currentMaskS));
+  posX.value = (newLeft / (currentStageW - currentMaskS)) * 100;
+  posY.value = (newTop / (currentStageH - currentMaskS)) * 100;
+  updateUI();
 };
 
 mask.addEventListener('mousedown', startDrag);
@@ -411,33 +411,33 @@ window.addEventListener('mouseup', () => isDragging = false);
 window.addEventListener('touchend', () => isDragging = false);
 
 function downloadImage() {
-  const canvas = document.getElementById('export-canvas');
-  const ctx = canvas.getContext('2d');
-  const shape = document.querySelector('input[name="shape"]:checked').value;
-  const nw = originalImg.naturalWidth;
-  const nh = originalImg.naturalHeight;
+  const canvas = document.getElementById('export-canvas');
+  const ctx = canvas.getContext('2d');
+  const shape = document.querySelector('input[name="shape"]:checked').value;
+  const nw = originalImg.naturalWidth;
+  const nh = originalImg.naturalHeight;
 
-  if (shape === 'circle') {
-    const s = Math.min(nw, nh) * (sizeSlider.value / 100);
-    canvas.width = s; canvas.height = s;
-    ctx.beginPath();
-    ctx.arc(s/2, s/2, s/2, 0, Math.PI * 2);
-    ctx.clip();
-    const sx = (nw - s) * (posX.value / 100);
-    const sy = (nh - s) * (posY.value / 100);
-    ctx.drawImage(originalImg, sx, sy, s, s, 0, 0, s, s);
-  } else {
-    canvas.width = nw; canvas.height = nh;
-    const r = Math.min(nw, nh) * (radiusSlider.value / 100);
-    ctx.beginPath();
-    ctx.roundRect(0, 0, nw, nh, r);
-    ctx.clip();
-    ctx.drawImage(originalImg, 0, 0);
-  }
-  const link = document.createElement('a');
-  link.download = 'crop-' + Date.now() + '.png';
-  link.href = canvas.toDataURL('image/png');
-  link.click();
+  if (shape === 'circle') {
+    const s = Math.min(nw, nh) * (sizeSlider.value / 100);
+    canvas.width = s; canvas.height = s;
+    ctx.beginPath();
+    ctx.arc(s/2, s/2, s/2, 0, Math.PI * 2);
+    ctx.clip();
+    const sx = (nw - s) * (posX.value / 100);
+    const sy = (nh - s) * (posY.value / 100);
+    ctx.drawImage(originalImg, sx, sy, s, s, 0, 0, s, s);
+  } else {
+    canvas.width = nw; canvas.height = nh;
+    const r = Math.min(nw, nh) * (radiusSlider.value / 100);
+    ctx.beginPath();
+    ctx.roundRect(0, 0, nw, nh, r);
+    ctx.clip();
+    ctx.drawImage(originalImg, 0, 0);
+  }
+  const link = document.createElement('a');
+  link.download = 'crop-' + Date.now() + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
 }
 </script>
 
