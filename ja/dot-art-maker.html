@@ -139,6 +139,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
       <select id="width-select" style="padding: 5px; border-radius: 5px;"></select> × 
       <select id="height-select" style="padding: 5px; border-radius: 5px;"></select>
       <button class="tool-btn" onclick="initCanvas()" style="margin-left:10px;">リセット</button>
+      <button class="tool-btn" onclick="undo()" style="margin-left:5px;">戻る</button>
       <div style="margin-left:20px;">
         拡大：<input type="range" id="zoom-range" min="5" max="60" value="20" oninput="updateZoom()">
       </div>
@@ -245,6 +246,7 @@ const zoomRange = document.getElementById('zoom-range');
 
 let isDrawing = false;
 let currentTool = 'pen';
+let undoStack = [];
 
 // サイズ選択肢生成
 sizes.forEach(s => {
@@ -275,8 +277,25 @@ function updateZoom() {
   wrapper.style.backgroundSize = `${zoom}px ${zoom}px`;
 }
 
+function saveState() {
+  undoStack.push(canvas.toDataURL());
+  if (undoStack.length > 50) undoStack.shift();
+}
+
+function undo() {
+  if (undoStack.length === 0) return;
+  const prevState = undoStack.pop();
+  const img = new Image();
+  img.src = prevState;
+  img.onload = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
+  };
+}
+
 function initCanvas(isInitial = false) {
   if(!isInitial && !confirm("現在のイラストを消去してリセットしますか？")) return;
+  if(!isInitial) saveState();
   const w = parseInt(wSelect.value);
   const h = parseInt(hSelect.value);
   canvas.width = w; canvas.height = h;
@@ -284,6 +303,7 @@ function initCanvas(isInitial = false) {
   else zoomRange.value = 20;
   updateZoom();
   ctx.clearRect(0, 0, w, h);
+  if (isInitial) undoStack = [];
 }
 
 function setTool(tool) {
@@ -311,7 +331,7 @@ function handleDraw(e) {
       ctx.fillRect(x, y, 1, 1);
     } else if (currentTool === 'eraser') {
       ctx.clearRect(x, y, 1, 1);
-    } else if (currentTool === 'bucket' && e.type === 'mousedown' || e.type === 'touchstart') {
+    } else if (currentTool === 'bucket' && (e.type === 'mousedown' || e.type === 'touchstart')) {
       floodFill(x, y, colorPicker.value);
     }
   }
@@ -358,12 +378,19 @@ function hexToRgb(hex) {
   } : { r: 0, g: 0, b: 0 };
 }
 
-canvas.addEventListener('mousedown', (e) => { isDrawing = true; handleDraw(e); });
+canvas.addEventListener('mousedown', (e) => { 
+  saveState();
+  isDrawing = true; 
+  handleDraw(e); 
+});
 canvas.addEventListener('mousemove', handleDraw);
 window.addEventListener('mouseup', () => isDrawing = false);
 
 canvas.addEventListener('touchstart', (e) => { 
-  isDrawing = true; handleDraw(e); e.preventDefault(); 
+  saveState();
+  isDrawing = true; 
+  handleDraw(e); 
+  e.preventDefault(); 
 }, {passive: false});
 canvas.addEventListener('touchmove', (e) => { 
   handleDraw(e); e.preventDefault(); 
