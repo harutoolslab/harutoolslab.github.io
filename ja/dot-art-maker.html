@@ -57,33 +57,36 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 
 /* コントロールパネル */
 .control-panel {
-  display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; align-items: center;
+  display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center;
   background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 20px;
 }
 
 .tool-btn {
-  padding: 8px 20px; border: 1px solid #ddd; background: #fff; border-radius: 8px;
-  cursor: pointer; font-weight: bold; transition: 0.2s;
+  padding: 8px 16px; border: 1px solid #ddd; background: #fff; border-radius: 8px;
+  cursor: pointer; font-weight: bold; transition: 0.2s; font-size: 0.9rem;
 }
 .tool-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-/* キャンバスエリア：背景白 ＋ グリッド線 */
+/* キャンバスエリア */
 .canvas-scroll-viewer {
   width: 100%; max-height: 60vh; overflow: auto;
   background: #ccc; border: 2px solid #333; border-radius: 4px;
   margin: 20px 0; 
-  display: flex; /* 中央配置は子要素のmargin:autoで行う */
+  display: flex;
 }
 
 .canvas-wrapper {
   display: inline-block;
-  margin: auto; /* はみ出しても自由にスクロールできるよう、Flexコンテナ内で中央寄せ */
+  margin: auto;
   background-color: #ffffff;
-  /* グリッド線の描画 */
   background-image: 
     linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
   line-height: 0;
+}
+
+.canvas-wrapper.hide-grid {
+  background-image: none !important;
 }
 
 #pixel-canvas {
@@ -108,7 +111,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   box-shadow: 0 4px 15px rgba(40,167,69,0.2);
 }
 
-/* 大画面モード用の追加スタイル */
+/* 大画面モード */
 .fullscreen-mode {
   position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
   z-index: 9999; background: #333; display: flex; flex-direction: row;
@@ -124,16 +127,15 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .fullscreen-mode #scroll-viewer {
   flex-grow: 1; height: 100vh; max-height: 100vh; margin: 0;
   border: none; border-radius: 0; background: #444; width: auto;
-  display: flex; /* 中央配置は子要素のmargin:autoで行う */
+  display: flex;
 }
 
 .fullscreen-mode .control-panel {
   flex-direction: column; align-items: stretch; background: none; padding: 0;
 }
 
-/* 大画面時：カラーピッカーをパレットの上に配置するための順序制御 */
 .fullscreen-mode #color-picker-container {
-  order: 2;
+  order: 1;
   text-align: center;
 }
 .fullscreen-mode #palette {
@@ -143,8 +145,6 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .fullscreen-mode .control-panel:nth-of-type(2) { order: 2; }
 
 .fullscreen-mode .palette-container { margin: 10px 0; }
-
-/* 大画面時は保存パネルを消す */
 .fullscreen-mode .save-panel { display: none; }
 
 .exit-fs-btn {
@@ -152,7 +152,6 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   border-radius: 8px; cursor: pointer; font-weight: bold; margin-bottom: 10px;
 }
 
-/* SEO解説セクション */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
 .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
 .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
@@ -184,26 +183,31 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
       <button class="exit-fs-btn" id="exit-fs-btn" style="display:none;" onclick="toggleFullscreen()">大画面を終了する</button>
       
       <div class="control-panel">
-        キャンバス：
+        サイズ：
         <select id="width-select" style="padding: 5px; border-radius: 5px;"></select> × 
         <select id="height-select" style="padding: 5px; border-radius: 5px;"></select>
-        <button class="tool-btn" onclick="initCanvas()" style="margin-left:10px;">リセット</button>
-        <button class="tool-btn" onclick="undo()" style="margin-left:5px;">戻る</button>
-        <div style="margin-left:20px;">
+        <button class="tool-btn" onclick="initCanvas()" style="margin-left:10px; color: #d63031;">リセット</button>
+        <div style="margin-left:15px;">
           拡大：<input type="range" id="zoom-range" min="5" max="60" value="20" oninput="updateZoom()">
         </div>
       </div>
 
       <div class="control-panel">
         <div id="color-picker-container">
-          <input type="color" id="color-picker" value="#333333" style="width:50px; height:38px; cursor:pointer; border:none; background:none;">
+          <input type="color" id="color-picker" value="#333333" title="色を選択" style="width:40px; height:38px; cursor:pointer; border:none; background:none; vertical-align: middle;">
         </div>
+        <button class="tool-btn" onclick="addColorToPalette()">色の保存</button>
+
         <button id="pen-tool" class="tool-btn active" onclick="setTool('pen')">ペン</button>
         <button id="eraser-tool" class="tool-btn" onclick="setTool('eraser')">消しゴム</button>
         <button id="bucket-tool" class="tool-btn" onclick="setTool('bucket')">塗りつぶし</button>
         <button id="move-tool" class="tool-btn" onclick="setTool('move')">移動</button>
+
+        <div style="border-left: 1px solid #ddd; height: 30px; margin: 0 5px;"></div>
+
+        <button class="tool-btn" onclick="undo()" title="1つ戻る">戻る</button>
+        <button id="grid-toggle-btn" class="tool-btn active" onclick="toggleGrid()">グリッド線</button>
         <button id="fs-tool" class="tool-btn" onclick="toggleFullscreen()" style="background: #eef2f7;">大画面</button>
-        <button class="tool-btn" onclick="addColorToPalette()">色の保存</button>
       </div>
 
       <div class="palette-container" id="palette"></div>
@@ -247,7 +251,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 
     <h2>使い方の手順</h2>
     <ol>
-      <li>キャンバスのサイズ（16×16など）を選択し、リセットボタンを押します。</li>
+      <li>キャンバスのサイズ（16×16など）を選択し、キャンバスを準備します。</li>
       <li>ペンツールとカラーピッカーを使って、キャンバスに絵を描きます。</li>
       <li>「移動」ツールを選択すると、キャンバスをドラッグしてスクロールできます。</li>
       <li>「色の保存」を使うとお気に入りの色をパレットにストックできます。</li>
@@ -289,15 +293,10 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 <script>
 const sizes = [4, 8, 16, 32, 48, 64, 96, 128];
 const defaultColors = [
-  // モノトーン
   "#000000", "#333333", "#666666", "#999999", "#cccccc", "#ffffff",
-  // 基本・ビビッド
   "#ff0000", "#ff9900", "#ffff00", "#00ff00", "#00ffff", "#0000ff", "#9900ff", "#ff00ff",
-  // 和風・レトロ
   "#e63946", "#f1faee", "#a8dadc", "#457b9d", "#1d3557", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51",
-  // 肌色・ブラウン
   "#ffdbac", "#f1c27d", "#e0ac69", "#8d5524", "#5e3c1e", "#3d2b1f",
-  // パステル
   "#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#9bf6ff", "#a0c4ff", "#bdb2ff", "#ffc6ff"
 ];
 
@@ -315,11 +314,9 @@ let isDrawing = false;
 let currentTool = 'pen';
 let undoStack = [];
 
-// 移動モード用変数
 let isMoving = false;
 let startX, startY, scrollLeft, scrollTop;
 
-// サイズ選択肢生成
 sizes.forEach(s => {
   wSelect.add(new Option(s, s));
   hSelect.add(new Option(s, s));
@@ -342,7 +339,6 @@ function createPaletteItem(color) {
 function addColorToPalette() { createPaletteItem(colorPicker.value); }
 
 function updateZoom() {
-  // 現在の表示領域の中心位置（キャンバス全体に対する比率）を記録
   const oldCanvasWidth = canvas.clientWidth;
   const oldCanvasHeight = canvas.clientHeight;
   const currentCenterX = (scrollViewer.scrollLeft + scrollViewer.clientWidth / 2);
@@ -355,7 +351,6 @@ function updateZoom() {
   canvas.style.height = (canvas.height * zoom) + "px";
   wrapper.style.backgroundSize = `${zoom}px ${zoom}px`;
 
-  // 拡大後のサイズで元の中心位置を維持するようにスクロールを調整
   const newCanvasWidth = canvas.clientWidth;
   const newCanvasHeight = canvas.clientHeight;
   scrollViewer.scrollLeft = (ratioX * newCanvasWidth) - (scrollViewer.clientWidth / 2);
@@ -398,12 +393,17 @@ function setTool(tool) {
   document.getElementById('bucket-tool').classList.toggle('active', tool === 'bucket');
   document.getElementById('move-tool').classList.toggle('active', tool === 'move');
   
-  // 移動ツールの場合はカーソルを変更
   if (tool === 'move') {
     canvas.style.cursor = 'grab';
   } else {
     canvas.style.cursor = 'crosshair';
   }
+}
+
+function toggleGrid() {
+  const btn = document.getElementById('grid-toggle-btn');
+  const isHidden = wrapper.classList.toggle('hide-grid');
+  btn.classList.toggle('active', !isHidden);
 }
 
 function getPos(e) {
@@ -430,7 +430,6 @@ function handleDraw(e) {
   }
 }
 
-// キャンバス移動用のハンドラ
 function handleMoveStart(e) {
   if (currentTool !== 'move') return;
   isMoving = true;
@@ -561,7 +560,6 @@ function download() {
   link.click();
 }
 
-// 大画面切り替え機能
 function toggleFullscreen() {
   const main = document.getElementById('editor-main');
   const sidebarArea = document.getElementById('sidebar-area');
@@ -579,7 +577,6 @@ function toggleFullscreen() {
     exitBtn.style.display = 'none';
     fsToolBtn.style.display = 'inline-block';
   }
-  // レイアウト変更後にズームやスクロールの整合性を保つ
   updateZoom();
 }
 
@@ -587,6 +584,26 @@ window.onload = () => {
   initCanvas(true);
   initPalette();
 };
+
+// マウスホイールによるズーム機能（拡大率に応じた動的なステップ調整）
+canvas.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const currentZoom = parseInt(zoomRange.value);
+  
+  // 現在の拡大率に応じてステップ（変化量）を計算
+  // 高倍率（40以上）なら4、中倍率（20以上）なら2、低倍率なら1のように変化
+  let step = 1;
+  if (currentZoom >= 40) step = 4;
+  else if (currentZoom >= 20) step = 2;
+
+  const direction = e.deltaY > 0 ? -step : step;
+  const newZoom = Math.min(Math.max(currentZoom + direction, parseInt(zoomRange.min)), parseInt(zoomRange.max));
+  
+  if (currentZoom !== newZoom) {
+    zoomRange.value = newZoom;
+    updateZoom();
+  }
+}, { passive: false });
 </script>
 
 </body>
