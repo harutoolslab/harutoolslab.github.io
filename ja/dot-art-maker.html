@@ -79,14 +79,26 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   display: inline-block;
   margin: auto;
   background-color: #ffffff;
-  background-image: 
-    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+  position: relative; /* 子要素の絶対配置の基準にする */
   line-height: 0;
 }
 
-.canvas-wrapper.hide-grid {
-  background-image: none !important;
+/* キャンバスの上に重ねるグリッド用レイヤー */
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* 下のcanvasの操作を邪魔しない */
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+  z-index: 10;
+}
+
+.canvas-wrapper.hide-grid .grid-overlay {
+  display: none;
 }
 
 #pixel-canvas {
@@ -207,6 +219,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 
         <button class="tool-btn" onclick="undo()" title="1つ戻る">戻る</button>
         <button id="grid-toggle-btn" class="tool-btn active" onclick="toggleGrid()">グリッド線</button>
+        <button id="view-all-btn" class="tool-btn" onclick="toggleViewAll()">全体を見る</button>
         <button id="fs-tool" class="tool-btn" onclick="toggleFullscreen()" style="background: #eef2f7;">大画面</button>
       </div>
 
@@ -216,6 +229,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
     <div class="canvas-scroll-viewer" id="scroll-viewer">
       <div class="canvas-wrapper" id="canvas-wrapper">
         <canvas id="pixel-canvas"></canvas>
+        <div class="grid-overlay" id="grid-overlay"></div>
       </div>
     </div>
 
@@ -309,6 +323,7 @@ const hSelect = document.getElementById('height-select');
 const colorPicker = document.getElementById('color-picker');
 const palette = document.getElementById('palette');
 const zoomRange = document.getElementById('zoom-range');
+const gridOverlay = document.getElementById('grid-overlay');
 
 let isDrawing = false;
 let currentTool = 'pen';
@@ -316,6 +331,16 @@ let undoStack = [];
 
 let isMoving = false;
 let startX, startY, scrollLeft, scrollTop;
+
+// 「全体を見る」用の状態保存
+let isViewAllMode = false;
+let prevViewState = {
+  zoom: 20,
+  gridVisible: true,
+  tool: 'pen',
+  scrollLeft: 0,
+  scrollTop: 0
+};
 
 sizes.forEach(s => {
   wSelect.add(new Option(s, s));
@@ -349,7 +374,8 @@ function updateZoom() {
   const zoom = parseInt(zoomRange.value);
   canvas.style.width = (canvas.width * zoom) + "px";
   canvas.style.height = (canvas.height * zoom) + "px";
-  wrapper.style.backgroundSize = `${zoom}px ${zoom}px`;
+  // グリッドオーバーレイの背景サイズを更新
+  gridOverlay.style.backgroundSize = `${zoom}px ${zoom}px`;
 
   const newCanvasWidth = canvas.clientWidth;
   const newCanvasHeight = canvas.clientHeight;
@@ -404,6 +430,79 @@ function toggleGrid() {
   const btn = document.getElementById('grid-toggle-btn');
   const isHidden = wrapper.classList.toggle('hide-grid');
   btn.classList.toggle('active', !isHidden);
+}
+
+// 「全体を見る」切り替え機能
+function toggleViewAll() {
+  const btn = document.getElementById('view-all-btn');
+  const gridBtn = document.getElementById('grid-toggle-btn');
+  
+  if (!isViewAllMode) {
+    // 現在の状態を保存
+    prevViewState.zoom = zoomRange.value;
+    prevViewState.gridVisible = !wrapper.classList.contains('hide-grid');
+    prevViewState.tool = currentTool;
+    prevViewState.scrollLeft = scrollViewer.scrollLeft;
+    prevViewState.scrollTop = scrollViewer.scrollTop;
+
+    // 全体表示の設定
+    isViewAllMode = true;
+    btn.classList.add('active');
+    
+    // グリッドをオフにする
+    if (prevViewState.gridVisible) {
+      wrapper.classList.add('hide-grid');
+      gridBtn.classList.remove('active');
+    }
+
+    // キャンバスを操作不能にする
+    canvas.style.pointerEvents = 'none';
+
+    // 画面に収まる倍率を計算
+    const padding = 20;
+    const availableW = scrollViewer.clientWidth - padding;
+    const availableH = scrollViewer.clientHeight - padding;
+    const zoomW = availableW / canvas.width;
+    const zoomH = availableH / canvas.height;
+    const fitZoom = Math.floor(Math.min(zoomW, zoomH));
+    
+    // 計算した倍率を適用（スライダーの範囲に合わせる）
+    zoomRange.value = Math.max(zoomRange.min, Math.min(fitZoom, zoomRange.max));
+    updateZoom();
+    
+    // 中央にスクロール
+    scrollViewer.scrollLeft = (canvas.clientWidth - scrollViewer.clientWidth) / 2;
+    scrollViewer.scrollTop = (canvas.clientHeight - scrollViewer.clientHeight) / 2;
+
+  } else {
+    // 元の状態に戻す
+    isViewAllMode = false;
+    btn.classList.remove('active');
+    
+    // 操作可能に戻す
+    canvas.style.pointerEvents = 'auto';
+
+    // グリッドを元に戻す
+    if (prevViewState.gridVisible) {
+      wrapper.classList.remove('hide-grid');
+      gridBtn.classList.add('active');
+    }
+
+    // ズームを元に戻す
+    zoomRange.value = prevViewState.zoom;
+    
+    // キャンバスのサイズを戻す
+    canvas.style.width = (canvas.width * prevViewState.zoom) + "px";
+    canvas.style.height = (canvas.height * prevViewState.zoom) + "px";
+    gridOverlay.style.backgroundSize = `${prevViewState.zoom}px ${prevViewState.zoom}px`;
+
+    // 保存していたスクロール位置を復元
+    scrollViewer.scrollLeft = prevViewState.scrollLeft;
+    scrollViewer.scrollTop = prevViewState.scrollTop;
+
+    // ツールを元に戻す
+    setTool(prevViewState.tool);
+  }
 }
 
 function getPos(e) {
@@ -585,23 +684,39 @@ window.onload = () => {
   initPalette();
 };
 
-// マウスホイールによるズーム機能（拡大率に応じた動的なステップ調整）
+// マウスホイールによるズーム機能（マウスカーソル位置を基準に拡大縮小）
 canvas.addEventListener('wheel', (e) => {
+  if (isViewAllMode) return; // 全体表示中は無効化
   e.preventDefault();
   const currentZoom = parseInt(zoomRange.value);
   
-  // 現在の拡大率に応じてステップ（変化量）を計算
-  // 高倍率（40以上）なら4、中倍率（20以上）なら2、低倍率なら1のように変化
-  let step = 1;
-  if (currentZoom >= 40) step = 4;
-  else if (currentZoom >= 20) step = 2;
-
+  // ステップ計算
+  let step = Math.max(1, currentZoom / 10);
   const direction = e.deltaY > 0 ? -step : step;
   const newZoom = Math.min(Math.max(currentZoom + direction, parseInt(zoomRange.min)), parseInt(zoomRange.max));
   
   if (currentZoom !== newZoom) {
+    // 拡大前のマウス位置を取得（キャンバス内座標）
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    // 比率（キャンバスのどのあたりを指しているか）
+    const ratioX = mouseX / rect.width;
+    const ratioY = mouseY / rect.height;
+
+    // ズーム値を更新
     zoomRange.value = newZoom;
-    updateZoom();
+    
+    // キャンバスの表示サイズを更新
+    canvas.style.width = (canvas.width * newZoom) + "px";
+    canvas.style.height = (canvas.height * newZoom) + "px";
+    gridOverlay.style.backgroundSize = `${newZoom}px ${newZoom}px`;
+
+    // 新しいキャンバスサイズでのマウス位置を維持するようにスクロール位置を調整
+    const newRect = canvas.getBoundingClientRect();
+    scrollViewer.scrollLeft = (ratioX * newRect.width) - (e.clientX - scrollViewer.getBoundingClientRect().left);
+    scrollViewer.scrollTop = (ratioY * newRect.height) - (e.clientY - scrollViewer.getBoundingClientRect().top);
   }
 }, { passive: false });
 </script>
