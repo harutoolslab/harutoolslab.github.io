@@ -159,6 +159,29 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .fullscreen-mode .palette-container { margin: 10px 0; }
 .fullscreen-mode .save-panel { display: none; }
 
+/* スマホ縦画面での大画面モードレイアウト調整 */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .fullscreen-mode {
+    flex-direction: column;
+  }
+  .fullscreen-mode .sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 40vh;
+    border-right: none;
+    border-bottom: 2px solid #ddd;
+  }
+  .fullscreen-mode #scroll-viewer {
+    width: 100%;
+    height: 60vh;
+  }
+  .fullscreen-mode .control-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 .exit-fs-btn {
   background: #ff4757; color: white; border: none; padding: 10px;
   border-radius: 8px; cursor: pointer; font-weight: bold; margin-bottom: 10px;
@@ -342,6 +365,10 @@ let prevViewState = {
   scrollTop: 0
 };
 
+// ピンチズーム用の変数
+let initialPinchDistance = null;
+let initialPinchZoom = null;
+
 sizes.forEach(s => {
   wSelect.add(new Option(s, s));
   hSelect.add(new Option(s, s));
@@ -515,7 +542,7 @@ function getPos(e) {
 }
 
 function handleDraw(e) {
-  if (!isDrawing || currentTool === 'move') return;
+  if (!isDrawing || currentTool === 'move' || (e.touches && e.touches.length > 1)) return;
   const {x, y} = getPos(e);
   if (x >= 0 && x < canvas.width && y >= 0 && y < canvas.height) {
     if (currentTool === 'pen') {
@@ -620,27 +647,51 @@ window.addEventListener('mouseup', () => {
   handleMoveEnd();
 });
 
+// ピンチ用距離計算関数
+function getDistance(t1, t2) {
+  return Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+}
+
 canvas.addEventListener('touchstart', (e) => { 
-  if (currentTool === 'move') {
-    handleMoveStart(e);
-  } else {
-    saveState();
-    isDrawing = true; 
-    handleDraw(e); 
+  if (e.touches.length === 2) {
+    // 2本指の場合：ピンチ開始
+    initialPinchDistance = getDistance(e.touches[0], e.touches[1]);
+    initialPinchZoom = parseInt(zoomRange.value);
+  } else if (e.touches.length === 1) {
+    if (currentTool === 'move') {
+      handleMoveStart(e);
+    } else {
+      saveState();
+      isDrawing = true; 
+      handleDraw(e); 
+    }
   }
   e.preventDefault(); 
 }, {passive: false});
 
 canvas.addEventListener('touchmove', (e) => { 
-  if (currentTool === 'move') {
-    handleMoveUpdate(e);
-  } else {
-    handleDraw(e); 
+  if (e.touches.length === 2 && initialPinchDistance !== null) {
+    // 2本指の場合：ピンチ中
+    const currentDistance = getDistance(e.touches[0], e.touches[1]);
+    const scale = currentDistance / initialPinchDistance;
+    const newZoom = Math.min(Math.max(initialPinchZoom * scale, parseInt(zoomRange.min)), parseInt(zoomRange.max));
+    zoomRange.value = Math.round(newZoom);
+    updateZoom();
+  } else if (e.touches.length === 1) {
+    if (currentTool === 'move') {
+      handleMoveUpdate(e);
+    } else {
+      handleDraw(e); 
+    }
   }
   e.preventDefault(); 
 }, {passive: false});
 
-window.addEventListener('touchend', () => {
+window.addEventListener('touchend', (e) => {
+  if (e.touches.length < 2) {
+    initialPinchDistance = null;
+    initialPinchZoom = null;
+  }
   isDrawing = false;
   handleMoveEnd();
 });
