@@ -770,6 +770,13 @@ canvas.addEventListener('wheel', (e) => {
     scrollViewer.scrollTop = (ratioY * newRect.height) - (e.clientY - scrollViewer.getBoundingClientRect().top);
   }
 }, { passive: false });
+
+// 【追加機能】ブラウザの戻るボタンやページを閉じる際のアラート表示
+window.addEventListener('beforeunload', (e) => {
+  // ブラウザ標準の確認メッセージを表示させる
+  e.preventDefault();
+  e.returnValue = "作業中のデータは保存されませんが、よろしいですか？";
+});
 </script>
 
 </body>
