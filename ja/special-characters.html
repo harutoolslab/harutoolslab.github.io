@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO設定：ツールに合わせてここを書き換え -->
+<title>特殊文字一覧ツール｜コピペで使える記号・特殊文字まとめ｜はるツール</title>
+<meta name="description" content="Web制作やSNS投稿に便利な特殊文字・記号の一覧ツールです。矢印、数学記号、囲み文字、単位などをカテゴリー別に表示。クリックするだけでクリップボードにコピーできます。登録不要・完全無料。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 特殊文字グリッド用スタイル */
+.category-title {
+  font-weight: bold;
+  color: var(--primary);
+  margin: 30px 0 15px;
+  text-align: left;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 10px;
+}
+.char-item {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.char-item:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+.char-item:active {
+  transform: scale(0.9);
+}
+
+/* 通知トースト */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  display: none;
+  z-index: 1000;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>特殊文字一覧ツール</h1>
+    <p class="tagline">クリックひとつでコピー可能！Web制作やSNSで使える記号まとめ</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <main class="main-card">
+    <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-sub);">使いたい文字をクリックすると、クリップボードにコピーされます。</p>
+    
+    <div id="char-container">
+        <!-- カテゴリーと文字はJSで生成 -->
+    </div>
+  </main>
+  
+  <div id="toast">コピーしました！</div>
+  
+  <!-- 広告枠：中部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>特殊文字一覧ツールとは？</h2>
+    <p>特殊文字一覧ツールは、キーボードで直接入力するのが難しい記号や、HTMLで特殊な表示が必要な文字をまとめたオンラインツールです。矢印、数学記号、囲み文字、チェックマークなどをワンクリックでクリップボードにコピーして、ブログ記事、SNS投稿、ドキュメント作成にすぐ活用できます。</p>
+
+    <h3>このツールの特徴</h3>
+    <ul>
+      <li><strong>ワンタップコピー：</strong> 面倒な範囲選択は不要。クリックするだけでコピーが完了します。</li>
+      <li><strong>主要な記号を網羅：</strong> Web制作や事務作業で頻繁に使用される文字を厳選してカテゴリー分けしています。</li>
+      <li><strong>完全無料・登録不要：</strong> 面倒な会員登録なしで、すべての記号を無料でご利用いただけます。</li>
+      <li><strong>プライバシー安心：</strong> ブラウザ上で動作するため、入力データや履歴が外部サーバーに送信されることはありません。</li>
+    </ul>
+
+    <h2>使い方の手順</h2>
+    <ol>
+      <li>一覧から使いたい特殊文字や記号を探します。</li>
+      <li>対象の文字をクリック（スマホならタップ）します。</li>
+      <li>「コピーしました！」という通知が出たら、使いたい場所に貼り付けてください。</li>
+    </ol>
+
+    <h2>よくある質問（FAQ）</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. コピーした文字が化けて表示されます。</span>
+      <p>A. 特殊文字は、表示する側のフォントや環境（古いOSやアプリなど）がその文字に対応していない場合、四角（□）や「？」として表示されることがあります。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. iPhoneやAndroidでも使えますか？</span>
+      <p>A. はい。スマホのブラウザでもクリックコピー機能がそのままご利用いただけます。SNSのプロフィール作成などにご活用ください。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. 記号の追加リクエストはできますか？</span>
+      <p>A. ありがとうございます。汎用性の高い記号は順次追加を検討しております。</p>
+    </div>
+<h3>関連ツール</h3>
+    <ul>
+      <li><a href="character-count.html">文字数カウント</a></li>
+      <li><a href="text-search.html">テキスト検索ツール</a></li>
+      <li><a href="full-half-converter">全角半角 相互変換ツール</a></li>
+      <li><a href="json-xml-format">JSON/XML整形ツール</a></li>
+      <li><a href="text-cleaner.html">改行・指定文字削除ツール</a></li>
+    </ul>
+  </article>
+
+  <!-- 広告枠：下部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+ <footer> &copy; 2026 はるツール | <a href="terms.html" style="color:#999;">利用規約</a> | <a href="privacy.html" style="color:#999;">プライバシーポリシー</a> </footer>
+</div>
+
+<script>
+const charData = [
+    {
+        category: "矢印",
+        chars: ["←", "↑", "→", "↓", "↔", "↕", "↖", "↗", "↘", "↙", "⇐", "⇑", "⇒", "⇓", "⇔", "⇕", "➔", "➢", "➤", "➥", "⇦", "⇧", "⇨", "⇩", "➔", "➘", "➚", "➛", "➜", "➞", "➟", "➠", "➡", "➢", "➣", "➤", "➥", "➦", "➧", "➨"]
+    },
+    {
+        category: "音楽記号",
+        chars: ["♩", "♪", "♫", "♬", "♭", "♮", "♯", "𝄞", "𝄢", "𝄡", "𝄀", "𝄁", "𝄂", "𝄃", "𝄄", "𝄅", "𝄆", "𝄇", "𝄈", "𝄉", "𝄊", "𝄋", "𝄌", "𝄍", "𝄎", "𝄏", "𝄐", "𝄑", "𝄒", "𝄓", "𝄔", "𝄕", "𝄖", "𝄗", "𝄘", "𝄙", "𝄚", "𝄛", "𝄜", "𝄝"]
+    },
+    {
+        category: "記号・チェック",
+        chars: ["✓", "✔", "✗", "✘", "○", "●", "◎", "□", "■", "△", "▲", "▽", "▼", "◇", "◆", "★", "☆", "✦", "✧", "✨", "♪", "♫", "⚓", "⚡", "☀", "☁", "☂", "☃", "☄", "☎", "⌛", "⌚", "⌨", "✉", "✂", "✒", "✏", "⚙", "⚠", "⛔", "♿", "㊙", "㊗", "Ⓧ", "⭕"]
+    },
+    {
+        category: "囲み文字・数字",
+        chars: [
+            "①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", 
+            "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳", 
+            "㉑", "㉒", "㉓", "㉔", "㉕", "㉖", "㉗", "㉘", "㉙", "㉚", 
+            "㉛", "㉜", "㉝", "㉞", "㉟", "㊱", "㊲", "㊳", "㊴", "㊵", 
+            "㊶", "㊷", "㊸", "㊹", "㊺", "㊻", "㊼", "㊽", "㊾", "㊿",
+            "❶", "❷", "❸", "❹", "❺", "❻", "❼", "❽", "❾", "❿",
+            "⓫", "⓬", "⓭", "⓮", "⓯", "⓰", "⓱", "⓲", "⓳", "⓴"
+        ]
+    },
+    {
+        category: "数学・単位",
+        chars: ["＋", "－", "×", "÷", "＝", "≠", "∞", "±", "√", "‰", "℃", "℉", "㎜", "㎝", "㎞", "㎡", "㎥", "㏗", "㎏", "ℓ", "∑", "∫", "∂", "∝", "∞", "∟", "∠", " Angle", "⊥", "∥", "∂", "∆", "∇", "∈", "∋", "⊆", "⊇", "⊂", "⊃", "∪", "∩"]
+    },
+    {
+        category: "引用符・括弧",
+        chars: ["「", "」", "『", "』", "【", "】", "〈", "〉", "《", "》", "〔", "〕", "“", "”", "‘", "’", "«", "»", "‹", "›", "（", "）", "［", "］", "｛", "｝", "｟", "｠", "〝", "〞", "﹁", "﹂", "﹃", "﹄", "﹙", "﹚", "﹛", "﹜", "﹝", "﹞", "❨", "❩", "❪", "❫"]
+    },
+    {
+        category: "オフィス・商標",
+        chars: ["©", "®", "™", "℠", "℗", "†", "‡", "№", "℡", "℻", "¶", "§", "‼", "⁉", "™", "©", "®", "℅", "℀", "℁", "ℂ", "ℍ", "ℕ", "ℙ", "ℚ", "ℝ", "ℤ"]
+    },
+    {
+        category: "あまり使われない記号・装飾",
+        chars: ["¶", "§", "†", "‡", "⁂", "⁑", "ℵ", "ℶ", "ℷ", "ℸ", "℧", "℟", "℘", "ℐ", "ℌ", "ℜ", "ℯ", "ℊ", "ℴ", "ℼ", "", "⌘", "⌥", "⌃", "⎋", "⌫", "⌬", "⌶", "⌷", "⌸", "⌹", "⌺", "⌻", "⌼", "⍇", "⍈", "⍉", "⍊", "⍋", "⍌"]
+    }
+];
+
+// 名称と解説の簡易データベース
+const charInfoMap = {
+    "←": ["左向き矢印", "一般的な方向指示"],
+    "↑": ["上向き矢印", "上昇や北を示す"],
+    "→": ["右向き矢印", "進行や次へを示す"],
+    "↓": ["下向き矢印", "下降や南を示す"],
+    "✓": ["チェックマーク", "完了や選択済み"],
+    "∞": ["無限大", "数学的な無限"],
+    "℃": ["摂氏", "温度の単位"],
+    "¶": ["段落記号", "パラグラフの区切り"],
+    "§": ["節記号", "セクションを示す"],
+    "†": ["短剣符", "脚注や没年を示す"],
+    "‡": ["二重短剣符", "第3の脚注などに使用"],
+    "⌘": ["コマンド記号", "MacのCommandキー"],
+    "⌥": ["オプション記号", "MacのOptionキー"],
+    "⌬": ["ベンゼン環", "化学構造式の記号"],
+    "": ["アップルロゴ", "Appleのロゴ（環境依存）"],
+    "©": ["著作権記号", "コピーライトを示す"],
+    "®": ["登録商標記号", "登録済み商標を示す"],
+    "™": ["商標記号", "未登録の商標にも使用"],
+    "№": ["ナンバー記号", "番号を示す"],
+    "⚓": ["錨記号", "港や海、固定を示す"],
+    "⚡": ["電圧記号", "電気、速さ、警告"],
+    "✨": ["キラキラ", "強調や装飾に人気"],
+    "♩": ["四分音符", "基本的なリズムの単位"],
+    "♪": ["八分音符", "四分音符の半分の長さ"],
+    "♫": ["連こう付き八分音符", "八分音符が2つつながったもの"],
+    "♬": ["連こう付き十六分音符", "十六分音符が2つつながったもの"],
+    "♭": ["フラット", "半音下げる"],
+    "♮": ["ナチュラル", "元の高さに戻す"],
+    "♯": ["シャープ", "半音上げる"],
+    "𝄞": ["ト音記号", "高音域の譜表"],
+    "𝄢": ["ヘ音記号", "低音域の譜表"],
+    "𝄐": ["フェルマータ", "その音を程よく延ばす"]
+};
+
+const container = document.getElementById('char-container');
+const toast = document.getElementById('toast');
+
+// 特殊文字の生成
+charData.forEach(item => {
+    const title = document.createElement('div');
+    title.className = 'category-title';
+    title.textContent = item.category;
+    container.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.className = 'char-grid';
+
+    item.chars.forEach(char => {
+        const div = document.createElement('div');
+        div.className = 'char-item';
+        div.textContent = char;
+        
+        // --- 追加機能: ツールチップ情報の生成 ---
+        const unicode = "U+" + char.charCodeAt(0).toString(16).toUpperCase().padStart(4, '0');
+        const info = charInfoMap[char] || ["特殊記号", "Web制作やデザイン用"];
+        div.title = `名称: ${info[0]}\nUnicode: ${unicode}\n解説: ${info[1]}`;
+        // ------------------------------------
+
+        div.onclick = () => copyChar(char);
+        grid.appendChild(div);
+    });
+
+    container.appendChild(grid);
+});
+
+// コピー機能
+function copyChar(char) {
+    navigator.clipboard.writeText(char).then(() => {
+        showToast(`「${char}」をコピーしました！`);
+    });
+}
+
+// トースト表示
+function showToast(message) {
+    toast.textContent = message;
+    toast.style.display = 'block';
+    setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2000);
+}
+</script>
+
+</body>
+</html>

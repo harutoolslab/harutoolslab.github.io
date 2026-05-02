@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+         crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+    <title>時間・数値ハイブリッド電卓｜無料・登録不要のオンライン便利ツール</title>
+    <meta name="description" content="日・時・分・秒の計算と通常の数値を組み合わせて計算できるハイブリッド電卓です。時間の加減算、時間×数値、時間÷時間など、複雑な計算もブラウザだけで簡単に。キーボード入力にも対応しています。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --primary: #007bff;
+            --primary-hover: #0056b3;
+            --success: #28a745;
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            
+            /* 電卓用変数 */
+            --display-bg: #0f172a;
+            --key-num: #ffffff;
+            --key-unit: #f0fdf4;
+            --key-op: #fff7ed;
+            --accent: #38bdf8;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0; padding: 0; line-height: 1.6;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+        /* 広告枠 */
+        .ad-slot {
+            margin: 20px auto; padding: 15px;
+            background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+            color: #999; font-size: 12px; text-align: center; min-height: 90px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+        header { text-align: center; margin: 40px 0 20px; }
+        h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+        .tagline { color: var(--text-sub); font-size: 1rem; }
+
+        /* 電卓メインエリア */
+        .main-card {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            max-width: 450px;
+            margin: 0 auto 30px;
+        }
+
+        .screen {
+            background: var(--display-bg);
+            color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: right;
+            margin-bottom: 20px;
+            min-height: 110px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .formula-bar { 
+            font-size: 0.95rem; 
+            color: var(--accent); 
+            min-height: 1.5rem; 
+            word-wrap: break-word;
+        }
+        .main-display { font-size: 2.2rem; font-weight: bold; margin-top: 5px; overflow-x: auto; white-space: nowrap; }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        button {
+            border: none;
+            padding: 18px 0;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.1s;
+            color: var(--text-main);
+            box-shadow: 0 2px 0 rgba(0,0,0,0.05);
+        }
+
+        button:active { transform: translateY(2px); box-shadow: none; }
+        .btn-num { background: var(--key-num); border: 1px solid #eee; }
+        .btn-unit { background: var(--key-unit); color: #16a34a; }
+        .btn-op { background: var(--key-op); color: #ea580c; }
+        .btn-ac { background: #fee2e2; color: #ef4444; }
+        .btn-eq { background: var(--primary); color: #fff; }
+
+        /* 履歴セクション */
+        .history-section {
+            width: 100%;
+            max-width: 450px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .history-title {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .history-list {
+            max-height: 250px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .history-item {
+            background: #fff;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: right;
+        }
+        .history-item .h-formula { display: block; font-size: 0.75rem; color: #94a3b8; }
+        .history-item .h-result { font-weight: bold; color: var(--primary); }
+
+        /* SEO解説セクション */
+        .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+        .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+        .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+        footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div style="font-size: 0.9rem; margin-bottom: 5px;">
+            <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+                無料オンラインツール集「はるツール」
+            </a>
+        </div>
+        <h1>時間・数値ハイブリッド電卓</h1>
+        <p class="tagline">日・時・分・秒と数値を混在させて自由自在に計算</p>
+    </header>
+
+    <!-- 広告枠：上部 -->
+    <div class="ad-slot">
+        <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    </div>
+
+    <!-- 電卓メインカード -->
+    <div class="main-card">
+        <div class="screen">
+            <div id="formula" class="formula-bar"></div>
+            <div id="display" class="main-display">0</div>
+        </div>
+
+        <div class="keypad">
+            <button class="btn-unit" onclick="inputUnit('d')">日</button>
+            <button class="btn-unit" onclick="inputUnit('h')">時</button>
+            <button class="btn-unit" onclick="inputUnit('m')">分</button>
+            <button class="btn-unit" onclick="inputUnit('s')">秒</button>
+
+            <button class="btn-ac" onclick="clearCalc()">AC</button>
+            <button class="btn-op" onclick="inputOp('/')">÷</button>
+            <button class="btn-op" onclick="inputOp('*')">×</button>
+            <button class="btn-num" onclick="backspace()">⌫</button>
+
+            <button class="btn-num" onclick="inputNum('7')">7</button>
+            <button class="btn-num" onclick="inputNum('8')">8</button>
+            <button class="btn-num" onclick="inputNum('9')">9</button>
+            <button class="btn-op" onclick="inputOp('-')">−</button>
+
+            <button class="btn-num" onclick="inputNum('4')">4</button>
+            <button class="btn-num" onclick="inputNum('5')">5</button>
+            <button class="btn-num" onclick="inputNum('6')">6</button>
+            <button class="btn-op" onclick="inputOp('+')">＋</button>
+
+            <button class="btn-num" onclick="inputNum('1')">1</button>
+            <button class="btn-num" onclick="inputNum('2')">2</button>
+            <button class="btn-num" onclick="inputNum('3')">3</button>
+            <button class="btn-eq" onclick="calculate()">＝</button>
+
+            <button class="btn-num" onclick="inputNum('0')" style="grid-column: span 2;">0</button>
+            <button class="btn-num" onclick="inputNum('.')">.</button>
+            <button class="btn-num" onclick="inputNum('00')">00</button>
+        </div>
+    </div>
+
+    <div class="history-section">
+        <div class="history-title">
+            <span>計算履歴 (最大20件)</span>
+            <span style="cursor:pointer; color:#ef4444;" onclick="clearHistory()">履歴削除</span>
+        </div>
+        <div id="history-list" class="history-list"></div>
+    </div>
+
+    <!-- 広告枠：中部 -->
+    <div class="ad-slot">
+        <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    </div>
+
+    <!-- SEOコンテンツ -->
+    <article class="info-section">
+        <h2>時間・数値ハイブリッド電卓とは？</h2>
+        <p>「1時間30分 × 3回」や「5日 － 12時間」といった、時間の単位と通常の数値を組み合わせた計算がブラウザ上で簡単に行えるオンラインツールです。勤怠管理、動画制作の尺計算、プロジェクトの工数見積もりなど、日常生活や業務で発生する面倒な時間計算を強力にサポートします。</p>
+
+        <h3>このツールの特徴</h3>
+        <ul>
+            <li><strong>混在計算に対応：</strong> 「日・時・分・秒」の単位と通常の数値を自由に組み合わせて計算できます。</li>
+            <li><strong>完全無料・登録不要：</strong> すべての機能を無料で、会員登録なしにすぐにご利用いただけます。</li>
+            <li><strong>キーボード操作対応：</strong> 数字キーや演算子、単位（d, h, m, s）のキーボード入力に対応しており、素早い入力が可能です。</li>
+            <li><strong>安全設計：</strong> 計算処理はすべてブラウザ内で行われるため、入力したデータがサーバーに送信されることはありません。</li>
+        </ul>
+
+        <h2>使い方の手順</h2>
+        <ol>
+            <li>数字を入力し、必要に応じて「日」「時」「分」「秒」の単位ボタンを押します。</li>
+            <li>通常の電卓と同じように「＋」「－」「×」「÷」の演算子を入力します。</li>
+            <li>「＝」ボタンを押すと、計算結果が最適な単位形式（例：1日 2:00'00"）で表示されます。</li>
+            <li>計算履歴はページ下部に自動的に保存され、過去の計算結果をいつでも確認できます。</li>
+        </ol>
+
+        <h2>よくある質問（FAQ）</h2>
+        <div class="faq-item">
+            <span class="faq-q">Q. 「1時間 ÷ 30分」のような計算はできますか？</span>
+            <p>A. はい、可能です。時間同士の割り算は「数値（倍率）」として結果が表示されます。逆に「1時間 ÷ 2」のように時間を数値で割った場合は、「時間」として結果が表示されます。</p>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q. マイナスの時間は計算できますか？</span>
+            <p>A. はい、計算可能です。結果が0を下回る場合、マイナス記号が付与された時間形式で表示されます。</p>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q. スマートフォンでも使えますか？</span>
+            <p>A. はい、レスポンシブ設計を採用しているため、iPhoneやAndroidなどのスマートフォン、タブレットでも快適にご利用いただけます。</p>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q. データの保存期間はありますか？</span>
+            <p>A. 計算履歴はブラウザを閉じるとリセットされます。重要な計算結果はメモを取るか、スクリーンショットを保存することをお勧めします。</p>
+        </div>
+
+<h3>関連ツール</h3>
+    <ul>
+      <li><a href="number-base-converter.html">進数変換マルチ計算機</a></li>
+    </ul>
+    </article>
+
+    <!-- 広告枠：下部 -->
+    <div class="ad-slot">
+        <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+    </div>
+
+    <footer> &copy; 2026 はるツール | <a href="terms.html" style="color:#999;">利用規約</a> | <a href="privacy.html" style="color:#999;">プライバシーポリシー</a> </footer>
+</div>
+
+<script>
+    let currentInput = "";
+    let formulaArr = []; 
+    let lastResult = { value: 0, type: 'SCALAR' };
+    let isResultDisplayed = false;
+
+    const TYPE = { TIME: 'TIME', SCALAR: 'SCALAR' };
+    const display = document.getElementById('display');
+    const formulaDisplay = document.getElementById('formula');
+    const historyList = document.getElementById('history-list');
+
+    function inputNum(n) {
+        if (isResultDisplayed) {
+            clearCalc();
+            isResultDisplayed = false;
+        }
+        currentInput += n;
+        updateDisplay();
+    }
+
+    function inputUnit(u) {
+        if (currentInput === "") return;
+        formulaArr.push({ type: 'unit_part', value: parseFloat(currentInput), unit: u });
+        currentInput = "";
+        isResultDisplayed = false;
+        updateDisplay();
+    }
+
+    function inputOp(op) {
+        if (isResultDisplayed) {
+            if (lastResult.type === TYPE.TIME) {
+                formulaArr = [{ type: 'unit_part', value: lastResult.value, unit: 's' }];
+            } else {
+                formulaArr = [{ type: 'num', value: lastResult.value }];
+            }
+            isResultDisplayed = false;
+        }
+        if (currentInput !== "") {
+            formulaArr.push({ type: 'num', value: parseFloat(currentInput) });
+            currentInput = "";
+        }
+        if (formulaArr.length === 0) return;
+        if (formulaArr[formulaArr.length-1].type === 'op') {
+            formulaArr[formulaArr.length-1].value = op;
+        } else {
+            formulaArr.push({ type: 'op', value: op });
+        }
+        updateDisplay();
+    }
+
+    function getFormulaString() {
+        let fStr = "";
+        formulaArr.forEach(t => {
+            if (t.type === 'unit_part') {
+                if (t.unit === 's' && t.value >= 60) fStr += formatTime(t.value);
+                else fStr += t.value + {d:'日', h:':', m:'\'', s:'"'}[t.unit];
+            }
+            else if (t.type === 'num') fStr += t.value;
+            else fStr += " " + t.value.replace('*','×').replace('/','÷') + " ";
+        });
+        return fStr;
+    }
+
+    function updateDisplay() {
+        formulaDisplay.innerText = getFormulaString();
+        display.innerText = currentInput || "0";
+    }
+
+    function clearCalc() {
+        currentInput = "";
+        formulaArr = [];
+        updateDisplay();
+    }
+
+    function backspace() {
+        if (isResultDisplayed) return; 
+        if (currentInput !== "") currentInput = currentInput.slice(0, -1);
+        else formulaArr.pop();
+        updateDisplay();
+    }
+
+    function calculate() {
+        if (currentInput !== "") {
+            formulaArr.push({ type: 'num', value: parseFloat(currentInput) });
+            currentInput = "";
+        }
+        if (formulaArr.length === 0) return;
+
+        const originalFormula = getFormulaString();
+        let blocks = [];
+        let tempTimeVal = 0;
+        let inTimeBlock = false;
+
+        formulaArr.forEach(t => {
+            if (t.type === 'unit_part') {
+                tempTimeVal += t.value * {d:86400, h:3600, m:60, s:1}[t.unit];
+                inTimeBlock = true;
+            } else {
+                if (inTimeBlock) {
+                    blocks.push({ type: TYPE.TIME, value: tempTimeVal });
+                    tempTimeVal = 0;
+                    inTimeBlock = false;
+                }
+                if (t.type === 'num') blocks.push({ type: TYPE.SCALAR, value: t.value });
+                else blocks.push({ type: 'op', value: t.value });
+            }
+        });
+        if (inTimeBlock) blocks.push({ type: TYPE.TIME, value: tempTimeVal });
+
+        let currentDim = blocks[0].type;
+        let evalStr = blocks[0].value.toString();
+
+        for (let i = 1; i < blocks.length; i += 2) {
+            let op = blocks[i].value;
+            let right = blocks[i+1];
+
+            if (op === '+' || op === '-') {
+                if (currentDim !== right.type) {
+                    alert(`エラー：矛盾した計算です（${currentDim === TYPE.TIME ? '時間' : '数値'} ${op === '+' ? '＋' : '－'} ${right.type === TYPE.TIME ? '時間' : '数値'}）`);
+                    return;
+                }
+            } 
+            else if (op === '*') {
+                if (currentDim === TYPE.TIME && right.type === TYPE.TIME) {
+                    alert("エラー：時間同士の掛け算は数学的に定義できません。");
+                    return;
+                }
+                if (currentDim === TYPE.TIME || right.type === TYPE.TIME) currentDim = TYPE.TIME;
+                else currentDim = TYPE.SCALAR;
+            } 
+            else if (op === '/') {
+                if (currentDim === TYPE.TIME && right.type === TYPE.TIME) {
+                    currentDim = TYPE.SCALAR; 
+                } else if (currentDim === TYPE.SCALAR && right.type === TYPE.TIME) {
+                    alert("エラー：数値 ÷ 時間 は計算できません。");
+                    return;
+                }
+            }
+
+            evalStr += op + right.value;
+        }
+
+        try {
+            const resultValue = eval(evalStr);
+            let finalResultStr = "";
+
+            if (currentDim === TYPE.TIME) finalResultStr = formatTime(resultValue);
+            else finalResultStr = parseFloat(resultValue.toFixed(4)).toString();
+            
+            formulaDisplay.innerText = originalFormula + " =";
+            display.innerText = finalResultStr;
+
+            lastResult = { value: resultValue, type: currentDim };
+            isResultDisplayed = true;
+
+            addHistory(originalFormula, finalResultStr);
+            formulaArr = [];
+        } catch (e) {
+            display.innerText = "Error";
+        }
+    }
+
+    function addHistory(formula, result) {
+        const item = document.createElement('div');
+        item.className = 'history-item';
+        item.innerHTML = `<span class="h-formula">${formula}</span><span class="h-result">${result}</span>`;
+        historyList.prepend(item);
+        while (historyList.children.length > 20) {
+            historyList.removeChild(historyList.lastChild);
+        }
+    }
+
+    function clearHistory() { historyList.innerHTML = ""; }
+
+    function formatTime(totalSec) {
+        const isMinus = totalSec < 0;
+        let s = Math.abs(Math.round(totalSec));
+        const d = Math.floor(s / 86400);
+        const h = Math.floor((s % 86400) / 3600);
+        const m = Math.floor((s % 3600) / 60);
+        const sec = s % 60;
+        let res = isMinus ? "-" : "";
+        if (d > 0) res += d + "日 ";
+        res += h + ":" + m.toString().padStart(2, '0') + "'" + sec.toString().padStart(2, '0') + '"';
+        return res;
+    }
+
+    document.addEventListener('keydown', function(event) {
+        const key = event.key;
+        if (/[0-9\.]/.test(key)) {
+            inputNum(key);
+        }
+        else if (key === '+' || key === '-' || key === '*' || key === '/') {
+            inputOp(key);
+        }
+        else if (key === 'Enter' || key === '=') {
+            event.preventDefault();
+            calculate();
+        }
+        else if (key === 'Backspace') {
+            event.preventDefault();
+            backspace();
+        }
+        else if (key === 'Escape') {
+            clearCalc();
+        }
+        else if (['d', 'h', 'm', 's'].includes(key.toLowerCase())) {
+            inputUnit(key.toLowerCase());
+        }
+    });
+</script>
+
+</body>
+</html>

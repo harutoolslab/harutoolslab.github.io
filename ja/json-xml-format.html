@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO設定：ツールに合わせてここを書き換え -->
+<title>JSON/XML整形ツール｜コードを綺麗にインデントして読みやすく｜はるツール</title>
+<meta name="description" content="ブラウザ上でJSONやXMLを瞬時に整形（コードフォーマット）できるツールです。インデントを揃えて読みやすくします。インストール不要、プライバシー重視のクライアントサイド処理。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* テキスト入力エリア */
+.input-area {
+  width: 100%;
+  height: 250px;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 14px;
+  box-sizing: border-box;
+  resize: vertical;
+  margin-bottom: 20px;
+}
+.input-area:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  transition: all 0.3s ease;
+}
+.btn-select:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-clear {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>JSON/XML整形ツール</h1>
+    <p class="tagline">ぐちゃぐちゃなコードをワンクリックで読みやすく整列</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <main class="main-card">
+    <textarea id="code-input" class="input-area" placeholder="ここにJSONまたはXMLを貼り付けてください..."></textarea>
+    
+    <div class="button-group">
+      <button class="btn-select" onclick="formatJSON()">JSONを整形</button>
+      <button class="btn-select" onclick="formatXML()">XMLを整形</button>
+      <button class="btn-clear" onclick="clearInput()">クリア</button>
+    </div>
+  </main>
+  
+  <!-- 広告枠：中部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>JSON/XML整形ツールとは？</h2>
+    <p>JSON/XML整形ツールは、1行に固まって読みづらくなったコード（難読化・最小化されたデータ）を、適切な改行とインデントを加えて美しく整形するオンラインツールです。APIのレスポンス確認や、設定ファイルの編集時に役立ちます。</p>
+
+    <h3>このツールの特徴</h3>
+    <ul>
+      <li><strong>完全無料：</strong> すべての機能を無料でご利用いただけます。</li>
+      <li><strong>登録不要：</strong> 面倒な会員登録やログインの手間はありません。</li>
+      <li><strong>安全設計：</strong> データはブラウザ内で処理されるため、コードの内容が外部サーバーへ送信されることはありません。機密情報の整形にも安心です。</li>
+    </ul>
+
+    <h2>使い方の手順</h2>
+    <ol>
+      <li>中央のテキストエリアに、整形したいJSONまたはXMLコードを貼り付けます。</li>
+      <li>「JSONを整形」または「XMLを整形」ボタンをクリックします。</li>
+      <li>整形されたコードがテキストエリアに表示されるので、コピーして使用してください。</li>
+    </ol>
+
+    <h2>よくある質問（FAQ）</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. 料金はかかりますか？</span>
+      <p>A. いいえ、当サイトのツールはすべて無料で提供しております。広告収益によって運営されているため、追加費用が発生することはありません。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. 不正な形式のJSONでも整形できますか？</span>
+      <p>A. 構文エラーがある場合は整形できません。整形に失敗した場合は、カンマの有無や括弧の閉じ忘れがないか確認してください。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. 処理できるデータ容量に制限はありますか？</span>
+      <p>A. ブラウザのメモリ許容量に依存しますが、一般的な数MB程度のデータであれば問題なく瞬時に処理可能です。</p>
+    </div>
+<h3>関連ツール</h3>
+    <ul>
+      <li><a href="character-count.html">文字数カウント</a></li>
+      <li><a href="text-search.html">テキスト検索ツール</a></li>
+      <li><a href="full-half-converter">全角半角 相互変換ツール</a></li>
+      <li><a href="text-cleaner.html">改行・指定文字削除ツール</a></li>
+      <li><a href="special-characters">特殊文字一覧</a></li>
+    </ul>
+  </article>
+
+  <!-- 広告枠：下部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+ <footer> &copy; 2026 はるツール | <a href="terms.html" style="color:#999;">利用規約</a> | <a href="privacy.html" style="color:#999;">プライバシーポリシー</a> </footer>
+</div>
+
+<script>
+function formatJSON() {
+    const input = document.getElementById('code-input');
+    try {
+        const obj = JSON.parse(input.value);
+        input.value = JSON.stringify(obj, null, 4);
+    } catch (e) {
+        alert("JSONの解析に失敗しました。形式が正しいか確認してください。\n" + e.message);
+    }
+}
+
+function formatXML() {
+    const input = document.getElementById('code-input');
+    let xml = input.value;
+    
+    // 簡易的なXML整形ロジック
+    let formatted = '';
+    let reg = /(>)(<)(\/*)/g;
+    xml = xml.replace(reg, '$1\r\n$2$3');
+    let pad = 0;
+    
+    xml.split('\r\n').forEach(function(node) {
+        let indent = 0;
+        if (node.match( /.+<\/\w[^>]*>$/ )) {
+            indent = 0;
+        } else if (node.match( /^<\/\w/ )) {
+            if (pad != 0) {
+                pad -= 1;
+            }
+        } else if (node.match( /^<\w[^>]*[^\/]>.*$/ )) {
+            indent = 1;
+        } else {
+            indent = 0;
+        }
+
+        let padding = '';
+        for (let i = 0; i < pad; i++) {
+            padding += '    ';
+        }
+
+        formatted += padding + node + '\r\n';
+        pad += indent;
+    });
+
+    if (formatted.trim() === "") {
+        alert("XMLが入力されていないか、形式が正しくありません。");
+    } else {
+        input.value = formatted.trim();
+    }
+}
+
+function clearInput() {
+    document.getElementById('code-input').value = '';
+}
+</script>
+
+</body>
+</html>
