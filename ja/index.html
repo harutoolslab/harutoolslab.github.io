@@ -7,9 +7,10 @@
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
   <meta name="google-site-verification" content="jWDFJLwlaulsCJD9GNUFzzeZeTvLEzBHY0kWB140450" />
   
-<title>はるツール｜無料・登録不要のオンライン画像・PDF編集ツール集</title>
+<!-- ★SEO設定：キーワードを強化 -->
+<title>はるツール｜登録不要・無料で使えるオンライン画像変換・PDF・計算ツール集</title>
 <link rel="icon" href="/favicon.ico">
-<meta name="description" content="画像圧縮、形式変換、PDF編集など、ブラウザだけで使える35種類以上の便利ツールを無料で提供。インストール不要でスマホ対応。プライバシー重視の安全設計です。">
+<meta name="description" content="画像圧縮、WebP変換、PDF編集、文字数カウント、電気回路計算など、ブラウザだけで使える50種類以上の便利ツールを無料で提供。インストール不要でスマホ対応。データはサーバーに送信されない安全なクライアントサイド設計。">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -82,7 +83,10 @@ h1 { font-size: 2.2rem; color: #111; margin-bottom: 10px; }
 
 /* SEO解説セクション */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; }
-.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin-bottom: 20px; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
 
 footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
 
@@ -98,7 +102,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 <div class="container">
   <header>
     <h1>はるツール</h1>
-    <p class="hero-desc">ブラウザで完結。登録不要・完全無料で使えるクリエイティブツール集</p>
+    <p class="hero-desc"><strong>「今すぐ使いたい」をブラウザで。</strong><br>登録不要・完全無料で使える画像編集・文書作成・計算・電気工学ツール集</p>
   </header>
 
   <div class="ad-slot"><div>Advertisement</div></div>
@@ -168,38 +172,79 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
     </div>
   </section>
 
+  <section class="tool-section">
+    <h2 class="section-title">文字・文章系ツール</h2>
+    <div class="tool-grid">
+      <a href="character-count.html" class="tool-card"><span>文字数カウント</span><small>文字数・行数・原稿用紙枚数</small></a>
+      <a href="text-search.html" class="tool-card"><span>テキスト検索・抽出</span><small>全角スペースや特定の語を抽出</small></a>
+      <a href="full-half-converter" class="tool-card"><span>全角半角 相互変換</span><small>英数字や記号を一括変換</small></a>
+      <a href="text-cleaner.html" class="tool-card"><span>改行・指定文字削除</span><small>不要な文字を一括消去</small></a>
+      <a href="special-characters" class="tool-card"><span>特殊文字一覧</span><small>Web用記号のコピー</small></a>
+      <a href="json-xml-format" class="tool-card"><span>JSON/XML整形</span><small>コードを読みやすく整列</small></a>
+    </div>
+  </section>
+
+<section class="tool-section">
+    <h2 class="section-title">計算ツール</h2>
+    <div class="tool-grid">
+      <a href="time-calc.html" class="tool-card"><span>時間計算電卓</span><small>時間と数値を混在計算</small></a>
+      <a href="number-base-converter.html" class="tool-card"><span>進数変換機</span><small>2・8・10・16進数を相互変換</small></a>
+    </div>
+  </section>
+
+<section class="tool-section">
+    <h2 class="section-title">電気工学・電子回路ツール</h2>
+    <div class="tool-grid">
+      <a href="resistor-color-code.html" class="tool-card"><span>抵抗カラーコード(4本)</span><small>色から抵抗値を算出</small></a>
+      <a href="resistor-color-code-5band.html" class="tool-card"><span>抵抗カラーコード(5本)</span><small>精密抵抗の値を算出</small></a>
+      <a href="composite-resistance.html" class="tool-card"><span>合成抵抗計算機</span><small>直並列回路の計算</small></a>
+      <a href="ohm-law-calculator.html" class="tool-card"><span>オームの法則計算機</span><small>電圧・電流・抵抗・電力を計算</small></a>
+      <a href="power-consumption-calculator.html" class="tool-card"><span>消費電力量・電気代計算機</span><small>電力・消費電力量・電気代を算出</small></a>
+      <a href="rlc-calc.html" class="tool-card"><span>RLC回路計算</span><small>インピーダンス・ベクトル図</small></a>
+      <a href="ac-power-calculator.html" class="tool-card"><span>交流電力マルチ計算</span><small>有効・無効・皮相電力</small></a>
+      <a href="logic-circuit-simulator.html" class="tool-card"><span>論理回路シミュレーター</span><small>デジタル回路の実験</small></a>
+    </div>
+  </section>
+
   <div class="ad-slot"><div>Advertisement</div></div>
 
   <article class="info-section">
-    <h2>はるツールの特長</h2>
-    <p>当サイトは、Web制作やSNS運営で役立つ35種類以上のオンラインツールをすべて無料で提供しています。ログイン不要ですぐにご利用いただけます。</p>
+    <h2>はるツールの特長：なぜ選ばれるのか？</h2>
+    <p>「はるツール」は、Webデザイナー、デベロッパ、エンジニア、学生、そして一般のPC・スマホユーザーが「今すぐ解決したい」と思うタスクをサポートする、50種類以上のオンラインツール集です。</p>
     
-    <h3>安全なブラウザ内処理</h3>
-    <p>すべての処理はお使いのブラウザ上（ローカル）で行われます。画像やPDFなどの機密データが当サイトのサーバーに送信・保存されることは一切ありません。セキュリティを重視するビジネス用途にも安心です。</p>
+    <h3>1. 安全なブラウザ内処理（プライバシー重視）</h3>
+    <p>一般的なオンラインツールと異なり、すべての処理はお使いのブラウザ上（クライアントサイド）で行われます。<strong>画像やPDF、機密コードが外部サーバーへ送信されることはありません。</strong> 会社や学校の業務でも安心してご利用いただけます。</p>
     
-    <h3>商用利用も可能</h3>
-    <p>本ツールを利用して作成・加工したデータは、個人・法人を問わず商用利用いただけます。面倒なクレジット表記も不要です。</p>
+    <h3>2. 登録不要・完全無料で商用利用OK</h3>
+    <p>会員登録やログインは一切不要。すべての機能を制限なく無料で提供しています。作成・加工したデータは商用利用が可能で、クレジット表記の必要もありません。</p>
+    
+    <h3>3. インストール不要・スマホ対応</h3>
+    <p>専用ソフトのインストールは必要ありません。ブラウザがあれば、Windows、Mac、iPhone、Androidなど、あらゆるデバイスでサクサク動作します。</p>
 
    <h2>よくある質問（FAQ）</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. 料金はかかりますか？</span>
-      <p>A. いいえ、当サイトのツールはすべて無料で提供しております。広告収益によって運営されているため、追加費用が発生することはありません。</p>
+      <span class="faq-q">Q. サービスの利用に料金は発生しますか？</span>
+      <p>A. いいえ、すべてのツールを完全無料でご利用いただけます。追加料金や、特定の機能を使うための有料プランなども一切ございません。。</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. アップロードした画像がサーバーに保存されることはありますか？</span>
-      <p>A. ありません。当ツールは「クライアントサイド（ブラウザ上）」で全ての処理を行います。画像データが外部サーバーに送信されることはなく、プライバシーは完全に保護されます。</p>
+      <span class="faq-q">Q. 会員登録やログインは必要ですか？</span>
+      <p>A. 必要ありません。サイトにアクセスして、使いたいツールを選ぶだけですぐに作業を開始できます。メールアドレスなどの個人情報を取得することもありません。</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. スマホでも利用できますか？</span>
-      <p>A. はい、iPhoneやAndroidなどのスマートフォン、タブレットからでもインストール不要でご利用いただけます。</p>
+      <span class="faq-q">Q. アップロードしたファイルはどこに保存されますか？</span>
+      <p>A. どこにも保存されません。当サイトのツールはJavaScriptを使用してブラウザ内で処理を行うため、ファイルがサーバーに転送されることはありません。処理が終わった瞬間、データはお手元のデバイスのみに存在します。</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 一度に複数の画像を処理できますか？</span>
-      <p>A. 現在、本ツールは1枚ずつの処理に対応しています。複数枚の処理が必要な場合は、1枚ずつアップロードしていただくか、順次対応予定のアップデートをお待ちください。</p>
+      <span class="faq-q">Q. 作成・加工した画像などは商用利用できますか？</span>
+      <p>A. はい、可能です。仕事の資料作成、ブログ運営、SNS投稿、商品パッケージなど、あらゆるビジネスシーンでご自由にお使いいただけます。</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. 変換された画像の画質はどうなりますか？</span>
-      <p>A. 元の画質を最大限に維持するよう最適化されています。特定の形式に変換する場合などは、わずかに圧縮されることがありますが、一般的な利用に支障はありません。</p>
+      <span class="faq-q">Q. スマホ（iPhone/Android）でも使えますか？</span>
+      <p>A. はい、すべてのツールがレスポンシブ対応しており、スマートフォンやタブレットのブラウザからもPC版と同様にフル機能をご利用いただけます。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. 処理に失敗する場合や、正しく表示されない場合は？</span>
+      <p>A. お使いのブラウザが最新バージョンであることをご確認ください。また、プライベートモードや特定のブラウザ拡張機能（広告ブロックなど）が干渉する場合があります。解決しない場合は、別のブラウザでお試しください。</p>
     </div>
   </article>
 
