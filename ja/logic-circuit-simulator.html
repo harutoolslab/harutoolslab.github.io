@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO設定 -->
+<title>論理回路シミュレーター - オンラインでデジタル回路設計 | はるツール</title>
+<meta name="description" content="ブラウザ上で動作する無料の論理回路シミュレーター。AND/OR/NOTなどの基本ゲートからフリップフロップまで対応。ドラッグ＆ドロップで簡単にデジタル回路の設計と動作確認が可能です。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールエリア（シミュレーター） */
+.simulator-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: #121212;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+/* 大画面モード用のスタイル */
+.simulator-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    border-radius: 0;
+    margin: 0;
+}
+
+canvas { display: block; cursor: crosshair; }
+
+.ui-panel { 
+    position: absolute; background: rgba(30,30,30,0.95); 
+    padding: 12px; border-radius: 8px; border: 1px solid #444; 
+    z-index: 100; box-shadow: 0 4px 25px rgba(0,0,0,0.7);
+    color: #eee;
+}
+
+.ui-panel { top: 15px; left: 15px; width: 180px; }
+
+.section-title { font-size: 11px; color: #aaa; margin-bottom: 8px; text-transform: uppercase; border-bottom: 1px solid #444; padding-bottom: 4px; letter-spacing: 1px; }
+.btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-bottom: 12px; }
+.gate-btn { background: #333; color: white; border: 1px solid #555; padding: 8px; border-radius: 4px; cursor: pointer; font-size: 10px; text-align: center; user-select: none; }
+.gate-btn:hover { border-color: #888; background: #444; }
+.delete-btn { background: #833; border: none; width: 100%; color: white; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 10px; }
+
+.bottom-right-container {
+    position: absolute; bottom: 20px; right: 20px;
+    display: flex; flex-direction: column; gap: 10px; z-index: 100;
+}
+.storage-panel { display: flex; gap: 10px; }
+.json-btn { background: #444; color: white; border: 1px solid #666; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; flex: 1; }
+.fullscreen-btn { background: var(--primary); border-color: var(--primary); }
+.fullscreen-btn:hover { background: var(--primary-hover); }
+#fileInput { display: none; }
+
+.key-box { display: inline-block; background: #e0e0e0; color: #333; padding: 0px 6px; border-radius: 3px; border: 1px solid #ccc; margin: 0 2px; font-weight: bold; font-size: 0.9em; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+      <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+        無料オンラインツール集「はるツール」
+      </a>
+    </div>
+    <h1>論理回路シミュレーター</h1>
+    <p class="tagline">ブラウザで簡単に論理回路を設計・実験できる無料ツール</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <!-- シミュレーターエリア -->
+  <div class="simulator-container" id="sim-parent">
+    <div class="ui-panel">
+        <div class="section-title">IO / Gates</div>
+        <div class="btn-group">
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">SWITCH</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">LED</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">AND</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">OR</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">NOT</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">XOR</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">NAND</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">NOR</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">XNOR</div>
+        </div>
+        <div class="section-title">Flip-Flops</div>
+        <div class="btn-group">
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">RS-FF</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">D-FF</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">T-FF</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">JK-FF</div>
+        </div>
+        <button class="delete-btn" onclick="clearAll()">ALL CLEAR</button>
+    </div>
+
+    <div class="bottom-right-container">
+        <div class="storage-panel">
+            <button class="json-btn fullscreen-btn" onclick="toggleFullscreen()">FULLSCREEN</button>
+            <button class="json-btn" onclick="exportJSON()">SAVE</button>
+            <button class="json-btn" onclick="triggerImport()">LOAD</button>
+            <input type="file" id="fileInput" accept=".json" onchange="importJSON(event)">
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
+  
+  </div>
+<div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>シミュレーションに関するご注意</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>本ツールはブラウザ上で動作する簡易的なシミュレーターです。プログラムの性質上、特定の条件下で予期せぬ動作やバグが発生する可能性を完全に排除することはできません。</li>
+        <li>シミュレーション上の論理値は、実際のICやFPGA等の物理デバイスにおける伝搬遅延（レイテンシ）、ハザード、ノイズ、消費電力等の物理的特性をすべて再現するものではありません。</li>
+        <li>シミュレーション結果に基づいて作成された回路やシステムに起因する、いかなる損失、故障、または損害についても、当サイトは一切の責任を負いません。実機製作や重要な設計にあたっては、必ず専用の設計ソフト（EDA）での検証やプロトタイプによる動作確認を行ってください。</li>
+    </ul>
+</div>
+
+  <!-- 広告枠：中部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>論理回路シミュレーターとは？</h2>
+    <p>本ツールは、ブラウザ上で直感的にデジタル論理回路を構築・テストできるオンラインツールです。基本となる論理ゲート（AND、OR、NOTなど）から、記憶回路として重要なフリップフロップまで幅広く対応しています。学校の課題、電子工作の予習、またはデジタル回路の理解を深める学習ツールとして最適です。</p>
+
+    <h3>詳しい操作方法</h3>
+    <ul>
+      <li><strong>配置と移動：</strong> 左上のパネルからボタンをドラッグ、またはクリックして素子を追加します。設置したブロックはドラッグで自由に移動できます。</li>
+      <li><strong>配線：</strong> 素子の左右にある「●」端子をクリックしたままドラッグし、別の素子の端子へ繋いで配線します。</li>
+      <li><strong>入力の切り替え：</strong> <span class="key-box">Shift</span>キーを押しながら<strong>SWITCH</strong>をクリックすることで、ON/OFFの状態を切り替えられます。</li>
+      <li><strong>削除：</strong> 素子や配線を<strong>右クリック</strong>することで個別に削除できます。</li>
+      <li><strong>画面表示：</strong> 背景を<strong>右ドラッグ</strong>で移動、マウスホイールで<strong>拡大・縮小</strong>が可能です。</li>
+      <li><strong>大画面モード：</strong> 右下の「FULLSCREEN」ボタンを押すと、画面いっぱいにシミュレーターを表示します。</li>
+    </ul>
+
+    <h3>このツールの特徴</h3>
+    <ul>
+      <li><strong>インストール不要：</strong> ブラウザだけで動作するため、OSを問わずどこからでも利用可能です。</li>
+      <li><strong>完全無料・登録不要：</strong> すべての機能を無料でご利用いただけます。設計データの保存・読み込みも可能です。</li>
+      <li><strong>リアルタイム・シミュレーション：</strong> 回路を組んだ瞬間から動作が反映され、通電状態が色で視覚的にわかります。</li>
+      <li><strong>安全設計：</strong> 処理はすべてお使いのブラウザ内で行われるため、作成した回路データがサーバーに送信されることはありません。</li>
+    </ul>
+
+    <h2>基本的な使い方の手順</h2>
+    <ol>
+      <li>左上の「IO / Gates」パネルから、使いたい素子（SWITCHやANDゲートなど）を画面中央へ配置します。</li>
+      <li>素子同士を線で繋ぎ、意図した論理が組まれているか確認します。</li>
+      <li>動作を確認したら、右下の「SAVE」ボタンでJSONファイルとして保存できます。</li>
+      <li>保存したファイルは「LOAD」ボタンからいつでも読み込み・再開が可能です。</li>
+    </ol>
+
+    <h2>よくある質問（FAQ）</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. 複雑な回路を組んでも動作しますか？</span>
+      <p>A. 基本的な組み合わせ回路や順序回路（フリップフロップ等）は問題なく動作します。ただし、非常に大規模な回路になるとブラウザの処理速度に依存する場合があります。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. 回路が保存できないのですが。</span>
+      <p>A. 「SAVE」ボタンを押すと回路データがファイルとしてダウンロードされます。ブラウザのダウンロード許可設定をご確認ください。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. モバイル端末でも使えますか？</span>
+      <p>A. PCでのマウス操作を前提としたUIになっています。スマホでも閲覧は可能ですが、配線や移動などの細かい操作には PC環境を推奨します。</p>
+    </div>
+  </article>
+
+  <!-- 広告枠：下部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <footer> &copy; 2026 はるツール | <a href="terms.html" style="color:#999;">利用規約</a> | <a href="privacy.html" style="color:#999;">プライバシーポリシー</a> </footer>
+</div>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const simParent = document.getElementById('sim-parent');
+
+function resizeCanvas() {
+    canvas.width = simParent.offsetWidth;
+    canvas.height = simParent.offsetHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+function toggleFullscreen() {
+    simParent.classList.toggle('fullscreen');
+    setTimeout(resizeCanvas, 50); // アニメーション等のために少し遅延させてリサイズ
+}
+
+let nodes = [];
+let wires = [];
+let draggingNode = null;
+let linkingFrom = null; 
+let mousePos = { x: 0, y: 0 };
+let nodeOffset = { x: 0, y: 0 };
+let camera = { x: 0, y: 0, zoom: 1.0 };
+let isPanning = false;
+let lastMouse = { x: 0, y: 0 };
+
+const GRID_SIZE = 20;
+const COL_ON = '#ffeb3b';
+const COL_WIRE_OFF = '#444';
+const COL_BLOCK = '#252525';
+const COL_BORDER = '#666';
+const TERM_RADIUS = 7;
+const HIT_RADIUS = 15;
+
+const TERMINAL_LABELS = {
+    'RS-FF': { in: ['R', 'S'], out: ['Q', '~Q'] },
+    'D-FF': { in: ['D', 'CLK'], out: ['Q', '~Q'] },
+    'T-FF': { in: ['T'], out: ['Q', '~Q'] },
+    'JK-FF': { in: ['J', 'CLK', 'K'], out: ['Q', '~Q'] }
+};
+
+function snapToGrid(val) { return Math.round(val / GRID_SIZE) * GRID_SIZE; }
+function screenToWorld(sx, sy) { return { x: (sx - camera.x) / camera.zoom, y: (sy - camera.y) / camera.zoom }; }
+
+function drag(ev) { ev.dataTransfer.setData("text", ev.target.innerText); }
+simParent.addEventListener('dragover', (e) => e.preventDefault());
+simParent.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const type = e.dataTransfer.getData("text");
+    const rect = canvas.getBoundingClientRect();
+    const worldPos = screenToWorld(e.clientX - rect.left, e.clientY - rect.top);
+    addNode(type, snapToGrid(worldPos.x), snapToGrid(worldPos.y));
+});
+
+function clickAdd(type) {
+    const worldCenter = screenToWorld(canvas.width / 2, canvas.height / 2);
+    addNode(type, snapToGrid(worldCenter.x + (Math.random()*40-20)), snapToGrid(worldCenter.y + (Math.random()*40-20)));
+}
+
+function getInputPos(node, idx) {
+    return { x: node.x, y: node.y + (node.h / (node.inputs.length + 1)) * (idx + 1) };
+}
+function getOutputPos(node, idx) {
+    return { x: node.x + node.w, y: node.y + (node.h / (node.outputStates.length + 1)) * (idx + 1) };
+}
+
+function drawSymbol(ctx, type, x, y, w, h) {
+    ctx.strokeStyle = '#666'; ctx.lineWidth = 3;
+    if(type.includes('AND')) {
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w*0.4, y);
+        ctx.bezierCurveTo(x + w, y, x + w, y + h, x + w*0.4, y + h); ctx.lineTo(x, y + h); ctx.closePath(); ctx.stroke();
+    } else if(type.includes('OR') || type.includes('XOR')) {
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.bezierCurveTo(x+w*0.3, y, x+w*0.3, y+h, x, y+h);
+        ctx.bezierCurveTo(x+w*0.7, y+h, x+w, y+h*0.8, x+w, y+h/2);
+        ctx.bezierCurveTo(x+w, y+h*0.2, x+w*0.7, y, x, y); ctx.closePath(); ctx.stroke();
+        if(type.includes('XOR')) { ctx.beginPath(); ctx.moveTo(x-12, y+5); ctx.bezierCurveTo(x-2, y+10, x-2, y+h-10, x-12, y+h-5); ctx.stroke(); }
+    } else if(type === 'NOT') {
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x+w, y+h/2); ctx.lineTo(x, y+h); ctx.closePath(); ctx.stroke();
+    }
+    if(['NAND', 'NOR', 'NOT', 'XNOR'].includes(type)) {
+        ctx.beginPath(); ctx.arc(x+w+7, y+h/2, 5, 0, Math.PI*2); ctx.stroke();
+    }
+}
+
+function addNode(type, x, y) {
+    let inputs = 2;
+    if(['NOT', 'LED', 'SWITCH', 'T-FF'].includes(type)) inputs = 1;
+    if(['D-FF', 'RS-FF'].includes(type)) inputs = 2;
+    if(type === 'JK-FF') inputs = 3;
+    let outputs = ['RS-FF', 'D-FF', 'T-FF', 'JK-FF'].includes(type) ? 2 : 1;
+    nodes.push({
+        id: Date.now() + Math.random(), type: type, x: x - 60, y: y - 50,
+        w: 120, h: inputs >= 3 ? 110 : 100,
+        inputs: new Array(inputs).fill(false), prevInputs: new Array(inputs).fill(false),
+        outputStates: new Array(outputs).fill(false)
+    });
+}
+
+function clearAll() { if(confirm("Clear All?")) { nodes = []; wires = []; } }
+
+function loop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.save();
+    ctx.translate(camera.x % (GRID_SIZE * camera.zoom), camera.y % (GRID_SIZE * camera.zoom));
+    ctx.beginPath(); ctx.strokeStyle = '#1a1a1a';
+    for(let x=0; x<canvas.width; x+=GRID_SIZE*camera.zoom) { ctx.moveTo(x,0); ctx.lineTo(x,canvas.height); }
+    for(let y=0; y<canvas.height; y+=GRID_SIZE*camera.zoom) { ctx.moveTo(0,y); ctx.lineTo(canvas.width,y); }
+    ctx.stroke(); ctx.restore();
+
+    ctx.save();
+    ctx.translate(camera.x, camera.y);
+    ctx.scale(camera.zoom, camera.zoom);
+
+    let tempIn = nodes.map(n => new Array(n.inputs.length).fill(false));
+    wires.forEach(w => {
+        const from = nodes.find(n => n.id === w.fromId), toIdx = nodes.findIndex(n => n.id === w.toId);
+        if(from && toIdx !== -1) tempIn[toIdx][w.toIdx] = from.outputStates[w.fromIdx];
+    });
+
+    nodes.forEach((n, idx) => {
+        const curIn = tempIn[idx];
+        const edge = (i) => curIn[i] && !n.prevInputs[i];
+        const a = curIn[0], b = curIn[1], c = curIn[2];
+        let q = n.outputStates[0];
+
+        if(n.type === 'LED') q = a;
+        else if(n.type.includes('AND')) q = a && b;
+        else if(n.type.includes('OR'))  q = a || b;
+        else if(n.type === 'NOT') q = !a;
+        else if(n.type.includes('XOR')) q = a !== b;
+        else if(n.type === 'RS-FF') { if(a) q = false; else if(b) q = true; }
+        else if(n.type === 'D-FF' && edge(1)) q = a;
+        else if(n.type === 'T-FF' && edge(0)) q = !q;
+        else if(n.type === 'JK-FF' && edge(1)) { if(a && c) q = !q; else if(a) q = true; else if(c) q = false; }
+        if(['NAND', 'NOR', 'XNOR'].includes(n.type)) q = !q;
+
+        n.outputStates[0] = q;
+        if(n.outputStates.length > 1) n.outputStates[1] = !q;
+        n.prevInputs = [...curIn]; n.inputs = curIn;
+
+        ctx.fillStyle = COL_BLOCK;
+        ctx.strokeStyle = (n.type === 'LED' && n.outputStates[0]) ? COL_ON : COL_BORDER;
+        ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.roundRect(n.x, n.y, n.w, n.h, 6); ctx.fill(); ctx.stroke();
+
+        const symW = n.w * 0.75, symH = n.h * 0.55;
+        const symX = n.x + (n.w - symW)/2 - (['NAND', 'NOR', 'NOT', 'XNOR'].includes(n.type) ? 5 : 0);
+        const symY = n.y + (n.h - symH)/2;
+        drawSymbol(ctx, n.type, symX, symY, symW, symH);
+
+        ctx.fillStyle = '#fff'; ctx.font = "bold 20px sans-serif"; ctx.textAlign = "center";
+        ctx.fillText(n.type, n.x + n.w/2, n.y + n.h/2 + 8);
+
+        const labels = TERMINAL_LABELS[n.type];
+        n.inputs.forEach((val, i) => {
+            const p = getInputPos(n, i);
+            ctx.fillStyle = val ? COL_ON : '#444';
+            ctx.beginPath(); ctx.arc(p.x, p.y, TERM_RADIUS, 0, Math.PI*2); ctx.fill();
+            if(labels) { ctx.fillStyle = '#aaa'; ctx.font = "bold 10px sans-serif"; ctx.textAlign = "left"; ctx.fillText(labels.in[i], p.x + 10, p.y + 4); }
+        });
+        n.outputStates.forEach((val, i) => {
+            const p = getOutputPos(n, i);
+            ctx.fillStyle = val ? COL_ON : '#444';
+            if(val) { ctx.shadowBlur = 10; ctx.shadowColor = COL_ON; }
+            ctx.beginPath(); ctx.arc(p.x, p.y, TERM_RADIUS, 0, Math.PI*2); ctx.fill();
+            ctx.shadowBlur = 0;
+            if(labels) { ctx.fillStyle = '#aaa'; ctx.font = "bold 10px sans-serif"; ctx.textAlign = "right"; ctx.fillText(labels.out[i], p.x - 10, p.y + 4); }
+        });
+    });
+
+    wires.forEach(w => {
+        const from = nodes.find(n => n.id === w.fromId), to = nodes.find(n => n.id === w.toId);
+        if(!from || !to) return;
+        const active = from.outputStates[w.fromIdx];
+        const p1 = getOutputPos(from, w.fromIdx), p2 = getInputPos(to, w.toIdx);
+        ctx.beginPath(); ctx.strokeStyle = active ? COL_ON : COL_WIRE_OFF; ctx.lineWidth = active ? 5 : 2;
+        ctx.moveTo(p1.x, p1.y); ctx.bezierCurveTo(p1.x + 50, p1.y, p2.x - 50, p2.y, p2.x, p2.y); ctx.stroke();
+    });
+
+    if(linkingFrom) {
+        const wM = screenToWorld(mousePos.x, mousePos.y);
+        const p1 = getOutputPos(linkingFrom.node, linkingFrom.outIdx);
+        ctx.beginPath(); ctx.strokeStyle = '#ff9800'; ctx.lineWidth = 2; ctx.setLineDash([5, 5]);
+        ctx.moveTo(p1.x, p1.y); ctx.lineTo(wM.x, wM.y); ctx.stroke(); ctx.setLineDash([]);
+    }
+    ctx.restore(); requestAnimationFrame(loop);
+}
+
+function exportJSON() {
+    const data = JSON.stringify({ nodes, wires, camera }, null, 2);
+    const blob = new Blob([data], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = `circuit_${Date.now()}.json`; a.click(); URL.revokeObjectURL(url);
+}
+function triggerImport() { document.getElementById('fileInput').click(); }
+function importJSON(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        try {
+            const d = JSON.parse(e.target.result);
+            nodes = d.nodes || []; wires = d.wires || []; camera = d.camera || { x: 0, y: 0, zoom: 1.0 };
+        } catch (err) { alert("Invalid JSON"); }
+    };
+    reader.readAsText(file);
+    event.target.value = "";
+}
+
+canvas.onmousedown = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const ex = e.clientX - rect.left;
+    const ey = e.clientY - rect.top;
+    const w = screenToWorld(ex, ey);
+
+    if (e.button === 2) {
+        // --- 修正箇所：配線の削除判定を追加 ---
+        const wireIdx = wires.findIndex(wr => {
+            const from = nodes.find(n => n.id === wr.fromId), to = nodes.find(n => n.id === wr.toId);
+            if(!from || !to) return false;
+            const p1 = getOutputPos(from, wr.fromIdx), p2 = getInputPos(to, wr.toIdx);
+            // ベジェ曲線の中間点付近で判定
+            const midX = (p1.x + p2.x) / 2, midY = (p1.y + p2.y) / 2;
+            return Math.hypot(w.x - midX, w.y - midY) < 20;
+        });
+        if(wireIdx !== -1) { wires.splice(wireIdx, 1); return; } // ★ここを確実に抜ける
+        // ------------------------------------
+
+        const hit = nodes.findIndex(n => w.x > n.x && w.x < n.x + n.w && w.y > n.y && w.y < n.y + n.h);
+        if(hit !== -1) {
+            const id = nodes[hit].id;
+            wires = wires.filter(wr => wr.fromId !== id && wr.toId !== id);
+            nodes.splice(hit, 1); return;
+        }
+        isPanning = true; lastMouse = { x: ex, y: ey }; return;
+    }
+    
+    for (let n of nodes) {
+        for (let i = 0; i < n.outputStates.length; i++) {
+            const p = getOutputPos(n, i);
+            if (Math.hypot(w.x - p.x, w.y - p.y) < HIT_RADIUS) { linkingFrom = { node: n, outIdx: i }; return; }
+        }
+        if (linkingFrom && linkingFrom.node !== n) {
+            for (let i = 0; i < n.inputs.length; i++) {
+                const p = getInputPos(n, i);
+                if (Math.hypot(w.x - p.x, w.y - p.y) < HIT_RADIUS) {
+                    wires = wires.filter(wr => !(wr.toId === n.id && wr.toIdx === i));
+                    wires.push({ fromId: linkingFrom.node.id, fromIdx: linkingFrom.outIdx, toId: n.id, toIdx: i });
+                    linkingFrom = null; return;
+                }
+            }
+        }
+    }
+
+    const hit = nodes.slice().reverse().find(n => w.x > n.x && w.x < n.x + n.w && w.y > n.y && w.y < n.y + n.h);
+    if(hit) {
+        if(hit.type === 'SWITCH' && e.shiftKey) hit.outputStates[0] = !hit.outputStates[0];
+        else { draggingNode = hit; nodeOffset = { x: w.x - hit.x, y: w.y - hit.y }; }
+    } else { linkingFrom = null; isPanning = true; lastMouse = { x: ex, y: ey }; }
+};
+
+canvas.onmousemove = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const ex = e.clientX - rect.left;
+    const ey = e.clientY - rect.top;
+    mousePos = { x: ex, y: ey };
+    if (isPanning) { camera.x += ex - lastMouse.x; camera.y += ey - lastMouse.y; lastMouse = { x: ex, y: ey }; }
+    else if(draggingNode) { 
+        const w = screenToWorld(ex, ey); 
+        draggingNode.x = snapToGrid(w.x - nodeOffset.x); 
+        draggingNode.y = snapToGrid(w.y - nodeOffset.y); 
+    }
+};
+
+canvas.onmouseup = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const ex = e.clientX - rect.left;
+    const ey = e.clientY - rect.top;
+
+    if(linkingFrom) {
+        const w = screenToWorld(ex, ey);
+        for(let n of nodes) {
+            if(n === linkingFrom.node) continue;
+            for(let i = 0; i < n.inputs.length; i++) {
+                const p = getInputPos(n, i);
+                if(Math.hypot(w.x - p.x, w.y - p.y) < HIT_RADIUS) {
+                    wires = wires.filter(wr => !(wr.toId === n.id && wr.toIdx === i));
+                    wires.push({ fromId: linkingFrom.node.id, fromIdx: linkingFrom.outIdx, toId: n.id, toIdx: i });
+                    linkingFrom = null; 
+                    draggingNode = null; isPanning = false;
+                    return;
+                }
+            }
+        }
+    }
+    draggingNode = null; isPanning = false;
+};
+
+canvas.onwheel = (e) => {
+    e.preventDefault(); const factor = Math.pow(1.1, -e.deltaY / 120);
+    const rect = canvas.getBoundingClientRect();
+    const ex = e.clientX - rect.left;
+    const ey = e.clientY - rect.top;
+    const mB = screenToWorld(ex, ey);
+    camera.zoom = Math.max(0.2, Math.min(3, camera.zoom * factor));
+    const mA = screenToWorld(ex, ey);
+    camera.x += (mA.x - mB.x) * camera.zoom; camera.y += (mA.y - mB.y) * camera.zoom;
+};
+canvas.oncontextmenu = (e) => e.preventDefault();
+
+window.onbeforeunload = (e) => {
+    if (nodes.length > 0) {
+        e.preventDefault();
+        e.returnValue = ''; 
+    }
+};
+
+loop();
+</script>
+
+</body>
+</html>

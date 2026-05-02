@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<title>消費電力量・熱量・電気代計算機 | J / Wh / kWh 相互計算 | はるツール</title>
+<meta name="description" content="電力(W/kW)と時間から、電力量(Wh/kWh)、熱量(J)、および概算電気代を同時に計算します。秒・分・時間・日の単位選択に対応。インストール不要、スマホ対応、プライバシー重視の安全設計。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --accent-color: #e74c3c;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --border-color: #e1e4e8;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 入力グループ */
+.input-group { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 10px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-group label { flex: 1; font-weight: bold; font-size: 0.9em; text-align: right; }
+
+input[type="number"], select {
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+input[type="number"] { flex: 2; min-width: 100px; }
+select { flex: 1; background-color: #fff; cursor: pointer; min-width: 100px; }
+
+/* プレビューエリア（結果表示として利用） */
+.result-display {
+    background: #fffafa;
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.res-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+.res-item:last-child { border-bottom: none; }
+.res-label { font-size: 0.85em; color: #666; font-weight: bold; }
+.res-val { font-size: 1.6rem; font-weight: bold; color: var(--accent-color); }
+.res-unit { font-size: 0.9rem; margin-left: 5px; color: var(--text-main); }
+
+/* 電気代の強調表示用 */
+.res-cost { color: var(--success); }
+
+
+
+.btn-reset {
+  background: #eee;
+  color: #333;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+    .input-group { flex-direction: column; align-items: stretch; }
+    .input-group label { text-align: left; }
+    .res-item { flex-direction: column; align-items: flex-start; }
+    .res-val { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>消費電力量・熱量・電気代計算機</h1>
+    <p class="tagline">電力と使用時間からジュール(J)・ワット時(Wh)・電気代を瞬時に算出</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <div class="main-card">
+    <div id="tool-ui">
+        <div class="input-group">
+            <label>電力</label>
+            <input type="number" id="pVal" placeholder="例: 100" oninput="calc()" min="0">
+            <select id="pUnit" onchange="calc()">
+                <option value="w" selected>W (ワット)</option>
+                <option value="kw">kW (キロワット)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>使用時間</label>
+            <input type="number" id="tVal" step="any" placeholder="例: 1" oninput="calc()" min="0">
+            <select id="tUnit" onchange="calc()">
+                <option value="s">秒 (s)</option>
+                <option value="m">分 (m)</option>
+                <option value="h" selected>時間 (h)</option>
+                <option value="d">日 (d)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>電気代単価</label>
+            <input type="number" id="unitPrice" placeholder="例: 31" value="31" oninput="calc()" min="0">
+            <div style="flex: 1; text-align: left; font-size: 0.9em;">円/kWh</div>
+        </div>
+        <button class="btn-reset" onclick="resetAll()">クリア</button>
+    </div>
+
+    <div class="result-display" id="res-box">
+        <div class="res-item">
+            <span class="res-label">熱量 (J / ジュール)</span>
+            <span><span class="res-val" id="resJ">0</span><span class="res-unit">J</span></span>
+        </div>
+        <div class="res-item">
+            <span class="res-label">電力量 (Wh / ワット時)</span>
+            <span><span class="res-val" id="resWh">0</span><span class="res-unit">Wh</span></span>
+        </div>
+        <div class="res-item">
+            <span class="res-label">電力量 (kWh / キロワット時)</span>
+            <span><span class="res-val" id="resKWh">0</span><span class="res-unit">kWh</span></span>
+        </div>
+        <div class="res-item" style="border-top: 2px solid #eee; margin-top: 5px;">
+            <span class="res-label">概算電気代</span>
+            <span><span class="res-val res-cost" id="resCost">0</span><span class="res-unit">円</span></span>
+        </div>
+    </div>
+<div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>計算結果に関するご注意</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>本ツールの計算結果は入力された電力値を元にした概算です。実際の電気代には基本料金や燃料費調整額、再エネ賦課金などが加算されるため、電力会社の請求額とは異なります。</li>
+        <li>熱量計算においては、周囲の温度環境や機器の熱効率、放熱ロス等の影響により、理論上の算出値と実際の発生熱量が乖離する場合があります。</li>
+        <li>本ツールの計算結果（電気代の試算等）に基づいて発生したいかなる損失や損害についても、当サイトは一切の責任を負いません。家計の試算や設備の計画にあたっては、目安としてご利用いただき、最終的な判断は自己責任にてお願いいたします。</li>
+    </ul>
+</div>
+  </div>
+  
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <article class="info-section">
+    <h2>消費電力量・熱量・電気代計算機とは？</h2>
+    <p>電化製品の消費電力（W）と使用時間から、エネルギー量である「熱量（J）」や「電力量（Wh/kWh）」、さらに「電気代」をまとめて計算できるツールです。家電の節電対策や、理科の学習、電気料金のシミュレーションにご活用ください。</p>
+
+    <h3>単位の定義と計算式</h3>
+    <ul>
+        <li><strong>ジュール (J)：</strong> 1Wの電力を1秒間消費したときのエネルギー量です。</li>
+        <li><strong>ワット時 (Wh)：</strong> 1Wの電力を1時間消費したときのエネルギー量です。</li>
+        <li><strong>キロワット時 (kWh)：</strong> 1,000Whに相当し、一般的な電気料金の基本単位です。</li>
+        <li><strong>電気代：</strong> 電力量(kWh) × 電気代単価(円/kWh) で計算されます。本ツールでは任意の単価を設定可能です。</li>
+    </ul>
+    <p><strong>豆知識：</strong> 1Whは3,600Jに相当します。これは1時間が3,600秒であるためです。</p>
+
+    <h3>このツールの特徴</h3>
+    <ul>
+      <li><strong>電気代を同時算出：</strong> 電力量だけでなく、現在の電気代単価に基づいた費用を即座に確認できます。</li>
+      <li><strong>完全無料：</strong> すべての機能を無料でご利用いただけます。</li>
+      <li><strong>登録不要：</strong> 面倒な会員登録やログインの手間はありません。</li>
+      <li><strong>安全設計：</strong> データはブラウザ内で処理されるため、入力した値がサーバーに送信されることはありません。</li>
+    </ul>
+
+    <h2>使い方の手順</h2>
+    <ol>
+      <li>「電力」の欄に数値を入力し、単位（W または kW）を選択します。</li>
+      <li>「使用時間」の欄に数値を入力し、単位（秒・分・時間・日）を選択します。</li>
+      <li>「電気代単価」を入力します（初期値は目安となる31円に設定されています）。</li>
+      <li>入力に合わせて、熱量(J)・電力量(Wh/kWh)・概算電気代がリアルタイムで自動更新されます。</li>
+    </ol>
+
+    <h2>よくある質問（FAQ）</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. 電気代単価はいくらで計算すれば良いですか？</span>
+      <p>A. 現在、公益社団法人 全国家庭電気製品公正取引協議会が定める目安単価は「31円/kWh（税込）」です。ご契約中の電力会社のマイページや検針票を確認すると、より正確な計算が可能です。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. 1kWhはどれくらいの電気量ですか？</span>
+      <p>A. 1000Wの家電を1時間使用した際の量が1kWhです。例えば、1000Wのドライヤーを毎日1時間使うと、1ヶ月で約30kWhとなり、電気代は約930円（単価31円の場合）となります。</p>
+    </div>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <footer> &copy; 2026 はるツール | <a href="terms.html" style="color:#999;">利用規約</a> | <a href="privacy.html" style="color:#999;">プライバシーポリシー</a> </footer>
+</div>
+
+<script>
+    function calc() {
+        const pInput = parseFloat(document.getElementById('pVal').value);
+        const pUnit = document.getElementById('pUnit').value;
+        const tInput = parseFloat(document.getElementById('tVal').value);
+        const tUnit = document.getElementById('tUnit').value;
+        const priceInput = parseFloat(document.getElementById('unitPrice').value);
+
+        if (!isNaN(pInput) && !isNaN(tInput)) {
+            // 電力を「W」に統一
+            let watts = (pUnit === 'kw') ? pInput * 1000 : pInput;
+
+            // 時間を「秒(s)」に統一してジュールを計算
+            let seconds = tInput;
+            switch (tUnit) {
+                case 'm': seconds = tInput * 60; break;
+                case 'h': seconds = tInput * 3600; break;
+                case 'd': seconds = tInput * 86400; break;
+            }
+
+            const joules = watts * seconds;
+            const wh = joules / 3600;
+            const kwh = wh / 1000;
+
+            document.getElementById('resJ').innerText = formatNum(joules);
+            document.getElementById('resWh').innerText = formatNum(wh);
+            document.getElementById('resKWh').innerText = formatNum(kwh);
+            
+            // 電気代の計算
+            if (!isNaN(priceInput)) {
+                const cost = kwh * priceInput;
+                document.getElementById('resCost').innerText = formatNum(cost);
+            } else {
+                document.getElementById('resCost').innerText = "0";
+            }
+            
+            document.getElementById('res-box').style.borderColor = "var(--primary)";
+        } else {
+            // 入力が不完全な場合はリセット
+            document.getElementById('resJ').innerText = "0";
+            document.getElementById('resWh').innerText = "0";
+            document.getElementById('resKWh').innerText = "0";
+            document.getElementById('resCost').innerText = "0";
+            document.getElementById('res-box').style.borderColor = "#ddd";
+        }
+    }
+
+    function formatNum(num) {
+        if (num === 0) return "0";
+        // 桁数が多い場合はカンマ区切り、小数点第4位まで
+        return parseFloat(num.toFixed(4)).toLocaleString();
+    }
+
+    function resetAll() {
+        document.getElementById('pVal').value = '';
+        document.getElementById('tVal').value = '';
+        document.getElementById('unitPrice').value = '31';
+        document.getElementById('resJ').innerText = "0";
+        document.getElementById('resWh').innerText = "0";
+        document.getElementById('resKWh').innerText = "0";
+        document.getElementById('resCost').innerText = "0";
+        document.getElementById('res-box').style.borderColor = "#ddd";
+    }
+</script>
+
+</body>
+</html>
