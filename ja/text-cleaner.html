@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO設定：ツールに合わせてここを書き換え -->
+<title>改行・空白・指定文字削除ツール｜テキスト整形・一括消去｜はるツール</title>
+<meta name="description" content="文章内の改行、半角・全角スペース、または指定した特定の文字を一括で削除・消去できる無料ツールです。ブラウザ完結型で安全。テキストを一行にまとめたり、不要な記号を掃除したりする作業を効率化します。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* テキストエリアとコントロール */
+textarea {
+  width: 100%;
+  height: 250px;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 20px;
+}
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input-char {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 180px;
+}
+
+.btn-action {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-action:hover { background: var(--primary-hover); }
+
+.btn-copy {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>改行・指定文字削除ツール</h1>
+    <p class="tagline">不要な改行やスペース、特定の文字を一括で消去してテキストを整形</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <main class="main-card">
+    <textarea id="textArea" placeholder="ここに文章を入力してください..."></textarea>
+
+    <div class="controls">
+        <button class="btn-action" onclick="removeNewLines()">改行を削除</button>
+        <button class="btn-action" onclick="removeSpaces()">空白を削除</button>
+    </div>
+
+    <div class="controls" style="border-top: 1px solid #eee; pt: 20px; padding-top: 20px;">
+        <input type="text" id="targetChar" class="input-char" placeholder="削除したい文字を入力">
+        <button class="btn-action" onclick="removeSpecificChar()">指定文字を削除</button>
+        <button class="btn-copy" onclick="copyResult()">結果をコピー</button>
+    </div>
+  </main>
+  
+  <!-- 広告枠：中部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>改行・指定文字削除ツールとは？</h2>
+    <p>改行・指定文字削除ツールは、ブラウザ上でテキストに含まれる不要な要素をワンクリックで取り除くことができる整形ツールです。PDFからコピーした際の不自然な改行の修正や、データのリストから特定の記号を一括削除したい時に非常に便利です。</p>
+
+    <h3>このツールの特徴</h3>
+    <ul>
+      <li><strong>一括改行削除：</strong> 複数行にわたる文章を、空白なしの「一行」にまとめます。</li>
+      <li><strong>空白（スペース）除去：</strong> 半角スペースだけでなく、全角スペースも同時に削除可能です。</li>
+      <li><strong>自由な文字指定：</strong> カンマやタブ、特定のキーワードなど、消したい文字を自由に指定して消去できます。</li>
+      <li><strong>安心のセキュリティ：</strong> 入力された文章はサーバーに保存されません。すべてブラウザ内の処理で完結します。</li>
+    </ul>
+
+    <h2>使い方の手順</h2>
+    <ol>
+      <li>上のテキストエリアに対象の文章を貼り付けます。</li>
+      <li>目的に合わせて「改行を削除」または「空白を削除」ボタンを押します。</li>
+      <li>特定の文字（例：★ や 、）を消したい場合は、入力欄にその文字を入れてから「指定文字を削除」を押します。</li>
+      <li>整形されたテキストを「結果をコピー」で取得します。</li>
+    </ol>
+
+    <h2>よくある質問（FAQ）</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. 改行を削除しても、単語間のスペースは残りますか？</span>
+      <p>A. 「改行を削除」ボタンは改行コードのみを消去します。スペースも同時に消したい場合は、続けて「空白を削除」ボタンを押してください。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. 複数の文字を一度に指定して削除できますか？</span>
+      <p>A. 現在の仕様では、入力欄に入力された「一連の文字列」を一つの対象として探して削除します。</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. スマホからでも利用できますか？</span>
+      <p>A. はい、スマホやタブレットのブラウザでも動作するように設計されています。</p>
+    </div>
+  </article>
+
+  <!-- 広告枠：下部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>ここに広告タグ</div>
+  </div>
+
+ <footer> &copy; 2026 はるツール | <a href="terms.html" style="color:#999;">利用規約</a> | <a href="privacy.html" style="color:#999;">プライバシーポリシー</a> </footer>
+</div>
+
+<script>
+function removeNewLines() {
+    const area = document.getElementById('textArea');
+    area.value = area.value.replace(/\r?\n/g, '');
+}
+
+function removeSpaces() {
+    const area = document.getElementById('textArea');
+    area.value = area.value.replace(/[ 　]/g, '');
+}
+
+function removeSpecificChar() {
+    const area = document.getElementById('textArea');
+    const target = document.getElementById('targetChar').value;
+    if (target) {
+        // エスケープ処理をせずにそのまま置換（リテラルとして扱う）
+        const escapedTarget = target.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(escapedTarget, 'g');
+        area.value = area.value.replace(regex, '');
+    }
+}
+
+function copyResult() {
+    const area = document.getElementById('textArea');
+    area.select();
+    document.execCommand('copy');
+    alert('コピーしました！');
+}
+</script>
+
+</body>
+</html>
