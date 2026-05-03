@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO Settings -->
+<title>Character Counter | Real-time Word Count & Full-width Space Checker | HaruTools Lab</title>
+<meta name="description" content="Count characters in your text in real-time. Automatically calculates character counts with/without spaces, line counts, and manuscript pages. Ideal for checking full-width spaces and meeting limits for reports or SNS. Private and browser-based.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Main Area */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Character Counter Styles */
+textarea {
+  width: 100%;
+  height: 300px;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.counter-item {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+.counter-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-sub);
+}
+.counter-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* Drop Area Style */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+
+/* Info Section */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab | Free Online Utility Tools
+    </a>
+  </div>
+    <h1>Character Counter</h1>
+    <p class="tagline">Instantly measure characters, lines, and spaces as you type.</p>
+  </header>
+
+  <!-- Ad Slot: Top -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area">
+      <textarea id="main-input" placeholder="Type or paste your text here..."></textarea>
+    </div>
+
+    <div class="counter-grid">
+      <div class="counter-item">
+        <span class="counter-label">Total Characters</span>
+        <span id="count-all" class="counter-value">0</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-label">Chars (No Spaces)</span>
+        <span id="count-no-space" class="counter-value">0</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-label">Full-width Spaces</span>
+        <span id="count-full-width-space" class="counter-value">0</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-label">Lines</span>
+        <span id="count-lines" class="counter-value">0</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-label">Manuscript Pages</span>
+        <span id="count-paper" class="counter-value">0</span>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Ad Slot: Middle -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
+  </div>
+
+  <!-- SEO Content -->
+  <article class="info-section">
+    <h2>What is Character Counter?</h2>
+    <p>Character Counter is a free online tool that lets you quickly measure text length directly in your browser. It's perfect for drafting reports, writing blog posts, checking SNS post limits (like Twitter/X), and even <strong>detecting hidden full-width spaces</strong> that often cause errors in programming or data entry.</p>
+
+    <h3>Key Features</h3>
+    <ul>
+      <li><strong>Real-time Measurement:</strong> Every keystroke updates all values instantly.</li>
+      <li><strong>Full-width Space Detection:</strong> Specifically identifies and counts hard-to-find full-width spaces.</li>
+      <li><strong>Privacy-Focused:</strong> Your text is never sent to a server. Everything happens locally in your browser, making it safe for confidential drafts.</li>
+      <li><strong>No Installation Required:</strong> Works seamlessly on PC, smartphones, and tablets via any modern browser.</li>
+    </ul>
+
+    <h2>How to Use</h2>
+    <ol>
+      <li>Type or paste the text you want to count into the central text area.</li>
+      <li>The "Total Characters," "Characters without spaces," "Full-width spaces," "Lines," and "Manuscript Pages (400 chars)" will be calculated automatically.</li>
+      <li>If needed, drag the bottom-right corner of the text area to resize it.</li>
+    </ol>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. Are punctuation marks and line breaks counted as characters?</span>
+      <p>A. Yes. In "Total Characters," line breaks and punctuation are counted as 1 character each. In "Chars (No Spaces)," line breaks and all types of spaces are excluded.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Why is there a count for full-width spaces?</span>
+      <p>A. In coding, accidental full-width spaces can break the program. It is also useful for checking documents where specific character encoding is required.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Is there a character limit for the input?</span>
+      <p>A. It depends on your browser's memory, but it handles typical reports and novels up to tens of thousands of characters without any issues.</p>
+    </div>
+
+<h3>Related Tools</h3>
+    <ul>
+      <li><a href="text-search.html">Text Search Tool</a></li>
+      <li><a href="json-xml-format.html">JSON/XML Formatter</a></li>
+      <li><a href="text-cleaner.html">Line Break & Character Remover</a></li>
+      <li><a href="special-characters.html">Special Characters List</a></li>
+    </ul>
+  </article>
+
+  <!-- Ad Slot: Bottom -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Your Ad Code Here</div>
+  </div>
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Use</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+</div>
+
+<script>
+const textArea = document.getElementById('main-input');
+const countAll = document.getElementById('count-all');
+const countNoSpace = document.getElementById('count-no-space');
+const countFullWidthSpace = document.getElementById('count-full-width-space');
+const countLines = document.getElementById('count-lines');
+const countPaper = document.getElementById('count-paper');
+
+textArea.addEventListener('input', () => {
+    const val = textArea.value;
+    
+    // Total Character Count
+    countAll.textContent = val.length;
+    
+    // Character Count (excluding spaces and line breaks)
+    const noSpace = val.replace(/\s+/g, '');
+    countNoSpace.textContent = noSpace.length;
+    
+    // Full-width Space Count
+    const fullWidthSpaces = (val.match(/　/g) || []).length;
+    countFullWidthSpace.textContent = fullWidthSpaces;
+    
+    // Line Count
+    const lines = val.length > 0 ? val.split(/\r\n|\r|\n/).length : 0;
+    countLines.textContent = lines;
+    
+    // Manuscript Pages (approx. 400 chars per page)
+    const paper = Math.ceil(val.length / 400);
+    countPaper.textContent = paper;
+});
+</script>
+
+</body>
+</html>

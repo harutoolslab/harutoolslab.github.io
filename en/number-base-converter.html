@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO Settings -->
+<title>Number Base Converter | Free Online Multi-Base Calculator | HaruTools Lab</title>
+<meta name="description" content="Convert between Binary, Octal, Decimal, and Hexadecimal in real-time. A convenient tool for programming and computer science. No installation required, mobile-friendly, and privacy-focused design.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Main Card */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Input Grid */
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: left;
+}
+@media (max-width: 600px) { .input-grid { grid-template-columns: 1fr; } }
+
+.input-group { margin-bottom: 5px; }
+label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; color: #475569; }
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fcfcff;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+.error { border-color: #ef4444 !important; background: #fef2f2; }
+
+/* SEO Section */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.formula {
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: monospace;
+    display: block;
+    margin: 10px 0;
+}
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab | Free Online Utility Tools
+    </a>
+  </div>
+    <h1>Multi-Base Number Converter</h1>
+    <p class="tagline">Real-time conversion between Binary, Octal, Decimal, and Hexadecimal</p>
+  </header>
+
+  <!-- Ad Slot: Top -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
+  </div>
+
+  <div class="main-card">
+    <div class="input-grid">
+        <div class="input-group">
+            <label for="dec">Decimal (Base 10)</label>
+            <input type="text" id="dec" placeholder="0-9" oninput="convert(this, 10)">
+        </div>
+        <div class="input-group">
+            <label for="bin">Binary (Base 2)</label>
+            <input type="text" id="bin" placeholder="0, 1" oninput="convert(this, 2)">
+        </div>
+        <div class="input-group">
+            <label for="oct">Octal (Base 8)</label>
+            <input type="text" id="oct" placeholder="0-7" oninput="convert(this, 8)">
+        </div>
+        <div class="input-group">
+            <label for="hex">Hexadecimal (Base 16)</label>
+            <input type="text" id="hex" placeholder="0-F" oninput="convert(this, 16)">
+        </div>
+    </div>
+    <button onclick="clearAll()" style="width:100%; margin-top:25px; background:none; border:none; color:#94a3b8; cursor:pointer; font-size:0.85rem; text-decoration: underline;">Reset all inputs</button>
+  </div>
+
+  <!-- Ad Slot: Middle -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
+  </div>
+
+  <!-- SEO Content -->
+  <article class="info-section">
+    <h2>What is Number Base Conversion?</h2>
+    <p>Number base conversion is the process of expressing a value using a different radix (Base). While we use Decimal (Base 10) in daily life, computers primarily use Binary (Base 2) consisting of "0" and "1", or Hexadecimal (Base 16) for better readability. This tool converts your input into all other bases in real-time.</p>
+
+    <h3>Characteristics and Uses of Each Base</h3>
+    <ul>
+        <li><strong>Binary (Base 2):</strong> The fundamental language of computers. Manages ON/OFF states.</li>
+        <li><strong>Octal (Base 8):</strong> Represents 3 binary digits with 1 digit. Often used in file permission settings.</li>
+        <li><strong>Decimal (Base 10):</strong> The standard system used by humans globally.</li>
+        <li><strong>Hexadecimal (Base 16):</strong> Represents 4 binary digits with 1 digit. Ideal for color codes and memory addresses.</li>
+    </ul>
+
+    <h2>Calculation Logic</h2>
+    <h3>Converting from Base-n to Decimal</h3>
+    <p>Multiply each digit by the "weight" (the base raised to the power of the position) and sum them up.</p>
+    <span class="formula">Example (Binary 1011): (1 × 2³) + (0 × 2²) + (1 × 2¹) + (1 × 2⁰) = 8 + 0 + 2 + 1 = 11</span>
+
+    <h3>Converting from Decimal to Base-n</h3>
+    <p>Repeatedly divide the decimal number by the target base and list the "remainders" in reverse order.</p>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. What do A through F mean in Hexadecimal?</span>
+      <p>A. They represent A=10, B=11, C=12, D=13, E=14, and F=15. Letters are used to represent values of 10 or greater with a single digit.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Does it support large numbers?</span>
+      <p>A. It can calculate accurately within the range of JavaScript's safe integer limit (Number.MAX_SAFE_INTEGER). For extremely large values, precision may decrease.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Is there any cost to use this tool?</span>
+      <p>A. No, all tools on our site are completely free. We are supported by advertisements, so there are no hidden fees.</p>
+    </div>
+    <div class="faq-item">
+        <span class="faq-q">Q. Is my data saved on the server?</span>
+        <p>A. No, all calculations are performed locally in your browser. No data is sent to or stored on our servers, ensuring your privacy.</p>
+    </div>
+<h3>Related Tools</h3>
+    <ul>
+      <li><a href="time-calc.html">Hybrid Time/Value Calculator</a></li>
+    </ul>
+  </article>
+
+  <!-- Ad Slot: Bottom -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+</div>
+
+<script>
+    function convert(el, base) {
+        const val = el.value.trim();
+        const inputs = {
+            10: document.getElementById('dec'),
+            2: document.getElementById('bin'),
+            8: document.getElementById('oct'),
+            16: document.getElementById('hex')
+        };
+
+        if (val === "") {
+            Object.values(inputs).forEach(input => {
+                input.value = "";
+                input.classList.remove('error');
+            });
+            return;
+        }
+
+        try {
+            // Regex for input validation
+            const regex = {
+                2: /^[01]+$/,
+                8: /^[0-7]+$/,
+                10: /^[0-9]+$/,
+                16: /^[0-9a-fA-F]+$/
+            };
+
+            if (!regex[base].test(val)) {
+                el.classList.add('error');
+                return;
+            }
+
+            const num = parseInt(val, base);
+
+            if (isNaN(num)) {
+                el.classList.add('error');
+                return;
+            }
+
+            // Remove errors and update values for all fields
+            Object.keys(inputs).forEach(key => {
+                inputs[key].classList.remove('error');
+                if (key != base) {
+                    inputs[key].value = num.toString(key).toUpperCase();
+                }
+            });
+        } catch (e) {
+            el.classList.add('error');
+        }
+    }
+
+    function clearAll() {
+        ['dec', 'bin', 'oct', 'hex'].forEach(id => {
+            const el = document.getElementById(id);
+            el.value = "";
+            el.classList.remove('error');
+        });
+    }
+</script>
+
+</body>
+</html>

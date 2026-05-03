@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO Settings -->
+<title>Line Break & Character Remover | Text Formatter & Cleaner | HaruTools Lab</title>
+<meta name="description" content="Free online tool to remove line breaks, spaces, or specific characters from your text. Perfect for cleaning up text copied from PDFs or formatting data into a single line. Safe and browser-based.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Tool Main Area */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Textarea and Controls */
+textarea {
+  width: 100%;
+  height: 250px;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 20px;
+}
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input-char {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 180px;
+}
+
+.btn-action {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-action:hover { background: var(--primary-hover); }
+
+.btn-copy {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Info Section */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab | Free Online Tools
+    </a>
+  </div>
+    <h1>Text Cleaner & Remover</h1>
+    <p class="tagline">Remove unwanted line breaks, spaces, or specific characters to clean up your text.</p>
+  </header>
+
+  <!-- Ad Slot: Top -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
+  </div>
+
+  <main class="main-card">
+    <textarea id="textArea" placeholder="Paste your text here..."></textarea>
+
+    <div class="controls">
+        <button class="btn-action" onclick="removeNewLines()">Remove Line Breaks</button>
+        <button class="btn-action" onclick="removeSpaces()">Remove Spaces</button>
+    </div>
+
+    <div class="controls" style="border-top: 1px solid #eee; padding-top: 20px;">
+        <input type="text" id="targetChar" class="input-char" placeholder="Enter characters to remove">
+        <button class="btn-action" onclick="removeSpecificChar()">Remove Specific Text</button>
+        <button class="btn-copy" onclick="copyResult()">Copy Result</button>
+    </div>
+  </main>
+  
+  <!-- Ad Slot: Middle -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
+  </div>
+
+  <!-- SEO Content -->
+  <article class="info-section">
+    <h2>What is the Text Cleaner & Remover?</h2>
+    <p>This tool is a browser-based text utility that allows you to remove unwanted elements from your text with one click. It is especially useful for fixing broken line breaks when copying from PDFs or batch-deleting specific symbols from data lists.</p>
+
+    <h3>Main Features</h3>
+    <ul>
+      <li><strong>Batch Line Break Removal:</strong> Instantly convert multi-line text into a single continuous line.</li>
+      <li><strong>Space Removal:</strong> Removes all types of spaces (including half-width and full-width) from your text.</li>
+      <li><strong>Custom Character Removal:</strong> Define any string, such as commas, tabs, or specific symbols, to be removed entirely.</li>
+      <li><strong>Privacy Focused:</strong> Your text is never sent to a server. All processing happens locally within your browser.</li>
+    </ul>
+
+    <h2>How to Use</h2>
+    <ol>
+      <li>Paste your text into the textarea above.</li>
+      <li>Click "Remove Line Breaks" or "Remove Spaces" depending on your needs.</li>
+      <li>To remove specific characters (e.g., symbols like * or ,), enter them in the input field and click "Remove Specific Text".</li>
+      <li>Click "Copy Result" to get your cleaned text.</li>
+    </ol>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. Will spaces between words be preserved if I remove line breaks?</span>
+      <p>A. The "Remove Line Breaks" button only removes new line codes. If you want to remove spaces as well, please click the "Remove Spaces" button afterwards.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Can I remove multiple different characters at once?</span>
+      <p>A. Currently, the tool removes the exact string entered in the input field as a single target.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Can I use this on a smartphone?</span>
+      <p>A. Yes, the tool is designed to work seamlessly on mobile and tablet browsers.</p>
+    </div>
+<h3>Related Tools</h3>
+    <ul>
+      <li><a href="character-count.html">Character Counter</a></li>
+      <li><a href="text-search.html">Text Search Tool</a></li>
+      <li><a href="json-xml-format.html">JSON/XML Formatter</a></li>
+      <li><a href="special-characters.html">Special Character List</a></li>
+    </ul>
+  </article>
+
+  <!-- Ad Slot: Bottom -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
+  </div>
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Use</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+</div>
+
+<script>
+function removeNewLines() {
+    const area = document.getElementById('textArea');
+    area.value = area.value.replace(/\r?\n/g, '');
+}
+
+function removeSpaces() {
+    const area = document.getElementById('textArea');
+    area.value = area.value.replace(/[ 　]/g, '');
+}
+
+function removeSpecificChar() {
+    const area = document.getElementById('textArea');
+    const target = document.getElementById('targetChar').value;
+    if (target) {
+        // Replace without escaping (treat as literal)
+        const escapedTarget = target.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(escapedTarget, 'g');
+        area.value = area.value.replace(regex, '');
+    }
+}
+
+function copyResult() {
+    const area = document.getElementById('textArea');
+    area.select();
+    document.execCommand('copy');
+    alert('Copied to clipboard!');
+}
+</script>
+
+</body>
+</html>

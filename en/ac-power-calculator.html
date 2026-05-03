@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO Settings -->
+<title>AC Power Calculator | Apparent, Active, Reactive Power & Power Factor</title>
+<meta name="description" content="A multi-functional calculator for AC power circuits. Calculate Voltage, Current, Real Power (W), Reactive Power (var), Apparent Power (VA), and Power Factor with visual vector diagrams.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --error: #ef4444;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Main Grid */
+.main-grid { display: grid; grid-template-columns: 400px 1fr; gap: 25px; align-items: start; }
+@media (max-width: 1000px) { .main-grid { grid-template-columns: 1fr; } }
+
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+/* Guide */
+.usage-guide { background: #eef2ff; border-left: 5px solid var(--primary); padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: left; }
+.usage-guide h3 { margin-top: 0; font-size: 0.95rem; color: var(--primary); }
+.usage-guide ul { margin: 0; padding-left: 18px; font-size: 0.85rem; color: #444; }
+
+/* Input Area */
+.input-row { display: grid; grid-template-columns: 120px 1fr 80px; align-items: center; gap: 10px; margin-bottom: 12px; text-align: left; }
+label { font-size: 0.85rem; font-weight: 700; color: #555; }
+input { padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; width: 100%; box-sizing: border-box; }
+input:focus { border-color: var(--primary); outline: none; background: #fdfdff; }
+select { padding: 8px; border-radius: 8px; border: 1px solid #ddd; background: white; font-size: 0.85rem; }
+
+#error-msg { background: #fef2f2; color: var(--error); padding: 12px; border-radius: 8px; margin-bottom: 15px; font-size: 0.8rem; border: 1px solid #fee2e2; display: none; text-align: left; }
+
+.btn-calc { width: 100%; padding: 16px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: 0.2s; margin-top: 10px; }
+.btn-calc:hover { background: var(--primary-hover); }
+
+/* Canvas Container */
+.canvas-container { background: white; border-radius: var(--radius); border: 1px solid #ddd; height: 600px; overflow: hidden; box-shadow: var(--shadow); }
+#power-canvas { width: 100%; height: 100%; }
+
+/* Info Section */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.formula-box { background: #f8fafc; padding: 20px; border-radius: 12px; text-align: center; margin: 20px 0; overflow-x: auto; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab | Online Utility Tools
+    </a>
+  </div>
+    <h1>AC Power Multi-Calculator</h1>
+    <p class="tagline">Automatic calculation of Active, Reactive, Apparent Power, and Power Factor</p>
+  </header>
+
+  <!-- Ad Slot: Top -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Ad Tag Here</div>
+  </div>
+
+  <div class="main-grid">
+    <section>
+        <div class="main-card">
+            <div class="usage-guide">
+                <h3>Input Rules</h3>
+                <ul>
+                    <li>Enter <strong>any two</strong> of Voltage, Current, or Apparent Power.</li>
+                    <li>Enter <strong>any two</strong> of Apparent, Active, or Reactive Power.</li>
+                    <li>A warning will appear if the inputs are physically contradictory.</li>
+                </ul>
+            </div>
+
+            <div id="error-msg">⚠️ Inconsistent input values. Please check your settings.</div>
+
+            <div class="input-row">
+                <label>Voltage (V)</label>
+                <input type="number" id="v_val" step="any" placeholder="RMS">
+                <select id="v_unit"><option value="1">V</option><option value="1000">kV</option></select>
+            </div>
+            <div class="input-row">
+                <label>Current (I)</label>
+                <input type="number" id="i_val" step="any">
+                <span>[A]</span>
+            </div>
+            <div class="input-row">
+                <label>Power Factor (cosθ)</label>
+                <input type="number" id="pf_input_val" step="0.01" placeholder="0.0 to 1.0">
+                <span>[-]</span>
+            </div>
+            <div class="input-row">
+                <label>Apparent (S)</label>
+                <input type="number" id="s_val" step="any">
+                <span>[VA]</span>
+            </div>
+            <div class="input-row">
+                <label>Active (P)</label>
+                <input type="number" id="p_val" step="any">
+                <span>[W]</span>
+            </div>
+            <div class="input-row">
+                <label>Reactive (Q)</label>
+                <input type="number" id="q_val" step="any">
+                <span>[var]</span>
+            </div>
+            <div class="input-row">
+                <label>Phase Angle (θ)</label>
+                <input type="number" id="theta_val" step="any">
+                <select id="theta_unit"><option value="deg">deg (°)</option><option value="rad">rad</option></select>
+            </div>
+
+            <button class="btn-calc" onclick="solve()">Calculate</button>
+            <button onclick="location.reload()" style="width:100%; margin-top:10px; border:none; background:none; color:#94a3b8; cursor:pointer; font-size:0.8rem; text-decoration: underline;">Reset</button>
+
+            <!-- ★Disclaimer Section -->
+            <div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>Calculation Notice</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>This tool calculates theoretical values based on pure sine waves and ideal circuit models. Real-world values may differ due to harmonics or instrument specifications.</li>
+        <li>Minor rounding errors may occur due to floating-point arithmetic.</li>
+        <li>We assume no responsibility for any loss or damage resulting from the use of this tool. For professional designs or safety-critical decisions, please consult a qualified expert.</li>
+    </ul>
+</div>
+
+            <div style="margin-top:20px; text-align:center; padding:15px; background:#f8fafc; border-radius:10px; border:1px solid #e2e8f0;">
+                <span style="font-size:0.8rem; color:#64748b;">Calculated Power Factor</span><br>
+                <span id="out_pf" style="font-size:1.8rem; font-weight:bold; color:var(--primary); font-family:monospace;">---</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="canvas-container">
+        <canvas id="power-canvas"></canvas>
+    </section>
+  </div>
+
+  <!-- Ad Slot: Middle -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Ad Tag Here</div>
+  </div>
+
+  <!-- Info Content -->
+  <article class="info-section">
+    <h2>AC Power Calculation and the Power Triangle</h2>
+    <p>In AC circuits, power is divided into three components based on the phase difference between voltage and current: "Active Power" (actual work), "Reactive Power" (energy oscillating between source and load), and "Apparent Power" (the total vector sum).</p>
+
+    <div class="formula-box">
+        $$ \text{Apparent Power } S = V \times I = \sqrt{P^2 + Q^2} \quad [\text{VA}] $$
+        $$ \text{Active Power } P = S \times \cos\theta \quad [\text{W}] $$
+        $$ \text{Reactive Power } Q = S \times \sin\theta \quad [\text{var}] $$
+    </div>
+
+    <h3>Key Parameters</h3>
+    <ul>
+      <li><strong>Active Power (P):</strong> Real power consumed by resistive components. Unit: W (Watt).</li>
+      <li><strong>Reactive Power (Q):</strong> Energy stored in inductors or capacitors. Unit: var (Volt-Ampere Reactive).</li>
+      <li><strong>Apparent Power (S):</strong> Total power supplied by the source. Unit: VA (Volt-Ampere).</li>
+      <li><strong>Power Factor (cosθ):</strong> The ratio of active power to apparent power.</li>
+    </ul>
+
+    <h2>How to Use</h2>
+    <ol>
+      <li>Enter at least two known values for the items you want to calculate.</li>
+      <li>The tool works with combinations of V/I or Power components (P, Q, S).</li>
+      <li>Click "Calculate" to derive all remaining values and visualize the Power Triangle on the right.</li>
+    </ol>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. Why am I seeing an error?</span>
+      <p>A. Errors appear when inputs violate physical laws. For example, Active Power (P) cannot exceed Apparent Power (S) (i.e., P > S is theoretically impossible).</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Is this useful for Electrical Engineering studies?</span>
+      <p>A. Yes, it is ideal for understanding the power triangle and verifying textbook problems. The vector diagram helps visualize how phase shifts affect power.</p>
+    </div>
+    <div class="faq-item">
+        <span class="faq-q">Q. Does this support 3-Phase AC?</span>
+        <p>A. This tool is designed for Single-Phase AC. For 3-phase systems, you should apply values per phase or multiply the results by √3 as appropriate for your specific circuit.</p>
+    </div>
+
+<h3>Related Tools</h3>
+    <ul>
+      <li><a href="resistor-color-code.html">Resistor Color Code (4-Band)</a></li>
+      <li><a href="resistor-color-code-5band.html">Resistor Color Code (5-Band)</a></li>
+      <li><a href="composite-resistance.html">Series/Parallel Resistance Calc</a></li>
+      <li><a href="ohm-law-calculator.html">Ohm's Law & Power Calc</a></li>
+      <li><a href="power-consumption-calculator.html">Energy & Electricity Cost Calc</a></li>
+      <li><a href="rlc-calc.html">RLC Circuit Impedance Calc</a></li>
+      <li><a href="logic-circuit-simulator.html">Logic Circuit Simulator</a></li>
+    </ul>
+  </article>
+
+  <!-- Ad Slot: Bottom -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Ad Tag Here</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Use</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+</div>
+
+<script>
+    function solve() {
+        const errorMsg = document.getElementById('error-msg');
+        errorMsg.style.display = 'none';
+        
+        let v = getVal('v_val') * parseFloat(document.getElementById('v_unit').value);
+        let i = getVal('i_val');
+        let pf_in = getVal('pf_input_val');
+        let s = getVal('s_val');
+        let p = getVal('p_val');
+        let q = getVal('q_val');
+        let theta = getVal('theta_val');
+        if (!isNaN(theta) && document.getElementById('theta_unit').value === 'deg') theta = theta * Math.PI / 180;
+
+        // 1. Initial contradiction check
+        const threshold = 0.5;
+        let isError = false;
+
+        if (!isNaN(v) && !isNaN(i) && !isNaN(s)) {
+            if (Math.abs(v * i - s) > threshold) isError = true;
+        }
+        if (!isNaN(p) && !isNaN(q) && !isNaN(s)) {
+            if (Math.abs(Math.sqrt(p*p + q*q) - s) > threshold) isError = true;
+        }
+        if (!isNaN(p) && !isNaN(s) && p > s + 0.1) isError = true;
+        if (!isNaN(pf_in) && (pf_in < 0 || pf_in > 1)) isError = true;
+
+        if (isError) {
+            errorMsg.style.display = 'block';
+            return;
+        }
+
+        // 2. Logic (loop 4 times to fill dependencies)
+        for (let k = 0; k < 4; k++) {
+            if (isNaN(theta) && !isNaN(pf_in)) theta = Math.acos(pf_in);
+            if (isNaN(pf_in) && !isNaN(theta)) pf_in = Math.cos(theta);
+
+            if (isNaN(s) && !isNaN(v) && !isNaN(i)) s = v * i;
+            if (isNaN(v) && !isNaN(s) && !isNaN(i) && i !== 0) v = s / i;
+            if (isNaN(i) && !isNaN(s) && !isNaN(v) && v !== 0) i = s / v;
+            
+            if (isNaN(s) && !isNaN(p) && !isNaN(q)) s = Math.sqrt(p*p + q*q);
+            if (isNaN(p) && !isNaN(s) && !isNaN(q)) p = Math.sqrt(Math.max(0, s*s - q*q));
+            if (isNaN(q) && !isNaN(s) && !isNaN(p)) q = Math.sqrt(Math.max(0, s*s - p*p));
+
+            if (!isNaN(s)) {
+                if (isNaN(p) && !isNaN(pf_in)) p = s * pf_in;
+                if (isNaN(q) && !isNaN(theta)) q = s * Math.sin(theta);
+                if (isNaN(pf_in) && !isNaN(p) && s !== 0) pf_in = p / s;
+            }
+            if (isNaN(theta)) {
+                if (!isNaN(p) && !isNaN(s) && s !== 0) theta = Math.acos(Math.min(1, p / s));
+                else if (!isNaN(q) && !isNaN(s) && s !== 0) theta = Math.asin(Math.min(1, q / s));
+            }
+        }
+
+        // 3. UI Update
+        setVal('v_val', v / parseFloat(document.getElementById('v_unit').value));
+        setVal('i_val', i);
+        setVal('pf_input_val', pf_in);
+        setVal('s_val', s);
+        setVal('p_val', p);
+        setVal('q_val', q);
+        setVal('theta_val', (document.getElementById('theta_unit').value === 'deg') ? theta * 180 / Math.PI : theta);
+
+        if (!isNaN(p) && !isNaN(s) && s !== 0) {
+            document.getElementById('out_pf').innerText = (p / s).toFixed(4);
+        }
+
+        draw(p, q, s, theta);
+    }
+
+    function getVal(id) {
+        const val = document.getElementById(id).value;
+        return val === '' ? NaN : parseFloat(val);
+    }
+
+    function setVal(id, val) {
+        const el = document.getElementById(id);
+        if (el.value === '' && !isNaN(val) && isFinite(val)) {
+            el.value = Math.round(val * 1000) / 1000;
+        }
+    }
+
+    function draw(P, Q, S, rad) {
+        const canvas = document.getElementById('power-canvas');
+        const ctx = canvas.getContext('2d');
+        const rect = canvas.parentNode.getBoundingClientRect();
+        canvas.width = rect.width * devicePixelRatio;
+        canvas.height = rect.height * devicePixelRatio;
+        ctx.scale(devicePixelRatio, devicePixelRatio);
+
+        const w = rect.width;
+        const h = rect.height;
+        ctx.clearRect(0, 0, w, h);
+        
+        const margin = 100;
+        const cx = 80;
+        const cy = h / 2;
+        
+        const maxVal = Math.max(P, Math.abs(Q), S, 1);
+        const scale = (Math.min(w - margin * 2.5, h / 2 - margin / 2)) / maxVal;
+
+        // Grid
+        ctx.lineWidth = 0.5;
+        ctx.strokeStyle = '#f1f5f9';
+        for(let x = 0; x < w; x += 50) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
+        for(let y = 0; y < h; y += 50) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
+
+        // Axes
+        ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(cx, 20); ctx.lineTo(cx, h-20); ctx.stroke(); 
+        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(w-20, cy); ctx.stroke();
+
+        const px = cx + P * scale;
+        const qy = cy - Q * scale;
+
+        // Phase angle
+        if (!isNaN(rad)) {
+            ctx.beginPath();
+            const arcRadius = 60;
+            ctx.arc(cx, cy, arcRadius, 0, -rad, rad > 0);
+            ctx.strokeStyle = '#3b82f6';
+            ctx.setLineDash([3, 3]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            const deg = (rad * 180 / Math.PI).toFixed(1);
+            ctx.fillStyle = '#3b82f6';
+            ctx.font = '14px sans-serif';
+            ctx.fillText(`${deg}°`, cx + 65, cy - 10);
+        }
+
+        drawVector(ctx, cx, cy, px, cy, '#28a745', `P: ${P.toFixed(1)}W`, 4, 'bottom');
+        drawVector(ctx, px, cy, px, qy, '#ffc107', `Q: ${Math.abs(Q).toFixed(1)}var`, 4, 'right');
+        drawVector(ctx, cx, cy, px, qy, '#007bff', `S: ${S.toFixed(1)}VA`, 6, 'hypo');
+        
+        // Summary box
+        const summaryX = w - 180;
+        const summaryY = 50;
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.fillRect(summaryX - 5, summaryY - 20, 170, 110);
+        ctx.fillStyle = '#333';
+        ctx.font = '13px monospace';
+        ctx.fillText(`S: ${S.toFixed(2)} VA`, summaryX, summaryY);
+        ctx.fillText(`P: ${P.toFixed(2)} W`, summaryX, summaryY + 25);
+        ctx.fillText(`Q: ${Q.toFixed(2)} var`, summaryX, summaryY + 50);
+        ctx.fillText(`PF: ${(P/S || 0).toFixed(4)}`, summaryX, summaryY + 75);
+    }
+
+    function drawVector(ctx, x1, y1, x2, y2, color, label, width, pos) {
+        if (isNaN(x1) || isNaN(x2)) return;
+        ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = width;
+        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+        
+        // Arrowhead
+        const angle = Math.atan2(y2-y1, x2-x1);
+        ctx.beginPath(); ctx.moveTo(x2, y2);
+        ctx.lineTo(x2 - 15 * Math.cos(angle - 0.4), y2 - 15 * Math.sin(angle - 0.4));
+        ctx.lineTo(x2 - 15 * Math.cos(angle + 0.4), y2 - 15 * Math.sin(angle + 0.4));
+        ctx.fill();
+
+        ctx.font = "bold 13px sans-serif";
+        let tx = (x1+x2)/2, ty = (y1+y2)/2;
+        if(pos === 'bottom') ty += 25;
+        if(pos === 'right') tx += 10;
+        if(pos === 'hypo') { tx -= 40; ty -= 15; }
+        ctx.fillText(label, tx, ty);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+    <!-- ★SEO Settings -->
+    <title>Text Search & Highlight Tool | HaruTools Lab</title>
+    <meta name="description" content="Instantly search, count, and highlight specific keywords or characters in your text. Identify line numbers and occurrences easily. 100% browser-based and secure for your privacy.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --primary: #007bff;
+            --primary-hover: #0056b3;
+            --success: #28a745;
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0; padding: 0; line-height: 1.6;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+        /* Ad Slot */
+        .ad-slot {
+            margin: 20px auto; padding: 15px;
+            background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+            color: #999; font-size: 12px; text-align: center; min-height: 90px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+        /* Header */
+        header { text-align: center; margin: 40px 0 20px; }
+        h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+        .tagline { color: var(--text-sub); font-size: 1rem; }
+
+        /* Main Tool Area */
+        .main-card {
+            background: var(--card-bg);
+            padding: 40px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        textarea { width: 100%; height: 200px; padding: 15px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; resize: vertical; font-size: 1rem; }
+        .controls { margin: 20px 0; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        input[type="text"] { padding: 12px; border: 1px solid #ccc; border-radius: 8px; flex-grow: 1; font-size: 1rem; }
+        
+        .btn-search {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+            transition: background 0.2s;
+        }
+        .btn-search:hover { background: var(--primary-hover); }
+
+        .result-info { margin: 20px 0 10px; font-weight: bold; color: #2c3e50; font-size: 1.1rem; }
+        
+        /* Results display styles */
+        .display-area { 
+            width: 100%; padding: 15px; border: 1px solid #eee; 
+            border-radius: 8px; background: #fafafa; white-space: pre-wrap; word-wrap: break-word;
+            font-size: 1rem; overflow-y: auto; box-sizing: border-box;
+        }
+
+        /* Fixed size style class */
+        .as-input-style {
+            height: 200px; 
+            border: 1px solid #ccc;
+            background: #ffffff;
+        }
+
+        mark { background-color: #ffeb3b; color: black; border-radius: 2px; padding: 0 2px; }
+
+        .view-toggle { margin-bottom: 10px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .view-toggle input { cursor: pointer; }
+
+        /* SEO Section */
+        .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+        .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+        .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+        footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div style="font-size: 0.9rem; margin-bottom: 5px;">
+            <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+                HaruTools Lab | Free Online Utility Tools
+            </a>
+        </div>
+        <h1>Text Search Tool</h1>
+        <p class="tagline">Instantly find, count, and highlight keywords and special characters in your text.</p>
+    </header>
+
+    <!-- Ad Slot: Top -->
+    <div class="ad-slot">
+        <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
+    </div>
+
+    <main class="main-card">
+        <textarea id="inputText" placeholder="Paste the text you want to search here..."></textarea>
+
+        <div class="controls">
+            <input type="text" id="keyword" placeholder="Enter keyword to find">
+            <button onclick="searchText()" class="btn-search">Search</button>
+        </div>
+
+        <div class="result-info" id="resultCount"></div>
+
+        <!-- View Style Toggle -->
+        <div class="view-toggle">
+            <input type="checkbox" id="toggleStyle" onchange="toggleDisplayStyle()">
+            <label for="toggleStyle">Fixed height</label>
+        </div>
+
+        <div id="outputArea" class="display-area">Search results will appear here</div>
+    </main>
+
+    <!-- Ad Slot: Middle -->
+    <div class="ad-slot">
+        <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
+    </div>
+
+    <!-- SEO Content -->
+    <article class="info-section">
+        <h2>What is the Text Search Tool?</h2>
+        <p>Our Text Search Tool is an online utility designed to quickly locate specific strings or words within large volumes of text. It counts the number of occurrences and lists the exact line numbers where the terms are found. Since it runs entirely in your browser, it requires no installation and is accessible to everyone.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Real-time Highlighting:</strong> Found keywords are highlighted in yellow, allowing you to spot them at a glance.</li>
+            <li><strong>Line Number Identification:</strong> Displays exactly which lines contain your keyword—perfect for proofreading source code or long documents.</li>
+            <li><strong>Special Character Support:</strong> accurately searches and counts not just letters, but also special symbols, tabs, and unique characters.</li>
+            <li><strong>Security First:</strong> Your text is never sent to our servers. All processing happens locally on your device, making it safe for confidential information.</li>
+        </ul>
+
+        <h2>How to Use</h2>
+        <ol>
+            <li>Paste your text into the main text area.</li>
+            <li>Type the word or character you want to find in the "Enter keyword" field.</li>
+            <li>Click "Search" to see the total match count, line numbers, and highlighted results.</li>
+        </ol>
+
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-item">
+            <span class="faq-q">Q. Can I search text that contains HTML tags?</span>
+            <p>A. Yes, absolutely. The tool escapes HTML tags and treats them as plain text, making it ideal for searching specific tags or attribute values within code snippets.</p>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q. Is there a character limit for searching?</span>
+            <p>A. There is no hard limit. However, processing extremely long texts (hundreds of thousands of characters) may cause your browser to slow down temporarily.</p>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q. Can I use this on a smartphone?</span>
+            <p>A. Yes. Our tool is fully responsive and works perfectly on mobile and tablet browsers.</p>
+        </div>
+
+<h3>Related Tools</h3>
+    <ul>
+      <li><a href="character-count.html">Character Counter</a></li>
+      <li><a href="json-xml-format.html">JSON/XML Formatter</a></li>
+      <li><a href="text-cleaner.html">Line Break & Text Cleaner</a></li>
+      <li><a href="special-characters.html">Special Characters List</a></li>
+    </ul>
+    </article>
+
+    <!-- Ad Slot: Bottom -->
+    <div class="ad-slot">
+        <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
+    </div>
+
+    <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Use</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+</div>
+
+<script>
+// Function to toggle display format
+function toggleDisplayStyle() {
+    const output = document.getElementById('outputArea');
+    const isChecked = document.getElementById('toggleStyle').checked;
+    if (isChecked) {
+        output.classList.add('as-input-style');
+    } else {
+        output.classList.remove('as-input-style');
+    }
+}
+
+function searchText() {
+    const text = document.getElementById('inputText').value;
+    const keyword = document.getElementById('keyword').value;
+    const output = document.getElementById('outputArea');
+    const countDisplay = document.getElementById('resultCount');
+
+    if (!keyword) {
+        output.textContent = text;
+        countDisplay.textContent = "Please enter a keyword.";
+        return;
+    }
+
+    // Escape HTML tags to treat them as plain text
+    const escapedText = text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    // Escape the keyword for matching
+    const escapedKeywordValue = keyword
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    // Escape special regex characters
+    const escapedKeyword = escapedKeywordValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(escapedKeyword, 'g');
+    
+    // Count hits
+    const matches = escapedText.match(regex);
+    const count = matches ? matches.length : 0;
+    
+    // Logic to determine which line numbers contain the keyword
+    let lineNumbers = [];
+    const lines = escapedText.split(/\n/);
+    lines.forEach((lineContent, index) => {
+        if (lineContent.includes(escapedKeywordValue)) {
+            lineNumbers.push(index + 1); // +1 to display starting from line 1
+        }
+    });
+
+    if (count > 0) {
+        countDisplay.textContent = `Matches: ${count} (Found on line(s): ${lineNumbers.join(', ')})`;
+    } else {
+        countDisplay.textContent = `Matches: 0`;
+    }
+
+    // Highlighting process
+    if (count > 0) {
+        const highlighted = escapedText.replace(regex, (match) => `<mark>${match}</mark>`);
+        output.innerHTML = highlighted;
+    } else {
+        output.textContent = text;
+    }
+}
+</script>
+
+</body>
+</html>

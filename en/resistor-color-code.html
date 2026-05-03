@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO Settings for English Audience -->
+<title>4-Band Resistor Color Code Calculator | Online Electronics Tool | HaruTools Lab</title>
+<meta name="description" content="Calculate resistance values instantly from 4-band color codes. Learn how to read resistor bands like Brown-Black-Red-Gold (1kΩ). Free tool for electronics, Arduino, and circuit design.">
+<meta name="keywords" content="resistor color code, 4 band resistor, calculator, electronics tool, ohm, resistance chart">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --resistor-body: #f3d9b1;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Main Card */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Resistor Visual */
+.resistor-display { position: relative; width: 100%; height: 100px; margin: 30px 0; display: flex; align-items: center; justify-content: center; }
+.wire { position: absolute; width: 95%; height: 5px; background: #bdc3c7; }
+.body { position: relative; width: 220px; height: 65px; background: var(--resistor-body); border-radius: 18px; z-index: 2; display: flex; justify-content: space-around; padding: 0 25px; align-items: center; border: 2px solid #e0c090; }
+.band { width: 14px; height: 100%; border-radius: 2px; }
+
+/* Selector */
+.selectors { display: grid; gap: 12px; margin: 25px auto; max-width: 500px; text-align: left; background: #fdfdfd; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
+.select-row { display: flex; align-items: center; justify-content: space-between; }
+select { padding: 10px; border-radius: 6px; border: 1px solid #ccc; width: 160px; font-size: 15px; cursor: pointer; }
+
+/* Results */
+.result-box { padding: 25px; background: #ebf5ff; border-radius: 12px; border: 2px solid var(--primary); text-align: center; margin: 20px auto; max-width: 500px; }
+.res-value { font-size: 36px; font-weight: bold; color: #1e3a5a; display: block; margin-bottom: 5px; }
+.tol-label { font-size: 18px; color: #555; }
+
+.nav-link { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #eee; color: #333; text-decoration: none; border-radius: 50px; font-size: 14px; font-weight: bold; transition: background 0.2s; }
+.nav-link:hover { background: #ddd; }
+
+/* SEO Content */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border: 1px solid #eee; padding: 12px; text-align: left; }
+th { background: #f8f9fa; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .select-row { flex-direction: column; align-items: flex-start; }
+  select { width: 100%; margin-top: 5px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab | Free Online Utility Tools
+    </a>
+  </div>
+    <h1>4-Band Resistor Color Code Calculator</h1>
+    <p class="tagline">Calculate resistance (Ω) instantly by selecting the band colors</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
+  </div>
+
+  <div class="main-card">
+    <div class="resistor-display">
+        <div class="wire"></div>
+        <div class="body">
+            <div id="band1" class="band"></div>
+            <div id="band2" class="band"></div>
+            <div id="band3" class="band"></div>
+            <div id="band4" class="band"></div>
+        </div>
+    </div>
+
+    <div class="selectors">
+        <div class="select-row"><label>1st Band (Digit):</label><select id="color1" onchange="calculate()"></select></div>
+        <div class="select-row"><label>2nd Band (Digit):</label><select id="color2" onchange="calculate()"></select></div>
+        <div class="select-row"><label>3rd Band (Multiplier):</label><select id="color3" onchange="calculate()"></select></div>
+        <div class="select-row"><label>4th Band (Tolerance):</label><select id="color4" onchange="calculate()"></select></div>
+    </div>
+
+    <div class="result-box">
+        <span id="resValue" class="res-value">-</span>
+        <span class="tol-label">Tolerance: <strong id="tolValue">-</strong></span>
+    </div>
+
+    <a href="resistor-color-code-5band.html" class="nav-link">➔ Switch to 5-Band (Precision) Resistor Calculator</a>
+
+<div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>Usage Notice</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>This tool displays standard color codes based on JIS/IEC standards. However, actual resistor colors may vary due to lighting or body paint material.</li>
+        <li>As indicated by the 4th band (Tolerance), actual resistance values contain errors. Environmental factors like temperature and aging can also affect the precision.</li>
+        <li>HaruTools Lab is not responsible for any loss, circuit damage, or injury resulting from the use of this tool. Always verify values with a multimeter before using them in real circuits.</li>
+    </ul>
+  </div>
+  </div>
+
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
+  </div>
+
+  <article class="info-section">
+    <h2>What is the Resistor Color Code Calculator?</h2>
+    <p>This tool is an online simulator designed to instantly calculate the resistance (ohms) and tolerance of a <strong>4-band resistor</strong>, which is frequently used in DIY electronics and circuit design. Simply select the colors in order to confirm the correct value without manual calculation.</p>
+
+    <h3>How to Read Resistor Values</h3>
+    <p>A 4-band resistor is calculated using the following formula:<br>
+    <strong>(Value of 1st Band × 10 + Value of 2nd Band) × Multiplier of 3rd Band</strong></p>
+    
+    <table>
+        <tr>
+            <th>Resistance Example</th>
+            <th>Color Combination</th>
+        </tr>
+        <tr>
+            <td>1kΩ</td>
+            <td>Brown, Black, Red, Gold</td>
+        </tr>
+        <tr>
+            <td>10kΩ</td>
+            <td>Brown, Black, Orange, Gold</td>
+        </tr>
+        <tr>
+            <td>470Ω</td>
+            <td>Yellow, Violet, Brown, Gold</td>
+      </tr>
+    </table>
+
+    <h3>Features of This Tool</h3>
+    <ul>
+      <li><strong>Completely Free:</strong> All features are accessible for free.</li>
+      <li><strong>No Registration:</strong> Start calculating immediately without any sign-up or login.</li>
+      <li><strong>Secure Design:</strong> All calculations are performed in your browser. No data is sent to a server.</li>
+    </ul>
+
+    <h2>How to Use</h2>
+    <ol>
+      <li>Identify the color bands on your resistor starting from the side closest to the lead.</li>
+      <li>Select the color for the 1st and 2nd digit bands using the selectors.</li>
+      <li>Select the color for the 3rd band (Multiplier).</li>
+      <li>Finally, select the color for the 4th band (Tolerance). Usually, Gold or Silver is used.</li>
+      <li>The calculated resistance will appear in real-time in the central blue box.</li>
+    </ol>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. How do I know which side is the "1st band"?</span>
+      <p>A. Typically, the 1st band is closest to one of the ends. The 4th band (tolerance) is often placed further apart from the first three bands.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. What is the resistance for Brown-Black-Black-Gold?</span>
+      <p>A. Brown(1), Black(0) × Black(1x) = 10Ω.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Can I calculate 5-band resistors?</span>
+      <p>A. This page is specifically for 4-band resistors. For 5-band precision resistors, please use our dedicated 5-band calculation page.</p>
+    </div>
+
+<h3>Related Tools</h3>
+    <ul>
+      <li><a href="resistor-color-code-5band.html">Resistor Color Code Calculator (5-Band)</a></li>
+      <li><a href="composite-resistance.html">Equivalent Resistance Calculator</a></li>
+      <li><a href="ohm-law-calculator.html">Ohm's Law & Power Calculator</a></li>
+      <li><a href="power-consumption-calculator.html">Energy Consumption & Electricity Cost Calculator</a></li>
+      <li><a href="rlc-calc.html">RLC Circuit Impedance Calculator</a></li>
+      <li><a href="ac-power-calculator.html">AC Power Multi-Calculator</a></li>
+      <li><a href="logic-circuit-simulator.html">Logic Circuit Simulator</a></li>
+    </ul>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+</div>
+
+<script>
+    const colors = [
+        { name: "Black", val: 0, mult: 1, tol: null, code: "#000000" },
+        { name: "Brown", val: 1, mult: 10, tol: 1, code: "#8B4513" },
+        { name: "Red", val: 2, mult: 100, tol: 2, code: "#FF0000" },
+        { name: "Orange", val: 3, mult: 1000, tol: null, code: "#FFA500" },
+        { name: "Yellow", val: 4, mult: 10000, tol: null, code: "#FFFF00" },
+        { name: "Green", val: 5, mult: 100000, tol: 0.5, code: "#008000" },
+        { name: "Blue", val: 6, mult: 1000000, tol: 0.25, code: "#0000FF" },
+        { name: "Violet", val: 7, mult: 10000000, tol: 0.1, code: "#EE82EE" },
+        { name: "Grey", val: 8, mult: null, tol: 0.05, code: "#808080" },
+        { name: "White", val: 9, mult: null, tol: null, code: "#FFFFFF" },
+        { name: "Gold", val: null, mult: 0.1, tol: 5, code: "#D4AF37" },
+        { name: "Silver", val: null, mult: 0.01, tol: 10, code: "#C0C0C0" }
+    ];
+
+    function init() {
+        const selects = ['color1', 'color2', 'color3', 'color4'].map(id => document.getElementById(id));
+        colors.forEach((c, i) => {
+            if (c.val !== null) { selects[0].add(new Option(c.name, i)); selects[1].add(new Option(c.name, i)); }
+            if (c.mult !== null) selects[2].add(new Option(c.name, i));
+            if (c.tol !== null) selects[3].add(new Option(c.name, i));
+        });
+        selects[0].value = 1; selects[1].value = 0; selects[2].value = 2; selects[3].value = 10;
+        calculate();
+    }
+
+    function calculate() {
+        const v = ['color1', 'color2', 'color3', 'color4'].map(id => colors[document.getElementById(id).value]);
+        v.forEach((color, i) => document.getElementById('band' + (i+1)).style.backgroundColor = color.code);
+        let res = (v[0].val * 10 + v[1].val) * v[2].mult;
+        let display = res >= 1000000 ? (res/1000000).toFixed(res % 1000000 === 0 ? 0 : 2) + " MΩ" : 
+                      res >= 1000 ? (res/1000).toFixed(res % 1000 === 0 ? 0 : 2) + " kΩ" : res + " Ω";
+        document.getElementById('resValue').innerText = display;
+        document.getElementById('tolValue').innerText = "±" + v[3].tol + "%";
+    }
+    init();
+</script>
+
+</body>
+</html>
