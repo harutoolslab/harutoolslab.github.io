@@ -7,13 +7,14 @@
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
   <meta name="google-site-verification" content="jWDFJLwlaulsCJD9GNUFzzeZeTvLEzBHY0kWB140450" />
   
-<title>HaruTools Lab | Free Online Image & PDF Tools (No Registration)</title>
+<!-- ★SEO Settings -->
+<title>HaruTools Lab | Free Online Image, PDF, and Engineering Tools</title>
 <link rel="icon" href="/favicon.ico">
-<meta name="description" content="A collection of over 35 free browser-based tools for image compression, format conversion, PDF editing, and more. No installation required. Mobile-friendly and privacy-focused.">
+<meta name="description" content="A collection of over 50 free online tools including image compression, WebP conversion, PDF editing, character counting, and electrical circuit calculation. No installation required. Safe client-side processing where data is never sent to a server.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* 既存の変数を流用 */
+/* Using existing variables */
 :root {
   --primary: #007bff;
   --primary-hover: #0056b3;
@@ -26,7 +27,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -34,7 +35,7 @@ body {
 
 .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Ad Slot */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -46,7 +47,7 @@ header { text-align: center; margin: 40px 0; }
 h1 { font-size: 2.2rem; color: #111; margin-bottom: 10px; }
 .hero-desc { color: var(--text-sub); max-width: 700px; margin: 0 auto; }
 
-/* ツールグリッドレイアウト */
+/* Tool Grid Layout */
 .tool-section { margin-bottom: 50px; }
 .section-title { font-size: 1.4rem; border-bottom: 2px solid var(--primary); display: inline-block; margin-bottom: 20px; padding-bottom: 5px; }
 
@@ -80,9 +81,12 @@ h1 { font-size: 2.2rem; color: #111; margin-bottom: 10px; }
 .tool-card span { font-weight: bold; font-size: 1rem; display: block; margin-bottom: 5px; }
 .tool-card small { color: var(--text-sub); font-size: 0.8rem; line-height: 1.2; }
 
-/* SEO解説セクション */
+/* SEO Info Section */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; }
-.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin-bottom: 20px; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
 
 footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
 
@@ -98,73 +102,107 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 <div class="container">
   <header>
     <h1>HaruTools Lab</h1>
-    <p class="hero-desc">Browser-based. 100% free creative tools with no registration required.</p>
+    <p class="hero-desc"><strong>Professional tools, right in your browser.</strong><br>Free online utilities for image editing, documents, calculations, and electrical engineering. No registration required.</p>
   </header>
 
   <div class="ad-slot"><div>Advertisement</div></div>
 
   <section class="tool-section">
-    <h2 class="section-title">Compression & Conversion</h2>
+    <h2 class="section-title">Image Compression & Conversion</h2>
     <div class="tool-grid">
-      <a href="image-compress.html" class="tool-card"><span>Batch Compress</span><small>Significantly reduce size</small></a>
-      <a href="png-compress.html" class="tool-card"><span>PNG Compress</span><small>Keep transparency</small></a>
-      <a href="image-to-webp.html" class="tool-card"><span>To WebP</span><small>Convert to next-gen format</small></a>
-      <a href="webp-to-jpg.html" class="tool-card"><span>WebP to JPG</span><small>To universal format</small></a>
-      <a href="webp-to-png.html" class="tool-card"><span>WebP to PNG</span><small>To transparent format</small></a>
-      <a href="jpg-to-png.html" class="tool-card"><span>JPG to PNG</span><small>Convert to PNG</small></a>
-      <a href="png-to-jpg.html" class="tool-card"><span>PNG to JPG</span><small>Convert with white BG</small></a>
-      <a href="heic-to-png.html" class="tool-card"><span>HEIC to PNG</span><small>Convert iPhone photos</small></a>
-      <a href="video-to-gif.html" class="tool-card"><span>Video to GIF</span><small>Animate your videos</small></a>
+      <a href="image-compress.html" class="tool-card"><span>Bulk Image Compressor</span><small>Reduce file size significantly</small></a>
+      <a href="png-compress.html" class="tool-card"><span>PNG Compressor</span><small>Keep transparency & save space</small></a>
+      <a href="image-to-webp.html" class="tool-card"><span>WebP Converter</span><small>Convert to next-gen format</small></a>
+      <a href="webp-to-jpg.html" class="tool-card"><span>WebP → JPG</span><small>To universal format</small></a>
+      <a href="webp-to-png.html" class="tool-card"><span>WebP → PNG</span><small>To transparent format</small></a>
+      <a href="jpg-to-png.html" class="tool-card"><span>JPG → PNG</span><small>Convert to PNG format</small></a>
+      <a href="png-to-jpg.html" class="tool-card"><span>PNG → JPG</span><small>Convert with white background</small></a>
+      <a href="heic-to-png.html" class="tool-card"><span>HEIC → PNG</span><small>Convert iPhone photos</small></a>
+      <a href="video-to-gif.html" class="tool-card"><span>Video → GIF</span><small>Animate your videos</small></a>
     </div>
   </section>
 
   <section class="tool-section">
-    <h2 class="section-title">Image Editing</h2>
+    <h2 class="section-title">Image Processing & Editing</h2>
     <div class="tool-grid">
       <a href="image-resize.html" class="tool-card"><span>Resize</span><small>Change dimensions</small></a>
-      <a href="image-cropper-rounded.html" class="tool-card"><span>Crop Tool</span><small>Rounded or custom shape</small></a>
-      <a href="square-image-maker.html" class="tool-card"><span>Square Maker</span><small>Add margins for Socials</small></a>
-      <a href="image-filter-tool.html" class="tool-card"><span>Photo Filters</span><small>Effects & Correction</small></a>
-      <a href="brightness-contrast.html" class="tool-card"><span>Adjust Light</span><small>Brightness & Contrast</small></a>
-      <a href="monochrome-pwa.html" class="tool-card"><span>Monochrome</span><small>B&W or Sepia effects</small></a>
-      <a href="mosaic-blur.html" class="tool-card"><span>Blur & Mosaic</span><small>Hide private info</small></a>
-      <a href="png-transparent.html" class="tool-card"><span>Remove Color</span><small>Make specific color transparent</small></a>
-      <a href="add-text.html" class="tool-card"><span>Add Text</span><small>Insert custom text</small></a>
-      <a href="image-watermark.html" class="tool-card"><span>Watermark</span><small>Protect with your logo</small></a>
-      <a href="image-rotate.html" class="tool-card"><span>Rotate</span><small>90° or custom angles</small></a>
-      <a href="image-flip.html" class="tool-card"><span>Flip Tool</span><small>Horizontal or Vertical</small></a>
-      <a href="image-overlay.html" class="tool-card"><span>Overlay</span><small>Combine two images</small></a>
+      <a href="image-cropper-rounded.html" class="tool-card"><span>Crop</span><small>Rounded or free selection</small></a>
+      <a href="square-image-maker.html" class="tool-card"><span>Square Image Maker</span><small>Add padding for SNS</small></a>
+      <a href="image-filter-tool.html" class="tool-card"><span>Filter Effects</span><small>Color correction & FX</small></a>
+      <a href="brightness-contrast.html" class="tool-card"><span>Brightness & Contrast</span><small>Adjust light levels</small></a>
+      <a href="monochrome-pwa.html" class="tool-card"><span>Monochrome</span><small>Black & White or Sepia</small></a>
+      <a href="mosaic-blur.html" class="tool-card"><span>Mosaic & Blur</span><small>Hide personal info</small></a>
+      <a href="png-transparent.html" class="tool-card"><span>Remove Background</span><small>Make specific colors transparent</small></a>
+      <a href="add-text.html" class="tool-card"><span>Add Text</span><small>Insert custom captions</small></a>
+      <a href="image-watermark.html" class="tool-card"><span>Add Watermark</span><small>Anti-copy protection</small></a>
+      <a href="image-rotate.html" class="tool-card"><span>Rotate Tool</span><small>90-degree or custom angle</small></a>
+      <a href="image-flip.html" class="tool-card"><span>Flip Tool</span><small>Mirror horizontal/vertical</small></a>
+      <a href="image-overlay.html" class="tool-card"><span>Image Overlay</span><small>Merge two images</small></a>
     </div>
   </section>
 
   <section class="tool-section">
-    <h2 class="section-title">Color & Analysis</h2>
+    <h2 class="section-title">Color, Analysis & Comparison</h2>
     <div class="tool-grid">
-      <a href="rgb-to-hex.html" class="tool-card"><span>RGB to HEX</span><small>Color code converter</small></a>
-      <a href="hex-to-rgb.html" class="tool-card"><span>HEX to RGB</span><small>Color code converter</small></a>
-      <a href="color-picker.html" class="tool-card"><span>Color Picker</span><small>Get colors from screen</small></a>
-      <a href="color-code-list.html" class="tool-card"><span>Color Chart</span><small>Names and hex codes</small></a>
-      <a href="image-compare.html" class="tool-card"><span>Compare</span><small>Side-by-side check</small></a>
-      <a href="image-measure.html" class="tool-card"><span>Ruler Tool</span><small>Measure on-screen size</small></a>
+      <a href="rgb-to-hex.html" class="tool-card"><span>RGB → HEX</span><small>Color code conversion</small></a>
+      <a href="hex-to-rgb.html" class="tool-card"><span>HEX → RGB</span><small>Color code conversion</small></a>
+      <a href="color-picker.html" class="tool-card"><span>Color Picker</span><small>Extract color from screen</small></a>
+      <a href="color-code-list.html" class="tool-card"><span>Color Code List</span><small>Names and hex codes</small></a>
+      <a href="image-compare.html" class="tool-card"><span>Image Comparison</span><small>Side-by-side view</small></a>
+      <a href="image-measure.html" class="tool-card"><span>Image Measurement</span><small>Measure sizes within image</small></a>
     </div>
   </section>
 
   <section class="tool-section">
-    <h2 class="section-title">PDF & Documents</h2>
+    <h2 class="section-title">PDF & Document</h2>
     <div class="tool-grid">
-      <a href="pdf-split.html" class="tool-card"><span>Merge PDF</span><small>Combine multiple files</small></a>
-      <a href="image-to-pdf.html" class="tool-card"><span>Image to PDF</span><small>Convert photos to PDF</small></a>
-      <a href="pdf-to-image.html" class="tool-card"><span>PDF to Image</span><small>Extract to JPG/PNG</small></a>
+      <a href="pdf-split.html" class="tool-card"><span>PDF Merge</span><small>Combine multiple files</small></a>
+      <a href="image-to-pdf.html" class="tool-card"><span>Image → PDF</span><small>Convert photos to PDF</small></a>
+      <a href="pdf-to-image.html" class="tool-card"><span>PDF → Image</span><small>Export PDF as JPG/PNG</small></a>
     </div>
   </section>
 
   <section class="tool-section">
     <h2 class="section-title">Utilities</h2>
     <div class="tool-grid">
-      <a href="qr-generator.html" class="tool-card"><span>QR Generator</span><small>Create from URL or text</small></a>
-      <a href="favicon-generator.html" class="tool-card"><span>Favicon Maker</span><small>Generate .ico icons</small></a>
-      <a href="remove-exif.html" class="tool-card"><span>Remove Exif</span><small>Wipe GPS & metadata</small></a>
-      <a href="dot-art-maker.html" class="tool-card"><span>Pixel Art</span><small>Convert to dot art style</small></a>
+      <a href="qr-generator.html" class="tool-card"><span>QR Code Generator</span><small>URL or text to QR</small></a>
+      <a href="favicon-generator.html" class="tool-card"><span>Favicon Generator</span><small>Create .ico icons</small></a>
+      <a href="remove-exif.html" class="tool-card"><span>Remove Exif</span><small>Delete location & camera info</small></a>
+      <a href="dot-art-maker.html" class="tool-card"><span>Pixel Art Maker</span><small>Draw digital pixel art</small></a>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <h2 class="section-title">Text & Content</h2>
+    <div class="tool-grid">
+      <a href="character-count.html" class="tool-card"><span>Character Counter</span><small>Count chars, lines, and pages</small></a>
+      <a href="text-search.html" class="tool-card"><span>Text Search & Extract</span><small>Find specific words or spaces</small></a>
+      <a href="full-half-converter.html" class="tool-card"><span>Full/Half Converter</span><small>Convert alpha-numeric formats</small></a>
+      <a href="text-cleaner.html" class="tool-card"><span>Text Cleaner</span><small>Remove line breaks/chars</small></a>
+      <a href="special-characters.html" class="tool-card"><span>Special Characters</span><small>Copy symbols for web</small></a>
+      <a href="json-xml-format.html" class="tool-card"><span>JSON/XML Formatter</span><small>Beautify your code</small></a>
+    </div>
+  </section>
+
+<section class="tool-section">
+    <h2 class="section-title">Calculation Tools</h2>
+    <div class="tool-grid">
+      <a href="time-calc.html" class="tool-card"><span>Time Calculator</span><small>Calculate duration & values</small></a>
+      <a href="number-base-converter.html" class="tool-card"><span>Base Converter</span><small>Binary, Oct, Dec, Hex conversion</small></a>
+    </div>
+  </section>
+
+<section class="tool-section">
+    <h2 class="section-title">Electrical & Electronics</h2>
+    <div class="tool-grid">
+      <a href="resistor-color-code.html" class="tool-card"><span>Resistor Color Code (4)</span><small>Calculate 4-band resistors</small></a>
+      <a href="resistor-color-code-5band.html" class="tool-card"><span>Resistor Color Code (5)</span><small>Calculate 5-band resistors</small></a>
+      <a href="composite-resistance.html" class="tool-card"><span>Total Resistance</span><small>Series & parallel calculations</small></a>
+      <a href="ohm-law-calculator.html" class="tool-card"><span>Ohm's Law Calculator</span><small>V, I, R, and Power</small></a>
+      <a href="power-consumption-calculator.html" class="tool-card"><span>Energy Cost Calculator</span><small>Calculate power & electricity bill</small></a>
+      <a href="rlc-calc.html" class="tool-card"><span>RLC Circuit Calc</span><small>Impedance & vector diagrams</small></a>
+      <a href="ac-power-calculator.html" class="tool-card"><span>AC Power Calculator</span><small>Active, Reactive, Apparent</small></a>
+      <a href="logic-circuit-simulator.html" class="tool-card"><span>Logic Circuit Simulator</span><small>Digital circuit experiment</small></a>
     </div>
   </section>
 
@@ -172,38 +210,45 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 
   <article class="info-section">
     <h2>Why Choose HaruTools Lab?</h2>
-    <p>We provide over 35 free online tools to assist with web development and social media management. No login or registration is ever required.</p>
+    <p>HaruTools Lab is a collection of over 50 online tools designed to support designers, developers, engineers, students, and everyday users with tasks they need to solve "right now."</p>
     
-    <h3>Secure Client-Side Processing</h3>
-    <p>All processing occurs directly in your browser (locally). Your sensitive image or PDF data is never sent to or stored on our servers. This ensures maximum security for both personal and business use.</p>
+    <h3>1. Secure Browser Processing (Privacy First)</h3>
+    <p>Unlike many online services, all processing is done locally on your browser (client-side). <strong>Your images, PDFs, and sensitive code are never sent to an external server.</strong> You can use it with confidence for professional or educational tasks.</p>
     
-    <h3>Free for Commercial Use</h3>
-    <p>Files created or processed using our tools can be used for both personal and commercial purposes. No attribution or credit is required.</p>
+    <h3>2. No Registration & Completely Free for Commercial Use</h3>
+    <p>No account creation or login required. All features are provided for free without limitations. Data processed on our site can be used commercially without any need for credit or attribution.</p>
+    
+    <h3>3. No Installation & Mobile Friendly</h3>
+    <p>There is no need to install heavy software. As long as you have a browser, HaruTools Lab works smoothly on Windows, Mac, iPhone, and Android devices.</p>
 
    <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. Is there any cost?</span>
-      <p>A. No, all tools on HaruTools Lab are completely free. We are supported by advertisements, so there are no hidden fees.</p>
+      <span class="faq-q">Q. Is there any cost to use this service?</span>
+      <p>A. No, all tools are completely free to use. There are no hidden fees or premium plans for specific features.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. Are my uploaded files saved on the server?</span>
-      <p>A. No. Our tools process everything on the "client-side" (your browser). Your data stays on your device, and privacy is fully protected.</p>
+      <span class="faq-q">Q. Is registration or login required?</span>
+      <p>A. Not at all. Simply visit the site, choose your tool, and start working. We do not collect any personal information like email addresses.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. Can I use it on my smartphone?</span>
-      <p>A. Yes, all tools are mobile-responsive and work on iPhone, Android, and tablets without any installation.</p>
+      <span class="faq-q">Q. Where are my uploaded files saved?</span>
+      <p>A. They aren't saved anywhere. Our tools use JavaScript to process files within your browser, so files are never transferred to a server. Once processing is finished, the data exists only on your local device.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. Can I process multiple images at once?</span>
-      <p>A. Most tools currently support processing one file at a time. We are working on updates to support batch processing in the future.</p>
+      <span class="faq-q">Q. Can I use the processed results for commercial purposes?</span>
+      <p>A. Yes. You are free to use them for business documents, blog content, social media posts, product packaging, and any other professional scenario.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. Will the quality of the image decrease?</span>
-      <p>A. Our tools are optimized to maintain the highest possible quality. While some file format conversions may involve slight compression, it is kept to a minimum for professional use.</p>
+      <span class="faq-q">Q. Does it work on smartphones (iPhone/Android)?</span>
+      <p>A. Yes, every tool is responsive and provides full functionality on mobile and tablet browsers just like the desktop version.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. What should I do if a tool doesn't display correctly?</span>
+      <p>A. Please ensure your browser is updated to the latest version. Sometimes "Private Mode" or browser extensions (like ad blockers) may interfere with the scripts. If the issue persists, please try a different browser.</p>
     </div>
   </article>
 
-  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Use</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
 
 </div>
 
