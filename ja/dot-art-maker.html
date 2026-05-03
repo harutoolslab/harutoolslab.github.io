@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
 <title>ドット絵メーカー｜グリッド表示・背景透過・保存「はるツール」</title>
 <meta name="description" content="初心者でも使いやすい無料のオンラインドット絵作成ツール。正確なグリッド線を表示しながら1マスずつ描画でき、背景透過PNGでの拡大保存にも対応。Web素材やアイコン作りに。">
@@ -265,6 +265,13 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
         <option value="64">64倍拡大</option>
       </select>
       <button class="btn-run" onclick="download()" style="margin-left:15px;">画像を保存する</button>
+
+      <!-- 追加：JSON保存・読込エリア -->
+      <div style="margin-top:20px; border-top:1px dashed #eee; padding-top:20px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <button class="tool-btn" onclick="exportJSON()" style="background:#6c757d; color:white; border:none;">作業状態を保存(.json)</button>
+        <button class="tool-btn" onclick="document.getElementById('import-file').click()" style="background:#6c757d; color:white; border:none;">JSONを読み込む</button>
+        <input type="file" id="import-file" style="display:none" accept=".json" onchange="importJSON(event)">
+      </div>
     </div>
   </main>
 
@@ -284,6 +291,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
       <li><strong>完全無料・登録不要：</strong> ブラウザだけで今すぐ描き始められます。</li>
       <li><strong>グリッド線表示：</strong> ズーム倍率に合わせて補助線が動くため、常にマスの位置が把握できます。</li>
       <li><strong>高品質書き出し：</strong> ドットの質感を維持したまま、SNS等で使いやすいサイズに拡大して透過PNG保存可能です。</li>
+      <li><strong>作業の再開：</strong> JSON形式で保存すれば、いつでも続きから描いたり他の人とデータを共有したりできます。</li>
     </ul>
 
     <h2>使い方の手順</h2>
@@ -293,6 +301,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
       <li>「移動」ツールを選択すると、キャンバスをドラッグしてスクロールできます。</li>
       <li>「色の保存」を使うとお気に入りの色をパレットにストックできます。</li>
       <li>保存サイズを選び、「画像を保存する」ボタンでダウンロードします。</li>
+      <li>「作業状態を保存(.json)」をクリックすると、編集データをファイルとして保存できます。</li>
     </ol>
 
     <h2>よくある質問（FAQ）</h2>
@@ -777,6 +786,70 @@ window.addEventListener('beforeunload', (e) => {
   e.preventDefault();
   e.returnValue = "作業中のデータは保存されませんが、よろしいですか？";
 });
+
+/**
+ * JSONエクスポート機能
+ */
+function exportJSON() {
+  const data = {
+    width: canvas.width,
+    height: canvas.height,
+    imageData: canvas.toDataURL(),
+    // 独自のパレットも保存したい場合は、ここにパレットの色情報を配列で追加可能です
+  };
+  const jsonStr = JSON.stringify(data);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  
+  const link = document.createElement('a');
+  link.download = `pixelart_project_${canvas.width}x${canvas.height}.json`;
+  link.href = url;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+/**
+ * JSONインポート機能
+ */
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!data.width || !data.height || !data.imageData) {
+        throw new Error("Invalid format");
+      }
+
+      if (!confirm("現在の作業内容が上書きされます。読み込みますか？")) return;
+
+      // キャンバスサイズの適用
+      wSelect.value = data.width;
+      hSelect.value = data.height;
+      canvas.width = data.width;
+      canvas.height = data.height;
+
+      // 画像の復元
+      const img = new Image();
+      img.onload = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        updateZoom();
+        undoStack = []; // 読み込み時はスタックをクリア
+        alert("プロジェクトを読み込みました。");
+      };
+      img.src = data.imageData;
+
+    } catch (err) {
+      alert("ファイルの読み込みに失敗しました。有効なJSONファイルを選択してください。");
+    }
+  };
+  reader.readAsText(file);
+  // 同じファイルを連続で選択しても発火するようにリセット
+  event.target.value = "";
+}
 </script>
 
 </body>
