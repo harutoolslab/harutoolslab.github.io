@@ -97,6 +97,18 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   z-index: 10;
 }
 
+/* 範囲選択用レイヤー */
+.selection-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid var(--primary);
+  background: rgba(0, 123, 255, 0.2);
+  pointer-events: none;
+  display: none;
+  z-index: 11;
+}
+
 .canvas-wrapper.hide-grid .grid-overlay {
   display: none;
 }
@@ -237,11 +249,12 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
         <button id="eraser-tool" class="tool-btn" onclick="setTool('eraser')">消しゴム</button>
         <button id="bucket-tool" class="tool-btn" onclick="setTool('bucket')">塗りつぶし</button>
         <button id="move-tool" class="tool-btn" onclick="setTool('move')">移動</button>
+        <button id="select-tool" class="tool-btn" onclick="setTool('select')">範囲選択</button>
 
         <div style="border-left: 1px solid #ddd; height: 30px; margin: 0 5px;"></div>
 
-        <button class="tool-btn" onclick="copyCanvas()" title="全体をコピー">コピー</button>
-        <button class="tool-btn" onclick="pasteCanvas()" title="コピーしたものを貼り付け">貼り付け</button>
+        <button id="copy-btn" class="tool-btn" onclick="copyCanvas()" title="選択範囲をコピー">コピー</button>
+        <button id="paste-btn" class="tool-btn" onclick="pasteCanvas()" title="コピーしたものを貼り付け">貼り付け</button>
         <button class="tool-btn" onclick="undo()" title="1つ戻る">戻る</button>
         <button id="grid-toggle-btn" class="tool-btn active" onclick="toggleGrid()">グリッド線</button>
         <button id="view-all-btn" class="tool-btn" onclick="toggleViewAll()">全体を見る</button>
@@ -255,6 +268,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
       <div class="canvas-wrapper" id="canvas-wrapper">
         <canvas id="pixel-canvas"></canvas>
         <div class="grid-overlay" id="grid-overlay"></div>
+        <div class="selection-overlay" id="selection-overlay"></div>
       </div>
     </div>
 
@@ -301,7 +315,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
       <li>キャンバスのサイズ（16×16など）を選択し、キャンバスを準備します。</li>
       <li>ペンツールとカラーピッカーを使って、キャンバスに絵を描きます。</li>
       <li>「移動」ツールを選択すると、キャンバスをドラッグしてスクロールできます。</li>
-      <li>「色の保存」を使うとお気に入りの色をパレットにストックできます。</li>
+      <li>「範囲選択」ツールで範囲をドラッグし、「コピー」してから「貼り付け」をクリックし、キャンバス上をクリックするとペーストできます。</li>
       <li>保存サイズを選び、「画像を保存する」ボタンでダウンロードします。</li>
       <li>「作業状態を保存(.json)」をクリックすると、編集データをファイルとして保存できます。</li>
     </ol>
@@ -358,6 +372,7 @@ const colorPicker = document.getElementById('color-picker');
 const palette = document.getElementById('palette');
 const zoomRange = document.getElementById('zoom-range');
 const gridOverlay = document.getElementById('grid-overlay');
+const selectionOverlay = document.getElementById('selection-overlay');
 
 let isDrawing = false;
 let currentTool = 'pen';
@@ -380,8 +395,10 @@ let prevViewState = {
 let initialPinchDistance = null;
 let initialPinchZoom = null;
 
-// コピー機能用の変数
+// コピー・範囲選択機能用の変数
 let copyBuffer = null;
+let selection = { active: false, x1: 0, y1: 0, x2: 0, y2: 0 };
+let isPasting = false;
 
 sizes.forEach(s => {
   wSelect.add(new Option(s, s));
@@ -417,6 +434,9 @@ function updateZoom() {
   canvas.style.height = (canvas.height * zoom) + "px";
   // グリッドオーバーレイの背景サイズを更新
   gridOverlay.style.backgroundSize = `${zoom}px ${zoom}px`;
+  
+  // 選択範囲表示の更新
+  updateSelectionView();
 
   const newCanvasWidth = canvas.clientWidth;
   const newCanvasHeight = canvas.clientHeight;
@@ -451,19 +471,31 @@ function initCanvas(isInitial = false) {
   updateZoom();
   ctx.clearRect(0, 0, w, h);
   if (isInitial) undoStack = [];
+  // 選択範囲リセット
+  selection.active = false;
+  updateSelectionView();
 }
 
 function setTool(tool) {
   currentTool = tool;
+  isPasting = false; // ツールを切り替えたらペーストモード解除
   document.getElementById('pen-tool').classList.toggle('active', tool === 'pen');
   document.getElementById('eraser-tool').classList.toggle('active', tool === 'eraser');
   document.getElementById('bucket-tool').classList.toggle('active', tool === 'bucket');
   document.getElementById('move-tool').classList.toggle('active', tool === 'move');
+  document.getElementById('select-tool').classList.toggle('active', tool === 'select');
   
   if (tool === 'move') {
     canvas.style.cursor = 'grab';
+  } else if (tool === 'select') {
+    canvas.style.cursor = 'cell';
   } else {
     canvas.style.cursor = 'crosshair';
+  }
+
+  if(tool !== 'select') {
+    selection.active = false;
+    updateSelectionView();
   }
 }
 
@@ -558,6 +590,14 @@ function getPos(e) {
 function handleDraw(e) {
   if (!isDrawing || currentTool === 'move' || (e.touches && e.touches.length > 1)) return;
   const {x, y} = getPos(e);
+  
+  if (currentTool === 'select') {
+    selection.x2 = x;
+    selection.y2 = y;
+    updateSelectionView();
+    return;
+  }
+
   if (x >= 0 && x < canvas.width && y >= 0 && y < canvas.height) {
     if (currentTool === 'pen') {
       ctx.fillStyle = colorPicker.value;
@@ -638,9 +678,43 @@ function hexToRgb(hex) {
   } : { r: 0, g: 0, b: 0 };
 }
 
+function updateSelectionView() {
+  if (!selection.active) {
+    selectionOverlay.style.display = 'none';
+    return;
+  }
+  const zoom = parseInt(zoomRange.value);
+  const x = Math.min(selection.x1, selection.x2);
+  const y = Math.min(selection.y1, selection.y2);
+  const w = Math.abs(selection.x2 - selection.x1) + 1;
+  const h = Math.abs(selection.y2 - selection.y1) + 1;
+
+  selectionOverlay.style.display = 'block';
+  selectionOverlay.style.left = (x * zoom) + 'px';
+  selectionOverlay.style.top = (y * zoom) + 'px';
+  selectionOverlay.style.width = (w * zoom) + 'px';
+  selectionOverlay.style.height = (h * zoom) + 'px';
+}
+
 canvas.addEventListener('mousedown', (e) => { 
+  const {x, y} = getPos(e);
+
+  if (isPasting) {
+    saveState();
+    ctx.drawImage(copyBuffer, x, y);
+    isPasting = false;
+    canvas.style.cursor = 'crosshair';
+    return;
+  }
+
   if (currentTool === 'move') {
     handleMoveStart(e);
+  } else if (currentTool === 'select') {
+    selection.active = true;
+    selection.x1 = selection.x2 = x;
+    selection.y1 = selection.y2 = y;
+    isDrawing = true;
+    updateSelectionView();
   } else {
     saveState();
     isDrawing = true; 
@@ -672,8 +746,20 @@ canvas.addEventListener('touchstart', (e) => {
     initialPinchDistance = getDistance(e.touches[0], e.touches[1]);
     initialPinchZoom = parseInt(zoomRange.value);
   } else if (e.touches.length === 1) {
+    const {x, y} = getPos(e);
+    if (isPasting) {
+      saveState();
+      ctx.drawImage(copyBuffer, x, y);
+      isPasting = false;
+      return;
+    }
     if (currentTool === 'move') {
       handleMoveStart(e);
+    } else if (currentTool === 'select') {
+      selection.active = true;
+      selection.x1 = selection.x2 = x;
+      selection.y1 = selection.y2 = y;
+      isDrawing = true;
     } else {
       saveState();
       isDrawing = true; 
@@ -778,6 +864,9 @@ canvas.addEventListener('wheel', (e) => {
     canvas.style.height = (canvas.height * newZoom) + "px";
     gridOverlay.style.backgroundSize = `${newZoom}px ${newZoom}px`;
 
+    // 選択範囲表示の更新
+    updateSelectionView();
+
     // 新しいキャンバスサイズでのマウス位置を維持するようにスクロール位置を調整
     const newRect = canvas.getBoundingClientRect();
     scrollViewer.scrollLeft = (ratioX * newRect.width) - (e.clientX - scrollViewer.getBoundingClientRect().left);
@@ -857,13 +946,35 @@ function importJSON(event) {
 }
 
 /**
- * 【新規追加】コピー機能
+ * 【新規追加】コピー機能 (範囲指定対応)
  */
 function copyCanvas() {
-  const data = canvas.toDataURL();
-  copyBuffer = new Image();
-  copyBuffer.src = data;
-  alert("キャンバス全体をコピーしました。");
+  if (!selection.active) {
+    // 範囲指定がない場合は全体をコピー
+    const data = canvas.toDataURL();
+    copyBuffer = new Image();
+    copyBuffer.src = data;
+    alert("キャンバス全体をコピーしました。");
+  } else {
+    // 範囲指定がある場合
+    const x = Math.min(selection.x1, selection.x2);
+    const y = Math.min(selection.y1, selection.y2);
+    const w = Math.abs(selection.x2 - selection.x1) + 1;
+    const h = Math.abs(selection.y2 - selection.y1) + 1;
+    
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = w;
+    tempCanvas.height = h;
+    const tempCtx = tempCanvas.getContext('2d');
+    tempCtx.drawImage(canvas, x, y, w, h, 0, 0, w, h);
+    
+    copyBuffer = new Image();
+    copyBuffer.src = tempCanvas.toDataURL();
+    alert("選択範囲をコピーしました。貼り付けをクリックした後、キャンバスをクリックして配置してください。");
+    
+    selection.active = false;
+    updateSelectionView();
+  }
 }
 
 /**
@@ -874,9 +985,9 @@ function pasteCanvas() {
     alert("コピーされた内容がありません。");
     return;
   }
-  saveState();
-  // 貼り付け先のキャンバスサイズに合わせて描画（左上に配置）
-  ctx.drawImage(copyBuffer, 0, 0);
+  isPasting = true;
+  canvas.style.cursor = 'copy';
+  alert("キャンバス上をクリックして貼り付けてください。");
 }
 </script>
 
