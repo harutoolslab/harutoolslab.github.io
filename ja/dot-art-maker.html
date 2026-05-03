@@ -240,8 +240,6 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 
         <div style="border-left: 1px solid #ddd; height: 30px; margin: 0 5px;"></div>
 
-        <button class="tool-btn" onclick="copyCanvas()" title="全体をコピー">コピー</button>
-        <button class="tool-btn" onclick="pasteCanvas()" title="コピーしたものを貼り付け">貼り付け</button>
         <button class="tool-btn" onclick="undo()" title="1つ戻る">戻る</button>
         <button id="grid-toggle-btn" class="tool-btn active" onclick="toggleGrid()">グリッド線</button>
         <button id="view-all-btn" class="tool-btn" onclick="toggleViewAll()">全体を見る</button>
@@ -379,9 +377,6 @@ let prevViewState = {
 // ピンチズーム用の変数
 let initialPinchDistance = null;
 let initialPinchZoom = null;
-
-// コピー機能用の変数
-let copyBuffer = null;
 
 sizes.forEach(s => {
   wSelect.add(new Option(s, s));
@@ -834,7 +829,7 @@ function importJSON(event) {
       wSelect.value = data.width;
       hSelect.value = data.height;
       canvas.width = data.width;
-      canvas.height = hSelect.value = data.height;
+      canvas.height = data.height;
 
       // 画像の復元
       const img = new Image();
@@ -854,29 +849,6 @@ function importJSON(event) {
   reader.readAsText(file);
   // 同じファイルを連続で選択しても発火するようにリセット
   event.target.value = "";
-}
-
-/**
- * 【新規追加】コピー機能
- */
-function copyCanvas() {
-  const data = canvas.toDataURL();
-  copyBuffer = new Image();
-  copyBuffer.src = data;
-  alert("キャンバス全体をコピーしました。");
-}
-
-/**
- * 【新規追加】ペースト機能
- */
-function pasteCanvas() {
-  if (!copyBuffer) {
-    alert("コピーされた内容がありません。");
-    return;
-  }
-  saveState();
-  // 貼り付け先のキャンバスサイズに合わせて描画（左上に配置）
-  ctx.drawImage(copyBuffer, 0, 0);
 }
 </script>
 
