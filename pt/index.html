@@ -7,9 +7,10 @@
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
   <meta name="google-site-verification" content="jWDFJLwlaulsCJD9GNUFzzeZeTvLEzBHY0kWB140450" />
   
-<title>HaruTools Lab | Ferramentas online gratuitas para edição de imagem e PDF</title>
+<!-- ★Configurações de SEO -->
+<title>HaruTools Lab | Ferramentas Online Gratuitas: Imagem, PDF, Cálculo e Engenharia</title>
 <link rel="icon" href="/favicon.ico">
-<meta name="description" content="Mais de 35 ferramentas gratuitas para compressão de imagem, conversão de formato e edição de PDF diretamente no navegador. Sem instalação, compatível com telemóvel e foco na privacidade.">
+<meta name="description" content="Mais de 50 ferramentas gratuitas no seu navegador: compressão de imagem, conversão WebP, edição de PDF, contagem de caracteres e cálculos elétricos. Sem registo, seguro e processado localmente.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -26,7 +27,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -82,7 +83,10 @@ h1 { font-size: 2.2rem; color: #111; margin-bottom: 10px; }
 
 /* SEO解説セクション */
 .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; }
-.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin-bottom: 20px; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
 
 footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
 
@@ -98,7 +102,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 <div class="container">
   <header>
     <h1>HaruTools Lab</h1>
-    <p class="hero-desc">Tudo no seu navegador. Ferramentas criativas totalmente gratuitas e sem necessidade de registo.</p>
+    <p class="hero-desc"><strong>Ferramentas práticas diretamente no seu navegador.</strong><br>Sem registo, totalmente gratuito. Edição de imagem, documentos, cálculos e engenharia eletrotécnica.</p>
   </header>
 
   <div class="ad-slot"><div>Publicidade</div></div>
@@ -106,15 +110,15 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <section class="tool-section">
     <h2 class="section-title">Compressão e Conversão de Imagem</h2>
     <div class="tool-grid">
-      <a href="image-compress.html" class="tool-card"><span>Compressão em Lote</span><small>Reduza drasticamente o tamanho</small></a>
-      <a href="png-compress.html" class="tool-card"><span>Comprimir PNG</span><small>Mantém transparência e reduz peso</small></a>
+      <a href="image-compress.html" class="tool-card"><span>Compressão em Lote</span><small>Reduza o tamanho drasticamente</small></a>
+      <a href="png-compress.html" class="tool-card"><span>Compressão PNG</span><small>Reduza sem perder transparência</small></a>
       <a href="image-to-webp.html" class="tool-card"><span>Converter para WebP</span><small>Formato de próxima geração</small></a>
-      <a href="webp-to-jpg.html" class="tool-card"><span>WebP → JPG</span><small>Para um formato universal</small></a>
-      <a href="webp-to-png.html" class="tool-card"><span>WebP → PNG</span><small>Suporte para transparência</small></a>
+      <a href="webp-to-jpg.html" class="tool-card"><span>WebP → JPG</span><small>Converter para formato universal</small></a>
+      <a href="webp-to-png.html" class="tool-card"><span>WebP → PNG</span><small>Com suporte a transparência</small></a>
       <a href="jpg-to-png.html" class="tool-card"><span>JPG → PNG</span><small>Converter para formato PNG</small></a>
-      <a href="png-to-jpg.html" class="tool-card"><span>PNG → JPG</span><small>Fundo branco na conversão</small></a>
-      <a href="heic-to-png.html" class="tool-card"><span>HEIC → PNG</span><small>Converter fotos de iPhone</small></a>
-      <a href="video-to-gif.html" class="tool-card"><span>Vídeo → GIF</span><small>Animar ficheiros de vídeo</small></a>
+      <a href="png-to-jpg.html" class="tool-card"><span>PNG → JPG</span><small>Converter com fundo branco</small></a>
+      <a href="heic-to-png.html" class="tool-card"><span>HEIC → PNG</span><small>Converter fotos do iPhone</small></a>
+      <a href="video-to-gif.html" class="tool-card"><span>Vídeo → GIF</span><small>Transformar vídeo em animação</small></a>
     </div>
   </section>
 
@@ -122,84 +126,124 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
     <h2 class="section-title">Edição e Processamento de Imagem</h2>
     <div class="tool-grid">
       <a href="image-resize.html" class="tool-card"><span>Redimensionar</span><small>Alterar largura e altura</small></a>
-      <a href="image-cropper-rounded.html" class="tool-card"><span>Recortar</span><small>Cantos arredondados ou livre</small></a>
-      <a href="square-image-maker.html" class="tool-card"><span>Formato Quadrado</span><small>Adicionar margens para redes sociais</small></a>
-      <a href="image-filter-tool.html" class="tool-card"><span>Filtros</span><small>Correção de cor e efeitos</small></a>
-      <a href="brightness-contrast.html" class="tool-card"><span>Brilho e Contraste</span><small>Ajustar luz e sombras</small></a>
-      <a href="monochrome-pwa.html" class="tool-card"><span>Preto e Branco</span><small>Efeito monocromático ou sépia</small></a>
+      <a href="image-cropper-rounded.html" class="tool-card"><span>Recortar</span><small>Cantos redondos e livre</small></a>
+      <a href="square-image-maker.html" class="tool-card"><span>Criar Imagem Quadrada</span><small>Adicionar margens para redes sociais</small></a>
+      <a href="image-filter-tool.html" class="tool-card"><span>Filtros de Imagem</span><small>Ajuste de cores e efeitos</small></a>
+      <a href="brightness-contrast.html" class="tool-card"><span>Brilho e Contraste</span><small>Ajustar iluminação</small></a>
+      <a href="monochrome-pwa.html" class="tool-card"><span>Converter para Mono</span><small>Preto e branco ou sépia</small></a>
       <a href="mosaic-blur.html" class="tool-card"><span>Mosaico e Desfoque</span><small>Ocultar informações privadas</small></a>
-      <a href="png-transparent.html" class="tool-card"><span>Remover Fundo</span><small>Tornar cores específicas transparentes</small></a>
-      <a href="add-text.html" class="tool-card"><span>Adicionar Texto</span><small>Inserir legendas</small></a>
-      <a href="image-watermark.html" class="tool-card"><span>Marca de Água</span><small>Logótipo de proteção contra cópia</small></a>
-      <a href="image-rotate.html" class="tool-card"><span>Rodar</span><small>90 graus ou ajuste livre</small></a>
-      <a href="image-flip.html" class="tool-card"><span>Inverter</span><small>Espelhar horizontal ou vertical</small></a>
-      <a href="image-overlay.html" class="tool-card"><span>Sobrepor Imagens</span><small>Combinar duas imagens</small></a>
+      <a href="png-transparent.html" class="tool-card"><span>Transparência de Fundo</span><small>Tornar cores específicas transparentes</small></a>
+      <a href="add-text.html" class="tool-card"><span>Adicionar Texto</span><small>Escrever sobre a imagem</small></a>
+      <a href="image-watermark.html" class="tool-card"><span>Adicionar Marca de Água</span><small>Proteger contra cópias</small></a>
+      <a href="image-rotate.html" class="tool-card"><span>Rodar Imagem</span><small>90 graus ou ajuste livre</small></a>
+      <a href="image-flip.html" class="tool-card"><span>Inverter Imagem</span><small>Horizontal ou vertical</small></a>
+      <a href="image-overlay.html" class="tool-card"><span>Sobrepor Imagens</span><small>Mesclar duas imagens</small></a>
     </div>
   </section>
 
   <section class="tool-section">
     <h2 class="section-title">Cor, Análise e Comparação</h2>
     <div class="tool-grid">
-      <a href="rgb-to-hex.html" class="tool-card"><span>RGB → HEX</span><small>Conversão de código de cor</small></a>
-      <a href="hex-to-rgb.html" class="tool-card"><span>HEX → RGB</span><small>Conversão de código de cor</small></a>
+      <a href="rgb-to-hex.html" class="tool-card"><span>RGB → HEX</span><small>Converter códigos de cor</small></a>
+      <a href="hex-to-rgb.html" class="tool-card"><span>HEX → RGB</span><small>Converter códigos de cor</small></a>
       <a href="color-picker.html" class="tool-card"><span>Seletor de Cores</span><small>Obter cores do ecrã</small></a>
       <a href="color-code-list.html" class="tool-card"><span>Lista de Cores</span><small>Nomes e códigos de cores</small></a>
-      <a href="image-compare.html" class="tool-card"><span>Comparar Imagens</span><small>Verificar duas lado a lado</small></a>
-      <a href="image-measure.html" class="tool-card"><span>Medir na Imagem</span><small>Medir tamanhos internos</small></a>
+      <a href="image-compare.html" class="tool-card"><span>Comparar Imagens</span><small>Verificar duas imagens lado a lado</small></a>
+      <a href="image-measure.html" class="tool-card"><span>Medição em Imagem</span><small>Medir tamanhos internos</small></a>
     </div>
   </section>
 
   <section class="tool-section">
     <h2 class="section-title">PDF e Documentos</h2>
     <div class="tool-grid">
-      <a href="pdf-split.html" class="tool-card"><span>Unir PDF</span><small>Combinar vários num só</small></a>
-      <a href="image-to-pdf.html" class="tool-card"><span>Imagem → PDF</span><small>Converter fotos para PDF</small></a>
-      <a href="pdf-to-image.html" class="tool-card"><span>PDF → Imagem</span><small>PDF para JPG/PNG</small></a>
+      <a href="pdf-split.html" class="tool-card"><span>Fundir PDF</span><small>Unir vários ficheiros num só</small></a>
+      <a href="image-to-pdf.html" class="tool-card"><span>Imagem → PDF</span><small>Converter fotos em PDF</small></a>
+      <a href="pdf-to-image.html" class="tool-card"><span>PDF → Imagem</span><small>Extrair PDF como JPG/PNG</small></a>
     </div>
   </section>
 
   <section class="tool-section">
-    <h2 class="section-title">Outras Ferramentas Úteis</h2>
+    <h2 class="section-title">Outros Utilitários</h2>
     <div class="tool-grid">
-      <a href="qr-generator.html" class="tool-card"><span>Gerador de QR Code</span><small>URL ou texto para QR</small></a>
-      <a href="favicon-generator.html" class="tool-card"><span>Criar Favicon</span><small>Gerar ícone em formato .ico</small></a>
-      <a href="remove-exif.html" class="tool-card"><span>Remover Exif</span><small>Apagar metadados e localização</small></a>
-      <a href="dot-art-maker.html" class="tool-card"><span>Pixel Art</span><small>Converter para estilo pixelizado</small></a>
+      <a href="qr-generator.html" class="tool-card"><span>Gerador de QR Code</span><small>Converter URL ou texto em QR</small></a>
+      <a href="favicon-generator.html" class="tool-card"><span>Gerador de Favicon</span><small>Criar ícones em formato .ico</small></a>
+      <a href="remove-exif.html" class="tool-card"><span>Remover Metadados Exif</span><small>Apagar GPS e info de captura</small></a>
+      <a href="dot-art-maker.html" class="tool-card"><span>Criador de Pixel Art</span><small>Desenhar arte em píxeis</small></a>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <h2 class="section-title">Texto e Escrita</h2>
+    <div class="tool-grid">
+      <a href="character-count.html" class="tool-card"><span>Contagem de Caracteres</span><small>Letras, linhas e palavras</small></a>
+      <a href="text-search.html" class="tool-card"><span>Pesquisa de Texto</span><small>Extrair palavras ou espaços específicos</small></a>
+      <a href="text-cleaner.html" class="tool-card"><span>Limpar Texto</span><small>Remover quebras de linha e carateres</small></a>
+      <a href="special-characters.html" class="tool-card"><span>Carateres Especiais</span><small>Copiar símbolos para Web</small></a>
+      <a href="json-xml-format.html" class="tool-card"><span>Formatar JSON/XML</span><small>Tornar o código legível</small></a>
+    </div>
+  </section>
+
+<section class="tool-section">
+    <h2 class="section-title">Ferramentas de Cálculo</h2>
+    <div class="tool-grid">
+      <a href="time-calc.html" class="tool-card"><span>Calculadora de Tempo</span><small>Cálculos com horas e valores</small></a>
+      <a href="number-base-converter.html" class="tool-card"><span>Conversor de Bases</span><small>Binário, Octal, Decimal e Hex</small></a>
+    </div>
+  </section>
+
+<section class="tool-section">
+    <h2 class="section-title">Engenharia Elétrica e Eletrónica</h2>
+    <div class="tool-grid">
+      <a href="resistor-color-code.html" class="tool-card"><span>Código de Cores (4 bandas)</span><small>Calcular valor da resistência</small></a>
+      <a href="resistor-color-code-5band.html" class="tool-card"><span>Código de Cores (5 bandas)</span><small>Resistências de precisão</small></a>
+      <a href="composite-resistance.html" class="tool-card"><span>Resistência Equivalente</span><small>Cálculo de circuitos série/paralelo</small></a>
+      <a href="ohm-law-calculator.html" class="tool-card"><span>Calculadora da Lei de Ohm</span><small>Tensão, corrente, resistência e potência</small></a>
+      <a href="power-consumption-calculator.html" class="tool-card"><span>Consumo de Energia</span><small>Calcular kWh e custos elétricos</small></a>
+      <a href="rlc-calc.html" class="tool-card"><span>Cálculo de Circuitos RLC</span><small>Impedância e diagrama vetorial</small></a>
+      <a href="ac-power-calculator.html" class="tool-card"><span>Potência em AC</span><small>Ativa, reativa e aparente</small></a>
+      <a href="logic-circuit-simulator.html" class="tool-card"><span>Simulador de Portas Lógicas</span><small>Experiências com circuitos digitais</small></a>
     </div>
   </section>
 
   <div class="ad-slot"><div>Publicidade</div></div>
 
   <article class="info-section">
-    <h2>Destaques do HaruTools Lab</h2>
-    <p>Este site oferece mais de 35 tipos de ferramentas online úteis para criação web e gestão de redes sociais, de forma totalmente gratuita. Pode utilizá-las imediatamente sem necessidade de login.</p>
+    <h2>Destaques do HaruTools Lab: Porquê utilizar?</h2>
+    <p>O HaruTools Lab é uma coleção de mais de 50 ferramentas online criadas para apoiar designers web, programadores, engenheiros, estudantes e utilizadores comuns em tarefas do dia-a-dia que precisam de uma solução rápida.</p>
     
-    <h3>Processamento Seguro no Navegador</h3>
-    <p>Todo o processamento ocorre localmente no seu navegador. Dados confidenciais, como imagens ou PDFs, nunca são enviados ou guardados nos nossos servidores. É seguro mesmo para uso empresarial focado em segurança.</p>
+    <h3>1. Processamento Seguro no Navegador (Foco na Privacidade)</h3>
+    <p>Ao contrário de outras ferramentas online, todo o processamento é feito no seu próprio navegador (client-side). <strong>As suas imagens, PDFs e dados confidenciais nunca são enviados para um servidor externo.</strong> Pode utilizar no trabalho ou na escola com total tranquilidade.</p>
     
-    <h3>Uso Comercial Permitido</h3>
-    <p>Os dados criados ou processados com estas ferramentas podem ser utilizados para fins comerciais, seja por indivíduos ou empresas. Não é necessária atribuição de créditos.</p>
+    <h3>2. Sem Registo, Gratuito e para Uso Comercial</h3>
+    <p>Não é necessário criar conta ou fazer login. Oferecemos todas as funcionalidades sem restrições. Os dados processados podem ser usados para fins comerciais sem necessidade de atribuição de créditos.</p>
+    
+    <h3>3. Sem Instalação e Compatível com Telemóveis</h3>
+    <p>Não precisa de instalar software pesado. Basta um navegador para funcionar rapidamente em Windows, Mac, iPhone, Android e qualquer outro dispositivo moderno.</p>
 
    <h2>Perguntas Frequentes (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">P. Existem custos associados?</span>
-      <p>R. Não, todas as ferramentas deste site são fornecidas gratuitamente. O site é mantido através de receitas publicitárias, pelo que não existem custos adicionais.</p>
+      <span class="faq-q">P. Existem custos para utilizar o serviço?</span>
+      <p>R. Não, todas as ferramentas são totalmente gratuitas. Não existem taxas ocultas nem planos premium para funções específicas.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">P. As imagens carregadas são guardadas no servidor?</span>
-      <p>R. Não. Esta ferramenta realiza todo o processamento no lado do cliente (navegador). Os dados das imagens não são enviados para servidores externos, garantindo a total proteção da sua privacidade.</p>
+      <span class="faq-q">P. É necessário fazer registo ou login?</span>
+      <p>R. Não. Basta aceder ao site e escolher a ferramenta de que precisa. Não recolhemos informações pessoais como o seu e-mail.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">P. Posso utilizar no telemóvel?</span>
-      <p>R. Sim, as ferramentas funcionam em smartphones iPhone ou Android e em tablets, sem necessidade de instalação.</p>
+      <span class="faq-q">P. Onde são guardados os ficheiros que carrego?</span>
+      <p>R. Não são guardados em lado nenhum. As ferramentas utilizam JavaScript para processar os dados localmente. No momento em que o processamento termina, os dados existem apenas no seu dispositivo.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">P. Posso processar várias imagens ao mesmo tempo?</span>
-      <p>R. Atualmente, estas ferramentas processam uma imagem de cada vez. Se precisar de processar várias, carregue-as individualmente ou aguarde por atualizações futuras.</p>
+      <span class="faq-q">P. Posso usar as imagens processadas para fins comerciais?</span>
+      <p>R. Sim. Pode usá-las livremente em documentos de trabalho, blogs, redes sociais ou embalagens de produtos.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">P. Qual será a qualidade da imagem convertida?</span>
-      <p>R. As ferramentas estão otimizadas para manter a qualidade original ao máximo. Pode ocorrer uma ligeira compressão em certas conversões, mas nada que afete o uso comum.</p>
+      <span class="faq-q">P. Funciona em telemóveis (iPhone/Android)?</span>
+      <p>R. Sim. Todas as ferramentas têm design responsivo e funcionam perfeitamente em smartphones e tablets com as mesmas funcionalidades da versão PC.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. O que fazer se a ferramenta não funcionar ou não exibir corretamente?</span>
+      <p>R. Verifique se o seu navegador está atualizado. Extensões de bloqueio de anúncios ou o modo privado podem, por vezes, interferir com os scripts. Se o problema persistir, tente noutro navegador.</p>
     </div>
   </article>
 
