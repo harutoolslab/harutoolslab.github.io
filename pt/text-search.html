@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+    <!-- ★Configurações de SEO -->
+    <title>Pesquisa de Texto e Destaque | HaruTools Lab</title>
+    <meta name="description" content="Ferramenta para pesquisar, contar e destacar palavras-chave ou carateres específicos num texto instantaneamente. Identifica números de linha. Seguro e funciona no navegador.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --primary: #007bff;
+            --primary-hover: #0056b3;
+            --success: #28a745;
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0; padding: 0; line-height: 1.6;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+        /* Espaço para anúncios */
+        .ad-slot {
+            margin: 20px auto; padding: 15px;
+            background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+            color: #999; font-size: 12px; text-align: center; min-height: 90px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+        /* Cabeçalho */
+        header { text-align: center; margin: 40px 0 20px; }
+        h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+        .tagline { color: var(--text-sub); font-size: 1rem; }
+
+        /* Área principal da ferramenta */
+        .main-card {
+            background: var(--card-bg);
+            padding: 40px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        textarea { width: 100%; height: 200px; padding: 15px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; resize: vertical; font-size: 1rem; }
+        .controls { margin: 20px 0; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        input[type="text"] { padding: 12px; border: 1px solid #ccc; border-radius: 8px; flex-grow: 1; font-size: 1rem; }
+        
+        .btn-search {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+            transition: background 0.2s;
+        }
+        .btn-search:hover { background: var(--primary-hover); }
+
+        .result-info { margin: 20px 0 10px; font-weight: bold; color: #2c3e50; font-size: 1.1rem; }
+        
+        /* Estilo para a área de exibição */
+        .display-area { 
+            width: 100%; padding: 15px; border: 1px solid #eee; 
+            border-radius: 8px; background: #fafafa; white-space: pre-wrap; word-wrap: break-word;
+            font-size: 1rem; overflow-y: auto; box-sizing: border-box;
+        }
+
+        /* Classe para "Estilo igual ao de entrada" */
+        .as-input-style {
+            height: 200px; /* Mesma altura que a textarea de entrada */
+            border: 1px solid #ccc;
+            background: #ffffff;
+        }
+
+        mark { background-color: #ffeb3b; color: black; border-radius: 2px; padding: 0 2px; }
+
+        .view-toggle { margin-bottom: 10px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .view-toggle input { cursor: pointer; }
+
+        /* Secção de conteúdos SEO */
+        .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+        .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+        .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+        footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div style="font-size: 0.9rem; margin-bottom: 5px;">
+            <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+                Coleção de Ferramentas Online Gratuitas "HaruTools Lab"
+            </a>
+        </div>
+        <h1>Ferramenta de Pesquisa de Texto</h1>
+        <p class="tagline">Extraia e destaque palavras-chave ou espaços em branco num instante</p>
+    </header>
+
+    <!-- Publicidade: Topo -->
+    <div class="ad-slot">
+        <div><span class="ad-label">Advertisement</span>Espaço para Anúncio</div>
+    </div>
+
+    <main class="main-card">
+        <textarea id="inputText" placeholder="Introduza o texto para pesquisar aqui..."></textarea>
+
+        <div class="controls">
+            <input type="text" id="keyword" placeholder="Introduza a palavra-chave">
+            <button onclick="searchText()" class="btn-search">Executar Pesquisa</button>
+        </div>
+
+        <div class="result-info" id="resultCount"></div>
+
+        <!-- Interruptor de formato de exibição -->
+        <div class="view-toggle">
+            <input type="checkbox" id="toggleStyle" onchange="toggleDisplayStyle()">
+            <label for="toggleStyle">Tamanho Fixo</label>
+        </div>
+
+        <div id="outputArea" class="display-area">Os resultados da pesquisa aparecerão aqui</div>
+    </main>
+
+    <!-- Publicidade: Centro -->
+    <div class="ad-slot">
+        <div><span class="ad-label">Advertisement</span>Espaço para Anúncio</div>
+    </div>
+
+    <!-- Conteúdo SEO -->
+    <article class="info-section">
+        <h2>O que é a Ferramenta de Pesquisa de Texto?</h2>
+        <p>A ferramenta de pesquisa de texto é um utilitário online que encontra rapidamente cadeias de carateres ou palavras específicas em textos longos, indicando quantas vezes aparecem e em que linhas se encontram. Funciona diretamente no navegador, pelo que não necessita de instalação.</p>
+
+        <h3>Características da ferramenta</h3>
+        <ul>
+            <li><strong>Destaque em Tempo Real:</strong> As palavras-chave encontradas são realçadas a amarelo, facilitando a sua localização imediata.</li>
+            <li><strong>Identificação de Linhas:</strong> Indica em que linhas se encontra a palavra-chave, sendo ideal para revisão de código ou documentos extensos.</li>
+            <li><strong>Suporte para Carateres Especiais:</strong> Além de letras normais, pode pesquisar e contar espaços em branco, símbolos e carateres especiais com precisão.</li>
+            <li><strong>Privacidade Garantida:</strong> O texto introduzido não é enviado para o servidor; o processamento é feito localmente no seu dispositivo (navegador).</li>
+        </ul>
+
+        <h2>Passos para Utilizar</h2>
+        <ol>
+            <li>Cole o texto que deseja analisar na área central.</li>
+            <li>Introduza a palavra ou carateres que procura no campo "Introduza a palavra-chave".</li>
+            <li>Clique no botão "Executar Pesquisa" para ver o número de correspondências, as linhas e o texto destacado.</li>
+        </ol>
+
+        <h2>Perguntas Frequentes (FAQ)</h2>
+        <div class="faq-item">
+            <span class="faq-q">P. Posso pesquisar em textos que contenham tags HTML?</span>
+            <p>R. Sim, é possível. Esta ferramenta trata as tags HTML como texto comum, sendo perfeita para encontrar tags ou atributos específicos dentro de código.</p>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">P. Existe um limite de carateres para a pesquisa?</span>
+            <p>R. Geralmente não há limite, mas em textos extremamente longos (centenas de milhares de carateres), o desempenho do seu navegador pode diminuir.</p>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">P. Posso utilizar no telemóvel?</span>
+            <p>R. Sim, a ferramenta possui um design responsivo e funciona perfeitamente em navegadores de smartphones e tablets.</p>
+        </div>
+
+<h3>Ferramentas Relacionadas</h3>
+    <ul>
+      <li><a href="character-count.html">Contagem de Carateres</a></li>
+      <li><a href="json-xml-format.html">Formatador JSON/XML</a></li>
+      <li><a href="text-cleaner.html">Remover Quebras de Linha e Carateres</a></li>
+      <li><a href="special-characters.html">Lista de Carateres Especiais</a></li>
+    </ul>
+    </article>
+
+    <!-- Publicidade: Fundo -->
+    <div class="ad-slot">
+        <div><span class="ad-label">Advertisement</span>Espaço para Anúncio</div>
+    </div>
+
+    <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Uso</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+</div>
+
+<script>
+// Função para alternar o formato de exibição
+function toggleDisplayStyle() {
+    const output = document.getElementById('outputArea');
+    const isChecked = document.getElementById('toggleStyle').checked;
+    if (isChecked) {
+        output.classList.add('as-input-style');
+    } else {
+        output.classList.remove('as-input-style');
+    }
+}
+
+function searchText() {
+    const text = document.getElementById('inputText').value;
+    const keyword = document.getElementById('keyword').value;
+    const output = document.getElementById('outputArea');
+    const countDisplay = document.getElementById('resultCount');
+
+    if (!keyword) {
+        output.textContent = text;
+        countDisplay.textContent = "Por favor, introduza uma palavra-chave.";
+        return;
+    }
+
+    // Processamento para escapar tags HTML e exibir como carateres
+    const escapedText = text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    // Ajustar a palavra-chave para corresponder ao texto escapado
+    const escapedKeywordValue = keyword
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    // Escapar carateres especiais de Regex
+    const escapedKeyword = escapedKeywordValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(escapedKeyword, 'g');
+    
+    // Contagem de correspondências
+    const matches = escapedText.match(regex);
+    const count = matches ? matches.length : 0;
+    
+    // Lógica para determinar em que linhas se encontra
+    let lineNumbers = [];
+    const lines = escapedText.split(/\n/);
+    lines.forEach((lineContent, index) => {
+        if (lineContent.includes(escapedKeywordValue)) {
+            lineNumbers.push(index + 1); // +1 para exibir a partir da linha 1
+        }
+    });
+
+    if (count > 0) {
+        countDisplay.textContent = `Correspondências: ${count} (Linhas: ${lineNumbers.join(', ')})`;
+    } else {
+        countDisplay.textContent = `Correspondências: 0`;
+    }
+
+    // Processamento de destaque (Highlight)
+    if (count > 0) {
+        const highlighted = escapedText.replace(regex, (match) => `<mark>${match}</mark>`);
+        output.innerHTML = highlighted;
+    } else {
+        output.textContent = text;
+    }
+}
+</script>
+
+</body>
+</html>
