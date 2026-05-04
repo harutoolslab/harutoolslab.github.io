@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+
+<!-- ★SEO設定 -->
+<title>Calculadora da Lei de Ohm e Potência | HaruTools Lab - Ferramentas Online Gratuitas</title>
+<meta name="description" content="Calcule tensão (V), corrente (A), resistência (Ω) e potência (W) com base na Lei de Ohm. Basta inserir dois valores para obter os restantes instantaneamente.">
+<meta name="keywords" content="Lei de Ohm, cálculo, tensão, corrente, resistência, potência, watts, circuito elétrico, simulador">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --border-color: #e1e4e8;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 入力UI */
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #444;
+}
+input[type="number"] {
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 18px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+input[type="number"]:focus {
+  border-color: var(--primary);
+}
+
+.result-display {
+  background: #f8fdfa;
+  border: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-reset {
+  background: #eee;
+  color: #333;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.2s;
+}
+.btn-reset:hover { background: #e0e0e0; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.formula-box { background: #f9f9f9; padding: 15px; border-radius: 8px; font-family: monospace; line-height: 1.8; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .input-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab - Coleção de Ferramentas Online Gratuitas
+    </a>
+  </div>
+    <h1>Calculadora da Lei de Ohm e Potência</h1>
+    <p class="tagline">Calcule automaticamente Tensão, Corrente, Resistência e Potência inserindo apenas dois valores</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para Publicidade</div>
+  </div>
+
+  <!-- ツールメインエリア -->
+  <main class="main-card">
+    <div class="input-grid">
+      <div class="input-group">
+        <label>Tensão (V)</label>
+        <input type="number" id="volts" step="any" placeholder="0" onchange="logic('v')">
+      </div>
+      <div class="input-group">
+        <label>Corrente (A)</label>
+        <input type="number" id="amps" step="any" placeholder="0" onchange="logic('a')">
+      </div>
+      <div class="input-group">
+        <label>Resistência (Ω)</label>
+        <input type="number" id="ohms" step="any" placeholder="0" onchange="logic('r')">
+      </div>
+      <div class="input-group">
+        <label>Potência (W)</label>
+        <input type="number" id="watts" step="any" placeholder="0" onchange="logic('w')">
+      </div>
+    </div>
+
+    <div class="result-display" id="res-box">
+      <div id="result-output" style="font-size: 1.1em; font-weight: bold;">
+        Insira dois valores e confirme (clique fora do campo)
+      </div>
+    </div>
+
+    <button class="btn-reset" onclick="resetFields()">Limpar tudo e reiniciar</button>
+
+<div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>Nota sobre os resultados dos cálculos</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>Esta ferramenta fornece valores baseados num modelo de circuito de corrente contínua (DC) ideal. Em circuitos reais, os valores podem variar devido à queda de tensão na cablagem, resistência de contacto ou alterações na resistência devido ao calor.</li>
+        <li>O uso de componentes (como resistências) acima da sua dissipação permitida (potência em W) pode causar sobreaquecimento ou danos. Selecione sempre componentes com uma margem de segurança.</li>
+        <li>Este site não se responsabiliza por quaisquer perdas, acidentes ou danos resultantes do uso destes cálculos. Verifique sempre a segurança e utilize por sua conta e risco em projetos reais.</li>
+    </ul>
+</div>
+  </main>
+
+  <!-- 広告枠：中部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para Publicidade</div>
+  </div>
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>O que é a Calculadora da Lei de Ohm e Potência?</h2>
+    <p>Esta ferramenta é um simulador online que permite realizar instantaneamente os cálculos fundamentais da eletrónica: a "Lei de Ohm" e o "Cálculo de Potência". Ao inserir dois dos quatro valores — Tensão (V), Corrente (A), Resistência (Ω) ou Potência (W) — o sistema calcula automaticamente os restantes. É ideal para entusiastas de eletrónica, projetos elétricos e verificação de consumo de energia de eletrodomésticos.</p>
+
+    <h3>Como memorizar as fórmulas</h3>
+    <div class="formula-box">
+      ・Tensão (V) = Corrente (I) × Resistência (R)<br>
+      ・Corrente (I) = Tensão (V) ÷ Resistência (R)<br>
+      ・Resistência (R) = Tensão (V) ÷ Corrente (I)
+    </div>
+
+    <h3>Sobre o cálculo de Potência (Watts/W)</h3>
+    <p>
+      A potência (P) é a quantidade de energia elétrica consumida por unidade de tempo.<br>
+      Pode ser calculada como <strong>Potência (W) = Tensão (V) × Corrente (I)</strong>. <br>
+      Usando a resistência (R), também pode ser expressa como <strong>W = I²R</strong> ou <strong>W = V²/R</strong>.
+    </p>
+
+    <h2>Vantagens desta ferramenta</h2>
+    <ul>
+      <li><strong>Totalmente Gratuita:</strong> Use todas as funções sem qualquer custo.</li>
+      <li><strong>Sem Registo:</strong> Não é necessário criar conta ou fazer login.</li>
+      <li><strong>Privacidade Segura:</strong> Os cálculos são feitos no seu navegador; nenhum dado é enviado para o servidor.</li>
+    </ul>
+
+    <h2>Perguntas Frequentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. O que acontece se eu inserir mais de dois valores?</span>
+      <p>R. O cálculo será executado com base nos valores inseridos. Sempre que alterar um valor, os outros campos serão recalculados automaticamente.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. É possível inserir casas decimais?</span>
+      <p>R. Sim, é possível. Se estiver a calcular valores muito pequenos (como mA ou kΩ), converta-os para Ampères (A) ou Ohms (Ω) antes de inserir.</p>
+    </div>
+
+<h3>Ferramentas Relacionadas</h3>
+    <ul>
+      <li><a href="resistor-color-code.html">Calculadora de Código de Cores de Resistências (4 faixas)</a></li>
+      <li><a href="resistor-color-code-5band.html">Calculadora de Código de Cores de Resistências (5 faixas)</a></li>
+      <li><a href="composite-resistance.html">Calculadora de Resistência Equivalente</a></li>
+      <li><a href="power-consumption-calculator.html">Calculadora de Consumo, Calor e Custo Elétrico</a></li>
+      <li><a href="rlc-calc.html">Calculadora de Impedância de Circuito RLC</a></li>
+      <li><a href="ac-power-calculator.html">Calculadora de Potência AC</a></li>
+      <li><a href="logic-circuit-simulator.html">Simulador de Circuitos Lógicos</a></li>
+    </ul>
+  </article>
+
+  <!-- 広告枠：下部 -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para Publicidade</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Uso</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+</div>
+
+<script>
+    function logic(target) {
+        const v = document.getElementById('volts');
+        const a = document.getElementById('amps');
+        const r = document.getElementById('ohms');
+        const w = document.getElementById('watts');
+        const out = document.getElementById('result-output');
+        const box = document.getElementById('res-box');
+
+        const inputs = [
+            {id: 'v', val: parseFloat(v.value)},
+            {id: 'a', val: parseFloat(a.value)},
+            {id: 'r', val: parseFloat(r.value)},
+            {id: 'w', val: parseFloat(w.value)}
+        ];
+        
+        const active = inputs.filter(i => !isNaN(i.val) && i.val !== 0);
+
+        if (active.length >= 2) {
+            let V = parseFloat(v.value);
+            let A = parseFloat(a.value);
+            let R = parseFloat(r.value);
+            let W = parseFloat(w.value);
+
+            // 計算ロジック（オームの法則 ＆ 電力）
+            if (!isNaN(V) && !isNaN(A)) { R = V / A; W = V * A; }
+            else if (!isNaN(V) && !isNaN(R)) { A = V / R; W = (V * V) / R; }
+            else if (!isNaN(V) && !isNaN(W)) { A = W / V; R = (V * V) / W; }
+            else if (!isNaN(A) && !isNaN(R)) { V = A * R; W = (A * A) * R; }
+            else if (!isNaN(A) && !isNaN(W)) { V = W / A; R = W / (A * A); }
+            else if (!isNaN(R) && !isNaN(W)) { V = Math.sqrt(W * R); A = Math.sqrt(W / R); }
+
+            // 反映（入力した項目以外を更新）
+            if (target !== 'v') v.value = formatNum(V);
+            if (target !== 'a') a.value = formatNum(A);
+            if (target !== 'r') r.value = formatNum(R);
+            if (target !== 'w') w.value = formatNum(W);
+
+            out.innerText = "Cálculo concluído";
+            box.style.borderColor = "var(--success)";
+            box.style.background = "#f0fff4";
+        } else {
+            out.innerText = "Por favor, insira mais " + (2 - active.length) + " valor(es)";
+            box.style.borderColor = "#ddd";
+            box.style.background = "#f8fdfa";
+        }
+    }
+
+    function formatNum(num) {
+        return isFinite(num) ? parseFloat(num.toFixed(4)) : "";
+    }
+
+    function resetFields() {
+        ['volts', 'amps', 'ohms', 'watts'].forEach(id => document.getElementById(id).value = '');
+        logic();
+    }
+</script>
+
+</body>
+</html>

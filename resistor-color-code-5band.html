@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<title>Calculadora de Código de Cores de Resistências (5 faixas) | Compatível com Resistências de Precisão | HaruTools Lab</title>
+<meta name="description" content="Calcule instantaneamente o valor da resistência a partir das cores das 5 faixas (resistências de filme metálico). Explicação detalhada de como ler Marrom, Preto, Preto, Vermelho, Marrom (10kΩ) e mais.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --resistor-body: #cedce7;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 抵抗器ビジュアル */
+.resistor-display { position: relative; width: 100%; height: 80px; margin: 20px 0; display: flex; align-items: center; justify-content: center; }
+.wire { position: absolute; width: 90%; height: 4px; background: #ccc; }
+.body { position: relative; width: 200px; height: 50px; background: var(--resistor-body); border-radius: 12px; z-index: 2; display: flex; justify-content: space-between; padding: 0 15px; align-items: center; border: 1px solid #a0b0c0; }
+.band { width: 8px; height: 100%; }
+
+/* セレクター */
+.selectors { display: grid; gap: 10px; margin: 25px auto; max-width: 500px; text-align: left; }
+.select-row { display: flex; align-items: center; justify-content: space-between; }
+select { padding: 10px; border-radius: 6px; border: 1px solid #ddd; width: 160px; font-size: 14px; cursor: pointer; }
+
+/* 結果表示 */
+.result-box { padding: 25px; background: #ebf5ff; border-radius: 12px; border: 2px solid var(--primary); text-align: center; margin: 20px auto; max-width: 500px; }
+.res-value { font-size: 32px; font-weight: bold; color:#1e3a5a; display: block; }
+
+.nav-link { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #eee; color: #333; text-decoration: none; border-radius: 50px; font-size: 14px; font-weight: bold; }
+.nav-link:hover { background: #ddd; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+th { background: #f8f9fa; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .select-row { flex-direction: column; align-items: flex-start; }
+  select { width: 100%; margin-top: 5px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab - Coleção de Ferramentas Online Gratuitas
+    </a>
+  </div>
+    <h1>Calculadora de Código de Cores de Resistências (5 faixas)</h1>
+    <p class="tagline">Calcule valores de resistências de precisão e filme metálico instantaneamente pelas cores</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para Publicidade</div>
+  </div>
+
+  <div class="main-card">
+    <div class="resistor-display">
+        <div class="wire"></div>
+        <div class="body">
+            <div id="band1" class="band"></div>
+            <div id="band2" class="band"></div>
+            <div id="band3" class="band"></div>
+            <div id="band4" class="band"></div>
+            <div id="band5" class="band"></div>
+        </div>
+    </div>
+
+    <div class="selectors">
+        <div class="select-row"><label>1ª Faixa Colorida:</label><select id="color1" onchange="calculate()"></select></div>
+        <div class="select-row"><label>2ª Faixa Colorida:</label><select id="color2" onchange="calculate()"></select></div>
+        <div class="select-row"><label>3ª Faixa Colorida:</label><select id="color3" onchange="calculate()"></select></div>
+        <div class="select-row"><label>4ª Faixa (Multiplicador):</label><select id="color4" onchange="calculate()"></select></div>
+        <div class="select-row"><label>5ª Faixa (Tolerância):</label><select id="color5" onchange="calculate()"></select></div>
+    </div>
+
+    <div class="result-box">
+        <span id="resValue" class="res-value">-</span>
+        <span>Tolerância: <strong id="tolValue">-</strong></span>
+ </div>
+    <a href="resistor-color-code.html" class="nav-link">➔ Clique aqui para resistências de 4 faixas (comuns)</a>
+
+<div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>Nota sobre a Identificação do Código de Cores</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>Esta ferramenta exibe códigos de cores padrão baseados em normas internacionais (JIS/IEC). No entanto, a identificação das cores pode ser difícil dependendo da cor do corpo da resistência real ou das condições de iluminação.</li>
+        <li>Como indicado na 5ª faixa, os valores reais de resistência incluem uma margem de erro. Além disso, podem ocorrer desvios devido ao envelhecimento ou variações térmicas.</li>
+        <li>Este site não se responsabiliza por quaisquer perdas, danos em circuitos ou prejuízos resultantes do uso desta ferramenta. Meça sempre o valor real com um multímetro antes da montagem e utilize por sua conta e risco.</li>
+    </ul>
+</div>
+
+  </div>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para Publicidade</div>
+  </div>
+
+  <article class="info-section">
+    <h2>O que é a Calculadora de Código de Cores de 5 faixas?</h2>
+    <p>
+        Esta ferramenta é um simulador online para calcular instantaneamente o valor da resistência (Ohms) e a tolerância a partir das <strong>faixas coloridas das resistências</strong>. 
+        Além das resistências comuns de 4 faixas, suportamos totalmente as <strong>resistências de filme metálico de 5 faixas</strong> usadas em equipamentos de precisão.
+    </p>
+
+    <h3>Como ler e calcular o valor da resistência</h3>
+    <p>
+        O código de cores é lido da esquerda para a direita, representando o "1º, 2º e 3º dígitos", o "Multiplicador" e a "Tolerância". 
+        A nossa ferramenta automatiza o seguinte cálculo:
+    </p>
+    <ul>
+        <li><strong>Para 5 faixas:</strong> (1º Valor × 100 + 2º Valor × 10 + 3º Valor) × Multiplicador</li>
+    </ul>
+    <p>
+        Por exemplo, para uma resistência "Marrom, Preto, Preto, Vermelho, Marrom", temos (1, 0, 0) × 100 = 10.000Ω, ou seja, <strong>10kΩ (tolerância ±1%)</strong>.
+    </p>
+
+    <h3>Exemplos de códigos de cores comuns</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Resistência</th>
+                <th>Cores (4 faixas)</th>
+                <th>Cores (5 faixas)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1kΩ</td>
+                <td>Marrom, Preto, Vermelho, Ouro</td>
+                <td>Marrom, Preto, Preto, Marrom, Marrom</td>
+            </tr>
+            <tr>
+                <td>10kΩ</td>
+                <td>Marrom, Preto, Laranja, Ouro</td>
+                <td>Marrom, Preto, Preto, Vermelho, Marrom</td>
+            </tr>
+            <tr>
+                <td>4.7kΩ</td>
+                <td>Amarelo, Violeta, Vermelho, Ouro</td>
+                <td>Amarelo, Violeta, Preto, Marrom, Marrom</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Características desta Ferramenta</h3>
+    <ul>
+      <li><strong>Totalmente Gratuita:</strong> Todas as funções estão disponíveis sem custos.</li>
+      <li><strong>Sem Registo:</strong> Não é necessário criar conta ou fazer login.</li>
+      <li><strong>Privacidade Segura:</strong> Os dados são processados no seu navegador e não são enviados para servidores externos.</li>
+    </ul>
+
+    <h2>Passo a Passo de Uso</h2>
+    <ol>
+      <li>Verifique as faixas coloridas da resistência da esquerda para a direita.</li>
+      <li>Selecione as cores de cada faixa nos seletores. A 5ª faixa costuma estar um pouco mais afastada, indicando a tolerância.</li>
+      <li>Ao selecionar as cores, o visual da resistência e o resultado do cálculo serão atualizados em tempo real.</li>
+    </ol>
+
+    <h2>Perguntas Frequentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. Qual a diferença entre 4 faixas e 5 faixas?</span>
+      <p>R. As de 5 faixas são "resistências de precisão". Elas possuem um dígito extra para permitir valores mais específicos e oferecem margens de erro menores.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. Não sei qual é a "1ª faixa".</span>
+      <p>R. Na maioria das resistências, a faixa de tolerância (5ª faixa) fica um pouco mais afastada das outras quatro. Além disso, se houver faixas de Ouro, Prata ou Marrom na ponta, elas geralmente indicam o lado da tolerância (direita).</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. O uso da ferramenta tem algum custo?</span>
+      <p>R. Não, todas as ferramentas deste site são gratuitas. Somos mantidos por publicidade, portanto não há taxas adicionais.</p>
+    </div>
+
+<h3>Ferramentas Relacionadas</h3>
+    <ul>
+      <li><a href="resistor-color-code.html">Calculadora de Resistências (4 faixas)</a></li>
+      <li><a href="composite-resistance.html">Calculadora de Resistência Equivalente</a></li>
+      <li><a href="ohm-law-calculator.html">Calculadora da Lei de Ohm e Potência</a></li>
+      <li><a href="power-consumption-calculator.html">Calculadora de Consumo e Custo de Energia</a></li>
+      <li><a href="rlc-calc.html">Calculadora de Impedância RLC</a></li>
+      <li><a href="ac-power-calculator.html">Calculadora de Potência AC</a></li>
+      <li><a href="logic-circuit-simulator.html">Simulador de Circuitos Lógicos</a></li>
+    </ul>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para Publicidade</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Uso</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+</div>
+
+<script>
+    const colors = [
+        { name: "Preto", val: 0, mult: 1, tol: null, code: "#000000" },
+        { name: "Marrom", val: 1, mult: 10, tol: 1, code: "#8B4513" },
+        { name: "Vermelho", val: 2, mult: 100, tol: 2, code: "#FF0000" },
+        { name: "Laranja", val: 3, mult: 1000, tol: null, code: "#FFA500" },
+        { name: "Amarelo", val: 4, mult: 10000, tol: null, code: "#FFFF00" },
+        { name: "Verde", val: 5, mult: 100000, tol: 0.5, code: "#008000" },
+        { name: "Azul", val: 6, mult: 1000000, tol: 0.25, code: "#0000FF" },
+        { name: "Violeta", val: 7, mult: 10000000, tol: 0.1, code: "#EE82EE" },
+        { name: "Cinza", val: 8, mult: null, tol: 0.05, code: "#808080" },
+        { name: "Branco", val: 9, mult: null, tol: null, code: "#FFFFFF" },
+        { name: "Ouro", val: null, mult: 0.1, tol: 5, code: "#D4AF37" },
+        { name: "Prata", val: null, mult: 0.01, tol: 10, code: "#C0C0C0" }
+    ];
+
+    function init() {
+        const ids = ['color1', 'color2', 'color3', 'color4', 'color5'];
+        const selects = ids.map(id => document.getElementById(id));
+        colors.forEach((c, i) => {
+            if (c.val !== null) { selects[0].add(new Option(c.name, i)); selects[1].add(new Option(c.name, i)); selects[2].add(new Option(c.name, i)); }
+            if (c.mult !== null) selects[3].add(new Option(c.name, i));
+            if (c.tol !== null) selects[4].add(new Option(c.name, i));
+        });
+        selects[0].value = 1; selects[1].value = 0; selects[2].value = 0; selects[3].value = 2; selects[4].value = 1;
+        calculate();
+    }
+
+    function calculate() {
+        const v = ['color1', 'color2', 'color3', 'color4', 'color5'].map(id => colors[document.getElementById(id).value]);
+        v.forEach((color, i) => document.getElementById('band' + (i+1)).style.backgroundColor = color.code);
+        let res = (v[0].val * 100 + v[1].val * 10 + v[2].val) * v[3].mult;
+        let display = res >= 1000000 ? (res/1000000).toFixed(res % 1000000 === 0 ? 0 : 2) + " MΩ" : 
+                      res >= 1000 ? (res/1000).toFixed(res % 1000 === 0 ? 0 : 2) + " kΩ" : res + " Ω";
+        document.getElementById('resValue').innerText = display;
+        document.getElementById('tolValue').innerText = "±" + v[4].tol + "%";
+    }
+    init();
+</script>
+
+</body>
+</html>

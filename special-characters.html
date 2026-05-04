@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★Configurações de SEO -->
+<title>Lista de Caracteres Especiais | Copie e cole símbolos e caracteres especiais | HaruTools Lab</title>
+<meta name="description" content="Ferramenta de lista de caracteres e símbolos especiais útil para web design e redes sociais. Apresenta setas, símbolos matemáticos, números circulados, unidades e muito mais por categoria. Copie para a área de transferência com um clique.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Slot de anúncio */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Cabeçalho */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Área principal da ferramenta */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Estilos da grelha de caracteres */
+.category-title {
+  font-weight: bold;
+  color: var(--primary);
+  margin: 30px 0 15px;
+  text-align: left;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 10px;
+}
+.char-item {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.char-item:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+.char-item:active {
+  transform: scale(0.9);
+}
+
+/* Notificação Toast */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  display: none;
+  z-index: 1000;
+}
+
+/* Secção de informações SEO */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Coleção de Ferramentas Online "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Lista de Caracteres Especiais</h1>
+    <p class="tagline">Copie com um clique! Símbolos para web design e redes sociais</p>
+  </header>
+
+  <!-- Slot de anúncio: Superior -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para Anúncio</div>
+  </div>
+
+  <main class="main-card">
+    <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-sub);">Clique no carácter que deseja utilizar para o copiar para a área de transferência.</p>
+    
+    <div id="char-container">
+        <!-- Categorias e caracteres gerados por JS -->
+    </div>
+  </main>
+  
+  <div id="toast">Copiado!</div>
+  
+  <!-- Slot de anúncio: Central -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para Anúncio</div>
+  </div>
+
+  <!-- Conteúdo SEO -->
+  <article class="info-section">
+    <h2>O que é a Ferramenta de Caracteres Especiais?</h2>
+    <p>A ferramenta de lista de caracteres especiais é um recurso online que reúne símbolos difíceis de digitar diretamente no teclado ou caracteres que requerem códigos especiais em HTML. Pode copiar setas, símbolos matemáticos, números circulados, marcas de verificação e muito mais com apenas um clique para utilizar instantaneamente em artigos de blogues, publicações em redes sociais ou criação de documentos.</p>
+
+    <h3>Características desta ferramenta</h3>
+    <ul>
+      <li><strong>Cópia com um toque:</strong> Não é necessário selecionar manualmente. Basta clicar para concluir a cópia.</li>
+      <li><strong>Abrange os principais símbolos:</strong> Os caracteres frequentemente usados em produção web e trabalho de escritório são cuidadosamente selecionados e categorizados.</li>
+      <li><strong>Totalmente gratuito e sem registo:</strong> Utilize todos os símbolos gratuitamente, sem necessidade de registo de membro.</li>
+      <li><strong>Privacidade garantida:</strong> Funciona diretamente no seu navegador, pelo que nenhum dado ou histórico é enviado para servidores externos.</li>
+    </ul>
+
+    <h2>Como utilizar</h2>
+    <ol>
+      <li>Procure o carácter ou símbolo especial que deseja utilizar na lista.</li>
+      <li>Clique no carácter (ou toque se estiver no telemóvel).</li>
+      <li>Quando aparecer a notificação "Copiado!", cole-o onde desejar.</li>
+    </ol>
+
+    <h2>Perguntas Frequentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. Os caracteres copiados não aparecem corretamente.</span>
+      <p>R. Caracteres especiais podem aparecer como quadrados (□) ou pontos de interrogação (?) se o tipo de letra ou o ambiente (OS ou apps antigas) do recetor não suportar esse carácter específico.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. Posso utilizar no iPhone ou Android?</span>
+      <p>R. Sim. A função de clique para copiar funciona perfeitamente em navegadores móveis. Utilize-a para criar perfis em redes sociais e muito mais.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. Posso solicitar a adição de novos símbolos?</span>
+      <p>R. Agradecemos o interesse. Consideramos a adição progressiva de símbolos com alta versatilidade.</p>
+    </div>
+<h3>Ferramentas Relacionadas</h3>
+    <ul>
+      <li><a href="character-count.html">Contagem de Caracteres</a></li>
+      <li><a href="text-search.html">Ferramenta de Pesquisa de Texto</a></li>
+      <li><a href="json-xml-format.html">Formatador JSON/XML</a></li>
+      <li><a href="text-cleaner.html">Remover Quebras de Linha/Caracteres</a></li>
+    </ul>
+  </article>
+
+  <!-- Slot de anúncio: Inferior -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>Espaço para Anúncio</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Uso</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+</div>
+
+<script>
+const charData = [
+    {
+        category: "Setas",
+        chars: ["←", "↑", "→", "↓", "↔", "↕", "↖", "↗", "↘", "↙", "⇐", "⇑", "⇒", "⇓", "⇔", "⇕", "➔", "➢", "➤", "➥", "⇦", "⇧", "⇨", "⇩", "➔", "➘", "➚", "➛", "➜", "➞", "➟", "➠", "➡", "➢", "➣", "➤", "➥", "➦", "➧", "➨"]
+    },
+    {
+        category: "Símbolos Musicais",
+        chars: ["♩", "♪", "♫", "♬", "♭", "♮", "♯", "𝄞", "𝄢", "𝄡", "𝄀", "𝄁", "𝄂", "𝄃", "𝄄", "𝄅", "𝄆", "𝄇", "𝄈", "𝄉", "𝄊", "𝄋", "𝄌", "𝄍", "𝄎", "𝄏", "𝄐", "𝄑", "𝄒", "𝄓", "𝄔", "𝄕", "𝄖", "𝄗", "𝄘", "𝄙", "𝄚", "𝄛", "𝄜", "𝄝"]
+    },
+    {
+        category: "Símbolos e Verificação",
+        chars: ["✓", "✔", "✗", "✘", "○", "●", "◎", "□", "■", "△", "▲", "▽", "▼", "◇", "◆", "★", "☆", "✦", "✧", "✨", "♪", "♫", "⚓", "⚡", "☀", "☁", "☂", "☃", "☄", "☎", "⌛", "⌚", "⌨", "✉", "✂", "✒", "✏", "⚙", "⚠", "⛔", "♿", "㊙", "㊗", "Ⓧ", "⭕"]
+    },
+    {
+        category: "Caracteres Circulados / Números",
+        chars: [
+            "①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", 
+            "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳", 
+            "㉑", "㉒", "㉓", "㉔", "㉕", "㉖", "㉗", "㉘", "㉙", "㉚", 
+            "㉛", "㉜", "㉝", "㉞", "㉟", "㊱", "㊲", "㊳", "㊴", "㊵", 
+            "㊶", "㊷", "㊸", "㊹", "㊺", "㊻", "㊼", "㊽", "㊾", "㊿",
+            "❶", "❷", "❸", "❹", "❺", "❻", "❼", "❽", "❾", "❿",
+            "⓫", "⓬", "⓭", "⓮", "⓯", "⓰", "⓱", "⓲", "⓳", "⓴"
+        ]
+    },
+    {
+        category: "Matemática e Unidades",
+        chars: ["＋", "－", "×", "÷", "＝", "≠", "∞", "±", "√", "‰", "℃", "℉", "㎜", "㎝", "㎞", "㎡", "㎥", "㏗", "㎏", "ℓ", "∑", "∫", "∂", "∝", "∞", "∟", "∠", " Angle", "⊥", "∥", "∂", "∆", "∇", "∈", "∋", "⊆", "⊇", "⊂", "⊃", "∪", "∩"]
+    },
+    {
+        category: "Aspas e Parênteses",
+        chars: ["「", "」", "『", "』", "【", "】", "〈", "〉", "《", "》", "〔", "〕", "“", "”", "‘", "’", "«", "»", "‹", "›", "（", "）", "［", "］", "｛", "｝", "｟", "｠", "〝", "〞", "﹁", "﹂", "﹃", "﹄", "﹙", "﹚", "﹛", "﹜", "﹝", "﹞", "❨", "❩", "❪", "❫"]
+    },
+    {
+        category: "Escritório e Marcas",
+        chars: ["©", "®", "™", "℠", "℗", "†", "‡", "№", "℡", "℻", "¶", "§", "‼", "⁉", "™", "©", "®", "℅", "℀", "℁", "ℂ", "ℍ", "ℕ", "ℙ", "ℚ", "ℝ", "ℤ"]
+    },
+    {
+        category: "Símbolos Raros e Decoração",
+        chars: ["¶", "§", "†", "‡", "⁂", "⁑", "ℵ", "ℶ", "ℷ", "ℸ", "℧", "℟", "℘", "ℐ", "ℌ", "ℜ", "ℯ", "ℊ", "ℴ", "ℼ", "", "⌘", "⌥", "⌃", "⎋", "⌫", "⌬", "⌶", "⌷", "⌸", "⌹", "⌺", "⌻", "⌼", "⍇", "⍈", "⍉", "⍊", "⍋", "⍌"]
+    }
+];
+
+// Nome e base de dados simples de explicações
+const charInfoMap = {
+    "←": ["Seta para a esquerda", "Indicação de direção geral"],
+    "↑": ["Seta para cima", "Indica subida ou norte"],
+    "→": ["Seta para a direita", "Indica progresso ou próximo"],
+    "↓": ["Seta para baixo", "Indica descida ou sul"],
+    "✓": ["Marca de verificação", "Concluído ou selecionado"],
+    "∞": ["Infinito", "Infinito matemático"],
+    "℃": ["Graus Celsius", "Unidade de temperatura"],
+    "¶": ["Símbolo de parágrafo", "Delimitador de parágrafo"],
+    "§": ["Símbolo de secção", "Indica uma secção"],
+    "†": ["Adaga", "Utilizada para notas de rodapé ou data de falecimento"],
+    "‡": ["Adaga dupla", "Utilizada para a terceira nota de rodapé, etc."],
+    "⌘": ["Símbolo Command", "Tecla Command do Mac"],
+    "⌥": ["Símbolo Option", "Tecla Option do Mac"],
+    "⌬": ["Anel de benzeno", "Símbolo de estrutura química"],
+    "": ["Logótipo Apple", "Logótipo da Apple (dependente do ambiente)"],
+    "©": ["Símbolo de Copyright", "Indica direitos de autor"],
+    "®": ["Símbolo de Marca Registada", "Indica marca comercial registada"],
+    "™": ["Símbolo de Marca", "Utilizado também para marcas não registadas"],
+    "№": ["Símbolo de número", "Indica numeração"],
+    "⚓": ["Símbolo de âncora", "Porto, mar ou fixação"],
+    "⚡": ["Símbolo de voltagem", "Eletricidade, velocidade ou aviso"],
+    "✨": ["Brilhos", "Popular para destaque ou decoração"],
+    "♩": ["Semínima", "Unidade rítmica básica"],
+    "♪": ["Colcheia", "Metade da duração da semínima"],
+    "♫": ["Duas colcheias unidas", "Duas colcheias ligadas"],
+    "♬": ["Duas semicolcheias unidas", "Duas semicolcheias ligadas"],
+    "♭": ["Bemol", "Baixa meio tom"],
+    "♮": ["Bequadro", "Anula o acidente e volta à altura original"],
+    "♯": ["Sustenido", "Sobe meio tom"],
+    "𝄞": ["Clave de Sol", "Pauta para registos agudos"],
+    "𝄢": ["Clave de Fá", "Pauta para registos graves"],
+    "𝄐": ["Fermata", "Prolonga a duração da nota livremente"]
+};
+
+const container = document.getElementById('char-container');
+const toast = document.getElementById('toast');
+
+// Geração de caracteres especiais
+charData.forEach(item => {
+    const title = document.createElement('div');
+    title.className = 'category-title';
+    title.textContent = item.category;
+    container.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.className = 'char-grid';
+
+    item.chars.forEach(char => {
+        const div = document.createElement('div');
+        div.className = 'char-item';
+        div.textContent = char;
+        
+        // --- Função adicional: Geração de informação tooltip ---
+        const unicode = "U+" + char.charCodeAt(0).toString(16).toUpperCase().padStart(4, '0');
+        const info = charInfoMap[char] || ["Símbolo especial", "Para web design ou design"];
+        div.title = `Nome: ${info[0]}\nUnicode: ${unicode}\nExplicação: ${info[1]}`;
+        // ------------------------------------
+
+        div.onclick = () => copyChar(char);
+        grid.appendChild(div);
+    });
+
+    container.appendChild(grid);
+});
+
+// Função de cópia
+function copyChar(char) {
+    navigator.clipboard.writeText(char).then(() => {
+        showToast(`Copiou 「${char}」!`);
+    });
+}
+
+// Exibição do Toast
+function showToast(message) {
+    toast.textContent = message;
+    toast.style.display = 'block';
+    setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2000);
+}
+</script>
+
+</body>
+</html>
