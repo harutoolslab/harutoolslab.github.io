@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+
+<!-- ★SEO Configuration -->
+<title>ओह्म का नियम और शक्ति कैलकुलेटर | HaruTools Lab - मुफ़्त ऑनलाइन टूल</title>
+<meta name="description" content="ओह्म के नियम के आधार पर वोल्टेज (V), करंट (A), प्रतिरोध (Ω) और शक्ति (W) की गणना करें। केवल दो मान दर्ज करें और शेष की तुरंत गणना करें।">
+<meta name="keywords" content="ओह्म का नियम, गणना, वोल्टेज, करंट, प्रतिरोध, वाट, बिजली सर्किट सिम्युलेटर">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --border-color: #e1e4e8;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Main Card */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Input UI */
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #444;
+}
+input[type="number"] {
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 18px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+input[type="number"]:focus {
+  border-color: var(--primary);
+}
+
+.result-display {
+  background: #f8fdfa;
+  border: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-reset {
+  background: #eee;
+  color: #333;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.2s;
+}
+.btn-reset:hover { background: #e0e0e0; }
+
+/* Info Section */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.formula-box { background: #f9f9f9; padding: 15px; border-radius: 8px; font-family: monospace; line-height: 1.8; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .input-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab: मुफ़्त ऑनलाइन टूल्स
+    </a>
+  </div>
+    <h1>ओह्म का नियम और शक्ति कैलकुलेटर</h1>
+    <p class="tagline">बस दो मान दर्ज करें और वोल्टेज, करंट, प्रतिरोध और शक्ति की स्वचालित गणना करें</p>
+  </header>
+
+  <!-- Ad Slot: Top -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ रखें</div>
+  </div>
+
+  <!-- Tool Main Area -->
+  <main class="main-card">
+    <div class="input-grid">
+      <div class="input-group">
+        <label>वोल्टेज (V)</label>
+        <input type="number" id="volts" step="any" placeholder="0" onchange="logic('v')">
+      </div>
+      <div class="input-group">
+        <label>करंट (A)</label>
+        <input type="number" id="amps" step="any" placeholder="0" onchange="logic('a')">
+      </div>
+      <div class="input-group">
+        <label>प्रतिरोध (Ω)</label>
+        <input type="number" id="ohms" step="any" placeholder="0" onchange="logic('r')">
+      </div>
+      <div class="input-group">
+        <label>शक्ति (W)</label>
+        <input type="number" id="watts" step="any" placeholder="0" onchange="logic('w')">
+      </div>
+    </div>
+
+    <div class="result-display" id="res-box">
+      <div id="result-output" style="font-size: 1.1em; font-weight: bold;">
+        दो मान दर्ज करें और पुष्टि करने के लिए बाहर क्लिक करें
+      </div>
+    </div>
+
+
+    <button class="btn-reset" onclick="resetFields()">सब कुछ साफ़ करें और पुन: दर्ज करें</button>
+<div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>गणना परिणामों के संबंध में ध्यान दें</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>यह उपकरण एक आदर्श डीसी सर्किट मॉडल के आधार पर गणना करता है। वास्तविक सर्किट में, तारों के प्रतिरोध के कारण वोल्टेज ड्रॉप, संपर्क प्रतिरोध और तापमान परिवर्तन जैसे कारकों के कारण वास्तविक मान भिन्न हो सकते हैं।</li>
+        <li>यदि घटक (जैसे प्रतिरोधक) अपनी स्वीकार्य शक्ति (वाट क्षमता) से अधिक उपयोग किए जाते हैं, तो गर्मी या जलने का खतरा होता है।</li>
+        <li>यह साइट इस उपकरण के परिणामों के उपयोग से होने वाली किसी भी हानि, दुर्घटना या क्षति के लिए ज़िम्मेदार नहीं है। कृपया अपनी सुरक्षा की पुष्टि स्वयं करें।</li>
+    </ul>
+</div>
+  </main>
+
+  <!-- Ad Slot: Middle -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ रखें</div>
+  </div>
+
+  <!-- SEO Content -->
+  <article class="info-section">
+    <h2>ओह्म का नियम और शक्ति कैलकुलेटर क्या है?</h2>
+    <p>यह उपकरण एक सिम्युलेटर है जो आपके ब्राउज़र पर विद्युत सर्किट के आधार "ओह्म के नियम" और "शक्ति की गणना" को तुरंत निष्पादित करता है। वोल्टेज (V), करंट (A), प्रतिरोध (Ω), और शक्ति (W) के चार मानों में से किन्हीं दो को दर्ज करके, आप बाकी की गणना स्वचालित रूप से कर सकते हैं।</p>
+
+    <h3>सूत्र याद रखने का तरीका</h3>
+    <div class="formula-box">
+      ・वोल्टेज (V) = करंट (I) × प्रतिरोध (R)<br>
+      ・करंट (I) = वोल्टेज (V) ÷ प्रतिरोध (R)<br>
+      ・प्रतिरोध (R) = वोल्टेज (V) ÷ करंट (I)
+    </div>
+
+    <h3>शक्ति (वाट/W) की गणना के बारे में</h3>
+    <p>
+      शक्ति (P) प्रति इकाई समय में खपत होने वाली विद्युत ऊर्जा की मात्रा है।<br>
+      इसे <strong>शक्ति (W) = वोल्टेज (V) × करंट (I)</strong> द्वारा प्राप्त किया जाता है, और प्रतिरोध (R) का उपयोग करके इसे <strong>W = I²R</strong> या <strong>W = V²/R</strong> के रूप में भी व्यक्त किया जा सकता है।
+    </p>
+
+    <h2>इस टूल के लाभ</h2>
+    <ul>
+      <li><strong>पूरी तरह मुफ़्त:</strong> सभी सुविधाओं का निःशुल्क उपयोग करें।</li>
+      <li><strong>पंजीकरण की आवश्यकता नहीं:</strong> कोई लॉगिन या साइन-अप झंझट नहीं।</li>
+      <li><strong>सुरक्षित डिज़ाइन:</strong> गणना ब्राउज़र के भीतर होती है, डेटा सर्वर पर नहीं भेजा जाता।</li>
+    </ul>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. यदि मैं दो से अधिक मान दर्ज करूँ तो क्या होगा?</span>
+      <p>A. गणना आपके द्वारा दर्ज किए गए नवीनतम मानों के आधार पर की जाएगी। जैसे ही आप मान बदलते हैं, अन्य आइटम स्वचालित रूप से पुनर्गणना किए जाते हैं।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. क्या दशमलव मान दर्ज करना संभव है?</span>
+      <p>A. हाँ, यह संभव है। बहुत छोटे मानों (जैसे mA या kΩ) के लिए, कृपया उन्हें एम्पियर (A) या ओह्म (Ω) में परिवर्तित करके दर्ज करें।</p>
+    </div>
+
+<h3>संबंधित उपकरण</h3>
+    <ul>
+      <li><a href="resistor-color-code.html">प्रतिरोधक कलर कोड कैलकुलेटर (4 बैंड)</a></li>
+      <li><a href="resistor-color-code-5band.html">प्रतिरोधक कलर कोड कैलकुलेटर (5 बैंड)</a></li>
+      <li><a href="composite-resistance.html">संयुक्त प्रतिरोध कैलकुलेटर</a></li>
+      <li><a href="power-consumption-calculator.html">बिजली खपत और लागत कैलकुलेटर</a></li>
+      <li><a href="rlc-calc.html">RLC सर्किट प्रतिबाधा कैलकुलेटर</a></li>
+      <li><a href="ac-power-calculator.html">एसी पावर मल्टी कैलकुलेटर</a></li>
+      <li><a href="logic-circuit-simulator.html">लॉजिक सर्किट सिम्युलेटर</a></li>
+    </ul>
+  </article>
+
+  <!-- Ad Slot: Bottom -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ रखें</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">नियम और शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+    function logic(target) {
+        const v = document.getElementById('volts');
+        const a = document.getElementById('amps');
+        const r = document.getElementById('ohms');
+        const w = document.getElementById('watts');
+        const out = document.getElementById('result-output');
+        const box = document.getElementById('res-box');
+
+        const inputs = [
+            {id: 'v', val: parseFloat(v.value)},
+            {id: 'a', val: parseFloat(a.value)},
+            {id: 'r', val: parseFloat(r.value)},
+            {id: 'w', val: parseFloat(w.value)}
+        ];
+        
+        const active = inputs.filter(i => !isNaN(i.val) && i.val !== 0);
+
+        if (active.length >= 2) {
+            let V = parseFloat(v.value);
+            let A = parseFloat(a.value);
+            let R = parseFloat(r.value);
+            let W = parseFloat(w.value);
+
+            // Calculation Logic
+            if (!isNaN(V) && !isNaN(A)) { R = V / A; W = V * A; }
+            else if (!isNaN(V) && !isNaN(R)) { A = V / R; W = (V * V) / R; }
+            else if (!isNaN(V) && !isNaN(W)) { A = W / V; R = (V * V) / W; }
+            else if (!isNaN(A) && !isNaN(R)) { V = A * R; W = (A * A) * R; }
+            else if (!isNaN(A) && !isNaN(W)) { V = W / A; R = W / (A * A); }
+            else if (!isNaN(R) && !isNaN(W)) { V = Math.sqrt(W * R); A = Math.sqrt(W / R); }
+
+            // Reflection
+            if (target !== 'v') v.value = formatNum(V);
+            if (target !== 'a') a.value = formatNum(A);
+            if (target !== 'r') r.value = formatNum(R);
+            if (target !== 'w') w.value = formatNum(W);
+
+            out.innerText = "गणना पूरी हो गई";
+            box.style.borderColor = "var(--success)";
+            box.style.background = "#f0fff4";
+        } else {
+            out.innerText = "कृपया " + (2 - active.length) + " और मान दर्ज करें";
+            box.style.borderColor = "#ddd";
+            box.style.background = "#f8fdfa";
+        }
+    }
+
+    function formatNum(num) {
+        return isFinite(num) ? parseFloat(num.toFixed(4)) : "";
+    }
+
+    function resetFields() {
+        ['volts', 'amps', 'ohms', 'watts'].forEach(id => document.getElementById(id).value = '');
+        logic();
+    }
+</script>
+
+</body>
+</html>

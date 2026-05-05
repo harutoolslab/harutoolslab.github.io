@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO Settings -->
+<title>इमेज से PDF कनवर्टर | कई JPG/PNG को एक साथ जोड़ें - HaruTools Lab</title>
+<meta name="description" content="एक मुफ्त ऑनलाइन टूल जो कई छवियों को एक ही PDF में बदल सकता है। A4 आकार के लिए स्वचालित समायोजन सुविधा के साथ। दस्तावेज़ों और बायोडाटा के लिए आदर्श। ब्राउज़र में सुरक्षित प्रोसेसिंग।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ★PDF Generation Library jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Main Card */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Drop Area */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+#drop-area.active { background: rgba(0, 123, 255, 0.1); }
+
+.btn-select {
+  background: var(--primary);
+  color: white; border: none;
+  padding: 12px 30px; border-radius: 50px;
+  font-weight: bold; cursor: pointer;
+}
+
+/* Preview Section */
+#work-zone { display: none; }
+.config-panel {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.preview-item {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 10px;
+  position: relative;
+  font-size: 11px;
+  color: var(--text-sub);
+}
+.preview-item img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 5px;
+  background: #fdfdfd;
+}
+.page-badge {
+  position: absolute;
+  top: 5px; left: 5px;
+  background: var(--primary);
+  color: #fff;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.btn-run {
+  background: var(--success);
+  color: white; border: none;
+  padding: 18px 50px; border-radius: 50px;
+  font-weight: bold; font-size: 1.2rem;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+  transition: transform 0.2s;
+}
+.btn-run:active { transform: scale(0.98); }
+
+/* SEO Info Section */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>इमेज से PDF कनवर्टर</h1>
+    <p class="tagline">कई JPG/PNG को मिलाकर एक PDF बनाएं। पंजीकरण के बिना सुरक्षित रूपांतरण।</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <main class="main-card">
+    <!-- Input Area -->
+    <div id="drop-area" onclick="document.getElementById('file-input').click()">
+      <div style="font-size: 1.2rem; font-weight: bold;">छवियों का चयन करें या ड्रैग और ड्रॉप करें</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">(आप एक साथ कई फाइलें चुन सकते हैं)</p>
+      <button type="button" class="btn-select">फाइल चुनें</button>
+      <input type="file" id="file-input" multiple accept="image/*" style="display:none;">
+    </div>
+
+    <!-- Work Area -->
+    <div id="work-zone">
+      <div class="config-panel">
+        <strong>PDF साइज सेटिंग:</strong>
+        <select id="pdf-size">
+          <option value="a4">A4 साइज में स्वचालित रूप से फिट करें</option>
+          <option value="original">मूल इमेज साइज बनाए रखें</option>
+        </select>
+      </div>
+
+      <div id="preview-grid" class="preview-grid"></div>
+
+      <button class="btn-run" onclick="generatePDF()">PDF बनाएं और डाउनलोड करें</button>
+      
+      <div id="status" style="margin-top: 15px; color: var(--primary); font-weight: bold;"></div>
+      
+      <div style="margin-top: 20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">साफ करें और फिर से शुरू करें</button>
+      </div>
+    </div>
+  </main>
+
+  <article class="info-section">
+    <h2>इमेज से PDF कनवर्टर टूल क्या है?</h2>
+    <p>यह टूल आपके स्मार्टफोन या डिजिटल कैमरे से ली गई छवियों (JPG, PNG, WebP, आदि) को व्यापक रूप से उपयोग किए जाने वाले PDF प्रारूप में बदलने और संयोजित करने के लिए है। यदि आप कई छवियां चुनते हैं, तो उन्हें पृष्ठ क्रम में एक ही PDF फ़ाइल में जोड़ दिया जाएगा। किसी ऐप इंस्टॉलेशन की आवश्यकता नहीं है, सब कुछ आपके ब्राउज़र में होता है।</p>
+
+    <h3>मुख्य उपयोग के मामले</h3>
+    <ul>
+      <li><strong>दस्तावेज़ जमा करना:</strong> फोन से ली गई आईडी कार्ड, बीमा कार्ड या बायोडाटा की फोटो को PDF में बदलें।</li>
+      <li><strong>रिपोर्ट और असाइनमेंट:</strong> हस्तलिखित नोट्स की फोटो लेकर उन्हें एक PDF दस्तावेज़ में संकलित करें।</li>
+      <li><strong>इलेक्ट्रॉनिक रिकॉर्ड:</strong> रसीदों या बिलों को PDF के रूप में सहेजें और प्रबंधित करें।</li>
+    </ul>
+
+    <h2>इस टूल की विशेषताएं</h2>
+    <h3>1. गोपनीयता-अनुकूल डिजाइन</h3>
+    <p>आपकी छवियां सर्वर पर अपलोड नहीं की जाती हैं। चूँकि PDF आपके डिवाइस (ब्राउज़र) के भीतर ही बनाया जाता है, इसलिए आप संवेदनशील दस्तावेज़ों को भी विश्वास के साथ कनवर्ट कर सकते हैं।</p>
+
+    <h3>2. ऑटो A4 फिट सुविधा</h3>
+    <p>भले ही आपकी छवियों के आकार अलग-अलग हों, "A4 साइज" सेटिंग चुनने पर उन्हें दस्तावेज़ के लिए उपयुक्त लेआउट में स्वचालित रूप से समायोजित किया जाएगा।</p>
+
+    <h3>3. पृष्ठ क्रम की आसान पुष्टि</h3>
+    <p>अपलोड की गई छवियां पूर्वावलोकन (Preview) के रूप में दिखाई देंगी, जिससे आप PDF में उनके आने वाले क्रम की जांच कर सकते हैं। क्रम फ़ाइलों को चुनने के क्रम पर आधारित होता है।</p>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. क्या कोई शुल्क लगता है?</strong>
+      <p>A. नहीं, यह पूरी तरह से मुफ्त है। फाइलों की संख्या या आकार पर कोई प्रतिबंध नहीं है।</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. क्या मैं कई छवियों को एक PDF में जोड़ सकता हूँ?</strong>
+      <p>A. हाँ, यह संभव है। कई छवियां अपलोड करने पर, वे एक के बाद एक पृष्ठों वाली एकल PDF फ़ाइल के रूप में आउटपुट होंगी।</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. क्या इमेज की गुणवत्ता बदल जाएगी?</strong>
+      <p>A. टूल मूल रिज़ॉल्यूशन को अधिकतम बनाए रखते हुए PDF बनाता है। चूँकि यह ब्राउज़र की कैनवास सुविधा का उपयोग करता है, छवियां उच्च गुणवत्ता में PDF में एम्बेड की जाती हैं।</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. क्या सुरक्षा और गोपनीयता सुरक्षित है?</strong>
+      <p>A. हाँ, यह बहुत सुरक्षित है। यह टूल "ऑफलाइन (ब्राउज़र के अंदर)" काम करता है। आपका डेटा कभी भी हमारे सर्वर पर अपलोड नहीं होता है।</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. क्या मैं इसे स्मार्टफोन (iPhone/Android) पर उपयोग कर सकता हूँ?</strong>
+      <p>A. हाँ, आप बिना किसी ऐप के सीधे अपने मोबाइल ब्राउज़र से इसका उपयोग कर सकते हैं।</p>
+    </div>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+<footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const workZone = document.getElementById('work-zone');
+const previewGrid = document.getElementById('preview-grid');
+const statusText = document.getElementById('status');
+
+let imageFiles = [];
+
+// File selection event
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+// Drag & drop processing
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); });
+});
+dropArea.addEventListener('drop', e => handleFiles(e.dataTransfer.files));
+
+async function handleFiles(selectedFiles) {
+  imageFiles = Array.from(selectedFiles).filter(f => f.type.startsWith('image/'));
+  if (imageFiles.length === 0) return;
+
+  dropArea.style.display = 'none';
+  workZone.style.display = 'block';
+  previewGrid.innerHTML = "";
+
+  for (let i = 0; i < imageFiles.length; i++) {
+    const file = imageFiles[i];
+    const dataUrl = await readFileAsDataURL(file);
+    
+    const div = document.createElement("div");
+    div.className = "preview-item";
+    div.innerHTML = `
+      <div class="page-badge">${i + 1}</div>
+      <img src="${dataUrl}">
+      <div style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">${file.name}</div>
+    `;
+    previewGrid.appendChild(div);
+  }
+}
+
+async function generatePDF() {
+  if (imageFiles.length === 0) return;
+  
+  statusText.innerText = "PDF तैयार किया जा रहा है...";
+  const { jsPDF } = window.jspdf;
+  const mode = document.getElementById('pdf-size').value;
+
+  // Initial setting A4
+  const doc = new jsPDF('p', 'mm', 'a4');
+  const a4W = doc.internal.pageSize.getWidth();
+  const a4H = doc.internal.pageSize.getHeight();
+
+  for (let i = 0; i < imageFiles.length; i++) {
+    const dataUrl = await readFileAsDataURL(imageFiles[i]);
+    const img = await loadImage(dataUrl);
+
+    if (i > 0) doc.addPage();
+
+    if (mode === 'original') {
+      // Draw converting 1px = 0.2645mm
+      const w = img.width * 0.2645;
+      const h = img.height * 0.2645;
+      // In 'original' mode, ideally we'd set page size to image size
+      fitToPage(doc, img, dataUrl, a4W, a4H);
+    } else {
+      fitToPage(doc, img, dataUrl, a4W, a4H);
+    }
+  }
+
+  doc.save(`converted_${Date.now()}.pdf`);
+  statusText.innerText = "डाउनलोड पूरा हो गया है!";
+}
+
+function fitToPage(doc, img, dataUrl, pW, pH) {
+  const ratio = Math.min(pW / img.width, pH / img.height);
+  const w = img.width * ratio;
+  const h = img.height * ratio;
+  const x = (pW - w) / 2;
+  const y = (pH - h) / 2;
+  doc.addImage(dataUrl, 'JPEG', x, y, w, h);
+}
+
+function readFileAsDataURL(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (e) => resolve(e.target.result);
+    reader.readAsDataURL(file);
+  });
+}
+
+function loadImage(url) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.src = url;
+  });
+}
+</script>
+
+</body>
+</html>

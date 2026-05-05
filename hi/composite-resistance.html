@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+    <!-- SEO सेटिंग -->
+    <title>तुल्य प्रतिरोध कैलकुलेटर - श्रेणी और समानांतर सर्किट की गणना | HaruTools Lab</title>
+    <meta name="description" content="श्रेणी (Series) और समानांतर (Parallel) सर्किट को मिलाकर तुल्य प्रतिरोध की गणना करने का मुफ्त ऑनलाइन टूल। सर्किट आरेख के साथ प्रतिरोध मानों की गणना करें।">
+    <meta name="keywords" content="तुल्य प्रतिरोध, कैलकुलेटर, ओम का नियम, श्रेणी सर्किट, समानांतर सर्किट, विद्युत सर्किट, मुफ्त टूल">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "तुल्य प्रतिरोध कैलकुलेटर",
+      "operatingSystem": "Web",
+      "applicationCategory": "EducationalApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    }
+    </script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --success: #28a745;
+      --bg-color: #f4f7f9;
+      --card-bg: #ffffff;
+      --text-main: #333333;
+      --text-sub: #666666;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      
+      /* सर्किट आरेख के लिए चर */
+      --grid-size: 20px;
+      --line-color: #334155;
+      --wire-w: 2px;
+      --leg-w: 1px;
+      --res-w: 44px;
+      --res-h: 18px;
+      --wire-min-l: 10px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0; padding: 0; line-height: 1.6;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+    /* विज्ञापन स्लॉट */
+    .ad-slot {
+      margin: 20px auto; padding: 15px;
+      background-color: #e2e8f0; border: 1px dashed #cbd5e1; border-radius: 8px;
+      color: #94a3b8; font-size: 12px; text-align: center; min-height: 90px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+    /* हेडर */
+    header { text-align: center; margin: 40px 0 20px; }
+    h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+    .tagline { color: var(--text-sub); font-size: 1rem; }
+
+    /* टूल मुख्य क्षेत्र */
+    .main-card {
+      background: var(--card-bg);
+      padding: 30px 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* सर्किट बोर्ड */
+    #circuit-board {
+        min-height: 350px; background-color: #ffffff;
+        background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+        background-size: var(--grid-size) var(--grid-size);
+        border: 1px solid #cbd5e1; border-radius: 8px;
+        display: flex; align-items: center; justify-content: center; overflow: auto; margin: 15px 0;
+        padding: 30px;
+    }
+
+    /* सर्किट पार्ट्स CSS */
+    .node-base { display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; }
+    .selected { outline: 2px solid var(--primary); outline-offset: 1px; background: rgba(37, 99, 235, 0.04) !important; z-index: 5; border-radius: 4px; }
+    .h-wire { flex-grow: 1; min-width: var(--wire-min-l); height: var(--wire-w); background: var(--line-color); pointer-events: none; }
+    .res-unit { display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 70px; height: 50px; position: relative; pointer-events: none; flex-shrink: 0; }
+    .res-unit::before { 
+        content: ""; position: absolute; left: 0; right: 0; top: 50%; height: var(--leg-w); 
+        background: var(--line-color); transform: translateY(-50%); z-index: 1; 
+    }
+    .res-box { width: var(--res-w); height: var(--res-h); border: var(--wire-w) solid var(--line-color); background: white; z-index: 2; box-sizing: border-box; }
+    .res-info { position: absolute; width: 75px; text-align: center; font-size: 9px; z-index: 3; white-space: nowrap; }
+    .res-name { top: -2px; font-weight: bold; color: #64748b; }
+    .res-val { bottom: -4px; display: flex; align-items: center; justify-content: center; gap: 1px; }
+    .res-val input { width: 32px; text-align: center; border: 1px solid #cbd5e1; border-radius: 3px; font-size: 10px; appearance: textfield; pointer-events: auto; }
+    .res-val select { font-size: 9px; border: 1px solid #cbd5e1; border-radius: 3px; background: #fff; cursor: pointer; pointer-events: auto; }
+    
+    .series { 
+        display: flex; align-items: center; border: 1px dashed #e2e8f0; padding: var(--wire-w); border-radius: 4px;
+        background-image: linear-gradient(var(--line-color), var(--line-color)), linear-gradient(var(--line-color), var(--line-color));
+        background-size: var(--wire-w) var(--wire-w);
+        background-position: left center, right center;
+        background-repeat: no-repeat;
+    }
+    
+    .parallel { 
+        display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 12px 18px; border: 1px dashed #e2e8f0; border-radius: 4px; position: relative; 
+        background-image: linear-gradient(var(--line-color), var(--line-color)), linear-gradient(var(--line-color), var(--line-color));
+        background-size: calc(5px + var(--wire-w)) var(--wire-w);
+        background-position: left center, right center;
+        background-repeat: no-repeat;
+    }
+    .parallel::before, .parallel::after { content: ""; position: absolute; width: var(--wire-w); background: var(--line-color); pointer-events: none; }
+    .parallel > .node-base::before, .parallel > .node-base::after {
+        content: ""; position: absolute; height: var(--leg-w); background: var(--line-color); width: 13px; top: 50%; transform: translateY(-50%);
+    }
+    .parallel > .node-base::before { left: -13px; }
+    .parallel > .node-base::after { right: -13px; }
+
+    /* नियंत्रण बटन */
+    .controls { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .btn-tool {
+        padding: 10px 18px; border: none; border-radius: 50px; color: white; font-weight: bold; 
+        cursor: pointer; font-size: 13px; transition: all 0.2s; background: var(--primary);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    }
+    .btn-tool:hover { transform: translateY(-1px); opacity: 0.9; }
+    .btn-danger { background: #ef4444; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2); }
+    .btn-secondary { background: #64748b; box-shadow: 0 4px 12px rgba(100, 116, 139, 0.2); }
+
+    /* परिणाम प्रदर्शन */
+    .result-bar { background: #1e293b; color: white; padding: 20px; border-radius: 12px; text-align: left; }
+    .formula-display { font-size: 1rem; margin-bottom: 8px; border-bottom: 1px solid #334155; padding-bottom: 10px; overflow-x: auto; min-height: 45px; }
+    .total-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .total-text { color: #34d399; font-size: 1.8rem; font-weight: bold; }
+
+    /* SEO सामग्री */
+    .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+    .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+    .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+    .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+    .faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+    footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+      <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+        HaruTools Lab: मुफ्त ऑनलाइन उपकरण
+      </a>
+    </div>
+    <h1>तुल्य प्रतिरोध कैलकुलेटर</h1>
+    <p class="tagline">श्रेणी और समानांतर सर्किट का विज़ुअलाइज़ेशन और तुरंत गणना</p>
+  </header>
+
+  <!-- विज्ञापन: ऊपर -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ रखें</div>
+  </div>
+
+  <main class="main-card">
+    <div class="controls">
+        <button class="btn-tool" onclick="modify('series')">＋ श्रेणी (Series) में जोड़ें</button>
+        <button class="btn-tool" onclick="modify('parallel')">＋ समानांतर (Parallel) शाखा</button>
+        <button class="btn-tool btn-danger" onclick="deleteNode()">चयनित हटाएं</button>
+        <button class="btn-tool btn-secondary" onclick="resetCircuit()">रीसेट करें</button>
+    </div>
+
+    <div id="circuit-board" aria-label="सर्किट आरेख क्षेत्र"></div>
+
+    <div class="result-bar">
+        <div class="formula-display" id="formula-container" title="गणना प्रक्रिया"></div>
+        <div class="total-row">
+            <span>कुल प्रतिरोध \( R_{total} \):</span>
+            <div class="total-text" id="total">0 Ω</div>
+        </div>
+    </div>
+
+    <div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+            <span>गणना परिणामों के बारे में महत्वपूर्ण सूचना</span>
+        </div>
+        <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+            <li>यह टूल आदर्श परिस्थितियों में सैद्धांतिक मानों की गणना करता है। वास्तविक सर्किट में सहिष्णुता (tolerance) और तारों के प्रतिरोध के कारण मान बदल सकते हैं।</li>
+            <li>जटिल समानांतर संयोजनों में कंप्यूटर की गणना विशेषताओं के कारण बहुत मामूली त्रुटि हो सकती है।</li>
+            <li>हम इस टूल के परिणामों के उपयोग से होने वाले किसी भी नुकसान के लिए उत्तरदायी नहीं हैं।</li>
+        </ul>
+    </div>
+  </main>
+  
+  <!-- विज्ञापन: मध्य -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ रखें</div>
+  </div>
+
+  <!-- SEO सामग्री -->
+  <article class="info-section">
+    <h2>तुल्य प्रतिरोध कैलकुलेटर क्या है?</h2>
+    <p>तुल्य प्रतिरोध (Combined Resistance) कैलकुलेटर एक ऑनलाइन उपकरण है जो आपको श्रेणी और समानांतर सर्किट को मिलाकर जटिल विद्युत सर्किट के कुल प्रतिरोध की गणना करने की अनुमति देता है।</p>
+
+    <h3>इस टूल की विशेषताएं</h3>
+    <ul>
+      <li><strong>विज़ुअल ऑपरेशन:</strong> सर्किट आरेख को देखते हुए प्रतिरोध जोड़ें।</li>
+      <li><strong>विस्तृत सूत्र:</strong> MathJax का उपयोग करके सुंदर गणितीय सूत्र प्रदर्शित किए जाते हैं।</li>
+      <li><strong>विभिन्न इकाइयां:</strong> Ω, kΩ और MΩ का स्वचालित रूपांतरण।</li>
+      <li><strong>सुरक्षित डिजाइन:</strong> डेटा केवल आपके ब्राउज़र में संसाधित होता है।</li>
+    </ul>
+
+    <h2>उपयोग कैसे करें</h2>
+    <ol>
+      <li>शुरुआत में दिखाई देने वाले प्रतिरोध (R1) पर क्लिक करके उसे चुनें (नीला बॉर्डर दिखाई देगा)।</li>
+      <li>"श्रेणी में जोड़ें" या "समानांतर शाखा" बटन दबाकर नए प्रतिरोध जोड़ें।</li>
+      <li>प्रतिरोध मान दर्ज करें और ड्रॉपडाउन से इकाई (Ω/k/M) चुनें।</li>
+      <li>किसी प्रतिरोध को हटाने के लिए उसे चुनकर "चयनित हटाएं" पर क्लिक करें।</li>
+    </ol>
+
+    <h2>प्रतिरोध गणना का सिद्धांत</h2>
+    <h3>श्रेणी सर्किट (Series Circuit)</h3>
+    <p>श्रेणी सर्किट में कुल प्रतिरोध सभी प्रतिरोधों का योग होता है।</p>
+    <p>$$R = R_1 + R_2 + R_3 + \dots$$</p>
+
+    <h3>समानांतर सर्किट (Parallel Circuit)</h3>
+    <p>समानांतर सर्किट में कुल प्रतिरोध का व्युत्क्रम (reciprocal) व्यक्तिगत प्रतिरोधों के व्युत्क्रम के योग के बराबर होता है।</p>
+    <p>$$R = \frac{1}{\frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3} + \dots}$$</p>
+
+    <h2>सामान्य प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या प्रतिरोधों की संख्या की कोई सीमा है?</span>
+      <p>उ. सैद्धांतिक रूप से कोई सीमा नहीं है, लेकिन मोबाइल स्क्रीन पर बहुत अधिक प्रतिरोध जटिल हो सकते हैं।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या मैं अलग-अलग इकाइयों को मिला सकता हूँ?</span>
+      <p>उ. हाँ, टूल स्वचालित रूप से kΩ या MΩ को Ω में बदलकर गणना करता है।</p>
+    </div>
+
+<h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="resistor-color-code.html">प्रतिरोध कलर कोड कैलकुलेटर</a></li>
+      <li><a href="ohm-law-calculator.html">ओम का नियम कैलकुलेटर</a></li>
+      <li><a href="ac-power-calculator.html">AC पावर कैलकुलेटर</a></li>
+    </ul>
+  </article>
+
+  <!-- विज्ञापन: नीचे -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ रखें</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">नियम और शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+    // ツールロジック
+    let circuit = { id: 1, value: 10, unit: 1 };
+    let selectedId = 1;
+    let nextId = 2;
+    const unitMap = { 1: "Ω", 1000: "kΩ", 1000000: "MΩ" };
+
+    function render() {
+        const board = document.getElementById('circuit-board');
+        if (!board) return;
+        board.innerHTML = '';
+        board.appendChild(buildUI(circuit));
+        updateCalc();
+        requestAnimationFrame(adjustParallelWires);
+    }
+
+    function createWire() {
+        const w = document.createElement('div');
+        w.className = 'h-wire';
+        return w;
+    }
+
+    function buildUI(node) {
+        const wrap = document.createElement('div');
+        wrap.className = `node-base ${node.id === selectedId ? 'selected' : ''}`;
+        wrap.dataset.nodeId = node.id;
+        wrap.onclick = (e) => { e.stopPropagation(); selectedId = node.id; render(); };
+
+        if (node.value !== undefined) {
+            wrap.appendChild(createWire());
+            const unitNode = document.createElement('div');
+            unitNode.className = 'res-unit';
+            const unitVal = node.unit || 1;
+            unitNode.innerHTML = `
+                <div class="res-info res-name">R${node.id}</div>
+                <div class="res-box"></div>
+                <div class="res-info res-val">
+                    <input type="number" value="${node.value}" onchange="updateVal(${node.id}, this.value)" onclick="event.stopPropagation()">
+                    <select onchange="updateUnit(${node.id}, this.value)" onclick="event.stopPropagation()">
+                        <option value="1" ${unitVal==1?'selected':''}>Ω</option>
+                        <option value="1000" ${unitVal==1000?'selected':''}>k</option>
+                        <option value="1000000" ${unitVal==1000000?'selected':''}>M</option>
+                    </select>
+                </div>`;
+            wrap.appendChild(unitNode);
+            wrap.appendChild(createWire());
+        } else {
+            wrap.appendChild(createWire());
+            const container = document.createElement('div');
+            container.className = node.type;
+            node.children.forEach((child, idx) => {
+                container.appendChild(buildUI(child));
+                if (node.type === 'series' && idx < node.children.length - 1) {
+                    container.appendChild(createWire());
+                }
+            });
+            wrap.appendChild(container);
+            wrap.appendChild(createWire());
+        }
+        return wrap;
+    }
+
+    function adjustParallelWires() {
+        document.querySelectorAll('.parallel').forEach(p => {
+            const children = Array.from(p.children).filter(c => c.classList.contains('node-base'));
+            if (children.length < 2) return;
+            const first = children[0], last = children[children.length - 1];
+            const top = first.offsetTop + (first.offsetHeight / 2);
+            const bottom = p.clientHeight - (last.offsetTop + (last.offsetHeight / 2));
+            const styleId = `style-${p.parentElement.dataset.nodeId}`;
+            let styleTag = document.getElementById(styleId) || document.createElement('style');
+            styleTag.id = styleId; document.head.appendChild(styleTag);
+            styleTag.innerHTML = `
+                [data-node-id="${p.parentElement.dataset.nodeId}"] > .parallel::before { top: ${top}px; bottom: ${bottom}px; left: 5px; }
+                [data-node-id="${p.parentElement.dataset.nodeId}"] > .parallel::after { top: ${top}px; bottom: ${bottom}px; right: 5px; }
+            `;
+        });
+    }
+
+    function modify(type) {
+        const process = (n) => {
+            if (n.id === selectedId) {
+                const newNode = { id: nextId++, value: 10, unit: 1 };
+                if (n.value !== undefined) return { type, children: [JSON.parse(JSON.stringify(n)), newNode], id: nextId++ };
+                if (n.type === type) { n.children.push(newNode); return n; }
+                return { type, children: [JSON.parse(JSON.stringify(n)), newNode], id: nextId++ };
+            }
+            if (n.children) n.children = n.children.map(process);
+            return n;
+        };
+        circuit = process(circuit); render();
+    }
+
+    function updateVal(id, val) {
+        const find = (n) => { if (n.id === id) n.value = parseFloat(val) || 0; if (n.children) n.children.forEach(find); };
+        find(circuit); updateCalc();
+    }
+
+    function updateUnit(id, unit) {
+        const find = (n) => { if (n.id === id) n.unit = parseFloat(unit); if (n.children) n.children.forEach(find); };
+        find(circuit); updateCalc();
+    }
+
+    function deleteNode() {
+        if (!selectedId || (circuit.id === selectedId && !circuit.children)) return;
+        const remove = (n) => { 
+            if (!n.children) return n; 
+            n.children = n.children.filter(c => c.id !== selectedId).map(remove); 
+            return n.children.length === 1 ? n.children[0] : n; 
+        };
+        circuit = remove(circuit); selectedId = null; render();
+    }
+
+    function getFormula(n) {
+        if (n.value !== undefined) {
+            const realVal = n.value * (n.unit || 1);
+            const label = n.unit > 1 ? `${n.value}${unitMap[n.unit].charAt(0)}` : `${n.value}`;
+            return { val: realVal, tex: label };
+        }
+        const results = n.children.map(getFormula);
+        if (n.type === 'series') {
+            return { val: results.reduce((a, b) => a + b.val, 0), tex: `(${results.map(r => r.tex).join('+')})` };
+        } else {
+            return { val: 1 / results.reduce((a, b) => a + (1 / b.val), 0), tex: `\\frac{1}{${results.map(r => `\\frac{1}{${r.tex}}`).join('+')}}` };
+        }
+    }
+
+    function formatRes(val) {
+        if (val >= 1000000) return (val / 1000000).toFixed(2) + " MΩ";
+        if (val >= 1000) return (val / 1000).toFixed(2) + " kΩ";
+        return val.toFixed(2) + " Ω";
+    }
+
+    function updateCalc() {
+        const res = getFormula(circuit);
+        const fEl = document.getElementById('formula-container');
+        if (!fEl) return;
+        let finalTex = res.tex.replace(/^\((.*)\)$/, '$1');
+        fEl.innerHTML = `\\( R = ${finalTex} \\)`;
+        if (window.MathJax) MathJax.typesetPromise([fEl]);
+        const totalVal = isFinite(res.val) ? res.val : 0;
+        document.getElementById('total').innerText = formatRes(totalVal);
+    }
+
+    function resetCircuit() { circuit = { id: 1, value: 10, unit: 1 }; selectedId = 1; nextId = 2; render(); }
+    
+    // 初期起動
+    window.onload = render;
+</script>
+
+</body>
+</html>

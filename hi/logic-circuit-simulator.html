@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO सेटिंग -->
+<title>लॉजिक सर्किट सिम्युलेटर - ऑनलाइन डिजिटल सर्किट डिजाइन | HaruTools Lab</title>
+<meta name="description" content="ब्राउज़र पर चलने वाला मुफ्त लॉजिक सर्किट सिम्युलेटर। AND/OR/NOT जैसे बुनियादी गेट्स से लेकर फ्लिप-फ्लॉप तक समर्थित। ड्रैग एंड ड्रॉप के साथ आसानी से डिजिटल सर्किट डिजाइन और परीक्षण करें।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+/* विज्ञापन स्लॉट */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* हेडर */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* सिम्युलेटर एरिया */
+.simulator-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: #121212;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.simulator-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    border-radius: 0;
+    margin: 0;
+}
+
+canvas { display: block; cursor: crosshair; }
+
+.ui-panel { 
+    position: absolute; background: rgba(30,30,30,0.95); 
+    padding: 12px; border-radius: 8px; border: 1px solid #444; 
+    z-index: 100; box-shadow: 0 4px 25px rgba(0,0,0,0.7);
+    color: #eee;
+}
+
+.ui-panel { top: 15px; left: 15px; width: 180px; }
+
+.section-title { font-size: 11px; color: #aaa; margin-bottom: 8px; text-transform: uppercase; border-bottom: 1px solid #444; padding-bottom: 4px; letter-spacing: 1px; }
+.btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-bottom: 12px; }
+.gate-btn { background: #333; color: white; border: 1px solid #555; padding: 8px; border-radius: 4px; cursor: pointer; font-size: 10px; text-align: center; user-select: none; }
+.gate-btn:hover { border-color: #888; background: #444; }
+.delete-btn { background: #833; border: none; width: 100%; color: white; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 10px; }
+
+.bottom-right-container {
+    position: absolute; bottom: 20px; right: 20px;
+    display: flex; flex-direction: column; gap: 10px; z-index: 100;
+}
+.storage-panel { display: flex; gap: 10px; }
+.json-btn { background: #444; color: white; border: 1px solid #666; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; flex: 1; }
+.fullscreen-btn { background: var(--primary); border-color: var(--primary); }
+.fullscreen-btn:hover { background: var(--primary-hover); }
+#fileInput { display: none; }
+
+.key-box { display: inline-block; background: #e0e0e0; color: #333; padding: 0px 6px; border-radius: 3px; border: 1px solid #ccc; margin: 0 2px; font-weight: bold; font-size: 0.9em; }
+
+/* SEO कंटेंट सेक्शन */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+      <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+        मुफ्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+      </a>
+    </div>
+    <h1>लॉजिक सर्किट सिम्युलेटर</h1>
+    <p class="tagline">ब्राउज़र में आसानी से लॉजिक सर्किट डिजाइन और प्रयोग करने का मुफ्त टूल</p>
+  </header>
+
+  <!-- विज्ञापन स्लॉट: ऊपरी -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <!-- सिम्युलेटर एरिया -->
+  <div class="simulator-container" id="sim-parent">
+    <div class="ui-panel">
+        <div class="section-title">IO / गेट्स</div>
+        <div class="btn-group">
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">SWITCH</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">LED</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">AND</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">OR</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">NOT</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">XOR</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">NAND</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">NOR</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">XNOR</div>
+        </div>
+        <div class="section-title">फ्लिप-फ्लॉप</div>
+        <div class="btn-group">
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">RS-FF</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">D-FF</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">T-FF</div>
+            <div class="gate-btn" draggable="true" ondragstart="drag(event)" onclick="clickAdd(this.innerText)">JK-FF</div>
+        </div>
+        <button class="delete-btn" onclick="clearAll()">सब साफ़ करें</button>
+    </div>
+
+    <div class="bottom-right-container">
+        <div class="storage-panel">
+            <button class="json-btn fullscreen-btn" onclick="toggleFullscreen()">फुलस्क्रीन</button>
+            <button class="json-btn" onclick="exportJSON()">सेव करें</button>
+            <button class="json-btn" onclick="triggerImport()">लोड करें</button>
+            <input type="file" id="fileInput" accept=".json" onchange="importJSON(event)">
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
+  
+  </div>
+<div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>सिमुलेशन के बारे में चेतावनी</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>यह टूल ब्राउज़र पर चलने वाला एक सरल सिम्युलेटर है। प्रोग्राम की प्रकृति के कारण, कुछ स्थितियों में अनपेक्षित व्यवहार या बग्स की संभावना को पूरी तरह से नकारा नहीं जा सकता है।</li>
+        <li>सिमुलेशन में दिखाए गए लॉजिक वैल्यू वास्तविक भौतिक उपकरणों जैसे IC या FPGA में होने वाले प्रोपेगेशन डिले, शोर और बिजली की खपत जैसी विशेषताओं को पूरी तरह से नहीं दर्शाते हैं।</li>
+        <li>इस सिम्युलेटर के परिणामों के आधार पर बनाए गए किसी भी सर्किट या सिस्टम से होने वाले नुकसान या खराबी के लिए यह वेबसाइट ज़िम्मेदार नहीं होगी। महत्वपूर्ण डिज़ाइन के लिए कृपया पेशेवर EDA सॉफ़्टवेयर का उपयोग करें।</li>
+    </ul>
+</div>
+
+  <!-- विज्ञापन स्लॉट: मध्य -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <!-- SEO कंटेंट -->
+  <article class="info-section">
+    <h2>लॉजिक सर्किट सिम्युलेटर क्या है?</h2>
+    <p>यह टूल एक ऑनलाइन प्लेटफॉर्म है जहाँ आप ब्राउज़र पर सीधे डिजिटल लॉजिक सर्किट बना और टेस्ट कर सकते हैं। यह बुनियादी लॉजिक गेट्स (AND, OR, NOT आदि) से लेकर मेमोरी सर्किट के लिए महत्वपूर्ण फ्लिप-फ्लॉप तक का समर्थन करता है। यह स्कूल के प्रोजेक्ट्स, इलेक्ट्रॉनिक काम की तैयारी, या डिजिटल सर्किट की समझ बढ़ाने के लिए एक बेहतरीन शिक्षण टूल है।</p>
+
+    <h3>उपयोग करने का तरीका</h3>
+    <ul>
+      <li><strong>रखना और हिलाना:</strong> ऊपर बाईं ओर के पैनल से बटन को ड्रैग करें या क्लिक करके घटक जोड़ें। रखे गए ब्लॉक्स को ड्रैग करके कहीं भी ले जाया जा सकता है।</li>
+      <li><strong>वायरिंग:</strong> घटक के किनारों पर बने "●" टर्मिनल को क्लिक करके ड्रैग करें और दूसरे घटक के टर्मिनल से जोड़ें।</li>
+      <li><strong>इनपुट बदलना:</strong> <span class="key-box">Shift</span> कुंजी दबाए रखते हुए <strong>SWITCH</strong> पर क्लिक करके उसे ON/OFF करें।</li>
+      <li><strong>हटाना:</strong> घटक या तार पर <strong>राइट-क्लिक</strong> करके उसे अलग से हटाया जा सकता है।</li>
+      <li><strong>डिस्प्ले:</strong> बैकग्राउंड को <strong>राइट-ड्रैग</strong> करके हिलाएं और माउस व्हील से <strong>ज़ूम इन/आउट</strong> करें।</li>
+      <li><strong>फुलस्क्रीन मोड:</strong> सिम्युलेटर को पूरी स्क्रीन पर देखने के लिए नीचे दाईं ओर "फुलस्क्रीन" बटन दबाएं।</li>
+    </ul>
+
+    <h3>इस टूल की विशेषताएं</h3>
+    <ul>
+      <li><strong>इंस्टॉलेशन की ज़रूरत नहीं:</strong> यह सीधे ब्राउज़र में काम करता है, इसलिए किसी भी OS पर इस्तेमाल किया जा सकता है।</li>
+      <li><strong>पूरी तरह मुफ्त:</strong> सभी सुविधाएं मुफ्त हैं। आप अपने डिज़ाइन को सेव और लोड भी कर सकते हैं।</li>
+      <li><strong>रियल-टाइम सिमुलेशन:</strong> सर्किट जोड़ते ही परिणाम दिखता है और बिजली का प्रवाह रंगों के माध्यम से देखा जा सकता है।</li>
+      <li><strong>सुरक्षित डिज़ाइन:</strong> सारा डेटा आपके ब्राउज़र में प्रोसेस होता है, इसलिए आपका सर्किट डेटा हमारे सर्वर पर नहीं भेजा जाता।</li>
+    </ul>
+
+    <h2>बुनियादी चरण</h2>
+    <ol>
+      <li>पैनल से घटक (जैसे SWITCH या AND गेट) चुनकर स्क्रीन के बीच में रखें।</li>
+      <li>घटकों को तारों से जोड़ें और देखें कि आपका लॉजिक सही काम कर रहा है या नहीं।</li>
+      <li>काम पूरा होने पर "सेव करें" बटन दबाकर JSON फ़ाइल के रूप में सुरक्षित रखें।</li>
+      <li>"लोड करें" बटन से आप अपनी पुरानी फ़ाइलों को कभी भी फिर से खोल सकते हैं।</li>
+    </ol>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्रश्न: क्या मैं बहुत जटिल सर्किट बना सकता हूँ?</span>
+      <p>उत्तर: हाँ, बुनियादी और अनुक्रमिक सर्किट (फ्लिप-फ्लॉप आदि) ठीक से काम करते हैं। हालांकि, बहुत बड़े सर्किट के लिए ब्राउज़र की गति पर असर पड़ सकता है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्रश्न: मेरा सर्किट सेव नहीं हो रहा है।</span>
+      <p>उत्तर: "सेव करें" दबाने पर फ़ाइल डाउनलोड होती है। कृपया अपने ब्राउज़र की डाउनलोड अनुमतियों की जाँच करें।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्रश्न: क्या यह मोबाइल पर काम करता है?</span>
+      <p>उत्तर: यह मुख्य रूप से माउस के लिए बनाया गया है। मोबाइल पर देखा जा सकता है, लेकिन बेहतर अनुभव के लिए PC की सलाह दी जाती है।</p>
+    </div>
+
+<h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="resistor-color-code.html">रेजिस्टर कलर कोड कैलकुलेटर (4 बैंड)</a></li>
+      <li><a href="resistor-color-code-5band.html">रेजिस्टर कलर कोड कैलकुलेटर (5 बैंड)</a></li>
+      <li><a href="composite-resistance.html">संयुक्त प्रतिरोध कैलकुलेटर</a></li>
+      <li><a href="ohm-law-calculator.html">ओम का नियम कैलकुलेटर</a></li>
+      <li><a href="power-consumption-calculator.html">बिजली खपत और बिल कैलकुलेटर</a></li>
+      <li><a href="rlc-calc.html">RLC सर्किट इम्पीडेंस कैलकुलेटर</a></li>
+      <li><a href="ac-power-calculator.html">AC पावर मल्टी कैलकुलेटर</a></li>
+    </ul>
+  </article>
+
+  <!-- विज्ञापन स्लॉट: निचला -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const simParent = document.getElementById('sim-parent');
+
+function resizeCanvas() {
+    canvas.width = simParent.offsetWidth;
+    canvas.height = simParent.offsetHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+function toggleFullscreen() {
+    simParent.classList.toggle('fullscreen');
+    setTimeout(resizeCanvas, 50); 
+}
+
+let nodes = [];
+let wires = [];
+let draggingNode = null;
+let linkingFrom = null; 
+let mousePos = { x: 0, y: 0 };
+let nodeOffset = { x: 0, y: 0 };
+let camera = { x: 0, y: 0, zoom: 1.0 };
+let isPanning = false;
+let lastMouse = { x: 0, y: 0 };
+
+const GRID_SIZE = 20;
+const COL_ON = '#ffeb3b';
+const COL_WIRE_OFF = '#444';
+const COL_BLOCK = '#252525';
+const COL_BORDER = '#666';
+const TERM_RADIUS = 7;
+const HIT_RADIUS = 15;
+
+const TERMINAL_LABELS = {
+    'RS-FF': { in: ['R', 'S'], out: ['Q', '~Q'] },
+    'D-FF': { in: ['D', 'CLK'], out: ['Q', '~Q'] },
+    'T-FF': { in: ['T'], out: ['Q', '~Q'] },
+    'JK-FF': { in: ['J', 'CLK', 'K'], out: ['Q', '~Q'] }
+};
+
+function snapToGrid(val) { return Math.round(val / GRID_SIZE) * GRID_SIZE; }
+function screenToWorld(sx, sy) { return { x: (sx - camera.x) / camera.zoom, y: (sy - camera.y) / camera.zoom }; }
+
+function drag(ev) { ev.dataTransfer.setData("text", ev.target.innerText); }
+simParent.addEventListener('dragover', (e) => e.preventDefault());
+simParent.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const type = e.dataTransfer.getData("text");
+    const rect = canvas.getBoundingClientRect();
+    const worldPos = screenToWorld(e.clientX - rect.left, e.clientY - rect.top);
+    addNode(type, snapToGrid(worldPos.x), snapToGrid(worldPos.y));
+});
+
+function clickAdd(type) {
+    const worldCenter = screenToWorld(canvas.width / 2, canvas.height / 2);
+    addNode(type, snapToGrid(worldCenter.x + (Math.random()*40-20)), snapToGrid(worldCenter.y + (Math.random()*40-20)));
+}
+
+function getInputPos(node, idx) {
+    return { x: node.x, y: node.y + (node.h / (node.inputs.length + 1)) * (idx + 1) };
+}
+function getOutputPos(node, idx) {
+    return { x: node.x + node.w, y: node.y + (node.h / (node.outputStates.length + 1)) * (idx + 1) };
+}
+
+function drawSymbol(ctx, type, x, y, w, h) {
+    ctx.strokeStyle = '#666'; ctx.lineWidth = 3;
+    if(type.includes('AND')) {
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w*0.4, y);
+        ctx.bezierCurveTo(x + w, y, x + w, y + h, x + w*0.4, y + h); ctx.lineTo(x, y + h); ctx.closePath(); ctx.stroke();
+    } else if(type.includes('OR') || type.includes('XOR')) {
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.bezierCurveTo(x+w*0.3, y, x+w*0.3, y+h, x, y+h);
+        ctx.bezierCurveTo(x+w*0.7, y+h, x+w, y+h*0.8, x+w, y+h/2);
+        ctx.bezierCurveTo(x+w, y+h*0.2, x+w*0.7, y, x, y); ctx.closePath(); ctx.stroke();
+        if(type.includes('XOR')) { ctx.beginPath(); ctx.moveTo(x-12, y+5); ctx.bezierCurveTo(x-2, y+10, x-2, y+h-10, x-12, y+h-5); ctx.stroke(); }
+    } else if(type === 'NOT') {
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x+w, y+h/2); ctx.lineTo(x, y+h); ctx.closePath(); ctx.stroke();
+    }
+    if(['NAND', 'NOR', 'NOT', 'XNOR'].includes(type)) {
+        ctx.beginPath(); ctx.arc(x+w+7, y+h/2, 5, 0, Math.PI*2); ctx.stroke();
+    }
+}
+
+function addNode(type, x, y) {
+    let inputs = 2;
+    if(['NOT', 'LED', 'SWITCH', 'T-FF'].includes(type)) inputs = 1;
+    if(['D-FF', 'RS-FF'].includes(type)) inputs = 2;
+    if(type === 'JK-FF') inputs = 3;
+    let outputs = ['RS-FF', 'D-FF', 'T-FF', 'JK-FF'].includes(type) ? 2 : 1;
+    nodes.push({
+        id: Date.now() + Math.random(), type: type, x: x - 60, y: y - 50,
+        w: 120, h: inputs >= 3 ? 110 : 100,
+        inputs: new Array(inputs).fill(false), prevInputs: new Array(inputs).fill(false),
+        outputStates: new Array(outputs).fill(false)
+    });
+}
+
+function clearAll() { if(confirm("क्या आप सब कुछ साफ़ करना चाहते हैं?")) { nodes = []; wires = []; } }
+
+function loop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.save();
+    ctx.translate(camera.x % (GRID_SIZE * camera.zoom), camera.y % (GRID_SIZE * camera.zoom));
+    ctx.beginPath(); ctx.strokeStyle = '#1a1a1a';
+    for(let x=0; x<canvas.width; x+=GRID_SIZE*camera.zoom) { ctx.moveTo(x,0); ctx.lineTo(x,canvas.height); }
+    for(let y=0; y<canvas.height; y+=GRID_SIZE*camera.zoom) { ctx.moveTo(0,y); ctx.lineTo(canvas.width,y); }
+    ctx.stroke(); ctx.restore();
+
+    ctx.save();
+    ctx.translate(camera.x, camera.y);
+    ctx.scale(camera.zoom, camera.zoom);
+
+    let tempIn = nodes.map(n => new Array(n.inputs.length).fill(false));
+    wires.forEach(w => {
+        const from = nodes.find(n => n.id === w.fromId), toIdx = nodes.findIndex(n => n.id === w.toId);
+        if(from && toIdx !== -1) tempIn[toIdx][w.toIdx] = from.outputStates[w.fromIdx];
+    });
+
+    nodes.forEach((n, idx) => {
+        const curIn = tempIn[idx];
+        const edge = (i) => curIn[i] && !n.prevInputs[i];
+        const a = curIn[0], b = curIn[1], c = curIn[2];
+        let q = n.outputStates[0];
+
+        if(n.type === 'LED') q = a;
+        else if(n.type.includes('AND')) q = a && b;
+        else if(n.type.includes('OR'))  q = a || b;
+        else if(n.type === 'NOT') q = !a;
+        else if(n.type.includes('XOR')) q = a !== b;
+        else if(n.type === 'RS-FF') { if(a) q = false; else if(b) q = true; }
+        else if(n.type === 'D-FF' && edge(1)) q = a;
+        else if(n.type === 'T-FF' && edge(0)) q = !q;
+        else if(n.type === 'JK-FF' && edge(1)) { if(a && c) q = !q; else if(a) q = true; else if(c) q = false; }
+        if(['NAND', 'NOR', 'XNOR'].includes(n.type)) q = !q;
+
+        n.outputStates[0] = q;
+        if(n.outputStates.length > 1) n.outputStates[1] = !q;
+        n.prevInputs = [...curIn]; n.inputs = curIn;
+
+        ctx.fillStyle = COL_BLOCK;
+        ctx.strokeStyle = (n.type === 'LED' && n.outputStates[0]) ? COL_ON : COL_BORDER;
+        ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.roundRect(n.x, n.y, n.w, n.h, 6); ctx.fill(); ctx.stroke();
+
+        const symW = n.w * 0.75, symH = n.h * 0.55;
+        const symX = n.x + (n.w - symW)/2 - (['NAND', 'NOR', 'NOT', 'XNOR'].includes(n.type) ? 5 : 0);
+        const symY = n.y + (n.h - symH)/2;
+        drawSymbol(ctx, n.type, symX, symY, symW, symH);
+
+        ctx.fillStyle = '#fff'; ctx.font = "bold 20px sans-serif"; ctx.textAlign = "center";
+        ctx.fillText(n.type, n.x + n.w/2, n.y + n.h/2 + 8);
+
+        const labels = TERMINAL_LABELS[n.type];
+        n.inputs.forEach((val, i) => {
+            const p = getInputPos(n, i);
+            ctx.fillStyle = val ? COL_ON : '#444';
+            ctx.beginPath(); ctx.arc(p.x, p.y, TERM_RADIUS, 0, Math.PI*2); ctx.fill();
+            if(labels) { ctx.fillStyle = '#aaa'; ctx.font = "bold 10px sans-serif"; ctx.textAlign = "left"; ctx.fillText(labels.in[i], p.x + 10, p.y + 4); }
+        });
+        n.outputStates.forEach((val, i) => {
+            const p = getOutputPos(n, i);
+            ctx.fillStyle = val ? COL_ON : '#444';
+            if(val) { ctx.shadowBlur = 10; ctx.shadowColor = COL_ON; }
+            ctx.beginPath(); ctx.arc(p.x, p.y, TERM_RADIUS, 0, Math.PI*2); ctx.fill();
+            ctx.shadowBlur = 0;
+            if(labels) { ctx.fillStyle = '#aaa'; ctx.font = "bold 10px sans-serif"; ctx.textAlign = "right"; ctx.fillText(labels.out[i], p.x - 10, p.y + 4); }
+        });
+    });
+
+    wires.forEach(w => {
+        const from = nodes.find(n => n.id === w.fromId), to = nodes.find(n => n.id === w.toId);
+        if(!from || !to) return;
+        const active = from.outputStates[w.fromIdx];
+        const p1 = getOutputPos(from, w.fromIdx), p2 = getInputPos(to, w.toIdx);
+        ctx.beginPath(); ctx.strokeStyle = active ? COL_ON : COL_WIRE_OFF; ctx.lineWidth = active ? 5 : 2;
+        ctx.moveTo(p1.x, p1.y); ctx.bezierCurveTo(p1.x + 50, p1.y, p2.x - 50, p2.y, p2.x, p2.y); ctx.stroke();
+    });
+
+    if(linkingFrom) {
+        const wM = screenToWorld(mousePos.x, mousePos.y);
+        const p1 = getOutputPos(linkingFrom.node, linkingFrom.outIdx);
+        ctx.beginPath(); ctx.strokeStyle = '#ff9800'; ctx.lineWidth = 2; ctx.setLineDash([5, 5]);
+        ctx.moveTo(p1.x, p1.y); ctx.lineTo(wM.x, wM.y); ctx.stroke(); ctx.setLineDash([]);
+    }
+    ctx.restore(); requestAnimationFrame(loop);
+}
+
+function exportJSON() {
+    const data = JSON.stringify({ nodes, wires, camera }, null, 2);
+    const blob = new Blob([data], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = `circuit_${Date.now()}.json`; a.click(); URL.revokeObjectURL(url);
+}
+function triggerImport() { document.getElementById('fileInput').click(); }
+function importJSON(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        try {
+            const d = JSON.parse(e.target.result);
+            nodes = d.nodes || []; wires = d.wires || []; camera = d.camera || { x: 0, y: 0, zoom: 1.0 };
+        } catch (err) { alert("अमान्य फ़ाइल"); }
+    };
+    reader.readAsText(file);
+    event.target.value = "";
+}
+
+canvas.onmousedown = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const ex = e.clientX - rect.left;
+    const ey = e.clientY - rect.top;
+    const w = screenToWorld(ex, ey);
+
+    if (e.button === 2) {
+        const wireIdx = wires.findIndex(wr => {
+            const from = nodes.find(n => n.id === wr.fromId), to = nodes.find(n => n.id === wr.toId);
+            if(!from || !to) return false;
+            const p1 = getOutputPos(from, wr.fromIdx), p2 = getInputPos(to, wr.toIdx);
+            const midX = (p1.x + p2.x) / 2, midY = (p1.y + p2.y) / 2;
+            return Math.hypot(w.x - midX, w.y - midY) < 20;
+        });
+        if(wireIdx !== -1) { wires.splice(wireIdx, 1); return; }
+
+        const hit = nodes.findIndex(n => w.x > n.x && w.x < n.x + n.w && w.y > n.y && w.y < n.y + n.h);
+        if(hit !== -1) {
+            const id = nodes[hit].id;
+            wires = wires.filter(wr => wr.fromId !== id && wr.toId !== id);
+            nodes.splice(hit, 1); return;
+        }
+        isPanning = true; lastMouse = { x: ex, y: ey }; return;
+    }
+    
+    for (let n of nodes) {
+        for (let i = 0; i < n.outputStates.length; i++) {
+            const p = getOutputPos(n, i);
+            if (Math.hypot(w.x - p.x, w.y - p.y) < HIT_RADIUS) { linkingFrom = { node: n, outIdx: i }; return; }
+        }
+        if (linkingFrom && linkingFrom.node !== n) {
+            for (let i = 0; i < n.inputs.length; i++) {
+                const p = getInputPos(n, i);
+                if (Math.hypot(w.x - p.x, w.y - p.y) < HIT_RADIUS) {
+                    wires = wires.filter(wr => !(wr.toId === n.id && wr.toIdx === i));
+                    wires.push({ fromId: linkingFrom.node.id, fromIdx: linkingFrom.outIdx, toId: n.id, toIdx: i });
+                    linkingFrom = null; return;
+                }
+            }
+        }
+    }
+
+    const hit = nodes.slice().reverse().find(n => w.x > n.x && w.x < n.x + n.w && w.y > n.y && w.y < n.y + n.h);
+    if(hit) {
+        if(hit.type === 'SWITCH' && e.shiftKey) hit.outputStates[0] = !hit.outputStates[0];
+        else { draggingNode = hit; nodeOffset = { x: w.x - hit.x, y: w.y - hit.y }; }
+    } else { linkingFrom = null; isPanning = true; lastMouse = { x: ex, y: ey }; }
+};
+
+canvas.onmousemove = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const ex = e.clientX - rect.left;
+    const ey = e.clientY - rect.top;
+    mousePos = { x: ex, y: ey };
+    if (isPanning) { camera.x += ex - lastMouse.x; camera.y += ey - lastMouse.y; lastMouse = { x: ex, y: ey }; }
+    else if(draggingNode) { 
+        const w = screenToWorld(ex, ey); 
+        draggingNode.x = snapToGrid(w.x - nodeOffset.x); 
+        draggingNode.y = snapToGrid(w.y - nodeOffset.y); 
+    }
+};
+
+canvas.onmouseup = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const ex = e.clientX - rect.left;
+    const ey = e.clientY - rect.top;
+
+    if(linkingFrom) {
+        const w = screenToWorld(ex, ey);
+        for(let n of nodes) {
+            if(n === linkingFrom.node) continue;
+            for(let i = 0; i < n.inputs.length; i++) {
+                const p = getInputPos(n, i);
+                if(Math.hypot(w.x - p.x, w.y - p.y) < HIT_RADIUS) {
+                    wires = wires.filter(wr => !(wr.toId === n.id && wr.toIdx === i));
+                    wires.push({ fromId: linkingFrom.node.id, fromIdx: linkingFrom.outIdx, toId: n.id, toIdx: i });
+                    linkingFrom = null; 
+                    draggingNode = null; isPanning = false;
+                    return;
+                }
+            }
+        }
+    }
+    draggingNode = null; isPanning = false;
+};
+
+canvas.onwheel = (e) => {
+    e.preventDefault(); const factor = Math.pow(1.1, -e.deltaY / 120);
+    const rect = canvas.getBoundingClientRect();
+    const ex = e.clientX - rect.left;
+    const ey = e.clientY - rect.top;
+    const mB = screenToWorld(ex, ey);
+    camera.zoom = Math.max(0.2, Math.min(3, camera.zoom * factor));
+    const mA = screenToWorld(ex, ey);
+    camera.x += (mA.x - mB.x) * camera.zoom; camera.y += (mA.y - mB.y) * camera.zoom;
+};
+canvas.oncontextmenu = (e) => e.preventDefault();
+
+window.onbeforeunload = (e) => {
+    if (nodes.length > 0) {
+        e.preventDefault();
+        e.returnValue = ''; 
+    }
+};
+
+loop();
+</script>
+
+</body>
+</html>

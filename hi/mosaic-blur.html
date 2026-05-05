@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO settings -->
+<title>इमेज मोज़ेक और ब्लर टूल | मुफ़्त, कोई पंजीकरण नहीं, आसान गोपनीयता सुरक्षा "HaruTools Lab"</title>
+<meta name="description" content="छवियों में मोज़ेक या ब्लर जोड़ने के लिए मुफ़्त ऑनलाइन टूल। स्लाइडर के साथ तीव्रता को स्वतंत्र रूप से समायोजित करें। ब्राउज़र के भीतर सुरक्षित प्रसंस्करण, कोई सर्वर अपलोड नहीं। बैच प्रोसेसिंग उपलब्ध है।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Main Tool Area */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Drag & Drop Area */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
+}
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* Preview & Action Area */
+#preview-zone { display: none; margin-top: 20px; }
+.preview-item {
+  margin-bottom: 20px;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+.preview-item img {
+  max-width: 100%;
+  max-height: 500px;
+  border-radius: 8px;
+  display: block;
+  margin: 10px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.controls {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+input[type="range"] { width: 200px; cursor: pointer; }
+
+.btn-run {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+  margin: 5px;
+}
+.btn-download {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px;
+}
+
+/* Info Section */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ़्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>मोज़ेक और ब्लर टूल</h1>
+    <p class="tagline">ब्राउज़र पर आसानी से गोपनीयता की रक्षा करें। कई छवियों को एक साथ प्रोसेस करें।</p>
+  </header>
+
+  <!-- Ad slot: Top -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <main class="main-card">
+    <!-- Image Input Area -->
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">छवियों को यहाँ ड्रैग और ड्रॉप करें</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">अथवा</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">फ़ाइल चुनें</button>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
+
+    <!-- Preview & Controls -->
+    <div id="preview-zone">
+      <div class="controls">
+        <div class="slider-container">
+          <label for="mosaic-size" style="font-weight:bold;">तीव्रता</label>
+          <input type="range" id="mosaic-size" min="2" max="60" value="15">
+          <span id="mosaic-value" style="width:30px; font-weight:bold;">15</span>
+        </div>
+        <button class="btn-run" onclick="run()">लागू करें</button>
+        <button class="btn-download" onclick="downloadAll()">सभी सहेजें</button>
+      </div>
+
+      <div id="preview-container"></div>
+      
+      <div style="margin-top:20px;">
+        <button onclick="location.reload()" style="background:#666; color:white; border:none; padding:8px 20px; border-radius:50px; cursor:pointer;">अन्य छवियां चुनें</button>
+      </div>
+      <div id="result-status" style="margin-top: 15px; font-weight: bold; color: var(--success);"></div>
+    </div>
+  </main>
+
+  <!-- Ad slot: Middle -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <!-- SEO Content -->
+  <article class="info-section">
+    <h2>मोज़ेक और ब्लर टूल क्या है?</h2>
+    <p>यह टूल तस्वीरों में चेहरे, कार की नंबर प्लेट और पते जैसी व्यक्तिगत जानकारी छिपाने के लिए मोज़ेक या ब्लर प्रभाव जोड़ने वाला एक मुफ़्त ऑनलाइन टूल है। इसे बिना किसी इंस्टॉलेशन के स्मार्टफोन या पीसी ब्राउज़र से तुरंत उपयोग किया जा सकता है।</p>
+
+    <h3>इस टूल की विशेषताएं</h3>
+    <ul>
+      <li><strong>गोपनीयता सुरक्षित डिजाइन:</strong> आपकी छवियां सर्वर पर अपलोड नहीं की जाती हैं। सभी प्रसंस्करण आपके ब्राउज़र के भीतर होते हैं, जिससे संवेदनशील जानकारी वाली छवियों को भी सुरक्षित रूप से संपादित किया जा सकता है।</li>
+      <li><strong>तीव्रता समायोजन:</strong> स्लाइडर का उपयोग करके आप हल्के ब्लर से लेकर शक्तिशाली मोज़ेक तक तीव्रता को स्वतंत्र रूप से नियंत्रित कर सकते हैं।</li>
+      <li><strong>बैच प्रोसेसिंग:</strong> यदि आपके पास बहुत सारी तस्वीरें हैं, तो आप उन्हें एक साथ लोड, कन्वर्ट और सेव कर सकते हैं।</li>
+    </ul>
+
+    <h2>उपयोग कैसे करें</h2>
+    <ol>
+      <li>ऊपर दिए गए क्षेत्र में उन छवियों को ड्रैग और ड्रॉप करें जिन्हें आप संपादित करना चाहते हैं, या "फ़ाइल चुनें" बटन का उपयोग करें।</li>
+      <li>"तीव्रता" स्लाइडर को समायोजित करें। संख्या जितनी बड़ी होगी, मोज़ेक उतना ही घना होगा।</li>
+      <li>संपादन लागू करने के लिए "लागू करें" बटन पर क्लिक करें।</li>
+      <li>संपादित छवियों को सहेजने के लिए "सभी सहेजें" बटन दबाएं या व्यक्तिगत छवियों पर क्लिक करें।</li>
+    </ol>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या इसके लिए कोई शुल्क है?</span>
+      <p>उ. नहीं, आप सभी सुविधाओं का मुफ़्त में उपयोग कर सकते हैं।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या मेरी छवियां सर्वर पर सहेजी जाती हैं?</span>
+      <p>उ. नहीं। यह टूल "क्लाइंट-साइड (ब्राउज़र के अंदर)" काम करता है, इसलिए आपका डेटा कभी भी सर्वर पर नहीं भेजा जाता है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. मोज़ेक और ब्लर में क्या अंतर है?</span>
+      <p>उ. यह टूल पिक्सेल को ब्लॉक के रूप में औसत करने की विधि का उपयोग करता है। कम तीव्रता पर यह एक प्राकृतिक "ब्लर" जैसा दिखता है, और उच्च तीव्रता पर यह डिजिटल "मोज़ेक" जैसा दिखता है।</p>
+    </div>
+      <h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="image-cropper-rounded.html">गोल और कोनेदार कट</a></li>
+      <li><a href="square-image-maker.html">मल्टी-फंक्शनल स्क्वायर मेकर</a></li>
+      <li><a href="brightness-contrast.html">चमक और कंट्रास्ट समायोजन</a></li>
+      <li><a href="mosaic-blur.html">मोज़ेक और ब्लर टूल</a></li>
+    </ul>
+  </article>
+
+  <!-- Ad slot: Bottom -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const previewContainer = document.getElementById('preview-container');
+const mosaicSlider = document.getElementById('mosaic-size');
+const mosaicValue = document.getElementById('mosaic-value');
+const resultStatus = document.getElementById('result-status');
+
+let files = [];
+let originalImages = [];
+
+// Slider value display
+mosaicSlider.addEventListener('input', () => {
+  mosaicValue.textContent = mosaicSlider.value;
+});
+
+// Drag & Drop handling
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, e => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, false);
+});
+
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.add('active'), false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', (e) => {
+  handleFiles(e.dataTransfer.files);
+}, false);
+
+fileInput.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(selectedFiles) {
+  files = Array.from(selectedFiles).filter(file => file.type.startsWith('image/'));
+  if (files.length === 0) return;
+
+  previewContainer.innerHTML = "";
+  originalImages = [];
+  dropArea.style.display = 'none';
+  previewZone.style.display = 'block';
+
+  files.forEach((file, idx) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const div = document.createElement("div");
+      div.className = "preview-item";
+      div.innerHTML = `<p style="font-size:12px;color:#666;">${file.name}</p>
+                       <img id="img-${idx}" src="${e.target.result}">`;
+      previewContainer.appendChild(div);
+
+      const img = new Image();
+      img.src = e.target.result;
+      originalImages[idx] = img;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function run() {
+  if (originalImages.length === 0) return;
+  resultStatus.textContent = "प्रसंस्करण जारी है...";
+  
+  setTimeout(() => {
+    const size = parseInt(mosaicSlider.value);
+    const imgs = document.querySelectorAll(".preview-item img");
+
+    imgs.forEach((imgElement, idx) => {
+      const original = originalImages[idx];
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+
+      canvas.width = original.width;
+      canvas.height = original.height;
+      ctx.drawImage(original, 0, 0);
+      
+      const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+      // Mosaic logic
+      for (let y = 0; y < canvas.height; y += size) {
+        for (let x = 0; x < canvas.width; x += size) {
+          let r = 0, g = 0, b = 0, a = 0, count = 0;
+          
+          for (let dy = 0; dy < size && y + dy < canvas.height; dy++) {
+            for (let dx = 0; dx < size && x + dx < canvas.width; dx++) {
+              const i = ((y + dy) * canvas.width + (x + dx)) * 4;
+              r += imgData.data[i];
+              g += imgData.data[i + 1];
+              b += imgData.data[i + 2];
+              a += imgData.data[i + 3];
+              count++;
+            }
+          }
+          
+          r = Math.floor(r / count);
+          g = Math.floor(g / count);
+          b = Math.floor(b / count);
+          a = Math.floor(a / count);
+
+          for (let dy = 0; dy < size && y + dy < canvas.height; dy++) {
+            for (let dx = 0; dx < size && x + dx < canvas.width; dx++) {
+              const i = ((y + dy) * canvas.width + (x + dx)) * 4;
+              imgData.data[i] = r;
+              imgData.data[i + 1] = g;
+              imgData.data[i + 2] = b;
+              imgData.data[i + 3] = a;
+            }
+          }
+        }
+      }
+      ctx.putImageData(imgData, 0, 0);
+      imgElement.src = canvas.toDataURL("image/png");
+    });
+    resultStatus.textContent = "प्रसंस्करण पूर्ण हुआ!";
+  }, 100);
+}
+
+function downloadAll() {
+  const imgs = document.querySelectorAll(".preview-item img");
+  if (imgs.length === 0) return;
+
+  imgs.forEach((img, idx) => {
+    const a = document.createElement("a");
+    a.href = img.src;
+    a.download = files[idx].name.replace(/\.[^/.]+$/, "") + "_edited.png";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+}
+</script>
+
+</body>
+</html>

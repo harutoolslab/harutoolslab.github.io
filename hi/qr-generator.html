@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<title>QR कोड जनरेटर | मुफ़्त, व्यावसायिक उपयोग, बिना पंजीकरण के URL को QR बनाएं - "HaruTools Lab"</title>
+<meta name="description" content="मुफ़्त ऑनलाइन टूल जो URL या टेक्स्ट को तुरंत QR कोड में बदल सकता है। रंग और आकार कस्टमाइज़ करें, उच्च गुणवत्ता वाली इमेज सेव करें। व्यावसायिक उपयोग के लिए मुफ़्त।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* विज्ञापन स्लॉट */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* हेडर */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* टूल मुख्य क्षेत्र */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.input-group { width: 100%; text-align: left; margin-bottom: 20px; }
+label { font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 8px; color: #555; }
+
+input[type="text"], select {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+input[type="text"]:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* QR प्रदर्शन क्षेत्र */
+#qr-display-area {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200px;
+  justify-content: center;
+}
+
+#qrcode {
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+#qrcode img { margin: 0 auto; max-width: 100%; height: auto; }
+
+.btn-download {
+  display: none; /* उत्पन्न होने तक छिपा हुआ */
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+.btn-download:hover { transform: translateY(-2px); opacity: 0.9; }
+
+/* जानकारी अनुभाग */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .settings-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ़्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>QR कोड जनरेटर</h1>
+    <p class="tagline">बस URL या टेक्स्ट दर्ज करें और तुरंत अपना स्वयं का QR कोड बनाएं।</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <main class="main-card">
+    <div class="input-group">
+      <label for="text">QR कोड बनाने के लिए URL या टेक्स्ट</label>
+      <input type="text" id="text" placeholder="https://example.com" oninput="generateQR()">
+    </div>
+
+    <div class="settings-grid">
+      <div class="input-group">
+        <label for="size">इमेज का आकार</label>
+        <select id="size" onchange="generateQR()">
+          <option value="128">छोटा (128x128)</option>
+          <option value="256" selected>मानक (256x256)</option>
+          <option value="512">बड़ा (512x512)</option>
+          <option value="1024">अति बड़ा (1024x1024)</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="colorDark">कोड का रंग</label>
+        <input type="color" id="colorDark" value="#000000" style="width:100%; height:52px; padding:4px; cursor:pointer; border:2px solid #eee; border-radius:10px; box-sizing:border-box;" onchange="generateQR()">
+      </div>
+    </div>
+
+    <div id="qr-display-area">
+      <div id="qrcode"></div>
+      <p id="placeholder-text" style="color:#aaa; font-size:0.9rem;">जब आप URL दर्ज करेंगे, तो QR कोड यहाँ दिखाई देगा</p>
+    </div>
+    
+    <button id="download-btn" class="btn-download" onclick="downloadQR()">बनाई गई इमेज को सेव करें</button>
+  </main>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <article class="info-section">
+    <h2>QR कोड जनरेटर क्या है?</h2>
+    <p>"QR कोड जनरेटर" एक मुफ़्त ऑनलाइन सेवा है जो वेबसाइट URL या किसी भी टेक्स्ट जानकारी को स्कैन करने योग्य QR कोड इमेज में बदल सकती है। इसका उपयोग पत्रक, विज़िटिंग कार्ड, पोस्टर और सोशल मीडिया प्रोफाइल परिचय जैसे विभिन्न उद्देश्यों के लिए किया जा सकता है।</p>
+
+    <h3>इस टूल की विशेषताएं</h3>
+    <ul>
+      <li><strong>पंजीकरण की आवश्यकता नहीं - पूरी तरह मुफ़्त:</strong> आप पंजीकरण या लॉगिन की परेशानी के बिना सभी सुविधाओं का व्यावसायिक या व्यक्तिगत उपयोग कर सकते हैं।</li>
+      <li><strong>गोपनीयता सुरक्षित डिज़ाइन:</strong> जनरेशन प्रक्रिया पूरी तरह से ब्राउज़र में JavaScript के माध्यम से की जाती है। आपका डेटा सर्वर पर नहीं भेजा जाता है और न ही लॉग के रूप में सहेजा जाता है।</li>
+      <li><strong>लचीला अनुकूलन:</strong> आप अपनी आवश्यकता के अनुसार आकार (128px से 1024px) और रंग को स्वतंत्र रूप से बदल सकते हैं।</li>
+    </ul>
+
+    <h2>QR कोड उपयोग के विचार</h2>
+    <p><strong>1. स्टोर के सोशल मीडिया फॉलोअर्स बढ़ाने के लिए:</strong> इंस्टाग्राम या आधिकारिक व्हाट्सएप/लाइन प्रोफाइल URL को QR कोड में बदलें और इसे कैश काउंटर या टेबल पर रखें।</p>
+    <p><strong>2. विज़िटिंग कार्ड या पोर्टफोलियो के लिए:</strong> अपनी पोर्टफोलियो साइट या संपर्क जानकारी को QR कोड के रूप में अपने कार्ड पर रखें ताकि लोग तुरंत एक्सेस कर सकें।</p>
+    <p><strong>3. इवेंट सूचना बोर्ड के लिए:</strong> मानचित्र साझाकरण URL या इवेंट पंजीकरण फॉर्म को QR कोड बनाएं, जिससे प्रतिभागियों के लिए सुविधा बढ़ जाए।</p>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्रश्न: क्या बनाए गए QR कोड की कोई समय सीमा है?</span>
+      <p>उत्तर: इसकी कोई समय सीमा नहीं है। जब तक लिंक किया गया URL सक्रिय है, बनाया गया QR कोड काम करता रहेगा। हालांकि, यदि आप स्वयं URL बदलते या हटाते हैं, तो यह काम करना बंद कर देगा।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्रश्न: क्या रंग बदलने से स्कैनिंग प्रभावित होती है?</span>
+      <p>उत्तर: यदि आप कोड को बहुत हल्का रंग देते हैं या बैकग्राउंड के करीब का रंग चुनते हैं, तो उसे स्कैन करना मुश्किल हो सकता है। हम "सफेद बैकग्राउंड" और "गहरे रंग के कोड" के संयोजन की सलाह देते हैं। प्रिंट करने से पहले अपने फोन से टेस्ट जरूर करें।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्रश्न: क्या व्यावसायिक उपयोग संभव है?</span>
+      <p>उत्तर: हाँ, व्यावसायिक और लाभ के उद्देश्यों के लिए बिना किसी प्रतिबंध के उपयोग संभव है।</p>
+    </div>
+    
+    <h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="favicon-generator.html">फेविकॉन जनरेटर</a></li>
+      <li><a href="remove-exif.html">Exif जानकारी हटाने वाला टूल</a></li>
+      <li><a href="image-compress.html">इमेज कंप्रेशर</a></li>
+      <li><a href="png-to-jpg.html">PNG को JPG में बदलें</a></li>
+    </ul>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+
+</div>
+
+<script>
+let qrGenerator = null;
+
+function generateQR() {
+  const textInput = document.getElementById("text").value;
+  const sizeValue = document.getElementById("size").value;
+  const colorValue = document.getElementById("colorDark").value;
+  const qrContainer = document.getElementById("qrcode");
+  const downloadBtn = document.getElementById("download-btn");
+  const placeholder = document.getElementById("placeholder-text");
+
+  // कंटेनर को साफ़ करें
+  qrContainer.innerHTML = "";
+
+  if (textInput.trim() === "") {
+    downloadBtn.style.display = "none";
+    placeholder.style.display = "block";
+    qrContainer.style.display = "none";
+    return;
+  }
+
+  placeholder.style.display = "none";
+  qrContainer.style.display = "block";
+
+  // QR कोड जनरेशन (QRCode.js)
+  qrGenerator = new QRCode(qrContainer, {
+    text: textInput,
+    width: parseInt(sizeValue),
+    height: parseInt(sizeValue),
+    colorDark : colorValue,
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+  });
+
+  // बटन दिखाने के लिए थोड़ा विलंब
+  setTimeout(() => {
+    downloadBtn.style.display = "inline-block";
+  }, 100);
+}
+
+function downloadQR() {
+  const img = document.querySelector("#qrcode img");
+  if (!img) {
+    // कैनवास के मामले में (लाइब्रेरी के आधार पर)
+    const canvas = document.querySelector("#qrcode canvas");
+    if (canvas) {
+      const link = document.createElement("a");
+      link.href = canvas.toDataURL("image/png");
+      link.download = "qrcode_harutools.png";
+      link.click();
+      return;
+    }
+    return;
+  }
+
+  const link = document.createElement("a");
+  link.href = img.src;
+  link.download = "qrcode_harutools.png";
+  link.click();
+}
+
+// पेज लोड पर प्रारंभिक निष्पादन
+window.onload = generateQR;
+</script>
+
+</body>
+</html>

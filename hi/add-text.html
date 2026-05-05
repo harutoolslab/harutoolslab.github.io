@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+     <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+  
+<!-- ★SEO設定：HaruTools Lab इमेज पर टेक्स्ट जोड़ें -->
+<title>इमेज पर टेक्स्ट जोड़ें | मुफ्त ऑनलाइन बल्क एडिटिंग - HaruTools Lab</title>
+<meta name="description" content="इमेज पर टेक्स्ट जोड़ने का मुफ्त टूल। फॉन्ट, रंग, आकार और स्थिति को आसानी से एडजस्ट करें। एक साथ कई इमेज एडिट करें, सीधे अपने ब्राउज़र में।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, "Noto Sans Devanagari";
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* アップロードエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+#drop-area:hover { background: rgba(0, 123, 255, 0.05); }
+
+/* コントロールパネル */
+.controls {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+input[type="text"] { padding: 10px; border: 1px solid #ddd; border-radius: 8px; flex: 1; min-width: 200px; }
+input[type="number"] { width: 70px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+select { padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+input[type="color"] { border: none; width: 40px; height: 40px; padding: 0; cursor: pointer; background: none; }
+
+.btn-add { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.btn-download { background: var(--success); color: white; border: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 20px; }
+
+/* プレビューエリア */
+#preview-container { margin-top: 20px; }
+.preview-item { 
+  background: #eee; 
+  padding: 10px; 
+  border-radius: 12px; 
+  margin-bottom: 20px; 
+  overflow: auto;
+  position: relative;
+}
+.preview-item canvas { 
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
+  margin: 0 auto; 
+  background: white; 
+  cursor: crosshair;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.canvas-hint { font-size: 0.8rem; color: var(--text-sub); margin-top: 5px; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>इमेज पर टेक्स्ट और लिखावट जोड़ें</h1>
+    <p class="tagline">अपलोड की गई इमेज पर अपनी पसंद का टेक्स्ट आसानी से सेट करें।</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ</div>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area" onclick="document.getElementById('file-input').click()">
+      <div style="font-size: 1.1rem; font-weight: bold;">इमेज को यहाँ ड्रैग और ड्रॉप करें, या क्लिक करें</div>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
+
+    <div class="controls">
+      <input type="text" id="new-text" placeholder="जोड़ने के लिए टेक्स्ट लिखें...">
+      <select id="font-family">
+        <option value="sans-serif">बिना सेरिफ़ (Sans-serif)</option>
+        <option value="serif">सेरिफ़ (Serif)</option>
+        <option value="monospace">मोनोस्पेस (Monospace)</option>
+      </select>
+      <input type="color" id="font-color" value="#ffffff" title="टेक्स्ट का रंग">
+      <input type="number" id="font-size" value="60" min="10" max="500" title="आकार">
+      <button class="btn-add" onclick="addText()">टेक्स्ट जोड़ें</button>
+    </div>
+
+    <div id="preview-container"></div>
+
+    <button class="btn-download" onclick="downloadAll()">इमेज सुरक्षित करें</button>
+    <p class="canvas-hint">※ आप टेक्स्ट को ड्रैग करके उसकी जगह बदल सकते हैं।</p>
+  </main>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ</div>
+  </div>
+
+  <article class="info-section">
+    <h2>इस टूल का उपयोग कैसे करें</h2>
+    <p>
+      यह टूल आपके ब्राउज़र में सीधे इमेज पर टेक्स्ट जोड़ने के लिए एक सरल एडिटिंग टूल है।
+      इसका उपयोग बैनर बनाने, सोशल मीडिया पोस्ट के लिए कैप्शन जोड़ने या यादों वाली तस्वीरों पर तारीख डालने जैसे विभिन्न कार्यों के लिए किया जा सकता है।
+    </p>
+
+    <h3>मुख्य विशेषताएं</h3>
+    <ul>
+      <li><strong>आसान संचालन:</strong> जोड़े गए टेक्स्ट को आप माउस या उंगली से ड्रैग करके कहीं भी रख सकते हैं।</li>
+      <li><strong>मल्टीपल टेक्स्ट:</strong> एक ही इमेज पर आप जितने चाहें उतने अलग-अलग टेक्स्ट जोड़ सकते हैं।</li>
+      <li><strong>गोपनीयता सुरक्षित:</strong> आपकी इमेज सर्वर पर अपलोड नहीं की जाती हैं। सभी एडिटिंग आपके डिवाइस पर ही होती है, इसलिए परिवार या काम की तस्वीरों के लिए भी यह पूरी तरह सुरक्षित है।</li>
+    </ul>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न</h2>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">प्र. मैं टेक्स्ट को कैसे हटा सकता हूँ?</strong>
+      <p>उ. वर्तमान संस्करण में, आपको पेज को रिफ्रेश करना होगा या इमेज को फिर से अपलोड करना होगा। भविष्य में हम व्यक्तिगत टेक्स्ट हटाने की सुविधा जोड़ेंगे।</p>
+    </div>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">प्र. क्या मैं हिंदी फॉन्ट का उपयोग कर सकता हूँ?</strong>
+      <p>उ. हाँ, यह टूल आपके डिवाइस में इंस्टॉल किए गए मानक फॉन्ट्स का उपयोग करके टेक्स्ट रेंडर करता है।</p>
+    </div>
+
+    <h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="image-resize.html">इमेज का आकार बदलें</a></li>
+      <li><a href="image-compress.html">इमेज कंप्रेस करें</a></li>
+      <li><a href="png-to-jpg.html">PNG को JPG में बदलें</a></li>
+    </ul>
+  </article>
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+const fileInput = document.getElementById('file-input');
+const previewContainer = document.getElementById('preview-container');
+const newTextInput = document.getElementById('new-text');
+const fontFamilyInput = document.getElementById('font-family');
+const fontColorInput = document.getElementById('font-color');
+const fontSizeInput = document.getElementById('font-size');
+
+let originalImages = [];
+let textData = []; // [{canvasIdx, text, x, y, size, color, font}]
+let filenames = [];
+
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+function handleFiles(files) {
+  originalImages = [];
+  textData = [];
+  filenames = [];
+  previewContainer.innerHTML = "";
+  
+  Array.from(files).forEach((file, idx) => {
+    if (!file.type.startsWith('image/')) return;
+    filenames.push(file.name);
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.src = e.target.result;
+      img.onload = () => {
+        originalImages[idx] = img;
+        createCanvas(idx);
+      };
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function createCanvas(idx) {
+  const div = document.createElement("div");
+  div.className = "preview-item";
+  const canvas = document.createElement("canvas");
+  canvas.dataset.idx = idx;
+  div.appendChild(canvas);
+  previewContainer.appendChild(div);
+  
+  draw(idx);
+  enableDrag(canvas, idx);
+}
+
+function draw(idx) {
+  const canvas = previewContainer.querySelector(`canvas[data-idx='${idx}']`);
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const img = originalImages[idx];
+  
+  canvas.width = img.width;
+  canvas.height = img.height;
+  ctx.drawImage(img, 0, 0);
+  
+  textData.filter(t => t.canvasIdx === idx).forEach(t => {
+    ctx.font = `bold ${t.size}px ${t.font}`;
+    ctx.fillStyle = t.color;
+    ctx.textBaseline = "top";
+    
+    // 文字の縁取り（読みやすくするため）
+    ctx.strokeStyle = "rgba(0,0,0,0.5)";
+    ctx.lineWidth = t.size / 15;
+    ctx.strokeText(t.text, t.x, t.y);
+    
+    ctx.fillText(t.text, t.x, t.y);
+  });
+}
+
+function addText() {
+  const text = newTextInput.value.trim();
+  if (!text) return alert("कृपया टेक्स्ट दर्ज करें");
+  if (originalImages.length === 0) return alert("कृपया पहले इमेज अपलोड करें");
+
+  // すべての画像に同じテキストを追加
+  originalImages.forEach((_, idx) => {
+    textData.push({
+      canvasIdx: idx,
+      text: text,
+      x: 50,
+      y: 50,
+      size: parseInt(fontSizeInput.value),
+      color: fontColorInput.value,
+      font: fontFamilyInput.value
+    });
+    draw(idx);
+  });
+  newTextInput.value = "";
+}
+
+function enableDrag(canvas, idx) {
+  let isDragging = false;
+  let targetText = null;
+  let startX, startY;
+
+  const getPos = e => {
+    const rect = canvas.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return {
+      x: (clientX - rect.left) * (canvas.width / rect.width),
+      y: (clientY - rect.top) * (canvas.height / rect.height)
+    };
+  };
+
+  const start = e => {
+    const pos = getPos(e);
+    targetText = textData.filter(t => t.canvasIdx === idx).reverse().find(t => {
+      const ctx = canvas.getContext("2d");
+      ctx.font = `${t.size}px ${t.font}`;
+      const metrics = ctx.measureText(t.text);
+      return pos.x >= t.x && pos.x <= t.x + metrics.width && pos.y >= t.y && pos.y <= t.y + t.size;
+    });
+    if (targetText) {
+      isDragging = true;
+      startX = pos.x - targetText.x;
+      startY = pos.y - targetText.y;
+      e.preventDefault();
+    }
+  };
+
+  const move = e => {
+    if (!isDragging) return;
+    const pos = getPos(e);
+    targetText.x = pos.x - startX;
+    targetText.y = pos.y - startY;
+    draw(idx);
+    e.preventDefault();
+  };
+
+  const end = () => { isDragging = false; targetText = null; };
+
+  canvas.addEventListener("mousedown", start);
+  window.addEventListener("mousemove", move);
+  window.addEventListener("mouseup", end);
+  
+  canvas.addEventListener("touchstart", start, {passive: false});
+  window.addEventListener("touchmove", move, {passive: false});
+  window.addEventListener("touchend", end);
+}
+
+function downloadAll() {
+  const canvases = previewContainer.querySelectorAll("canvas");
+  if (canvases.length === 0) return;
+  
+  canvases.forEach((canvas, idx) => {
+    const link = document.createElement("a");
+    link.href = canvas.toDataURL("image/png");
+    link.download = filenames[idx].replace(/\.[^/.]+$/, "") + "-edited.png";
+    link.click();
+  });
+}
+</script>
+
+</body>
+</html>

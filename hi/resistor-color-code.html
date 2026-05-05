@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<title>प्रतिरोधक कलर कोड कैलकुलेटर (4 बैंड) | फ्री ऑनलाइन टूल | HaruTools Lab</title>
+<meta name="description" content="4-बैंड प्रतिरोधक के रंगों से प्रतिरोध मान की गणना करें। भूरा, काला, लाल, सोना (1kΩ) जैसे कोड पढ़ना सीखें। इलेक्ट्रॉनिक्स और Arduino डिजाइन के लिए उपयोगी मुफ्त टूल।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --resistor-body: #f3d9b1;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* विज्ञापन स्लॉट */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* हेडर */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* टूल मुख्य क्षेत्र */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* प्रतिरोधक विज़ुअल */
+.resistor-display { position: relative; width: 100%; height: 100px; margin: 30px 0; display: flex; align-items: center; justify-content: center; }
+.wire { position: absolute; width: 95%; height: 5px; background: #bdc3c7; }
+.body { position: relative; width: 220px; height: 65px; background: var(--resistor-body); border-radius: 18px; z-index: 2; display: flex; justify-content: space-around; padding: 0 25px; align-items: center; border: 2px solid #e0c090; }
+.band { width: 14px; height: 100%; border-radius: 2px; }
+
+/* चयनकर्ता */
+.selectors { display: grid; gap: 12px; margin: 25px auto; max-width: 500px; text-align: left; background: #fdfdfd; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
+.select-row { display: flex; align-items: center; justify-content: space-between; }
+select { padding: 10px; border-radius: 6px; border: 1px solid #ccc; width: 160px; font-size: 15px; cursor: pointer; }
+
+/* परिणाम डिस्प्ले */
+.result-box { padding: 25px; background: #ebf5ff; border-radius: 12px; border: 2px solid var(--primary); text-align: center; margin: 20px auto; max-width: 500px; }
+.res-value { font-size: 36px; font-weight: bold; color: #1e3a5a; display: block; margin-bottom: 5px; }
+.tol-label { font-size: 18px; color: #555; }
+
+.nav-link { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #eee; color: #333; text-decoration: none; border-radius: 50px; font-size: 14px; font-weight: bold; transition: background 0.2s; }
+.nav-link:hover { background: #ddd; }
+
+/* SEO जानकारी अनुभाग */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border: 1px solid #eee; padding: 12px; text-align: left; }
+th { background: #f8f9fa; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .select-row { flex-direction: column; align-items: flex-start; }
+  select { width: 100%; margin-top: 5px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ्त ऑनलाइन टूल्स "HaruTools Lab"
+    </a>
+  </div>
+    <h1>प्रतिरोधक कलर कोड कैलकुलेटर (4 बैंड)</h1>
+    <p class="tagline">बस रंग चुनें और तुरंत प्रतिरोध मान (Ω) प्राप्त करें</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ</div>
+  </div>
+
+  <div class="main-card">
+    <div class="resistor-display">
+        <div class="wire"></div>
+        <div class="body">
+            <div id="band1" class="band"></div>
+            <div id="band2" class="band"></div>
+            <div id="band3" class="band"></div>
+            <div id="band4" class="band"></div>
+        </div>
+    </div>
+
+    <div class="selectors">
+        <div class="select-row"><label>1st बैंड (दहाई):</label><select id="color1" onchange="calculate()"></select></div>
+        <div class="select-row"><label>2nd बैंड (इकाई):</label><select id="color2" onchange="calculate()"></select></div>
+        <div class="select-row"><label>3rd बैंड (गुणक):</label><select id="color3" onchange="calculate()"></select></div>
+        <div class="select-row"><label>4th बैंड (सहनशीलता):</label><select id="color4" onchange="calculate()"></select></div>
+    </div>
+
+    <div class="result-box">
+        <span id="resValue" class="res-value">-</span>
+        <span class="tol-label">सहनशीलता (Tolerance): <strong id="tolValue">-</strong></span>
+    </div>
+
+    <a href="resistor-color-code-5band.html" class="nav-link">➔ 5-बैंड प्रतिरोधक के लिए यहाँ क्लिक करें</a>
+
+<div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>कलर कोड की पहचान के लिए चेतावनी</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>यह टूल मानक कलर कोड प्रदर्शित करता है, लेकिन वास्तविक प्रतिरोधक के शरीर के रंग या रोशनी के कारण रंगों की पहचान करना कठिन हो सकता है।</li>
+        <li>जैसा कि चौथे बैंड द्वारा दर्शाया गया है, वास्तविक प्रतिरोध मान में त्रुटि की संभावना होती है। साथ ही, समय के साथ या तापमान में परिवर्तन के कारण मान बदल सकता है।</li>
+        <li>इस टूल के परिणामों के कारण होने वाले किसी भी नुकसान या क्षति के लिए यह साइट ज़िम्मेदार नहीं है। कृपया सर्किट में उपयोग करने से पहले मल्टीमीटर से जाँच अवश्य करें।</li>
+    </ul>
+  </div>
+  </div>
+
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ</div>
+  </div>
+
+  <article class="info-section">
+    <h2>प्रतिरोधक कलर कोड कैलकुलेटर क्या है?</h2>
+    <p>यह टूल इलेक्ट्रॉनिक्स और सर्किट डिजाइन में अक्सर उपयोग किए जाने वाले <strong>प्रतिरोधक (Resistor)</strong> के कलर कोड से प्रतिरोध मान (ओम) और सहनशीलता की तुरंत गणना करने के लिए एक ऑनलाइन सिम्युलेटर है।</p>
+
+    <h3>प्रतिरोध मान पढ़ने और गणना करने की विधि</h3>
+    <p>4-बैंड प्रतिरोधक की गणना इस सूत्र से की जाती है:<br>
+    <strong>(1st बैंड का मान × 10 + 2nd बैंड का मान) × 3rd बैंड का गुणक</strong></p>
+    
+    <table>
+        <tr>
+            <th>प्रतिरोध मान का उदाहरण</th>
+            <th>4-बैंड का रंग संयोजन</th>
+        </tr>
+        <tr>
+            <td>1kΩ</td>
+            <td>भूरा, काला, लाल, सुनहरा</td>
+        </tr>
+        <tr>
+            <td>10kΩ</td>
+            <td>भूरा, काला, नारंगी, सुनहरा</td>
+        </tr>
+        <tr>
+            <td>470Ω</td>
+            <td>पीला, बैंगनी, भूरा, सुनहरा</td>
+        </tr>
+    </table>
+
+    <h3>इस टूल की विशेषताएं</h3>
+    <ul>
+      <li><strong>पूरी तरह से मुफ्त:</strong> सभी सुविधाओं का निःशुल्क उपयोग करें।</li>
+      <li><strong>पंजीकरण की आवश्यकता नहीं:</strong> कोई लॉगिन या साइन-अप की ज़रूरत नहीं है।</li>
+      <li><strong>सुरक्षित:</strong> सभी डेटा आपके ब्राउज़र में संसाधित होते हैं और सर्वर पर नहीं भेजे जाते।</li>
+    </ul>
+
+    <h2>उपयोग कैसे करें</h2>
+    <ol>
+      <li>प्रतिरोधक के रंगों को बाईं ओर से क्रमानुसार देखें।</li>
+      <li>चयनकर्ता से पहले और दूसरे बैंड के रंग चुनें।</li>
+      <li>तीसरे "गुणक" (Multiplier) का रंग चुनें।</li>
+      <li>अंत में चौथे "सहनशीलता" (Tolerance) का रंग चुनें (आमतौर पर सोना या चांदी)।</li>
+      <li>बीच के बॉक्स में वास्तविक समय में प्रतिरोध मान दिखाई देगा।</li>
+    </ol>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्रश्न: "पहला" बैंड कौन सा है, इसकी पहचान कैसे करें?</span>
+      <p>उत्तर: आमतौर पर, जिन बैंड्स के बीच की दूरी कम होती है, वे बाईं ओर (शुरुआत) से होते हैं। चौथा बैंड (सहनशीलता) अन्य बैंड्स की तुलना में थोड़ा अलग स्थित होता है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्रश्न: भूरा-काला-काला-सोना का मान क्या है?</span>
+      <p>उत्तर: भूरा(1), काला(0) × काला(1 गुणा) = 10Ω है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्रश्न: क्या 5-बैंड प्रतिरोधक की गणना की जा सकती है?</span>
+      <p>उत्तर: यह टूल केवल 4-बैंड के लिए है। 5-बैंड के लिए कृपया हमारे समर्पित पेज का उपयोग करें।</p>
+    </div>
+
+<h3>संबंधित उपकरण</h3>
+    <ul>
+      <li><a href="resistor-color-code-5band.html">प्रतिरोधक कलर कोड कैलकुलेटर (5 बैंड)</a></li>
+      <li><a href="composite-resistance.html">समग्र प्रतिरोध कैलकुलेटर</a></li>
+      <li><a href="ohm-law-calculator.html">ओम का नियम कैलकुलेटर</a></li>
+      <li><a href="power-consumption-calculator.html">बिजली खपत कैलकुलेटर</a></li>
+      <li><a href="rlc-calc.html">RLC सर्किट इम्पीडेंस कैलकुलेटर</a></li>
+      <li><a href="ac-power-calculator.html">AC पावर कैलकुलेटर</a></li>
+      <li><a href="logic-circuit-simulator.html">लॉजिक सर्किट सिम्युलेटर</a></li>
+    </ul>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">नियम और शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+    const colors = [
+        { name: "काला (Black)", val: 0, mult: 1, tol: null, code: "#000000" },
+        { name: "भूरा (Brown)", val: 1, mult: 10, tol: 1, code: "#8B4513" },
+        { name: "लाल (Red)", val: 2, mult: 100, tol: 2, code: "#FF0000" },
+        { name: "नारंगी (Orange)", val: 3, mult: 1000, tol: null, code: "#FFA500" },
+        { name: "पीला (Yellow)", val: 4, mult: 10000, tol: null, code: "#FFFF00" },
+        { name: "हरा (Green)", val: 5, mult: 100000, tol: 0.5, code: "#008000" },
+        { name: "नीला (Blue)", val: 6, mult: 1000000, tol: 0.25, code: "#0000FF" },
+        { name: "बैंगनी (Violet)", val: 7, mult: 10000000, tol: 0.1, code: "#EE82EE" },
+        { name: "धूसर (Grey)", val: 8, mult: null, tol: 0.05, code: "#808080" },
+        { name: "सफेद (White)", val: 9, mult: null, tol: null, code: "#FFFFFF" },
+        { name: "सुनहरा (Gold)", val: null, mult: 0.1, tol: 5, code: "#D4AF37" },
+        { name: "चांदी (Silver)", val: null, mult: 0.01, tol: 10, code: "#C0C0C0" }
+    ];
+
+    function init() {
+        const selects = ['color1', 'color2', 'color3', 'color4'].map(id => document.getElementById(id));
+        colors.forEach((c, i) => {
+            if (c.val !== null) { selects[0].add(new Option(c.name, i)); selects[1].add(new Option(c.name, i)); }
+            if (c.mult !== null) selects[2].add(new Option(c.name, i));
+            if (c.tol !== null) selects[3].add(new Option(c.name, i));
+        });
+        selects[0].value = 1; selects[1].value = 0; selects[2].value = 2; selects[3].value = 10;
+        calculate();
+    }
+
+    function calculate() {
+        const v = ['color1', 'color2', 'color3', 'color4'].map(id => colors[document.getElementById(id).value]);
+        v.forEach((color, i) => document.getElementById('band' + (i+1)).style.backgroundColor = color.code);
+        let res = (v[0].val * 10 + v[1].val) * v[2].mult;
+        let display = res >= 1000000 ? (res/1000000).toFixed(res % 1000000 === 0 ? 0 : 2) + " MΩ" : 
+                      res >= 1000 ? (res/1000).toFixed(res % 1000 === 0 ? 0 : 2) + " kΩ" : res + " Ω";
+        document.getElementById('resValue').innerText = display;
+        document.getElementById('tolValue').innerText = "±" + v[3].tol + "%";
+    }
+    init();
+</script>
+
+</body>
+</html>

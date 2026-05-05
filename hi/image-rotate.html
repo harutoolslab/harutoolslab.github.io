@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+  
+<title>इमेज रोटेशन टूल | मुफ्त ऑनलाइन फोटो की दिशा बदलें - HaruTools Lab</title>
+<meta name="description" content="मुफ्त ऑनलाइन टूल जो इमेज को 90, 180, 270 डिग्री पर घुमा सकता है। एक क्लिक में फोटो की दिशा ठीक करें। कोई इंस्टॉलेशन आवश्यक नहीं, सुरक्षित ब्राउज़र प्रोसेसिंग।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Main Card */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Drag & Drop Area */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 60px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+}
+
+.btn-select {
+  background: var(--primary);
+  color: white; border: none;
+  padding: 12px 30px; border-radius: 50px;
+  font-weight: bold; cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+}
+
+/* Preview & Work Area */
+#work-zone { display: none; margin-top: 20px; }
+.preview-container {
+  display: inline-block;
+  max-width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  background: #eee;
+  border-radius: 8px;
+  line-height: 0;
+}
+#image-preview {
+  max-width: 100%;
+  max-height: 500px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.rotate-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+.btn-rotate {
+  background: #fff; border: 2px solid var(--primary); color: var(--primary);
+  padding: 10px 15px; border-radius: 8px; font-weight: bold; cursor: pointer;
+  transition: 0.2s; min-width: 100px;
+}
+.btn-rotate:hover { background: var(--primary); color: #fff; }
+
+.btn-download {
+  background: var(--success);
+  color: white; border: none; padding: 15px 40px;
+  border-radius: 50px; font-weight: bold; font-size: 1.1rem;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+}
+
+/* SEO Info Section */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>इमेज रोटेशन टूल</h1>
+    <p class="tagline">एक क्लिक में फोटो की दिशा ठीक करें। ब्राउज़र में ही 90 और 180 डिग्री घुमाएं।</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">इमेज को यहाँ ड्रैग और ड्रॉप करें</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">अथवा</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">फ़ाइल चुनें</button>
+      <input type="file" id="file-input" accept="image/*" style="display:none;">
+    </div>
+
+    <div id="work-zone">
+      <div class="preview-container">
+        <img id="image-preview" src="" alt="रोटेशन पूर्वावलोकन">
+      </div>
+
+      <div class="rotate-controls">
+        <button class="btn-rotate" onclick="rotate(-90)">↺ बाएं 90°</button>
+        <button class="btn-rotate" onclick="rotate(90)">↻ दाएं 90°</button>
+        <button class="btn-rotate" onclick="rotate(180)">⇅ 180°</button>
+      </div>
+
+      <div>
+        <button class="btn-download" onclick="downloadImage()">घुमाई गई इमेज सेव करें</button>
+      </div>
+
+      <div style="margin-top:20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">दूसरी इमेज चुनें</button>
+      </div>
+    </div>
+  </main>
+
+  <article class="info-section">
+    <h2>इमेज रोटेशन टूल क्या है?</h2>
+    <p>"इमेज रोटेशन टूल" एक मुफ्त ऑनलाइन टूल है जिसकी मदद से आप अपने ब्राउज़र में ही फोटो या चित्रों की दिशा आसानी से बदल सकते हैं। यदि आपके फोन से ली गई फोटो गलती से टेढ़ी हो गई है या ऊपर-नीचे (Upside down) है, तो आप उसे सही दिशा में ठीक कर सकते हैं। बिना किसी इंस्टॉलेशन के, PC या स्मार्टफोन किसी से भी इसे तुरंत उपयोग किया जा सकता है।</p>
+
+    <h3>इस टूल के लाभ</h3>
+    <ul>
+      <li><strong>एक क्लिक में रोटेशन:</strong> तुरंत दाएं/बाएं 90 डिग्री या 180 डिग्री घुमाएं।</li>
+      <li><strong>बिना गुणवत्ता खोए सेव करें:</strong> रोटेशन ब्राउज़र के अंदर होता है और आप इसे उच्च गुणवत्ता वाले PNG फॉर्मेट में सेव कर सकते हैं।</li>
+      <li><strong>गोपनीयता सुरक्षा:</strong> आपकी इमेज सर्वर पर नहीं भेजी जाती हैं। पूरी प्रक्रिया आपके डिवाइस (ब्राउज़र) के अंदर होती है, इसलिए यह पूरी तरह सुरक्षित है।</li>
+    </ul>
+
+    <h2>उपयोग कैसे करें?</h2>
+    <ol>
+      <li>ऊपर दिए गए क्षेत्र में इमेज को ड्रैग करें या बटन से फ़ाइल चुनें।</li>
+      <li>"बाएं 90°", "दाएं 90°", या "180°" बटन का उपयोग करके दिशा ठीक करें।</li>
+      <li>दिशा तय हो जाने के बाद, "घुमाई गई इमेज सेव करें" बटन पर क्लिक करके डाउनलोड करें।</li>
+    </ol>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. क्या मैं इसे iPhone या Android पर उपयोग कर सकता हूँ?</strong>
+      <p>A. हाँ, यह सीधे ब्राउज़र में चलता है, इसलिए आप अपने फोन की गैलरी से इमेज चुनकर उसे घुमा और सेव कर सकते हैं।</p>
+    </div>
+    <div>
+      <strong style="color:var(--primary);">Q. क्या मैं एक साथ कई इमेज घुमा सकता हूँ?</strong>
+      <p>A. वर्तमान में यह एक समय में एक इमेज को प्रोसेस करता है। यह सटीक रूप से दिशा जांचने और सेव करने के लिए सर्वोत्तम है।</p>
+    </div>
+      <h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="image-flip.html">इमेज फ्लिप टूल</a></li>
+      <li><a href="image-overlay.html">इमेज ओवरले टूल</a></li>
+      <li><a href="brightness-contrast.html">ब्राइटनेस और कंट्रास्ट समायोजन</a></li>
+      <li><a href="mosaic-blur.html">मोज़ेक और ब्लर टूल</a></li>
+    </ul>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const workZone = document.getElementById('work-zone');
+const imagePreview = document.getElementById('image-preview');
+
+let originalImg = new Image();
+let currentAngle = 0;
+
+// File Input Processing
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+
+dropArea.addEventListener('drop', e => {
+  handleFiles(e.dataTransfer.files);
+}, false);
+
+fileInput.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(files) {
+  const file = files[0];
+  if (file && file.type.startsWith('image/')) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      originalImg.onload = () => {
+        currentAngle = 0;
+        renderCanvas();
+        dropArea.style.display = 'none';
+        workZone.style.display = 'block';
+      };
+      originalImg.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+// Rotation Logic
+function rotate(deg) {
+  currentAngle = (currentAngle + deg) % 360;
+  if (currentAngle < 0) currentAngle += 360;
+  renderCanvas();
+}
+
+// Canvas Rendering
+function renderCanvas() {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+
+  // Swap width and height for 90 or 270 degrees
+  if (currentAngle === 90 || currentAngle === 270) {
+    canvas.width = originalImg.height;
+    canvas.height = originalImg.width;
+  } else {
+    canvas.width = originalImg.width;
+    canvas.height = originalImg.height;
+  }
+
+  ctx.translate(canvas.width / 2, canvas.height / 2);
+  ctx.rotate(currentAngle * Math.PI / 180);
+  ctx.drawImage(originalImg, -originalImg.width / 2, -originalImg.height / 2);
+
+  imagePreview.src = canvas.toDataURL('image/png');
+}
+
+// Download
+function downloadImage() {
+  const link = document.createElement('a');
+  link.download = 'rotated-' + Date.now() + '.png';
+  link.href = imagePreview.src;
+  link.click();
+}
+</script>
+
+</body>
+</html>

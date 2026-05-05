@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<!-- SEO सेटिंग्स -->
+<title>Exif डेटा हटाने वाला टूल | मुफ़्त में ऑनलाइन फ़ोटो की लोकेशन जानकारी मिटाएं "HaruTools Lab"</title>
+<meta name="description" content="एक मुफ़्त ऑनलाइन टूल जो फ़ोटो से लोकेशन (GPS) और शूटिंग की तारीख जैसे Exif डेटा को पूरी तरह से हटा सकता है। ब्राउज़र के भीतर प्रोसेसिंग होने के कारण गोपनीयता सुरक्षित है। थोक विलोपन और स्मार्टफ़ोन संगत।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* विज्ञापन स्लॉट */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* हेडर */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* टूल मुख्य क्षेत्र */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ड्रैग और ड्रॉप क्षेत्र */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 1.0);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
+}
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* पूर्वावलोकन और संचालन क्षेत्र */
+#preview-zone { display: none; margin-top: 30px; }
+#preview-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.preview-item {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  position: relative;
+}
+.preview-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.file-info { font-size: 10px; color: #888; margin-top: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.btn-run {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 15px 50px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+  transition: transform 0.2s;
+}
+.btn-run:active { transform: scale(0.98); }
+
+/* परिणाम प्रदर्शन */
+#result-area { margin-top: 30px; display: none; text-align: left; background: #f0fff4; padding: 20px; border-radius: 12px; }
+.download-link {
+  display: block;
+  background: #fff;
+  color: var(--success);
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid var(--success);
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.download-link:hover { background: var(--success); color: #fff; }
+
+/* सूचना अनुभाग */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ़्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Exif डेटा हटाने वाला टूल</h1>
+    <p class="tagline">फ़ोटो से लोकेशन जानकारी और शूटिंग की तारीख जैसे मेटाडेटा को एक साथ हटा देता है।</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <main class="main-card">
+    <!-- इमेज इनपुट क्षेत्र -->
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">इमेज यहाँ ड्रैग और ड्रॉप करें</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">या</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">फ़ाइल चुनें</button>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
+
+    <!-- पूर्वावलोकन और संचालन क्षेत्र -->
+    <div id="preview-zone">
+      <div id="preview-container"></div>
+      
+      <div style="margin: 20px 0;">
+        <p style="font-size: 0.9rem; color: var(--text-sub);">"रन" बटन दबाने पर, सभी मेटाडेटा हटाकर नई इमेज बनाई जाएगी।</p>
+        <button class="btn-run" onclick="run()">हटाना शुरू करें</button>
+      </div>
+
+      <div id="status" style="margin-top:15px; font-weight:bold; color:var(--primary);"></div>
+      
+      <div id="result-area">
+        <h3 style="margin-top:0; font-size:1.1rem; color:#2c7a7b;">✨ हटाना पूरा हुआ! कृपया इमेज सेव करें</h3>
+        <div id="download-list"></div>
+        <button onclick="location.reload()" style="margin-top:15px; background:none; border:none; color:#666; text-decoration:underline; cursor:pointer; font-size:0.8rem;">अन्य फ़ोटो प्रोसेस करें</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन टैग यहाँ रखें</div>
+  </div>
+
+  <article class="info-section">
+    <h2>Exif डेटा हटाने का महत्व</h2>
+    <p>स्मार्टफ़ोन या डिजिटल कैमरे से ली गई फ़ोटो में <strong>Exif (Exchangeable image file format)</strong> नामक मेटाडेटा स्वचालित रूप से एम्बेड हो जाता है। इसमें फ़ोटो लेने के समय की GPS लोकेशन, तारीख, कैमरा मॉडल और लेंस सेटिंग्स जैसी जानकारी शामिल होती है।</p>
+    
+    <h3>लोकेशन जानकारी क्यों मिटानी चाहिए?</h3>
+    <p>सोशल मीडिया, ब्लॉग या ऑनलाइन मार्केटप्लेस पर लोकेशन डेटा वाली फ़ोटो अपलोड करने से <strong>आपके घर का पता चलने या आपकी निजी लोकेशन दूसरों के पास लीक होने का जोखिम</strong> रहता है। अपनी गोपनीयता की रक्षा के लिए, सार्वजनिक करने से पहले इस जानकारी को पूरी तरह हटा देने की सलाह दी जाती है।</p>
+
+    <h3>यह टूल कैसे काम करता है?</h3>
+    <p>सामान्य Exif हटाने वाले सॉफ़्टवेयर के विपरीत, यह टूल ब्राउज़र के "Canvas" फ़ंक्शन का उपयोग करता है। यह इमेज से केवल रंगों के डेटा (पिक्सेल) को पढ़ता है और उसे एक नई इमेज के रूप में दोबारा बनाता है। इस प्रक्रिया में मूल मेटाडेटा के साथ भौतिक संबंध पूरी तरह टूट जाता है, जिससे <strong>100% सटीक जानकारी हटाई</strong> जा सकती है।</p>
+
+    <h2>इस टूल की विशेषताएं</h2>
+    <ul>
+      <li><strong>गोपनीयता सुरक्षा:</strong> सभी इमेज प्रोसेसिंग आपके ब्राउज़र पर होती है। आपकी फ़ोटो हमारे सर्वर पर कभी अपलोड नहीं की जाती है।</li>
+      <li><strong>थोक प्रोसेसिंग (Batch Process):</strong> आप एक साथ कई फ़ोटो चुनकर सबका Exif डेटा एक साथ हटा सकते हैं।</li>
+      <li><strong>उच्च गुणवत्ता वाला सेव:</strong> इमेज की गुणवत्ता में कमी को कम करने के लिए, यह उच्च गुणवत्ता वाले JPG प्रारूप में डेटा तैयार करता है।</li>
+    </ul>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. मैं कैसे पुष्टि कर सकता हूँ कि डेटा हटा दिया गया है?</span>
+      <p>A. सेव की गई इमेज की प्रॉपर्टीज़ (विवरण) देखें। यदि "लोकेशन जानकारी" और "कैमरा मॉडल" जैसे फ़ील्ड खाली हैं, तो यह सफल रहा है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. क्या इसे Android या iPhone पर इस्तेमाल किया जा सकता है?</span>
+      <p>A. हाँ, क्योंकि यह ब्राउज़र पर चलता है, इसलिए इसे किसी भी आधुनिक मोबाइल ब्राउज़र पर इस्तेमाल किया जा सकता है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. क्या फोटो की क्वालिटी कम हो जाती है?</span>
+      <p>A. दोबारा इमेज बनाने के दौरान थोड़ा कंप्रेशन (दबाव) होता है, लेकिन सामान्य सोशल मीडिया पोस्ट या वेब ब्राउज़िंग के लिए यह ना के बराबर होता है और आँखों से पहचानना मुश्किल है।</p>
+    </div>
+  </article>
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const previewContainer = document.getElementById('preview-container');
+const resultArea = document.getElementById('result-area');
+const downloadList = document.getElementById('download-list');
+const status = document.getElementById('status');
+
+let files = [];
+
+// ड्रैग और ड्रॉप प्रोसेसिंग
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, e => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, false);
+});
+
+dropArea.addEventListener('dragover', () => dropArea.classList.add('active'));
+dropArea.addEventListener('dragleave', () => dropArea.classList.remove('active'));
+
+dropArea.addEventListener('drop', (e) => {
+  dropArea.classList.remove('active');
+  handleFiles(e.dataTransfer.files);
+});
+
+fileInput.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(selectedFiles) {
+  files = Array.from(selectedFiles).filter(file => file.type.startsWith('image/'));
+  if (files.length === 0) return;
+
+  previewContainer.innerHTML = "";
+  dropArea.style.display = 'none';
+  previewZone.style.display = 'block';
+
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const div = document.createElement("div");
+      div.className = "preview-item";
+      div.innerHTML = `
+        <img src="${e.target.result}">
+        <div class="file-info">${file.name}</div>
+      `;
+      previewContainer.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+async function run() {
+  if (files.length === 0) return;
+  
+  status.textContent = "प्रोसेस किया जा रहा है...";
+  downloadList.innerHTML = "";
+  resultArea.style.display = "none";
+
+  for (const file of files) {
+    await processImage(file);
+  }
+
+  status.textContent = "";
+  resultArea.style.display = "block";
+}
+
+async function processImage(file) {
+  return new Promise(resolve => {
+    const img = new Image();
+    const objectURL = URL.createObjectURL(file);
+    
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      // कैनवास पर ड्रॉ करके मेटाडेटा को भौतिक रूप से ब्लॉक करें
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+      // उच्च गुणवत्ता JPG के रूप में आउटपुट
+      const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
+      
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.className = "download-link";
+      link.download = `cleaned_${file.name.split('.')[0]}.jpg`;
+      link.innerHTML = `⬇️ ${file.name} सेव करें`;
+      
+      downloadList.appendChild(link);
+      
+      URL.revokeObjectURL(objectURL);
+      resolve();
+    };
+    img.src = objectURL;
+  });
+}
+</script>
+
+</body>
+</html>

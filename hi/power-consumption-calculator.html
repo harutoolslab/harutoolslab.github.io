@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<title>बिजली खपत, ऊष्मा और बिजली बिल कैलकुलेटर | J / Wh / kWh गणना | HaruTools Lab</title>
+<meta name="description" content="शक्ति (W/kW) और समय से ऊर्जा (Wh/kWh), ऊष्मा (J), और अनुमानित बिजली बिल की गणना करें। सेकंड, मिनट, घंटे और दिन के विकल्पों का समर्थन करता है।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --accent-color: #e74c3c;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --border-color: #e1e4e8;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 入力グループ */
+.input-group { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 10px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-group label { flex: 1; font-weight: bold; font-size: 0.9em; text-align: right; }
+
+input[type="number"], select {
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+input[type="number"] { flex: 2; min-width: 100px; }
+select { flex: 1; background-color: #fff; cursor: pointer; min-width: 100px; }
+
+/* プレビューエリア */
+.result-display {
+    background: #fffafa;
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.res-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+.res-item:last-child { border-bottom: none; }
+.res-label { font-size: 0.85em; color: #666; font-weight: bold; }
+.res-val { font-size: 1.6rem; font-weight: bold; color: var(--accent-color); }
+.res-unit { font-size: 0.9rem; margin-left: 5px; color: var(--text-main); }
+
+/* 電気代の強調表示用 */
+.res-cost { color: var(--success); }
+
+.btn-reset {
+  background: #eee;
+  color: #333;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+    .input-group { flex-direction: column; align-items: stretch; }
+    .input-group label { text-align: left; }
+    .res-item { flex-direction: column; align-items: flex-start; }
+    .res-val { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab: मुफ़्त ऑनलाइन टूल संग्रह
+    </a>
+  </div>
+    <h1>बिजली खपत, ऊष्मा और बिल कैलकुलेटर</h1>
+    <p class="tagline">शक्ति और उपयोग के समय से जूल (J), वाट-घंटा (Wh) और बिजली खर्च की तुरंत गणना करें</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ रखें</div>
+  </div>
+
+  <div class="main-card">
+    <div id="tool-ui">
+        <div class="input-group">
+            <label>शक्ति (Power)</label>
+            <input type="number" id="pVal" placeholder="उदा: 100" oninput="calc()" min="0">
+            <select id="pUnit" onchange="calc()">
+                <option value="w" selected>W (वाट)</option>
+                <option value="kw">kW (किलोवाट)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>उपयोग का समय</label>
+            <input type="number" id="tVal" step="any" placeholder="उदा: 1" oninput="calc()" min="0">
+            <select id="tUnit" onchange="calc()">
+                <option value="s">सेकंड (s)</option>
+                <option value="m">मिनट (m)</option>
+                <option value="h" selected>घंटा (h)</option>
+                <option value="d">दिन (d)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>बिजली दर</label>
+            <input type="number" id="unitPrice" placeholder="उदा: 31" value="31" oninput="calc()" min="0">
+            <div style="flex: 1; text-align: left; font-size: 0.9em;">₹/kWh</div>
+        </div>
+        <button class="btn-reset" onclick="resetAll()">साफ़ करें</button>
+    </div>
+
+    <div class="result-display" id="res-box">
+        <div class="res-item">
+            <span class="res-label">ऊष्मा (J / जूल)</span>
+            <span><span class="res-val" id="resJ">0</span><span class="res-unit">J</span></span>
+        </div>
+        <div class="res-item">
+            <span class="res-label">ऊर्जा (Wh / वाट-घंटा)</span>
+            <span><span class="res-val" id="resWh">0</span><span class="res-unit">Wh</span></span>
+        </div>
+        <div class="res-item">
+            <span class="res-label">ऊर्जा (kWh / किलोवाट-घंटा)</span>
+            <span><span class="res-val" id="resKWh">0</span><span class="res-unit">kWh</span></span>
+        </div>
+        <div class="res-item" style="border-top: 2px solid #eee; margin-top: 5px;">
+            <span class="res-label">अनुमानित बिजली बिल</span>
+            <span><span class="res-val res-cost" id="resCost">0</span><span class="res-unit">₹</span></span>
+        </div>
+    </div>
+<div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>गणना परिणामों के बारे में महत्वपूर्ण सूचना</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>इस टूल के परिणाम दर्ज किए गए पावर मानों पर आधारित अनुमान हैं। वास्तविक बिजली बिल में फिक्स्ड चार्ज, टैक्स और अन्य शुल्क शामिल होते हैं, इसलिए यह बिजली कंपनी के बिल से भिन्न हो सकता है।</li>
+        <li>ऊष्मा गणना में परिवेश के तापमान और उपकरण की दक्षता के कारण सैद्धांतिक मान और वास्तविक गर्मी में अंतर हो सकता है।</li>
+        <li>इस टूल के परिणामों के आधार पर होने वाले किसी भी नुकसान के लिए हम जिम्मेदार नहीं हैं। कृपया इसे केवल एक संदर्भ के रूप में उपयोग करें।</li>
+    </ul>
+</div>
+  </div>
+  
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ रखें</div>
+  </div>
+
+  <article class="info-section">
+    <h2>बिजली खपत और बिल कैलकुलेटर क्या है?</h2>
+    <p>यह टूल बिजली के उपकरणों की खपत (W) और उपयोग के समय से ऊर्जा की मात्रा "ऊष्मा (J)", "बिजली ऊर्जा (Wh/kWh)" और "बिजली बिल" की गणना करता है। इसका उपयोग बिजली बचाने के उपायों या विज्ञान की पढ़ाई के लिए किया जा सकता है।</p>
+
+    <h3>इकाइयों की परिभाषा और सूत्र</h3>
+    <ul>
+        <li><strong>जूल (J):</strong> 1W शक्ति का 1 सेकंड तक उपयोग करने पर होने वाली ऊर्जा।</li>
+        <li><strong>वाट-घंटा (Wh):</strong> 1W शक्ति का 1 घंटे तक उपयोग करने पर ऊर्जा।</li>
+        <li><strong>किलोवाट-घंटा (kWh):</strong> 1,000Wh के बराबर, जो बिजली बिल की मानक इकाई है।</li>
+        <li><strong>बिजली बिल:</strong> ऊर्जा (kWh) × प्रति इकाई दर (₹/kWh)।</li>
+    </ul>
+    <p><strong>रोचक तथ्य:</strong> 1Wh बराबर 3,600J होता है क्योंकि 1 घंटे में 3,600 सेकंड होते हैं।</p>
+
+    <h3>इस टूल की विशेषताएं</h3>
+    <ul>
+      <li><strong>तत्काल बिल गणना:</strong> ऊर्जा के साथ-साथ खर्च का भी तुरंत पता लगाएं।</li>
+      <li><strong>पूरी तरह मुफ़्त:</strong> सभी सुविधाओं का बिना किसी शुल्क के उपयोग करें।</li>
+      <li><strong>कोई पंजीकरण नहीं:</strong> लॉगिन या साइन-अप की कोई आवश्यकता नहीं।</li>
+      <li><strong>सुरक्षित डिज़ाइन:</strong> डेटा आपके ब्राउज़र में संसाधित होता है और सर्वर पर नहीं भेजा जाता।</li>
+    </ul>
+
+    <h2>उपयोग कैसे करें</h2>
+    <ol>
+      <li>"शक्ति" कॉलम में मान दर्ज करें और इकाई (W या kW) चुनें।</li>
+      <li>"उपयोग का समय" दर्ज करें और इकाई (सेकंड, मिनट, घंटा, दिन) चुनें।</li>
+      <li>"बिजली दर" दर्ज करें (डिफ़ॉल्ट मान 31 पर सेट है)।</li>
+      <li>इनपुट के अनुसार, परिणाम रीयल-टाइम में स्वचालित रूप से अपडेट हो जाएंगे।</li>
+    </ol>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. बिजली की दर कितनी माननी चाहिए?</span>
+      <p>A. यह आपके क्षेत्र और बिजली प्रदाता पर निर्भर करता है। औसत दर ₹31/kWh के आसपास हो सकती है, लेकिन सटीक गणना के लिए अपने बिजली बिल की जांच करें।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. 1kWh कितनी बिजली होती है?</span>
+      <p>A. 1000W के उपकरण को 1 घंटे तक चलाने पर 1kWh बिजली खर्च होती है।</p>
+    </div>
+
+<h3>संबंधित उपकरण</h3>
+    <ul>
+      <li><a href="resistor-color-code.html">प्रतिरोध कलर कोड कैलकुलेटर (4 बैंड)</a></li>
+      <li><a href="resistor-color-code-5band.html">प्रतिरोध कलर कोड कैलकुलेटर (5 बैंड)</a></li>
+      <li><a href="composite-resistance.html">संयुक्त प्रतिरोध कैलकुलेटर</a></li>
+      <li><a href="ohm-law-calculator.html">ओह्म का नियम और शक्ति कैलकुलेटर</a></li>
+      <li><a href="rlc-calc.html">RLC सर्किट इम्पीडेंस कैलकुलेटर</a></li>
+      <li><a href="ac-power-calculator.html">एसी पावर मल्टी कैलकुलेटर</a></li>
+      <li><a href="logic-circuit-simulator.html">लॉजिक सर्किट सिम्युलेटर</a></li>
+    </ul>
+  </article>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ रखें</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">नियम और शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+    function calc() {
+        const pInput = parseFloat(document.getElementById('pVal').value);
+        const pUnit = document.getElementById('pUnit').value;
+        const tInput = parseFloat(document.getElementById('tVal').value);
+        const tUnit = document.getElementById('tUnit').value;
+        const priceInput = parseFloat(document.getElementById('unitPrice').value);
+
+        if (!isNaN(pInput) && !isNaN(tInput)) {
+            // Normalize power to "W"
+            let watts = (pUnit === 'kw') ? pInput * 1000 : pInput;
+
+            // Normalize time to "seconds(s)" and calculate Joules
+            let seconds = tInput;
+            switch (tUnit) {
+                case 'm': seconds = tInput * 60; break;
+                case 'h': seconds = tInput * 3600; break;
+                case 'd': seconds = tInput * 86400; break;
+            }
+
+            const joules = watts * seconds;
+            const wh = joules / 3600;
+            const kwh = wh / 1000;
+
+            document.getElementById('resJ').innerText = formatNum(joules);
+            document.getElementById('resWh').innerText = formatNum(wh);
+            document.getElementById('resKWh').innerText = formatNum(kwh);
+            
+            // Electricity cost calculation
+            if (!isNaN(priceInput)) {
+                const cost = kwh * priceInput;
+                document.getElementById('resCost').innerText = formatNum(cost);
+            } else {
+                document.getElementById('resCost').innerText = "0";
+            }
+            
+            document.getElementById('res-box').style.borderColor = "var(--primary)";
+        } else {
+            // Reset if input is incomplete
+            document.getElementById('resJ').innerText = "0";
+            document.getElementById('resWh').innerText = "0";
+            document.getElementById('resKWh').innerText = "0";
+            document.getElementById('resCost').innerText = "0";
+            document.getElementById('res-box').style.borderColor = "#ddd";
+        }
+    }
+
+    function formatNum(num) {
+        if (num === 0) return "0";
+        return parseFloat(num.toFixed(4)).toLocaleString();
+    }
+
+    function resetAll() {
+        document.getElementById('pVal').value = '';
+        document.getElementById('tVal').value = '';
+        document.getElementById('unitPrice').value = '31';
+        document.getElementById('resJ').innerText = "0";
+        document.getElementById('resWh').innerText = "0";
+        document.getElementById('resKWh').innerText = "0";
+        document.getElementById('resCost').innerText = "0";
+        document.getElementById('res-box').style.borderColor = "#ddd";
+    }
+</script>
+
+</body>
+</html>

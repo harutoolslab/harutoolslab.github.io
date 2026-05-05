@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+  
+
+<!-- ★SEO設定 -->
+<title>मल्टी-फंक्शनल स्क्वायर मेकर | सोशल मीडिया के लिए इमेज में मार्जिन और बैकग्राउंड जोड़ें</title>
+<meta name="description" content="एक निःशुल्क ऑनलाइन टूल जो आपको अपनी तस्वीरों को बिना क्रॉप किए स्टाइलिश वर्गाकार (Square) आकार में बदलने की अनुमति देता है। इंस्टाग्राम और अन्य सोशल मीडिया के लिए सर्वश्रेष्ठ।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+}
+
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+/* 設定エリア */
+.tool-box {
+  margin: 20px auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  text-align: left;
+  max-width: 500px;
+}
+.setting-item { margin-bottom: 15px; }
+.setting-item label { display: block; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
+select, input[type="range"], input[type="color"] { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ddd; }
+
+/* 実行ボタン */
+.btn-run {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+
+/* プレビュー・結果エリア */
+#preview-container, #result-container { margin-top: 30px; }
+.preview-item, .result-item {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  margin-bottom: 20px;
+}
+.preview-item img, .result-item img { max-width: 100%; height: auto; border-radius: 4px; }
+.download-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px solid var(--primary);
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ़्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>मल्टी-फंक्शनल स्क्वायर मेकर</h1>
+    <p class="tagline">बिना क्रॉप किए अपनी तस्वीरों को स्टाइलिश स्क्वायर बनाएं। बैकग्राउंड ब्लर और रंग अनुकूलन के साथ।</p>
+  </header>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ दिखाई देगा</div>
+  </div>
+
+  <main class="main-card">
+    <!-- 画像入力エリア -->
+    <div id="drop-area">
+      <div style="font-size: 1.1rem; font-weight: bold;">क्लिक करें या फ़ाइल को यहाँ खींचें (Drag & Drop)</div>
+      <p style="color: var(--text-sub); margin: 5px 0;">(एक साथ कई छवियों को चुनने में सक्षम)</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">छवि चुनें</button>
+      <input type="file" id="file-input" multiple accept="image/*" style="display:none;">
+    </div>
+
+    <div id="preview-container"></div>
+
+    <!-- 設定ボックス -->
+    <div class="tool-box">
+      <div class="setting-item">
+        <label>बैकग्राउंड मोड</label>
+        <select id="bg-mode" onchange="toggleInputs()">
+          <option value="blur">बैकग्राउंड ब्लर (मूल छवि)</option>
+          <option value="color">ठोस रंग (Solid Color)</option>
+          <option value="grad">ग्रेडिएंट (Gradient)</option>
+        </select>
+      </div>
+
+      <div id="blur-settings">
+        <div class="setting-item">
+          <label>ब्लर की तीव्रता</label>
+          <input type="range" id="blur-range" min="0" max="50" value="20">
+        </div>
+        <div class="setting-item">
+          <label>बैकग्राउंड की चमक</label>
+          <input type="range" id="bg-brightness" min="50" max="200" value="120">
+        </div>
+      </div>
+
+      <div id="color-settings" style="display:none;">
+        <div class="setting-item">
+          <label>बैकग्राउंड का रंग</label>
+          <input type="color" id="bg-color" value="#ffffff">
+        </div>
+      </div>
+
+      <div id="grad-settings" style="display:none;">
+        <div class="setting-item">
+          <label>प्रारंभिक रंग</label>
+          <input type="color" id="grad-1" value="#e0c3fc">
+        </div>
+        <div class="setting-item">
+          <label>अंतिम रंग</label>
+          <input type="color" id="grad-2" value="#8ec5fc">
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-run" onclick="run()">स्क्वायर में बदलें</button>
+    <div id="status" style="margin-top: 15px; font-weight: bold; color: var(--primary);"></div>
+    
+    <div id="result-container"></div>
+  </main>
+
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ दिखाई देगा</div>
+  </div>
+
+  <article class="info-section">
+    <h2>छवियों को क्रॉप किए बिना वर्गाकार बनाने के लाभ</h2>
+    <p>इंस्टाग्राम जैसे सोशल मीडिया पर, गैर-वर्गाकार छवियों के किनारे कभी-कभी कट जाते हैं। इस टूल का उपयोग करके, आप अपनी मूल छवि के किसी भी हिस्से को खोए बिना, स्टाइलिश मार्जिन जोड़कर उसे पोस्ट के लिए एकदम सही बना सकते हैं।</p>
+
+    <h3>मुख्य विशेषताएं</h3>
+    <ul>
+      <li><strong>बैकग्राउंड ब्लर:</strong> फोटो के वातावरण को खराब किए बिना गहराई वाला लुक दें।</li>
+      <li><strong>चमक समायोजन:</strong> बैकग्राउंड को गहरा करके मुख्य फोटो को उभारें या उसे उज्ज्वल बनाएं।</li>
+      <li><strong>गोपनीयता:</strong> आपकी छवियां सर्वर पर नहीं भेजी जाती हैं, वे सीधे आपके ब्राउज़र में संसाधित होती हैं।</li>
+      <li><strong>बैच प्रोसेसिंग:</strong> एक ही बार में कई तस्वीरों को समान सेटिंग्स के साथ बदलें।</li>
+    </ul>
+
+    <h2>उपयोग कैसे करें</h2>
+    <ol>
+      <li>ऊपर दिए गए क्षेत्र में चित्र खींचें और छोड़ें या "छवि चुनें" बटन दबाएं।</li>
+      <li>"बैकग्राउंड मोड" चुनें और ब्लर या रंग को अपनी पसंद के अनुसार समायोजित करें।</li>
+      <li>"स्क्वायर में बदलें" बटन दबाएं, और परिवर्तित छवि नीचे दिखाई देगी।</li>
+      <li>"इस छवि को सहेजें" पर क्लिक करके डाउनलोड करें।</li>
+    </ol>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न</h2>
+    <div class="faq-item" style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
+      <p style="font-weight:bold; color:var(--primary); margin-bottom:5px;">Q. क्या छवि की गुणवत्ता कम हो जाती है?</p>
+      <p>A. हम उच्च गुणवत्ता वाली सेटिंग्स (JPEG 92%) का उपयोग करते हैं, इसलिए सोशल मीडिया के लिए गुणवत्ता पर्याप्त बनी रहती है।</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
+      <p style="font-weight:bold; color:var(--primary); margin-bottom:5px;">Q. क्या यह मुफ़्त है?</p>
+      <p>A. हाँ, सभी सुविधाएं पूरी तरह से मुफ़्त हैं। किसी पंजीकरण की आवश्यकता नहीं है।</p>
+    </div>
+    <h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="image-cropper-rounded.html">राउंड/कॉर्नर कट</a></li>
+      <li><a href="image-filter-tool.html">छवि फ़िल्टर</a></li>
+      <li><a href="brightness-contrast.html">चमक और कंट्रास्ट समायोजन</a></li>
+      <li><a href="mosaic-blur.html">मोज़ेक और ब्लर टूल</a></li>
+    </ul>
+  </article>
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewContainer = document.getElementById('preview-container');
+const resultContainer = document.getElementById('result-container');
+const status = document.getElementById('status');
+
+let files = [];
+
+// 背景入力切り替え
+function toggleInputs() {
+  const mode = document.getElementById("bg-mode").value;
+  document.getElementById("blur-settings").style.display = (mode === 'blur') ? 'block' : 'none';
+  document.getElementById("color-settings").style.display = (mode === 'color') ? 'block' : 'none';
+  document.getElementById("grad-settings").style.display = (mode === 'grad') ? 'block' : 'none';
+}
+
+// ドラッグ&ドロップイベント
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); });
+});
+
+['dragenter', 'dragover'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.add('active'));
+});
+
+['dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.remove('active'));
+});
+
+dropArea.addEventListener('drop', e => handleFiles(e.dataTransfer.files));
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+function handleFiles(selectedFiles) {
+  files = Array.from(selectedFiles);
+  previewContainer.innerHTML = "<p style='font-weight:bold;'>चयनित चित्र:</p>"; 
+  files.forEach(file => {
+    if (!file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const div = document.createElement("div");
+      div.className = "preview-item";
+      div.style.display = "inline-block";
+      div.style.margin = "5px";
+      div.innerHTML = `<img src="${e.target.result}" style="height:80px; width:auto; border:1px solid #ddd;">`;
+      previewContainer.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function run() {
+  if(files.length === 0){ alert("कृपया फ़ाइल चुनें"); return; }
+  status.innerHTML = "प्रसंस्कृत किया जा रहा है...";
+  resultContainer.innerHTML = "<h3>रूपांतरण परिणाम</h3>"; 
+  setTimeout(() => process(files), 300);
+}
+
+async function process(selectedFiles) {
+  const mode = document.getElementById("bg-mode").value;
+  const blurVal = document.getElementById("blur-range").value;
+  const brightnessVal = document.getElementById("bg-brightness").value;
+  const bgColor = document.getElementById("bg-color").value;
+  const g1 = document.getElementById("grad-1").value;
+  const g2 = document.getElementById("grad-2").value;
+
+  for (const file of selectedFiles) {
+    const img = new Image();
+    const objectURL = URL.createObjectURL(file);
+    img.src = objectURL;
+    
+    await new Promise(resolve => {
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        const size = Math.max(img.width, img.height);
+        canvas.width = size;
+        canvas.height = size;
+
+        // 背景処理
+        if (mode === 'blur') {
+          ctx.save();
+          ctx.filter = `blur(${blurVal}px) brightness(${brightnessVal}%) saturate(90%)`;
+          ctx.globalAlpha = 0.8;
+          ctx.drawImage(img, 0, 0, size, size);
+          ctx.restore();
+        } else if (mode === 'color') {
+          ctx.fillStyle = bgColor;
+          ctx.fillRect(0, 0, size, size);
+        } else if (mode === 'grad') {
+          const grd = ctx.createLinearGradient(0, 0, size, size);
+          grd.addColorStop(0, g1);
+          grd.addColorStop(1, g2);
+          ctx.fillStyle = grd;
+          ctx.fillRect(0, 0, size, size);
+        }
+
+        // メイン描画
+        let dw, dh, x, y;
+        if (img.width > img.height) {
+          dw = size; dh = size * (img.height / img.width);
+          x = 0; y = (size - dh) / 2;
+        } else {
+          dh = size; dw = size * (img.width / img.height);
+          y = 0; x = (size - dw) / 2;
+        }
+        ctx.drawImage(img, x, y, dw, dh);
+
+        const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
+        const div = document.createElement("div");
+        div.className = "result-item";
+        div.innerHTML = `
+          <img src="${dataUrl}">
+          <p><a href="${dataUrl}" download="square_${file.name.split('.')[0]}.jpg" class="download-link">इस छवि को सहेजें</a></p>
+        `;
+        resultContainer.appendChild(div);
+        
+        URL.revokeObjectURL(objectURL);
+        resolve();
+      };
+    });
+  }
+  status.innerHTML = "सभी रूपांतरण पूर्ण हो गए हैं!";
+}
+</script>
+
+</body>
+</html>

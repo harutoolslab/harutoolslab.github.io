@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO settings -->
+<title>PDF मर्जर टूल | मुफ़्त में कई PDF फ़ाइलों को ऑनलाइन जोड़ें "HaruTools Lab"</title>
+<meta name="description" content="मुफ़्त ऑनलाइन टूल जो अपलोड किए गए क्रम में कई PDF फ़ाइलों को एक साथ जोड़ता है। ब्राउज़र के भीतर सुरक्षित प्रसंस्करण। कोई इंस्टॉलेशन आवश्यक नहीं, स्मार्टफोन और पीसी के साथ संगत।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ★PDF editing library pdf-lib loading -->
+<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 20px auto; padding: 15px;
+  background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
+  color: #999; font-size: 12px; text-align: center; min-height: 90px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Main Tool Area */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Drag & Drop Area */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
+}
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* Preview & Control Area */
+#preview-zone { display: none; margin-top: 20px; text-align: left; }
+#file-list {
+  max-width: 600px;
+  margin: 20px auto;
+}
+.file-item {
+  background: #f8f9fa;
+  margin-bottom: 8px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+}
+.file-index {
+  background: var(--primary);
+  color: white;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  margin-right: 10px;
+}
+
+.btn-run {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 30px auto 10px;
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+.btn-run:disabled { background: #ccc; cursor: not-allowed; box-shadow: none; }
+
+/* Info Section */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ़्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>PDF मर्जर टूल</h1>
+    <p class="tagline">अपलोड किए गए क्रम में कई PDF फ़ाइलों को एक फ़ाइल में संयोजित करें।</p>
+  </header>
+
+  <!-- Ad slot: Top -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ रखें</div>
+  </div>
+
+  <main class="main-card">
+    <!-- File Input Area -->
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">PDF फ़ाइलों को यहाँ ड्रैग और ड्रॉप करें</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">(आप कई फ़ाइलें चुन सकते हैं)</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">फ़ाइल चुनें</button>
+      <input type="file" id="file-input" accept="application/pdf" multiple style="display:none;">
+    </div>
+
+    <!-- List & Action Area -->
+    <div id="preview-zone">
+      <h3 style="text-align:center; margin-bottom:15px;">जोड़ी जाने वाली फ़ाइलों का क्रम</h3>
+      <div id="file-list"></div>
+      
+      <button id="merge-btn" class="btn-run" onclick="mergePdfs()">PDF मर्ज करें और सहेजें</button>
+      <div id="status" style="text-align:center; margin-top:15px; font-weight:bold; color:var(--primary);"></div>
+      
+      <div style="text-align:center; margin-top:20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer; font-size:0.8rem;">फ़ाइलों को रीसेट करें</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Ad slot: Middle -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ रखें</div>
+  </div>
+
+  <!-- SEO Content -->
+  <article class="info-section">
+    <h2>PDF मर्जर टूल क्या है?</h2>
+    <p>"PDF मर्जर टूल" एक ऑनलाइन उपकरण है जो आपको ब्राउज़र में ही कई अलग-अलग PDF फ़ाइलों को आसानी से एक फ़ाइल में संयोजित करने की अनुमति देता है। यह उन दस्तावेज़ों को व्यवस्थित करने के लिए आदर्श है जिन्हें अलग-अलग स्कैन किया गया है या विभिन्न सॉफ़्टवेयर का उपयोग करके बनाया गया है।</p>
+
+    <h3>इस टूल के लाभ</h3>
+    <ul>
+      <li><strong>पूरी तरह मुफ़्त और कोई पंजीकरण नहीं:</strong> आप अभी सभी सुविधाओं का मुफ़्त में उपयोग कर सकते हैं।</li>
+      <li><strong>सुरक्षित और विश्वसनीय:</strong> "pdf-lib" तकनीक के कारण, सभी विलय प्रक्रियाएं आपके ब्राउज़र पर की जाती हैं। फ़ाइलें कभी भी बाहरी सर्वर पर नहीं भेजी जाती हैं।</li>
+      <li><strong>कोई इंस्टॉलेशन आवश्यक नहीं:</strong> विंडोज, मैक और स्मार्टफोन ब्राउज़र से सीधे उपयोग किया जा सकता है।</li>
+    </ul>
+
+    <h2>PDF फ़ाइलों को मर्ज करने के उपयोग के मामले</h2>
+    <p><strong>1. दस्तावेज़ जमा करने को सुव्यवस्थित करना:</strong> कई रिपोर्ट या प्रमाणपत्रों को एक PDF में जोड़कर, आप ईमेल में अटैचमेंट भूलने से बच सकते हैं और प्राप्तकर्ता पर बोझ कम कर सकते हैं।</p>
+    <p><strong>2. स्कैन किए गए डेटा को व्यवस्थित करना:</strong> आप उन सामग्रियों को सहेज सकते हैं जिन्हें एक डिजिटल पुस्तक के रूप में सही क्रम में पृष्ठ दर पृष्ठ स्कैन किया गया है।</p>
+    <p><strong>3. इलेक्ट्रॉनिक अनुबंध और आवेदन:</strong> आप कई पूरक दस्तावेजों को मुख्य आवेदन पत्र के साथ जोड़ सकते हैं और उन्हें एक पैकेज के रूप में प्रबंधित कर सकते।</p>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्रश्न: क्या मैं विलय के क्रम को बदल सकता हूँ?</span>
+      <p>उत्तर: वर्तमान संस्करण में, फ़ाइलों को उस क्रम में सूचीबद्ध किया जाता है जिस क्रम में उन्हें चुना (या ड्रैग) किया गया था। यदि आप क्रम बदलना चाहते हैं, तो कृपया एक बार रीसेट करें और उन्हें उस क्रम में एक-एक करके जोड़ें जिसमें आप उन्हें जोड़ना चाहते हैं, या फ़ाइल नामों में नंबर (01, 02...) जोड़ें और फिर उन्हें एक साथ चुनें।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्रश्न: क्या कई पन्नों वाली बड़ी PDF फ़ाइलें ठीक हैं?</span>
+      <p>उत्तर: सामान्य व्यावसायिक दस्तावेज़ों के साथ कोई समस्या नहीं होनी चाहिए। हालांकि, सैकड़ों MB से अधिक की बहुत भारी फ़ाइलें ब्राउज़र की मेमोरी सीमाओं के कारण त्रुटियां पैदा कर सकती हैं।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्रश्न: क्या विलय के बाद छवि की गुणवत्ता कम हो जाती है?</span>
+      <p>उत्तर: नहीं। चूंकि पृष्ठ डेटा को सीधे कॉपी किया जाता है और एक नए कंटेनर में रखा जाता है, इसलिए मूल छवि गुणवत्ता और टेक्स्ट जानकारी बनी रहती है।</p>
+    </div>
+
+    <h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="image-to-pdf.html">इमेज से PDF कनवर्टर</a></li>
+      <li><a href="pdf-to-image.html">PDF से इमेज कनवर्टर</a></li>
+      <li><a href="image-compress.html">इमेज कंप्रेशर</a></li>
+      <li><a href="png-to-jpg.html">PNG को JPG में बदलें</a></li>
+    </ul>
+    
+  </article>
+
+  <!-- Ad slot: Bottom -->
+  <div class="ad-slot">
+    <div><span class="ad-label">Advertisement</span>विज्ञापन यहाँ रखें</div>
+  </div>
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const fileList = document.getElementById('file-list');
+const status = document.getElementById('status');
+const mergeBtn = document.getElementById('merge-btn');
+
+let selectedFiles = [];
+
+// Drag & Drop settings
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, e => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, false);
+});
+
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.add('active'), false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', (e) => {
+  handleFiles(e.dataTransfer.files);
+}, false);
+
+fileInput.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(files) {
+  const newFiles = Array.from(files).filter(f => f.type === "application/pdf");
+  if (newFiles.length === 0) return;
+
+  selectedFiles = [...selectedFiles, ...newFiles];
+  
+  dropArea.style.display = 'none';
+  previewZone.style.display = 'block';
+  renderFileList();
+}
+
+function renderFileList() {
+  fileList.innerHTML = "";
+  selectedFiles.forEach((file, index) => {
+    const div = document.createElement("div");
+    div.className = "file-item";
+    div.innerHTML = `
+      <span><span class="file-index">${index + 1}</span> ${file.name}</span>
+      <span style="font-size:0.8rem; color:#888;">(${(file.size / 1024 / 1024).toFixed(2)} MB)</span>
+    `;
+    fileList.appendChild(div);
+  });
+}
+
+async function mergePdfs() {
+  if (selectedFiles.length < 2) {
+    alert("जोड़ने के लिए कृपया 2 या अधिक फ़ाइलें चुनें");
+    return;
+  }
+
+  mergeBtn.disabled = true;
+  status.innerHTML = "PDF मर्ज हो रहा है... कृपया प्रतीक्षा करें";
+
+  try {
+    const { PDFDocument } = PDFLib;
+    const mergedPdf = await PDFDocument.create();
+
+    for (const file of selectedFiles) {
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await PDFDocument.load(arrayBuffer);
+      const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+      copiedPages.forEach((page) => mergedPdf.addPage(page));
+    }
+
+    const pdfBytes = await mergedPdf.save();
+    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `merged_${Date.now()}.pdf`;
+    link.click();
+
+    status.innerHTML = "विलय पूरा हुआ!";
+    mergeBtn.disabled = false;
+  } catch (error) {
+    console.error(error);
+    status.innerHTML = "एक त्रुटि हुई। फ़ाइल दूषित हो सकती है।";
+    mergeBtn.disabled = false;
+  }
+}
+</script>
+
+</body>
+</html>
