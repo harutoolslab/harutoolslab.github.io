@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<title>Pixel Art Maker | Grid, Transparent Background & Export - HaruTools Lab</title>
-<meta name="description" content="A free online pixel art editor for beginners. Draw pixel by pixel with accurate grids, and export as enlarged transparent PNGs. Perfect for web assets and icons.">
+<title>Pixel Art Maker | Grid, Transparent BG & Export - HaruTools Lab</title>
+<meta name="description" content="A free online pixel art editor for beginners. Draw pixel-by-pixel with precise grid lines, support for transparent backgrounds, and high-resolution PNG export. Perfect for icons and web assets.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -23,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -79,18 +79,18 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   display: inline-block;
   margin: auto;
   background-color: #ffffff;
-  position: relative; 
+  position: relative;
   line-height: 0;
 }
 
-/* Grid Overlay */
+/* Grid Layer */
 .grid-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; 
+  pointer-events: none;
   background-image: 
     linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
@@ -115,7 +115,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .palette-color:hover { transform: scale(1.1); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
 
-/* Save Section */
+/* Save Panel */
 .save-panel { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
 .btn-run {
   background: var(--success); color: white; border: none; padding: 12px 40px;
@@ -159,6 +159,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .fullscreen-mode .palette-container { margin: 10px 0; }
 .fullscreen-mode .save-panel { display: none; }
 
+/* Responsive adjustments for Portrait Mode */
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .fullscreen-mode {
     flex-direction: column;
@@ -205,11 +206,11 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
     </a>
   </div>
     <h1>Pixel Art Maker</h1>
-    <p class="tagline">Easy drawing with grid lines. Transparent PNG export supported.</p>
+    <p class="tagline">Draw easily with grid lines. Supports transparent PNG export.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Ad Tag Here</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <main class="main-card" id="editor-main">
@@ -241,7 +242,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 
         <button class="tool-btn" onclick="undo()" title="Undo">Undo</button>
         <button id="grid-toggle-btn" class="tool-btn active" onclick="toggleGrid()">Grid</button>
-        <button id="view-all-btn" class="tool-btn" onclick="toggleViewAll()">Preview</button>
+        <button id="view-all-btn" class="tool-btn" onclick="toggleViewAll()">View All</button>
         <button id="fs-tool" class="tool-btn" onclick="toggleFullscreen()" style="background: #eef2f7;">Fullscreen</button>
       </div>
 
@@ -259,56 +260,64 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
       Export Size:
       <select id="scale-select" style="padding: 10px; border-radius: 8px; border:1px solid #ddd;">
         <option value="1">Original (1:1)</option>
-        <option value="16">16x Enlarged</option>
-        <option value="32" selected>32x Enlarged (Recommended)</option>
-        <option value="64">64x Enlarged</option>
+        <option value="16">16x Magnification</option>
+        <option value="32" selected>32x Magnification (Recommended)</option>
+        <option value="64">64x Magnification</option>
       </select>
-      <button class="btn-run" onclick="download()" style="margin-left:15px;">Save Image</button>
+      <button class="btn-run" onclick="download()" style="margin-left:15px;">Export Image</button>
+
+      <div style="margin-top:20px; border-top:1px dashed #eee; padding-top:20px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <button class="tool-btn" onclick="exportJSON()" style="background:#6c757d; color:white; border:none;">Save Project (.json)</button>
+        <button class="tool-btn" onclick="document.getElementById('import-file').click()" style="background:#6c757d; color:white; border:none;">Load JSON</button>
+        <input type="file" id="import-file" style="display:none" accept=".json" onchange="importJSON(event)">
+      </div>
     </div>
   </main>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Ad Tag Here</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <article class="info-section">
-    <h2>What is Pixel Art Maker?</h2>
+    <h2>What is the Pixel Art Maker?</h2>
     <p>
-      This tool is an online editor specialized in creating "Pixel Art" by placing colors precisely one square at a time. 
-      With a fixed background and light gray grid lines, even beginners can easily start drawing without getting lost.
+      This tool is a free online editor specialized for creating "pixel art" by placing colors precisely square by square. 
+      With a steady grid and zoom features, even beginners can easily create digital art for icons, sprites, or social media.
     </p>
 
     <h3>Key Features</h3>
     <ul>
-      <li><strong>Completely Free:</strong> Start drawing instantly in your browser with no registration required.</li>
-      <li><strong>Grid Support:</strong> Dynamic grid lines move with the zoom level, so you always know your pixel position.</li>
-      <li><strong>High-Quality Export:</strong> Save your work as a transparent PNG, enlarged to maintain crisp pixel quality for social media or icons.</li>
+      <li><strong>Completely Free:</strong> Start drawing immediately in your browser without registration.</li>
+      <li><strong>Grid System:</strong> Visual guides adjust with zoom levels to help you maintain accuracy.</li>
+      <li><strong>High-Quality Export:</strong> Save as a transparent PNG, scaled up to maintain sharp pixels for social media use.</li>
+      <li><strong>Save Your Progress:</strong> Export as JSON to resume editing later or share data with others.</li>
     </ul>
 
     <h2>How to Use</h2>
     <ol>
-      <li>Choose your canvas size (e.g., 16x16) to prepare the workspace.</li>
-      <li>Use the Pen tool and Color Picker to draw your art.</li>
-      <li>Select the "Move" tool to drag and scroll the canvas.</li>
-      <li>Use "Save Color" to store your favorite colors in the palette.</li>
-      <li>Select your export size and click "Save Image" to download.</li>
+      <li>Select your canvas size (e.g., 16x16) and initialize the editor.</li>
+      <li>Use the Pen tool and Color Picker to draw your artwork.</li>
+      <li>Select the "Move" tool to drag and navigate around the canvas.</li>
+      <li>Use "Save Color" to store your favorite colors in the custom palette.</li>
+      <li>Choose an export size and click "Export Image" to download your PNG.</li>
+      <li>Use "Save Project" to keep your work-in-progress as a file.</li>
     </ol>
 
     <h2>Frequently Asked Questions (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">Q. Is there a fee?</span>
-      <p>A. No, all tools on HaruTools Lab are provided completely free of charge.</p>
+      <span class="faq-q">Q. Is it really free?</span>
+      <p>A. Yes, all tools provided by HaruTools Lab are free to use.</p>
     </div>
     <div class="faq-item">
       <span class="faq-q">Q. Can I save with a transparent background?</span>
-      <p>A. Yes. Any unpainted areas are automatically treated as transparent and saved in PNG format.</p>
+      <p>A. Yes. Unpainted areas are automatically treated as transparent and saved in PNG format.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">Q. Can I use it on mobile?</span>
-      <p>A. Yes, you can draw with your fingertips on iPhone or Android. We recommend using the zoom and fullscreen features for better control.</p>
+      <span class="faq-q">Q. Does it work on mobile?</span>
+      <p>A. Yes, you can draw with your fingertips on iPhone or Android. Use the zoom and move tools for better control.</p>
     </div>
 
-     <h3>Related Tools</h3>
+     <h3>Other Tools</h3>
     <ul>
       <li><a href="qr-generator.html">QR Code Generator</a></li>
       <li><a href="favicon-generator.html">Favicon Generator</a></li>
@@ -320,7 +329,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   </article>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Ad Tag Here</div>
+    <div><span class="ad-label">Advertisement</span>Your Ad Tag Here</div>
   </div>
 
   <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
@@ -354,6 +363,7 @@ let undoStack = [];
 let isMoving = false;
 let startX, startY, scrollLeft, scrollTop;
 
+// State for "View All" mode
 let isViewAllMode = false;
 let prevViewState = {
   zoom: 20,
@@ -363,6 +373,7 @@ let prevViewState = {
   scrollTop: 0
 };
 
+// Pinch zoom variables
 let initialPinchDistance = null;
 let initialPinchZoom = null;
 
@@ -423,7 +434,7 @@ function undo() {
 }
 
 function initCanvas(isInitial = false) {
-  if(!isInitial && !confirm("Clear the current drawing and reset?")) return;
+  if(!isInitial && !confirm("Clear the current illustration and reset?")) return;
   if(!isInitial) saveState();
   const w = parseInt(wSelect.value);
   const h = parseInt(hSelect.value);
@@ -744,8 +755,62 @@ canvas.addEventListener('wheel', (e) => {
 
 window.addEventListener('beforeunload', (e) => {
   e.preventDefault();
-  e.returnValue = "Your progress will not be saved. Are you sure you want to leave?";
+  e.returnValue = "Your progress will be lost. Are you sure you want to leave?";
 });
+
+function exportJSON() {
+  const data = {
+    width: canvas.width,
+    height: canvas.height,
+    imageData: canvas.toDataURL(),
+  };
+  const jsonStr = JSON.stringify(data);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  
+  const link = document.createElement('a');
+  link.download = `pixelart_project_${canvas.width}x${canvas.height}.json`;
+  link.href = url;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!data.width || !data.height || !data.imageData) {
+        throw new Error("Invalid format");
+      }
+
+      if (!confirm("Current work will be overwritten. Proceed?")) return;
+
+      wSelect.value = data.width;
+      hSelect.value = data.height;
+      canvas.width = data.width;
+      canvas.height = data.height;
+
+      const img = new Image();
+      img.onload = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        updateZoom();
+        undoStack = []; 
+        alert("Project loaded successfully.");
+      };
+      img.src = data.imageData;
+
+    } catch (err) {
+      alert("Failed to load file. Please select a valid JSON file.");
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = "";
+}
 </script>
 
 </body>
