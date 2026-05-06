@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
-<title>Criador de Pixel Art | Grade, Fundo Transparente e Gravação - HaruTools Lab</title>
-<meta name="description" content="Uma ferramenta gratuita de pixel art online, fácil de usar para iniciantes. Desenhe pixel a pixel com linhas de grade precisas e salve em PNG transparente de alta qualidade. Ideal para ícones e assets web.">
+<title>Criador de Pixel Art | Grade, Fundo Transparente e Salvar - HaruTools Lab</title>
+<meta name="description" content="Ferramenta online gratuita de pixel art, fácil de usar até para iniciantes. Desenhe pixel por pixel com grades precisas e salve em PNG transparente. Ideal para ícones e assets web.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -31,7 +31,7 @@ body {
 
 .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* 広告枠 */
+/* Slot de Anúncio */
 .ad-slot {
   margin: 20px auto; padding: 15px;
   background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 8px;
@@ -40,12 +40,12 @@ body {
 }
 .ad-label { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
 
-/* ヘッダー */
+/* Cabeçalho */
 header { text-align: center; margin: 40px 0 20px; }
 h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .tagline { color: var(--text-sub); font-size: 1rem; }
 
-/* ツールメインエリア */
+/* Área Principal */
 .main-card {
   background: var(--card-bg);
   padding: 30px 20px;
@@ -55,7 +55,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   margin-bottom: 30px;
 }
 
-/* コントロールパネル */
+/* Painel de Controle */
 .control-panel {
   display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center;
   background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 20px;
@@ -67,7 +67,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .tool-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-/* キャンバスエリア */
+/* Área do Canvas */
 .canvas-scroll-viewer {
   width: 100%; max-height: 60vh; overflow: auto;
   background: #ccc; border: 2px solid #333; border-radius: 4px;
@@ -79,18 +79,18 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   display: inline-block;
   margin: auto;
   background-color: #ffffff;
-  position: relative; /* 子要素の絶対配置の基準にする */
+  position: relative;
   line-height: 0;
 }
 
-/* キャンバスの上に重ねるグリッド用レイヤー */
+/* Camada de Grade */
 .grid-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* 下のcanvasの操作を邪魔しない */
+  pointer-events: none;
   background-image: 
     linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
@@ -107,7 +107,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   display: block;
 }
 
-/* パレット */
+/* Paleta */
 .palette-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
 .palette-color {
   width: 32px; height: 32px; border: 1px solid #ddd; border-radius: 6px;
@@ -115,7 +115,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 }
 .palette-color:hover { transform: scale(1.1); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
 
-/* 保存セクション */
+/* Seção de Salvamento */
 .save-panel { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
 .btn-run {
   background: var(--success); color: white; border: none; padding: 12px 40px;
@@ -123,7 +123,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   box-shadow: 0 4px 15px rgba(40,167,69,0.2);
 }
 
-/* 大画面モード */
+/* Modo Tela Cheia */
 .fullscreen-mode {
   position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
   z-index: 9999; background: #333; display: flex; flex-direction: row;
@@ -159,7 +159,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
 .fullscreen-mode .palette-container { margin: 10px 0; }
 .fullscreen-mode .save-panel { display: none; }
 
-/* スマホ縦画面での大画面モードレイアウト調整 */
+/* Ajuste Responsivo para Tela Cheia */
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .fullscreen-mode {
     flex-direction: column;
@@ -202,11 +202,11 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      HaruTools Lab - Coleção de Ferramentas Online Gratuitas
+      Coleção de Ferramentas Online Grátis "HaruTools Lab"
     </a>
   </div>
     <h1>Criador de Pixel Art</h1>
-    <p class="tagline">Fácil de desenhar com grade. Suporta gravação em PNG transparente.</p>
+    <p class="tagline">Fácil de desenhar com grades. Suporte para salvamento em PNG transparente.</p>
   </header>
 
   <div class="ad-slot">
@@ -215,13 +215,13 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 
   <main class="main-card" id="editor-main">
     <div id="sidebar-area" class="sidebar-target">
-      <button class="exit-fs-btn" id="exit-fs-btn" style="display:none;" onclick="toggleFullscreen()">Sair do ecrã inteiro</button>
+      <button class="exit-fs-btn" id="exit-fs-btn" style="display:none;" onclick="toggleFullscreen()">Sair da Tela Cheia</button>
       
       <div class="control-panel">
         Tamanho:
         <select id="width-select" style="padding: 5px; border-radius: 5px;"></select> × 
         <select id="height-select" style="padding: 5px; border-radius: 5px;"></select>
-        <button class="tool-btn" onclick="initCanvas()" style="margin-left:10px; color: #d63031;">Repor</button>
+        <button class="tool-btn" onclick="initCanvas()" style="margin-left:10px; color: #d63031;">Resetar</button>
         <div style="margin-left:15px;">
           Zoom: <input type="range" id="zoom-range" min="5" max="60" value="20" oninput="updateZoom()">
         </div>
@@ -229,21 +229,21 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 
       <div class="control-panel">
         <div id="color-picker-container">
-          <input type="color" id="color-picker" value="#333333" title="Escolher cor" style="width:40px; height:38px; cursor:pointer; border:none; background:none; vertical-align: middle;">
+          <input type="color" id="color-picker" value="#333333" title="Selecionar cor" style="width:40px; height:38px; cursor:pointer; border:none; background:none; vertical-align: middle;">
         </div>
-        <button class="tool-btn" onclick="addColorToPalette()">Guardar cor</button>
+        <button class="tool-btn" onclick="addColorToPalette()">Salvar Cor</button>
 
-        <button id="pen-tool" class="tool-btn active" onclick="setTool('pen')">Caneta</button>
+        <button id="pen-tool" class="tool-btn active" onclick="setTool('pen')">Lápis</button>
         <button id="eraser-tool" class="tool-btn" onclick="setTool('eraser')">Borracha</button>
         <button id="bucket-tool" class="tool-btn" onclick="setTool('bucket')">Balde</button>
         <button id="move-tool" class="tool-btn" onclick="setTool('move')">Mover</button>
 
         <div style="border-left: 1px solid #ddd; height: 30px; margin: 0 5px;"></div>
 
-        <button class="tool-btn" onclick="undo()" title="Anular último passo">Anular</button>
+        <button class="tool-btn" onclick="undo()" title="Desfazer">Voltar</button>
         <button id="grid-toggle-btn" class="tool-btn active" onclick="toggleGrid()">Grade</button>
-        <button id="view-all-btn" class="tool-btn" onclick="toggleViewAll()">Ver tudo</button>
-        <button id="fs-tool" class="tool-btn" onclick="toggleFullscreen()" style="background: #eef2f7;">Ecrã Inteiro</button>
+        <button id="view-all-btn" class="tool-btn" onclick="toggleViewAll()">Ver Tudo</button>
+        <button id="fs-tool" class="tool-btn" onclick="toggleFullscreen()" style="background: #eef2f7;">Tela Cheia</button>
       </div>
 
       <div class="palette-container" id="palette"></div>
@@ -257,14 +257,20 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
     </div>
 
     <div class="save-panel">
-      Tamanho de gravação:
+      Tamanho do Arquivo:
       <select id="scale-select" style="padding: 10px; border-radius: 8px; border:1px solid #ddd;">
-        <option value="1">Real (1:1)</option>
-        <option value="16">16x Zoom</option>
-        <option value="32" selected>32x Zoom (Recomendado)</option>
-        <option value="64">64x Zoom</option>
+        <option value="1">Tamanho Real (1:1)</option>
+        <option value="16">16x</option>
+        <option value="32" selected>32x (Recomendado)</option>
+        <option value="64">64x</option>
       </select>
-      <button class="btn-run" onclick="download()" style="margin-left:15px;">Guardar Imagem</button>
+      <button class="btn-run" onclick="download()" style="margin-left:15px;">Salvar Imagem</button>
+
+      <div style="margin-top:20px; border-top:1px dashed #eee; padding-top:20px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <button class="tool-btn" onclick="exportJSON()" style="background:#6c757d; color:white; border:none;">Salvar Projeto (.json)</button>
+        <button class="tool-btn" onclick="document.getElementById('import-file').click()" style="background:#6c757d; color:white; border:none;">Carregar JSON</button>
+        <input type="file" id="import-file" style="display:none" accept=".json" onchange="importJSON(event)">
+      </div>
     </div>
   </main>
 
@@ -275,46 +281,48 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <article class="info-section">
     <h2>O que é o Criador de Pixel Art com Grade?</h2>
     <p>
-      Esta ferramenta é um editor online especializado na criação de "pixel art", onde as cores são colocadas com precisão, pixel a pixel. 
-      Ao utilizar uma grade cinzenta clara sobre um fundo branco, permite que até os principiantes criem desenhos sem se perderem.
+      Esta ferramenta é um editor online especializado na criação de "Pixel Art", onde você coloca cores com precisão pixel por pixel. 
+      Com um fundo fixo e grades cinzas suaves, permite que até iniciantes desenhem sem se perderem no canvas.
     </p>
 
     <h3>Vantagens desta ferramenta</h3>
     <ul>
-      <li><strong>Totalmente gratuito e sem registo:</strong> Comece a desenhar imediatamente através do seu navegador.</li>
-      <li><strong>Exibição de grade:</strong> As linhas auxiliares movem-se de acordo com o zoom, permitindo saber sempre a posição dos pixéis.</li>
-      <li><strong>Exportação de alta qualidade:</strong> Mantenha a textura original do pixel art e guarde em PNG transparente num tamanho ideal para redes sociais.</li>
+      <li><strong>Totalmente gratuito e sem registro:</strong> Comece a desenhar agora mesmo diretamente no seu navegador.</li>
+      <li><strong>Exibição de Grade:</strong> As linhas auxiliares se ajustam ao zoom, permitindo saber sempre a posição exata de cada pixel.</li>
+      <li><strong>Exportação de Alta Qualidade:</strong> Mantém a textura do pixel e permite salvar em PNG transparente no tamanho ideal para redes sociais.</li>
+      <li><strong>Retomada de Trabalho:</strong> Salve em formato JSON para continuar desenhando depois ou compartilhar dados com outros.</li>
     </ul>
 
-    <h2>Passos para utilizar</h2>
+    <h2>Passos para Usar</h2>
     <ol>
-      <li>Escolha o tamanho da tela (ex: 16×16) e prepare a área de trabalho.</li>
-      <li>Utilize a ferramenta de caneta e o seletor de cores para desenhar na tela.</li>
-      <li>Selecione a ferramenta "Mover" para arrastar e navegar pela tela.</li>
-      <li>Utilize "Guardar cor" para armazenar as suas cores favoritas na paleta.</li>
-      <li>Escolha o tamanho de exportação e clique em "Guardar Imagem" para descarregar.</li>
+      <li>Selecione o tamanho do canvas (ex: 16x16) e prepare a área de desenho.</li>
+      <li>Use o lápis e o seletor de cores para criar sua arte.</li>
+      <li>Selecione a ferramenta "Mover" para arrastar e navegar pelo canvas.</li>
+      <li>Use "Salvar Cor" para guardar suas cores favoritas na paleta.</li>
+      <li>Escolha o tamanho de exportação e baixe a imagem.</li>
+      <li>Clique em "Salvar Projeto (.json)" para guardar os dados brutos de edição.</li>
     </ol>
 
     <h2>Perguntas Frequentes (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">P. Existem custos associados?</span>
-      <p>R. Não, todas as ferramentas disponíveis neste site são fornecidas gratuitamente.</p>
+      <span class="faq-q">P. Existe algum custo?</span>
+      <p>R. Não, todas as ferramentas deste site são oferecidas gratuitamente.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">P. Posso guardar com fundo transparente?</span>
-      <p>R. Sim. As áreas não pintadas serão automaticamente processadas como transparentes e guardadas em formato PNG.</p>
+      <span class="faq-q">P. Posso salvar com fundo transparente?</span>
+      <p>R. Sim. Áreas não pintadas são tratadas automaticamente como transparentes e salvas no formato PNG.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">P. Funciona em dispositivos móveis?</span>
-      <p>R. Sim, é possível desenhar com os dedos em dispositivos iPhone ou Android. Recomendamos o uso da função de zoom.</p>
+      <span class="faq-q">P. Funciona no celular?</span>
+      <p>R. Sim, é possível desenhar com o dedo em dispositivos iPhone e Android. Recomendamos usar a função de zoom.</p>
     </div>
 
      <h3>Ferramentas Relacionadas</h3>
     <ul>
-      <li><a href="qr-generator.html">Gerador de Código QR</a></li>
+      <li><a href="qr-generator.html">Gerador de QR Code</a></li>
       <li><a href="favicon-generator.html">Gerador de Favicon</a></li>
       <li><a href="remove-exif.html">Remover Metadados Exif</a></li>
-      <li><a href="image-compress.html">Comprimir Imagem</a></li>
+      <li><a href="image-compress.html">Compressor de Imagem</a></li>
       <li><a href="png-to-jpg.html">Converter PNG para JPG</a></li>
     </ul>
     
@@ -355,7 +363,6 @@ let undoStack = [];
 let isMoving = false;
 let startX, startY, scrollLeft, scrollTop;
 
-// 「全体を見る」用の状態保存
 let isViewAllMode = false;
 let prevViewState = {
   zoom: 20,
@@ -365,7 +372,6 @@ let prevViewState = {
   scrollTop: 0
 };
 
-// ピンチズーム用の変数
 let initialPinchDistance = null;
 let initialPinchZoom = null;
 
@@ -401,7 +407,6 @@ function updateZoom() {
   const zoom = parseInt(zoomRange.value);
   canvas.style.width = (canvas.width * zoom) + "px";
   canvas.style.height = (canvas.height * zoom) + "px";
-  // グリッドオーバーレイの背景サイズを更新
   gridOverlay.style.backgroundSize = `${zoom}px ${zoom}px`;
 
   const newCanvasWidth = canvas.clientWidth;
@@ -427,7 +432,7 @@ function undo() {
 }
 
 function initCanvas(isInitial = false) {
-  if(!isInitial && !confirm("Tem a certeza que deseja apagar a ilustração atual e repor a tela?")) return;
+  if(!isInitial && !confirm("Deseja apagar a ilustração atual e resetar?")) return;
   if(!isInitial) saveState();
   const w = parseInt(wSelect.value);
   const h = parseInt(hSelect.value);
@@ -459,33 +464,27 @@ function toggleGrid() {
   btn.classList.toggle('active', !isHidden);
 }
 
-// 「全体を見る」切り替え機能
 function toggleViewAll() {
   const btn = document.getElementById('view-all-btn');
   const gridBtn = document.getElementById('grid-toggle-btn');
   
   if (!isViewAllMode) {
-    // 現在の状態を保存
     prevViewState.zoom = zoomRange.value;
     prevViewState.gridVisible = !wrapper.classList.contains('hide-grid');
     prevViewState.tool = currentTool;
     prevViewState.scrollLeft = scrollViewer.scrollLeft;
     prevViewState.scrollTop = scrollViewer.scrollTop;
 
-    // 全体表示の設定
     isViewAllMode = true;
     btn.classList.add('active');
     
-    // グリッドをオフにする
     if (prevViewState.gridVisible) {
       wrapper.classList.add('hide-grid');
       gridBtn.classList.remove('active');
     }
 
-    // キャンバスを操作不能にする
     canvas.style.pointerEvents = 'none';
 
-    // 画面に収まる倍率を計算
     const padding = 20;
     const availableW = scrollViewer.clientWidth - padding;
     const availableH = scrollViewer.clientHeight - padding;
@@ -493,41 +492,30 @@ function toggleViewAll() {
     const zoomH = availableH / canvas.height;
     const fitZoom = Math.floor(Math.min(zoomW, zoomH));
     
-    // 計算した倍率を適用（スライダーの範囲に合わせる）
     zoomRange.value = Math.max(zoomRange.min, Math.min(fitZoom, zoomRange.max));
     updateZoom();
     
-    // 中央にスクロール
     scrollViewer.scrollLeft = (canvas.clientWidth - scrollViewer.clientWidth) / 2;
     scrollViewer.scrollTop = (canvas.clientHeight - scrollViewer.clientHeight) / 2;
 
   } else {
-    // 元の状態に戻す
     isViewAllMode = false;
     btn.classList.remove('active');
-    
-    // 操作可能に戻す
     canvas.style.pointerEvents = 'auto';
 
-    // グリッドを元に戻す
     if (prevViewState.gridVisible) {
       wrapper.classList.remove('hide-grid');
       gridBtn.classList.add('active');
     }
 
-    // ズームを元に戻す
     zoomRange.value = prevViewState.zoom;
-    
-    // キャンバスのサイズを戻す
     canvas.style.width = (canvas.width * prevViewState.zoom) + "px";
     canvas.style.height = (canvas.height * prevViewState.zoom) + "px";
     gridOverlay.style.backgroundSize = `${prevViewState.zoom}px ${prevViewState.zoom}px`;
 
-    // 保存していたスクロール位置を復元
     scrollViewer.scrollLeft = prevViewState.scrollLeft;
     scrollViewer.scrollTop = prevViewState.scrollTop;
 
-    // ツールを元に戻す
     setTool(prevViewState.tool);
   }
 }
@@ -647,14 +635,12 @@ window.addEventListener('mouseup', () => {
   handleMoveEnd();
 });
 
-// ピンチ用距離計算関数
 function getDistance(t1, t2) {
   return Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
 }
 
 canvas.addEventListener('touchstart', (e) => { 
   if (e.touches.length === 2) {
-    // 2本指の場合：ピンチ開始
     initialPinchDistance = getDistance(e.touches[0], e.touches[1]);
     initialPinchZoom = parseInt(zoomRange.value);
   } else if (e.touches.length === 1) {
@@ -671,7 +657,6 @@ canvas.addEventListener('touchstart', (e) => {
 
 canvas.addEventListener('touchmove', (e) => { 
   if (e.touches.length === 2 && initialPinchDistance !== null) {
-    // 2本指の場合：ピンチ中
     const currentDistance = getDistance(e.touches[0], e.touches[1]);
     const scale = currentDistance / initialPinchDistance;
     const newZoom = Math.min(Math.max(initialPinchZoom * scale, parseInt(zoomRange.min)), parseInt(zoomRange.max));
@@ -735,48 +720,93 @@ window.onload = () => {
   initPalette();
 };
 
-// マウスホイールによるズーム機能（マウスカーソル位置を基準に拡大縮小）
 canvas.addEventListener('wheel', (e) => {
-  if (isViewAllMode) return; // 全体表示中は無効化
+  if (isViewAllMode) return;
   e.preventDefault();
   const currentZoom = parseInt(zoomRange.value);
   
-  // ステップ計算
   let step = Math.max(1, currentZoom / 10);
   const direction = e.deltaY > 0 ? -step : step;
   const newZoom = Math.min(Math.max(currentZoom + direction, parseInt(zoomRange.min)), parseInt(zoomRange.max));
   
   if (currentZoom !== newZoom) {
-    // 拡大前のマウス位置を取得（キャンバス内座標）
     const rect = canvas.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
-    // 比率（キャンバスのどのあたりを指しているか）
     const ratioX = mouseX / rect.width;
     const ratioY = mouseY / rect.height;
 
-    // ズーム値を更新
     zoomRange.value = newZoom;
     
-    // キャンバスの表示サイズを更新
     canvas.style.width = (canvas.width * newZoom) + "px";
     canvas.style.height = (canvas.height * newZoom) + "px";
     gridOverlay.style.backgroundSize = `${newZoom}px ${newZoom}px`;
 
-    // 新しいキャンバスサイズでのマウス位置を維持するようにスクロール位置を調整
     const newRect = canvas.getBoundingClientRect();
     scrollViewer.scrollLeft = (ratioX * newRect.width) - (e.clientX - scrollViewer.getBoundingClientRect().left);
     scrollViewer.scrollTop = (ratioY * newRect.height) - (e.clientY - scrollViewer.getBoundingClientRect().top);
   }
 }, { passive: false });
 
-// 【追加機能】ブラウザの戻るボタンやページを閉じる際のアラート表示
 window.addEventListener('beforeunload', (e) => {
-  // ブラウザ標準の確認メッセージを表示させる
   e.preventDefault();
-  e.returnValue = "Os dados em que está a trabalhar não serão guardados. Deseja continuar?";
+  e.returnValue = "Os dados não salvos serão perdidos. Deseja sair?";
 });
+
+function exportJSON() {
+  const data = {
+    width: canvas.width,
+    height: canvas.height,
+    imageData: canvas.toDataURL(),
+  };
+  const jsonStr = JSON.stringify(data);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  
+  const link = document.createElement('a');
+  link.download = `pixelart_projeto_${canvas.width}x${canvas.height}.json`;
+  link.href = url;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!data.width || !data.height || !data.imageData) {
+        throw new Error("Invalid format");
+      }
+
+      if (!confirm("O trabalho atual será substituído. Carregar projeto?")) return;
+
+      wSelect.value = data.width;
+      hSelect.value = data.height;
+      canvas.width = data.width;
+      canvas.height = data.height;
+
+      const img = new Image();
+      img.onload = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        updateZoom();
+        undoStack = [];
+        alert("Projeto carregado com sucesso.");
+      };
+      img.src = data.imageData;
+
+    } catch (err) {
+      alert("Falha ao carregar o arquivo. Selecione um arquivo JSON válido.");
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = "";
+}
 </script>
 
 </body>
