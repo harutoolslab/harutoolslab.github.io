@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-2295804002960949">
 <title>Creador de Pixel Art | Cuadrícula, Fondo Transparente y Guardado - HaruTools Lab</title>
-<meta name="description" content="Herramienta gratuita de pixel art online y fácil de usar. Dibuja píxel a píxel con cuadrícula y guarda tus diseños en PNG transparente de alta calidad. Ideal para iconos y recursos web.">
+<meta name="description" content="Herramienta gratuita online de pixel art para principiantes. Dibuja con cuadrícula, guarda en PNG transparente con aumento. Ideal para iconos y recursos web.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -23,7 +23,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   margin: 0; padding: 0; line-height: 1.6;
@@ -79,7 +79,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   display: inline-block;
   margin: auto;
   background-color: #ffffff;
-  position: relative; 
+  position: relative; /* 子要素の絶対配置の基準にする */
   line-height: 0;
 }
 
@@ -90,7 +90,7 @@ h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; 
+  pointer-events: none; /* 下のcanvasの操作を邪魔しない */
   background-image: 
     linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
@@ -202,15 +202,15 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   <header>
     <div style="font-size: 0.9rem; margin-bottom: 5px;">
     <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
-      HaruTools Lab: Herramientas Gratuitas Online
+      Colección de herramientas online gratis "HaruTools Lab"
     </a>
   </div>
     <h1>Creador de Pixel Art</h1>
-    <p class="tagline">Dibuja fácilmente con cuadrícula. Exportación en PNG transparente.</p>
+    <p class="tagline">Fácil de dibujar con cuadrícula. Compatible con guardado en PNG transparente.</p>
   </header>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Etiqueta de anuncio aquí</div>
+    <div><span class="ad-label">Anuncio</span>Etiqueta de anuncio aquí</div>
   </div>
 
   <main class="main-card" id="editor-main">
@@ -240,7 +240,7 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
 
         <div style="border-left: 1px solid #ddd; height: 30px; margin: 0 5px;"></div>
 
-        <button class="tool-btn" onclick="undo()" title="Deshacer">Atrás</button>
+        <button class="tool-btn" onclick="undo()" title="Deshacer">Deshacer</button>
         <button id="grid-toggle-btn" class="tool-btn active" onclick="toggleGrid()">Cuadrícula</button>
         <button id="view-all-btn" class="tool-btn" onclick="toggleViewAll()">Ver todo</button>
         <button id="fs-tool" class="tool-btn" onclick="toggleFullscreen()" style="background: #eef2f7;">Pantalla completa</button>
@@ -257,63 +257,72 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
     </div>
 
     <div class="save-panel">
-      Tamaño de exportación:
+      Tamaño de guardado:
       <select id="scale-select" style="padding: 10px; border-radius: 8px; border:1px solid #ddd;">
         <option value="1">Original (1:1)</option>
-        <option value="16">x16 aumentos</option>
-        <option value="32" selected>x32 aumentos (Recomendado)</option>
-        <option value="64">x64 aumentos</option>
+        <option value="16">16x</option>
+        <option value="32" selected>32x (Recomendado)</option>
+        <option value="64">64x</option>
       </select>
       <button class="btn-run" onclick="download()" style="margin-left:15px;">Guardar imagen</button>
+
+      <!-- 追加：JSON保存・読込エリア -->
+      <div style="margin-top:20px; border-top:1px dashed #eee; padding-top:20px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <button class="tool-btn" onclick="exportJSON()" style="background:#6c757d; color:white; border:none;">Guardar proyecto (.json)</button>
+        <button class="tool-btn" onclick="document.getElementById('import-file').click()" style="background:#6c757d; color:white; border:none;">Cargar JSON</button>
+        <input type="file" id="import-file" style="display:none" accept=".json" onchange="importJSON(event)">
+      </div>
     </div>
   </main>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Etiqueta de anuncio aquí</div>
+    <div><span class="ad-label">Anuncio</span>Etiqueta de anuncio aquí</div>
   </div>
 
   <article class="info-section">
     <h2>¿Qué es el Creador de Pixel Art con Cuadrícula?</h2>
     <p>
-      Esta herramienta es un editor online especializado en la creación de "Pixel Art", donde se colocan colores de forma precisa píxel a píxel.
-      Al fijar el fondo y mostrar una cuadrícula gris tenue, incluso los principiantes pueden dibujar sin perderse en el lienzo.
+      Esta herramienta es un editor online especializado en la creación de "Pixel Art", donde se colocan colores píxel por píxel con precisión. 
+      Al fijar el fondo y mostrar una cuadrícula gris tenue, incluso los principiantes pueden dibujar sin perderse.
     </p>
 
     <h3>Ventajas de esta herramienta</h3>
     <ul>
       <li><strong>Completamente gratis y sin registro:</strong> Empieza a dibujar ahora mismo directamente en tu navegador.</li>
-      <li><strong>Visualización de cuadrícula:</strong> Las líneas guía se ajustan según el nivel de zoom, permitiéndote conocer siempre la posición exacta de cada píxel.</li>
-      <li><strong>Exportación de alta calidad:</strong> Guarda tus creaciones en formato PNG transparente, escaladas para mantener la nitidez en redes sociales.</li>
+      <li><strong>Visualización de cuadrícula:</strong> Las líneas auxiliares se ajustan al zoom, permitiéndote conocer siempre la posición de los píxeles.</li>
+      <li><strong>Exportación de alta calidad:</strong> Mantén la textura del píxel y guarda en PNG transparente con el tamaño ideal para redes sociales.</li>
+      <li><strong>Reanuda tu trabajo:</strong> Guarda en formato JSON para continuar dibujando más tarde o compartir datos con otros.</li>
     </ul>
 
-    <h2>Pasos para usarlo</h2>
+    <h2>Pasos para usar</h2>
     <ol>
-      <li>Selecciona el tamaño del lienzo (por ejemplo, 16×16) y prepáralo.</li>
-      <li>Usa la herramienta Lápiz y el selector de color para dibujar en el lienzo.</li>
-      <li>Selecciona la herramienta "Mover" para desplazarte por el lienzo arrastrando.</li>
+      <li>Selecciona el tamaño del lienzo (ej. 16×16) y prepáralo.</li>
+      <li>Dibuja en el lienzo usando el lápiz y el selector de colores.</li>
+      <li>Usa la herramienta "Mover" para desplazarte por el lienzo arrastrando.</li>
       <li>Usa "Guardar color" para almacenar tus colores favoritos en la paleta.</li>
-      <li>Elige el tamaño de exportación y haz clic en "Guardar imagen" para descargarla.</li>
+      <li>Elige el tamaño de guardado y descarga con el botón "Guardar imagen".</li>
+      <li>Haz clic en "Guardar proyecto (.json)" para guardar tus datos de edición en un archivo.</li>
     </ol>
 
     <h2>Preguntas frecuentes (FAQ)</h2>
     <div class="faq-item">
-      <span class="faq-q">P. ¿Tiene algún coste?</span>
-      <p>R. No, todas las herramientas de nuestro sitio se ofrecen de forma gratuita.</p>
+      <span class="faq-q">P. ¿Tiene algún costo?</span>
+      <p>R. No, todas las herramientas de este sitio se ofrecen de forma gratuita.</p>
     </div>
     <div class="faq-item">
       <span class="faq-q">P. ¿Puedo guardar con fondo transparente?</span>
-      <p>R. Sí. Las áreas sin pintar se procesan automáticamente como transparentes y se guardan en formato PNG.</p>
+      <p>R. Sí. Las partes que no tengan color se tratarán automáticamente como transparentes y se guardarán en formato PNG.</p>
     </div>
     <div class="faq-item">
-      <span class="faq-q">P. ¿Funciona en móviles?</span>
-      <p>R. Sí, es posible dibujar píxel a píxel con el dedo desde iPhone o Android. Te recomendamos usar la función de zoom.</p>
+      <span class="faq-q">P. ¿Se puede usar en smartphones?</span>
+      <p>R. Sí, es posible dibujar píxeles con el dedo en iPhone o Android. Te recomendamos usar la función de zoom.</p>
     </div>
 
      <h3>Herramientas relacionadas</h3>
     <ul>
       <li><a href="qr-generator.html">Generador de códigos QR</a></li>
       <li><a href="favicon-generator.html">Generador de Favicon</a></li>
-      <li><a href="remove-exif.html">Eliminar metadatos Exif</a></li>
+      <li><a href="remove-exif.html">Eliminar metadatos EXIF</a></li>
       <li><a href="image-compress.html">Compresor de imágenes</a></li>
       <li><a href="png-to-jpg.html">Convertir PNG a JPG</a></li>
     </ul>
@@ -321,10 +330,10 @@ footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-a
   </article>
 
   <div class="ad-slot">
-    <div><span class="ad-label">Advertisement</span>Etiqueta de anuncio aquí</div>
+    <div><span class="ad-label">Anuncio</span>Etiqueta de anuncio aquí</div>
   </div>
 
-  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de uso</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
 </div>
 
 <script>
@@ -355,6 +364,7 @@ let undoStack = [];
 let isMoving = false;
 let startX, startY, scrollLeft, scrollTop;
 
+// 「全体を見る」用の状態保存
 let isViewAllMode = false;
 let prevViewState = {
   zoom: 20,
@@ -364,6 +374,7 @@ let prevViewState = {
   scrollTop: 0
 };
 
+// ピンチズーム用の変数
 let initialPinchDistance = null;
 let initialPinchZoom = null;
 
@@ -399,6 +410,7 @@ function updateZoom() {
   const zoom = parseInt(zoomRange.value);
   canvas.style.width = (canvas.width * zoom) + "px";
   canvas.style.height = (canvas.height * zoom) + "px";
+  // グリッドオーバーレイの背景サイズを更新
   gridOverlay.style.backgroundSize = `${zoom}px ${zoom}px`;
 
   const newCanvasWidth = canvas.clientWidth;
@@ -424,7 +436,7 @@ function undo() {
 }
 
 function initCanvas(isInitial = false) {
-  if(!isInitial && !confirm("¿Quieres borrar el dibujo actual y reiniciar el lienzo?")) return;
+  if(!isInitial && !confirm("¿Eliminar la ilustración actual y reiniciar?")) return;
   if(!isInitial) saveState();
   const w = parseInt(wSelect.value);
   const h = parseInt(hSelect.value);
@@ -456,27 +468,33 @@ function toggleGrid() {
   btn.classList.toggle('active', !isHidden);
 }
 
+// 「全体を見る」切り替え機能
 function toggleViewAll() {
   const btn = document.getElementById('view-all-btn');
   const gridBtn = document.getElementById('grid-toggle-btn');
   
   if (!isViewAllMode) {
+    // 現在の状態を保存
     prevViewState.zoom = zoomRange.value;
     prevViewState.gridVisible = !wrapper.classList.contains('hide-grid');
     prevViewState.tool = currentTool;
     prevViewState.scrollLeft = scrollViewer.scrollLeft;
     prevViewState.scrollTop = scrollViewer.scrollTop;
 
+    // 全体表示の設定
     isViewAllMode = true;
     btn.classList.add('active');
     
+    // グリッドをオフにする
     if (prevViewState.gridVisible) {
       wrapper.classList.add('hide-grid');
       gridBtn.classList.remove('active');
     }
 
+    // キャンバスを操作不能にする
     canvas.style.pointerEvents = 'none';
 
+    // 画面に収まる倍率を計算
     const padding = 20;
     const availableW = scrollViewer.clientWidth - padding;
     const availableH = scrollViewer.clientHeight - padding;
@@ -484,32 +502,41 @@ function toggleViewAll() {
     const zoomH = availableH / canvas.height;
     const fitZoom = Math.floor(Math.min(zoomW, zoomH));
     
+    // 計算した倍率を適用（スライダーの範囲に合わせる）
     zoomRange.value = Math.max(zoomRange.min, Math.min(fitZoom, zoomRange.max));
     updateZoom();
     
+    // 中央にスクロール
     scrollViewer.scrollLeft = (canvas.clientWidth - scrollViewer.clientWidth) / 2;
     scrollViewer.scrollTop = (canvas.clientHeight - scrollViewer.clientHeight) / 2;
 
   } else {
+    // 元の状態に戻す
     isViewAllMode = false;
     btn.classList.remove('active');
     
+    // 操作可能に戻す
     canvas.style.pointerEvents = 'auto';
 
+    // グリッドを元に戻す
     if (prevViewState.gridVisible) {
       wrapper.classList.remove('hide-grid');
       gridBtn.classList.add('active');
     }
 
+    // ズームを元に戻す
     zoomRange.value = prevViewState.zoom;
     
+    // キャンバスのサイズを戻す
     canvas.style.width = (canvas.width * prevViewState.zoom) + "px";
     canvas.style.height = (canvas.height * prevViewState.zoom) + "px";
     gridOverlay.style.backgroundSize = `${prevViewState.zoom}px ${prevViewState.zoom}px`;
 
+    // 保存していたスクロール位置を復元
     scrollViewer.scrollLeft = prevViewState.scrollLeft;
     scrollViewer.scrollTop = prevViewState.scrollTop;
 
+    // ツールを元に戻す
     setTool(prevViewState.tool);
   }
 }
@@ -629,12 +656,14 @@ window.addEventListener('mouseup', () => {
   handleMoveEnd();
 });
 
+// ピンチ用距離計算関数
 function getDistance(t1, t2) {
   return Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
 }
 
 canvas.addEventListener('touchstart', (e) => { 
   if (e.touches.length === 2) {
+    // 2本指の場合：ピンチ開始
     initialPinchDistance = getDistance(e.touches[0], e.touches[1]);
     initialPinchZoom = parseInt(zoomRange.value);
   } else if (e.touches.length === 1) {
@@ -651,6 +680,7 @@ canvas.addEventListener('touchstart', (e) => {
 
 canvas.addEventListener('touchmove', (e) => { 
   if (e.touches.length === 2 && initialPinchDistance !== null) {
+    // 2本指の場合：ピンチ中
     const currentDistance = getDistance(e.touches[0], e.touches[1]);
     const scale = currentDistance / initialPinchDistance;
     const newZoom = Math.min(Math.max(initialPinchZoom * scale, parseInt(zoomRange.min)), parseInt(zoomRange.max));
@@ -714,39 +744,112 @@ window.onload = () => {
   initPalette();
 };
 
+// マウスホイールによるズーム機能（マウスカーソル位置を基準に拡大縮小）
 canvas.addEventListener('wheel', (e) => {
-  if (isViewAllMode) return; 
+  if (isViewAllMode) return; // 全体表示中は無効化
   e.preventDefault();
   const currentZoom = parseInt(zoomRange.value);
   
+  // ステップ計算
   let step = Math.max(1, currentZoom / 10);
   const direction = e.deltaY > 0 ? -step : step;
   const newZoom = Math.min(Math.max(currentZoom + direction, parseInt(zoomRange.min)), parseInt(zoomRange.max));
   
   if (currentZoom !== newZoom) {
+    // 拡大前のマウス位置を取得（キャンバス内座標）
     const rect = canvas.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
+    // 比率（キャンバスのどのあたりを指しているか）
     const ratioX = mouseX / rect.width;
     const ratioY = mouseY / rect.height;
 
+    // ズーム値を更新
     zoomRange.value = newZoom;
     
+    // キャンバスの表示サイズを更新
     canvas.style.width = (canvas.width * newZoom) + "px";
     canvas.style.height = (canvas.height * newZoom) + "px";
     gridOverlay.style.backgroundSize = `${newZoom}px ${newZoom}px`;
 
+    // 新しいキャンバスサイズでのマウス位置を維持するようにスクロール位置を調整
     const newRect = canvas.getBoundingClientRect();
     scrollViewer.scrollLeft = (ratioX * newRect.width) - (e.clientX - scrollViewer.getBoundingClientRect().left);
     scrollViewer.scrollTop = (ratioY * newRect.height) - (e.clientY - scrollViewer.getBoundingClientRect().top);
   }
 }, { passive: false });
 
+// 【追加機能】ブラウザの戻るボタンやページを閉じる際のアラート表示
 window.addEventListener('beforeunload', (e) => {
+  // ブラウザ標準の確認メッセージを表示させる
   e.preventDefault();
-  e.returnValue = "¿Seguro que quieres salir? Los cambios no guardados se perderán.";
+  e.returnValue = "Los datos no guardados se perderán. ¿Deseas salir?";
 });
+
+/**
+ * JSONエクスポート機能
+ */
+function exportJSON() {
+  const data = {
+    width: canvas.width,
+    height: canvas.height,
+    imageData: canvas.toDataURL(),
+    // 独自のパレットも保存したい場合は、ここにパレットの色情報を配列で追加可能です
+  };
+  const jsonStr = JSON.stringify(data);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  
+  const link = document.createElement('a');
+  link.download = `pixelart_proyecto_${canvas.width}x${canvas.height}.json`;
+  link.href = url;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+/**
+ * JSONインポート機能
+ */
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!data.width || !data.height || !data.imageData) {
+        throw new Error("Invalid format");
+      }
+
+      if (!confirm("Se sobrescribirá el trabajo actual. ¿Cargar proyecto?")) return;
+
+      // キャンバスサイズの適用
+      wSelect.value = data.width;
+      hSelect.value = data.height;
+      canvas.width = data.width;
+      canvas.height = data.height;
+
+      // 画像の復元
+      const img = new Image();
+      img.onload = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        updateZoom();
+        undoStack = []; // 読み込み時はスタックをクリア
+        alert("Proyecto cargado correctamente.");
+      };
+      img.src = data.imageData;
+
+    } catch (err) {
+      alert("Error al cargar el archivo. Por favor, selecciona un archivo JSON válido.");
+    }
+  };
+  reader.readAsText(file);
+  // 同じファイルを連続で選択しても発火するようにリセット
+  event.target.value = "";
+}
 </script>
 
 </body>
