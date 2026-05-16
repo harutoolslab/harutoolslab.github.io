@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO設定：はるツール カラーピッカー用 -->
+<title>オンラインカラーピッカー｜HEX・RGB色コード取得「はるツール」</title>
+<meta name="description" content="直感的に色を選択して、HEX（16進数）やRGB形式のカラーコードを瞬時に取得できる無料オンラインツール。コピー機能付きでWeb制作やデザイン業務を効率化します。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: 280px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* メインコンテンツ */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* カラー表示エリア */
+.picker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.color-preview-big {
+  width: 100%;
+  max-width: 400px;
+  height: 150px;
+  border-radius: var(--radius);
+  border: 4px solid #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1), inset 0 0 1px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.1s ease;
+}
+
+#picker-input {
+  width: 180px;
+  height: 50px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 5px;
+  background: #fff;
+}
+
+/* コード表示とコピーボタン */
+.code-display-area {
+  width: 100%;
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 15px;
+  align-items: center;
+}
+
+.code-box {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: left;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: 1px solid #eee;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-copy {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+.btn-copy:hover { background: var(--primary-hover); }
+.btn-copy:active { transform: scale(0.95); }
+
+/* コピー通知 */
+#copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 50px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 1000;
+  font-size: 0.9rem;
+}
+
+/* 解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; margin-top: 25px; color: #111; }
+.info-section p { margin-bottom: 15px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .code-display-area { grid-template-columns: 1fr; }
+  .btn-copy { width: 100%; padding: 12px; }
+  .code-box { text-align: center; font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      無料オンラインツール集「はるツール」
+    </a>
+  </div>
+    <h1>カラーピッカー</h1>
+    <p class="tagline">色を直感的に選んで、HEX・RGBコードを瞬時に取得できます。</p>
+  </header>
+
+  <!-- 上部広告 -->
+  <div class="ad-slot">
+    <span class="ad-label">スポンサーリンク</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <div class="picker-container">
+      <div id="preview-bg" class="color-preview-big" style="background-color: #ff0000;">
+      </div>
+
+      <div>
+        <label for="picker-input" style="display:block; margin-bottom:10px; font-weight:bold; color:var(--text-sub);">色を選択してください：</label>
+        <input type="color" id="picker-input" value="#ff0000" aria-label="カラー選択">
+      </div>
+
+      <div class="code-display-area">
+        <div class="code-box" id="hex-output">#FF0000</div>
+        <button class="btn-copy" onclick="copy('hex-output')">HEXコピー</button>
+
+        <div class="code-box" id="rgb-output">rgb(255, 0, 0)</div>
+        <button class="btn-copy" onclick="copy('rgb-output')">RGBコピー</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- 下部広告 -->
+  <div class="ad-slot">
+    <span class="ad-label">スポンサーリンク</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <article class="info-section">
+    <h2>カラーピッカーと配色の重要性</h2>
+    <p>
+      Webサイトやアプリケーションのデザインにおいて、色は単なる装飾以上の役割を果たします。適切な色使いはユーザーの注意を引き付け、信頼感を高め、ブランドメッセージを伝えるための強力な武器となります。
+    </p>
+
+    <h3>色の心理的効果と活用例</h3>
+    <p>選ぶ色によって、ユーザーに与える印象は大きく変わります。用途に合わせた色選びを意識してみましょう。</p>
+    <ul>
+      <li><strong>青（Blue）：</strong> 信頼、知性、誠実。コーポレートサイトやSNSによく使われます。</li>
+      <li><strong>赤（Red）：</strong> 情熱、緊急、警告。セール情報や「購入」ボタンなどに効果的です。</li>
+      <li><strong>緑（Green）：</strong> 健康、安らぎ、成長。エコ関連やリラクゼーションサービスに適しています。</li>
+      <li><strong>オレンジ（Orange）：</strong> 元気、親しみやすさ、創造性。ポジティブな行動を促す際に有効です。</li>
+    </ul>
+
+    <h3>Web制作で使われるコード形式</h3>
+    <p>本ツールで取得できる主要な2形式について詳しく解説します。</p>
+    <ul>
+      <li><strong>HEX形式（16進数）：</strong> 0～9とA～Fを組み合わせて表現します。CSSなどで最も一般的に利用される形式です。</li>
+      <li><strong>RGB形式：</strong> 光の三原色（赤・緑・青）を0〜255の数値で指定します。透過度（Opacity）を追加してRGBAとして利用する場合のベースになります。</li>
+    </ul>
+
+    <h2>よくある質問</h2>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. 画面上の色を直接抽出できますか？</strong>
+      <p>A. お使いのOSやブラウザがカラーダイアログ内の「スポイト機能」に対応していれば、本ツールから画面上の任意の色を取得可能です。</p>
+    </div>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. HSV形式の取得はできますか？</strong>
+      <p>A. 現在はWebで標準的なHEXとRGBに対応していますが、今後のアップデートで彩度や明度を調整しやすいHSV/HSL形式にも対応予定です。</p>
+    </div>
+
+    <h3>関連ツール</h3>
+    <ul>
+      <li><a href="rgb-to-hex.html">RGB → HEX 変換ツール</a>：(R,G,B)数値をWeb標準コードへ変換します。</li>
+      <li><a href="hex-to-rgb.html">HEX → RGB 変換ツール</a>：16進数コードからRGB数値を算出します。</li>
+      <li><a href="image-measure.html">画像比較メジャー＆分度器</a>：画像内の角度や距離を計測・比較します。</li>
+      <li><a href="image-compare.html">画像比較</a>：2つのデザイン案の色味を並べて比較します。</li>
+      <li><a href="color-code-list.html">カラーコード一覧（HEX）</a>：Webでよく使われる基本色を一覧で確認できます。</li>
+    </ul>
+  </article>
+
+  <footer> &copy; 2026 はるツール | <a href="terms.html" style="color:#999;">利用規約</a> | <a href="privacy.html" style="color:#999;">プライバシーポリシー</a> </footer>
+</div>
+
+<div id="copy-toast">コピーしました！</div>
+
+<script>
+const picker = document.getElementById('picker-input');
+const previewBg = document.getElementById('preview-bg');
+const hexOut = document.getElementById('hex-output');
+const rgbOut = document.getElementById('rgb-output');
+const toast = document.getElementById('copy-toast');
+
+picker.addEventListener('input', () => {
+  const hex = picker.value.toUpperCase();
+  
+  // プレビュー更新
+  previewBg.style.backgroundColor = hex;
+  
+  // HEX更新
+  hexOut.textContent = hex;
+  
+  // RGB計算
+  const r = parseInt(hex.substring(1,3), 16);
+  const g = parseInt(hex.substring(3,5), 16);
+  const b = parseInt(hex.substring(5,7), 16);
+  rgbOut.textContent = `rgb(${r}, ${g}, ${b})`;
+});
+
+function copy(id) {
+  const text = document.getElementById(id).textContent;
+  if (!navigator.clipboard) {
+    alert("このブラウザはコピー機能に対応していません。手動でコピーしてください：" + text);
+    return;
+  }
+  navigator.clipboard.writeText(text).then(() => {
+    toast.textContent = `${text} をコピーしました`;
+    toast.style.background = "#333";
+    toast.style.opacity = '1';
+    setTimeout(() => {
+      toast.style.opacity = '0';
+    }, 2000);
+  }).catch(() => {
+    toast.textContent = "コピーに失敗しました";
+    toast.style.background = "#dc3545";
+    toast.style.opacity = '1';
+    setTimeout(() => {
+      toast.style.opacity = '0';
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
