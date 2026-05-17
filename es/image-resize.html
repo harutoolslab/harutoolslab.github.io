@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<!-- ★SEO設定：はるツール 画像リサイズ用 -->
+<title>Redimensionar Imágenes | Cambiar tamaño y procesamiento por lotes en línea gratis "HaruTools Lab"</title>
+<meta name="description" content="Una herramienta gratuita para cambiar fácilmente el tamaño de tus imágenes especificando el ancho y el alto. Compatible con PNG y JPG. Sin instalación, redimensiona de forma segura en tu navegador. Disponible para móviles y PC.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active { background: rgba(0, 123, 255, 0.1); border-color: var(--primary-hover); }
+
+.btn-select {
+  background: var(--primary); color: white; border: none; padding: 12px 30px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; margin-top: 15px;
+}
+
+/* 設定エリア */
+.config-panel { margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 12px; }
+.input-group { margin: 10px; display: inline-block; text-align: left; }
+.input-group label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 5px; color: #555; }
+input[type="number"] {
+  padding: 10px; border: 1px solid #ddd; border-radius: 8px; width: 120px; font-size: 1rem;
+}
+
+.btn-run {
+  background: var(--success); color: white; border: none; padding: 15px 40px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 10px;
+}
+
+/* 結果エリア */
+#result-zone { margin-top: 30px; text-align: left; }
+.result-item {
+  background: white; padding: 15px; border-radius: 8px; border: 1px solid #eee;
+  margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px;
+}
+.result-info { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.preview-img { max-width: 100%; max-height: 300px; object-fit: contain; border-radius: 4px; border: 1px solid #ddd; }
+.download-link { color: var(--primary); font-weight: bold; text-decoration: none; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+      <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+        Colección de herramientas en línea gratuitas "HaruTools Lab"
+      </a>
+    </div>
+    <h1>Redimensionar Imágenes</h1>
+    <p class="tagline">Especifica el ancho (px) y el alto (px) de la imagen para cambiar su tamaño al instante.</p>
+  </header>
+
+  <!-- 上部広告 -->
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta las imágenes aquí</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivos</button>
+      <input type="file" id="file-input" accept="image/png, image/jpeg" multiple style="display:none;">
+    </div>
+
+    <div class="config-panel">
+      <div class="input-group">
+        <label>Ancho (px)</label>
+        <input type="number" id="width" placeholder="Ej: 800">
+      </div>
+      <div class="input-group">
+        <label>Alto (px)</label>
+        <input type="number" id="height" placeholder="Ej: 600">
+      </div>
+      <div class="input-group" style="vertical-align: middle;">
+        <label style="display: inline-block; margin-right: 5px;">Mantener proporción</label>
+        <input type="checkbox" id="keep-ratio" checked style="transform: scale(1.2); cursor: pointer;">
+      </div>
+      <br>
+      <button class="btn-run" onclick="run()">Ejecutar redimensión</button>
+    </div>
+
+    <div id="result-zone"></div>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <article class="info-section">
+    <h2>¿Qué es la herramienta de redimensión de imágenes?</h2>
+    <p>
+      La herramienta de redimensión de imágenes de "HaruTools Lab" es una utilidad gratuita diseñada para convertir tus imágenes a la resolución (píxeles) que desees. Es sumamente útil para estandarizar el tamaño de las imágenes destacadas de tu blog o para ajustar las dimensiones según los requisitos de publicación de las redes sociales.
+    </p>
+
+    <h3>Características de esta herramienta</h3>
+    <ul>
+      <li><strong>Sin instalación:</strong> Funciona completamente en el navegador, por lo que puedes usarla de inmediato incluso desde tu móvil.</li>
+      <li><strong>Procesamiento por lotes:</strong> Selecciona varias imágenes a la vez y cámbiales el tamaño al mismo tiempo en un solo paso.</li>
+      <li><strong>Protección de la privacidad:</strong> Las imágenes no se envían a ningún servidor, sino que se procesan por completo dentro de tu navegador para tu total tranquilidad.</li>
+    </ul>
+
+    <h2>Pasos para su uso</h2>
+    <ol>
+      <li>Arrastra las imágenes que deseas redimensionar al área indicada, o selecciónalas desde tu dispositivo.</li>
+      <li>Introduce el "Ancho" y el "Alto" deseados en unidades de píxeles.</li>
+      <li>Haz clic en el botón "Ejecutar redimensión".</li>
+      <li>Haz clic en el nombre del archivo debajo de la imagen convertida para guardarla.</li>
+    </ol>
+
+    <h2>Casos de uso para redimensionar imágenes</h2>
+    <p>
+      Esta herramienta ofrece ventajas que van más allá del simple cambio de valores numéricos. Es especialmente útil para aplicaciones profesionales como las siguientes:
+    </p>
+    <ul>
+      <li><strong>Optimización de iconos y portadas de redes sociales:</strong> Ajusta instantáneamente las imágenes a las relaciones de aspecto recomendadas para plataformas como X (anteriormente Twitter), Instagram o los encabezados de YouTube.</li>
+      <li><strong>Aceleración de sitios web:</strong> Al reducir fotos enormes tomadas con cámaras digitales a un tamaño web adecuado, mejoras significativamente la velocidad de carga de la página, lo que potencia el impacto en el SEO.</li>
+      <li><strong>Publicación en tiendas virtuales y MercadoLibre:</strong> Al unificar el tamaño de las imágenes de tus productos por lotes, creas una estética limpia en toda tu tienda y mejoras la confianza del cliente.</li>
+    </ul>
+
+    <h2>Ventajas técnicas y seguridad</h2>
+    <p>
+      Esta herramienta adopta un "procesamiento del lado del cliente" mediante el uso de la **API Canvas de HTML5** y **JavaScript**.
+    </p>
+    <h3>1. Velocidad de procesamiento y seguridad excepcionales</h3>
+    <p>
+      A diferencia de los servicios convencionales que requieren subir la imagen a un servidor externo para procesarla, esta herramienta completa todos los cálculos dentro de tu propio navegador. Por lo tanto, no depende de la velocidad de tu conexión y procesa archivos grandes de manera instantánea.
+    </p>
+    <h3>2. Máxima protección de la privacidad</h3>
+    <p>
+      El hecho de que "las imágenes no se envíen a un servidor" significa que el riesgo de que tus datos queden registrados en servidores de terceros es absolutamente cero. Puedes editar de forma segura incluso fotos que contengan información personal o imágenes confidenciales antes de su publicación, sin que nadie más pueda verlas.
+    </p>
+
+    <h2>Preguntas frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Se pierde calidad al redimensionar?</span>
+      <p>R. Si amplías una imagen, es posible que se vea pixelada o borrosa; sin embargo, al reducirla, se aplica un procesamiento de redimensión de alta calidad (renderizado en canvas), reduciendo la pérdida de calidad al mínimo.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Se mantiene la transparencia en imágenes PNG?</span>
+      <p>R. Dado que esta herramienta genera los archivos en formato JPEG de manera predeterminada, las partes transparentes podrían convertirse en blanco o negro. Si deseas conservar la transparencia, te sugerimos utilizar una herramienta específica para remover fondos.</p>
+    </div>
+
+    <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="image-compress.html">Comprimir imágenes</a>: Reduce el tamaño del archivo manteniendo la calidad visual.</li>
+      <li><a href="png-to-jpg.html">Convertir PNG a JPG</a>: Convierte por lotes imágenes con transparencia a un formato JPG más manejable.</li>
+      <li><a href="heic-to-png.html">Convertir HEIC a PNG</a>: Permite visualizar las fotos de iPhone en un ordenador PC.</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const resultZone = document.getElementById('result-zone');
+const widthInputEl = document.getElementById("width");
+const heightInputEl = document.getElementById("height");
+const keepRatioCheckbox = document.getElementById("keep-ratio");
+
+let selectedFiles = [];
+let currentAspectRatio = 1; // 比率保存用
+let downloadUrls = []; // メモリ解放用URL保存用
+
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+
+['dragenter', 'dragover'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.add('active'), false);
+});
+['dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', e => {
+  selectedFiles = e.dataTransfer.files;
+  updateStatus();
+  calculateInitialRatio();
+}, false);
+
+fileInput.addEventListener('change', function() {
+  selectedFiles = this.files;
+  updateStatus();
+  calculateInitialRatio();
+});
+
+function calculateInitialRatio() {
+  if (selectedFiles.length > 0) {
+    const file = selectedFiles[0];
+    if (!file.type.startsWith('image/')) return;
+    const img = new Image();
+    img.src = URL.createObjectURL(file);
+    img.onload = () => {
+      currentAspectRatio = img.width / img.height;
+      if (!widthInputEl.value && !heightInputEl.value) {
+        widthInputEl.value = img.width;
+        heightInputEl.value = img.height;
+      }
+      URL.revokeObjectURL(img.src);
+    };
+  }
+}
+
+widthInputEl.addEventListener('input', () => {
+  if (keepRatioCheckbox.checked && currentAspectRatio) {
+    const val = parseInt(widthInputEl.value);
+    if (val) heightInputEl.value = Math.round(val / currentAspectRatio);
+  }
+});
+
+heightInputEl.addEventListener('input', () => {
+  if (keepRatioCheckbox.checked && currentAspectRatio) {
+    const val = parseInt(heightInputEl.value);
+    if (val) widthInputEl.value = Math.round(val * currentAspectRatio);
+  }
+});
+
+function updateStatus() {
+  if (selectedFiles.length > 0) {
+    resultZone.innerHTML = `<p style="text-align:center; color:var(--primary); font-weight:bold;">Se han seleccionado ${selectedFiles.length} archivo(s). Introduce el tamaño y ejecuta la acción.</p>`;
+  }
+}
+
+function run() {
+  const widthInput = document.getElementById("width").value;
+  const heightInput = document.getElementById("height").value;
+
+  if (selectedFiles.length === 0) return alert("Por favor, selecciona un archivo.");
+  if (!widthInput || !heightInput) return alert("Por favor, introduce el ancho y el alto.");
+
+  const width = parseInt(widthInput);
+  const height = parseInt(heightInput);
+
+  downloadUrls.forEach(url => URL.revokeObjectURL(url));
+  downloadUrls = [];
+  resultZone.innerHTML = "<p style='text-align:center;'>Redimensionando...</p>";
+
+  Array.from(selectedFiles).forEach(file => {
+    if (!file.type.startsWith('image/')) return;
+
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.src = url;
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+
+      const ctx = canvas.getContext("2d");
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, 0, 0, width, height);
+
+      canvas.toBlob(blob => {
+        const downloadUrl = URL.createObjectURL(blob);
+        downloadUrls.push(downloadUrl);
+        
+        const item = document.createElement("div");
+        item.className = "result-item";
+        
+        // 追加：プレビュー画像の表示
+        const previewImg = document.createElement("img");
+        previewImg.src = downloadUrl;
+        previewImg.className = "preview-img";
+        item.appendChild(previewImg);
+
+        const infoDiv = document.createElement("div");
+        infoDiv.className = "result-info";
+        
+        const nameLabel = document.createElement("span");
+        nameLabel.textContent = file.name + " → Redimensión completada";
+        
+        const link = document.createElement("a");
+        link.href = downloadUrl;
+        link.download = "resized_" + file.name;
+        link.textContent = "Guardar";
+        link.className = "download-link";
+
+        infoDiv.appendChild(nameLabel);
+        infoDiv.appendChild(link);
+        item.appendChild(infoDiv);
+        
+        // ローディングテキストを消去（最初の1つ目の表示時）
+        if (resultZone.querySelector('p')) {
+            resultZone.innerHTML = '';
+        }
+        resultZone.appendChild(item);
+        
+        URL.revokeObjectURL(url);
+      }, "image/jpeg", 0.9);
+    };
+  });
+}
+</script>
+
+</body>
+</html>

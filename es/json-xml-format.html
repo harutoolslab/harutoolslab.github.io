@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<title>Herramienta para formatear JSON/XML｜Indente el código de forma limpia y legible｜HaruTools Lab</title>
+<meta name="description" content="Una herramienta que permite formatear (dar formato al código) JSON o XML al instante en el navegador. Alinea las sangrías para que sea más fácil de leer. Sin instalación, procesamiento del lado del cliente centrado en la privacidad.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* テキスト入力エリア */
+.input-area {
+  width: 100%;
+  height: 350px;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 14px;
+  box-sizing: border-box;
+  resize: vertical;
+  margin-bottom: 20px;
+}
+.input-area:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  transition: all 0.3s ease;
+}
+.btn-select:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-copy {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-clear {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Colección de herramientas en línea gratuitas "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Herramienta para formatear JSON/XML</h1>
+    <p class="tagline">Organice código desordenado para que sea fácil de leer con un solo clic</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848" 
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <textarea id="code-input" class="input-area" placeholder="Pegue su JSON o XML aquí..."></textarea>
+    
+    <div class="button-group">
+      <button class="btn-select" onclick="formatJSON()">Formatear JSON</button>
+      <button class="btn-select" onclick="formatXML()">Formatear XML</button>
+      <button class="btn-copy" onclick="copyCode()">Copiar resultado</button>
+      <button class="btn-clear" onclick="clearInput()">Limpiar</button>
+    </div>
+  </main>
+  
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>Mejore la eficiencia de su desarrollo con la herramienta de formateo JSON/XML</h2>
+    <p>La herramienta para formatear JSON/XML es un recurso indispensable en el desarrollo de API y el análisis de datos para organizar instantáneamente códigos de baja legibilidad que han sido "comprimidos en una sola línea". Dado que esta herramienta procesa todo dentro del navegador, incluso el código que contenga lógica empresarial confidencial o datos de clientes se puede utilizar de forma segura sin enviarse a servidores externos.</p>
+
+    <h3>Características de esta herramienta</h3>
+    <ul>
+      <li><strong>Algoritmo de análisis avanzado:</strong> Equipado con una lógica de formateo altamente confiable que utiliza JSON.parse y DOMParser.</li>
+      <li><strong>Totalmente gratis y sin límites:</strong> Disponible de forma gratuita para todos los ingenieros, sin límites de caracteres ni restricciones de uso.</li>
+      <li><strong>Protección de la privacidad:</strong> Comprometidos con la ejecución del lado del cliente, bloqueando físicamente el riesgo de filtración de datos.</li>
+      <li><strong>Copia con un solo clic:</strong> Después de formatear, guarde el resultado en el portapapeles con un solo botón para maximizar la eficiencia de su trabajo.</li>
+    </ul>
+
+    <h2>Pasos de uso</h2>
+    <ol>
+      <li>Pegue el código fuente que desea formatear en el área de texto central.</li>
+      <li>Seleccione "Formatear JSON" o "Formatear XML" según el tipo de datos.</li>
+      <li>Se insertará automáticamente una sangría (4 espacios). Presione "Copiar resultado" para pegarlo en su editor.</li>
+    </ol>
+
+    <h2>Preguntas frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Qué pasa si el aspecto no cambia después de formatear?</span>
+      <p>R. Es posible que el código ya esté formateado o que haya un error de sintaxis en el código. Especialmente en el caso de XML, verifique si las etiquetas están cerradas correctamente.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Con qué ancho de sangría se formatea?</span>
+      <p>R. Esta herramienta adopta el estándar de "4 espacios". Esta es la configuración que se considera más fácil de leer en la mayoría de los entornos de desarrollo.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Es posible utilizarlo en teléfonos móviles?</span>
+      <p>R. Sí. Gracias al diseño responsivo, puede revisar y formatear cómodamente el código en tabletas y teléfonos inteligentes.</p>
+    </div>
+<h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="character-count.html">Contador de caracteres</a> : Mide la longitud del texto o el número de páginas de un manuscrito</li>
+      <li><a href="text-search.html">Herramienta de búsqueda de texto</a> : Extrae instantáneamente palabras específicas de un texto</li>
+      <li><a href="full-half-converter.html">Convertidor de ancho completo/medio</a> : Unifica rápidamente el formato de letras, números y símbolos</li>
+      <li><a href="text-cleaner.html">Eliminador de saltos de línea y caracteres</a> : Elimina espacios y saltos de línea innecesarios en lote</li>
+      <li><a href="special-characters.html">Lista de caracteres especiales</a> : Una recopilación de símbolos listos para copiar y pegar</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+</div>
+
+<script>
+function formatJSON() {
+    const input = document.getElementById('code-input');
+    if (!input.value.trim()) return;
+    try {
+        const obj = JSON.parse(input.value);
+        input.value = JSON.stringify(obj, null, 4);
+    } catch (e) {
+        alert("Error al analizar JSON. Por favor, verifique si el formato es correcto.\n" + e.message);
+    }
+}
+
+function formatXML() {
+    const input = document.getElementById('code-input');
+    if (!input.value.trim()) return;
+
+    try {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(input.value, "application/xml");
+        
+        // パースエラーのチェック
+        const errorNode = xmlDoc.querySelector("parsererror");
+        if (errorNode) throw new Error("Formato XML no válido.");
+
+        const serialize = (node, level = 0) => {
+            let indent = "    ".repeat(level);
+            let xml = "";
+            
+            for (let child of node.childNodes) {
+                if (child.nodeType === 1) { // Element
+                    xml += `\n${indent}<${child.nodeName}${getAttributes(child)}>`;
+                    if (child.childNodes.length > 0) {
+                        const content = serialize(child, level + 1);
+                        if (content.includes("\n")) {
+                            xml += content + `\n${indent}</${child.nodeName}>`;
+                        } else {
+                            xml = xml.slice(0, -1) + `>${child.textContent}</${child.nodeName}>`;
+                        }
+                    } else {
+                        xml += `</${child.nodeName}>`;
+                    }
+                } else if (child.nodeType === 3 && child.textContent.trim()) { // Text
+                    xml += child.textContent.trim();
+                }
+            }
+            return xml;
+        };
+
+        const getAttributes = (node) => {
+            let attrs = "";
+            for (let attr of node.attributes) {
+                attrs += ` ${attr.name}="${attr.value}"`;
+            }
+            return attrs;
+        };
+
+        // ドキュメント全体の子ノード（XML宣言、ルートエレメント等）を正しく走査する
+        const result = serialize(xmlDoc);
+        input.value = result.trim();
+    } catch (e) {
+        alert("Error al analizar XML. Por favor, verifique el formato.\n" + e.message);
+    }
+}
+
+async function copyCode() {
+    const input = document.getElementById('code-input');
+    if (!input.value) return;
+    try {
+        await navigator.clipboard.writeText(input.value);
+        alert("¡Copiado al portapapeles!");
+    } catch (err) {
+        input.select();
+        document.execCommand('copy');
+        alert("¡Copiado!");
+    }
+}
+
+function clearInput() {
+    document.getElementById('code-input').value = '';
+}
+</script>
+
+</body>
+</html>

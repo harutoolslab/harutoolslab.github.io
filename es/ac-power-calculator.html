@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO設定 -->
+<title>Calculadora de Potencia de CA Múltiple｜Herramienta en línea gratuita y sin registro</title>
+<meta name="description" content="Herramienta de cálculo cruzado para voltaje, corriente, potencia activa, potencia reactiva, potencia aparente y factor de potencia. Ingrese 2 valores para calcular automáticamente el resto. Con función de visualización de diagrama de vectores, ideal para electricistas, estudiantes de ingeniería eléctrica y diseño de circuitos.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --error: #ef4444;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* メインコンテンツエリア */
+.main-grid { display: grid; grid-template-columns: 400px 1fr; gap: 25px; align-items: start; }
+@media (max-width: 1000px) { .main-grid { grid-template-columns: 1fr; } }
+
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+/* ガイド */
+.usage-guide { background: #eef2ff; border-left: 5px solid var(--primary); padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: left; }
+.usage-guide h3 { margin-top: 0; font-size: 0.95rem; color: var(--primary); }
+.usage-guide ul { margin: 0; padding-left: 18px; font-size: 0.85rem; color: #444; }
+
+/* 入力エリア */
+.input-row { display: grid; grid-template-columns: 110px 1fr 80px; align-items: center; gap: 10px; margin-bottom: 12px; text-align: left; }
+label { font-size: 0.85rem; font-weight: 700; color: #555; }
+input { padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; width: 100%; box-sizing: border-box; }
+input:focus { border-color: var(--primary); outline: none; background: #fdfdff; }
+/* 計算された値（自動入力）の背景色 */
+input.calculated { background-color: #f0f9ff; color: var(--primary); font-weight: 600; }
+select { padding: 8px; border-radius: 8px; border: 1px solid #ddd; background: white; font-size: 0.85rem; }
+
+#error-msg { background: #fef2f2; color: var(--error); padding: 12px; border-radius: 8px; margin-bottom: 15px; font-size: 0.8rem; border: 1px solid #fee2e2; display: none; text-align: left; }
+
+.btn-calc { width: 100%; padding: 16px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: 0.2s; margin-top: 10px; }
+.btn-calc:hover { background: var(--primary-hover); }
+
+/* ベクトル図エリア */
+.canvas-container { background: white; border-radius: var(--radius); border: 1px solid #ddd; height: 600px; overflow: hidden; box-shadow: var(--shadow); }
+#power-canvas { width: 100%; height: 100%; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.formula-box { background: #f8fafc; padding: 20px; border-radius: 12px; text-align: center; margin: 20px 0; overflow-x: auto; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab
+    </a>
+  </div>
+    <h1>Calculadora de Potencia de CA Múltiple</h1>
+    <p class="tagline">Cálculo cruzado automático de potencia activa, reactiva, aparente y factor de potencia</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <div class="main-grid">
+    <section>
+        <div class="main-card">
+            <div class="usage-guide">
+                <h3>Reglas de Entrada</h3>
+                <ul>
+                    <li>Cálculo automático al ingresar <strong>2 valores</strong> de voltaje, corriente o potencia aparente.</li>
+                    <li>Cálculo automático al ingresar <strong>2 valores</strong> de potencia aparente, activa o reactiva.</li>
+                    <li>En caso de un <strong>factor de potencia en adelanto</strong>, ingrese un valor negativo para la potencia reactiva (Q) o el desfase (θ).</li>
+                </ul>
+            </div>
+
+            <div id="error-msg">⚠️ Los valores ingresados presentan una contradicción lógica o no son suficientes.</div>
+
+            <div class="input-row">
+                <label>Voltaje (V)</label>
+                <input type="number" id="v_val" step="any" placeholder="Valor eficaz" oninput="this.classList.remove('calculated')">
+                <select id="v_unit"><option value="1">V</option><option value="1000">kV</option></select>
+            </div>
+            <div class="input-row">
+                <label>Corriente (I)</label>
+                <input type="number" id="i_val" step="any" oninput="this.classList.remove('calculated')">
+                <span>[A]</span>
+            </div>
+            <div class="input-row">
+                <label>F. de Potencia (cosθ)</label>
+                <input type="number" id="pf_input_val" step="0.01" placeholder="0.0 a 1.0" oninput="this.classList.remove('calculated')">
+                <span>[-]</span>
+            </div>
+            <div class="input-row">
+                <label>Pot. Aparente (S)</label>
+                <input type="number" id="s_val" step="any" oninput="this.classList.remove('calculated')">
+                <span>[VA]</span>
+            </div>
+            <div class="input-row">
+                <label>Pot. Activa (P)</label>
+                <input type="number" id="p_val" step="any" oninput="this.classList.remove('calculated')">
+                <span>[W]</span>
+            </div>
+            <div class="input-row">
+                <label>Pot. Reactiva (Q)</label>
+                <input type="number" id="q_val" step="any" placeholder="Negativo en adelanto" oninput="this.classList.remove('calculated')">
+                <span>[var]</span>
+            </div>
+            <div class="input-row">
+                <label>Desfase (θ)</label>
+                <input type="number" id="theta_val" step="any" oninput="this.classList.remove('calculated')">
+                <select id="theta_unit"><option value="deg">deg (°)</option><option value="rad">rad</option></select>
+            </div>
+
+            <button class="btn-calc" onclick="solve()">Calcular</button>
+            <button onclick="location.reload()" style="width:100%; margin-top:10px; border:none; background:none; color:#94a3b8; cursor:pointer; font-size:0.8rem; text-decoration: underline;">Restablecer</button>
+
+            <!-- ★計算上の注意書きセクション -->
+            <div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>Notas sobre los resultados del cálculo</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>Esta herramienta calcula valores teóricos basados en una onda senoidal perfecta y un modelo de circuito ideal. En circuitos de corriente alterna reales, los valores medidos pueden diferir debido a armónicos causados por inversores u otros dispositivos, o por las especificaciones de los instrumentos de medición.</li>
+        <li>En los cálculos cruzados de potencia, pueden producirse errores de redondeo extremadamente pequeños debido al procesamiento computacional (operaciones de punto flotante).</li>
+        <li>Este sitio web no asume ninguna responsabilidad por cualquier pérdida o daño derivado del uso de los resultados de esta herramienta. Para diseños prácticos, instalaciones eléctricas o decisiones importantes, asegúrese de que un profesional cualificado verifique los datos utilizando múltiples métodos.</li>
+    </ul>
+</div>
+
+            <div style="margin-top:20px; text-align:center; padding:15px; background:#f8fafc; border-radius:10px; border:1px solid #e2e8f0;">
+                <span style="font-size:0.8rem; color:#64748b;">Factor de Potencia (Power Factor)</span><br>
+                <span id="out_pf" style="font-size:1.8rem; font-weight:bold; color:var(--primary); font-family:monospace;">---</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="canvas-container">
+        <canvas id="power-canvas"></canvas>
+    </section>
+  </div>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>Cálculo de Potencia en CA y el Triángulo de Potencias</h2>
+    <p>La potencia en los circuitos de corriente alterna se divide en "potencia activa", que es la que realmente se consume para realizar un trabajo debido al desfase entre el voltaje y la corriente, y "potencia reactiva", que simplemente fluye de un lado a otro entre la fuente de alimentación y la carga. La combinación de estas dos se conoce como "potencia aparente".</p>
+    
+    <p>Esta calculadora realiza operaciones vectoriales precisas utilizando el concepto de potencia compleja, basándose en la teoría fundamental de la ingeniería eléctrica. Proporciona valores altamente confiables para una amplia gama de aplicaciones, como el estudio de circuitos eléctricos y el cálculo de la capacidad de condensadores para la mejora del factor de potencia en la práctica profesional.</p>
+
+    <div class="formula-box">
+        $$ \text{Potencia Aparente } S = V \times I = \sqrt{P^2 + Q^2} \quad [\text{VA}] $$
+        $$ \text{Potencia Activa } P = S \times \cos\theta \quad [\text{W}] $$
+        $$ \text{Potencia Reactiva } Q = S \times \sin\theta \quad [\text{var}] $$
+    </div>
+
+    <h3>Explicación de los Parámetros Principales</h3>
+    <ul>
+      <li><strong>Potencia Activa (P):</strong> Es la potencia real consumida por los componentes resistivos. Unidad: W (vatios).</li>
+      <li><strong>Potencia Reactiva (Q):</strong> Energía almacenada en bobinas y condensadores. Unidad: var (voltio-amperios reactivos). Se considera positiva en retraso (inductiva) y negativa en adelanto (capacitativa).</li>
+      <li><strong>Potencia Aparente (S):</strong> La potencia total suministrada por la fuente de alimentación. Unidad: VA (voltio-amperios).</li>
+      <li><strong>Factor de Potencia (cosθ):</strong> La proporción de la potencia aparente que se utiliza como potencia activa. Es un indicador de la eficiencia del uso de la energía eléctrica.</li>
+    </ul>
+
+    <h2>Pasos de Uso</h2>
+    <ol>
+      <li>Ingrese al menos dos valores conocidos de los elementos que desea calcular.</li>
+      <li>Son válidas las combinaciones de voltaje y corriente, o las combinaciones de potencia (P, Q, S).</li>
+      <li>Al hacer clic en el botón "Calcular", se deducirán todos los valores faltantes y se dibujará el diagrama de vectores en el lado derecho.</li>
+    </ol>
+
+    <h2>Preguntas Frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. Se muestra un error.</span>
+      <p>A. Se muestra cuando los valores ingresados contradicen las leyes de la física. Por ejemplo, teóricamente es imposible que la potencia activa (P) sea mayor que la potencia aparente (S) (P > S), lo que generará un error. También aparecerá si los datos ingresados no son suficientes (menos de dos).</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. ¿Se puede utilizar para el estudio de ingeniería o certificaciones eléctricas?</span>
+      <p>A. Sí, es ideal para comprender el triángulo de potencias y verificar las respuestas de ejercicios prácticos. Al comprobar visualmente el diagrama de vectores, podrá comprender de forma intuitiva el impacto del desfase.</p>
+    </div>
+    <div class="faq-item">
+        <span class="faq-q">Q. ¿Es compatible con el cálculo de corriente alterna trifásica?</span>
+        <p>A. Esta herramienta se basa en corriente alterna monofásica. En el caso de sistemas trifásicos, aplique el voltaje y la corriente de cada fase, o realice ajustes como multiplicar el resultado del cálculo por √3.</p>
+    </div>
+
+<h3>Herramientas Relacionadas</h3>
+    <ul>
+      <li><a href="resistor-color-code.html">Calculadora de Código de Colores de Resistencias (4 bandas)</a>: Identifique rápidamente el valor de la resistencia mediante sus bandas de color</li>
+      <li><a href="resistor-color-code-5band.html">Calculadora de Código de Colores de Resistencias (5 bandas)</a>: Compatible con el código de colores de resistencias de precisión</li>
+      <li><a href="composite-resistance.html">Calculadora de Resistencia Equivalente</a>: Calcula la resistencia equivalente en serie y en paralelo</li>
+      <li><a href="ohm-law-calculator.html">Calculadora de la Ley de Ohm y Potencia</a>: Cálculos básicos de voltaje, corriente y resistencia</li>
+      <li><a href="power-consumption-calculator.html">Calculadora de Consumo de Energía, Calor y Costo Eléctrico</a>: Estime el costo eléctrico de sus electrodomésticos</li>
+      <li><a href="rlc-calc.html">Calculadora de Impedancia de Circuitos RLC</a>: Calcula la impedancia en circuitos de corriente alterna</li>
+      <li><a href="logic-circuit-simulator.html">Simulador de Circuitos Lógicos</a>: Visualice el funcionamiento de las compuertas lógicas básicas</li>
+    </ul>
+  </article>
+
+ <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de Servicio</a> | <a href="privacy.html" style="color:#999;">Política de Privacidad</a> </footer>
+</div>
+
+<script>
+    // ブラウザのリサイズ時に再描画するためのリスナー
+    window.addEventListener('resize', () => {
+        const lastP = getVal('p_val');
+        const lastQ = getVal('q_val');
+        const lastS = getVal('s_val');
+        const lastTheta = getVal('theta_val');
+        if (!isNaN(lastP)) {
+            let r = lastTheta;
+            if (document.getElementById('theta_unit').value === 'deg') r = r * Math.PI / 180;
+            draw(lastP, lastQ, lastS, r);
+        }
+    });
+
+    function solve() {
+        const errorMsg = document.getElementById('error-msg');
+        errorMsg.style.display = 'none';
+
+        // 前回計算された値（手入力でない値）を一旦クリアする
+        const inputs = ['v_val', 'i_val', 'pf_input_val', 's_val', 'p_val', 'q_val', 'theta_val'];
+        inputs.forEach(id => {
+            if (document.getElementById(id).classList.contains('calculated')) {
+                document.getElementById(id).value = '';
+            }
+        });
+        
+        let v = getVal('v_val');
+        if (!isNaN(v)) v *= parseFloat(document.getElementById('v_unit').value);
+        let i = getVal('i_val');
+        let pf_in = getVal('pf_input_val');
+        let s = getVal('s_val');
+        let p = getVal('p_val');
+        let q = getVal('q_val');
+        let theta = getVal('theta_val');
+        if (!isNaN(theta) && document.getElementById('theta_unit').value === 'deg') theta = theta * Math.PI / 180;
+
+        // 項目数チェック（最低2つ必要）
+        let inputCount = [v, i, pf_in, s, p, q, theta].filter(val => !isNaN(val)).length;
+
+        // 1. まず矛盾チェック
+        const threshold = 0.5;
+        let isError = false;
+
+        if (inputCount < 2) isError = true;
+        if (!isNaN(v) && !isNaN(i) && !isNaN(s)) {
+            if (Math.abs(v * i - s) > threshold) isError = true;
+        }
+        if (!isNaN(p) && !isNaN(q) && !isNaN(s)) {
+            if (Math.abs(Math.sqrt(p*p + q*q) - s) > threshold) isError = true;
+        }
+        if (!isNaN(p) && !isNaN(s) && p > s + 0.1) isError = true;
+        if (!isNaN(pf_in) && (pf_in < 0 || pf_in > 1)) isError = true;
+
+        if (isError) {
+            errorMsg.style.display = 'block';
+            return;
+        }
+
+        // 2. 相互推論ロジック (4回ループして埋める)
+        for (let k = 0; k < 6; k++) {
+            if (isNaN(theta) && !isNaN(pf_in)) {
+                // Qの入力があれば符号を決定
+                let sign = (!isNaN(q) && q < 0) ? -1 : 1;
+                theta = sign * Math.acos(pf_in);
+            }
+            if (isNaN(pf_in) && !isNaN(theta)) pf_in = Math.cos(theta);
+
+            if (isNaN(s) && !isNaN(v) && !isNaN(i)) s = v * i;
+            if (isNaN(v) && !isNaN(s) && !isNaN(i) && i !== 0) v = s / i;
+            if (isNaN(i) && !isNaN(s) && !isNaN(v) && v !== 0) i = s / v;
+            
+            if (isNaN(s) && !isNaN(p) && !isNaN(q)) s = Math.sqrt(p*p + q*q);
+            if (isNaN(p) && !isNaN(s) && !isNaN(q)) p = Math.sqrt(Math.max(0, s*s - q*q));
+            if (isNaN(q) && !isNaN(s) && !isNaN(p)) {
+                let sign = (!isNaN(theta) && theta < 0) ? -1 : 1;
+                q = sign * Math.sqrt(Math.max(0, s*s - p*p));
+            }
+
+            if (!isNaN(s)) {
+                if (isNaN(p) && !isNaN(pf_in)) p = s * pf_in;
+                if (isNaN(q) && !isNaN(theta)) q = s * Math.sin(theta);
+                if (isNaN(pf_in) && !isNaN(p) && s !== 0) pf_in = p / s;
+            }
+            if (isNaN(theta)) {
+                if (!isNaN(p) && !isNaN(s) && s !== 0) {
+                    let sign = (!isNaN(q) && q < 0) ? -1 : 1;
+                    theta = sign * Math.acos(Math.min(1, p / s));
+                }
+                else if (!isNaN(q) && !isNaN(s) && s !== 0) theta = Math.asin(Math.max(-1, Math.min(1, q / s)));
+            }
+        }
+
+        // 3. UI更新
+        setVal('v_val', v / parseFloat(document.getElementById('v_unit').value));
+        setVal('i_val', i);
+        setVal('pf_input_val', pf_in);
+        setVal('s_val', s);
+        setVal('p_val', p);
+        setVal('q_val', q);
+        setVal('theta_val', (document.getElementById('theta_unit').value === 'deg') ? theta * 180 / Math.PI : theta);
+
+        if (!isNaN(p) && !isNaN(s) && s !== 0) {
+            document.getElementById('out_pf').innerText = (p / s).toFixed(4);
+        }
+
+        draw(p, q, s, theta);
+    }
+
+    function getVal(id) {
+        const val = document.getElementById(id).value;
+        return (val === '' || isNaN(parseFloat(val))) ? NaN : parseFloat(val);
+    }
+
+    function setVal(id, val) {
+        const el = document.getElementById(id);
+        if (el.value === '' && !isNaN(val) && isFinite(val)) {
+            el.value = Math.round(val * 1000) / 1000;
+            el.classList.add('calculated'); // 自動計算された項目を強調
+        }
+    }
+
+    function draw(P, Q, S, rad) {
+        const canvas = document.getElementById('power-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const rect = canvas.parentNode.getBoundingClientRect();
+        
+        // Canvasのリセットを防止しつつサイズ最適化
+        if (canvas.width !== rect.width * devicePixelRatio) {
+            canvas.width = rect.width * devicePixelRatio;
+            canvas.height = rect.height * devicePixelRatio;
+        }
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(devicePixelRatio, devicePixelRatio);
+
+        const w = rect.width;
+        const h = rect.height;
+        ctx.clearRect(0, 0, w, h);
+        
+        const margin = 100;
+        const cx = 80;
+        const cy = h / 2;
+        
+        const maxVal = Math.max(Math.abs(P), Math.abs(Q), Math.abs(S), 1);
+        const scale = (Math.min(w - margin * 2.5, h / 2 - margin / 2)) / maxVal;
+
+        // グリッド描画
+        ctx.lineWidth = 0.5;
+        ctx.strokeStyle = '#f1f5f9';
+        for(let x = 0; x < w; x += 50) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
+        for(let y = 0; y < h; y += 50) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
+
+        // 軸描画
+        ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(cx, 20); ctx.lineTo(cx, h-20); ctx.stroke(); 
+        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(w-20, cy); ctx.stroke();
+
+        const px = cx + P * scale;
+        const qy = cy - Q * scale; // Qが正（遅れ）なら上、負（進み）なら下に描画
+
+        // 位相角表示
+        if (!isNaN(rad)) {
+            ctx.beginPath();
+            const arcRadius = 60;
+            // Canvasの座標系に合わせて回転方向を調整
+            ctx.arc(cx, cy, arcRadius, 0, -rad, rad > 0);
+            ctx.strokeStyle = '#3b82f6';
+            ctx.setLineDash([3, 3]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            const deg = (rad * 180 / Math.PI).toFixed(1);
+            ctx.fillStyle = '#3b82f6';
+            ctx.font = '14px sans-serif';
+            ctx.fillText(`${deg}°`, cx + 65, cy + (rad > 0 ? -15 : 25));
+        }
+
+        drawVector(ctx, cx, cy, px, cy, '#28a745', `P: ${P.toFixed(1)}W`, 4, 'bottom');
+        drawVector(ctx, px, cy, px, qy, '#ffc107', `Q: ${Math.abs(Q).toFixed(1)}var`, 4, 'right');
+        drawVector(ctx, cx, cy, px, qy, '#007bff', `S: ${S.toFixed(1)}VA`, 6, 'hypo');
+        
+        // 凡例表示
+        const summaryX = w - 180;
+        const summaryY = 50;
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.fillRect(summaryX - 5, summaryY - 20, 170, 110);
+        ctx.fillStyle = '#333';
+        ctx.font = '13px monospace';
+        ctx.fillText(`S: ${S.toFixed(2)} VA`, summaryX, summaryY);
+        ctx.fillText(`P: ${P.toFixed(2)} W`, summaryX, summaryY + 25);
+        ctx.fillText(`Q: ${Q.toFixed(2)} var`, summaryX, summaryY + 50);
+        ctx.fillText(`PF: ${(P/S || 0).toFixed(4)}`, summaryX, summaryY + 75);
+    }
+
+    function drawVector(ctx, x1, y1, x2, y2, color, label, width, pos) {
+        if (isNaN(x1) || isNaN(x2)) return;
+        ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = width;
+        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+        
+        // 矢印
+        const angle = Math.atan2(y2-y1, x2-x1);
+        ctx.beginPath(); ctx.moveTo(x2, y2);
+        ctx.lineTo(x2 - 15 * Math.cos(angle - 0.4), y2 - 15 * Math.sin(angle - 0.4));
+        ctx.lineTo(x2 - 15 * Math.cos(angle + 0.4), y2 - 15 * Math.sin(angle + 0.4));
+        ctx.fill();
+
+        ctx.font = "bold 13px sans-serif";
+        let tx = (x1+x2)/2, ty = (y1+y2)/2;
+        if(pos === 'bottom') ty += 25;
+        if(pos === 'right') tx += 10;
+        if(pos === 'hypo') { tx -= 40; ty -= 15; }
+        ctx.fillText(label, tx, ty);
+    }
+</script>
+
+</body>
+</html>

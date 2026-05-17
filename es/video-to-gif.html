@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+       crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+  
+<title>Convertir Video a GIF｜Herramienta en línea gratuita y sin registro</title>
+<meta name="description" content="Herramienta gratuita para crear animaciones GIF a partir de videos. Ajuste el tamaño y el número de fotogramas para crear fácilmente GIFs ligeros. Sin instalación, diseño seguro que se ejecuta completamente en el navegador.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
+}
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* プレビュー＆設定エリア */
+#preview-zone { display: none; margin-top: 20px; }
+video { max-width: 100%; max-height: 400px; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 20px; }
+
+.settings-box {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: left;
+}
+.settings-box label { font-weight: bold; font-size: 0.9rem; display: block; margin-top: 10px; }
+.settings-box input { width: 100%; padding: 10px; margin-top: 5px; border-radius: 6px; border: 1px solid #ddd; box-sizing: border-box; }
+
+.btn-run {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+
+#result-area { margin-top: 30px; padding: 20px; }
+.download-link {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+        <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+          Colección de herramientas en línea gratuitas "HaruTools Lab"
+        </a>
+    </div>
+    <h1>Convertir Video a GIF</h1>
+    <p class="tagline">Cree GIFs útiles para redes sociales y blogs a partir de sus propios videos</p>
+  </header>
+
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <!-- AdSense ディスプレイ広告ユニット: 上部 -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arrastre y suelte aquí el video que desea convertir</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivo</button>
+      <input type="file" id="file-input" accept="video/*" style="display:none;">
+    </div>
+
+    <div id="preview-zone">
+      <video id="video-preview" controls playsinline></video>
+      
+      <div class="settings-box">
+        <label>Ancho (px) *Si se deja vacío, se mantendrá el tamaño original</label>
+        <input type="number" id="width-input" placeholder="Ej: 400">
+
+        <label>Número de fotogramas (a mayor cantidad, más fluido será, pero el archivo será más pesado)</label>
+        <input type="number" id="frames-input" value="20">
+      </div>
+
+      <button class="btn-run" onclick="run()">Crear GIF</button>
+      <div id="status-msg" style="margin-top:15px; font-weight:bold; color:var(--primary);"></div>
+      
+      <div id="result-area"></div>
+
+      <div style="margin-top:20px;">
+        <button onclick="location.reload()" style="background:#f0f0f0; color:#666; border:none; padding:8px 20px; border-radius:8px; cursor:pointer;">Elegir otro video</button>
+      </div>
+    </div>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>Ventajas de convertir video a GIF</h2>
+    <p>El GIF es un formato de imagen que permite expresar animaciones mostrando varias imágenes de forma consecutiva. Dado que se reproduce en bucle automáticamente sin necesidad de presionar un botón de reproducción, capta fácilmente la atención en redes sociales y blogs, y también es ideal para videos de manuales o tutoriales.</p>
+
+    <h3>Sobre la exclusividad y seguridad de nuestra herramienta</h3>
+    <p>Esta herramienta de conversión utiliza una biblioteca avanzada de JavaScript para <strong>completar todo el procesamiento dentro del navegador del usuario</strong>. A diferencia de los convertidores en línea generales, los datos de su video nunca se cargan en un servidor externo. Por lo tanto, incluso si se trata de un video privado o de un clip altamente confidencial, puede utilizar la conversión a GIF con total tranquilidad y sin riesgo de filtración de información.</p>
+
+    <ul>
+      <li><strong>Reproducción automática:</strong> A diferencia de los videos, la reproducción comienza en el instante en que se carga.</li>
+      <li><strong>Compatibilidad:</strong> Se puede mostrar tal cual en casi cualquier entorno, navegador o aplicación de redes sociales.</li>
+      <li><strong>Fácil de compartir:</strong> Se caracteriza por ser más fácil de pegar en blogs o foros que un archivo de video.</li>
+    </ul>
+
+    <h3>Puntos clave y advertencias para la creación de GIFs</h3>
+    <ul>
+      <li><strong>Tamaño del archivo:</strong> Convertir un video largo a GIF resultará en un tamaño de archivo extremadamente grande. El truco está en usar videos cortos de unos pocos segundos.</li>
+      <li><strong>Número de fotogramas:</strong> Si desea que sea más fluido, aumente este valor, pero el tamaño del archivo se incrementará proporcionalmente.</li>
+      <li><strong>Calidad de imagen:</strong> Dado que el formato GIF admite un máximo de 256 colores, la textura puede disminuir ligeramente en comparación con el video original.</li>
+    </ul>
+
+    <h2>Pasos para su uso</h2>
+    <ol>
+      <li>Arrastre y suelte un video en el área superior, o selecciónelo para cargarlo.</li>
+      <li>Aparecerá el reproductor de video; introduzca el "Ancho" o el "Número de fotogramas" según sea necesario.</li>
+      <li>Presione el botón "Crear GIF". Dado que la carga de procesamiento aumenta durante la operación, espere sin cerrar el navegador.</li>
+      <li>Una vez completado, aparecerá el botón de descarga.</li>
+    </ol>
+
+    <h2>Preguntas frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Tiene algún costo?</span>
+      <p>R. No, todas las herramientas de nuestro sitio web se ofrecen de forma totalmente gratuita.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Es segura mi privacidad?</span>
+      <p>R. Sí. Los datos de los videos no se envían al servidor y se procesan por completo dentro de su navegador. No hay riesgo de que los datos se filtren al exterior.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Se incluye el sonido?</span>
+      <p>R. No. Dado que el formato GIF es un formato de datos de imagen, no puede incluir sonido. Será una animación muda.</p>
+    </div>
+    <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="heic-to-png.html">Convertir HEIC a PNG</a> : Convierte fotos de iPhone a imágenes de formato universal.</li>
+      <li><a href="png-to-jpg.html">Convertir PNG a JPG</a> : Elimina la transparencia de las imágenes y reduce el tamaño del archivo.</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const videoPreview = document.getElementById('video-preview');
+const resultArea = document.getElementById('result-area');
+const statusMsg = document.getElementById('status-msg');
+
+let currentVideoFile = null;
+let currentOutputUrl = null;
+
+// ドラッグ&ドロップイベント
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.add('active'), false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', (e) => handleFiles(e.dataTransfer.files), false);
+fileInput.addEventListener('change', function() { handleFiles(this.files); });
+
+function handleFiles(files) {
+  const file = files[0];
+  if (file && file.type.startsWith('video/')) {
+    // 古いObjectURLがあれば解放
+    if (videoPreview.src) {
+        URL.revokeObjectURL(videoPreview.src);
+    }
+    currentVideoFile = file;
+    videoPreview.src = URL.createObjectURL(file);
+    dropArea.style.display = 'none';
+    previewZone.style.display = 'block';
+  } else {
+    alert('Por favor, seleccione un archivo de video.');
+  }
+}
+
+function run() {
+  if (!currentVideoFile) return;
+
+  statusMsg.innerHTML = "Creando GIF... (El navegador puede congelarse por unos segundos)";
+  resultArea.innerHTML = "";
+  
+  // 以前のダウンロードURLを解放
+  if (currentOutputUrl) {
+    URL.revokeObjectURL(currentOutputUrl);
+  }
+
+  const widthInput = document.getElementById("width-input").value;
+  const framesInput = document.getElementById("frames-input").value;
+
+  const targetWidth = widthInput ? parseInt(widthInput) : videoPreview.videoWidth;
+  const frameCount = framesInput ? parseInt(framesInput) : 20;
+
+  const scale = targetWidth / videoPreview.videoWidth;
+  const targetHeight = videoPreview.videoHeight * scale;
+
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  canvas.width = targetWidth;
+  canvas.height = targetHeight;
+
+  const gif = new GIF({
+    workers: 0,
+    quality: 10,
+    width: targetWidth,
+    height: targetHeight
+  });
+
+  let captured = 0;
+  videoPreview.pause();
+  videoPreview.currentTime = 0;
+
+  function capture() {
+    // 動画終了判定またはフレーム数上限
+    if (captured >= frameCount || videoPreview.ended) {
+      statusMsg.innerHTML = "Renderizando...";
+      gif.render();
+      videoPreview.removeEventListener('seeked', onSeeked); // リスナー削除
+      return;
+    }
+
+    ctx.drawImage(videoPreview, 0, 0, targetWidth, targetHeight);
+    gif.addFrame(ctx, {copy: true, delay: 150});
+
+    captured++;
+    videoPreview.currentTime += 0.15;
+  }
+
+  // seekedイベント（シーク完了）を待ってからキャプチャすることで安定化
+  const onSeeked = () => {
+    capture();
+  };
+
+  videoPreview.addEventListener('seeked', onSeeked);
+
+  // 初回キャプチャ開始
+  if (videoPreview.readyState >= 2) {
+    capture();
+  } else {
+    videoPreview.onloadeddata = capture;
+  }
+
+  gif.on("finished", blob => {
+    currentOutputUrl = URL.createObjectURL(blob);
+    statusMsg.innerHTML = "¡Completado!";
+
+    const a = document.createElement("a");
+    a.href = currentOutputUrl;
+    a.download = "haru_tool_output.gif";
+    a.className = "download-link";
+    a.textContent = "Descargar GIF";
+
+    resultArea.appendChild(a);
+  });
+}
+</script>
+
+</body>
+</html>

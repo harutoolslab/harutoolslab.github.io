@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<title>Calculadora de Consumo Eléctrico, Energía y Coste | Conversión J / Wh / kWh - HaruTools Lab</title>
+<meta name="description" content="Calcule simultáneamente el consumo de energía (Wh/kWh), la energía térmica (J) y el coste eléctrico estimado a partir de la potencia (W/kW) y el tiempo. Soporta selección de unidades en segundos, minutos, horas y días. Sin instalación, compatible con smartphones y con total privacidad.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --accent-color: #e74c3c;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --border-color: #e1e4e8;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 入力グループ */
+.input-group { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 10px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-group label { flex: 1; font-weight: bold; font-size: 0.9em; text-align: right; }
+
+input[type="number"], select {
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+input[type="number"] { flex: 2; min-width: 100px; }
+select { flex: 1; background-color: #fff; cursor: pointer; min-width: 100px; }
+
+/* プレビューエリア（結果表示として利用） */
+.result-display {
+    background: #fffafa;
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.res-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+.res-item:last-child { border-bottom: none; }
+.res-label { font-size: 0.85em; color: #666; font-weight: bold; }
+.res-val { font-size: 1.6rem; font-weight: bold; color: var(--accent-color); }
+.res-unit { font-size: 0.9rem; margin-left: 5px; color: var(--text-main); }
+
+/* 電気代の強調表示用 */
+.res-cost { color: var(--success); }
+
+
+
+.btn-reset {
+  background: #eee;
+  color: #333;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+    .input-group { flex-direction: column; align-items: stretch; }
+    .input-group label { text-align: left; }
+    .res-item { flex-direction: column; align-items: flex-start; }
+    .res-val { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Colección de herramientas online gratuitas "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Calculadora de Consumo Eléctrico, Energía y Coste</h1>
+    <p class="tagline">Calcule instantáneamente Julios (J), Vatios-hora (Wh) y el coste estimado a partir de la potencia y el tiempo de uso</p>
+  </header>
+
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <!-- AdSense ディスプレイ広告ユニット (上部) -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <div class="main-card">
+    <div id="tool-ui">
+        <div class="input-group">
+            <label>Potencia</label>
+            <input type="number" id="pVal" placeholder="Ej: 100" oninput="calc()" min="0">
+            <select id="pUnit" onchange="calc()">
+                <option value="w" selected>W (Vatios)</option>
+                <option value="kw">kW (Kilovatios)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Tiempo de uso</label>
+            <input type="number" id="tVal" step="any" placeholder="Ej: 1" oninput="calc()" min="0">
+            <select id="tUnit" onchange="calc()">
+                <option value="s">Segundos (s)</option>
+                <option value="m">Minutos (m)</option>
+                <option value="h" selected>Horas (h)</option>
+                <option value="d">Días (d)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Precio por kWh</label>
+            <input type="number" id="unitPrice" placeholder="Ej: 0.15" value="0.15" oninput="calc()" min="0">
+            <div style="flex: 1; text-align: left; font-size: 0.9em;">/ kWh</div>
+        </div>
+        <button class="btn-reset" onclick="resetAll()">Limpiar</button>
+    </div>
+
+    <div class="result-display" id="res-box">
+        <div class="res-item">
+            <span class="res-label">Energía térmica (J / Julio)</span>
+            <span><span class="res-val" id="resJ">0</span><span class="res-unit">J</span></span>
+        </div>
+        <div class="res-item">
+            <span class="res-label">Consumo de energía (Wh / Vatio-hora)</span>
+            <span><span class="res-val" id="resWh">0</span><span class="res-unit">Wh</span></span>
+        </div>
+        <div class="res-item">
+            <span class="res-label">Consumo de energía (kWh / Kilovatio-hora)</span>
+            <span><span class="res-val" id="resKWh">0</span><span class="res-unit">kWh</span></span>
+        </div>
+        <div class="res-item" style="border-top: 2px solid #eee; margin-top: 5px;">
+            <span class="res-label">Coste eléctrico estimado</span>
+            <span><span class="res-val res-cost" id="resCost">0</span><span class="res-unit"></span></span>
+        </div>
+    </div>
+<div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>Notas importantes sobre los resultados</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>Los resultados obtenidos con esta herramienta son estimaciones basadas exclusivamente en los valores de potencia introducidos. El coste real de su factura eléctrica puede variar, ya que las compañías eléctricas suelen añadir tarifas fijas, impuestos, costes de distribución o ajustes por combustible.</li>
+        <li>En el cálculo de la energía térmica (Julios), la cantidad real de calor generado puede diferir del valor teórico debido a factores externos como la temperatura ambiente, la eficiencia del aparato o las pérdidas por disipación térmica.</li>
+        <li>Este sitio web no se hace responsable de los daños o pérdidas derivados de las decisiones tomadas con base en los resultados de esta calculadora (como estimaciones presupuestarias, etc.). Utilice los datos únicamente como referencia general y bajo su propia responsabilidad.</li>
+    </ul>
+</div>
+  </div>
+  
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>¿Qué es la Calculadora de Consumo Eléctrico, Energía y Coste?</h2>
+    <p>Esta herramienta online gratuita le permite calcular de forma integrada la cantidad de energía en forma de calor (Julios, J), el consumo de energía eléctrica (Wh/kWh) y el coste estimado a partir de la potencia de consumo (W) de cualquier electrodoméstico y su tiempo de uso. Es ideal para optimizar el ahorro en el hogar, resolver problemas escolares de física o realizar simulaciones de tarifas eléctricas.</p>
+
+    <h3>Contexto técnico y utilidad</h3>
+    <p>En la sociedad actual, conocer la eficiencia energética no solo ayuda a controlar la economía doméstica, sino que también contribuye al cuidado del medio ambiente. Esta calculadora simplifica las conversiones de unidades complejas basándose en las ecuaciones fundamentales de transferencia de energía de la física. Realizar manualmente la conversión de Julios (basados en segundos) a Kilovatios-hora (la unidad comercial de electricidad) suele ser propenso a errores de cálculo; con esta herramienta puede obtener estimaciones rápidas y precisas.</p>
+
+    <h3>Definiciones de unidades y fórmulas de cálculo</h3>
+    <ul>
+        <li><strong>Julio (J):</strong> Es la cantidad de energía consumida por una potencia de 1 vatio durante 1 segundo. Es la unidad fundamental de energía y calor en la ciencia.</li>
+        <li><strong>Vatio-hora (Wh):</strong> Es la energía consumida por una potencia de 1 vatio durante 1 hora. Se utiliza habitualmente para indicar las especificaciones de consumo en dispositivos electrónicos.</li>
+        <li><strong>Kilovatio-hora (kWh):</strong> Equivale a 1,000 Wh. Es la unidad estándar de facturación que aparece en los recibos de la luz emitidos por las compañías eléctricas.</li>
+        <li><strong>Coste eléctrico:</strong> Se calcula multiplicando el consumo de energía (kWh) por el precio unitario configurado (/kWh). Esta herramienta le permite personalizar este precio libremente.</li>
+    </ul>
+    <p><strong>Mecanismo de cálculo:</strong> El sistema automatiza las conversiones temporales (minutos, horas, días) tomando como base la fórmula física $W (\text{Potencia}) \times t (\text{segundos}) = J (\text{Energía})$. Recuerde que 1 Wh equivale exactamente a 3,600 Julios.</p>
+
+    <h3>Características de esta herramienta</h3>
+    <ul>
+      <li><strong>Cálculo simultáneo del coste:</strong> No solo obtiene el consumo energético, sino también el gasto económico inmediato ajustado al precio por kWh que introduzca.</li>
+      <li><strong>Totalmente gratuita:</strong> Acceso ilimitado a todas las funciones sin costes ocultos.</li>
+      <li><strong>Sin necesidad de registro:</strong> No requiere rellenar tediosos formularios de suscripción ni iniciar sesión para empezar a calcular.</li>
+      <li><strong>Diseño seguro y privado:</strong> Todos los cálculos se procesan localmente dentro de su propio navegador web. Ningún dato introducido se envía a nuestros servidores, garantizando la máxima privacidad.</li>
+    </ul>
+
+    <h2>Pasos para su uso</h2>
+    <ol>
+      <li>Introduzca el valor de consumo en la sección "Potencia" y seleccione su unidad correspondiente (W o kW).</li>
+      <li>Escriba el tiempo de funcionamiento en "Tiempo de uso" y elija la unidad de tiempo adecuada (segundos, minutos, horas o días).</li>
+      <li>Introduzca el "Precio por kWh" de acuerdo con el plan de tarifas o contrato actual de su proveedor de energía eléctrica.</li>
+      <li>Los valores de energía térmica (J), consumo (Wh/kWh) y coste estimado se actualizarán automáticamente en tiempo real con cada cambio.</li>
+    </ol>
+
+    <h2>Preguntas frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Qué precio por kWh debería introducir para el cálculo?</span>
+      <p>R. El precio varía significativamente según el país, la región y el tipo de contrato que tenga. Para una simulación más cercana a la realidad, le recomendamos revisar su última factura de electricidad e introducir el precio por kWh que le cobra su distribuidora.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿A cuánta electricidad equivale exactamente 1 kWh?</span>
+      <p>R. 1 kWh es el consumo resultante de mantener encendido un electrodoméstico de 1000 W (1 kW) de potencia de forma continua durante 1 hora. Por ejemplo, si utiliza un secador de pelo de 1200 W durante 5 minutos, el consumo eléctrico generado será de aproximadamente 0.1 kWh.</p>
+    </div>
+
+<h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="resistor-color-code.html">Calculadora de Código de Colores de Resistencias (4 bandas)</a>: Identifique al instante el valor de una resistencia según sus bandas de color.</li>
+      <li><a href="resistor-color-code-5band.html">Calculadora de Código de Colores de Resistencias (5 bandas)</a>: Calcule con precisión el valor de resistencias de alta precisión de 5 bandas.</li>
+      <li><a href="composite-resistance.html">Calculadora de Resistencia Equivalente</a>: Obtenga el valor total de circuitos de resistencias complejos en serie o paralelo.</li>
+      <li><a href="ohm-law-calculator.html">Calculadora de la Ley de Ohm y Potencia</a>: Herramienta de cálculo básico para voltios, amperios y ohmios.</li>
+      <li><a href="rlc-calc.html">Calculadora de Impedancia de Circuitos RLC</a>: Determine la impedancia compleja en circuitos de corriente alterna (CA).</li>
+      <li><a href="ac-power-calculator.html">Calculadora Múltiple de Potencia CA</a>: Cálculo integral de potencia activa, reactiva y factor de potencia.</li>
+      <li><a href="logic-circuit-simulator.html">Simulador de Circuitos Lógicos</a>: Diseñe y compruebe el funcionamiento combinando compuertas lógicas básicas.</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+</div>
+
+<script>
+    function calc() {
+        const pInput = parseFloat(document.getElementById('pVal').value);
+        const pUnit = document.getElementById('pUnit').value;
+        const tInput = parseFloat(document.getElementById('tVal').value);
+        const tUnit = document.getElementById('tUnit').value;
+        const priceInput = parseFloat(document.getElementById('unitPrice').value);
+
+        if (!isNaN(pInput) && !isNaN(tInput)) {
+            // 負数入力の防止
+            let cleanP = Math.max(0, pInput);
+            let cleanT = Math.max(0, tInput);
+
+            // 電力を「W」に統一
+            let watts = (pUnit === 'kw') ? cleanP * 1000 : cleanP;
+
+            // 時間を「秒(s)」に統一してジュールを計算
+            let seconds = cleanT;
+            switch (tUnit) {
+                case 'm': seconds = cleanT * 60; break;
+                case 'h': seconds = cleanT * 3600; break;
+                case 'd': seconds = cleanT * 86400; break;
+            }
+
+            const joules = watts * seconds;
+            const wh = joules / 3600;
+            const kwh = wh / 1000;
+
+            document.getElementById('resJ').innerText = formatNum(joules);
+            document.getElementById('resWh').innerText = formatNum(wh);
+            document.getElementById('resKWh').innerText = formatNum(kwh);
+            
+            // 電気代の計算
+            if (!isNaN(priceInput) && priceInput >= 0) {
+                const cost = kwh * priceInput;
+                document.getElementById('resCost').innerText = formatNum(cost);
+            } else {
+                document.getElementById('resCost').innerText = "0";
+            }
+            
+            document.getElementById('res-box').style.borderColor = "var(--primary)";
+        } else {
+            // 入力が不完全な場合はリセット
+            document.getElementById('resJ').innerText = "0";
+            document.getElementById('resWh').innerText = "0";
+            document.getElementById('resKWh').innerText = "0";
+            document.getElementById('resCost').innerText = "0";
+            document.getElementById('res-box').style.borderColor = "#ddd";
+        }
+    }
+
+    function formatNum(num) {
+        if (num === 0) return "0";
+        // 桁数が多い場合はカンマ区切り、小数点第4位まで
+        return parseFloat(num.toFixed(4)).toLocaleString();
+    }
+
+    function resetAll() {
+        document.getElementById('pVal').value = '';
+        document.getElementById('tVal').value = '';
+        document.getElementById('unitPrice').value = '0.15';
+        document.getElementById('resJ').innerText = "0";
+        document.getElementById('resWh').innerText = "0";
+        document.getElementById('resKWh').innerText = "0";
+        document.getElementById('resCost').innerText = "0";
+        document.getElementById('res-box').style.borderColor = "#ddd";
+    }
+</script>
+
+</body>
+</html>

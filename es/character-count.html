@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO設定：ツールに合わせてここを書き換え -->
+<title>Contador de caracteres｜Contar caracteres en tiempo real y detectar espacios de ancho completo｜HaruTools Lab</title>
+<meta name="description" content="Cuenta los caracteres de tu texto en tiempo real. Calcula automáticamente los caracteres sin espacios, el número de líneas y el equivalente en páginas de manuscrito. Ideal para verificar espacios de ancho completo y límites de texto en informes o redes sociales. Todo en tu navegador de forma segura.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 文字数カウント用追加スタイル */
+textarea {
+  width: 100%;
+  height: 300px;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.counter-item {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+.counter-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-sub);
+}
+.counter-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab
+    </a>
+  </div>
+    <h1>Contador de caracteres</h1>
+    <p class="tagline">Introduce tu texto para medir instantáneamente caracteres, líneas y espacios de ancho completo</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <textarea id="main-input" placeholder="Escribe o pega tu texto aquí..."></textarea>
+
+    <div class="counter-grid">
+      <div class="counter-item">
+        <span class="counter-label">Caracteres (con espacios)</span>
+        <span id="count-all" class="counter-value">0</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-label">Caracteres (sin espacios)</span>
+        <span id="count-no-space" class="counter-value">0</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-label">Espacios de ancho completo</span>
+        <span id="count-full-width-space" class="counter-value">0</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-label">Líneas</span>
+        <span id="count-lines" class="counter-value">0</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-label">Páginas de manuscrito (400 c.)</span>
+        <span id="count-paper" class="counter-value">0</span>
+      </div>
+    </div>
+  </main>
+  
+ <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>La importancia de una herramienta para contar caracteres</h2>
+    <p>En la creación de contenido actual, gestionar el volumen adecuado de texto es fundamental. Esta herramienta no solo realiza un cálculo numérico simple, sino que se especializa en el <strong>conteo preciso de pares de sustitutos (como los emojis)</strong> y en la <strong>detección de "espacios de ancho completo" (zenkaku)</strong>, los cuales suelen causar errores en programación. Dado que todo el procesamiento se ejecuta del lado del cliente (dentro de tu propio navegador), no hay riesgo de que tus textos se filtren al exterior.</p>
+
+    <h3>Características de esta herramienta</h3>
+    <ul>
+      <li><strong>Medición en tiempo real:</strong> Todos los valores se actualizan de forma inmediata con cada carácter que introduces.</li>
+      <li><strong>Detección de caracteres de alta precisión:</strong> Cuenta con una lógica interna capaz de identificar símbolos especiales y los emojis más recientes correctamente como un solo carácter.</li>
+      <li><strong>Detección de espacios de ancho completo:</strong> Extrae y resalta estos espacios difíciles de distinguir a simple vista, ayudando a prevenir errores tipográficos.</li>
+      <li><strong>Seguridad y privacidad garantizadas:</strong> El texto ingresado nunca se envía a ningún servidor. Puedes revisar documentos confidenciales con total tranquilidad.</li>
+    </ul>
+
+    <h2>Instrucciones de uso</h2>
+    <ol>
+      <li>Escribe directamente o pega tu texto en el área central dedicada para ello.</li>
+      <li>Al mismo tiempo que escribes, se calcularán automáticamente los caracteres (con y sin espacios), los espacios de ancho completo, las líneas y el equivalente en hojas de manuscrito.</li>
+      <li>En el apartado de "Caracteres (sin espacios)" podrás comprobar la cantidad neta de texto, excluyendo saltos de línea, espacios normales y espacios de ancho completo.</li>
+    </ol>
+
+    <h2>Preguntas frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Los signos de puntuación y los saltos de línea cuentan como un carácter?</span>
+      <p>R. En la sección "Caracteres (con espacios)", tanto los saltos de línea como los signos de puntuación se contabilizan como un carácter. En cambio, en "Caracteres (sin espacios)", se excluyen los saltos de línea y todo tipo de espacios.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Los emojis se cuentan de forma correcta?</span>
+      <p>R. Sí. Siguiendo las especificaciones más recientes de JavaScript, los emojis (pares de sustitutos) que internamente suelen procesarse de forma errónea como dos caracteres, se ajustan para calcularse correctamente como un solo carácter, tal como se ven de forma visual.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Por qué es útil contar los espacios de ancho completo?</span>
+      <p>R. Si al copiar fragmentos de código se mezclan espacios de ancho completo (comunes en la escritura japonesa), los programas dejarán de funcionar. También es una función muy útil si estás revisando normativas de entrega que prohíben estrictamente este tipo de espacios.</p>
+    </div>
+
+<h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="text-search.html">Herramienta de búsqueda de texto</a> : Extrae palabras clave específicas de tu texto de forma instantánea.</li>
+      <li><a href="full-half-converter.html">Conversor entre ancho completo y medio ancho</a> : Unifica rápidamente el formato de letras, números y símbolos.</li>
+      <li><a href="json-xml-format.html">Formateador JSON/XML</a> : Organiza automáticamente códigos complejos para hacerlos más legibles.</li>
+      <li><a href="text-cleaner.html">Herramienta para eliminar saltos de línea y caracteres</a> : Borra espacios innecesarios y saltos de línea en lote.</li>
+      <li><a href="special-characters.html">Lista de caracteres especiales</a> : Una recopilación de símbolos y caracteres especiales listos para copiar y pegar.</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+</div>
+
+<script>
+const textArea = document.getElementById('main-input');
+const countAll = document.getElementById('count-all');
+const countNoSpace = document.getElementById('count-no-space');
+const countFullWidthSpace = document.getElementById('count-full-width-space');
+const countLines = document.getElementById('count-lines');
+const countPaper = document.getElementById('count-paper');
+
+textArea.addEventListener('input', () => {
+    // Windows環境等の \r\n を \n に一元化して、改行コードの重複カウントを防ぐ
+    const val = textArea.value.replace(/\r\n|\r/g, "\n");
+    
+    // サロゲートペア対応の文字数カウント([...val]により絵文字等を正しく判定)
+    const charArray = [...val];
+    const charCount = val.length > 0 ? charArray.length : 0;
+    
+    // 文字数(全込)
+    countAll.textContent = charCount;
+    
+    // 文字数(スペース・改行抜き)
+    // 大量テキスト入力時の負荷を下げるため、一括置換後の長さを配列化して取得
+    const noSpaceCount = val.length > 0 ? [...val.replace(/\s/g, "")].length : 0;
+    countNoSpace.textContent = noSpaceCount;
+    
+    // 全角スペース数
+    const fullWidthSpaces = (val.match(/　/g) || []).length;
+    countFullWidthSpace.textContent = fullWidthSpaces;
+    
+    // 行数 (改行コードを統一してカウント)
+    const lines = val.length > 0 ? val.split("\n").length : 0;
+    countLines.textContent = lines;
+    
+    // 原稿用紙(400字) - 入力なし時は0、1文字以上で1枚〜
+    const paper = val.length > 0 ? Math.ceil(charCount / 400) : 0;
+    countPaper.textContent = paper;
+});
+</script>
+
+</body>
+</html>

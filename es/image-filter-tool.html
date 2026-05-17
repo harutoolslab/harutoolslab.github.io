@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<!-- ★SEO設定 -->
+<title>Filtros de Imagen Online | Convertir a sepia, negativo y blanco y negro gratis - HaruTools Lab</title>
+<meta name="description" content="Herramienta online gratuita para aplicar filtros como sepia, negativo (invertir colores) y blanco y negro a tus imágenes en lote. Sin instalación y compatible con móviles. El procesamiento se realiza en el navegador para garantizar tu privacidad.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+}
+
+.btn-select {
+  background: var(--primary);
+  color: white; border: none;
+  padding: 12px 30px; border-radius: 50px;
+  font-weight: bold; cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* プレビュー・操作 */
+#preview-zone { display: none; margin-top: 30px; border-top: 1px solid #eee; padding-top: 30px; }
+.preview-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1カラムで大きく表示 */
+  gap: 30px; margin-bottom: 30px;
+}
+.preview-item { background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee; }
+/* 画像を大きく表示し、リアルタイムフィルター用のクラスを追加 */
+.preview-item img { 
+  width: 100%; 
+  max-width: 800px; 
+  height: auto; 
+  object-fit: contain; 
+  border-radius: 4px; 
+  transition: filter 0.3s ease; /* フィルターの変化を滑らかに */
+}
+.preview-item span { font-size: 14px; color: var(--text-sub); display: block; margin-top: 10px; font-weight: bold; }
+
+.control-panel {
+  background: #f8f9fa; padding: 25px; border-radius: 12px;
+  display: inline-block; width: 100%; max-width: 500px; margin-bottom: 20px;
+}
+.filter-select {
+  padding: 10px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; width: 200px;
+}
+
+.btn-run {
+  background: var(--success); color: white; border: none;
+  padding: 15px 40px; border-radius: 50px; font-weight: bold; font-size: 1.1rem;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.2); transition: 0.2s;
+}
+.btn-run:hover { transform: translateY(-2px); background: #218838; }
+
+/* 追加：一括保存ボタンのスタイル */
+.btn-save-all {
+  background: #6c757d; color: white; border: none;
+  padding: 12px 30px; border-radius: 50px; font-weight: bold; font-size: 1rem;
+  cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: 0.2s;
+  margin-top: 15px; display: none; /* 初期は非表示 */
+}
+.btn-save-all:hover { background: #5a6268; }
+
+/* 結果エリア */
+#result-area { margin-top: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
+.download-link {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #fff; border: 1px solid #ddd; padding: 10px 15px;
+  border-radius: 8px; margin-bottom: 10px; text-decoration: none; color: var(--primary);
+  font-weight: bold; font-size: 0.9rem;
+  word-break: break-all; /* モバイルでの長いファイル名対策 */
+}
+.download-link:hover { background: #f0f7ff; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Colección de herramientas online gratuitas "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Filtros de Imagen</h1>
+    <p class="tagline">Sepia, negativo, blanco y negro y más. Aplica filtros estéticos a varias imágenes a la vez.</p>
+  </header>
+
+  <!-- 広告：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <main class="main-card">
+    <!-- 画像入力エリア -->
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta tus imágenes aquí</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">o</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivos (permite varios)</button>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
+
+    <!-- 操作・プレビュー -->
+    <div id="preview-zone">
+      <div class="control-panel">
+        <label style="font-weight: bold; margin-right: 10px;">Efecto de filtro:</label>
+        <!-- リアルタイム反映のために onchange を調整 -->
+        <select id="filter-type" class="filter-select" onchange="applyLiveFilter(); runFilter();">
+          <option value="sepia(100%)">Sepia (Retro)</option>
+          <option value="invert(100%)">Negativo (Invertir)</option>
+          <option value="grayscale(100%)">Monocromo (B/N)</option>
+          <option value="blur(5px)">Desenfoque (Suave)</option>
+          <option value="hue-rotate(90deg)">Rotación de tono (Arte)</option>
+        </select>
+        <div style="margin-top: 20px;">
+          <!-- 加工ボタンを削除し、一括保存ボタンのみ維持 -->
+          <button id="btn-save-all" class="btn-save-all" onclick="saveAllImages()">Guardar todas las imágenes</button>
+        </div>
+      </div>
+
+      <div id="preview-grid" class="preview-grid"></div>
+      <div id="result-area"></div>
+       
+      <div style="margin-top:20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Restablecer todo</button>
+      </div>
+    </div>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>¿Qué es la herramienta de filtros de imagen?</h2>
+    <p>Esta es una herramienta online con la que puedes aplicar diversos efectos de filtro a tus fotos directamente desde el navegador. No requiere ningún software especial, lo que te permite transformar instantáneamente tus imágenes para redes sociales o materiales web dándoles un toque único y estético. Pensando en tu privacidad, los datos de las imágenes nunca se envían al servidor.</p>
+
+    <h3>Filtros principales disponibles</h3>
+    <ul>
+      <li><strong>Sepia:</strong> Convierte las imágenes a un tono marrón cálido, similar al de las fotografías antiguas.</li>
+      <li><strong>Negativo (Invertir):</strong> Invierte los colores por completo para lograr una expresión artística parecida al negativo de una película.</li>
+      <li><strong>Monocromo:</strong> Elimina los colores para crear una fotografía clásica en blanco y negro que resalta las luces y sombras.</li>
+      <li><strong>Desenfoque:</strong> Difumina el fondo o suaviza la imagen completa para proteger la privacidad o crear un efecto artístico.</li>
+    </ul>
+
+    <h2>Pasos para usar la herramienta</h2>
+    <ol>
+      <li>Selecciona una o varias imágenes que desees procesar.</li>
+      <li>Elige el tipo de filtro que quieras aplicar desde el menú desplegable.</li>
+      <li>El procesamiento se ejecutará de forma automática.</li>
+      <li>Guarda las imágenes editadas mediante los enlaces de descarga individuales o con el botón de guardado por lote.</li>
+    </ol>
+
+    <h2>Características técnicas y protección de la privacidad</h2>
+    <h3>Ventajas del procesamiento integrado en el navegador</h3>
+    <p>Esta herramienta utiliza la API <strong>Canvas</strong> de JavaScript, adoptando un "procesamiento del lado del cliente" que realiza toda la edición de imágenes dentro de tu propio navegador (en tu dispositivo). Gracias a esto, no hay tiempos de espera para subir imágenes a un servidor y es posible procesar grandes volúmenes de archivos en lote a gran velocidad.</p>
+
+    <h3>Máxima protección de la privacidad</h3>
+    <p>A diferencia de los servicios convencionales de edición de fotos, <strong>tus imágenes nunca se envían a servidores externos.</strong> Incluso si se trata de fotografías personales o imágenes con información confidencial, el mayor beneficio es que puedes usarlas de manera segura sin preocuparte por el riesgo de filtraciones.</p>
+
+    <h3>Sugerencias de uso práctico</h3>
+    <ul>
+      <li><strong>Consistencia en redes sociales:</strong> Unifica varias fotos de perfil con tonos blanco y negro o sepia para darle una identidad visual coherente a tu galería.</li>
+      <li><strong>Protección de datos:</strong> Aplica el filtro de desenfoque a las fotos de tu blog para evitar que se identifiquen personas o ubicaciones en el fondo.</li>
+      <li><strong>Creación de material creativo:</strong> Utiliza el "Negativo" o la "Rotación de tono" para diseñar recursos de arte psicodélico o elementos para diseño web.</li>
+    </ul>
+
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. ¿Disminuye la calidad de la imagen?</strong>
+      <p>A. Al utilizar las funciones de renderizado del navegador (Canvas), se mantiene una alta calidad ideal para el uso cotidiano. Las imágenes se exportan en formato PNG, compatible con transparencias.</p>
+    </div>
+    <div class="faq-item">
+      <strong style="color:var(--primary);">Q. ¿Es segura mi privacidad?</strong>
+      <p>A. Las imágenes no se envían al servidor bajo ninguna circunstancia. Todo el proceso se completa dentro de tu navegador (en la memoria del dispositivo), por lo que puedes usarlo con total tranquilidad.</p>
+    </div>
+
+    <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="image-cropper-rounded.html">Recorte Circular y Bordes Redondeados</a>: Corte redondo ideal para redes sociales</li>
+      <li><a href="square-image-maker.html">Creador Multifuncional de Imágenes Cuadradas</a>: Añade márgenes para publicaciones de Instagram</li>
+      <li><a href="brightness-contrast.html">Ajuste de Brillo y Contraste</a>: Corrige la iluminación de tus fotos de forma intuitiva</li>
+      <li><a href="mosaic-blur.html">Herramienta de Mosaico y Desenfoque</a>: Ocultación parcial y protección de privacidad</li>
+    </ul>
+  </article>
+
+ <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const previewGrid = document.getElementById('preview-grid');
+const resultArea = document.getElementById('result-area');
+
+let currentFiles = [];
+
+// ファイル入力ハンドラ
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+
+dropArea.addEventListener('drop', e => {
+  handleFiles(e.dataTransfer.files);
+}, false);
+
+fileInput.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(files) {
+  currentFiles = Array.from(files).filter(f => f.type.startsWith('image/'));
+  if (currentFiles.length === 0) return;
+
+  previewGrid.innerHTML = "";
+  resultArea.innerHTML = "";
+  dropArea.style.display = 'none';
+  previewZone.style.display = 'block';
+
+  let loadedCount = 0;
+  currentFiles.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const div = document.createElement('div');
+      div.className = 'preview-item';
+      // プレビュー画像を表示。デフォルトのフィルターを適用
+      const initialFilter = document.getElementById('filter-type').value;
+      div.innerHTML = `<img src="${e.target.result}" style="filter: ${initialFilter}"><span>${file.name}</span>`;
+      previewGrid.appendChild(div);
+
+      loadedCount++;
+      // すべて読み込み終わったら自動実行
+      if(loadedCount === currentFiles.length) {
+        runFilter();
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+// リアルタイムプレビュー用関数
+function applyLiveFilter() {
+  const filterValue = document.getElementById('filter-type').value;
+  const previewImages = previewGrid.querySelectorAll('img');
+  previewImages.forEach(img => {
+    img.style.filter = filterValue;
+  });
+}
+
+// フィルター実行
+async function runFilter() {
+  const filterValue = document.getElementById('filter-type').value;
+  resultArea.innerHTML = "<p style='text-align:center; color:var(--primary); font-weight:bold;'>処理中...</p>";
+  
+  // 保存ボタンを隠す（再実行時）
+  if(document.getElementById('btn-save-all')) document.getElementById('btn-save-all').style.display = 'none';
+
+  const linksFragment = document.createDocumentFragment();
+
+  for (const file of currentFiles) {
+    const img = new Image();
+    const objectURL = URL.createObjectURL(file);
+    img.src = objectURL;
+
+    await new Promise(resolve => {
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        // フィルタ適用（安全のために初期化してから適用）
+        ctx.filter = 'none';
+        ctx.filter = filterValue;
+        ctx.drawImage(img, 0, 0);
+
+        const a = document.createElement('a');
+        a.className = 'download-link';
+        a.download = `filter_${file.name.split('.')[0]}.png`;
+        a.href = canvas.toDataURL('image/png');
+        a.innerHTML = `<span>💾 ${file.name}</span> <span style="font-size:12px;">Descargar</span>`;
+        
+        linksFragment.appendChild(a);
+        URL.revokeObjectURL(objectURL);
+        resolve();
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(objectURL);
+        resolve();
+      };
+    });
+  }
+
+  resultArea.innerHTML = "<p style='color:var(--success); font-weight:bold; margin-bottom:10px;'>✅ ¡Procesamiento completado! Haz clic para guardar:</p>";
+  resultArea.appendChild(linksFragment);
+
+  // 加工完了後に一括保存ボタンを表示
+  if(document.getElementById('btn-save-all')) document.getElementById('btn-save-all').style.display = 'inline-block';
+}
+
+// 追加：すべての画像を保存する関数
+function saveAllImages() {
+  const links = resultArea.querySelectorAll('.download-link');
+  links.forEach((link, index) => {
+    // 連続ダウンロードをブラウザがブロックするのを防ぐため、少しずつ遅延させてクリック
+    setTimeout(() => {
+      link.click();
+    }, index * 200);
+  });
+}
+</script>
+
+</body>
+</html>

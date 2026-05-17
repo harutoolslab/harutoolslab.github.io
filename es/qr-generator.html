@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<title>Generador de Códigos QR ｜ Gratis, uso comercial y sin registro - HaruTools Lab</title>
+<meta name="description" content="Herramienta en línea gratuita para convertir cualquier URL o texto en un código QR al instante. Personaliza el color y el tamaño, y guarda la imagen en alta calidad. Uso comercial gratuito sin necesidad de registrarse.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.input-group { width: 100%; text-align: left; margin-bottom: 20px; }
+label { font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 8px; color: #555; }
+
+input[type="text"], select {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+input[type="text"]:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* QR表示エリア */
+#qr-display-area {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200px;
+  justify-content: center;
+}
+
+#qrcode {
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+#qrcode img { margin: 0 auto; max-width: 100%; height: auto; }
+
+.btn-download {
+  display: none; /* 生成されるまで非表示 */
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+.btn-download:hover { transform: translateY(-2px); opacity: 0.9; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .settings-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+        Colección de herramientas en línea gratuitas "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Generador de Códigos QR</h1>
+    <p class="tagline">Introduce una URL o texto para crear al instante tu propio código QR personalizado.</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <div class="input-group">
+      <label for="text">URL o texto para convertir en código QR</label>
+      <input type="text" id="text" placeholder="https://example.com" oninput="generateQR()">
+    </div>
+
+    <div class="settings-grid">
+      <div class="input-group">
+        <label for="size">Tamaño de la imagen</label>
+        <select id="size" onchange="generateQR()">
+          <option value="128">Pequeño (128x128)</option>
+          <option value="256" selected>Estándar (256x256)</option>
+          <option value="512">Grande (512x512)</option>
+          <option value="1024">Extra grande (1024x1024)</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="colorDark">Color del código</label>
+        <input type="color" id="colorDark" value="#000000" style="width:100%; height:52px; padding:4px; cursor:pointer; border:2px solid #eee; border-radius:10px; box-sizing:border-box;" onchange="generateQR()">
+      </div>
+    </div>
+
+    <div id="qr-display-area">
+      <div id="qrcode"></div>
+      <p id="placeholder-text" style="color:#aaa; font-size:0.9rem;">El código QR aparecerá aquí cuando introduzcas una URL o texto</p>
+    </div>
+    
+    <button id="download-btn" class="btn-download" onclick="downloadQR()">Guardar imagen generada</button>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>¿Qué es el Generador de Códigos QR?</h2>
+    <p>El "Generador de Códigos QR" es un servicio en línea completamente gratuito que le permite convertir URLs de sitios web o cualquier información de texto en imágenes de códigos QR legibles. Puede utilizarse para una amplia variedad de propósitos, tales como folletos, tarjetas de presentación, pósteres y presentaciones de perfiles en redes sociales.</p>
+
+    <h3>Alta seguridad y algoritmo avanzado</h3>
+    <p>El motor de generación de QR de esta herramienta adopta un algoritmo de generación de símbolos de alta precisión que cumple con la norma ISO/IEC 18004. Dado que todo el proceso de codificación se realiza en el lado del cliente (dentro de su navegador), se bloquea físicamente cualquier riesgo de que los datos introducidos se envíen a un servidor externo. Puede utilizarlo con total tranquilidad y con el máximo nivel de protección de la privacidad, incluso para URLs de documentos internos confidenciales o textos que contengan información personal.</p>
+
+    <h3>Características de esta herramienta</h3>
+    <ul>
+      <li><strong>Sin registro y totalmente gratis:</strong> Puede utilizar todas las funciones de forma gratuita, tanto para fines comerciales como personales, sin la molestia de tener que registrarse o iniciar sesión.</li>
+      <li><strong>Diseño seguro para su privacidad:</strong> Todo el procesamiento de generación se realiza mediante JavaScript en su navegador. Los datos introducidos nunca se envían al servidor ni se guardan en registros (logs).</li>
+      <li><strong>Personalización flexible:</strong> Puede cambiar libremente el tamaño (desde 128px hasta 1024px) y el color del código según sus necesidades de uso.</li>
+    </ul>
+
+    <h2>Ideas para aprovechar los códigos QR</h2>
+    <p><strong>1. Para aumentar seguidores en redes sociales de tiendas:</strong> Convierta la URL del perfil de Instagram, la cuenta oficial de LINE o X (antes Twitter) en un código QR y colóquelo junto a la caja registradora o en las mesas para incentivar a los clientes a seguirle de forma sencilla.</p>
+    <p><strong>2. En tarjetas de presentación y portafolios:</strong> Al incluir un código QR con el enlace a su sitio web de portafolio o datos de contacto en su tarjeta de presentación, las personas podrán acceder a su información instantáneamente con sus teléfonos móviles.</p>
+    <p><strong>3. En paneles informativos de eventos:</strong> Al transformar en código QR la URL compartida de una aplicación de mapas o un formulario de inscripción para un evento, mejorará considerablemente la comodidad de los asistentes.</p>
+
+    <h2>Preguntas frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Tienen fecha de caducidad los códigos QR generados?</span>
+      <p>R. No, no tienen caducidad. Mientras la URL de destino permanezca activa y válida, podrá utilizar el código QR generado indefinidamente. Sin embargo, tenga en cuenta que si la propia URL se modifica o elimina, ya no se podrá acceder al contenido.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Afecta a la lectura si cambio el color del código?</span>
+      <p>R. Si utiliza un color demasiado claro para el código o un color muy similar al del fondo, la lectura se volverá difícil. Recomendamos encarecidamente utilizar la combinación de "fondo blanco" y "código de color oscuro". Asegúrese siempre de realizar una prueba de lectura con su propio teléfono móvil antes de distribuirlo o imprimirlo.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. ¿Es posible utilizarlo con fines comerciales?</span>
+      <p>R. Sí, el uso para fines comerciales y lucrativos está permitido sin ningún tipo de restricción.</p>
+    </div>
+    
+    <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="favicon-generator.html">Generador de Favicon</a> : Cree fácilmente iconos para su sitio web</li>
+      <li><a href="remove-exif.html">Eliminar metadatos Exif</a> : Borre de forma segura la información de ubicación de sus fotos</li>
+      <li><a href="image-compress.html">Compresor de imágenes</a> : Reduzca el tamaño del archivo manteniendo la calidad visual</li>
+      <li><a href="png-to-jpg.html">Convertir PNG a JPG</a> : Conversión rápida y masiva de formatos de imagen</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+
+</div>
+
+<script>
+let qrGenerator = null;
+
+function generateQR() {
+  const textInput = document.getElementById("text").value;
+  const sizeValue = document.getElementById("size").value;
+  const colorValue = document.getElementById("colorDark").value;
+  const qrContainer = document.getElementById("qrcode");
+  const downloadBtn = document.getElementById("download-btn");
+  const placeholder = document.getElementById("placeholder-text");
+
+  // コンテナを一旦クリア
+  qrContainer.innerHTML = "";
+
+  if (textInput.trim() === "") {
+    downloadBtn.style.display = "none";
+    placeholder.style.display = "block";
+    qrContainer.style.display = "none";
+    return;
+  }
+
+  placeholder.style.display = "none";
+  qrContainer.style.display = "block";
+
+  // QRコード生成 (QRCode.js)
+  qrGenerator = new QRCode(qrContainer, {
+    text: textInput,
+    width: parseInt(sizeValue),
+    height: parseInt(sizeValue),
+    colorDark : colorValue,
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+  });
+
+  // ライブラリのレンダリング完了後にボタンを表示
+  setTimeout(() => {
+    downloadBtn.style.display = "inline-block";
+  }, 100);
+}
+
+function downloadQR() {
+  const canvas = document.querySelector("#qrcode canvas");
+  const img = document.querySelector("#qrcode img");
+  const link = document.createElement("a");
+
+  if (canvas) {
+    // Canvasが生成されている場合はCanvasからデータ取得（高画質維持のため優先）
+    link.href = canvas.toDataURL("image/png");
+  } else if (img) {
+    // Canvasがなくimgタグのみの場合はsrcから取得
+    link.href = img.src;
+  } else {
+    return;
+  }
+
+  link.download = "qrcode_harutool.png";
+  link.click();
+}
+
+// ページ読み込み時に空文字で初期化
+window.onload = generateQR;
+</script>
+
+</body>
+</html>

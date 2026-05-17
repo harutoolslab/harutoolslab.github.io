@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO設定：はるツール カラーコード一覧用 -->
+<title>Lista de códigos de color｜Función de copia HEX útil para desarrollo web y diseño "HaruTools Lab"</title>
+<meta name="description" content="Una lista de códigos de color (formato HEX) de uso frecuente en diseño web y programación. Copia automáticamente el código con un solo clic. Cubre desde colores básicos hasta tonos pastel y colores de tendencia.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height:  auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* メインコンテンツ */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+/* カテゴリー見出し */
+h3.category-title {
+  text-align: left;
+  border-left: 4px solid var(--primary);
+  padding-left: 10px;
+  margin: 30px 0 15px;
+  font-size: 1.2rem;
+}
+
+/* カラーグリッド */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 15px;
+}
+
+.color-box {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  padding: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  outline: none;
+}
+.color-box:hover, .color-box:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-color: var(--primary);
+}
+.color-box:active { transform: scale(0.95); }
+
+.color-preview {
+  height: 60px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
+}
+
+.color-code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #555;
+}
+
+/* コピー通知演出 */
+.copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* 解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; margin-top: 25px; color: #111; }
+.info-section p { margin-bottom: 15px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab
+    </a>
+  </div>
+    <h1>Lista de códigos de color (HEX)</h1>
+    <p class="tagline">Copia códigos de color con un solo clic. Haz que tu flujo de trabajo sea un poco más fluido.</p>
+  </header>
+
+  <!-- 上部広告 -->
+  <div class="ad-slot">
+  <span class="ad-label">Anuncios</span>
+  <!-- AdSense Unit -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2295804002960949"
+       data-ad-slot="2569812848"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+
+  <main class="main-card" id="color-app">
+    <!-- JSでここにカラーカテゴリーが生成されます -->
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>Cómo utilizar la lista de códigos de color y conceptos básicos de combinación</h2>
+    <p>
+      En el diseño de sitios web y el desarrollo de aplicaciones, la combinación de colores es un elemento crucial que afecta directamente a la experiencia del usuario (UX).
+      Esta herramienta cubre los colores clave que se necesitan con frecuencia en el entorno de desarrollo, permitiéndote copiar el código en formato hexadecimal (HEX) al portapapeles con un solo clic.
+    </p>
+
+    <h3>¿Qué es un código de color hexadecimal (HEX)?</h3>
+    <p>
+      Un código de color representa los componentes de los tres colores primarios de la luz: rojo (Red), verde (Green) y azul (Blue), utilizando números hexadecimales que van desde 00 hasta FF (de 0 a 255 en base decimal).
+      Por ejemplo, <strong>#FF0000</strong> significa que el color rojo está al máximo y los otros colores están en cero, es decir, un "rojo puro". Es el formato más utilizado en el estándar CSS para la web.
+    </p>
+
+    <h3>Cómo elegir colores útiles para el diseño</h3>
+    <p>Si tienes dudas sobre las combinaciones de colores, puedes consultar las características de cada categoría a continuación:</p>
+    <ul>
+      <li><strong>Monocromo:</strong> Se utiliza para fondos y bordes, ayudando a mantener la legibilidad del contenido.</li>
+      <li><strong>Colores pastel:</strong> Crean una atmósfera amigable y suave, ideal para diseños de interfaz de usuario (UI) modernos.</li>
+      <li><strong>Colores de negocios:</strong> Transmiten una sensación de confianza y se utilizan a menudo en sitios web corporativos y paneles de control.</li>
+      <li><strong>Tendencia (Colores apagados/Muted):</strong> Ofrecen una impresión contemporánea y sofisticada, adecuada para medios de moda o estilo de vida.</li>
+    </ul>
+
+    <h2>Preguntas frecuentes</h2>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. ¿Qué formato de color debería utilizar?</strong>
+      <p>A. Para el desarrollo web, el formato HEX (hexadecimal) que se ofrece en esta herramienta es el más versátil y recomendado. Considera cambiar al formato RGBA solo cuando necesites especificar la opacidad.</p>
+    </div>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. La función de copiar no funciona.</strong>
+      <p>A. Es posible que el acceso al portapapeles esté restringido debido a la configuración de seguridad de tu navegador. Comprueba los permisos desde el "icono de candado" en la barra de direcciones.</p>
+    </div>
+
+   <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="rgb-to-hex.html">Herramienta de conversión RGB → HEX</a>: Convierte valores numéricos (R,G,B) al formato hexadecimal.</li>
+      <li><a href="hex-to-rgb.html">Herramienta de conversión HEX → RGB</a>: Extrae los valores numéricos en formato RGB.</li>
+      <li><a href="color-picker.html">Selector de color</a>: Crea tus propios colores personalizados.</li>
+      <li><a href="image-measure.html">Regla y transportador para imágenes</a>: Mide y analiza con precisión la disposición de los colores y los ángulos dentro de una imagen.</li>
+      <li><a href="image-compare.html">Comparador de imágenes</a>: Compara las diferencias de tono entre dos propuestas de diseño colocándolas lado a lado.</li>
+    </ul>
+  </article>
+
+<!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+<footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+</div>
+
+<!-- コピー通知用 -->
+<div id="toast" class="copy-toast">¡Copiado!</div>
+
+<script>
+const colorData = [
+  {
+    title: "Colores estándar (Standard Colors)",
+    colors: ["#000000", "#ffffff", "#ff0000", "#00ff00", "#0000ff", "#ffff00", "#00ffff", "#ff00ff"]
+  },
+  {
+    title: "Monocromo y escala de grises",
+    colors: ["#333333", "#666666", "#999999", "#cccccc", "#eeeeee", "#f5f5f5", "#fafafa", "#ffffff"]
+  },
+  {
+    title: "Colores pastel",
+    colors: ["#ffb7b2", "#ffdac1", "#e2f0cb", "#b5ead7", "#c7ceea", "#ff9aa2", "#fcf4dd", "#d0f4de"]
+  },
+  {
+    title: "Negocios y Web Safe",
+    colors: ["#007bff", "#6c757d", "#28a745", "#dc3545", "#ffc107", "#17a2b8", "#343a40", "#f8f9fa"]
+  },
+  {
+    title: "Tendencia y colores apagados",
+    colors: ["#8d99ae", "#2b2d42", "#edf2f4", "#ef233c", "#d90429", "#5f0f40", "#9a031e", "#fb8b24"]
+  }
+];
+
+const app = document.getElementById('color-app');
+const toast = document.getElementById('toast');
+
+function showToast(code, isError = false) {
+  toast.textContent = isError ? "Error al copiar el código" : `¡${code} copiado!`;
+  toast.style.background = isError ? "#dc3545" : "#333";
+  toast.style.opacity = '1';
+  setTimeout(() => {
+    toast.style.opacity = '0';
+  }, 2000);
+}
+
+colorData.forEach(category => {
+  // カテゴリータイトル作成
+  const title = document.createElement('h3');
+  title.className = 'category-title';
+  title.textContent = category.title;
+  app.appendChild(title);
+
+  // グリッド作成
+  const grid = document.createElement('div');
+  grid.className = 'color-grid';
+
+  category.colors.forEach(code => {
+    const box = document.createElement('div');
+    box.className = 'color-box';
+    box.tabIndex = 0; // キーボード操作対応
+    box.innerHTML = `
+      <div class="color-preview" style="background: ${code}"></div>
+      <div class="color-code">${code.toUpperCase()}</div>
+    `;
+
+    const copyHandler = () => {
+      const upperCode = code.toUpperCase();
+      if (!navigator.clipboard) {
+        showToast(upperCode, true);
+        return;
+      }
+      navigator.clipboard.writeText(code).then(() => {
+        showToast(upperCode);
+      }).catch(() => {
+        showToast(upperCode, true);
+      });
+    };
+
+    box.addEventListener('click', copyHandler);
+    box.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') copyHandler();
+    });
+
+    grid.appendChild(box);
+  });
+
+  app.appendChild(grid);
+});
+</script>
+
+</body>
+</html>

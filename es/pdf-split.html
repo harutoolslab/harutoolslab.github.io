@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<title>Herramienta para Combinar PDF | Unir varios archivos PDF gratis y online | HaruTools Lab</title>
+<meta name="description" content="Herramienta online gratuita para combinar varios archivos PDF en un solo documento en el orden en que los subas. Procesamiento seguro en el navegador, sin instalación y compatible con móviles y PC.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
+}
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* プレビュー＆操作エリア */
+#preview-zone { display: none; margin-top: 20px; text-align: left; }
+#file-list {
+  max-width: 600px;
+  margin: 20px auto;
+}
+.file-item {
+  background: #f8f9fa;
+  margin-bottom: 8px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+}
+.file-index {
+  background: var(--primary);
+  color: white;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  margin-right: 10px;
+}
+
+.btn-run {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 30px auto 10px;
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+.btn-run:disabled { background: #ccc; cursor: not-allowed; box-shadow: none; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Colección de Herramientas Online Gratis "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Herramienta para Combinar PDF</h1>
+    <p class="tagline">Combina varios archivos PDF en un solo documento en el orden en que los subas.</p>
+  </header>
+
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arrastra y suelta tus PDF aquí</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">(Puedes seleccionar varios archivos a la vez)</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Seleccionar archivos</button>
+      <input type="file" id="file-input" accept="application/pdf" multiple style="display:none;">
+    </div>
+
+    <div id="preview-zone">
+      <h3 style="text-align:center; margin-bottom:15px;">Orden de los archivos a combinar</h3>
+      <div id="file-list"></div>
+       
+      <button id="merge-btn" class="btn-run" onclick="mergePdfs()">Combinar PDF y guardar</button>
+      <div id="status" style="text-align:center; margin-top:15px; font-weight:bold; color:var(--primary);"></div>
+       
+      <div style="text-align:center; margin-top:20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer; font-size:0.8rem;">Restablecer archivos</button>
+      </div>
+    </div>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>¿Qué es la herramienta para combinar PDF?</h2>
+    <p>La "Herramienta para Combinar PDF" es una aplicación web que te permite unir fácilmente varios archivos PDF independientes en un único documento directamente desde tu navegador. Es ideal para organizar documentos escaneados por separado o para juntar materiales creados en diferentes programas.</p>
+
+    <h3>Sobre nuestro algoritmo avanzado de combinación</h3>
+    <p>Esta herramienta utiliza "pdf-lib", una biblioteca avanzada que analiza la estructura del PDF y reorganiza de forma óptima los datos gráficos y de las fuentes. En lugar de una simple unión, el procesamiento mantiene la integridad de los metadatos, garantizando que la precisión de la búsqueda de texto y la fidelidad del diseño original no se pierdan después de la combinación. Ofrece resultados de alta calidad incluso para usos exigentes como tesis académicas, contratos comerciales o creación de portafolios.</p>
+
+    <h3>Ventajas de esta herramienta</h3>
+    <ul>
+      <li><strong>Totalmente gratis y sin registro:</strong> Disfruta de todas las funciones de forma gratuita y al instante, sin necesidad de crear una cuenta.</li>
+      <li><strong>Seguridad garantizada:</strong> Gracias a la tecnología de "pdf-lib", todo el procesamiento de unión se realiza en tu propio navegador. Tus archivos nunca se enviarán a servidores externos.</li>
+      <li><strong>Sin instalaciones:</strong> Puedes utilizarla directamente desde el navegador en Windows, Mac o dispositivos móviles.</li>
+    </ul>
+
+    <h2>Casos de uso para unir archivos PDF</h2>
+    <p><strong>1. Mayor eficiencia al enviar documentos:</strong> Al combinar varios informes o certificados en un solo PDF, evitas olvidar adjuntar archivos en los correos electrónicos y facilitas la lectura al destinatario.</p>
+    <p><strong>2. Organización de documentos escaneados:</strong> Permite guardar hojas escaneadas por separado en un único libro digital con el orden correcto.</p>
+    <p><strong>3. Contratos y solicitudes electrónicas:</strong> Ayuda a adjuntar y gestionar múltiples documentos complementarios junto con el formulario de solicitud principal en un solo paquete.</p>
+
+    <h2>Preguntas frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. ¿Puedo cambiar el orden de los archivos antes de combinarlos?</span>
+      <p>A. En la versión actual, los archivos se listan en el orden en que los seleccionas (o arrastras), o según los reconoce el sistema operativo. Si deseas cambiar el orden, te recomendamos restablecer la lista y añadirlos uno a uno en la secuencia deseada, o numerar los nombres de los archivos (01, 02...) antes de seleccionarlos en grupo.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. ¿Puedo subir archivos PDF grandes o con muchas páginas?</span>
+      <p>A. No tendrás problemas con los documentos de oficina habituales. Sin embargo, los archivos extremadamente pesados que superen varios cientos de megabytes podrían causar errores debido a las limitaciones de memoria de tu navegador.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. ¿Se reduce la calidad visual después de combinarlos?</span>
+      <p>A. No. Las páginas se copian directamente y se colocan en un nuevo contenedor, de modo que la calidad de imagen y la información de texto originales se conservan intactas.</p>
+    </div>
+
+    <h3>Herramientas relacionadas</h3>
+    <ul>
+      <li><a href="image-to-pdf.html">Convertidor de Imagen a PDF</a> : Convierte tus fotos a PDF por lotes</li>
+      <li><a href="pdf-to-image.html">Convertidor de PDF a Imagen</a> : Extrae las páginas de un PDF como imágenes</li>
+      <li><a href="image-compress.html">Herramienta de Compresión de Imágenes</a> : Reduce el tamaño y peso de tus archivos</li>
+      <li><a href="png-to-jpg.html">Convertir PNG a JPG</a> : Conversión mutua y rápida entre formatos de imagen</li>
+    </ul>
+     
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Anuncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Términos de servicio</a> | <a href="privacy.html" style="color:#999;">Política de privacidad</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const fileList = document.getElementById('file-list');
+const status = document.getElementById('status');
+const mergeBtn = document.getElementById('merge-btn');
+
+let selectedFiles = [];
+
+// ドラッグ&ドロップ設定
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, e => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, false);
+});
+
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.add('active'), false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', (e) => {
+  handleFiles(e.dataTransfer.files);
+}, false);
+
+fileInput.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(files) {
+  const newFiles = Array.from(files).filter(f => f.type === "application/pdf");
+  if (newFiles.length === 0) return;
+
+  selectedFiles = [...selectedFiles, ...newFiles];
+   
+  dropArea.style.display = 'none';
+  previewZone.style.display = 'block';
+  renderFileList();
+}
+
+function renderFileList() {
+  fileList.innerHTML = "";
+  selectedFiles.forEach((file, index) => {
+    const div = document.createElement("div");
+    div.className = "file-item";
+    div.innerHTML = `
+      <span><span class="file-index">${index + 1}</span> ${file.name}</span>
+      <span style="font-size:0.8rem; color:#888;">(${(file.size / 1024 / 1024).toFixed(2)} MB)</span>
+    `;
+    fileList.appendChild(div);
+  });
+}
+
+async function mergePdfs() {
+  if (selectedFiles.length < 2) {
+    alert("結合するには2つ以上のファイルを選択してください");
+    return;
+  }
+
+  mergeBtn.disabled = true;
+  status.innerHTML = "PDF結合中... しばらくお待ちください";
+
+  try {
+    const { PDFDocument } = PDFLib;
+    const mergedPdf = await PDFDocument.create();
+
+    for (const file of selectedFiles) {
+      const arrayBuffer = await file.arrayBuffer();
+      // パスワード保護等のエラーチェックを強化
+      const pdf = await PDFDocument.load(arrayBuffer).catch(err => {
+        throw new Error(`${file.name}: 読み込みに失敗しました。パスワード保護されている可能性があります。`);
+      });
+      const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+      copiedPages.forEach((page) => mergedPdf.addPage(page));
+    }
+
+    const pdfBytes = await mergedPdf.save();
+    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob); // URLを変数に格納
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `merged_${Date.now()}.pdf`;
+    link.click();
+
+    // メモリ解放処理を追加
+    setTimeout(() => URL.revokeObjectURL(url), 100);
+
+    status.innerHTML = "結合が完了しました！";
+    mergeBtn.disabled = false;
+  } catch (error) {
+    console.error(error);
+    // エラーメッセージの出し分け
+    status.innerHTML = error.message.includes("Error") ? error.message : "エラーが発生しました。ファイルが壊れている可能性があります。";
+    mergeBtn.disabled = false;
+  }
+}
+</script>
+
+</body>
+</html>
