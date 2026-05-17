@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<title>Pixel Art Maker | Grid Display, Transparent Background, Save - HaruTools Lab</title>
+<meta name="description" content="A free online pixel art creation tool that is easy for beginners to use. Draw pixel by pixel while displaying accurate grid lines, and export as enlarged transparent PNGs. Perfect for web assets and icons.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* コントロールパネル */
+.control-panel {
+  display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center;
+  background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 20px;
+}
+
+.tool-btn {
+  padding: 8px 16px; border: 1px solid #ddd; background: #fff; border-radius: 8px;
+  cursor: pointer; font-weight: bold; transition: 0.2s; font-size: 0.9rem;
+}
+.tool-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+/* キャンバスエリア */
+.canvas-scroll-viewer {
+  width: 100%; max-height: 60vh; overflow: auto;
+  background: #ccc; border: 2px solid #333; border-radius: 4px;
+  margin: 20px 0; 
+  display: flex;
+}
+
+.canvas-wrapper {
+  display: inline-block;
+  margin: auto;
+  background-color: #ffffff;
+  position: relative; /* 子要素の絶対配置の基準にする */
+  line-height: 0;
+}
+
+/* キャンバスの上に重ねるグリッド用レイヤー */
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* 下のcanvasの操作を邪魔しない */
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+  z-index: 10;
+}
+
+.canvas-wrapper.hide-grid .grid-overlay {
+  display: none;
+}
+
+#pixel-canvas {
+  image-rendering: pixelated;
+  cursor: crosshair;
+  display: block;
+}
+
+/* パレット */
+.palette-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
+.palette-color {
+  width: 32px; height: 32px; border: 1px solid #ddd; border-radius: 6px;
+  cursor: pointer; transition: transform 0.1s;
+}
+.palette-color:hover { transform: scale(1.1); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+/* 保存セクション */
+.save-panel { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
+.btn-run {
+  background: var(--success); color: white; border: none; padding: 12px 40px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+
+/* 大画面モード */
+.fullscreen-mode {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 9999; background: #333; display: flex; flex-direction: row;
+  padding: 0; margin: 0; border-radius: 0;
+}
+
+.fullscreen-mode .sidebar {
+  width: 300px; height: 100vh; background: #fff; overflow-y: auto;
+  padding: 20px; box-sizing: border-box; display: flex; flex-direction: column;
+  gap: 15px; border-right: 2px solid #ddd; flex-shrink: 0;
+}
+
+.fullscreen-mode #scroll-viewer {
+  flex-grow: 1; height: 100vh; max-height: 100vh; margin: 0;
+  border: none; border-radius: 0; background: #444; width: auto;
+  display: flex;
+}
+
+.fullscreen-mode .control-panel {
+  flex-direction: column; align-items: stretch; background: none; padding: 0;
+}
+
+.fullscreen-mode #color-picker-container {
+  order: 1;
+  text-align: center;
+}
+.fullscreen-mode #palette {
+  order: 3;
+}
+.fullscreen-mode .control-panel:nth-of-type(1) { order: 1; }
+.fullscreen-mode .control-panel:nth-of-type(2) { order: 2; }
+
+.fullscreen-mode .palette-container { margin: 10px 0; }
+.fullscreen-mode .save-panel { display: none; }
+
+/* スマホ縦画面での大画面モードレイアウト調整 */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .fullscreen-mode {
+    flex-direction: column;
+  }
+  .fullscreen-mode .sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 40vh;
+    border-right: none;
+    border-bottom: 2px solid #ddd;
+  }
+  .fullscreen-mode #scroll-viewer {
+    width: 100%;
+    height: 60vh;
+  }
+  .fullscreen-mode .control-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.exit-fs-btn {
+  background: #ff4757; color: white; border: none; padding: 10px;
+  border-radius: 8px; cursor: pointer; font-weight: bold; margin-bottom: 10px;
+}
+
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Free Online Tools - HaruTools Lab
+    </a>
+  </div>
+    <h1>Pixel Art Maker</h1>
+    <p class="tagline">Easy drawing with grid lines. Supports saving as transparent PNG.</p>
+  </header>
+
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card" id="editor-main">
+    <div id="sidebar-area" class="sidebar-target">
+      <button class="exit-fs-btn" id="exit-fs-btn" style="display:none;" onclick="toggleFullscreen()">Exit Fullscreen</button>
+       
+      <div class="control-panel">
+        Size: 
+        <select id="width-select" style="padding: 5px; border-radius: 5px;"></select> × 
+        <select id="height-select" style="padding: 5px; border-radius: 5px;"></select>
+        <button class="tool-btn" onclick="initCanvas()" style="margin-left:10px; color: #d63031;">Reset</button>
+        <div style="margin-left:15px;">
+          Zoom: <input type="range" id="zoom-range" min="5" max="60" value="20" oninput="updateZoom()">
+        </div>
+      </div>
+
+      <div class="control-panel">
+        <div id="color-picker-container">
+          <input type="color" id="color-picker" value="#333333" title="Select color" style="width:40px; height:38px; cursor:pointer; border:none; background:none; vertical-align: middle;">
+        </div>
+        <button class="tool-btn" onclick="addColorToPalette()">Save Color</button>
+
+        <button id="pen-tool" class="tool-btn active" onclick="setTool('pen')">Pen</button>
+        <button id="eraser-tool" class="tool-btn" onclick="setTool('eraser')">Eraser</button>
+        <button id="bucket-tool" class="tool-btn" onclick="setTool('bucket')">Bucket Fill</button>
+        <button id="move-tool" class="tool-btn" onclick="setTool('move')">Move</button>
+
+        <div style="border-left: 1px solid #ddd; height: 30px; margin: 0 5px;"></div>
+
+        <button class="tool-btn" onclick="undo()" title="Undo">Undo</button>
+        <button id="grid-toggle-btn" class="tool-btn active" onclick="toggleGrid()">Grid Lines</button>
+        <button id="view-all-btn" class="tool-btn" onclick="toggleViewAll()">View All</button>
+        <button id="fs-tool" class="tool-btn" onclick="toggleFullscreen()" style="background: #eef2f7;">Fullscreen</button>
+      </div>
+
+      <div class="palette-container" id="palette"></div>
+    </div>
+
+    <div class="canvas-scroll-viewer" id="scroll-viewer">
+      <div class="canvas-wrapper" id="canvas-wrapper">
+        <canvas id="pixel-canvas"></canvas>
+        <div class="grid-overlay" id="grid-overlay"></div>
+      </div>
+    </div>
+
+    <div class="save-panel">
+      Export Size: 
+      <select id="scale-select" style="padding: 10px; border-radius: 8px; border:1px solid #ddd;">
+        <option value="1">Original (1:1)</option>
+        <option value="16">16x Zoom</option>
+        <option value="32" selected>32x Zoom (Recommended)</option>
+        <option value="64">64x Zoom</option>
+      </select>
+      <button class="btn-run" onclick="download()" style="margin-left:15px;">Save Image</button>
+
+      <!-- 追加：JSON保存・読込エリア -->
+      <div style="margin-top:20px; border-top:1px dashed #eee; padding-top:20px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <button class="tool-btn" onclick="exportJSON()" style="background:#6c757d; color:white; border:none;">Save Project (.json)</button>
+        <button class="tool-btn" onclick="document.getElementById('import-file').click()" style="background:#6c757d; color:white; border:none;">Load JSON File</button>
+        <input type="file" id="import-file" style="display:none" accept=".json" onchange="importJSON(event)">
+      </div>
+    </div>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>Create High-Quality Pixel Art Entirely in Your Browser</h2>
+    <p>
+      This "Pixel Art Maker" is an online editor that allows you to easily design retro game-style characters, website favicons, and social media icons grid by grid. 
+      No complex software installation is required. Right from your web browser, you can export transparent PNG images and save your working data in JSON format for future editing.
+    </p>
+
+    <h3>3 Techniques to Perfect Your Pixel Art</h3>
+    <p>Beyond simply placing colors, keeping the following tips in mind will help you achieve a more professional pixel art finish.</p>
+    <ul>
+      <li><strong>Eliminate "Jaggies":</strong> When pixels overlap irregularly at line corners, lines look jagged and messy. Try to place pixels shifting step-by-step diagonally to create smoother lines.</li>
+      <li><strong>Intentionally Limit Your Palette:</strong> Restricting the number of colors—similar to retro game consoles—creates a cohesive and authentic "pixel art look." Make good use of the "Save Color" feature in this tool.</li>
+      <li><strong>Anti-aliasing (Intermediate Colors):</strong> Placing an intermediate shade between the object border and the background color by just one pixel makes curves look much smoother when zoomed out.</li>
+    </ul>
+
+    <h3>Guide to Choosing Resolutions</h3>
+    <ul>
+      <li><strong>16×16 px:</strong> Perfect for favicons and micro-icons. It is also an excellent exercise for learning how to express shapes within a strictly limited amount of information.</li>
+      <li><strong>32×32 px:</strong> The most commonly used size for social media profile pictures and retro RPG character walking graphics.</li>
+      <li><strong>64×64 px or higher:</strong> Best for adding complex shading, details, and detailed facial expressions. For beginners, we highly recommend starting with 32×32.</li>
+    </ul>
+
+    <h2>How to Use</h2>
+    <ol>
+      <li>Select your canvas size (e.g., 32×32) and click "Reset" to initialize the grid.</li>
+      <li>Choose your preferred color using the color picker, and draw on the canvas with the Pen tool.</li>
+      <li>For detailed work, adjust the magnification using the "Zoom" slider or your mouse wheel, and adjust the view position with the "Move" tool.</li>
+      <li>If you want a transparent background, simply leave the grid unpainted.</li>
+      <li>Finally, select your preferred export size (32x Zoom is recommended) and click "Save Image" to download your artwork.</li>
+    </ol>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. What are the copyright conditions for the created images?</span>
+      <p>A. There are no restrictions on the images created with this tool. You can freely use them for both personal and commercial purposes completely free of charge.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. The saved image appears blurry. How can I fix this?</span>
+      <p>A. To preserve the crisp texture of pixel art, choose an enlarged export size like "32x Zoom." Saving at the original size (1:1) may cause the image to look blurry when viewed on high-resolution displays or mobile devices.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Can I resume editing my work later?</span>
+      <p>A. Yes. By exporting your file using "Save Project (.json)," you can import that JSON file later via "Load JSON File" and resume editing exactly where you left off.</p>
+    </div>
+
+    <h3>Related Tools</h3>
+    <ul>
+      <li><a href="favicon-generator.html">Favicon Generator</a>: Convert your created pixel art into a website icon (.ico).</li>
+      <li><a href="image-compress.html">Image Compressor</a>: Compress your PNG images further to reduce file size while maintaining image quality.</li>
+      <li><a href="qr-generator.html">QR Code Generator</a>: Create custom designed QR codes that leverage a pixelated style.</li>
+      <li><a href="remove-exif.html">Exif Data Remover</a>: Remove location metadata from images before uploading to social media to protect your privacy.</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+</div>
+
+<script>
+const sizes = [4, 8, 16, 32, 48, 64, 96, 128];
+const defaultColors = [
+  "#000000", "#333333", "#666666", "#999999", "#cccccc", "#ffffff",
+  "#ff0000", "#ff9900", "#ffff00", "#00ff00", "#00ffff", "#0000ff", "#9900ff", "#ff00ff",
+  "#e63946", "#f1faee", "#a8dadc", "#457b9d", "#1d3557", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51",
+  "#ffdbac", "#f1c27d", "#e0ac69", "#8d5524", "#5e3c1e", "#3d2b1f",
+  "#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#9bf6ff", "#a0c4ff", "#bdb2ff", "#ffc6ff"
+];
+
+const canvas = document.getElementById('pixel-canvas');
+const ctx = canvas.getContext('2d');
+const wrapper = document.getElementById('canvas-wrapper');
+const scrollViewer = document.getElementById('scroll-viewer');
+const wSelect = document.getElementById('width-select');
+const hSelect = document.getElementById('height-select');
+const colorPicker = document.getElementById('color-picker');
+const palette = document.getElementById('palette');
+const zoomRange = document.getElementById('zoom-range');
+const gridOverlay = document.getElementById('grid-overlay');
+
+let isDrawing = false;
+let currentTool = 'pen';
+let undoStack = [];
+
+let isMoving = false;
+let startX, startY, scrollLeft, scrollTop;
+
+// 「全体を見る」用の状態保存
+let isViewAllMode = false;
+let prevViewState = {
+  zoom: 20,
+  gridVisible: true,
+  tool: 'pen',
+  scrollLeft: 0,
+  scrollTop: 0
+};
+
+// ピンチズーム用の変数
+let initialPinchDistance = null;
+let initialPinchZoom = null;
+
+sizes.forEach(s => {
+  wSelect.add(new Option(s, s));
+  hSelect.add(new Option(s, s));
+});
+wSelect.value = 32; hSelect.value = 32;
+
+function initPalette() {
+  palette.innerHTML = "";
+  defaultColors.forEach(color => createPaletteItem(color));
+}
+
+function createPaletteItem(color) {
+  const div = document.createElement('div');
+  div.className = 'palette-color';
+  div.style.backgroundColor = color;
+  div.onclick = () => { colorPicker.value = color; setTool('pen'); };
+  palette.appendChild(div);
+}
+
+function addColorToPalette() { createPaletteItem(colorPicker.value); }
+
+function updateZoom() {
+  const oldCanvasWidth = canvas.clientWidth;
+  const oldCanvasHeight = canvas.clientHeight;
+  const currentCenterX = (scrollViewer.scrollLeft + scrollViewer.clientWidth / 2);
+  const currentCenterY = (scrollViewer.scrollTop + scrollViewer.clientHeight / 2);
+  const ratioX = oldCanvasWidth > 0 ? currentCenterX / oldCanvasWidth : 0.5;
+  const ratioY = oldCanvasHeight > 0 ? currentCenterY / oldCanvasHeight : 0.5;
+
+  const zoom = parseInt(zoomRange.value);
+  canvas.style.width = (canvas.width * zoom) + "px";
+  canvas.style.height = (canvas.height * zoom) + "px";
+  // グリッドオーバーレイの背景サイズを更新
+  gridOverlay.style.backgroundSize = `${zoom}px ${zoom}px`;
+
+  const newCanvasWidth = canvas.clientWidth;
+  const newCanvasHeight = canvas.clientHeight;
+  scrollViewer.scrollLeft = (ratioX * newCanvasWidth) - (scrollViewer.clientWidth / 2);
+  scrollViewer.scrollTop = (ratioY * newCanvasHeight) - (scrollViewer.clientHeight / 2);
+}
+
+function saveState() {
+  undoStack.push(canvas.toDataURL());
+  if (undoStack.length > 50) undoStack.shift();
+}
+
+function undo() {
+  if (undoStack.length === 0) return;
+  const prevState = undoStack.pop();
+  const img = new Image();
+  img.src = prevState;
+  img.onload = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
+  };
+}
+
+function initCanvas(isInitial = false) {
+  if(!isInitial && !confirm("Are you sure you want to clear the current artwork and reset?")) return;
+  if(!isInitial) saveState();
+  const w = parseInt(wSelect.value);
+  const h = parseInt(hSelect.value);
+  canvas.width = w; canvas.height = h;
+  if (w >= 64) zoomRange.value = 10;
+  else zoomRange.value = 20;
+  updateZoom();
+  ctx.clearRect(0, 0, w, h);
+  if (isInitial) undoStack = [];
+}
+
+function setTool(tool) {
+  currentTool = tool;
+  document.getElementById('pen-tool').classList.toggle('active', tool === 'pen');
+  document.getElementById('eraser-tool').classList.toggle('active', tool === 'eraser');
+  document.getElementById('bucket-tool').classList.toggle('active', tool === 'bucket');
+  document.getElementById('move-tool').classList.toggle('active', tool === 'move');
+   
+  if (tool === 'move') {
+    canvas.style.cursor = 'grab';
+  } else {
+    canvas.style.cursor = 'crosshair';
+  }
+}
+
+function toggleGrid() {
+  const btn = document.getElementById('grid-toggle-btn');
+  const isHidden = wrapper.classList.toggle('hide-grid');
+  btn.classList.toggle('active', !isHidden);
+}
+
+// 「全体を見る」切り替え機能
+function toggleViewAll() {
+  const btn = document.getElementById('view-all-btn');
+  const gridBtn = document.getElementById('grid-toggle-btn');
+   
+  if (!isViewAllMode) {
+    // 現在の状態を保存
+    prevViewState.zoom = zoomRange.value;
+    prevViewState.gridVisible = !wrapper.classList.contains('hide-grid');
+    prevViewState.tool = currentTool;
+    prevViewState.scrollLeft = scrollViewer.scrollLeft;
+    prevViewState.scrollTop = scrollViewer.scrollTop;
+
+    // 全体表示の設定
+    isViewAllMode = true;
+    btn.classList.add('active');
+     
+    // グリッドをオフにする
+    if (prevViewState.gridVisible) {
+      wrapper.classList.add('hide-grid');
+      gridBtn.classList.remove('active');
+    }
+
+    // キャンバスを操作不能にする
+    canvas.style.pointerEvents = 'none';
+
+    // 画面に収まる倍率を計算
+    const padding = 20;
+    const availableW = scrollViewer.clientWidth - padding;
+    const availableH = scrollViewer.clientHeight - padding;
+    const zoomW = availableW / canvas.width;
+    const zoomH = availableH / canvas.height;
+    const fitZoom = Math.floor(Math.min(zoomW, zoomH));
+     
+    // 計算した倍率を適用（スライダーの範囲に合わせる）
+    zoomRange.value = Math.max(zoomRange.min, Math.min(fitZoom, zoomRange.max));
+    updateZoom();
+     
+    // 中央にスクロール
+    scrollViewer.scrollLeft = (canvas.clientWidth - scrollViewer.clientWidth) / 2;
+    scrollViewer.scrollTop = (canvas.clientHeight - scrollViewer.clientHeight) / 2;
+
+  } else {
+    // 元の状態に戻す
+    isViewAllMode = false;
+    btn.classList.remove('active');
+     
+    // 操作可能に戻す
+    canvas.style.pointerEvents = 'auto';
+
+    // グリッドを元に戻す
+    if (prevViewState.gridVisible) {
+      wrapper.classList.remove('hide-grid');
+      gridBtn.classList.add('active');
+    }
+
+    // ズームを元に戻す
+    zoomRange.value = prevViewState.zoom;
+     
+    // キャンバスのサイズを戻す
+    canvas.style.width = (canvas.width * prevViewState.zoom) + "px";
+    canvas.style.height = (canvas.height * prevViewState.zoom) + "px";
+    gridOverlay.style.backgroundSize = `${prevViewState.zoom}px ${prevViewState.zoom}px`;
+
+    // 保存していたスクロール位置を復元
+    scrollViewer.scrollLeft = prevViewState.scrollLeft;
+    scrollViewer.scrollTop = prevViewState.scrollTop;
+
+    // ツールを元に戻す
+    setTool(prevViewState.tool);
+  }
+}
+
+function getPos(e) {
+  const rect = canvas.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  const x = Math.floor((clientX - rect.left) * (canvas.width / rect.width));
+  const y = Math.floor((clientY - rect.top) * (canvas.height / rect.height));
+  return {x, y};
+}
+
+function handleDraw(e) {
+  if (!isDrawing || currentTool === 'move' || (e.touches && e.touches.length > 1)) return;
+  const {x, y} = getPos(e);
+  if (x >= 0 && x < canvas.width && y >= 0 && y < canvas.height) {
+    if (currentTool === 'pen') {
+      ctx.fillStyle = colorPicker.value;
+      ctx.fillRect(x, y, 1, 1);
+    } else if (currentTool === 'eraser') {
+      ctx.clearRect(x, y, 1, 1);
+    } else if (currentTool === 'bucket' && (e.type === 'mousedown' || e.type === 'touchstart')) {
+      floodFill(x, y, colorPicker.value);
+    }
+  }
+}
+
+function handleMoveStart(e) {
+  if (currentTool !== 'move') return;
+  isMoving = true;
+  canvas.style.cursor = 'grabbing';
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  startX = clientX;
+  startY = clientY;
+  scrollLeft = scrollViewer.scrollLeft;
+  scrollTop = scrollViewer.scrollTop;
+}
+
+function handleMoveUpdate(e) {
+  if (!isMoving) return;
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  const dx = clientX - startX;
+  const dy = clientY - startY;
+  scrollViewer.scrollLeft = scrollLeft - dx;
+  scrollViewer.scrollTop = scrollTop - dy;
+}
+
+function handleMoveEnd() {
+  isMoving = false;
+  if (currentTool === 'move') canvas.style.cursor = 'grab';
+}
+
+function floodFill(startX, startY, fillColor) {
+  const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const data = imgData.data;
+  const startPos = (startY * canvas.width + startX) * 4;
+  const startR = data[startPos];
+  const startG = data[startPos + 1];
+  const startB = data[startPos + 2];
+  const startA = data[startPos + 3];
+
+  const fillRGB = hexToRgb(fillColor);
+  if (startR === fillRGB.r && startG === fillRGB.g && startB === fillRGB.b && startA === 255) return;
+
+  const stack = [[startX, startY]];
+  while (stack.length) {
+    const [x, y] = stack.pop();
+    const pos = (y * canvas.width + x) * 4;
+
+    if (data[pos] === startR && data[pos+1] === startG && data[pos+2] === startB && data[pos+3] === startA) {
+      data[pos] = fillRGB.r;
+      data[pos+1] = fillRGB.g;
+      data[pos+2] = fillRGB.b;
+      data[pos+3] = 255;
+
+      if (x > 0) stack.push([x - 1, y]);
+      if (x < canvas.width - 1) stack.push([x + 1, y]);
+      if (y > 0) stack.push([x, y - 1]);
+      if (y < canvas.height - 1) stack.push([x, y + 1]);
+    }
+  }
+  ctx.putImageData(imgData, 0, 0);
+}
+
+function hexToRgb(hex) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : { r: 0, g: 0, b: 0 };
+}
+
+canvas.addEventListener('mousedown', (e) => { 
+  if (currentTool === 'move') {
+    handleMoveStart(e);
+  } else {
+    saveState();
+    isDrawing = true; 
+    handleDraw(e); 
+  }
+});
+
+canvas.addEventListener('mousemove', (e) => {
+  if (currentTool === 'move') {
+    handleMoveUpdate(e);
+  } else {
+    handleDraw(e);
+  }
+});
+
+window.addEventListener('mouseup', () => {
+  isDrawing = false;
+  handleMoveEnd();
+});
+
+// ピンチ用距離計算関数
+function getDistance(t1, t2) {
+  return Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+}
+
+canvas.addEventListener('touchstart', (e) => { 
+  if (e.touches.length === 2) {
+    // 2本指の場合：ピンチ開始
+    initialPinchDistance = getDistance(e.touches[0], e.touches[1]);
+    initialPinchZoom = parseInt(zoomRange.value);
+  } else if (e.touches.length === 1) {
+    if (currentTool === 'move') {
+      handleMoveStart(e);
+    } else {
+      saveState();
+      isDrawing = true; 
+      handleDraw(e); 
+    }
+  }
+  e.preventDefault(); 
+}, {passive: false});
+
+canvas.addEventListener('touchmove', (e) => { 
+  if (e.touches.length === 2 && initialPinchDistance !== null) {
+    // 2本指の場合：ピンチ中
+    const currentDistance = getDistance(e.touches[0], e.touches[1]);
+    const scale = currentDistance / initialPinchDistance;
+    const newZoom = Math.min(Math.max(initialPinchZoom * scale, parseInt(zoomRange.min)), parseInt(zoomRange.max));
+    zoomRange.value = Math.round(newZoom);
+    updateZoom();
+  } else if (e.touches.length === 1) {
+    if (currentTool === 'move') {
+      handleMoveUpdate(e);
+    } else {
+      handleDraw(e); 
+    }
+  }
+  e.preventDefault(); 
+}, {passive: false});
+
+window.addEventListener('touchend', (e) => {
+  if (e.touches.length < 2) {
+    initialPinchDistance = null;
+    initialPinchZoom = null;
+  }
+  isDrawing = false;
+  handleMoveEnd();
+});
+
+function download() {
+  const scale = parseInt(document.getElementById('scale-select').value);
+  const offCanvas = document.createElement('canvas');
+  offCanvas.width = canvas.width * scale;
+  offCanvas.height = canvas.height * scale;
+  const offCtx = offCanvas.getContext('2d');
+  offCtx.imageSmoothingEnabled = false;
+  offCtx.drawImage(canvas, 0, 0, offCanvas.width, offCanvas.height);
+  const link = document.createElement('a');
+  link.download = `pixelart_${canvas.width}x${canvas.height}.png`;
+  link.href = offCanvas.toDataURL("image/png");
+  link.click();
+}
+
+function toggleFullscreen() {
+  const main = document.getElementById('editor-main');
+  const sidebarArea = document.getElementById('sidebar-area');
+  const exitBtn = document.getElementById('exit-fs-btn');
+  const fsToolBtn = document.getElementById('fs-tool');
+   
+  if (!main.classList.contains('fullscreen-mode')) {
+    main.classList.add('fullscreen-mode');
+    sidebarArea.classList.add('sidebar');
+    exitBtn.style.display = 'block';
+    fsToolBtn.style.display = 'none';
+  } else {
+    main.classList.remove('fullscreen-mode');
+    sidebarArea.classList.remove('sidebar');
+    exitBtn.style.display = 'none';
+    fsToolBtn.style.display = 'inline-block';
+  }
+  updateZoom();
+}
+
+window.onload = () => {
+  initCanvas(true);
+  initPalette();
+};
+
+// マウスホイールによるズーム機能（マウスカーソル位置を基準に拡大縮小）
+canvas.addEventListener('wheel', (e) => {
+  if (isViewAllMode) return; // 全体表示中は無効化
+  e.preventDefault();
+  const currentZoom = parseInt(zoomRange.value);
+   
+  // ステップ計算
+  let step = Math.max(1, currentZoom / 10);
+  const direction = e.deltaY > 0 ? -step : step;
+  const newZoom = Math.min(Math.max(currentZoom + direction, parseInt(zoomRange.min)), parseInt(zoomRange.max));
+   
+  if (currentZoom !== newZoom) {
+    // 拡大前のマウス位置を取得（キャンバス内座標）
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    // 比率（キャンバスのどのあたりを指しているか）
+    const ratioX = mouseX / rect.width;
+    const ratioY = mouseY / rect.height;
+
+    // ズーム値を更新
+    zoomRange.value = newZoom;
+     
+    // キャンバスの表示サイズを更新
+    canvas.style.width = (canvas.width * newZoom) + "px";
+    canvas.style.height = (canvas.height * newZoom) + "px";
+    gridOverlay.style.backgroundSize = `${newZoom}px ${newZoom}px`;
+
+    // 新しいキャンバスサイズでのマウス位置を維持するようにスクロール位置を調整
+    const newRect = canvas.getBoundingClientRect();
+    scrollViewer.scrollLeft = (ratioX * newRect.width) - (e.clientX - scrollViewer.getBoundingClientRect().left);
+    scrollViewer.scrollTop = (ratioY * newRect.height) - (e.clientY - scrollViewer.getBoundingClientRect().top);
+  }
+}, { passive: false });
+
+// 【追加機能】ブラウザの戻るボタンやページを閉じる際のアラート表示
+window.addEventListener('beforeunload', (e) => {
+  // ブラウザ標準 of 確認メッセージを表示させる
+  e.preventDefault();
+  e.returnValue = "Any unsaved changes will be lost. Are you sure you want to leave?";
+});
+
+/**
+ * JSONエクスポート機能
+ */
+function exportJSON() {
+  const data = {
+    width: canvas.width,
+    height: canvas.height,
+    imageData: canvas.toDataURL(),
+    // 独自のパレットも保存したい場合は、ここにパレットの色情報を配列で追加可能です
+  };
+  const jsonStr = JSON.stringify(data);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+   
+  const link = document.createElement('a');
+  link.download = `pixelart_project_${canvas.width}x${canvas.height}.json`;
+  link.href = url;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+/**
+ * JSONインポート機能
+ */
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!data.width || !data.height || !data.imageData) {
+        throw new Error("Invalid format");
+      }
+
+      if (!confirm("Your current progress will be overwritten. Do you want to proceed?")) return;
+
+      // キャンバスサイズの適用
+      wSelect.value = data.width;
+      hSelect.value = data.height;
+      canvas.width = data.width;
+      canvas.height = data.height;
+
+      // 画像の復元
+      const img = new Image();
+      img.onload = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        updateZoom();
+        undoStack = []; // 読み込み時はスタックをクリア
+        alert("Project loaded successfully.");
+      };
+      img.src = data.imageData;
+
+    } catch (err) {
+      alert("Failed to load the file. Please select a valid JSON file.");
+    }
+  };
+  reader.readAsText(file);
+  // 同じファイルを連続で選択しても発火するようにリセット
+  event.target.value = "";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO設定 -->
+<title>Radix Converter Calculator | Free Online Number Base Converter - HaruTools Lab</title>
+<meta name="description" content="Convert between Binary, Octal, Decimal, and Hexadecimal in real-time. A convenient radix conversion tool for programming and computer science studies. No installation required, mobile-friendly, and secure privacy-first design.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 進数変換入力エリア */
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: left;
+}
+@media (max-width: 600px) { .input-grid { grid-template-columns: 1fr; } }
+
+.input-group { margin-bottom: 5px; }
+label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; color: #475569; }
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fcfcff;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+.error { border-color: #ef4444 !important; background: #fef2f2; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.formula {
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: monospace;
+    display: block;
+    margin: 10px 0;
+}
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      HaruTools Lab - Free Online Utilities
+    </a>
+  </div>
+    <h1>Multi-Base Radix Converter</h1>
+    <p class="tagline">Real-time simultaneous conversion between Binary, Octal, Decimal, and Hexadecimal</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <div class="main-card">
+    <div class="input-grid">
+        <div class="input-group">
+            <label for="dec">Decimal (Base 10)</label>
+            <input type="text" id="dec" placeholder="0-9" oninput="convert(this, 10)" inputmode="numeric">
+        </div>
+        <div class="input-group">
+            <label for="bin">Binary (Base 2)</label>
+            <input type="text" id="bin" placeholder="0, 1" oninput="convert(this, 2)" inputmode="numeric">
+        </div>
+        <div class="input-group">
+            <label for="oct">Octal (Base 8)</label>
+            <input type="text" id="oct" placeholder="0-7" oninput="convert(this, 8)" inputmode="numeric">
+        </div>
+        <div class="input-group">
+            <label for="hex">Hexadecimal (Base 16)</label>
+            <input type="text" id="hex" placeholder="0-F" oninput="convert(this, 16)" spellcheck="false" autocapitalize="off" autocorrect="off">
+        </div>
+    </div>
+    <button onclick="clearAll()" style="width:100%; margin-top:25px; background:none; border:none; color:#94a3b8; cursor:pointer; font-size:0.85rem; text-decoration: underline;">Reset All Inputs</button>
+  </div>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>What is Radix Conversion? Mechanics and Importance Explained</h2>
+    <p>Radix conversion refers to expressing a numerical value using a different base (radix). In our daily lives, we use the base-10 decimal system, but internal processing within digital devices relies fundamentally on the base-2 binary system, which represents the ON/OFF states of electrical signals.</p>
+    <p>In programming, network configurations, and computer science exam preparation, performing these cross-conversions quickly and accurately is an essential skill. This tool runs entirely within your web browser, allowing you to check conversion results quickly and safely without any installation required.</p>
+
+    <h3>Characteristics and Common Use Cases of Each Number Base</h3>
+    <ul>
+        <li><strong>Binary (Base 2):</strong> The most basic unit of data for computers. It forms the foundation for bitwise operations, flag management, and hardware control systems.</li>
+        <li><strong>Octal (Base 8):</strong> Represents 3 binary digits as a single digit. It is traditionally used in system environments such as Linux file permission (chmod) configurations.</li>
+        <li><strong>Decimal (Base 10):</strong> The representation that humans understand intuitively. It is widely used for financial calculations and general counting applications.</li>
+        <li><strong>Hexadecimal (Base 16):</strong> Represents 4 binary digits compactly as a single digit. This system is perfect for defining web design color codes (e.g., #FFFFFF) or specifying memory addresses.</li>
+    </ul>
+
+    <h2>Detailed Calculation Guide</h2>
+    <h3>Converting from Base-n to Decimal</h3>
+    <p>Multiply each digit by its corresponding positional weight (the base raised to the power of the position) and sum them up. Understanding this calculation helps you visually evaluate data magnitudes.</p>
+    <span class="formula">Example (Binary 1011): (1 × 2³) + (0 × 2²) + (1 × 2¹) + (1 × 2⁰) = 8 + 0 + 2 + 1 = 11</span>
+
+    <h3>Converting from Decimal to Base-n</h3>
+    <p>Divide the decimal number repeatedly by the target base (such as 2 or 16) and arrange the remainders in reverse order. You can use this online utility to double-check your manual calculations.</p>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. What do the letters A through F mean in Hexadecimal?</span>
+      <p>A. They represent values from 10 to 15: A=10, B=11, C=12, D=13, E=14, and F=15. Letters are used to express numbers that would require two digits in decimal format as a single character instead.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Does this calculator support large numbers?</span>
+      <p>A. This tool utilizes the standard JavaScript number type (Number) and guarantees precision up to the safe calculation limit (Number.MAX_SAFE_INTEGER: approximately 9,007 trillion). Please note that calculations exceeding this immense value may result in minor inaccuracies in the lower digits.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Is there any fee to use this tool?</span>
+      <p>A. No, all utilities provided on our website are completely free of charge. There is no account registration or software installation required, allowing anyone to use them instantly.</p>
+    </div>
+    <div class="faq-item">
+        <span class="faq-q">Q. Is my input data saved on your servers?</span>
+        <p>A. No, it is not. All calculation processes take place entirely inside your local browser environment. Since your inputs are never transmitted to any external server, you can convert highly confidential numbers with absolute peace of mind.</p>
+    </div>
+<h3>Related Tools</h3>
+    <ul>
+      <li><a href="time-calc.html">Time & Value Hybrid Calculator</a>: Streamline your time additions and unit conversions efficiently</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+</div>
+
+<script>
+    function convert(el, base) {
+        // 入力開始時にまずエラー表示をクリアする（UX改善）
+        el.classList.remove('error');
+
+        const val = el.value.trim();
+        const inputs = {
+            10: document.getElementById('dec'),
+            2: document.getElementById('bin'),
+            8: document.getElementById('oct'),
+            16: document.getElementById('hex')
+        };
+
+        if (val === "") {
+            Object.values(inputs).forEach(input => {
+                input.value = "";
+                input.classList.remove('error');
+            });
+            return;
+        }
+
+        try {
+            // 入力チェック用正規表現
+            const regex = {
+                2: /^[01]+$/,
+                8: /^[0-7]+$/,
+                10: /^[0-9]+$/,
+                16: /^[0-9a-fA-F]+$/
+            };
+
+            if (!regex[base].test(val)) {
+                el.classList.add('error');
+                return;
+            }
+
+            const num = parseInt(val, base);
+
+            if (isNaN(num)) {
+                el.classList.add('error');
+                return;
+            }
+
+            // 全入力欄のエラー解除と値反映
+            Object.keys(inputs).forEach(key => {
+                inputs[key].classList.remove('error');
+                if (key != base) {
+                    inputs[key].value = num.toString(key).toUpperCase();
+                }
+            });
+        } catch (e) {
+            el.classList.add('error');
+        }
+    }
+
+    function clearAll() {
+        ['dec', 'bin', 'oct', 'hex'].forEach(id => {
+            const el = document.getElementById(id);
+            el.value = "";
+            el.classList.remove('error');
+        });
+    }
+</script>
+
+</body>
+</html>

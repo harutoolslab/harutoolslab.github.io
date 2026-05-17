@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<!-- ★SEO設定 -->
+<title>Favicon Generator | Convert Images (PNG/JPG) to Multi-Icon ICO Format - HaruTools Lab</title>
+<meta name="description" content="Convert your image files into web-friendly favicons (favicon.ico) in bulk. Bundle multiple sizes from 16px up to 128px into a single ICO file. Secure and high-quality browser-side processing.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
+}
+
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* ツール操作エリア */
+#preview-zone { display: none; margin-top: 30px; }
+
+.tool-box {
+  margin: 20px auto;
+  padding: 25px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  max-width: 500px;
+  text-align: left;
+}
+
+.size-options { margin-bottom: 20px; }
+.size-options label {
+  display: inline-block;
+  margin: 5px 15px 5px 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+.size-options input[type="checkbox"] { transform: scale(1.2); margin-right: 8px; }
+
+.btn-run {
+  width: 100%;
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+.btn-run:disabled { background: #ccc; cursor: not-allowed; box-shadow: none; }
+
+/* プレビュー表示 */
+.preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+.preview-item {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  display: none;
+}
+.preview-item span { display: block; font-size: 11px; margin-top: 5px; color: var(--text-sub); }
+
+/* ステータス表示 */
+#status { margin-top: 15px; font-weight: bold; color: var(--primary); min-height: 1.6em; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+.code-block {
+  background: #2d3436; color: #dfe6e9; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9rem; overflow-x: auto; margin: 10px 0;
+}
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+canvas { display: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Free Online Tools - HaruTools Lab
+    </a>
+  </div>
+    <h1>Favicon Generator</h1>
+    <p class="tagline">Convert PNG/JPG images into a multi-size compatible favicon.ico.</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <!-- 画像入力エリア -->
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Your Image Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('upload').click()">Select File</button>
+      <input type="file" id="upload" accept="image/png,image/jpeg" style="display:none;">
+    </div>
+
+    <!-- プレビュー＆操作エリア -->
+    <div id="preview-zone">
+      <div class="preview-container">
+        <div class="preview-item" id="item-128"><img id="p128" width="64" height="64"><span>128px</span></div>
+        <div class="preview-item" id="item-48"><img id="p48" width="48" height="48"><span>48px</span></div>
+        <div class="preview-item" id="item-32"><img id="p32" width="32" height="32"><span>32px</span></div>
+        <div class="preview-item" id="item-16"><img id="p16" width="16" height="16"><span>16px</span></div>
+      </div>
+
+      <div class="tool-box">
+        <div class="size-options">
+          <strong>Sizes to Include:</strong><br>
+          <label><input type="checkbox" class="size-check" value="16" checked> 16x16</label>
+          <label><input type="checkbox" class="size-check" value="32" checked> 32x32</label>
+          <label><input type="checkbox" class="size-check" value="48" checked> 48x48</label>
+          <label><input type="checkbox" class="size-check" value="64"> 64x64</label>
+          <label><input type="checkbox" class="size-check" value="128"> 128x128</label>
+        </div>
+        <button id="dl-btn" class="btn-run" onclick="generateIco()" disabled>Generate & Save favicon.ico</button>
+        <div id="status"></div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <button onclick="location.reload()" style="background:none; color:var(--text-sub); border:none; text-decoration:underline; cursor:pointer;">Choose a Different Image</button>
+      </div>
+    </div>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>What is Favicon Generation (favicon.ico Conversion)?</h2>
+    <p>
+      This tool is an online utility that converts your images (PNG or JPG) into the "favicon.ico" format used as website icons. 
+      Its main feature is the ability to create a **multi-icon format** that bundles multiple resolutions into a single file, rather than just producing a single standalone image.
+    </p>
+
+    <h3>Why do I need the favicon.ico format?</h3>
+    <p>
+      While modern web browsers support PNG-format favicons, the ICO format remains highly recommended for backward compatibility with older browsers like Internet Explorer and for ensuring consistent display as desktop shortcut icons. 
+      Crucially, the ICO format can hold multiple sizes within a single file—such as "16x16 (for browser tabs)" or "32x32 (for bookmarks)"—allowing browsers to automatically select the optimal size depending on the context.
+    </p>
+
+    <h3>Advantages of this Tool</h3>
+    <ul>
+      <li><strong>Multi-Size Support:</strong> Combines all the ideal sizes into a single file, covering everything from browser tabs to desktop icons.</li>
+      <li><strong>Completely Free & No Registration Required:</strong> Enjoy full access to all features instantly without any tedious registration processes.</li>
+      <li><strong>Privacy Protection:</strong> All image processing is handled entirely within your web browser (via JavaScript). Because your files are never uploaded to a server, it is completely secure to convert sensitive corporate logo assets.</li>
+      <li><strong>High-Quality Resizing:</strong> Beautifully scales down your source files to specified pixel dimensions while maintaining original image clarity.</li>
+    </ul>
+
+    <h2>How to Set Up Your Favicon</h2>
+    <p>Upload your generated `favicon.ico` file to the root directory of your web server, and place the following code inside the HTML `<head>` tags:</p>
+    <div class="code-block">
+      &lt;link rel="icon" href="/favicon.ico"&gt;<br>
+      &lt;link rel="shortcut icon" href="/favicon.ico"&gt;
+    </div>
+
+    <h2>Step-by-Step Instructions</h2>
+    <ol>
+      <li><strong>Select Image:</strong> Upload the image you wish to use as a favicon. Square images work best.</li>
+      <li><strong>Choose Sizes:</strong> Select the sizes you want to include in the .ico file (including 16x16, 32x32, and 48x48 is standard practice).</li>
+      <li><strong>Generate & Save:</strong> Click the "Generate & Save" button to instantly create and download your multi-icon file.</li>
+    </ol>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. Why should I combine multiple sizes into a single file?</span>
+      <p>A. Different contexts require different resolutions (e.g., browser tabs, desktop shortcuts, mobile home screens). A multi-size ICO ensures your icon displays crisply and without blurriness in any environment.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Is image transparency (no background) preserved?</span>
+      <p>A. Yes. If you start with a transparent PNG image, the transparency data will be maintained during the conversion to the ICO format. This is ideal for professional logos.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. What is the recommended size for the source image?</span>
+      <p>A. A square PNG image that is 256x256 pixels or larger yields the cleanest results. Rectangular images will automatically be cropped and scaled into a square shape by this tool.</p>
+    </div>
+
+    <h3>Related Tools</h3>
+    <ul>
+      <li><a href="qr-generator.html">QR Code Generator</a>: Easily generate QR codes from URLs or plain text.</li>
+      <li><a href="remove-exif.html">Exif Data Remover</a>: Strip personal metadata, such as location data, from your photographs in bulk.</li>
+      <li><a href="image-compress.html">Image Compressor</a>: Shrink your image file sizes while preserving visual quality to improve webpage loading speeds.</li>
+      <li><a href="png-to-jpg.html">PNG to JPG Converter</a>: Convert images that don't require transparency into the lightweight JPG format.</li>
+      <li><a href="dot-maker.html">Pixel Art Maker</a>: Draw custom favicon graphics pixel by pixel right inside your web browser.</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+</div>
+
+<!-- 動的生成用キャンバス保持 -->
+<div id="canvas-store"></div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const upload = document.getElementById('upload');
+const previewZone = document.getElementById('preview-zone');
+const dlBtn = document.getElementById('dl-btn');
+const status = document.getElementById('status');
+const allSizes = [16, 32, 48, 64, 128];
+
+// ドラッグ＆ドロップイベント
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.add('active'), false);
+});
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', e => {
+  upload.files = e.dataTransfer.files;
+  handleFiles(upload.files);
+});
+
+upload.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(files) {
+  const file = files[0];
+  if (!file || !file.type.startsWith('image/')) {
+    alert('Please select an image file.');
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = event => {
+    const img = new Image();
+    img.onload = () => {
+      const canvasStore = document.getElementById('canvas-store');
+      canvasStore.innerHTML = '';
+      
+      allSizes.forEach(s => {
+        const cvs = document.createElement('canvas');
+        cvs.id = `c${s}`; cvs.width = s; cvs.height = s;
+        const ctx = cvs.getContext('2d');
+        
+        // 改善：描画品質の向上
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+
+        // 改善：アスペクト比を維持して中央クロップ（正方形に収める）
+        const scale = Math.max(s / img.width, s / img.height);
+        const x = (s / 2) - (img.width / 2) * scale;
+        const y = (s / 2) - (img.height / 2) * scale;
+        ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+        
+        canvasStore.appendChild(cvs);
+
+        const pImg = document.getElementById(`p${s}`);
+        if (pImg) {
+          pImg.src = cvs.toDataURL();
+          document.getElementById(`item-${s}`).style.display = 'block';
+        }
+      });
+      
+      dropArea.style.display = 'none';
+      previewZone.style.display = 'block';
+      dlBtn.disabled = false;
+      status.innerText = "Image loaded successfully.";
+    };
+    img.onerror = () => alert("Failed to load the image."); // エラーハンドリング
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+async function generateIco() {
+  const selectedSizes = Array.from(document.querySelectorAll('.size-check:checked')).map(cb => parseInt(cb.value));
+  
+  if (selectedSizes.length === 0) {
+    alert("Please select at least one size.");
+    return;
+  }
+
+  status.innerText = "Generating ICO file...";
+  dlBtn.disabled = true; // 重複クリック防止
+
+  try {
+    // ICOヘッダー: 0, 0, 1, 0, (画像数), 0
+    const header = new Uint8Array([0, 0, 1, 0, selectedSizes.length, 0]);
+    let offset = 6 + selectedSizes.length * 16;
+    const entries = [];
+    const imageData = [];
+
+    for (const s of selectedSizes) {
+      const canvas = document.getElementById(`c${s}`);
+      if (!canvas) continue;
+      
+      // PNGとして出力
+      const blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
+      const bytes = new Uint8Array(await blob.arrayBuffer());
+      
+      // ディレクトリエントリ (16 bytes)
+      const entry = new Uint8Array(16);
+      entry[0] = s >= 256 ? 0 : s; // Width
+      entry[1] = s >= 256 ? 0 : s; // Height
+      entry[2] = 0; // Color palette
+      entry[3] = 0; // Reserved
+      entry[4] = 1; // Color planes
+      entry[5] = 0;
+      entry[6] = 32; // Bits per pixel
+      entry[7] = 0;
+      
+      const len = bytes.length;
+      // Size of data
+      entry[8] = len & 0xFF; entry[9] = (len >> 8) & 0xFF; entry[10] = (len >> 16) & 0xFF; entry[11] = (len >> 24) & 0xFF;
+      // Offset of data
+      entry[12] = offset & 0xFF; entry[13] = (offset >> 8) & 0xFF; entry[14] = (offset >> 16) & 0xFF; entry[15] = (offset >> 24) & 0xFF;
+
+      entries.push(entry);
+      imageData.push(bytes);
+      offset += len;
+    }
+
+    const final = new Uint8Array(offset);
+    final.set(header, 0);
+    let pos = 6;
+    entries.forEach(e => { final.set(e, pos); pos += 16; });
+    imageData.forEach(d => { final.set(d, pos); pos += d.length; });
+
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([final], {type: 'image/x-icon'}));
+    a.download = 'favicon.ico';
+    a.click();
+    status.innerText = "Saved successfully!";
+  } catch (error) {
+    console.error(error);
+    status.innerText = "An error occurred.";
+  } finally {
+    dlBtn.disabled = false;
+  }
+}
+</script>
+
+</body>
+</html>

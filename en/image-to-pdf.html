@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO Settings -->
+<title>Image to PDF Converter | Combine Multiple JPG/PNG Online - HaruTools Lab</title>
+<meta name="description" content="A free online tool to convert and combine multiple images into a single PDF file. Features auto-adjust to A4 size. Ideal for turning smartphone documents or resumes into PDFs. Secure local browser processing.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ★Load PDF Generation Library jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* Subtle background to prevent accidental clicks */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* Prevent layout shift before ad loads */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Tool Main Area */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Drag & Drop Area */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+#drop-area.active { background: rgba(0, 123, 255, 0.1); border-color: var(--primary-hover); }
+
+.btn-select {
+  background: var(--primary);
+  color: white; border: none;
+  padding: 12px 30px; border-radius: 50px;
+  font-weight: bold; cursor: pointer;
+}
+
+/* Settings & Preview */
+#work-zone { display: none; }
+.config-panel {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.preview-item {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 10px;
+  position: relative;
+  font-size: 11px;
+  color: var(--text-sub);
+}
+.preview-item img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 5px;
+  background: #fdfdfd;
+}
+.page-badge {
+  position: absolute;
+  top: 5px; left: 5px;
+  background: var(--primary);
+  color: #fff;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.btn-run {
+  background: var(--success);
+  color: white; border: none;
+  padding: 18px 50px; border-radius: 50px;
+  font-weight: bold; font-size: 1.2rem;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+  transition: transform 0.2s;
+}
+.btn-run:active { transform: scale(0.98); }
+
+/* PDF Preview Area */
+#pdf-preview-container {
+  display: none;
+  margin-top: 30px;
+  border-top: 2px solid #eee;
+  padding-top: 30px;
+}
+#pdf-preview-frame {
+  width: 100%;
+  height: 600px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* SEO Content Section */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Free Online Tools "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Image to PDF Converter</h1>
+    <p class="tagline">Combine multiple JPG/PNG images into a single PDF file. No registration required, safe and secure.</p>
+  </header>
+
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <!-- AdSense Display Ad Unit -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <!-- Input Area -->
+    <div id="drop-area" onclick="document.getElementById('file-input').click()">
+      <div style="font-size: 1.2rem; font-weight: bold;">Select or Drag & Drop Images Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">(You can select multiple images at once)</p>
+      <button type="button" class="btn-select">Choose Files</button>
+      <input type="file" id="file-input" multiple accept="image/*" style="display:none;">
+    </div>
+
+    <!-- Work Area -->
+    <div id="work-zone">
+      <div class="config-panel">
+        <strong>PDF Size Setting:</strong>
+        <select id="pdf-size" onchange="generatePDF(false)">
+          <option value="a4">Auto-adjust to A4 size</option>
+          <option value="original">Keep original image sizes</option>
+        </select>
+      </div>
+
+      <div id="preview-grid" class="preview-grid"></div>
+
+      <button class="btn-run" onclick="generatePDF(true)">Create & Download PDF</button>
+      
+      <div id="status" style="margin-top: 15px; color: var(--primary); font-weight: bold;"></div>
+      
+      <!-- PDF Preview Display Area -->
+      <div id="pdf-preview-container">
+        <h3 style="margin-bottom: 15px;">PDF Preview</h3>
+        <iframe id="pdf-preview-frame"></iframe>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Clear and Start Over</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Middle Ad Slot
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>What is the Image to PDF Converter Tool?</h2>
+    <p>This tool allows you to convert and combine images taken with smartphones or digital cameras (such as JPG, PNG, WebP) into a highly versatile PDF format. By selecting multiple images, they will be merged in order into a single PDF file. No app installation is required, and all processing is handled directly within your browser.</p>
+
+    <h3>Common Use Cases</h3>
+    <ul>
+      <li><strong>Official Document Submission:</strong> Take photos of the front and back of your ID card or driver's license, combine them into a single PDF, and submit it for online applications.</li>
+      <li><strong>Portfolios & Art Collections:</strong> Compile artwork, designs, or illustration images saved on your device into one organized PDF file.</li>
+      <li><strong>Sharing Study Notes:</strong> Capture multiple pages of handwritten notes and combine them into a single PDF to easily share with classmates or instructors.</li>
+      <li><strong>Expense Tracking & Record Keeping:</strong> Turn photos of invoices, receipts, or bills into clean PDF files to streamline your digital accounting and record-keeping processes.</li>
+    </ul>
+
+    <h3>Technical Benefits: Local Processing via jsPDF & Canvas API</h3>
+    <p>This utility utilizes the powerful <strong>jsPDF</strong> library alongside the browser's standard <strong>Canvas API</strong>. Unlike traditional online conversion websites that require you to upload your files to external "cloud" servers, this tool works entirely on a "local execution" model. All operations happen within your computer's or smartphone's RAM. This prevents data usage delays and eliminates the need to wait for uploads, making the process virtually instant even with large photos.</p>
+
+    <h3>Privacy Protection: Secure and Serverless Architecture</h3>
+    <p>The absolute greatest feature of this tool is its <strong>data security</strong>. Because the conversion process occurs 100% locally inside your browser, it is physically impossible for your images to ever reach our servers. Even when dealing with confidential documents such as resumes, contracts, or sensitive ID scans, your data remains completely private. Once the page is loaded, the converter can even function reliably without an active internet connection.</p>
+
+    <h2>Key Features of This Converter</h2>
+    <h3>1. Auto-Fit Layout for A4 Dimensions</h3>
+    <p>Even if your imported graphics vary heavily in aspect ratio or width, choosing the "Auto-adjust to A4 size" option scales your images uniformly into a structured, standardized document format.</p>
+
+    <h3>2. Convenient Page Order Previews</h3>
+    <p>Once you drop your pictures into the converter, an immediate grid display lets you see the resulting page numbering. The initial page layout order corresponds exactly to the selection order of your files.</p>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. Is there any fee or subscription required?</strong>
+      <p>A. No, this tool is completely free to use. There are no restrictions or limits on file counts or total megabytes.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. Can I truly combine multiple pictures into a single file?</strong>
+      <p>A. Yes, absolutely. Selecting multiple files merges them sequentially so that each chosen photo receives its own sequential page inside a single outputted PDF document.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. Does this utility function properly on mobile devices?</strong>
+      <p>A. Yes, it is fully compatible with modern iOS (iPhone/iPad) and Android mobile browsers without installing external third-party software applications.</p>
+    </div>
+
+    <h3>Related Tools</h3>
+    <ul>
+      <li><a href="image-resize.html">Image Resizer</a>: Scale and resize photos to exact pixel targets.</li>
+      <li><a href="image-compress.html">Image Compressor</a>: Minimize file size while maintaining optical clarity.</li>
+      <li><a href="image-rotate.html">Image Rotator</a>: Fix orientation and layout angles in a single click.</li>
+      <li><a href="image-overlay.html">Image Overlay Tool</a>: Blend and layer multiple translucent graphics together.</li>
+    </ul>
+  </article>
+
+  <!-- Bottom Ad Slot
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const workZone = document.getElementById('work-zone');
+const previewGrid = document.getElementById('preview-grid');
+const statusText = document.getElementById('status');
+
+let imageFiles = [];
+
+// File selection event
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+// Drag & Drop event handlers
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); });
+});
+
+['dragenter', 'dragover'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.add('active'));
+});
+
+['dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.remove('active'));
+});
+
+dropArea.addEventListener('drop', e => handleFiles(e.dataTransfer.files));
+
+async function handleFiles(selectedFiles) {
+  const newFiles = Array.from(selectedFiles).filter(f => f.type.startsWith('image/'));
+  if (newFiles.length === 0) return;
+
+  imageFiles = newFiles;
+  dropArea.style.display = 'none';
+  workZone.style.display = 'block';
+  previewGrid.innerHTML = "";
+
+  for (let i = 0; i < imageFiles.length; i++) {
+    const file = imageFiles[i];
+    const blobUrl = URL.createObjectURL(file); // Use memory-efficient Blob URL
+    
+    const div = document.createElement("div");
+    div.className = "preview-item";
+    div.innerHTML = `
+      <div class="page-badge">${i + 1}</div>
+      <img src="${blobUrl}">
+      <div style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">${file.name}</div>
+    `;
+    previewGrid.appendChild(div);
+  }
+  
+  // Automatically generate preview after upload
+  generatePDF(false);
+}
+
+async function generatePDF(shouldDownload = true) {
+  if (imageFiles.length === 0) return;
+  
+  statusText.innerText = shouldDownload ? "Generating PDF..." : "Updating preview...";
+  const { jsPDF } = window.jspdf;
+  const mode = document.getElementById('pdf-size').value;
+
+  let doc;
+
+  for (let i = 0; i < imageFiles.length; i++) {
+    const dataUrl = await readFileAsDataURL(imageFiles[i]);
+    const img = await loadImage(dataUrl);
+
+    // Convert to millimeters (1px = 0.264583mm)
+    const imgWmm = img.width * 0.264583;
+    const imgHmm = img.height * 0.264583;
+
+    if (i === 0) {
+      if (mode === 'original') {
+        doc = new jsPDF(imgWmm > imgHmm ? 'l' : 'p', 'mm', [imgWmm, imgHmm]);
+      } else {
+        doc = new jsPDF('p', 'mm', 'a4');
+      }
+    } else {
+      if (mode === 'original') {
+        doc.addPage([imgWmm, imgHmm], imgWmm > imgHmm ? 'l' : 'p');
+      } else {
+        doc.addPage('a4', 'p');
+      }
+    }
+
+    const pW = doc.internal.pageSize.getWidth();
+    const pH = doc.internal.pageSize.getHeight();
+
+    if (mode === 'original') {
+        doc.addImage(dataUrl, 'JPEG', 0, 0, pW, pH);
+    } else {
+        fitToPage(doc, img, dataUrl, pW, pH);
+    }
+  }
+
+  // Displaying the preview
+  const pdfDataUri = doc.output('datauristring');
+  const previewContainer = document.getElementById('pdf-preview-container');
+  const previewFrame = document.getElementById('pdf-preview-frame');
+  previewContainer.style.display = 'block';
+  previewFrame.src = pdfDataUri;
+
+  if (shouldDownload) {
+    doc.save(`converted_${Date.now()}.pdf`);
+    statusText.innerText = "Download complete!";
+  } else {
+    statusText.innerText = "Preview loaded successfully.";
+  }
+}
+
+function fitToPage(doc, img, dataUrl, pW, pH) {
+  const ratio = Math.min(pW / img.width, pH / img.height);
+  const w = img.width * ratio;
+  const h = img.height * ratio;
+  const x = (pW - w) / 2;
+  const y = (pH - h) / 2;
+  doc.addImage(dataUrl, 'JPEG', x, y, w, h);
+}
+
+function readFileAsDataURL(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (e) => resolve(e.target.result);
+    reader.readAsDataURL(file);
+  });
+}
+
+function loadImage(url) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.src = url;
+  });
+}
+</script>
+
+</body>
+</html>

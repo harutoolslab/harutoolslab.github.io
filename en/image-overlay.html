@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<!-- ★SEO settings -->
+<title>Image Overlay Tool | Blend 2 Images with Transparency & Save as PNG - HaruTools Lab</title>
+<meta name="description" content="A free online tool to overlay two images and adjust their opacities individually. Blend them together and download the result as a PNG. Fast and private browser-based processing.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* Subtle background to prevent accidental clicks */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* Prevent layout shift before ad loads */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Main Card */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Upload Area */
+.upload-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+@media (max-width: 600px) { .upload-grid { grid-template-columns: 1fr; } }
+
+.upload-box {
+  border: 2px dashed #ccc;
+  padding: 30px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  background: #fafafa;
+}
+.upload-box:hover { border-color: var(--primary); background: rgba(0,123,255,0.02); }
+.upload-box strong { display: block; color: var(--primary); margin-bottom: 8px; }
+.file-name { font-size: 0.85rem; color: var(--text-sub); word-break: break-all; }
+
+/* Preview Area */
+#work-zone { display: none; }
+.preview-window {
+  position: relative;
+  max-width: 100%;
+  margin: 20px auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  /* White background instead of grid pattern */
+  background-color: #fff;
+  line-height: 0;
+}
+.layer-img { width: 100%; height: auto; display: block; }
+#img-layer2 { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; }
+
+/* Control Panel */
+.control-panel {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  text-align: left;
+}
+.control-row { margin-bottom: 15px; }
+.label-flex { display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 5px; }
+.slider { width: 100%; height: 8px; accent-color: var(--primary); cursor: pointer; }
+
+.action-buttons { margin-top: 25px; }
+.btn-dl {
+  background: var(--success); color: white; border: none;
+  padding: 15px 40px; border-radius: 50px; font-weight: bold;
+  font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+
+/* Info Section */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+canvas { display: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Free Online Tools "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Image Overlay Tool</h1>
+    <p class="tagline">Overlay two images with adjustable transparency. Perfect for watermarking or comparing designs.</p>
+  </header>
+
+  <!-- Top Ad Slot -->
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <!-- AdSense Display Ad Unit -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <!-- Step 1: Upload -->
+    <div id="upload-zone" class="upload-grid">
+      <div class="upload-box" onclick="document.getElementById('file1').click()">
+        <strong>Select Background (Image 1)</strong>
+        <span class="file-name" id="name1">Click to upload</span>
+        <input type="file" id="file1" accept="image/*" style="display:none">
+      </div>
+      <div class="upload-box" onclick="document.getElementById('file2').click()">
+        <strong>Select Overlay (Image 2)</strong>
+        <span class="file-name" id="name2">Click to upload</span>
+        <input type="file" id="file2" accept="image/*" style="display:none">
+      </div>
+    </div>
+
+    <!-- Step 2: Work Zone -->
+    <div id="work-zone">
+      <div class="preview-window">
+        <img id="img-layer1" class="layer-img">
+        <img id="img-layer2" class="layer-img" style="opacity: 0.5;">
+      </div>
+
+      <div class="control-panel">
+        <div class="control-row">
+          <div class="label-flex"><span>Image 1 Opacity</span><span id="v1">100%</span></div>
+          <input type="range" id="trans1" class="slider" min="0" max="100" value="100">
+        </div>
+        <div class="control-row">
+          <div class="label-flex"><span>Image 2 Opacity</span><span id="v2">50%</span></div>
+          <input type="range" id="trans2" class="slider" min="0" max="100" value="50">
+        </div>
+        <div style="font-size: 0.8rem; color: var(--text-sub); text-align: center;">
+          * Images will be merged based on the dimensions of Image 1
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-dl" onclick="downloadImage()">Blend & Save</button>
+        <div style="margin-top:15px;">
+          <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">Start Over</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+ <!-- Middle Ad Slot
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <!-- SEO Content -->
+  <article class="info-section">
+    <h2>What is the Image Overlay Tool?</h2>
+    <p>This is an online tool that allows you to layer two images on top of each other and blend them into a single file by adjusting their individual opacities (transparency). Since all rendering occurs locally in your browser, your images are never sent to any server, offering complete privacy and security.</p>
+
+    <h3>Primary Use Cases</h3>
+    <ul>
+      <li><strong>Creating Social Media Icons & Banners:</strong> Easily place frames or decorative elements over your favorite photos to design original icons.</li>
+      <li><strong>Adding Watermarks (Logos):</strong> Protect your copyright by overlaying logo images onto photos and dropping their opacity to serve as a watermark.</li>
+      <li><strong>Design Comparison:</strong> Stack a pre-modified and post-modified layout (e.g., Option A vs. Option B) to closely check for misalignments or subtle color variations.</li>
+      <li><strong>Collage & Art Creation:</strong> Blend distinct textures or scenery together to simulate fantasy or double-exposure artistic styles.</li>
+    </ul>
+
+    <h3>Technical Benefits & Security</h3>
+    <p>This utility utilizes a client-side approach running entirely in your browser through <strong>JavaScript and the Canvas API</strong>. This provides prominent benefits that distinguish it from standard image editing cloud services:</p>
+    <ul>
+      <li><strong>Total Privacy Protection:</strong> Loaded image data resides only within your device's memory (PC or smartphone). It is never uploaded or saved to external servers, making it completely safe for confidential documentation or private family photos.</li>
+      <li><strong>Instant Performance Response:</strong> Free from server network communications, the system generates real-time previews synchronized with your slider inputs, as well as immediate download compilations.</li>
+      <li><strong>Offline Compatibility:</strong> Once the page is loaded, the tool will function stably even in environments with intermittent or absent internet connectivity.</li>
+    </ul>
+
+    <h2>How to Use It</h2>
+    <ol>
+      <li>Click on the "Background (Image 1)" and "Overlay (Image 2)" sections respectively to select your images.</li>
+      <li>Once the previews display, adjust the sliders left or right to fine-tune your desired transparency levels.</li>
+      <li>Click the "Blend & Save" button to instantly export and download the combined image in PNG format.</li>
+    </ol>
+
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. How are the two images stacked together?</strong>
+      <p>A. You load the base "Background" image first, then add your "Overlay" image (such as a logo or an illustration) second. The overlay image automatically centers itself matching the spatial dimensions of the background image.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. Can I adjust the transparency of the overlay image?</strong>
+      <p>A. Yes, you can use the sliders to freely shift opacity between 0% and 100%. This is ideal for subtle watermark configurations.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. Can I use transparent PNG files directly?</strong>
+      <p>A. Yes, transparent PNGs are fully supported. Loading logos or graphics with clear backgrounds allows them to neatly combine directly onto the background canvas.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. Does combining the images reduce their resolution or quality?</strong>
+      <p>A. No, high image quality is maintained. High-resolution canvas rendering occurs within the browser, letting you export the results in crisp PNG formats.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. Are my uploaded files stored on your servers?</strong>
+      <p>A. Not at all. Consistent with other features at "HaruTools Lab", all processing happens locally on your browser. Feel free to compile private images with complete peace of mind.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">Q. Does this tool work on mobile devices?</strong>
+      <p>A. Yes, the tool is fully compatible with mobile browsers on iOS and Android. You can intuitively slide to adjust opacity on touch displays.</p>
+    </div>
+    
+    <h3>Related Tools</h3>
+    <ul>
+      <li><a href="image-rotate.html">Image Rotation Tool</a> : Fix crooked or rotated photos with a single click.</li>
+      <li><a href="image-flip.html">Image Mirror Tool</a> : Flip images horizontally or vertically to create mirroring effects.</li>
+      <li><a href="brightness-contrast.html">Brightness & Contrast Adjuster</a> : Brighten dark captures and enrich visibility.</li>
+      <li><a href="mosaic-blur.html">Blur & Mosaic Tool</a> : Draw directly over sensitive details to instantly obscure them.</li>
+    </ul>
+  </article>
+
+  <!-- Bottom Ad Slot
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
+</div>
+
+<canvas id="canvas"></canvas>
+
+<script>
+const file1 = document.getElementById('file1');
+const file2 = document.getElementById('file2');
+const img1 = document.getElementById('img-layer1');
+const img2 = document.getElementById('img-layer2');
+const uploadZone = document.getElementById('upload-zone');
+const workZone = document.getElementById('work-zone');
+
+let ready = { a: false, b: false };
+
+function handleFile(e, target, nameId, key) {
+  const file = e.target.files[0];
+  if (!file) return;
+  document.getElementById(nameId).innerText = file.name;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    target.src = ev.target.result;
+    ready[key] = true;
+    if (ready.a && ready.b) {
+      uploadZone.style.display = 'none';
+      workZone.style.display = 'block';
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+file1.addEventListener('change', (e) => handleFile(e, img1, 'name1', 'a'));
+file2.addEventListener('change', (e) => handleFile(e, img2, 'name2', 'b'));
+
+const t1 = document.getElementById('trans1');
+const t2 = document.getElementById('trans2');
+const v1 = document.getElementById('v1');
+const v2 = document.getElementById('v2');
+
+t1.addEventListener('input', () => {
+  // Use slider values directly for opacity calculation
+  img1.style.opacity = t1.value / 100;
+  v1.innerText = t1.value + '%';
+});
+t2.addEventListener('input', () => {
+  img2.style.opacity = t2.value / 100;
+  v2.innerText = t2.value + '%';
+});
+
+function downloadImage() {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = img1.naturalWidth;
+  canvas.height = img1.naturalHeight;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Render Image 1
+  ctx.globalAlpha = t1.value / 100;
+  ctx.drawImage(img1, 0, 0);
+
+  // Render Image 2 (Maintain aspect ratio and center alignment)
+  ctx.globalAlpha = t2.value / 100;
+  
+  const sWidth = img2.naturalWidth;
+  const sHeight = img2.naturalHeight;
+  const targetRatio = canvas.width / canvas.height;
+  const imgRatio = sWidth / sHeight;
+
+  let dWidth, dHeight, dx, dy;
+
+  if (imgRatio > targetRatio) {
+    dWidth = canvas.width;
+    dHeight = canvas.width / imgRatio;
+  } else {
+    dHeight = canvas.height;
+    dWidth = canvas.height * imgRatio;
+  }
+
+  dx = (canvas.width - dWidth) / 2;
+  dy = (canvas.height - dHeight) / 2;
+
+  ctx.drawImage(img2, dx, dy, dWidth, dHeight);
+
+  const link = document.createElement('a');
+  link.download = 'overlay-image-' + Date.now() + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+</script>
+
+</body>
+</html>

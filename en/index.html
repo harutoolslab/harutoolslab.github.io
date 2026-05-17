@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+  <meta name="google-site-verification" content="jWDFJLwlaulsCJD9GNUFzzeZeTvLEzBHY0kWB140450" />
+  
+<title>HaruTools Lab | Free & Web-Based Image, PDF, and Engineering Tools</title>
+<link rel="icon" href="/favicon.ico">
+<meta name="description" content="Free access to over 50 web-based utilities including image compression, WebP conversion, PDF editing, character counters, and circuit calculators. Runs completely client-side in your browser for absolute privacy.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* 既存の変数を流用 */
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+header { text-align: center; margin: 40px 0; }
+h1 { font-size: 2.2rem; color: #111; margin-bottom: 10px; }
+.hero-desc { color: var(--text-sub); max-width: 700px; margin: 0 auto; }
+
+/* ツールグリッドレイアウト */
+.tool-section { margin-bottom: 50px; }
+.section-title { font-size: 1.4rem; border-bottom: 2px solid var(--primary); display: inline-block; margin-bottom: 10px; padding-bottom: 5px; }
+.section-intro { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 20px; display: block; }
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.tool-card {
+  background: var(--card-bg);
+  padding: 20px 15px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--text-main);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid transparent;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  border-color: var(--primary);
+}
+
+.tool-card span { font-weight: bold; font-size: 1rem; display: block; margin-bottom: 5px; }
+.tool-card small { color: var(--text-sub); font-size: 0.8rem; line-height: 1.2; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .tool-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tool-card { padding: 15px 10px; }
+  .tool-card span { font-size: 0.9rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>HaruTools Lab</h1>
+    <p class="hero-desc"><strong>Instant tools right in your browser.</strong><br>No registration required. Completely free web utilities for images, text, calculation, and electrical engineering.</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <section class="tool-section">
+    <h2 class="section-title">Image Compression & Conversion</h2>
+    <small class="section-intro">Optimize your images for social media and faster website load times. Reduce file size while maintaining visual quality. Supports modern formats including WebP and HEIC.</small>
+    <div class="tool-grid">
+      <a href="image-compress.html" class="tool-card"><span>Bulk Image Compress</span><small>Drastically reduce file size</small></a>
+      <a href="png-compress.html" class="tool-card"><span>PNG Compression</span><small>Compress with transparency</small></a>
+      <a href="image-to-webp.html" class="tool-card"><span>Convert to WebP</span><small>Convert to next-gen format</small></a>
+      <a href="webp-to-jpg.html" class="tool-card"><span>WebP → JPG</span><small>Convert to standard JPG</small></a>
+      <a href="webp-to-png.html" class="tool-card"><span>WebP → PNG</span><small>Convert keeping alpha channel</small></a>
+      <a href="jpg-to-png.html" class="tool-card"><span>JPG → PNG</span><small>Convert to PNG format</small></a>
+      <a href="png-to-jpg.html" class="tool-card"><span>PNG → JPG</span><small>Convert with white backdrop</small></a>
+      <a href="heic-to-png.html" class="tool-card"><span>HEIC → PNG</span><small>Convert iPhone photographs</small></a>
+      <a href="video-to-gif.html" class="tool-card"><span>Video → GIF</span><small>Turn video into animation</small></a>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <h2 class="section-title">Image Processing & Editing</h2>
+    <small class="section-intro">Resize, crop, or clear image backdrops instantly. Includes privacy tools such as pixelation and blurring to mask confidential areas.</small>
+    <div class="tool-grid">
+      <a href="image-resize.html" class="tool-card"><span>Resize Image</span><small>Change dimensions</small></a>
+      <a href="image-cropper-rounded.html" class="tool-card"><span>Crop Tool</span><small>Rounded corners & free aspect</small></a>
+      <a href="square-image-maker.html" class="tool-card"><span>Square Image Maker</span><small>Add padding for social media</small></a>
+      <a href="image-filter-tool.html" class="tool-card"><span>Photo Filters</span><small>Color correction & effects</small></a>
+      <a href="brightness-contrast.html" class="tool-card"><span>Brightness & Contrast</span><small>Adjust lights & shadows</small></a>
+      <a href="monochrome-pwa.html" class="tool-card"><span>Monochrome Converter</span><small>Black & white or sepia effects</small></a>
+      <a href="mosaic-blur.html" class="tool-card"><span>Blur & Pixelate</span><small>Hide personal information</small></a>
+      <a href="png-transparent.html" class="tool-card"><span>Transparent Background</span><small>Make specific colors transparent</small></a>
+      <a href="add-text.html" class="tool-card"><span>Add Text to Image</span><small>Overlay custom typography</small></a>
+      <a href="image-watermark.html" class="tool-card"><span>Add Watermark</span><small>Protect assets with copyright</small></a>
+      <a href="image-rotate.html" class="tool-card"><span>Rotate Image</span><small>90-degree & custom rotation</small></a>
+      <a href="image-flip.html" class="tool-card"><span>Flip Image</span><small>Horizontal & vertical mirror</small></a>
+      <a href="image-overlay.html" class="tool-card"><span>Overlay Images</span><small>Merge two photos together</small></a>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <h2 class="section-title">Color, Analysis & Comparison</h2>
+    <small class="section-intro">Essential design utilities, including color code conversion and visual comparison tools to analyze differences between two files.</small>
+    <div class="tool-grid">
+      <a href="rgb-to-hex.html" class="tool-card"><span>RGB → HEX</span><small>Convert color codes</small></a>
+      <a href="hex-to-rgb.html" class="tool-card"><span>HEX → RGB</span><small>Convert color codes</small></a>
+      <a href="color-picker.html" class="tool-card"><span>Color Picker</span><small>Extract colors from your screen</small></a>
+      <a href="color-code-list.html" class="tool-card"><span>Color Code List</span><small>Color names and hex codes</small></a>
+      <a href="image-compare.html" class="tool-card"><span>Image Comparison</span><small>Compare two images side-by-side</small></a>
+      <a href="image-measure.html" class="tool-card"><span>Image Measure</span><small>Measure dimensions in pixels</small></a>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <h2 class="section-title">PDF & Document Utilities</h2>
+    <small class="section-intro">Merge PDF files or extract them into separate graphics without uploading sensitive documentation to third-party file structures.</small>
+    <div class="tool-grid">
+      <a href="pdf-split.html" class="tool-card"><span>Merge PDF</span><small>Combine files into one document</small></a>
+      <a href="image-to-pdf.html" class="tool-card"><span>Image → PDF</span><small>Convert photos to PDF format</small></a>
+      <a href="pdf-to-image.html" class="tool-card"><span>PDF → Image</span><small>Extract PDF pages into JPG/PNG</small></a>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <h2 class="section-title">Other Handy Utilities</h2>
+    <small class="section-intro">Everyday productivity micro-tools including QR code construction and quick Exif metadata stripping.</small>
+    <div class="tool-grid">
+      <a href="qr-generator.html" class="tool-card"><span>QR Code Generator</span><small>Turn URLs or text into QR</small></a>
+      <a href="favicon-generator.html" class="tool-card"><span>Favicon Generator</span><small>Generate .ico icon assets</small></a>
+      <a href="remove-exif.html" class="tool-card"><span>Remove Exif Data</span><small>Strip location & camera metadata</small></a>
+      <a href="dot-art-maker.html" class="tool-card"><span>Pixel Art Maker</span><small>Draw custom pixel graphics</small></a>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <h2 class="section-title">Text & Writing Utilities</h2>
+    <small class="section-intro">Character counters and formatting utilities tailored for report composition or programming tasks. Processed entirely locally.</small>
+    <div class="tool-grid">
+      <a href="character-count.html" class="tool-card"><span>Word & Character Count</span><small>Count letters, lines, and blocks</small></a>
+      <a href="text-search.html" class="tool-card"><span>Text Search & Extract</span><small>Isolate specific patterns or spaces</small></a>
+      <a href="full-half-converter.html" class="tool-card"><span>Full/Half-Width Converter</span><small>Standardize alphanumeric widths</small></a>
+      <a href="text-cleaner.html" class="tool-card"><span>Whitespace & Line Cleaner</span><small>Batch strip unnecessary characters</small></a>
+      <a href="special-characters.html" class="tool-card"><span>Special Characters</span><small>Quick-copy symbols for web design</small></a>
+      <a href="json-xml-format.html" class="tool-card"><span>JSON/XML Formatter</span><small>Prettify code structures</small></a>
+    </div>
+  </section>
+
+<section class="tool-section">
+    <h2 class="section-title">Calculators</h2>
+    <small class="section-intro">Quickly add or subtract time intervals, or process binary/hex conversions required for computer science calculations.</small>
+    <div class="tool-grid">
+      <a href="time-calc.html" class="tool-card"><span>Time Calculator</span><small>Mix time values and arithmetic</small></a>
+      <a href="number-base-converter.html" class="tool-card"><span>Radix Converter</span><small>Convert Binary, Octal, Dec, & Hex</small></a>
+    </div>
+  </section>
+
+<section class="tool-section">
+    <h2 class="section-title">Electrical & Electronic Engineering</h2>
+    <small class="section-intro">Comprehensive calculation tools for students, hobbyists, and professional engineers. Supports color code configurations, Ohm's law metrics, and utility bills.</small>
+    <div class="tool-grid">
+      <a href="resistor-color-code.html" class="tool-card"><span>4-Band Resistor Code</span><small>Calculate resistance from bands</small></a>
+      <a href="resistor-color-code-5band.html" class="tool-card"><span>5-Band Resistor Code</span><small>Decode precision resistors</small></a>
+      <a href="composite-resistance.html" class="tool-card"><span>Equivalent Resistance</span><small>Series & parallel configurations</small></a>
+      <a href="ohm-law-calculator.html" class="tool-card"><span>Ohm's Law Calculator</span><small>Compute V, I, R, and Power</small></a>
+      <a href="power-consumption-calculator.html" class="tool-card"><span>Electricity Cost Calculator</span><small>Determine kWh consumption & rates</small></a>
+      <a href="rlc-calc.html" class="tool-card"><span>RLC Circuit Calculator</span><small>Impedance & phasor diagrams</small></a>
+      <a href="ac-power-calculator.html" class="tool-card"><span>AC Power Multi-Calc</span><small>Real, reactive, and apparent power</small></a>
+      <a href="logic-circuit-simulator.html" class="tool-card"><span>Logic Circuit Simulator</span><small>Experiment with digital logic gates</small></a>
+    </div>
+  </section>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>Why Choose HaruTools Lab?</h2>
+    <p>HaruTools Lab is an expanding suite of over 50 lightweight online utilities built to help web designers, developers, students, and casual creators execute everyday processing tasks natively in their browser.</p>
+    
+    <h3>1. Secure Browser-Side Execution (Privacy Centric)</h3>
+    <p>Unlike standard online conversion platforms, all computing tasks occur entirely within your web browser environment. <strong>Your images, PDFs, and data arrays are never uploaded or transferred to external servers.</strong> It is fully secure for corporate or education tasks.</p>
+    
+    <h3>2. No Sign-up & 100% Free for Commercial Use</h3>
+    <p>No subscriptions, no registration, and no feature caps. All tools are completely free to use. Generated or processed elements can be utilized for commercial setups without any mandatory attribution or watermarks.</p>
+    
+    <h3>3. No Installation Required & Fully Responsive</h3>
+    <p>Skip heavy software suites. As long as you have a modern web browser, HaruTools Lab operates seamlessly across Windows, macOS, iPhone, iPad, and Android hardware.</p>
+
+   <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. Are there hidden fees for utilizing these tools?</span>
+      <p>A. No, all utilities listed across HaruTools Lab are entirely free. There are no registration forms, pro features, or sudden paywalls.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Do I need to create an account or sign in?</span>
+      <p>A. Not at all. Simply visit the tool's page and upload your assets to start working instantly. We do not gather personal identifiers or email accounts.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Where are my files saved when I upload them?</span>
+      <p>A. They aren't. Our web architecture handles file rendering via client-side JavaScript. This means elements remain purely within your device sandbox and disappear once the browser tab is closed.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Can I use the outputs for commercial distribution?</span>
+      <p>A. Yes. Any images, formatting corrections, or file outputs produced here are completely yours to use across blogs, social media distributions, print layout items, and software deployments.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Does this site support mobile platforms?</span>
+      <p>A. Yes, every component features a flexible responsive grid. You can process your photography or check values via mobile or tablet devices just as you would on a desktop setup.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. What should I do if a tool fails to render or behaves unexpectedly?</span>
+      <p>A. Please verify that your web browser is updated to its latest release. Content blockers or strict private sandbox configurations may occasionally interfere with client-side canvas APIs. If issues persist, try executing the tool inside an alternate web browser.</p>
+    </div>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
+</div>
+
+</body>
+</html>

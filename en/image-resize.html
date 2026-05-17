@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<!-- ★SEO Settings -->
+<title>Image Resizer | Free Online Batch Image Resizing - HaruTools Lab</title>
+<meta name="description" content="A free online tool to easily resize images by specifying width and height. Supports PNG and JPG. No installation required, secure local browser-based processing. Mobile & PC friendly.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Ad Slot */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* Subtle background to prevent accidental clicks */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* Prevent layout shift before ad loads */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* Header */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* Tool Main Area */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Drag & Drop Area */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active { background: rgba(0, 123, 255, 0.1); border-color: var(--primary-hover); }
+
+.btn-select {
+  background: var(--primary); color: white; border: none; padding: 12px 30px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; margin-top: 15px;
+}
+
+/* Configuration Panel */
+.config-panel { margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 12px; }
+.input-group { margin: 10px; display: inline-block; text-align: left; }
+.input-group label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 5px; color: #555; }
+input[type="number"] {
+  padding: 10px; border: 1px solid #ddd; border-radius: 8px; width: 120px; font-size: 1rem;
+}
+
+.btn-run {
+  background: var(--success); color: white; border: none; padding: 15px 40px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 10px;
+}
+
+/* Result Area */
+#result-zone { margin-top: 30px; text-align: left; }
+.result-item {
+  background: white; padding: 15px; border-radius: 8px; border: 1px solid #eee;
+  margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px;
+}
+.result-info { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.preview-img { max-width: 100%; max-height: 300px; object-fit: contain; border-radius: 4px; border: 1px solid #ddd; }
+.download-link { color: var(--primary); font-weight: bold; text-decoration: none; }
+
+/* SEO Content Section */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+      <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+        Free Online Tools "HaruTools Lab"
+      </a>
+    </div>
+    <h1>Image Resizer</h1>
+    <p class="tagline">Specify the width (px) and height (px) to instantly resize your images.</p>
+  </header>
+
+  <!-- Top Ad Slot -->
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Images Here</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select Files</button>
+      <input type="file" id="file-input" accept="image/png, image/jpeg" multiple style="display:none;">
+    </div>
+
+    <div class="config-panel">
+      <div class="input-group">
+        <label>Width (px)</label>
+        <input type="number" id="width" placeholder="e.g., 800">
+      </div>
+      <div class="input-group">
+        <label>Height (px)</label>
+        <input type="number" id="height" placeholder="e.g., 600">
+      </div>
+      <div class="input-group" style="vertical-align: middle;">
+        <label style="display: inline-block; margin-right: 5px;">Keep Aspect Ratio</label>
+        <input type="checkbox" id="keep-ratio" checked style="transform: scale(1.2); cursor: pointer;">
+      </div>
+      <br>
+      <button class="btn-run" onclick="run()">Resize Image(s)</button>
+    </div>
+
+    <div id="result-zone"></div>
+  </main>
+
+  <!-- Middle Ad Slot
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>What is the Image Resizer Tool?</h2>
+    <p>
+      The Image Resizer by HaruTools Lab is a free online tool designed to convert your images to any resolution (pixels) you specify. 
+      It is perfect for standardizing blog featured images, adjusting photos to fit social media post requirements, and much more.
+    </p>
+
+    <h3>Key Features</h3>
+    <ul>
+      <li><strong>No Installation Required:</strong> It runs entirely within your web browser, making it accessible on smartphones, tablets, and computers instantly.</li>
+      <li><strong>Batch Processing:</strong> Select multiple images at once and batch-convert them to the exact same size simultaneously.</li>
+      <li><strong>Privacy Protection:</strong> Your images are never uploaded to any server. Everything is safely processed locally within your browser.</li>
+    </ul>
+
+    <h2>How to Use It</h2>
+    <ol>
+      <li>Drag and drop the images you wish to resize into the upload area, or click "Select Files" to choose them.</li>
+      <li>Enter your target "Width" and "Height" in pixels.</li>
+      <li>Click the "Resize Image(s)" button.</li>
+      <li>Click the download link underneath each processed preview image to save your file.</li>
+    </ol>
+
+    <h2>Common Use Cases for Resizing Images</h2>
+    <p>
+      Our tool provides extensive utility beyond simple dimensions tuning, offering professional value for a variety of tasks:
+    </p>
+    <ul>
+      <li><strong>Optimizing Social Media Profiles & Graphics:</strong> Instantly adapt images to recommended aspect ratios for X (formerly Twitter), Instagram, YouTube headers, and other platforms.</li>
+      <li><strong>Improving Web Performance:</strong> Scale down massive digital camera photos to web-friendly sizes to dramatically boost page loading speeds and enhance SEO rankings.</li>
+      <li><strong>E-commerce & Marketplace Listings:</strong> Standardize your product listings to consistent dimensions to present a clean, professional, and trustworthy shop layout.</li>
+    </ul>
+
+    <h2>Technical Advantages and Data Security</h2>
+    <p>
+      This utility relies on <strong>HTML5 Canvas API</strong> and <strong>JavaScript</strong> to achieve "client-side processing."
+    </p>
+    <h3>1. Outstanding Speed and Reliability</h3>
+    <p>
+      While conventional resizing services require you to upload files to a server for remote processing, our utility finishes all math computations inside your own browser. This cuts out network delays and allows even large files to process in the blink of an eye.
+    </p>
+    <h3>2. Ultimate Privacy Protection</h3>
+    <p>
+      Processing files without uploading them means there is zero risk of your photos being saved on a third-party server. Feel free to safely process personal snapshots or sensitive pre-release company assets without worrying about external exposure.
+    </p>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. Will resizing degrade my image quality?</span>
+      <p>A. Upscaling a smaller image can result in pixelation or blurriness. However, when downscaling, our high-quality canvas rendering algorithms minimize degradation to keep your results as crisp as possible.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Is PNG transparency preserved?</span>
+      <p>A. Since this tool primarily outputs files in JPEG format to maximize compression efficiency, transparent areas may be converted into solid white or black backgrounds. If you must retain transparency, we recommend using a specialized transparent PNG tool.</p>
+    </div>
+
+    <h3>Related Tools</h3>
+    <ul>
+      <li><a href="image-compress.html">Image Compressor</a> : Reduce file size while preserving visual quality.</li>
+      <li><a href="png-to-jpg.html">PNG to JPG Converter</a> : Batch convert transparent images into widely compatible JPG files.</li>
+      <li><a href="heic-to-png.html">HEIC to PNG Converter</a> : Convert iPhone photos into standard PNG format for easy viewing on PCs.</li>
+    </ul>
+  </article>
+
+  <!-- Bottom Ad Slot
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const resultZone = document.getElementById('result-zone');
+const widthInputEl = document.getElementById("width");
+const heightInputEl = document.getElementById("height");
+const keepRatioCheckbox = document.getElementById("keep-ratio");
+
+let selectedFiles = [];
+let currentAspectRatio = 1; // For preserving aspect ratio
+let downloadUrls = []; // For memory cleanup
+
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+
+['dragenter', 'dragover'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.add('active'), false);
+});
+['dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', e => {
+  selectedFiles = e.dataTransfer.files;
+  updateStatus();
+  calculateInitialRatio();
+}, false);
+
+fileInput.addEventListener('change', function() {
+  selectedFiles = this.files;
+  updateStatus();
+  calculateInitialRatio();
+});
+
+function calculateInitialRatio() {
+  if (selectedFiles.length > 0) {
+    const file = selectedFiles[0];
+    if (!file.type.startsWith('image/')) return;
+    const img = new Image();
+    img.src = URL.createObjectURL(file);
+    img.onload = () => {
+      currentAspectRatio = img.width / img.height;
+      if (!widthInputEl.value && !heightInputEl.value) {
+        widthInputEl.value = img.width;
+        heightInputEl.value = img.height;
+      }
+      URL.revokeObjectURL(img.src);
+    };
+  }
+}
+
+widthInputEl.addEventListener('input', () => {
+  if (keepRatioCheckbox.checked && currentAspectRatio) {
+    const val = parseInt(widthInputEl.value);
+    if (val) heightInputEl.value = Math.round(val / currentAspectRatio);
+  }
+});
+
+heightInputEl.addEventListener('input', () => {
+  if (keepRatioCheckbox.checked && currentAspectRatio) {
+    const val = parseInt(heightInputEl.value);
+    if (val) widthInputEl.value = Math.round(val * currentAspectRatio);
+  }
+});
+
+function updateStatus() {
+  if (selectedFiles.length > 0) {
+    resultZone.innerHTML = `<p style="text-align:center; color:var(--primary); font-weight:bold;">${selectedFiles.length} file(s) selected. Enter dimensions and click Resize.</p>`;
+  }
+}
+
+function run() {
+  const widthInput = document.getElementById("width").value;
+  const heightInput = document.getElementById("height").value;
+
+  if (selectedFiles.length === 0) return alert("Please select at least one file.");
+  if (!widthInput || !heightInput) return alert("Please enter both width and height.");
+
+  const width = parseInt(widthInput);
+  const height = parseInt(heightInput);
+
+  downloadUrls.forEach(url => URL.revokeObjectURL(url));
+  downloadUrls = [];
+  resultZone.innerHTML = "<p style='text-align:center;'>Resizing...</p>";
+
+  Array.from(selectedFiles).forEach(file => {
+    if (!file.type.startsWith('image/')) return;
+
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.src = url;
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+
+      const ctx = canvas.getContext("2d");
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, 0, 0, width, height);
+
+      canvas.toBlob(blob => {
+        const downloadUrl = URL.createObjectURL(blob);
+        downloadUrls.push(downloadUrl);
+        
+        const item = document.createElement("div");
+        item.className = "result-item";
+        
+        // Preview image rendering
+        const previewImg = document.createElement("img");
+        previewImg.src = downloadUrl;
+        previewImg.className = "preview-img";
+        item.appendChild(previewImg);
+
+        const infoDiv = document.createElement("div");
+        infoDiv.className = "result-info";
+        
+        const nameLabel = document.createElement("span");
+        nameLabel.textContent = file.name + " → Resized successfully";
+        
+        const link = document.createElement("a");
+        link.href = downloadUrl;
+        link.download = "resized_" + file.name;
+        link.textContent = "Save Image";
+        link.className = "download-link";
+
+        infoDiv.appendChild(nameLabel);
+        infoDiv.appendChild(link);
+        item.appendChild(infoDiv);
+        
+        // Remove loading text on first item insertion
+        if (resultZone.querySelector('p')) {
+            resultZone.innerHTML = '';
+        }
+        resultZone.appendChild(item);
+        
+        URL.revokeObjectURL(url);
+      }, "image/jpeg", 0.9);
+    };
+  });
+}
+</script>
+
+</body>
+</html>

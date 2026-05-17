@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<title>Electricity Consumption, Heat & Cost Calculator | J / Wh / kWh Conversion | HaruTools Lab</title>
+<meta name="description" content="Calculate energy consumption (Wh/kWh), heat energy (J), and estimated electricity cost simultaneously from power (W/kW) and time. Supports seconds, minutes, hours, and days. No installation required, mobile-friendly, and privacy-focused design.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --accent-color: #e74c3c;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --border-color: #e1e4e8;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 入力グループ */
+.input-group { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 10px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-group label { flex: 1; font-weight: bold; font-size: 0.9em; text-align: right; }
+
+input[type="number"], select {
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+input[type="number"] { flex: 2; min-width: 100px; }
+select { flex: 1; background-color: #fff; cursor: pointer; min-width: 100px; }
+
+/* プレビューエリア（結果表示として利用） */
+.result-display {
+    background: #fffafa;
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.res-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+.res-item:last-child { border-bottom: none; }
+.res-label { font-size: 0.85em; color: #666; font-weight: bold; }
+.res-val { font-size: 1.6rem; font-weight: bold; color: var(--accent-color); }
+.res-unit { font-size: 0.9rem; margin-left: 5px; color: var(--text-main); }
+
+/* 電気代の強調表示用 */
+.res-cost { color: var(--success); }
+
+
+
+.btn-reset {
+  background: #eee;
+  color: #333;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+    .input-group { flex-direction: column; align-items: stretch; }
+    .input-group label { text-align: left; }
+    .res-item { flex-direction: column; align-items: flex-start; }
+    .res-val { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Free Online Tools - HaruTools Lab
+    </a>
+  </div>
+    <h1>Electricity Consumption, Heat & Cost Calculator</h1>
+    <p class="tagline">Instantly calculate Joules (J), Watt-hours (Wh), and electricity costs from power usage and time.</p>
+  </header>
+
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <!-- AdSense ディスプレイ広告ユニット (上部) -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <div class="main-card">
+    <div id="tool-ui">
+        <div class="input-group">
+            <label>Power</label>
+            <input type="number" id="pVal" placeholder="e.g. 100" oninput="calc()" min="0">
+            <select id="pUnit" onchange="calc()">
+                <option value="w" selected>W (Watts)</option>
+                <option value="kw">kW (Kilowatts)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Time Used</label>
+            <input type="number" id="tVal" step="any" placeholder="e.g. 1" oninput="calc()" min="0">
+            <select id="tUnit" onchange="calc()">
+                <option value="s">Seconds (s)</option>
+                <option value="m">Minutes (m)</option>
+                <option value="h" selected>Hours (h)</option>
+                <option value="d">Days (d)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Electricity Rate</label>
+            <input type="number" id="unitPrice" placeholder="e.g. 0.15" value="31" oninput="calc()" min="0">
+            <div style="flex: 1; text-align: left; font-size: 0.9em;">/kWh</div>
+        </div>
+        <button class="btn-reset" onclick="resetAll()">Clear</button>
+    </div>
+
+    <div class="result-display" id="res-box">
+        <div class="res-item">
+            <span class="res-label">Heat Energy (J / Joules)</span>
+            <span><span class="res-val" id="resJ">0</span><span class="res-unit">J</span></span>
+        </div>
+        <div class="res-item">
+            <span class="res-label">Energy Consumption (Wh / Watt-hours)</span>
+            <span><span class="res-val" id="resWh">0</span><span class="res-unit">Wh</span></span>
+        </div>
+        <div class="res-item">
+            <span class="res-label">Energy Consumption (kWh / Kilowatt-hours)</span>
+            <span><span class="res-val" id="resKWh">0</span><span class="res-unit">kWh</span></span>
+        </div>
+        <div class="res-item" style="border-top: 2px solid #eee; margin-top: 5px;">
+            <span class="res-label">Estimated Cost</span>
+            <span><span class="res-val res-cost" id="resCost">0</span><span class="res-unit"></span></span>
+        </div>
+    </div>
+<div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>Important Note on Calculation Results</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>The calculation results from this tool are estimates based on the input power values. Actual electricity bills may differ from the utility provider's actual statement due to additional charges such as base service rates, fuel adjustments, or renewable energy taxes.</li>
+        <li>For heat energy calculations, the actual generated heat may deviate from the theoretical calculation values depending on environmental factors, machine efficiency, and dissipation loss.</li>
+        <li>This website bears no liability for any losses or damages caused by using the calculation results (such as cost projections) of this tool. Please use these values as a guideline, and make any final financial or facility decisions at your own discretion.</li>
+    </ul>
+</div>
+  </div>
+  
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>What is the Electricity Consumption, Heat & Cost Calculator?</h2>
+    <p>This tool lets you instantly calculate energy metrics including heat energy (J), energy consumption (Wh/kWh), and estimated costs based on an appliance's power consumption (W) and operating time. Use it for energy-saving simulations, physics studies, or household budget budgeting.</p>
+
+    <h3>Technical Background and Usefulness</h3>
+    <p>Understanding energy efficiency is critical not only for managing household expenses but also for minimizing environmental impact in modern society. Built on foundational energy conversion formulas from physics, this tool simplifies complex unit conversions. Transitioning from small-scale measurements like Joules per second to standard commercial electricity units like kWh can be prone to human error when done manually; this tool ensures fast and accurate estimations.</p>
+
+    <h3>Unit Definitions and Conversion Formulas</h3>
+    <ul>
+        <li><strong>Joule (J):</strong> The total amount of energy consumed when 1W of power is used for 1 second. It serves as the basic SI unit for heat energy in physics.</li>
+        <li><strong>Watt-hour (Wh):</strong> The energy consumed when 1W of power is used for 1 hour. This unit is widely used to express household appliance energy capacities.</li>
+        <li><strong>Kilowatt-hour (kWh):</strong> Equivalent to 1,000 Wh, this is the standard unit of measurement found on electricity utility statements globally.</li>
+        <li><strong>Electricity Cost:</strong> Evaluated as Energy Consumption (kWh) &times; Electricity Rate (per kWh). You can set any specific custom rate depending on your local region.</li>
+    </ul>
+    <p><strong>How the calculation works:</strong> Using the fundamental formula $$W (\text{Power}) \times t (\text{Seconds}) = J (\text{Energy})$$ as a baseline, time values (minutes, hours, days) are automatically normalized. Note that 1 Wh corresponds exactly to 3,600 J.</p>
+
+    <h3>Key Features</h3>
+    <ul>
+      <li><strong>Simultaneous Calculations:</strong> View heat metrics, power consumption, and your estimated expenditures dynamically at the same time.</li>
+      <li><strong>100% Free:</strong> All features are fully open and accessible without any premium paywalls.</li>
+      <li><strong>No Account Required:</strong> Skip tedious sign-up forms or login steps; launch and evaluate immediately.</li>
+      <li><strong>Secure Privacy Design:</strong> Since data is processed completely within your local browser sandbox, input variables are never transmitted to external web servers. Your private data remains fully safe.</li>
+    </ul>
+
+    <h2>Step-by-Step Guide</h2>
+    <ol>
+      <li>Enter the appliance specification value in the "Power" input field, and choose the correct prefix unit (W or kW).</li>
+      <li>Input the operational duration into the "Time Used" field, and pick the corresponding unit metric (Seconds, Minutes, Hours, or Days).</li>
+      <li>Type your local utility rate in the "Electricity Rate" area. Refer to your utility provider's billing statements for localized accuracy.</li>
+      <li>The system automatically recalculates and displays updated Joules (J), Wh/kWh, and currency costs in real-time as you type.</li>
+    </ol>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. What rate should I use for the electricity calculation?</span>
+      <p>A. National averages fluctuate considerably based on regional grid infrastructure and regulatory environments. To get the most true-to-life financial simulations, input the exact marginal rate per kWh found on your most recent electrical utility bill statement.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. How much electrical energy is represented by 1 kWh?</span>
+      <p>A. 1 kWh is the cumulative energy used by running a 1000W (1kW) appliance continuously for 1 hour. For instance, operating a high-power 1200W hair dryer for exactly 5 minutes will consume roughly 0.1 kWh of energy.</p>
+    </div>
+
+<h3>Related Tools</h3>
+    <ul>
+      <li><a href="resistor-color-code.html">4-Band Resistor Color Code Calculator</a>: Instantly determine resistance values from colored bands.</li>
+      <li><a href="resistor-color-code-5band.html">5-Band Resistor Color Code Calculator</a>: Evaluate high-precision 5-band resistor specifications.</li>
+      <li><a href="composite-resistance.html">Equivalent Resistance Calculator</a>: Easily solve complex parallel and series circuit configurations.</li>
+      <li><a href="ohm-law-calculator.html">Ohm's Law & Power Calculator</a>: Essential utility tool for computing voltage, current, and resistance.</li>
+      <li><a href="rlc-calc.html">RLC Circuit Impedance Calculator</a>: Calculate complex impedance characteristics for AC circuits.</li>
+      <li><a href="ac-power-calculator.html">AC Power Multi-Calculator</a>: Comprehensively assess active power, reactive power, and power factors.</li>
+      <li><a href="logic-circuit-simulator.html">Logic Circuit Simulator</a>: Combine elementary logic gates to test dynamic system operations.</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+</div>
+
+<script>
+    function calc() {
+        const pInput = parseFloat(document.getElementById('pVal').value);
+        const pUnit = document.getElementById('pUnit').value;
+        const tInput = parseFloat(document.getElementById('tVal').value);
+        const tUnit = document.getElementById('tUnit').value;
+        const priceInput = parseFloat(document.getElementById('unitPrice').value);
+
+        if (!isNaN(pInput) && !isNaN(tInput)) {
+            // 負数入力の防止
+            let cleanP = Math.max(0, pInput);
+            let cleanT = Math.max(0, tInput);
+
+            // 電力を「W」に統一
+            let watts = (pUnit === 'kw') ? cleanP * 1000 : cleanP;
+
+            // 時間を「秒(s)」に統一してジュールを計算
+            let seconds = cleanT;
+            switch (tUnit) {
+                case 'm': seconds = cleanT * 60; break;
+                case 'h': seconds = cleanT * 3600; break;
+                case 'd': seconds = cleanT * 86400; break;
+            }
+
+            const joules = watts * seconds;
+            const wh = joules / 3600;
+            const kwh = wh / 1000;
+
+            document.getElementById('resJ').innerText = formatNum(joules);
+            document.getElementById('resWh').innerText = formatNum(wh);
+            document.getElementById('resKWh').innerText = formatNum(kwh);
+            
+            // 電気代の計算
+            if (!isNaN(priceInput) && priceInput >= 0) {
+                const cost = kwh * priceInput;
+                document.getElementById('resCost').innerText = formatNum(cost);
+            } else {
+                document.getElementById('resCost').innerText = "0";
+            }
+            
+            document.getElementById('res-box').style.borderColor = "var(--primary)";
+        } else {
+            // 入力が不完全な場合はリセット
+            document.getElementById('resJ').innerText = "0";
+            document.getElementById('resWh').innerText = "0";
+            document.getElementById('resKWh').innerText = "0";
+            document.getElementById('resCost').innerText = "0";
+            document.getElementById('res-box').style.borderColor = "#ddd";
+        }
+    }
+
+    function formatNum(num) {
+        if (num === 0) return "0";
+        // 桁数が多い場合はカンマ区切り、小数点第4位まで
+        return parseFloat(num.toFixed(4)).toLocaleString();
+    }
+
+    function resetAll() {
+        document.getElementById('pVal').value = '';
+        document.getElementById('tVal').value = '';
+        document.getElementById('unitPrice').value = '31';
+        document.getElementById('resJ').innerText = "0";
+        document.getElementById('resWh').innerText = "0";
+        document.getElementById('resKWh').innerText = "0";
+        document.getElementById('resCost').innerText = "0";
+        document.getElementById('res-box').style.borderColor = "#ddd";
+    }
+</script>
+
+</body>
+</html>

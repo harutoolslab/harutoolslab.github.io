@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+    <!-- ★SEO設定 -->
+    <title>Text Search & Keyword Highlighter | Find, Count & Locate Lines | HaruTools Lab</title>
+    <meta name="description" content="A free online text utility to instantly search, count, and highlight specific keywords or characters in your text. Identify exact line numbers securely in your browser with complete privacy.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --primary: #007bff;
+            --primary-hover: #0056b3;
+            --success: #28a745;
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0; padding: 0; line-height: 1.6;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+        /* 広告枠 */
+        .ad-slot {
+          margin: 40px auto;
+          padding: 10px;
+          text-align: center;
+          background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+          border: 1px solid #eeeeee;
+          border-radius: 8px;
+          /* 広告読み込み前のガタつきを抑える */
+          min-height: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+
+        .ad-label {
+          display: block;
+          font-size: 12px;
+          color: #999;
+          margin-bottom: 10px;
+        }
+
+        /* ヘッダー */
+        header { text-align: center; margin: 40px 0 20px; }
+        h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+        .tagline { color: var(--text-sub); font-size: 1rem; }
+
+        /* ツールメインエリア */
+        .main-card {
+            background: var(--card-bg);
+            padding: 40px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        textarea { width: 100%; height: 200px; padding: 15px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; resize: vertical; font-size: 1rem; }
+        .controls { margin: 20px 0; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        input[type="text"] { padding: 12px; border: 1px solid #ccc; border-radius: 8px; flex-grow: 1; font-size: 1rem; }
+        
+        .btn-search {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+            transition: background 0.2s;
+        }
+        .btn-search:hover { background: var(--primary-hover); }
+
+        .result-info { margin: 20px 0 10px; font-weight: bold; color: #2c3e50; font-size: 1.1rem; }
+        
+        /* 表示切り替え用スタイル */
+        .display-area { 
+            width: 100%; padding: 15px; border: 1px solid #eee; 
+            border-radius: 8px; background: #fafafa; white-space: pre-wrap; word-wrap: break-word;
+            font-size: 1rem; overflow-y: auto; box-sizing: border-box;
+        }
+
+        /* 「入力画面と同じ表示方式」のクラス */
+        .as-input-style {
+            height: 200px; /* 入力画面のtextareaと同じ高さ */
+            border: 1px solid #ccc;
+            background: #ffffff;
+        }
+
+        mark { background-color: #ffeb3b; color: black; border-radius: 2px; padding: 0 2px; }
+
+        .view-toggle { margin-bottom: 10px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .view-toggle input { cursor: pointer; }
+
+        /* SEO解説セクション */
+        .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+        .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+        .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+        footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div style="font-size: 0.9rem; margin-bottom: 5px;">
+            <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+                Free Online Tools - HaruTools Lab
+            </a>
+        </div>
+        <h1>Text Search Tool</h1>
+        <p class="tagline">Instantly extract, count, and highlight keywords or specific characters within your text</p>
+    </header>
+
+    <!-- 広告枠：上部 -->
+    <div class="ad-slot">
+        <span class="ad-label">Advertisements</span>
+        <!-- AdSense ディスプレイ広告ユニット -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2295804002960949"
+             data-ad-slot="2569812848"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <main class="main-card">
+        <textarea id="inputText" placeholder="Paste or type the text you want to search here..."></textarea>
+
+        <div class="controls">
+            <input type="text" id="keyword" placeholder="Enter search keyword" onkeypress="if(event.key==='Enter') searchText()">
+            <button onclick="searchText()" class="btn-search">Search</button>
+        </div>
+
+        <div class="result-info" id="resultCount"></div>
+
+        <!-- 表示形式切り替えスイッチ -->
+        <div class="view-toggle">
+            <input type="checkbox" id="toggleStyle" onchange="toggleDisplayStyle()">
+            <label for="toggleStyle">Fixed Size Window</label>
+        </div>
+
+        <div id="outputArea" class="display-area">Search results will be displayed here.</div>
+    </main>
+
+    <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+    <!-- SEOコンテンツ -->
+    <article class="info-section">
+        <h2>What is the Text Search Tool?</h2>
+        <p>The Text Search Tool is an online utility designed to quickly scan massive blocks of text to locate specific character strings or individual words. It tells you exactly how many matches were found and lists the specific lines where those words appear. Since it runs completely inside your web browser, it requires no installations and is ready to use instantly.</p>
+
+        <h3>The Importance of Text Queries and Practical Use Cases</h3>
+        <p>As information becomes increasingly digitalized, searching for terms manually through extensive contracts, endless source codes, or large social media logs is incredibly time-consuming and prone to human error. By utilizing this tool, you can extract target entries in a split second. It also allows you to catch invisible elements such as full-width spaces or hidden formatting irregularities. Use this platform to maximize your efficiency during data cleansing, editing, or proofreading tasks.</p>
+
+        <h3>Key Functions & Features</h3>
+        <ul>
+            <li><strong>Real-Time Highlighting:</strong> Found keywords are emphasized with a clear yellow marker, letting you find their positions at a glance.</li>
+            <li><strong>Line Number Location:</strong> Displays the exact line numbers containing your target strings, making it optimal for script debugging or proofing long text documents.</li>
+            <li><strong>Full-Width Spaces & Special Characters Support:</strong> In addition to basic alphanumeric text, it accurately tracks and counts symbols, spaces, and unique notation parameters.</li>
+            <li><strong>Secure Local Environment:</strong> Your text submissions are never uploaded or transmitted to any web servers. Everything runs strictly on your own device browser, ensuring maximum privacy for confidential inputs.</li>
+        </ul>
+
+        <h2>Step-by-Step Instructions</h2>
+        <ol>
+            <li>Paste or write your primary target article inside the large central text box.</li>
+            <li>Enter the specific character or phrase you wish to find into the "Enter search keyword" input box.</li>
+            <li>Click the "Search" button to view the total match count, exact line occurrences, and highlighted structural changes.</li>
+        </ol>
+
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-item">
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td>
+                <span class="faq-q">Q. Can I search within text blocks that contain raw HTML tags?</span>
+                <p>A. Yes, absolutely. This utility completely escapes HTML tag syntaxes and parses them as raw characters, making it highly effective for targeting specific element strings or inline attributes inside source code.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q. Is there a character limit for the text inputs?</span>
+            <p>A. There are no built-in restrictions. However, processing extremely massive datasets containing hundreds of thousands of characters simultaneously might cause a temporary slowdown depending on your device's browser capacity.</p>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q. Is this utility compatible with mobile devices?</span>
+            <p>A. Yes, the responsive interface configuration ensures a smooth, fully operational user experience on smartphone and tablet screens.</p>
+        </div>
+
+<h3>Related Tools</h3>
+    <ul>
+      <li><a href="character-count.html">Character Counter</a>: Track your exact character and line counts in real time</li>
+      <li><a href="full-half-converter.html">Full-width & Half-width Converter</a>: Align and convert text styles for symbols or letters instantly</li>
+      <li><a href="json-xml-format.html">JSON/XML Code Formatter</a>: Indent and clean complex script hierarchies to read code effortlessly</li>
+      <li><a href="text-cleaner.html">Line Break & Character Remover</a>: Wipe away unwanted paragraph breaks or spaces with a single click</li>
+      <li><a href="special-characters.html">Special Characters List</a>: Explore and copy unique symbolic assets for modern web design</li>
+    </ul>
+    </article>
+
+    <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+    <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+</div>
+
+<script>
+// 表示形式を切り替える関数
+function toggleDisplayStyle() {
+    const output = document.getElementById('outputArea');
+    const isChecked = document.getElementById('toggleStyle').checked;
+    if (isChecked) {
+        output.classList.add('as-input-style');
+    } else {
+        output.classList.remove('as-input-style');
+    }
+}
+
+function searchText() {
+    const text = document.getElementById('inputText').value;
+    const keyword = document.getElementById('keyword').value;
+    const output = document.getElementById('outputArea');
+    const countDisplay = document.getElementById('resultCount');
+
+    // テキストエリア自体が空の場合の初期化
+    if (!text) {
+        output.innerHTML = "Search results will be displayed here.";
+        countDisplay.textContent = "";
+        return;
+    }
+
+    // HTMLタグをエスケープして文字として表示させる処理
+    const escapedText = text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    if (!keyword) {
+        output.innerHTML = escapedText.replace(/\n/g, '<br>'); // 改行を反映してエスケープ済みをセット
+        countDisplay.textContent = "Please enter a keyword.";
+        return;
+    }
+
+    // キーワード側もエスケープ後の文字に合わせる
+    const escapedKeywordValue = keyword
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    // 特殊文字をエスケープ
+    const escapedKeyword = escapedKeywordValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(escapedKeyword, 'g');
+    
+    // ヒット数のカウント
+    const matches = escapedText.match(regex);
+    const count = matches ? matches.length : 0;
+    
+    // 何行目にあるかを判定するロジックを追加
+    let lineNumbers = [];
+    const lines = escapedText.split(/\n/);
+    lines.forEach((lineContent, index) => {
+        if (lineContent.includes(escapedKeywordValue)) {
+            lineNumbers.push(index + 1); // 1行目から表示するため+1
+        }
+    });
+
+    if (count > 0) {
+        countDisplay.textContent = `Matches: ${count} (Line: ${lineNumbers.join(', ')})`;
+    } else {
+        countDisplay.textContent = `Matches: 0`;
+    }
+
+    // ハイライト処理
+    if (count > 0) {
+        const highlighted = escapedText.replace(regex, (match) => `<mark>${match}</mark>`);
+        output.innerHTML = highlighted.replace(/\n/g, '<br>'); // 改行を反映
+    } else {
+        output.innerHTML = escapedText.replace(/\n/g, '<br>'); // 改行を反映してエスケープ済みをセット
+    }
+}
+</script>
+
+</body>
+</html>

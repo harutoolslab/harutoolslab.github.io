@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<!-- ★SEO設定：はるツール 画像圧縮用 -->
+<title>Image Compressor | Free Bulk Image Optimization Tool - HaruTools Lab</title>
+<meta name="description" content="A free online tool to easily compress your image file size directly inside your browser. Adjust image quality to optimize sizes for web use and social media posts. Secure local processing.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active { background: rgba(0, 123, 255, 0.1); border-color: var(--primary-hover); }
+
+.btn-select {
+  background: var(--primary); color: white; border: none; padding: 12px 30px;
+  border-radius: 50px; font-weight: bold; cursor: pointer; margin-top: 15px;
+}
+
+/* 設定エリア */
+.config-panel { margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 12px; }
+.config-row { margin-bottom: 15px; }
+input[type="range"] { width: 80%; max-width: 300px; vertical-align: middle; }
+input[type="text"] { padding: 10px; border: 1px solid #ddd; border-radius: 8px; width: 80%; max-width: 300px; }
+
+/* 結果エリア */
+#result-zone { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+.result-item { background: white; padding: 15px; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+.result-item img { max-width: 100%; border-radius: 4px; }
+.size-info { font-size: 0.85rem; margin: 10px 0; color: #555; }
+.download-link { display: inline-block; padding: 8px 15px; background: var(--success); color: white; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 0.9rem; }
+
+.btn-run { background: var(--primary); color: white; border: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Free Online Tools - HaruTools Lab
+    </a>
+  </div>
+    <h1>Image Compressor</h1>
+    <p class="tagline">Adjust output quality settings freely to optimize your image file sizes.</p>
+  </header>
+
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area">
+      <div id="drop-message">
+        <div style="font-size: 1.2rem; font-weight: bold;">Drag & Drop Images Here</div>
+        <p style="color: var(--text-sub); margin: 10px 0;">or</p>
+      </div>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Select Files</button>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
+
+    <div class="config-panel">
+      <div class="config-row">
+        <label style="font-weight: bold;">Quality (Compression Level): <span id="qval" style="color:var(--primary);">0.7</span></label><br>
+        <input type="range" id="quality" min="0.1" max="1" step="0.1" value="0.7">
+      </div>
+      <div class="config-row">
+        <input type="text" id="filename" placeholder="Custom filename (leave blank for original)">
+      </div>
+      <button class="btn-run" onclick="compress()">Compress Images</button>
+    </div>
+
+    <div id="result-zone"></div>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>What is the Image Compressor?</h2>
+    <p>The Image Compressor by HaruTools Lab is designed to dramatically reduce file sizes (storage footprint) while preserving visual clarity. It is perfect for accelerating web page loading speeds, bypass email file attachment limits, or satisfying strict upload thresholds on social platforms.</p>
+
+    <h3>Professional Client-Side Performance</h3>
+    <p>Unlike conventional compression services, this utility employs advanced browser-bound operations. Using the native Canvas API, all image resampling and re-rendering occur directly inside your client session. This approach handles standard metadata parameters (Exif structures) efficiently while providing rapid batch execution without transferring data over network interfaces. The granular 0.1 slider control empowers digital authors to strike an ideal equilibrium between strict storage reductions and crisp visual definition.</p>
+
+    <h3>Core Advantages</h3>
+    <ul>
+      <li><strong>Bulk Operations:</strong> Upload and compress multiple graphic files simultaneously, with standalone outputs ready for individual storage.</li>
+      <li><strong>Real-Time Thresholds:</strong> Freely adjust the quality percentage slider bar to deploy your precise preferred balance.</li>
+      <li><strong>Robust Client Security:</strong> Every step of the pipeline executes strictly within your personal local sandbox environment. No photo assets are ever transmitted or cached on a remote host.</li>
+    </ul>
+
+    <h2>Step-by-Step Directions</h2>
+    <ol>
+      <li>Drag and drop your target assets directly into the designated panel workspace, or click to open your system directory.</li>
+      <li>Use the "Quality" slider control to calibrate your compression ratio (a level of 0.7 offers a highly balanced output profile).</li>
+      <li>Click the designated "Compress Images" button to activate the compression pipeline.</li>
+      <li>Examine the final reduced metrics and press the "Download" button to save your assets.</li>
+    </ol>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. What degree of file reduction can I expect?</span>
+      <p>A. Final figures rely on the structure of the source asset, but a default setting of 0.7 typically yields a file size reduction of roughly 50% to 80%.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Which standard formats are supported by the utility?</span>
+      <p>A. The processor reads primary image container types (including JPG, PNG, and WebP). The optimized data stream is exported as a highly efficient JPEG asset.</p>
+    </div>
+
+    <h3>Related Utilities</h3>
+    <ul>
+      <li><a href="heic-to-png.html">HEIC to PNG Converter</a>: Change mobile phone photography assets into standard web-compatible containers</li>
+      <li><a href="png-to-jpg.html">PNG to JPG Converter</a>: Drop file storage footprints while retaining default background layer assets</li>
+    </ul>
+  </article>
+
+ <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Advertisements</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Terms of Service</a> | <a href="privacy.html" style="color:#999;">Privacy Policy</a> </footer>
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const dropMessage = document.getElementById('drop-message');
+const fileInput = document.getElementById('file-input');
+const qRange = document.getElementById('quality');
+const qValDisp = document.getElementById('qval');
+const resultZone = document.getElementById('result-zone');
+
+let objectUrls = []; // メモリ解放用の配列
+
+qRange.oninput = () => qValDisp.innerText = qRange.value;
+
+// ファイル選択時の枚数表示更新用関数
+function updateFileCount(files) {
+  if (files.length > 0) {
+    dropMessage.innerHTML = `<div style="font-size: 1.2rem; font-weight: bold; color: var(--success);">${files.length} image(s) selected</div><p style="color: var(--text-sub); margin: 10px 0;">Please click the "Compress Images" button.</p>`;
+  }
+}
+
+// ドラッグ&ドロップイベント
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+['dragenter', 'dragover'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.add('active'), false);
+});
+['dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', e => {
+  fileInput.files = e.dataTransfer.files;
+  updateFileCount(fileInput.files);
+}, false);
+
+// ファイル選択ボタンからの入力
+fileInput.addEventListener('change', () => {
+  updateFileCount(fileInput.files);
+});
+
+function compress() {
+  const files = fileInput.files;
+  if (files.length === 0) return alert("Please select an image");
+
+  // 以前のメモリを解放
+  objectUrls.forEach(url => URL.revokeObjectURL(url));
+  objectUrls = [];
+
+  const quality = parseFloat(qRange.value);
+  const nameInput = document.getElementById("filename").value.trim();
+  resultZone.innerHTML = "";
+
+  Array.from(files).forEach((file, index) => {
+    if (!file.type.startsWith('image/')) {
+      alert(`File "${file.name}" was skipped because it is not a valid image asset.`);
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext("2d");
+        
+        // 透過PNG対策：背景を白で塗りつぶす
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.drawImage(img, 0, 0);
+
+        // Blobを使用して正確なサイズを取得
+        canvas.toBlob((blob) => {
+          const compressedData = URL.createObjectURL(blob);
+          objectUrls.push(compressedData); // 解放用に保持
+          
+          // 結果カードの作成
+          const item = document.createElement("div");
+          item.className = "result-item";
+
+          const previewImg = document.createElement("img");
+          previewImg.src = compressedData;
+
+          const beforeSize = (file.size / 1024).toFixed(1);
+          const afterSize = (blob.size / 1024).toFixed(1);
+          
+          const info = document.createElement("div");
+          info.className = "size-info";
+          info.innerHTML = `<strong>${beforeSize}KB</strong> → <span style="color:var(--success); font-weight:bold;">${afterSize}KB</span>`;
+
+          const link = document.createElement("a");
+          let fname = nameInput ? `${nameInput}_${index+1}.jpg` : file.name.replace(/\.[^/.]+$/, "") + "_compressed.jpg";
+          link.href = compressedData;
+          link.download = fname;
+          link.innerText = "Download";
+          link.className = "download-link";
+
+          item.appendChild(previewImg);
+          item.appendChild(info);
+          item.appendChild(link);
+          resultZone.appendChild(item);
+        }, "image/jpeg", quality);
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+</script>
+
+</body>
+</html>
