@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO設定：はるツール HEIC変換用 -->
+<title>HEIC को PNG में बदलें | मुफ्त और बिना रजिस्ट्रेशन के ऑनलाइन टूल「HaruTools Lab」</title>
+<meta name="description" content="iPhone की HEIC छवियों को एक साथ PNG प्रारूप में बदलने के लिए मुफ्त उपकरण। यह ब्राउज़र पर काम करता है, इसलिए तस्वीरें बाहरी सर्वर पर नहीं भेजी जाती हैं और पूरी तरह सुरक्षित हैं। कोई इंस्टॉलेशन आवश्यक नहीं, मोबाइल संगत।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- HEIC変換ライブラリ -->
+<script src="https://cdn.jsdelivr.net/npm/heic2any/dist/heic2any.min.js"></script>
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリアのスタイル */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
+}
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* プレビューエリア */
+#preview-zone { display: none; margin-top: 20px; }
+#image-preview { max-width: 100%; max-height: 300px; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 20px; }
+
+/* 変換ボタン・結果 */
+.btn-run { background: var(--success); color: white; border: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin: 10px; }
+#result-links a { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #eee; border-radius: 8px; color: var(--primary); text-decoration: none; font-weight: bold; border: 1px solid #ddd; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-item .faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+ <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ्त ऑनलाइन टूल्स का संग्रह「HaruTools Lab」
+    </a>
+  </div>
+    <h1>HEIC को PNG में बदलें</h1>
+     <p class="tagline">HEIC छवियों को अपने ब्राउज़र में सुरक्षित रूप से PNG में बदलें।</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <!-- 画像入力エリア -->
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">HEIC फ़ाइलों को यहाँ ड्रैग और ड्रॉप करें</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">या</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">फ़ाइल चुनें</button>
+      <input type="file" id="file-input" accept=".heic" multiple style="display:none;">
+    </div>
+
+    <!-- プレビュー＆操作エリア -->
+    <div id="preview-zone">
+      <p id="status-text" style="font-weight:bold;">चयनित HEIC फ़ाइलों को बदलने की तैयारी की जा रही है...</p>
+      <div id="result-links"></div>
+      <div style="margin-top:20px;">
+        <button class="btn-run" id="run-btn">PNG में बदलें और डाउनलोड करें</button><br>
+        <p id="download-note" style="display:none; font-size: 0.85rem; color: var(--text-sub); margin-top: 10px;">※ यदि कई फ़ाइलें हैं, तो ब्राउज़र में "एक से अधिक फ़ाइलें डाउनलोड करने की अनुमति" देना आवश्यक है।</p>
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer; margin-top:10px;">दूसरी छवि चुनें</button>
+      </div>
+    </div>
+  </main>
+
+ <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>HEIC से PNG कन्वर्टर टूल क्या है?</h2>
+    <p>
+      यह एक ऑनलाइन टूल है जो iPhone के कैमरों द्वारा मानक रूप से उपयोग किए जाने वाले छवि प्रारूप "HEIC (High Efficiency Image Container)" को उच्च-अनुकूलता वाले "PNG" प्रारूप में तुरंत और एक साथ बदल देता है।
+      चूंकि हमारी साइट <strong>क्लाइंट-साइड प्रोसेसिंग</strong> तकनीक का उपयोग करती है, इसलिए आपकी अपलोड की गई छवियों को किसी बाहरी सर्वर पर भेजे जाने या सहेजे जाने का कोई जोखिम नहीं है।
+    </p>
+
+    <h3>HEIC को PNG में बदलने की आवश्यकता क्यों है?</h3>
+    <p>
+      HEIC एक उत्कृष्ट तकनीक है जो उच्च गुणवत्ता बनाए रखते हुए फ़ाइल के आकार को छोटा रखती है, लेकिन विंडोज़ के पुराने फोटो व्यूअर, कुछ सोशल मीडिया (SNS) या ब्लॉग सेवाओं पर यह प्रदर्शित नहीं हो पाती है।
+      इसे PNG प्रारूप में बदलकर, आप <strong>पारदर्शी पृष्ठभूमि की जानकारी को बनाए रखते हुए, इसे किसी भी OS या ब्राउज़र पर देखने योग्य</strong> बना सकते हैं।
+    </p>
+
+    <h3>HaruTools Lab के अनूठे लाभ</h3>
+    <ul>
+      <li><strong>पूरी तरह से मुफ्त और असीमित:</strong> दैनिक उपयोग या फ़ाइल आकार पर बिना किसी सीमा के सभी सुविधाएं मुफ्त में उपलब्ध हैं।</li>
+      <li><strong>गोपनीयता को प्राथमिकता:</strong> रूपांतरण प्रक्रिया पूरी तरह से JavaScript का उपयोग करके आपके अपने डिवाइस पर की जाती है। यह आपकी व्यक्तिगत तस्वीरों को लीक होने से सुरक्षित रखता है।</li>
+      <li><strong>किसी इंस्टॉलेशन की आवश्यकता नहीं:</strong> यदि आपके पास Safari, Chrome, Edge जैसा ब्राउज़र है, तो आप इसे तुरंत अपने स्मार्टफोन या पीसी पर उपयोग कर सकते हैं।</li>
+    </ul>
+
+    <h2>रूपांतरण के चरण और सुझाव</h2>
+    <ol>
+      <li><strong>फ़ाइल लोड करना:</strong> जिन HEIC छवियों को आप बदलना चाहते हैं, उन्हें बिंदीदार रेखा (Dotted Border) वाले बॉक्स में खींचें या बटन पर क्लिक करके चुनें।</li>
+      <li><strong>एक साथ रूपांतरण शुरू करना:</strong> "PNG में बदलें और डाउनलोड करें" पर क्लिक करें। ब्राउज़र स्वचालित रूप से प्रक्रिया को आगे बढ़ाएगा।</li>
+      <li><strong>डाउनलोड की पुष्टि करना:</strong> रूपांतरण पूरा होने पर फ़ाइल अपने आप सहेज ली जाएगी। कई छवियों के मामले में, कृपया ब्राउज़र की "मल्टीपल डाउनलोड अनुमति" चालू करें।</li>
+    </ol>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. क्या छवि की गुणवत्ता (Quality) कम हो जाएगी?</span>
+      <p>A. यह टूल HEIC से PNG में बदलते समय मूल रिज़ॉल्यूशन को यथासंभव बनाए रखने के लिए डिज़ाइन किया गया है। चूंकि PNG एक दोषरहित (Lossless) प्रारूप है, यह दोबारा संपादन (Re-editing) के लिए भी उपयुक्त है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. क्या मैं इसका उपयोग Android डिवाइस से भी कर सकता हूँ?</span>
+      <p>A. हाँ। बिना किसी OS भेदभाव के, यदि आपके पास नवीनतम वेब ब्राउज़र है, तो आप टैबलेट या स्मार्टफोन से भी छवियों को बदल सकते हैं।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. क्या इसका उपयोग ऑफलाइन वातावरण में किया जा सकता है?</span>
+      <p>A. एक बार पेज लोड होने के बाद, छवि को प्रोसेस करने के लिए इंटरनेट कनेक्शन की आवश्यकता नहीं होती है। सुरक्षा को प्राथमिकता देने वाले उपयोगकर्ताओं द्वारा भी इसे पसंद किया जाता है।</p>
+    </div>
+
+    <h3>संबंधित उपकरण (Related Tools)</h3>
+    <ul>
+      <li><a href="jpg-to-png.html">JPG को PNG में बदलें</a> ─ पारदर्शी पृष्ठभूमि तैयार करने या लोगो बनाने के लिए।</li>
+      <li><a href="png-to-jpg.html">PNG को JPG में बदलें</a> ─ फ़ाइल का आकार हल्का करने के लिए।</li>
+      <li><a href="image-compress.html">छवि को कंप्रेस करें</a> ─ गुणवत्ता बनाए रखते हुए साइट लोड होने की गति बढ़ाएं।</li>
+    </ul>
+  </article>
+
+ <!--下部
+  <div class="ad-slot">
+    <span class="ad-label"> विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const runBtn = document.getElementById('run-btn');
+const resultLinks = document.getElementById('result-links');
+const statusText = document.getElementById('status-text');
+const downloadNote = document.getElementById('download-note');
+
+let currentFiles = [];
+
+// イベント防止
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+
+// スタイル切り替え
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.add('active'), false);
+});
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, () => dropArea.classList.remove('active'), false);
+});
+
+// ファイル受け取り
+dropArea.addEventListener('drop', e => {
+  currentFiles = e.dataTransfer.files;
+  showPreview();
+}, false);
+
+fileInput.addEventListener('change', function() {
+  currentFiles = this.files;
+  showPreview();
+});
+
+function showPreview() {
+  if (currentFiles.length > 0) {
+    dropArea.style.display = 'none';
+    previewZone.style.display = 'block';
+    statusText.textContent = `${currentFiles.length} फ़ाइलें सफलतापूर्वक लोड की गईं`;
+    resultLinks.innerHTML = "";
+    if (currentFiles.length > 1) {
+      downloadNote.style.display = 'block';
+    }
+  }
+}
+
+// 実行処理
+runBtn.addEventListener('click', async () => {
+  if (currentFiles.length === 0) return;
+  
+  runBtn.disabled = true;
+  resultLinks.innerHTML = "";
+
+  let count = 0;
+  const total = currentFiles.length;
+
+  for (let file of currentFiles) {
+    count++;
+    runBtn.textContent = `बदला जा रहा है (${count}/${total})...`;
+    
+    try {
+      // HEIC -> PNG 変換
+      const blob = await heic2any({
+        blob: file,
+        toType: "image/png"
+      });
+
+      const url = URL.createObjectURL(blob);
+      const downloadName = file.name.replace(/\.heic$/i, ".png");
+
+      // ダウンロードリンク生成
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = downloadName;
+      a.textContent = "✅ " + downloadName + " सहेजें";
+      resultLinks.appendChild(a);
+      resultLinks.appendChild(document.createElement("br"));
+
+      // 自動ダウンロード実行
+      a.click();
+
+      // メモリ解放（1分後にURLを無効化）
+      setTimeout(() => URL.revokeObjectURL(url), 60000);
+
+    } catch (e) {
+      console.error(e);
+      const errorMsg = document.createElement("p");
+      errorMsg.style.color = "red";
+      errorMsg.textContent = "विफल: " + file.name;
+      resultLinks.appendChild(errorMsg);
+    }
+  }
+
+  runBtn.disabled = false;
+  runBtn.textContent = "रूपांतरण पूर्ण (पुनः प्रयास करें)";
+  statusText.textContent = "सभी प्रक्रियाएं पूरी हो चुकी हैं।";
+});
+</script>
+
+</body>
+</html>

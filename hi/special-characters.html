@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO設定：ツールに合わせてここを書き換え -->
+<title>विशेष वर्ण सूची टूल | कॉपी-पेस्ट के लिए प्रतीक और विशेष अक्षर | HaruTools Lab</title>
+<meta name="description" content="वेब डेवलपमेंट और सोशल मीडिया पोस्ट के लिए एक सुविधाजनक विशेष वर्ण और प्रतीक सूची टूल। तीरों, गणितीय प्रतीकों, संलग्न अक्षरों, इकाइयों आदि को श्रेणियों में प्रदर्शित किया गया है। क्लिक करके आसानी से क्लिपबोर्ड पर कॉपी करें। कोई पंजीकरण आवश्यक नहीं, पूरी तरह से मुफ़्त।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 特殊文字グリッド用スタイル */
+.category-title {
+  font-weight: bold;
+  color: var(--primary);
+  margin: 30px 0 15px;
+  text-align: left;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 10px;
+}
+.char-item {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.char-item:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+.char-item:active {
+  transform: scale(0.9);
+}
+
+/* 通知トースト */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  display: none;
+  z-index: 1000;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ़्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>विशेष वर्ण सूची टूल</h1>
+    <p class="tagline">बस एक क्लिक में कॉपी करें! वेब डिज़ाइन और सोशल मीडिया के लिए उपयोगी प्रतीकों का संग्रह</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-sub);">आप जिस वर्ण का उपयोग करना चाहते हैं उस पर क्लिक करें, वह क्लिपबोर्ड पर कॉपी हो जाएगा।</p>
+    
+    <div id="char-container">
+        <!-- カテゴリーと文字はJSで生成 -->
+    </div>
+  </main>
+  
+  <div id="toast">कॉपी हो गया!</div>
+  
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>विशेष वर्ण सूची टूल क्या है?</h2>
+    <p>विशेष वर्ण सूची टूल एक ऑनलाइन टूल है जो उन प्रतीकों को एकत्रित करता है जिन्हें सीधे कीबोर्ड से इनपुट करना कठिन होता है, या जिन्हें HTML में विशेष डिस्प्ले की आवश्यकता होती है। आप ब्लॉग पोस्ट, सोशल मीडिया पोस्ट और दस्तावेज़ निर्माण में तुरंत उपयोग के लिए तीरों, गणितीय प्रतीकों, संलग्न वर्णों, चेक मार्क आदि को एक क्लिक के साथ क्लिपबोर्ड पर कॉपी कर सकते हैं।</p>
+
+    <h3>इस टूल की विशेषताएं</h3>
+    <ul>
+      <li><strong>वन-टैप कॉपी:</strong> किसी जटिल चयन की आवश्यकता नहीं है। बस क्लिक करें और कॉपी पूरी हो जाएगी।</li>
+      <li><strong>प्रमुख प्रतीकों को कवर करता है:</strong> वेब निर्माण और कार्यालय के काम में अक्सर उपयोग किए जाने वाले वर्णों को सावधानीपूर्वक चुना और वर्गीकृत किया गया है।</li>
+      <li><strong>पूरी तरह से मुफ़्त और कोई पंजीकरण आवश्यक नहीं:</strong> बिना किसी परेशानी वाले सदस्य पंजीकरण के सभी प्रतीकों का मुफ़्त में उपयोग करें।</li>
+      <li><strong>सुरक्षित गोपनीयता:</strong> चूंकि यह ब्राउज़र पर चलता है, इसलिए आपका इनपुट डेटा या इतिहास किसी बाहरी सर्वर पर नहीं भेजा जाता है।</li>
+    </ul>
+
+    <h2>विशेष वर्णों का उपयोग करने की आवश्यकता क्यों है?</h2>
+    <p>वेबसाइटों या सोशल मीडिया पर टेक्स्ट जानकारी को विज़ुअली व्यवस्थित करने के लिए विशेष वर्ण आवश्यक हैं। उदाहरण के लिए, "महत्वपूर्ण" शब्द के स्थान पर "⚠️" या "✨" का उपयोग करके आप पाठकों का ध्यान आकर्षित कर सकते हैं। इसके अलावा, गणितीय प्रतीकों और इकाइयों (℃, ㎡) को सटीक रूप से व्यक्त करने से जानकारी की विश्वसनीयता भी बढ़ती है। यह टूल ऐसे पेशेवर अभिव्यक्तियों को आसानी से प्राप्त करने के लिए विकसित किया गया था।</p>
+
+    <h2>उपयोग करने के चरण</h2>
+    <ol>
+      <li>सूची में से उस विशेष वर्ण या प्रतीक को ढूंढें जिसका आप उपयोग करना चाहते हैं।</li>
+      <li>लक्षित वर्ण पर क्लिक करें (स्मार्टफ़ोन पर टैप करें)।</li>
+      <li>जब "कॉपी हो गया!" का नोटिफिकेशन दिखाई दे, तो इसे अपनी इच्छित जगह पर पेस्ट कर दें।</li>
+    </ol>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्र. कॉपी किया गया वर्ण विकृत (गलत तरीके) से प्रदर्शित हो रहा है।</span>
+      <p>उ. यदि प्रदर्शित करने वाले पक्ष का फ़ॉन्ट या वातावरण (पुराने ओएस या ऐप्स आदि) उस वर्ण का समर्थन नहीं करता है, तो विशेष वर्ण चौकोर बॉक्स (□) या "?" के रूप में दिखाई दे सकते हैं।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या इसका उपयोग iPhone या Android पर किया जा सकता है?</span>
+      <p>उ. हाँ। क्लिक-टू-कॉपी सुविधा का उपयोग स्मार्टफ़ोन ब्राउज़र पर भी उसी तरह किया जा सकता है। कृपया इसका उपयोग सोशल मीडिया प्रोफाइल आदि बनाने के लिए करें।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या मैं नए प्रतीकों को जोड़ने का अनुरोध कर सकता हूँ?</span>
+      <p>उ. आपके सुझाव के लिए धन्यवाद। हम आने वाले समय में अत्यधिक उपयोगी प्रतीकों को क्रमिक रूप से जोड़ने पर विचार कर रहे हैं।</p>
+    </div>
+<h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="character-count.html">वर्ण गणना</a>: इनपुट किए गए वर्णों की कुल संख्या को तुरंत मापें</li>
+      <li><a href="text-search.html">टेक्स्ट खोज टूल</a>: लंबे वाक्यों से विशिष्ट शब्दों को निकालें</li>
+      <li><a href="full-half-converter.html">पूर्ण-चौड़ाई आधा-चौड़ाई कनवर्टर</a>: अल्फ़ान्यूमेरिक वर्णों के आकार को तुरंत बदलें</li>
+      <li><a href="json-xml-format.html">JSON/XML फॉर्मेटर</a>: कोड को पढ़ने में आसान बनाने के लिए स्वचालित रूप से स्वरूपित करें</li>
+      <li><a href="text-cleaner.html">लाइन ब्रेक और विशिष्ट वर्ण रिमूवर</a>: अनावश्यक रिक्त स्थान या लाइन ब्रेक को साफ करें</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+const charData = [
+    {
+        category: "तीर (Arrows)",
+        chars: ["←", "↑", "→", "↓", "↔", "↕", "↖", "↗", "↘", "↙", "⇐", "⇑", "⇒", "⇓", "⇔", "⇕", "➔", "➢", "➤", "➥", "⇦", "⇧", "⇨", "⇩", "➔", "➘", "➚", "➛", "➜", "➞", "➟", "➠", "➡", "➢", "➣", "➤", "➥", "➦", "➧", "➨"]
+    },
+    {
+        category: "संगीत प्रतीक (Music)",
+        chars: ["♩", "♪", "♫", "♬", "♭", "♮", "♯", "𝄞", "𝄢", "𝄡", "𝄀", "𝄁", "𝄂", "𝄃", "𝄄", "𝄅", "𝄆", "𝄇", "𝄈", "𝄉", "𝄊", "𝄋", "𝄌", "𝄍", "𝄎", "𝄏", "𝄐", "𝄑", "𝄒", "𝄓", "𝄔", "𝄕", "𝄖", "𝄗", "𝄘", "𝄙", "𝄚", "𝄛", "𝄜", "𝄝"]
+    },
+    {
+        category: "प्रतीक और चेक (Symbols & Checks)",
+        chars: ["✓", "✔", "✗", "✘", "○", "●", "◎", "□", "■", "△", "▲", "▽", "▼", "◇", "◆", "★", "☆", "✦", "✧", "✨", "♪", "♫", "⚓", "⚡", "☀", "☁", "☂", "☃", "☄", "☎", "⌛", "⌚", "⌨", "✉", "✂", "✒", "✏", "⚙", "⚠", "⛔", "♿", "㊙", "㊗", "Ⓧ", "⭕"]
+    },
+    {
+        category: "संलग्न अक्षर और संख्याएं (Enclosed Numbers)",
+        chars: [
+            "①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", 
+            "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳", 
+            "㉑", "㉒", "㉓", "㉔", "㉕", "㉖", "㉗", "㉘", "㉙", "㉚", 
+            "㉛", "㉜", "㉝", "㉞", "㉟", "㊱", "㊲", "㊳", "㊴", "㊵", 
+            "㊶", "㊷", "㊸", "㊹", "㊺", "㊻", "㊼", "㊽", "㊾", "㊿",
+            "❶", "❷", "❸", "❹", "❺", "❻", "❼", "❽", "❾", "❿",
+            "⓫", "⓬", "⓭", "⓮", "⓯", "⓰", "⓱", "⓲", "⓳", "⓴"
+        ]
+    },
+    {
+        category: "गणित और इकाइयां (Math & Units)",
+        chars: ["＋", "－", "×", "÷", "＝", "≠", "∞", "±", "√", "‰", "℃", "℉", "㎜", "㎝", "㎞", "㎡", "㎥", "㏗", "㎏", "ℓ", "∑", "∫", "∂", "∝", "∞", "∟", "∠", " Angle", "⊥", "∥", "∂", "∆", "∇", "∈", "∋", "⊆", "⊇", "⊂", "⊃", "∪", "∩"]
+    },
+    {
+        category: "उद्धरण चिह्न और कोष्ठक (Quotes & Brackets)",
+        chars: ["「", "」", "『", "』", "【", "】", "〈", "〉", "《", "》", "〔", "〕", "“", "”", "‘", "’", "«", "»", "‹", "›", "（", "）", "［", "］", "｛", "｝", "｟", "｠", "〝", "〞", "﹁", "﹂", "﹃", "﹄", "﹙", "﹚", "﹛", "﹜", "﹝", "﹞", "❨", "❩", "❪", "❫"]
+    },
+    {
+        category: "कार्यालय और ट्रेडमार्क (Office & Trademarks)",
+        chars: ["©", "®", "™", "℠", "℗", "†", "‡", "№", "℡", "℻", "¶", "§", "‼", "⁉", "™", "©", "®", "℅", "℀", "℁", "ℂ", "ℍ", "ℕ", "ℙ", "ℚ", "ℝ", "ℤ"]
+    },
+    {
+        category: "शायद ही कभी इस्तेमाल होने वाले प्रतीक (Rare Decorations)",
+        chars: ["¶", "§", "†", "‡", "⁂", "⁑", "ℵ", "ℶ", "ℷ", "ℸ", "℧", "℟", "℘", "ℐ", "ℌ", "ℜ", "ℯ", "ℊ", "ℴ", "ℼ", "", "⌘", "⌥", "⌃", "⎋", "⌫", "⌬", "⌶", "⌷", "⌸", "⌹", "⌺", "⌻", "⌼", "⍇", "⍈", "⍉", "⍊", "⍋", "⍌"]
+    }
+];
+
+// 名称と解説の簡易データベース
+const charInfoMap = {
+    "←": ["बायां तीर", "सामान्य दिशा निर्देश"],
+    "↑": ["ऊपर का तीर", "ऊपर या उत्तर की ओर संकेत"],
+    "→": ["दायां तीर", "आगे बढ़ना या अगला संकेत"],
+    "↓": ["नीचे का तीर", "नीचे या दक्षिण की ओर संकेत"],
+    "✓": ["चेक मार्क", "पूर्ण या चयनित"],
+    "∞": ["अनंत", "गणितीय अनंतता"],
+    "℃": ["सेल्सियस", "तापमान की इकाई"],
+    "¶": ["पैराग्राफ चिह्न", "अनुच्छेद का विभाजक"],
+    "§": ["अनुभाग चिह्न", "धारा या सेक्शन संकेतक"],
+    "†": ["डैगर", "पाद टिप्पणी या मृत्यु वर्ष संकेतक"],
+    "‡": ["डबल डैगर", "तीसरी पाद टिप्पणी आदि के लिए उपयोग"],
+    "⌘": ["कमांड सिंबल", "Mac की Command कुंजी"],
+    "⌥": ["ऑप्शन सिंबल", "Mac की Option कुंजी"],
+    "⌬": ["बेंजीन रिंग", "रासायनिक संरचना सूत्र का प्रतीक"],
+    "": ["एप्पल लोगो", "Apple का लोगो (पर्यावरण निर्भर)"],
+    "©": ["कॉपीराइट प्रतीक", "कॉपीराइट का संकेत"],
+    "®": ["पंजीकृत ट्रेडमार्क प्रतीक", "पंजीकृत ट्रेडमार्क का संकेत"],
+    "™": ["ट्रेडमार्क प्रतीक", "अपंजीकृत ट्रेडमार्क के लिए भी उपयोग"],
+    "№": ["नंबर सिंबल", "संख्या या नंबर का संकेत"],
+    "⚓": ["लंगर", "बंदरगाह, समुद्र या स्थिरता संकेतक"],
+    "⚡": ["बिजली का प्रतीक", "बिजली, गति या चेतावनी"],
+    "✨": ["चमक", "हाइलाइट या सजावट के लिए लोकप्रिय"],
+    "♩": ["क्वार्टर नोट", "बुनियादी लय की इकाई"],
+    "♪": ["एठ्थ नोट", "क्वार्टर नोट की आधी लंबाई"],
+    "♫": ["बीम्ड एठ्थ नोट्स", "दो जुड़े हुए एठ्थ नोट्स"],
+    "♬": ["बीम्ड सिक्सटीन्थ नोट्स", "दो जुड़े हुए सिक्सटीन्थ नोट्स"],
+    "♭": ["फ्लैट", "आधा स्वर नीचे"],
+    "♮": ["नेचुरल", "मूल स्वर पर वापस"],
+    "♯": ["शार्प", "आधा स्वर ऊपर"],
+    "𝄞": ["ट्रेबल क्लेफ", "उच्च स्वर क्षेत्र का स्टाफ"],
+    "𝄢": ["बास क्लेफ", "कम स्वर क्षेत्र का स्टाफ"],
+    "𝄐": ["फर्मेटा", "उस स्वर को उचित रूप से लंबा करना"]
+};
+
+const container = document.getElementById('char-container');
+const toast = document.getElementById('toast');
+
+// 特殊文字の生成
+charData.forEach(item => {
+    const title = document.createElement('div');
+    title.className = 'category-title';
+    title.textContent = item.category;
+    container.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.className = 'char-grid';
+
+    item.chars.forEach(char => {
+        const div = document.createElement('div');
+        div.className = 'char-item';
+        div.textContent = char;
+        
+        // --- 追加機能: ツールチップ情報の生成 ---
+        // 厳密なサロゲートペア（絵文字や拡張記号）のコードポイント・16進数への対応
+        const codePoint = char.codePointAt(0);
+        const unicode = "U+" + (codePoint ? codePoint.toString(16).toUpperCase() : "0000");
+        const info = charInfoMap[char] || ["विशेष प्रतीक", "वेब निर्माण और डिज़ाइन के लिए"];
+        div.title = `नाम: ${info[0]}\nUnicode: ${unicode}\nविवरण: ${info[1]}`;
+        // ------------------------------------
+
+        div.onclick = () => copyChar(char);
+        grid.appendChild(div);
+    });
+
+    container.appendChild(grid);
+});
+
+// コピー機能（navigator.clipboard が使えない場合のレガシーブラウザ/非HTTPS用フォールバック対応を追加）
+function copyChar(char) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(char).then(() => {
+            showToast(`「${char}」कॉपी कर लिया गया है!`);
+        }).catch(err => {
+            fallbackCopy(char);
+        });
+    } else {
+        fallbackCopy(char);
+    }
+}
+
+// フォールバック用のコピー処理
+function fallbackCopy(char) {
+    const textArea = document.createElement("textarea");
+    textArea.value = char;
+    textArea.style.position = "fixed";  // 画面外に配置
+    textArea.style.opacity = "0";
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+        document.execCommand('copy');
+        showToast(`「${char}」कॉपी कर लिया गया है!`);
+    } catch (err) {
+        console.error('कॉपी करने में विफल', err);
+    }
+    document.body.removeChild(textArea);
+}
+
+// トースト表示
+function showToast(message) {
+    toast.textContent = message;
+    toast.style.display = 'block';
+    setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2000);
+}
+</script>
+
+</body>
+</html>

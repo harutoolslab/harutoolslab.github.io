@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO設定 -->
+<title>RLC सर्किट प्रतिबाधा कैलकुलेटर - सीरीज, पैरेलल और अनुनाद आवृत्ति की गणना | HaruTools Lab</title>
+<meta name="description" content="RLC सीरीज और पैरेलल सर्किट की प्रतिबाधा (इम्पेडेंस), फेज अंतर और अनुनाद आवृत्ति (रेजोनेंस फ्रीक्वेंसी) की रियल-टाइम गणना करें। वेक्टर आरेख के ऑटो-ड्रॉइंग फीचर के साथ। सर्किट डिज़ाइन और सीखने के लिए सबसे अच्छा मुफ्त टूल।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --success: #10b981;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --lagging: #ef4444;
+  --leading: #06b6d4;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* メインレイアウト */
+.main-grid { 
+  display: grid; 
+  grid-template-columns: 380px 1fr; 
+  gap: 25px; 
+  margin-bottom: 30px; 
+  align-items: stretch; /* 左右の高さを揃える */
+}
+@media (max-width: 950px) { .main-grid { grid-template-columns: 1fr; } }
+
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 入力UI */
+.tab-group { display: flex; background: #f1f5f9; padding: 4px; border-radius: 8px; margin-bottom: 24px; }
+.tab-group button { flex: 1; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; transition: 0.3s; background: transparent; }
+.tab-group button.active { background: white; color: var(--primary); font-weight: bold; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+
+.input-item { display: grid; grid-template-columns: 110px 1fr 60px; align-items: center; gap: 10px; margin-bottom: 14px; text-align: left; }
+label { font-size: 0.85rem; font-weight: bold; color: #475569; }
+input, select { padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; width: 100%; box-sizing: border-box; }
+
+/* 結果表示 */
+.res-box { background: #0f172a; color: #f8fafc; padding: 20px; border-radius: 12px; margin-top: auto; text-align: left; }
+.res-line { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid #334155; padding-bottom: 8px; }
+.res-line:last-child { border: none; margin-bottom: 0; }
+.val { color: #34d399; font-family: 'Consolas', monospace; font-size: 1.1rem; font-weight: bold; }
+.status-badge { padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+.lag-bg { background: #ef4444; color: white; }
+.lead-bg { background: #06b6d4; color: white; }
+
+/* キャンバス */
+.canvas-wrapper {
+  flex-grow: 1; /* 枠の余白を埋める */
+  display: flex;
+  flex-direction: column;
+  min-height: 450px;
+}
+#vector-canvas { 
+  background: #fff; 
+  border: 1px solid #e2e8f0; 
+  border-radius: 12px; 
+  width: 100%; 
+  flex-grow: 1; /* 親要素の高さに合わせる */
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.formula-box { background: #f8fafc; padding: 15px; border-radius: 8px; margin: 15px 0; overflow-x: auto; text-align: center; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+      <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+        मुफ़्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+      </a>
+    </div>
+    <h1>RLC सर्किट प्रतिबाधा कैलकुलेटर</h1>
+    <p class="tagline">एसी (AC) सर्किट की प्रतिबाधा और वेक्टर आरेख की तुरंत गणना करें</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <div class="main-grid">
+    <div class="main-card">
+        <h3>पैरामीटर इनपुट</h3>
+        <div class="tab-group">
+            <button id="btn-series" class="active" onclick="setCircuit('series')">सीरीज सर्किट (Series)</button>
+            <button id="btn-parallel" onclick="setCircuit('parallel')">पैरेलल सर्किट (Parallel)</button>
+        </div>
+
+        <div class="input-item">
+            <label>वोल्टेज (RMS)</label>
+            <input type="number" id="v_in" value="100" oninput="calc()">
+            <span>[V]</span>
+        </div>
+        <div class="input-item">
+            <label>आवृत्ति (f)</label>
+            <input type="number" id="freq" value="50" oninput="calc()">
+            <span>[Hz]</span>
+        </div>
+        <div class="input-item">
+            <label>प्रतिरोध (R)</label>
+            <input type="number" id="r_val" value="50" oninput="calc()">
+            <span>[Ω]</span>
+        </div>
+        
+        <div class="input-item">
+            <select id="typeL" onchange="calc()">
+                <option value="L">कॉइल (L)</option>
+                <option value="XL">रिएक्टेंस (XL)</option>
+            </select>
+            <input type="number" id="l_val" value="200" oninput="calc()">
+            <span id="uL">[mH]</span>
+        </div>
+
+        <div class="input-item">
+            <select id="typeC" onchange="calc()">
+                <option value="C">कैपेसिटर (C)</option>
+                <option value="XC">रिएक्टेंस (XC)</option>
+            </select>
+            <input type="number" id="c_val" value="50" oninput="calc()">
+            <span id="uC">[μF]</span>
+        </div>
+
+        <div class="res-box">
+            <div class="res-line"><span>प्रतिबाधा Z</span><span id="outZ" class="val">-</span></div>
+            <div class="res-line">
+                <span>फेज अंतर θ <span id="status" class="status-badge"></span></span>
+                <span id="outDeg" class="val">-</span>
+            </div>
+            <div class="res-line"><span>सर्किट करंट I</span><span id="outI" class="val">-</span></div>
+            <div class="res-line"><span>अनुनाद आवृत्ति f₀</span><span id="outF0" class="val">-</span></div>
+        </div>
+    <div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>गणना के परिणामों के संबंध में महत्वपूर्ण सूचना</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>यह टूल आदर्श घटकों (R, L, C) के आधार पर सैद्धांतिक मानों की गणना करता है। वास्तविक घटकों में कॉइल का डीसी प्रतिरोध (DCR) या कैपेसिटर का समतुल्य सीरीज प्रतिरोध (ESR) जैसे परजीवी तत्व शामिल होते हैं, इसलिए परिणाम वास्तविक मापों से भिन्न हो सकते हैं।</li>
+        <li>उच्च आवृत्ति वाले क्षेत्रों में, वायरिंग की आवारा कैपेसिटेंस और इंडक्टेंस के प्रभाव को नजरअंदाज नहीं किया जा सकता है। पूरे सर्किट की प्रतिबाधा इसके भौतिक लेआउट के आधार पर भी बदल सकती है।</li>
+        <li>इस टूल के गणना परिणामों के उपयोग से होने वाले किसी भी नुकसान, खराबी या क्षति के लिए हमारी वेबसाइट कोई ज़िम्मेदारी नहीं लेती है। फ़िल्टर डिज़ाइन या मैचिंग सर्किट जैसे महत्वपूर्ण अनुप्रयोगों के लिए, हमेशा नेटवर्क एनालाइज़र आदि का उपयोग करके वास्तविक सत्यापन अवश्य करें।</li>
+    </ul>
+</div>
+    </div>
+
+    <div class="main-card" style="padding: 20px;">
+        <h3>वेक्टर आरेख (ऑटो स्केल)</h3>
+        <div class="canvas-wrapper">
+            <canvas id="vector-canvas"></canvas>
+       </div>
+   </div>
+</div>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>RLC सर्किट प्रतिबाधा कैलकुलेटर क्या है?</h2>
+    <p>एसी (AC) सर्किट में, जब प्रतिरोध (R), कॉइल (L) और कैपेसिटर (C) को एक साथ जोड़ा जाता है, तो बिजली के प्रवाह में आने वाली कुल रुकावट को <strong>प्रतिबाधा (Impedance - Z)</strong> कहा जाता है। यह टूल सीरीज और पैरेलल सर्किट में प्रतिबाधा, करंट, फेज अंतर और अनुनाद आवृत्ति की तुरंत गणना करने के लिए एक ऑनलाइन सिम्युलेटर है। यह आपके सर्किट डिज़ाइन और अध्ययन के लिए वेक्टर आरेखों को विज़ुअलाइज़ करने में मदद करता है।</p>
+
+    <h3>1. सीरीज सर्किट के लिए प्रतिबाधा का सूत्र</h3>
+    <p>एक सीरीज सर्किट में, सभी घटकों से एक समान करंट प्रवाहित होता है। प्रतिबाधा $Z$ की गणना निम्नलिखित सूत्र द्वारा की जाती है:</p>
+    <div class="formula-box">
+        $$Z = \sqrt{R^2 + (X_L - X_C)^2} \quad [\Omega]$$
+    </div>
+    <p>यहाँ, $X_L = 2\pi f L$ इंडक्टिव रिएक्टेंस है, और $X_C = \frac{1}{2\pi f C}$ कैपेसिटिव रिएक्टेंस है। फेज अंतर $\theta$ की गणना $\tan^{-1}(\frac{X_L - X_C}{R})$ द्वारा की जाती है। यह टूल रिएक्टेंस मानों के सीधे इनपुट की भी अनुमति देता है, जिससे जटिल गणनाएँ भी सुचारू रूप से हो जाती हैं।</p>
+
+    <h3>2. पैरेलल सर्किट के लिए प्रवेश्यता (Admittance) की गणना</h3>
+    <p>चूंकि पैरेलल सर्किट में प्रत्येक घटक पर समान वोल्टेज लागू होता है, इसलिए प्रतिबाधा के व्युत्क्रम यानी <strong>प्रवेश्यता (Admittance - Y)</strong> का उपयोग करने से गणना आसान हो जाती है। यह टूल सटीक मान प्राप्त करने के लिए आंतरिक रूप से सम्मिश्र संख्याओं (Complex Numbers) की गणना करता है।</p>
+    <div class="formula-box">
+        $$Y = \sqrt{(\frac{1}{R})^2 + (\frac{1}{X_C} - \frac{1}{X_L})^2} \quad [S]$$
+        $$Z = \frac{1}{Y} \quad [\Omega]$$
+    </div>
+
+    <h3>3. अनुनाद आवृत्ति (Resonance Frequency - f₀) क्या है?</h3>
+    <p>वह स्थिति जिसमें कॉइल का गुण (वोल्टेज को पीछे रखना) और कैपेसिटर का गुण (वोल्टेज को आगे बढ़ाना) एक-दूसरे को पूरी तरह से संतुलित या समाप्त कर देते हैं, और कुल रिएक्टेंस शून्य हो जाता है, उसे <strong>अनुनाद (Resonance)</strong> कहा जाता है। इस समय, सर्किट शुद्ध प्रतिरोध की स्थिति में आ जाता है और एक विशिष्ट आवृत्ति पर प्रतिबाधा अपने चरम मान पर पहुँच जाती है।</p>
+    
+    <div class="formula-box">
+        $$f_0 = \frac{1}{2\pi \sqrt{LC}} \quad [Hz]$$
+    </div>
+    <p>सीरीज अनुनाद में प्रतिबाधा न्यूनतम (करंट अधिकतम) हो जाती है, और पैरेलल अनुनाद में प्रतिबाधा अधिकतम (करंट न्यूनतम) हो जाती है। यह फ़िल्टर सर्किट और एंटीना मैचिंग में एक अत्यंत महत्वपूर्ण संकेतक है।</p>
+
+    <h3>इस टूल की विशेषताएं</h3>
+    <ul>
+      <li><strong>रियल-टाइम वेक्टर आरेख ड्राइंग:</strong> आपके इनपुट के अनुसार वेक्टर की दिशा और आकार स्वचालित रूप से बदल जाते हैं, जो दृश्य समझ में मदद करता है।</li>
+      <li><strong>पूरी तरह से मुफ्त और पंजीकरण रहित:</strong> आप बिना किसी लॉगिन के तुरंत अपने ब्राउज़र पर सभी सुविधाओं का उपयोग कर सकते हैं।</li>
+      <li><strong>सुरक्षित डिज़ाइन:</strong> सभी गणनाएँ आपके डिवाइस पर स्थानीय रूप से की जाती हैं, और सर्वर पर कोई डेटा नहीं भेजा जाता है।</li>
+      <li><strong>सटीक संख्यात्मक गणना:</strong> फ्लोटिंग-पॉइंट त्रुटियों और शून्य से विभाजन (Division by Zero) को संभालने वाले लॉजिक के कारण यह स्थिर परिणाम दिखाता है।</li>
+    </ul>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्र. "पश्चगामी धारा" (Lagging Current) और "अग्रगामी धारा" (Leading Current) में क्या अंतर है?</span>
+      <p>उ. यदि सर्किट इंडक्टिव है (कॉइल का प्रभाव मजबूत है), तो करंट वोल्टेज से पीछे रह जाता है, जिसे "पश्चगामी धारा" कहा जाता है। यदि सर्किट कैपेसिटिव है (कैपेसिटर का प्रभाव मजबूत है), तो करंट आगे निकल जाता है, जिसे "अग्रगामी धारा" कहा जाता है। यह टूल स्टेटस बैज द्वारा इसे स्वचालित रूप से पहचानता है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या इकाइयों (Units) को परिवर्तित करना आवश्यक है?</span>
+      <p>उ. नहीं, आप इंडक्टेंस को mH (मिलिहेनरी) में और कैपेसिटेंस को μF (माइक्रोफैराड) में सीधे इनपुट कर सकते हैं। रिएक्टेंस को ओम (Ω) में भी सीधे इनपुट करने का विकल्प मौजूद है।</p>
+    </div>
+
+<h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="resistor-color-code.html">प्रतिरोधक कलर कोड कैलकुलेटर (4 बैंड)</a>: रंगों से प्रतिरोध मान निर्धारित करें</li>
+      <li><a href="resistor-color-code-5band.html">प्रतिरोधक कलर कोड कैलकुलेटर (5 बैंड)</a>: सटीक प्रतिरोधकों के मान की गणना करें</li>
+      <li><a href="composite-resistance.html">संयुक्त प्रतिरोध कैलकुलेटर</a>: कई प्रतिरोधकों के संयुक्त मान की गणना करें</li>
+      <li><a href="ohm-law-calculator.html">ओम का नियम और शक्ति कैलकुलेटर</a>: सर्किट के बुनियादी मानों की गणना करें</li>
+      <li><a href="power-consumption-calculator.html">बिजली की खपत, गर्मी और बिजली बिल कैलकुलेटर</a>: बिजली बिल या गर्मी की मात्रा का अनुमान लगाएं</li>
+      <li><a href="ac-power-calculator.html">एसी पावर मल्टी कैलकुलेटर</a>: सक्रिय और प्रतिक्रियाशील पावर की गणना करें</li>
+      <li><a href="logic-circuit-simulator.html">लॉजिक सर्किट सिम्युलेटर</a>: बुनियादी गेट्स के संचालन की जांच करें</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+    let circuitMode = 'series';
+
+    function setCircuit(mode) {
+        circuitMode = mode;
+        document.getElementById('btn-series').className = mode === 'series' ? 'active' : '';
+        document.getElementById('btn-parallel').className = mode === 'parallel' ? 'active' : '';
+        calc();
+    }
+
+    function calc() {
+        const V = parseFloat(document.getElementById('v_in').value) || 0;
+        const f = parseFloat(document.getElementById('freq').value) || 0;
+        const R = parseFloat(document.getElementById('r_val').value) || 1e-9;
+        const omega = 2 * Math.PI * f;
+
+        const typeL = document.getElementById('typeL').value;
+        const valL = parseFloat(document.getElementById('l_val').value) || 0;
+        const typeC = document.getElementById('typeC').value;
+        const valC = parseFloat(document.getElementById('c_val').value) || 0;
+
+        // ゼロ除算回避用の極小値
+        const EPS = 1e-12;
+
+        let XL = typeL === 'L' ? omega * (valL / 1000) : valL;
+        let XC = typeC === 'C' ? 1 / (omega * (valC / 1000000) || EPS) : valC;
+        if (!isFinite(XC)) XC = 1e9;
+        
+        // XLが0の場合の並列計算対策
+        const safeXL = XL || EPS;
+        const safeXC = XC || EPS;
+
+        document.getElementById('uL').innerText = typeL === 'L' ? '[mH]' : '[Ω]';
+        document.getElementById('uC').innerText = typeC === 'C' ? '[μF]' : '[Ω]';
+
+        let Z, theta, I;
+        if (circuitMode === 'series') {
+            const X = XL - XC;
+            Z = Math.sqrt(R*R + X*X);
+            theta = Math.atan2(X, R);
+        } else {
+            const G = 1/R, BL = 1/safeXL, BC = 1/safeXC;
+            const B = BC - BL;
+            const Y = Math.sqrt(G*G + B*B);
+            Z = Y > 0 ? 1 / Y : 1e9;
+            theta = Math.atan2(B, G); // 【修正】並列回路における位相差の正負（進み・遅れ判定）を正確な数式に修正
+        }
+
+        I = Z > 0 ? V / Z : 0;
+        const deg = theta * 180 / Math.PI;
+
+        const L_act = typeL === 'L' ? valL/1000 : valL/(omega || EPS);
+        const C_act = typeC === 'C' ? valC/1e6 : 1/((omega || EPS)*valC);
+        const f0 = 1 / (2 * Math.PI * Math.sqrt(L_act * C_act) || EPS);
+
+        document.getElementById('outZ').innerText = Z.toFixed(2) + ' Ω';
+        document.getElementById('outI').innerText = I.toFixed(2) + ' A';
+        document.getElementById('outDeg').innerText = deg.toFixed(2) + ' °';
+        document.getElementById('outF0').innerText = isFinite(f0) && f0 > 0 ? f0.toFixed(2) + ' Hz' : '---';
+
+        const status = document.getElementById('status');
+        if (Math.abs(deg) < 0.01) {
+            status.innerText = 'समान फेज'; status.className = 'status-badge';
+        } else if (deg > 0) {
+            status.innerText = 'पश्चगामी धारा'; status.className = 'status-badge lag-bg';
+        } else {
+            status.innerText = 'अग्रगामी धारा'; status.className = 'status-badge lead-bg';
+        }
+
+        drawVector(R, XL, XC, theta, Z);
+    }
+
+    function drawVector(R, XL, XC, theta, Z) {
+        const canvas = document.getElementById('vector-canvas');
+        const ctx = canvas.getContext('2d');
+        const w = canvas.width = canvas.offsetWidth;
+        const h = canvas.height = canvas.offsetHeight;
+        const cx = w / 2, cy = h / 2;
+        
+        ctx.clearRect(0, 0, w, h);
+        
+        ctx.strokeStyle = "#e2e8f0";
+        ctx.setLineDash([2, 4]);
+        ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(w, cy); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, h); ctx.stroke();
+        ctx.setLineDash([]);
+
+        let maxVal;
+        if (circuitMode === 'series') {
+            maxVal = Math.max(R, XL, XC, Math.sqrt(R*R + (XL-XC)*(XL-XC)), 1);
+        } else {
+            const G = 1/R, BL = 1/Math.max(XL, 1e-9), BC = 1/Math.max(XC, 1e-9);
+            maxVal = Math.max(G, BL, BC, Math.sqrt(G*G + (BL-BC)*(BL-BC)), 0.0001);
+        }
+
+        const scale = (Math.min(w, h) * 0.38) / maxVal;
+
+        if (circuitMode === 'series') {
+            drawArrow(ctx, cx, cy, cx + R*scale, cy, "#ef4444", `R: ${R.toFixed(1)}Ω`);
+            drawArrow(ctx, cx, cy, cx, cy - XL*scale, "#2563eb", `XL: ${XL.toFixed(1)}Ω`);
+            drawArrow(ctx, cx, cy, cx, cy + XC*scale, "#f59e0b", `XC: ${XC.toFixed(1)}Ω`);
+            const ZX = (XL - XC);
+            drawArrow(ctx, cx, cy, cx + R*scale, cy - ZX*scale, "#10b981", `Z: ${Z.toFixed(1)}Ω`, true);
+            
+            ctx.beginPath();
+            ctx.arc(cx, cy, 45, 0, -theta, theta > 0);
+            ctx.strokeStyle = "#10b981";
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+        } else {
+            const G = 1/R, BL = 1/Math.max(XL, 1e-9), BC = 1/Math.max(XC, 1e-9);
+            const Y = Math.sqrt(G*G + (BL-BC)*(BL-BC));
+            drawArrow(ctx, cx, cy, cx + G*scale, cy, "#ef4444", `G: ${G.toFixed(4)}S`);
+            drawArrow(ctx, cx, cy, cx, cy + BL*scale, "#2563eb", `BL: ${BL.toFixed(4)}S`);
+            drawArrow(ctx, cx, cy, cx, cy - BC*scale, "#f59e0b", `BC: ${BC.toFixed(4)}S`);
+            drawArrow(ctx, cx, cy, cx + G*scale, cy - (BC-BL)*scale, "#10b981", `Y: ${Y.toFixed(4)}S`, true); // 【修正】並列回路のアドミタンス合成合成ベクトルの描画向き（正負）を正しく同期
+        }
+    }
+
+    function drawArrow(ctx, x1, y1, x2, y2, color, label, bold=false) {
+        if (Math.sqrt((x2-x1)**2 + (y2-y1)**2) < 2) return;
+        ctx.strokeStyle = color; ctx.fillStyle = color;
+        ctx.lineWidth = bold ? 3 : 2;
+        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+        const headSize = bold ? 12 : 9;
+        const angle = Math.atan2(y2-y1, x2-x1);
+        ctx.beginPath(); ctx.moveTo(x2, y2);
+        ctx.lineTo(x2 - headSize * Math.cos(angle - Math.PI / 7), y2 - headSize * Math.sin(angle - Math.PI / 7));
+        ctx.lineTo(x2 - headSize * Math.cos(angle + Math.PI / 7), y2 - headSize * Math.sin(angle + Math.PI / 7));
+        ctx.fill();
+        ctx.font = bold ? "bold 13px sans-serif" : "11px sans-serif";
+        // ラベル重なり防止のための位置調整
+        const off = 12;
+        ctx.fillText(label, x2 + off * Math.cos(angle), y2 + off * Math.sin(angle));
+    }
+
+    window.onload = calc;
+    window.onresize = calc; // 【修正】画面のリサイズやスマホの縦横切り替え時に、Canvasの描画が引き伸ばされたり消えたりする問題を防止
+</script>
+
+</body>
+</html>

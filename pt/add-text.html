@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+      <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+  
+<!-- ★SEO設定：はるツール 画像に文字入れ・テキスト追加用 -->
+<title>Adicionar Texto em Fotos e Imagens | Edição em Lote Online Gratuita「HaruTools Lab」</title>
+<meta name="description" content="Ferramenta gratuita para adicionar textos personalizados em suas imagens. Ajuste fonte, cor, tamanho e posição livremente por arrastar e soltar. Edite várias imagens em lote diretamente no seu navegador.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height:  auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* アップロードエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+#drop-area:hover { background: rgba(0, 123, 255, 0.05); }
+
+/* コントロールパネル */
+.controls {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+input[type="text"] { padding: 10px; border: 1px solid #ddd; border-radius: 8px; flex: 1; min-width: 200px; }
+input[type="number"] { width: 70px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+select { padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+input[type="color"] { border: none; width: 40px; height: 40px; padding: 0; cursor: pointer; background: none; }
+
+.btn-add { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.btn-undo { background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.btn-download { background: var(--success); color: white; border: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 20px; }
+
+/* プレビューエリア */
+#preview-container { margin-top: 20px; }
+.preview-item { 
+  background: #eee; 
+  padding: 10px; 
+  border-radius: 12px; 
+  margin-bottom: 20px; 
+  overflow: auto;
+  position: relative;
+}
+.preview-item canvas { 
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
+  margin: 0 auto; 
+  background: white; 
+  cursor: crosshair;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  touch-action: none; /* スマホスクロール干渉防止 */
+}
+.canvas-hint { font-size: 0.8rem; color: var(--text-sub); margin-top: 5px; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; margin-top: 25px; color: #444; }
+.info-section p { margin-bottom: 15px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      Coleção de ferramentas online gratuitas "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Adicionar Texto em Fotos e Imagens</h1>
+    <p class="tagline">Você pode adicionar e organizar livremente qualquer texto nas imagens enviadas.</p>
+  </header>
+
+  <div class="ad-slot">
+    <span class="ad-label">Anúncios</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area" onclick="document.getElementById('file-input').click()">
+      <div style="font-size: 1.1rem; font-weight: bold;">Arraste e solte as imagens aqui ou clique para selecionar</div>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
+
+    <div class="controls">
+      <input type="text" id="new-text" placeholder="Digite o texto para adicionar...">
+      <select id="font-family">
+        <option value="sans-serif">Sans-serif (Gótica)</option>
+        <option value="serif">Serif (Mincho)</option>
+        <option value="monospace">Monospace (Espaço Fixo)</option>
+      </select>
+      <input type="color" id="font-color" value="#ffffff" title="Cor do texto">
+      <input type="number" id="font-size" value="60" min="10" max="500" title="Tamanho">
+      <button class="btn-add" onclick="addText()">Adicionar Texto</button>
+      <button class="btn-undo" onclick="undoLastText()">Desfazer Último</button>
+    </div>
+
+    <div id="preview-container"></div>
+
+    <button class="btn-download" onclick="downloadAll()">Salvar Imagens</button>
+    <p class="canvas-hint">* Arraste o texto para ajustar a posição e clique duas vezes para remover itens individualmente.</p>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anúncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <article class="info-section">
+    <h2>Como usar a ferramenta de adição de texto em imagens</h2>
+    <p>
+      Esta ferramenta é um editor online gratuito que permite adicionar texto a imagens facilmente direto no seu navegador, sem a necessidade de instalar programas específicos. 
+      Com uma operação intuitiva, você pode usá-la para diversas finalidades, como criação de banners, anotações para posts em redes sociais e adição de datas em fotos de recordação.
+    </p>
+
+    <h3>Dicas para tornar o texto mais legível</h3>
+    <p>
+      Ao inserir texto em uma imagem, se a cor do fundo for muito parecida com a do texto, a leitura pode se tornar difícil. 
+      Para evitar que o texto desapareça em qualquer tipo de plano de fundo, nossa ferramenta aplica automaticamente um contorno (outline) nas letras. 
+      Para um acabamento mais profissional, sugerimos escolher textos pretos ou azul-escuros para fundos claros, e letras brancas ou amarelas para fotos mais escuras.
+    </p>
+
+    <h3>Principais funções e vantagens</h3>
+    <ul>
+      <li><strong>Operação intuitiva de arrastar:</strong> O texto adicionado pode ser movido diretamente com o mouse ou com o dedo na tela para onde você quiser.</li>
+      <li><strong>Edição em lote:</strong> É possível carregar várias imagens simultaneamente e posicionar com eficiência o mesmo texto na mesma localização.</li>
+      <li><strong>Proteção total da privacidade:</strong> Os dados das suas imagens não são enviados para nenhum servidor. Todo o processamento de imagem é feito dentro do próprio navegador do seu computador ou smartphone, permitindo editar com segurança fotos de família ou documentos que contenham informações confidenciais.</li>
+      <li><strong>Sem instalação necessária:</strong> Não requer registro de usuário ou login; você pode começar a usar imediatamente assim que abrir a página.</li>
+    </ul>
+
+    <h2>Perguntas Frequentes</h2>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. Como fica a qualidade da imagem editada?</strong>
+      <p>A. O texto é mesclado mantendo a resolução original da imagem. No entanto, imagens extremamente grandes podem ser reduzidas devido a limitações de memória do próprio navegador.</p>
+    </div>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. Gostaria de ter mais opções de fontes.</strong>
+      <p>A. Atualmente, oferecemos suporte a fontes padrão do sistema como "Sans-serif" e "Serif". No futuro, estamos planejando uma integração com o Google Fonts para disponibilizar opções de fontes com designs mais variados.</p>
+    </div>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. Posso usar a ferramenta no smartphone?</strong>
+      <p>A. Sim, funciona perfeitamente nos navegadores padrão do iPhone e Android. Também é possível mover os textos facilmente através de comandos de toque.</p>
+    </div>
+
+    <h3>Ferramentas Relacionadas</h3>
+    <ul>
+      <li><a href="image-resize.html">Redimensionar Imagem</a>: Altere o tamanho definindo a resolução</li>
+      <li><a href="image-compress.html">Comprimir Imagem</a>: Reduza o tamanho do arquivo para torná-lo mais leve</li>
+      <li><a href="png-to-jpg.html">Converter PNG para JPG</a>: Altere o formato do arquivo antes de salvar</li>
+    </ul>
+  </article>
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Uso</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+</div>
+
+<script>
+const fileInput = document.getElementById('file-input');
+const previewContainer = document.getElementById('preview-container');
+const newTextInput = document.getElementById('new-text');
+const fontFamilyInput = document.getElementById('font-family');
+const fontColorInput = document.getElementById('font-color');
+const fontSizeInput = document.getElementById('font-size');
+
+let originalImages = [];
+let textData = []; // [{canvasIdx, text, x, y, size, color, font}]
+let filenames = [];
+
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+async function handleFiles(files) {
+  originalImages = [];
+  textData = [];
+  filenames = [];
+  previewContainer.innerHTML = "";
+  
+  const fileArray = Array.from(files).filter(file => file.type.startsWith('image/'));
+  
+  // 画像の読み込み順序を保証するためにPromise.allを使用
+  const loadPromises = fileArray.map((file, idx) => {
+    return new Promise((resolve) => {
+      filenames[idx] = file.name;
+      const reader = new FileReader();
+      reader.onload = e => {
+        const img = new Image();
+        img.src = e.target.result;
+        img.onload = () => {
+          originalImages[idx] = img;
+          resolve();
+        };
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+
+  await Promise.all(loadPromises);
+  
+  // 読み込み完了後に順番通りCanvasを作成
+  originalImages.forEach((_, idx) => {
+    createCanvas(idx);
+  });
+}
+
+function createCanvas(idx) {
+  const div = document.createElement("div");
+  div.className = "preview-item";
+  const canvas = document.createElement("canvas");
+  canvas.dataset.idx = idx;
+  div.appendChild(canvas);
+  previewContainer.appendChild(div);
+  
+  draw(idx);
+  enableDrag(canvas, idx);
+}
+
+function draw(idx) {
+  const canvas = previewContainer.querySelector(`canvas[data-idx='${idx}']`);
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const img = originalImages[idx];
+  
+  canvas.width = img.width;
+  canvas.height = img.height;
+  ctx.drawImage(img, 0, 0);
+  
+  textData.filter(t => t.canvasIdx === idx).forEach(t => {
+    ctx.font = `bold ${t.size}px ${t.font}`;
+    ctx.fillStyle = t.color;
+    ctx.textBaseline = "top";
+    
+    // 文字の縁取り（読みやすくするため）
+    ctx.strokeStyle = "rgba(0,0,0,0.5)";
+    ctx.lineWidth = t.size / 15;
+    ctx.strokeText(t.text, t.x, t.y);
+    
+    ctx.fillText(t.text, t.x, t.y);
+  });
+}
+
+function addText() {
+  const text = newTextInput.value.trim();
+  if (!text) return alert("Por favor, digite um texto.");
+  if (originalImages.length === 0) return alert("Por favor, faça o upload de uma imagem primeiro.");
+
+  // すべての画像に同じテキストを追加
+  originalImages.forEach((_, idx) => {
+    textData.push({
+      canvasIdx: idx,
+      text: text,
+      x: 50,
+      y: 50,
+      size: parseInt(fontSizeInput.value),
+      color: fontColorInput.value,
+      font: fontFamilyInput.value
+    });
+    draw(idx);
+  });
+  newTextInput.value = "";
+}
+
+function undoLastText() {
+  if (textData.length === 0) return;
+  
+  // 一括追加された文字は textData の末尾に originalImages.length 分ある
+  const count = originalImages.length;
+  if (count > 0) {
+    textData.splice(-count);
+    originalImages.forEach((_, idx) => draw(idx));
+  }
+}
+
+function enableDrag(canvas, idx) {
+  let isDragging = false;
+  let targetText = null;
+  let startX, startY;
+
+  const getPos = e => {
+    const rect = canvas.getBoundingClientRect();
+    const clientX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+    const clientY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
+    return {
+      x: (clientX - rect.left) * (canvas.width / rect.width),
+      y: (clientY - rect.top) * (canvas.height / rect.height)
+    };
+  };
+
+  const start = e => {
+    const pos = getPos(e);
+    targetText = textData.filter(t => t.canvasIdx === idx).slice().reverse().find(t => {
+      const ctx = canvas.getContext("2d");
+      ctx.font = `${t.size}px ${t.font}`;
+      const metrics = ctx.measureText(t.text);
+      return pos.x >= t.x && pos.x <= t.x + metrics.width && pos.y >= t.y && pos.y <= t.y + t.size;
+    });
+    if (targetText) {
+      isDragging = true;
+      startX = pos.x - targetText.x;
+      startY = pos.y - targetText.y;
+      if (e.cancelable) e.preventDefault();
+    }
+  };
+
+  const move = e => {
+    if (!isDragging || !targetText) return;
+    const pos = getPos(e);
+    targetText.x = pos.x - startX;
+    targetText.y = pos.y - startY;
+    draw(idx);
+    if (e.cancelable) e.preventDefault();
+  };
+
+  const end = () => { isDragging = false; targetText = null; };
+
+  const dblClickDelete = e => {
+    const pos = getPos(e);
+    const textToDelete = textData.filter(t => t.canvasIdx === idx).slice().reverse().find(t => {
+      const ctx = canvas.getContext("2d");
+      ctx.font = `${t.size}px ${t.font}`;
+      const metrics = ctx.measureText(t.text);
+      return pos.x >= t.x && pos.x <= t.x + metrics.width && pos.y >= t.y && pos.y <= t.y + t.size;
+    });
+    
+    if (textToDelete) {
+      const targetIdx = textData.indexOf(textToDelete);
+      if (targetIdx > -1) {
+        textData.splice(targetIdx, 1);
+        draw(idx);
+      }
+    }
+  };
+
+  // 個別のCanvasに直接イベントを付与（windowへの重複登録を避けるため）
+  canvas.addEventListener("mousedown", start);
+  canvas.addEventListener("mousemove", move);
+  canvas.addEventListener("mouseup", end);
+  canvas.addEventListener("mouseleave", end);
+  canvas.addEventListener("dblclick", dblClickDelete);
+  
+  canvas.addEventListener("touchstart", start, {passive: false});
+  canvas.addEventListener("touchmove", move, {passive: false});
+  canvas.addEventListener("touchend", end);
+}
+
+function downloadAll() {
+  const canvases = previewContainer.querySelectorAll("canvas");
+  if (canvases.length === 0) return;
+  
+  canvases.forEach((canvas, idx) => {
+    const link = document.createElement("a");
+    link.href = canvas.toDataURL("image/png");
+    link.download = filenames[idx].replace(/\.[^/.]+$/, "") + "-edited.png";
+    link.click();
+  });
+}
+</script>
+
+</body>
+</html>

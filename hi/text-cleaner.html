@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO設定：ツールに合わせてここを書き換え -->
+<title>लाइन ब्रेक, स्पेस और विशिष्ट वर्ण हटाने का टूल | टेक्स्ट फॉर्मेटिंग और बल्क डिलीट | HaruTools Lab</title>
+<meta name="description" content="यह एक मुफ़्त टूल है जो आपको एक बार में टेक्स्ट से लाइन ब्रेक, सिंगल-बाइट/डबल-बाइट स्पेस या निर्दिष्ट विशिष्ट वर्णों को हटाने की अनुमति देता है। ब्राउज़र-आधारित और सुरक्षित। टेक्स्ट को एक लाइन में संयोजित करने या अवांछित प्रतीकों को साफ करने के कार्य को कुशल बनाएं।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* テキストエリアとコントロール */
+textarea {
+  width: 100%;
+  height: 250px;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 20px;
+}
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input-char {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 180px;
+}
+
+.btn-action {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-action:hover { background: var(--primary-hover); }
+
+.btn-copy {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+       मुफ़्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>लाइन ब्रेक और विशिष्ट वर्ण हटाने का टूल</h1>
+    <p class="tagline">टेक्स्ट को फॉर्मेट करने के लिए अवांछित लाइन ब्रेक, स्पेस और विशिष्ट वर्णों को एक बार में हटाएँ</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <textarea id="textArea" placeholder="कृपया अपना टेक्स्ट यहाँ दर्ज करें..."></textarea>
+
+    <div class="controls">
+        <button class="btn-action" onclick="removeNewLines()">लाइन ब्रेक हटाएँ</button>
+        <button class="btn-action" onclick="removeSpaces()">स्पेस हटाएँ</button>
+    </div>
+
+    <div class="controls" style="border-top: 1px solid #eee; padding-top: 20px;">
+        <input type="text" id="targetChar" class="input-char" placeholder="हटाने वाले वर्ण दर्ज करें">
+        <button class="btn-action" onclick="removeSpecificChar()">विशिष्ट वर्ण हटाएँ</button>
+        <button class="btn-copy" onclick="copyResult()">परिणाम कॉपी करें</button>
+    </div>
+  </main>
+  
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>लाइन ब्रेक और विशिष्ट वर्ण हटाने का टूल क्या है?</h2>
+    <p>यह टूल एक फॉर्मेटिंग टूल है जो आपको केवल एक क्लिक के साथ ब्राउज़र पर टेक्स्ट में शामिल अवांछित तत्वों को हटाने की अनुमति देता है। यह तब बेहद उपयोगी होता है जब आप पीडीएफ से कॉपी करते समय आने वाले अस्वाभाविक लाइन ब्रेक को ठीक करना चाहते हैं, या डेटा की सूची से विशिष्ट प्रतीकों को एक बार में हटाना चाहते हैं।</p>
+
+    <h3>टेक्स्ट फॉर्मेटिंग की आवश्यकता क्यों है?</h3>
+    <p>वेब राइटिंग, प्रोग्रामिंग और ऑफिस के कामों में, टेक्स्ट से "अतिरिक्त शोर" को हटाने की आवश्यकता अक्सर होती है। उदाहरण के लिए, ईमेल टेक्स्ट को चैट टूल में पेस्ट करते समय लाइन ब्रेक हटाना, या सीएसवी डेटा से अनावश्यक प्रतीकों को साफ करना। इस टूल को "प्रतिस्थापन कार्य" (रिप्लेस वर्क) को कुछ ही सेकंड में पूरा करने और मानवीय गलतियों को रोकने के लिए डिज़ाइन किया गया है, जिसमें मैन्युअल रूप से कई मिनट लग सकते हैं।</p>
+
+    <h3>इस टूल की विशेषताएँ</h3>
+    <ul>
+      <li><strong>एक बार में लाइन ब्रेक हटाना:</strong> कई लाइनों में फैले टेक्स्ट को बिना स्पेस के "एक सिंगल लाइन" में संयोजित करता है।</li>
+      <li><strong>स्पेस हटाना:</strong> न केवल हाफ-बाइट स्पेस, बल्कि फुल-बाइट स्पेस को भी एक साथ हटाया जा सकता है।</li>
+      <li><strong>स्वतंत्र वर्ण निर्दिष्ट करना:</strong> आप कॉमा, टैब या विशिष्ट कीवर्ड जैसे किसी भी वर्ण को स्वतंत्र रूप से निर्दिष्ट करके हटा सकते हैं।</li>
+      <li><strong>सुरक्षित और विश्वसनीय:</strong> दर्ज किया गया टेक्स्ट सर्वर पर सहेजा नहीं जाता है। सब कुछ पूरी तरह से ब्राउज़र के भीतर ही प्रोसेस होता है।</li>
+    </ul>
+
+    <h2>उपयोग के चरण</h2>
+    <ol>
+      <li>ऊपर दिए गए टेक्स्ट एरिया में अपना टेक्स्ट पेस्ट करें।</li>
+      <li>अपने उद्देश्य के अनुसार "लाइन ब्रेक हटाएँ" या "स्पेस हटाएँ" बटन दबाएं।</li>
+      <li>यदि आप विशिष्ट वर्णों (जैसे: ★ या ,) को हटाना चाहते हैं, तो उन्हें इनपुट फ़ील्ड में दर्ज करें और फिर "विशिष्ट वर्ण हटाएँ" दबाएं।</li>
+      <li>फॉर्मेट किए गए टेक्स्ट को प्राप्त करने के लिए "परिणाम कॉपी करें" पर क्लिक करें।</li>
+    </ol>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्र. यदि मैं लाइन ब्रेक हटाता हूँ, तो क्या शब्दों के बीच का स्पेस बना रहेगा?</span>
+      <p>उ. "लाइन ब्रेक हटाएँ" बटन केवल लाइन ब्रेक कोड को हटाता है। यदि आप एक ही समय में स्पेस भी हटाना चाहते हैं, तो इसके बाद "स्पेस हटाएँ" बटन दबाएं।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या मैं एक साथ कई अलग-अलग वर्णों को निर्दिष्ट करके हटा सकता हूँ?</span>
+      <p>उ. वर्तमान विनिर्देशों के अनुसार, इनपुट फ़ील्ड में दर्ज किए गए "वर्णों की पूरी श्रृंखला" को एक सिंगल टारगेट के रूप में खोजा और हटाया जाता है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या इसका उपयोग स्मार्टफोन से भी किया जा सकता है?</span>
+      <p>उ. हाँ, इसे इस तरह से डिज़ाइन किया गया है कि यह स्मार्टफोन या टैबलेट के ब्राउज़र पर भी आसानी से काम करता है।</p>
+    </div>
+<h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="character-count.html">वर्ण गणना (कैरेक्टर काउंट)</a>: वास्तविक समय में वर्णों और लाइनों की संख्या मापता है</li>
+      <li><a href="text-search.html">टेक्स्ट सर्च टूल</a>: टेक्स्ट में कीवर्ड को तेजी से खोजता और निकालता है</li>
+      <li><a href="full-half-converter.html">फुल/हाफ-बाइट कन्वर्टर</a>: अक्षरों, संख्याओं और प्रतीकों के आकार को एक बार में संरेखित करता है</li>
+      <li><a href="json-xml-format.html">JSON/XML फॉर्मेटिंग टूल</a>: जटिल कोड को पढ़ने में आसान बनाने के लिए फॉर्मेट करता है</li>
+      <li><a href="special-characters.html">विशेष वर्ण सूची</a>: वेब निर्माण में उपयोग किए जाने वाले प्रतीकों को कॉपी करें</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+function removeNewLines() {
+    const area = document.getElementById('textArea');
+    area.value = area.value.replace(/\r?\n/g, '');
+}
+
+function removeSpaces() {
+    const area = document.getElementById('textArea');
+    area.value = area.value.replace(/[ 　]/g, '');
+}
+
+function removeSpecificChar() {
+    const area = document.getElementById('textArea');
+    const target = document.getElementById('targetChar').value;
+    if (target) {
+        // エスケープ処理をせずにそのまま置換（リテラルとして扱う）
+        const escapedTarget = target.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(escapedTarget, 'g');
+        area.value = area.value.replace(regex, '');
+    }
+}
+
+function copyResult() {
+    const area = document.getElementById('textArea');
+    if (!area.value) return;
+
+    // 非推奨のexecCommandを避け、Clipboard APIを使用
+    navigator.clipboard.writeText(area.value).then(() => {
+        alert('कॉपी कर लिया गया है!');
+    }).catch(err => {
+        // フォールバック
+        area.select();
+        document.execCommand('copy');
+        alert('कॉपी कर लिया गया है!');
+    });
+}
+</script>
+
+</body>
+</html>

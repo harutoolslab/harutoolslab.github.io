@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+    <!-- ★SEO設定 -->
+    <title>टेक्स्ट सर्च और हाइलाइट टूल | HaruTools Lab</title>
+    <meta name="description" content="यह एक ऐसा टूल है जो दर्ज किए गए टेक्स्ट से विशिष्ट कीवर्ड या वर्णों को तुरंत खोजता है, उनकी गणना करता है और उन्हें हाइलाइट करता है। संबंधित लाइन नंबरों की पहचान करना भी संभव है। ब्राउज़र-आधारित और सुरक्षित गोपनीयता।">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --primary: #007bff;
+            --primary-hover: #0056b3;
+            --success: #28a745;
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0; padding: 0; line-height: 1.6;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+        /* 広告枠 */
+        .ad-slot {
+          margin: 40px auto;
+          padding: 10px;
+          text-align: center;
+          background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+          border: 1px solid #eeeeee;
+          border-radius: 8px;
+          /* 広告読み込み前のガタつきを抑える */
+          min-height: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+
+        .ad-label {
+          display: block;
+          font-size: 12px;
+          color: #999;
+          margin-bottom: 10px;
+        }
+
+        /* ヘッダー */
+        header { text-align: center; margin: 40px 0 20px; }
+        h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+        .tagline { color: var(--text-sub); font-size: 1rem; }
+
+        /* ツールメインエリア */
+        .main-card {
+            background: var(--card-bg);
+            padding: 40px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        textarea { width: 100%; height: 200px; padding: 15px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; resize: vertical; font-size: 1rem; }
+        .controls { margin: 20px 0; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        input[type="text"] { padding: 12px; border: 1px solid #ccc; border-radius: 8px; flex-grow: 1; font-size: 1rem; }
+        
+        .btn-search {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+            transition: background 0.2s;
+        }
+        .btn-search:hover { background: var(--primary-hover); }
+
+        .result-info { margin: 20px 0 10px; font-weight: bold; color: #2c3e50; font-size: 1.1rem; }
+        
+        /* 表示切り替え用スタイル */
+        .display-area { 
+            width: 100%; padding: 15px; border: 1px solid #eee; 
+            border-radius: 8px; background: #fafafa; white-space: pre-wrap; word-wrap: break-word;
+            font-size: 1rem; overflow-y: auto; box-sizing: border-box;
+        }
+
+        /* 「入力画面と同じ表示方式」のクラス */
+        .as-input-style {
+            height: 200px; /* 入力画面のtextareaと同じ高さ */
+            border: 1px solid #ccc;
+            background: #ffffff;
+        }
+
+        mark { background-color: #ffeb3b; color: black; border-radius: 2px; padding: 0 2px; }
+
+        .view-toggle { margin-bottom: 10px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .view-toggle input { cursor: pointer; }
+
+        /* SEO解説セクション */
+        .info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+        .info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+        .info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+        footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div style="font-size: 0.9rem; margin-bottom: 5px;">
+            <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+                मुफ़्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+            </a>
+        </div>
+        <h1>टेक्स्ट सर्च टूल</h1>
+        <p class="tagline">टेक्स्ट के भीतर कीवर्ड या फुल-बाइट स्पेस आदि को तुरंत निकालें और हाइलाइट करें</p>
+    </header>
+
+    <!-- 広告枠：上部 -->
+    <div class="ad-slot">
+        <span class="ad-label">विज्ञापन</span>
+        <!-- AdSense ディスプレイ広告ユニット -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2295804002960949"
+             data-ad-slot="2569812848"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <main class="main-card">
+        <textarea id="inputText" placeholder="कृपया अपनी खोज का टेक्स्ट यहाँ दर्ज करें..."></textarea>
+
+        <div class="controls">
+            <input type="text" id="keyword" placeholder="खोज कीवर्ड दर्ज करें" onkeypress="if(event.key==='Enter') searchText()">
+            <button onclick="searchText()" class="btn-search">खोजें</button>
+        </div>
+
+        <div class="result-info" id="resultCount"></div>
+
+        <!-- 表示形式切り替えスイッチ -->
+        <div class="view-toggle">
+            <input type="checkbox" id="toggleStyle" onchange="toggleDisplayStyle()">
+            <label for="toggleStyle">निश्चित आकार (फिक्स्ड साइज)</label>
+        </div>
+
+        <div id="outputArea" class="display-area">खोज परिणाम यहाँ दिखाई देंगे</div>
+    </main>
+
+    <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+    <!-- SEOコンテンツ -->
+    <article class="info-section">
+        <h2>टेक्स्ट सर्च टूल क्या है?</h2>
+        <p>टेक्स्ट सर्च टूल एक ऑनलाइन टूल है जो आपको विशाल टेक्स्ट में से विशिष्ट वर्णों या शब्दों को तेजी से खोजने, वे कितनी जगहों पर मेल खाते हैं और वे शब्द किन लाइनों में शामिल हैं, यह सूची प्रदर्शित करने की अनुमति देता है। चूंकि यह पूरी तरह से ब्राउज़र पर काम करता है, इसलिए किसी इंस्टॉलेशन की आवश्यकता नहीं है और कोई भी इसका तुरंत उपयोग कर सकता है।</p>
+
+        <h3>खोज सटीकता का महत्व और टूल का उपयोग</h3>
+        <p>सूचना के डिजिटलीकरण के साथ, लंबे अनुबंधों, सोर्स कोड या सोशल मीडिया पोस्ट लॉग से मैन्युअल रूप से "विशिष्ट शब्दों" को खोजना समय लेने वाला होता है और इसमें गलतियां होने की संभावना भी अधिक होती है। इस टूल का उपयोग करके, आप न केवल एक पल में लक्षित तत्वों को निकाल सकते हैं, बल्कि फुल-बाइट स्पेस जैसे "अदृश्य वर्णों" की उपस्थिति का भी आसानी से पता लगा सकते हैं। डेटा की सफाई और प्रूफरीडिंग कार्य की दक्षता को अधिकतम करने के लिए कृपया इसका उपयोग करें।</p>
+
+        <h3>इस टूल की विशेषताएँ</h3>
+        <ul>
+            <li><strong>वास्तविक समय में हाइलाइट करना:</strong> मिले हुए कीवर्ड पीले रंग में हाइलाइट किए जाते हैं, जिससे स्थान का पता एक नज़र में चल जाता है।</li>
+            <li><strong>लाइन नंबर की पहचान:</strong> कीवर्ड किस लाइन पर है यह प्रदर्शित होने के कारण यह सोर्स कोड या लंबे दस्तावेज़ों की प्रूफरीडिंग के लिए सुविधाजनक है।</li>
+            <li><strong>फुल-बाइट स्पेस और विशेष वर्णों का समर्थन:</strong> सामान्य अक्षरों के अलावा, आप फुल-बाइट स्पेस और प्रतीकों जैसे विशेष वर्णों को भी सटीक रूप से खोज और गिन सकते scraps।</li>
+            <li><strong>सुरक्षित डिज़ाइन:</strong> दर्ज किया गया टेक्स्ट सर्वर पर नहीं भेजा जाता है और केवल आपके डिवाइस (गोपनीय ब्राउज़र) के भीतर संसाधित होता है, इसलिए आप आत्मविश्वास के साथ गोपनीय जानकारी भी खोज सकते हैं।</li>
+        </ul>
+
+        <h2>उपयोग के चरण</h2>
+        <ol>
+            <li>केंद्र में दिए गए टेक्स्ट एरिया में अपना टेक्स्ट पेस्ट करें।</li>
+            <li>"खोज कीवर्ड दर्ज करें" फ़ील्ड में वह शब्द दर्ज करें जिसे आप खोजना चाहते हैं।</li>
+            <li>जब आप "खोजें" बटन पर क्लिक करेंगे, तो मिलानों की संख्या, लाइन नंबर और हाइलाइट किए गए परिणाम प्रदर्शित होंगे।</li>
+        </ol>
+
+        <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+        <div class="faq-item">
+            <span class="faq-q">प्र. क्या मैं ऐसे टेक्स्ट भी खोज सकता हूँ जिसमें HTML टैग शामिल हों?</span>
+            <p>उ. हाँ, यह संभव है। यह टूल HTML टैग्स को एस्केप करके उन्हें सामान्य वर्णों के रूप में व्यवहार करता है, जिससे कोड के भीतर विशिष्ट टैग या एट्रिब्यूट मानों को खोजने के लिए भी यह आदर्श बन जाता है।</p>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">प्र. क्या खोजे जा सकने वाले वर्णों की संख्या पर कोई सीमा है?</span>
+            <p>उ. मूल रूप से कोई सीमा नहीं है, लेकिन सैकड़ों-हजारों वर्णों से अधिक के अत्यधिक लंबे टेक्स्ट के मामले में, आपके ब्राउज़र की गति धीमी हो सकती है।</p>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">प्र. क्या इसका उपयोग स्मार्टफोन पर भी किया जा सकता है?</span>
+            <p>उ. हाँ, रेस्पॉन्सिव डिज़ाइन को अपनाने के कारण, आप स्मार्टफोन या टैबलेट के ब्राउज़र से भी इसका आराम से उपयोग कर सकते हैं।</p>
+        </div>
+
+<h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="character-count.html">वर्ण गणना (कैरेक्टर काउंट)</a>: वास्तविक समय में वर्णों और लाइनों की संख्या मापता है</li>
+      <li><a href="full-half-converter.html">फुल/हाफ-बाइट कन्वर्टर</a>: अक्षरों, संख्याओं और प्रतीकों के आकार को एक बार में संरेखित करता है</li>
+      <li><a href="json-xml-format.html">JSON/XML फॉर्मेटिंग टूल</a>: जटिल कोड को पढ़ने में आसान बनाने के लिए फॉर्मेट करता है</li>
+      <li><a href="text-cleaner.html">लाइन ब्रेक और विशिष्ट वर्ण हटाने का टूल</a>: अवांछित अक्षरों या स्पेस को एक क्लिक में हटाएँ</li>
+      <li><a href="special-characters.html">विशेष वर्ण सूची</a>: वेब निर्माण में उपयोग किए जाने वाले प्रतीकों को कॉपी करें</li>
+    </ul>
+    </article>
+
+    <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+    <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+// 表示形式を切り替える関数
+function toggleDisplayStyle() {
+    const output = document.getElementById('outputArea');
+    const isChecked = document.getElementById('toggleStyle').checked;
+    if (isChecked) {
+        output.classList.add('as-input-style');
+    } else {
+        output.classList.remove('as-input-style');
+    }
+}
+
+function searchText() {
+    const text = document.getElementById('inputText').value;
+    const keyword = document.getElementById('keyword').value;
+    const output = document.getElementById('outputArea');
+    const countDisplay = document.getElementById('resultCount');
+
+    // テキストエリア自体が空の場合の初期化
+    if (!text) {
+        output.innerHTML = "खोज परिणाम यहाँ दिखाई देंगे";
+        countDisplay.textContent = "";
+        return;
+    }
+
+    // HTMLタグをエスケープして文字として表示させる処理
+    const escapedText = text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    if (!keyword) {
+        output.innerHTML = escapedText.replace(/\n/g, '<br>'); // 改行を反映してエスケープ済みをセット
+        countDisplay.textContent = "कृपया कीवर्ड दर्ज करें।";
+        return;
+    }
+
+    // キーワード側もエスケープ後の文字に合わせる
+    const escapedKeywordValue = keyword
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    // 特殊文字をエスケープ
+    const escapedKeyword = escapedKeywordValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(escapedKeyword, 'g');
+    
+    // ヒット数のカウント
+    const matches = escapedText.match(regex);
+    const count = matches ? matches.length : 0;
+    
+    // 何行目にあるかを判定するロジックを追加
+    let lineNumbers = [];
+    const lines = escapedText.split(/\n/);
+    lines.forEach((lineContent, index) => {
+        if (lineContent.includes(escapedKeywordValue)) {
+            lineNumbers.push(index + 1); // 1行目から表示するため+1
+        }
+    });
+
+    if (count > 0) {
+        countDisplay.textContent = `मैच संख्या: ${count} (संबंधित लाइन: ${lineNumbers.join(', ')} नंबर)`;
+    } else {
+        countDisplay.textContent = `मैच संख्या: 0`;
+    }
+
+    // ハイライト処理
+    if (count > 0) {
+        const highlighted = escapedText.replace(regex, (match) => `<mark>${match}</mark>`);
+        output.innerHTML = highlighted.replace(/\n/g, '<br>'); // 改行を反映
+    } else {
+        output.innerHTML = escapedText.replace(/\n/g, '<br>'); // 改行を反映してエスケープ済みをセット
+    }
+}
+</script>
+
+</body>
+</html>

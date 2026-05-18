@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<!-- ★SEO設定：ツールに合わせてここを書き換え -->
+<title>वर्ण काउंटर | रीयल-टाइम शब्द और चरित्र काउंटर | HaruTools Lab</title>
+<meta name="description" content="आपके द्वारा दर्ज किए गए पाठ के अक्षरों की संख्या को रीयल-टाइम में गिनें। खाली स्थान के बिना वर्णों की संख्या, पंक्तियों की संख्या और पांडुलिपि पृष्ठों की संख्या की स्वचालित रूप से गणना करें। रिपोर्ट और सोशल मीडिया की सीमा की जांच के लिए सर्वश्रेष्ठ। ब्राउज़र में सुरक्षित और निजी।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 文字数カウント用追加スタイル */
+textarea {
+  width: 100%;
+  height: 300px;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.counter-item {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+.counter-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-sub);
+}
+.counter-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ़्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>वर्ण काउंटर (Character Counter)</h1>
+    <p class="tagline">बस अपना पाठ दर्ज करें और तुरंत वर्णों, पंक्तियों और पूर्ण-चौड़ाई वाले स्थानों की गणना करें</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <textarea id="main-input" placeholder="यहाँ अपना पाठ टाइप या पेस्ट करें..."></textarea>
+
+    <div class="counter-grid">
+      <div class="counter-item">
+        <span class="counter-label">वर्ण (स्थान के साथ)</span>
+        <span id="count-all" class="counter-value">0</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-label">वर्ण (बिना स्थान के)</span>
+        <span id="count-no-space" class="counter-value">0</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-label">पूर्ण-चौड़ाई स्थान (Full-width Space)</span>
+        <span id="count-full-width-space" class="counter-value">0</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-label">पंक्तियाँ (Lines)</span>
+        <span id="count-lines" class="counter-value">0</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-label">पांडुलिपि कागज (400 वर्ण)</span>
+        <span id="count-paper" class="counter-value">0</span>
+      </div>
+    </div>
+  </main>
+  
+ <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>वर्ण काउंटर टूल का महत्व</h2>
+    <p>आधुनिक सामग्री निर्माण (Content Creation) में, उचित मात्रा का प्रबंधन आवश्यक है। यह टूल न केवल सरल संख्यात्मक गणना करता है, बल्कि <strong>"सरोगेट पेयर्स (जैसे इमोजी)" की सटीक गणना</strong> और प्रोग्रामिंग त्रुटियों का कारण बनने वाले <strong>"पूर्ण-चौड़ाई वाले स्थानों (Full-width spaces)" का पता लगाने</strong> में भी माहिर है। चूंकि सभी प्रक्रियाएं क्लाइंट-साइड (आपके ब्राउज़र के भीतर) निष्पादित होती हैं, इसलिए आपका पाठ कभी भी बाहरी सर्वर पर लीक नहीं होगा।</p>
+
+    <h3>इस टूल की विशेषताएं</h3>
+    <ul>
+      <li><strong>रीयल-टाइम गणना:</strong> जैसे ही आप एक भी वर्ण टाइप करते हैं, सभी मान तुरंत अपडेट हो जाते हैं।</li>
+      <li><strong>उच्च परिशुद्धता वर्ण पहचान:</strong> यह टूल विशेष प्रतीकों और नवीनतम इमोजी को भी सटीक रूप से 1 वर्ण के रूप में पहचानने के तर्क से लैस है।</li>
+      <li><strong>पूर्ण-चौड़ाई स्थान का पता लगाना:</strong> यह उन पूर्ण-चौड़ाई वाले स्थानों को ढूंढता है जिन्हें केवल देखने से पहचानना कठिन होता है, और गलतियों को रोकने में मदद करता है।</li>
+      <li><strong>सुरक्षित और गोपनीयता केंद्रित:</strong> दर्ज किया गया पाठ सर्वर पर नहीं भेजा जाता है। आप बिना किसी चिंता के गोपनीय दस्तावेजों को भी संपादित कर सकते हैं।</li>
+    </ul>
+
+    <h2>उपयोग करने के चरण</h2>
+    <ol>
+      <li>केंद्रीय टेक्स्ट क्षेत्र में अपना पाठ सीधे टाइप करें या कॉपी और पेस्ट करें।</li>
+      <li>जैसे ही आप इनपुट करते हैं, "वर्ण (स्थान के साथ/बिना)", "पूर्ण-चौड़ाई वाले स्थानों की संख्या", "पंक्तियों की संख्या", और "पांडुलिपि पृष्ठों की संख्या" की स्वचालित गणना हो जाएगी।</li>
+      <li>"वर्ण (बिना स्थान के)" में, आप लाइन ब्रेक, आधे-चौड़ाई वाले स्थान और पूर्ण-चौड़ाई वाले स्थान को हटाकर शुद्ध पाठ की मात्रा की जांच कर सकते हैं।</li>
+    </ol>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. क्या विराम चिह्न और लाइन ब्रेक को भी 1 वर्ण के रूप में गिना जाता है?</span>
+      <p>A. "वर्ण (स्थान के साथ)" में लाइन ब्रेक और विराम चिह्नों को भी 1 वर्ण के रूप में गिना जाता है। दूसरी ओर, "वर्ण (बिना स्थान के)" में लाइन ब्रेक, आधे-चौड़ाई वाले स्थान और पूर्ण-चौड़ाई वाले स्थान को शामिल नहीं किया जाता है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. क्या इमोजी सही ढंग से गिने जाते हैं?</span>
+      <p>A. हाँ। जावास्क्रिप्ट (JavaScript) के नवीनतम विनिर्देशों के आधार पर, उन इमोजी (सरोगेट पेयर्स) को भी, जिन्हें आंतरिक रूप से 2 वर्णों के रूप में गिना जाना आसान होता है, दिखने के अनुसार "1 वर्ण" के रूप में गणना करने के लिए समायोजित किया गया है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. पूर्ण-चौड़ाई वाले स्थानों की गणना क्यों शामिल है?</span>
+      <p>A. जब आप कोड कॉपी करते हैं और उसमें पूर्ण-चौड़ाई वाले स्थान मिश्रित हो जाते हैं, तो प्रोग्राम काम करना बंद कर सकता है। इसके अलावा, यह उन मामलों की जांच के लिए बहुत सुविधाजनक है जहां लेखन नियमों के तहत पूर्ण-चौड़ाई वाले स्थानों का उपयोग प्रतिबंधित है।</p>
+    </div>
+
+<h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="text-search.html">टेक्स्ट सर्च टूल</a> : पाठ में विशिष्ट कीवर्ड तुरंत खोजें</li>
+      <li><a href="full-half-converter.html">पूर्ण/अर्ध चौड़ाई कनवर्टर</a> : अक्षरों, संख्याओं और प्रतीकों के प्रारूप को जल्दी से सुसंगत बनाएं</li>
+      <li><a href="json-xml-format.html">JSON/XML फॉर्मेटर</a> : जटिल कोड को स्वचालित रूप से पढ़ने में आसान बनाएं</li>
+      <li><a href="text-cleaner.html">लाइन ब्रेक और वर्ण रिमूवर</a> : अनावश्यक स्थानों और लाइन ब्रेक को एक बार में हटाएं</li>
+      <li><a href="special-characters.html">विशेष वर्ण सूची</a> : प्रतीकों और विशेष वर्णों का संग्रह जिन्हें आप कॉपी और पेस्ट कर सकते हैं</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+const textArea = document.getElementById('main-input');
+const countAll = document.getElementById('count-all');
+const countNoSpace = document.getElementById('count-no-space');
+const countFullWidthSpace = document.getElementById('count-full-width-space');
+const countLines = document.getElementById('count-lines');
+const countPaper = document.getElementById('count-paper');
+
+textArea.addEventListener('input', () => {
+    // Windows環境等の \r\n を \n に一元化して、改行コードの重複カウントを防ぐ
+    const val = textArea.value.replace(/\r\n|\r/g, "\n");
+    
+    // サロゲートペア対応の文字数カウント([...val]により絵文字等を正しく判定)
+    const charArray = [...val];
+    const charCount = val.length > 0 ? charArray.length : 0;
+    
+    // 文字数(全込)
+    countAll.textContent = charCount;
+    
+    // 文字数(スペース・改行抜き)
+    // 大量テキスト入力時の負荷を下げるため、一括置換後の長さを配列化して取得
+    const noSpaceCount = val.length > 0 ? [...val.replace(/\s/g, "")].length : 0;
+    countNoSpace.textContent = noSpaceCount;
+    
+    // 全角スペース数
+    const fullWidthSpaces = (val.match(/　/g) || []).length;
+    countFullWidthSpace.textContent = fullWidthSpaces;
+    
+    // 行数 (改行コードを統一してカウント)
+    const lines = val.length > 0 ? val.split("\n").length : 0;
+    countLines.textContent = lines;
+    
+    // 原稿用紙(400字) - 入力なし時は0、1文字以上で1枚〜
+    const paper = val.length > 0 ? Math.ceil(charCount / 400) : 0;
+    countPaper.textContent = paper;
+});
+</script>
+
+</body>
+</html>

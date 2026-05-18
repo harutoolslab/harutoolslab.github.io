@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<!-- ★SEO設定 -->
+<title>PNG ट्रांसपेरेंसी टूल | इमेज बैकग्राउंड पारदर्शी बनाने का मुफ़्त ऑनलाइन टूल "HaruTools Lab"</title>
+<meta name="description" content="एक मुफ़्त ऑनलाइन टूल जिससे आप PNG इमेज के बैकग्राउंड या किसी विशिष्ट रंग को पारदर्शी (transparent) बना सकते हैं। टॉलरेंस रेंज को एडजस्ट करके प्राकृतिक रूप से पारदर्शी बनाएं। बिना सर्वर पर इमेज सेव किए पूरी तरह सुरक्षित। लोगो बनाने या इमेज एडिटिंग के लिए उपयुक्त।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
+}
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* プレビュー＆操作エリア */
+#preview-zone { display: none; margin-top: 20px; }
+.preview-item {
+  margin-bottom: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  /* 透過確認用の背景 */
+  background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%), 
+                    linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+.preview-item img, .preview-item canvas {
+  max-width: 100%;
+  max-height: 500px;
+  display: block;
+  margin: 10px auto;
+}
+
+.settings-box {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.setting-item { display: flex; align-items: center; gap: 10px; }
+
+.btn-run {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+}
+.btn-run:disabled {
+  background: #ccc;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn-download {
+  display: inline-block;
+  margin-top: 15px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  padding: 8px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+        मुफ़्त ऑनलाइन टूल्स का संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>PNG ट्रांसपेरेंसी टूल</h1>
+    <p class="tagline">किसी विशिष्ट रंग को चुनकर उसे पारदर्शी बनाएं। लोगो का बैकग्राउंड हटाने आदि के लिए बेहद उपयोगी है।</p>
+  </header>
+
+  /* 広告枠：上部 */
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <!-- 画像入力エリア -->
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">इमेज को यहाँ ड्रैग और ड्रॉप करें</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">अथवा</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">फ़ाइल चुनें</button>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
+
+    <!-- 設定＆実行エリア -->
+    <div id="preview-zone">
+      <div class="settings-box">
+        <div class="setting-item">
+          <label for="target-color" style="font-weight:bold;">पारदर्शी करने का रंग:</label>
+          <input type="color" id="target-color" value="#ffffff" style="width:50px; height:30px; cursor:pointer;">
+        </div>
+        <div class="setting-item">
+          <label for="tolerance" style="font-weight:bold;">टॉलरेंस (स्वीकार्य सीमा):</label>
+          <input type="range" id="tolerance" min="0" max="150" value="50">
+          <span id="tol-val" style="width:30px; font-weight:bold;">50</span>
+        </div>
+      </div>
+      
+      <button class="btn-run" id="run-button" onclick="run()">पारदर्शी प्रक्रिया शुरू करें</button>
+      <div id="status" style="margin-top:15px; font-weight:bold; color:var(--primary);"></div>
+
+      <div id="preview-container" style="margin-top:30px;"></div>
+      
+      <div style="margin-top:30px; border-top:1px solid #eee; padding-top:20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">इमेज रीसेट करें</button>
+      </div>
+    </div>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>PNG ट्रांसपेरेंसी टूल क्या है?</h2>
+    <p>"PNG ट्रांसपेरेंसी टूल" एक मुफ़्त ऑनलाइन टूल है जिसकी मदद से आप किसी इमेज के भीतर एक निश्चित रंग चुनकर उस हिस्से को पारदर्शी (transparent) बना सकते हैं। इसका उपयोग मुख्य रूप से सफेद बैकग्राउंड को हटाकर लोगो डिजाइन करने या तस्वीरों से अवांछित एकरंगी बैकग्राउंड को हटाने के लिए किया जाता है।</p>
+
+    <h3>उच्च-सटीकता वाले ट्रांसपेरेंसी इंजन की कार्यप्रणाली</h3>
+    <p>इस टूल की ट्रांसपेरेंसी प्रोसेसिंग ब्राउज़र के Canvas API को उन्नत रूप से ऑप्टिमाइज़ करके काम करती है। यह यूज़र द्वारा चुने गए RGB मान और इमेज के प्रत्येक पिक्सेल के रंग की दूरी की तेजी से गणना करता है, और रीयल-टाइम में अल्फा चैनल जेनरेट करता है। इसके कारण यह पारंपरिक टूल्स में होने वाली "किनारों के खुरदरेपन (jagged edges)" की समस्या को कम करता है और एक प्राकृतिक कटआउट प्रदान करता है।</p>
+
+    <h3>इस टूल के लाभ</h3>
+    <ul>
+      <li><strong>सॉफ़्टवेयर इंस्टॉलेशन की आवश्यकता नहीं:</strong> चूंकि यह पूरी तरह से केवल ब्राउज़र में काम करता है, इसलिए आप इसे स्मार्टफोन या PC पर तुरंत उपयोग कर सकते हैं।</li>
+      <li><strong>गोपनीयता और सुरक्षा:</strong> पूरी इमेज प्रोसेसिंग केवल आपके डिवाइस पर की जाती है। आपका इमेज डेटा कभी भी किसी सर्वर पर अपलोड नहीं होता है, इसलिए आप संवेदनशील लोगो आदि को भी बिना किसी चिंता के प्रोसेस कर सकते हैं।</li>
+      <li><strong>टॉलरेंस (सहनशीलता) एडजस्टमेंट:</strong> यदि बैकग्राउंड पूरी तरह से एक समान रंग का नहीं भी है, तो भी आप "टॉलरेंस" बढ़ाकर किनारों को सफाई से पारदर्शी बना सकते हैं।</li>
+    </ul>
+
+    <h2>उपयोग करने के टिप्स</h2>
+    <p><strong>1. रंग का चयन:</strong> "पारदर्शी करने का रंग" विकल्प में बैकग्राउंड का रंग चुनें (डिफ़ॉल्ट रूप से यह सफेद होता है)।</p>
+    <p><strong>2. टॉलरेंस एडजस्टमेंट:</strong> यदि पारदर्शी करने के बाद भी किनारे खुरदरे दिखते हैं या कुछ रंग बच जाता है, तो टॉलरेंस को "60 से 100" के आसपास बढ़ाने से बैकग्राउंड सफाई से गायब हो जाता है।</p>
+    <p><strong>3. सेव करने का फॉर्मेट:</strong> ट्रांसपेरेंसी की जानकारी केवल PNG फॉर्मेट में ही सुरक्षित रखी जा सकती है, इसलिए कनवर्ट होने के बाद इमेज स्वचालित रूप से PNG के रूप में डाउनलोड होगी।</p>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या मैं किसी जटिल तस्वीर से भी बैकग्राउंड काट सकता हूँ?</span>
+      <p>उ. यह टूल एक "विशिष्ट रंग" के आधार पर पारदर्शिता लागू करता है, इसलिए यह तब सबसे अच्छा काम करता है जब बैकग्राउंड एक ही रंग (सफेद, नीला, हरा आदि) का हो। यदि आपको परिदृश्य (scenery) जैसे जटिल बैकग्राउंड को हटाना है, तो हम AI-आधारित बैकग्राउंड रिमूवर टूल्स का उपयोग करने की सलाह देते हैं।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. पारदर्शी करने के बाद भी बैकग्राउंड काला या सफेद क्यों दिखाई दे रहा है?</span>
+      <p>उ. आपके द्वारा डाउनलोड की गई इमेज को देखने के लिए उपयोग किए जाने वाले कुछ ऐप्स या व्यूअर्स में पारदर्शी हिस्से को सुविधा के लिए सफेद या काले रंग में दिखाया जा सकता है। इसे Word या किसी वेबसाइट पर रखकर जांचें कि पीछे का हिस्सा दिखाई दे रहा है या नहीं।</p>
+    </div>
+      <h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="image-cropper-rounded.html">राउंड व कॉर्नर कटआउट</a> : इमेज को किसी भी मनचाहे आकार में काटें</li>
+      <li><a href="square-image-maker.html">मल्टी-फंक्शनल स्क्वायर मेकर</a> : सोशल मीडिया आइकन बनाने के लिए उपयोगी</li>
+      <li><a href="brightness-contrast.html">इमेज ब्राइटनेस और कंट्रास्ट एडजस्टमेंट</a> : धुंधली या डार्क इमेजेस को साफ़ और चमकदार बनाएं</li>
+      <li><a href="mosaic-blur.html">मोज़ेक और ब्लर प्रोसेसिंग टूल</a> : जिन हिस्सों को आप छिपाना चाहते हैं उन्हें तुरंत ब्लर करें</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+<footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const previewContainer = document.getElementById('preview-container');
+const toleranceSlider = document.getElementById('tolerance');
+const tolValDisplay = document.getElementById('tol-val');
+const status = document.getElementById('status');
+const runButton = document.getElementById('run-button');
+
+let files = [];
+
+// スライダー表示更新
+toleranceSlider.addEventListener('input', () => {
+  tolValDisplay.textContent = toleranceSlider.value;
+});
+
+// ドラッグ&ドロップ処理
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, e => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, false);
+});
+
+dropArea.addEventListener('drop', (e) => {
+  handleFiles(e.dataTransfer.files);
+}, false);
+
+fileInput.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(selectedFiles) {
+  files = Array.from(selectedFiles).filter(file => file.type.startsWith('image/'));
+  if (files.length === 0) return;
+
+  previewContainer.innerHTML = "";
+  dropArea.style.display = 'none';
+  previewZone.style.display = 'block';
+
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const div = document.createElement("div");
+      div.className = "preview-item";
+      div.innerHTML = `<p style="font-size:12px; color:#666;">मूल छवि: ${file.name}</p>
+                       <img src="${e.target.result}" data-name="${file.name}">`;
+      previewContainer.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function run() {
+  if (files.length === 0) return;
+  
+  // 処理開始時にボタンを無効化
+  runButton.disabled = true;
+  status.textContent = "पारदर्शी प्रक्रिया जारी है...";
+  
+  const targetHex = document.getElementById('target-color').value;
+  const tol = Number(toleranceSlider.value);
+
+  const rT = parseInt(targetHex.substr(1,2), 16);
+  const gT = parseInt(targetHex.substr(3,2), 16);
+  const bT = parseInt(targetHex.substr(5,2), 16);
+
+  // プレビューコンテナ内の画像を走査して変換
+  const items = previewContainer.querySelectorAll('.preview-item');
+  
+  items.forEach(item => {
+    const img = item.querySelector('img');
+    if (!img) return;
+
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const tempImg = new Image();
+    
+    // セキュリティ対策：CORS設定
+    tempImg.crossOrigin = "Anonymous";
+    
+    tempImg.onload = () => {
+      // メモリ・負荷対策：極端に巨大な画像は長辺4000pxに制限（必要に応じて）
+      let width = tempImg.width;
+      let height = tempImg.height;
+      const MAX_SIZE = 4000;
+      if (width > MAX_SIZE || height > MAX_SIZE) {
+        const ratio = Math.min(MAX_SIZE / width, MAX_SIZE / height);
+        width *= ratio;
+        height *= ratio;
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+      ctx.drawImage(tempImg, 0, 0, width, height);
+
+      let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      let data = imageData.data;
+
+      for (let i = 0; i < data.length; i += 4) {
+        let r = data[i], g = data[i+1], b = data[i+2];
+
+        // ユークリッド距離で色の近さを判定
+        let diff = Math.sqrt(
+          Math.pow(r - rT, 2) +
+          Math.pow(g - gT, 2) +
+          Math.pow(b - bT, 2)
+        );
+
+        if (diff < tol) {
+          // 近ければ透明にする（境界を滑らかにするため線形補間）
+          let alpha = diff / tol;
+          data[i+3] = data[i+3] * alpha;
+        }
+      }
+
+      ctx.putImageData(imageData, 0, 0);
+      
+      // 結果の置き換え
+      const dataUrl = canvas.toDataURL("image/png");
+      item.innerHTML = `
+        <p style="font-size:12px; color:var(--success); font-weight:bold;">प्रक्रिया पूरी हुई</p>
+        <canvas width="${canvas.width}" height="${canvas.height}"></canvas>
+        <a href="${dataUrl}" download="transparent_${img.getAttribute('data-name') || 'image'}.png" class="btn-download">सहेजें (PNG)</a>
+      `;
+      const resultCanvas = item.querySelector('canvas');
+      resultCanvas.getContext('2d').putImageData(imageData, 0, 0);
+      
+      // すべての処理が完了したらボタンを復帰（簡易判定）
+      status.textContent = "सफलतापूर्वक पूरा हुआ!";
+      runButton.disabled = false;
+    };
+    tempImg.src = img.src;
+  });
+}
+</script>
+
+</body>
+</html>

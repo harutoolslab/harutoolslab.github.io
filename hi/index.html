@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+     crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+  <meta name="google-site-verification" content="jWDFJLwlaulsCJD9GNUFzzeZeTvLEzBHY0kWB140450" />
+  
+<title>HaruTools Lab | मुफ्त ऑनलाइन इमेज कनवर्टर, पीडीएफ और कैलकुलेशन टूल्स (कोई रजिस्ट्रेशन नहीं)</title>
+<link rel="icon" href="/favicon.ico">
+<meta name="description" content="छवि संपीड़न (Image Compression), WebP कनवर्टर, पीडीएफ संपादन, चरित्र गणना और विद्युत सर्किट गणना सहित 50 से अधिक उपयोगी उपकरण सीधे अपने ब्राउज़र में मुफ्त में उपयोग करें। किसी इंस्टॉलेशन की आवश्यकता नहीं है, स्मार्टफोन पर भी समर्थित। सुरक्षित क्लाइंट-साइड डिज़ाइन जहां डेटा कभी भी सर्वर पर नहीं भेजा जाता है।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* 既存の変数を流用 */
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+header { text-align: center; margin: 40px 0; }
+h1 { font-size: 2.2rem; color: #111; margin-bottom: 10px; }
+.hero-desc { color: var(--text-sub); max-width: 700px; margin: 0 auto; }
+
+/* ツールグリッドレイアウト */
+.tool-section { margin-bottom: 50px; }
+.section-title { font-size: 1.4rem; border-bottom: 2px solid var(--primary); display: inline-block; margin-bottom: 10px; padding-bottom: 5px; }
+.section-intro { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 20px; display: block; }
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.tool-card {
+  background: var(--card-bg);
+  padding: 20px 15px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--text-main);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid transparent;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  border-color: var(--primary);
+}
+
+.tool-card span { font-weight: bold; font-size: 1rem; display: block; margin-bottom: 5px; }
+.tool-card small { color: var(--text-sub); font-size: 0.8rem; line-height: 1.2; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .tool-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tool-card { padding: 15px 10px; }
+  .tool-card span { font-size: 0.9rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>HaruTools Lab</h1>
+    <p class="hero-desc"><strong>"तुरंत उपयोग करने योग्य" उपकरण सीधे आपके ब्राउज़र में।</strong><br>छवि संपादन, दस्तावेज़ निर्माण, गणना और इलेक्ट्रिकल इंजीनियरिंग टूल का संग्रह जो पूरी तरह से मुफ़्त है और जिसके लिए किसी पंजीकरण की आवश्यकता नहीं है।</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <section class="tool-section">
+    <h2 class="section-title">छवि संपीड़न और प्रारूप रूपांतरण (Image Compress & Convert)</h2>
+    <small class="section-intro">यह छवि टूल गुणवत्ता बनाए रखते हुए फ़ाइल का आकार कम कर सकता है, जो सोशल मीडिया पोस्टिंग और वेबसाइट की गति बढ़ाने के लिए सर्वोत्तम है। यह WebP और HEIC जैसे नवीनतम प्रारूपों का भी समर्थन करता है।</small>
+    <div class="tool-grid">
+      <a href="image-compress.html" class="tool-card"><span>बल्क इमेज कंप्रेस</span><small>फ़ाइल आकार को काफी कम करें</small></a>
+      <a href="png-compress.html" class="tool-card"><span>PNG कंप्रेस</span><small>पारदर्शिता बनाए रखते हुए फ़ाइल छोटी करें</small></a>
+      <a href="image-to-webp.html" class="tool-card"><span>WebP में बदलें</span><small>अगली पीढ़ी के प्रारूप में कनवर्ट करें</small></a>
+      <a href="webp-to-jpg.html" class="tool-card"><span>WebP → JPG</span><small>सार्वभौमिक प्रारूप में कनवर्ट करें</small></a>
+      <a href="webp-to-png.html" class="tool-card"><span>WebP → PNG</span><small>पारदर्शी समर्थित प्रारूप में बदलें</small></a>
+      <a href="jpg-to-png.html" class="tool-card"><span>JPG → PNG</span><small>PNG प्रारूप में बदलें</small></a>
+      <a href="png-to-jpg.html" class="tool-card"><span>PNG → JPG</span><small>सफेद पृष्ठभूमि के साथ बदलें</small></a>
+      <a href="heic-to-png.html" class="tool-card"><span>HEIC → PNG</span><small>iPhone तस्वीरों को कनवर्ट करें</small></a>
+      <a href="video-to-gif.html" class="tool-card"><span>वीडियो → GIF</span><small>वीडियो को एनिमेशन में बदलें</small></a>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <h2 class="section-title">छवि प्रसंस्करण और संपादन (Image Editing)</h2>
+    <small class="section-intro">आकार बदलने (Resize), क्रॉप करने और पृष्ठभूमि हटाने (Transparent background) जैसे जटिल संपादन काम सीधे ब्राउज़र पर किए जा सकते हैं। गोपनीयता की रक्षा के लिए मोज़ेक प्रोसेसिंग भी लोकप्रिय है।</small>
+    <div class="tool-grid">
+      <a href="image-resize.html" class="tool-card"><span>इमेज रीसाइज़</span><small>चौड़ाई और ऊंचाई बदलें</small></a>
+      <a href="image-cropper-rounded.html" class="tool-card"><span>इमेज क्रॉप</span><small>गोल कोनों और मुक्त चयन</small></a>
+      <a href="square-image-maker.html" class="tool-card"><span>स्क्वायर इमेज मेकर</span><small>SNS के लिए मार्जिन जोड़ें</small></a>
+      <a href="image-filter-tool.html" class="tool-card"><span>फिल्टर प्रोसेसिंग</span><small>कलर करेक्शन और इफेक्ट्स</small></a>
+      <a href="brightness-contrast.html" class="tool-card"><span>चमक समायोजन</span><small>ब्राइटनेस और कंट्रास्ट</small></a>
+      <a href="monochrome-pwa.html" class="tool-card"><span>मोनोक्रोम कनवर्टर</span><small>ब्लैक एंड व्हाइट / सेपिया इफेक्ट</small></a>
+      <a href="mosaic-blur.html" class="tool-card"><span>मोज़ेक और ब्लर</span><small>व्यक्तिगत जानकारी छुपाएं</small></a>
+      <a href="png-transparent.html" class="tool-card"><span>पारदर्शी पृष्ठभूमि</span><small>विशिष्ट रंग को पारदर्शी बनाएं</small></a>
+      <a href="add-text.html" class="tool-card"><span>टेक्स्ट जोड़ें</span><small>छवि पर शब्द लिखें</small></a>
+      <a href="image-watermark.html" class="tool-card"><span>वॉटरमार्क जोड़ें</span><small>चोरी रोकने के लिए लोगो लगाएं</small></a>
+      <a href="image-rotate.html" class="tool-card"><span>रोटेशन टूल</span><small>90 डिग्री और कोण समायोजित करें</small></a>
+      <a href="image-flip.html" class="tool-card"><span>फ्लिप टूल</span><small>क्षैतिज और लंबवत पलटें</small></a>
+      <a href="image-overlay.html" class="tool-card"><span>इमेज ओवरले</span><small>दो छवियों को आपस में मिलाएं</small></a>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <h2 class="section-title">रंग, विश्लेषण और तुलना (Color & Analytics)</h2>
+    <small class="section-intro">वेब डिज़ाइन के लिए आवश्यक कलर कोड कनवर्टर और छवियों के बीच अंतर की जाँच करने के लिए तुलना उपकरण यहाँ उपलब्ध हैं।</small>
+    <div class="tool-grid">
+      <a href="rgb-to-hex.html" class="tool-card"><span>RGB → HEX</span><small>कलर कोड कनवर्टर</small></a>
+      <a href="hex-to-rgb.html" class="tool-card"><span>HEX → RGB</span><small>कलर कोड कनवर्टर</small></a>
+      <a href="color-picker.html" class="tool-card"><span>कलर पिकर</span><small>स्क्रीन से रंग प्राप्त करें</small></a>
+      <a href="color-code-list.html" class="tool-card"><span>कलर कोड सूची</span><small>रंगों के नाम और उनके कोड</small></a>
+      <a href="image-compare.html" class="tool-card"><span>छवि तुलना</span><small>दो छवियों को साथ रखकर जांचें</small></a>
+      <a href="image-measure.html" class="tool-card"><span>इमेज मापन</span><small>छवि के अंदर का आकार मापें</small></a>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <h2 class="section-title">पीडीएफ और दस्तावेज़ (PDF & Documents)</h2>
+    <small class="section-intro">सर्वर पर फ़ाइलें अपलोड किए बिना पीडीएफ फाइलों को संयोजित या छवियों में परिवर्तित किया जा सकता है। अत्यधिक गोपनीय व्यावसायिक दस्तावेज़ों को भी सुरक्षित रूप से संसाधित किया जा सकता है।</small>
+    <div class="tool-grid">
+      <a href="pdf-split.html" class="tool-card"><span>PDF मर्ज करें</span><small>एकाधिक फ़ाइलों को एक में जोड़ें</small></a>
+      <a href="image-to-pdf.html" class="tool-card"><span>इमेज → PDF</span><small>तस्वीरों को पीडीएफ में बदलें</small></a>
+      <a href="pdf-to-image.html" class="tool-card"><span>PDF → इमेज</span><small>पीडीएफ को JPG/PNG में बदलें</small></a>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <h2 class="section-title">अन्य उपयोगी उपकरण (Utility Tools)</h2>
+    <small class="section-intro">दैनिक उपयोग के लिए उपयोगी उपकरणों का एक संग्रह, जैसे कि QR कोड बनाना और Exif जानकारी हटाना।</small>
+    <div class="tool-grid">
+      <a href="qr-generator.html" class="tool-card"><span>QR कोड जनरेटर</span><small>URL या टेक्स्ट को QR में बदलें</small></a>
+      <a href="favicon-generator.html" class="tool-card"><span>फेविकॉन जनरेटर</span><small>.ico प्रारूप आइकन बनाएं</small></a>
+      <a href="remove-exif.html" class="tool-card"><span>Exif डेटा हटाएं</span><small>स्थान और कैमरा जानकारी मिटाएं</small></a>
+      <a href="dot-art-maker.html" class="tool-card"><span>पिक्सेल आर्ट मेकर</span><small>अपनी खुद की पिक्सेल कला बनाएं</small></a>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <h2 class="section-title">पाठ और दस्तावेज़ उपकरण (Text Tools)</h2>
+    <small class="section-intro">कैरेक्टर काउंट (अक्षर गणना) और फ़ॉर्मेटिंग टूल जो रिपोर्ट लिखने या कोडिंग करने में मदद करते हैं। सभी पाठ प्रसंस्करण स्थानीय स्तर पर निष्पादित किए जाते हैं, इसलिए यह सुरक्षित है।</small>
+    <div class="tool-grid">
+      <a href="character-count.html" class="tool-card"><span>कैरेक्टर काउंट</span><small>अक्षर, पंक्तियाँ और शब्द गिनें</small></a>
+      <a href="text-search.html" class="tool-card"><span>टेक्स्ट खोज और निकालें</span><small>विशिष्ट शब्द या रिक्त स्थान निकालें</small></a>
+      <a href="full-half-converter.html" class="tool-card"><span>Full/Half-Width कनवर्टर</span><small>अक्षरों और प्रतीकों को बल्क में बदलें</small></a>
+      <a href="text-cleaner.html" class="tool-card"><span>लाइन ब्रेक / टेक्स्ट हटाएं</span><small>अवांछित अक्षरों को एक साथ मिटाएं</small></a>
+      <a href="special-characters.html" class="tool-card"><span>विशेष वर्ण सूची</span><small>वेब के लिए प्रतीकों को कॉपी करें</small></a>
+      <a href="json-xml-format.html" class="tool-card"><span>JSON/XML फ़ॉर्मेटर</span><small>कोड को पढ़ने में आसान बनाएं</small></a>
+    </div>
+  </section>
+
+<section class="tool-section">
+    <h2 class="section-title">कैलकुलेटर उपकरण (Calculation Tools)</h2>
+    <small class="section-intro">समय को जोड़ने/घटाने या प्रोग्रामिंग के लिए आवश्यक संख्या प्रणालियों (नंबर बेस) को तुरंत बदलने के उपकरण।</small>
+    <div class="tool-grid">
+      <a href="time-calc.html" class="tool-card"><span>समय कैलकुलेटर</span><small>समय और संख्याओं की मिश्रित गणना</small></a>
+      <a href="number-base-converter.html" class="tool-card"><span>नंबर बेस कनवर्टर</span><small>2, 8, 10, 16 बेस को आपस में बदलें</small></a>
+    </div>
+  </section>
+
+<section class="tool-section">
+    <h2 class="section-title">इलेक्ट्रिकल इंजीनियरिंग और सर्किट उपकरण (Electrical Engineering)</h2>
+    <small class="section-intro">इंजीनियरों और छात्रों के लिए डिज़ाइन किए गए वास्तविक सर्किट गणना टूल का एक संग्रह। यह प्रतिरोध मान निर्धारण, ओम के नियम से लेकर बिजली बिल की गणना तक सब कुछ सपोर्ट करता है।</small>
+    <div class="tool-grid">
+      <a href="resistor-color-code.html" class="tool-card"><span>प्रतिरोध कलर कोड (4 बैंड)</span><small>रंगों से प्रतिरोध मान की गणना करें</small></a>
+      <a href="resistor-color-code-5band.html" class="tool-card"><span>प्रतिरोध कलर कोड (5 बैंड)</span><small>सटीक प्रतिरोध मान की गणना करें</small></a>
+      <a href="composite-resistance.html" class="tool-card"><span>समतुल्य प्रतिरोध कैलकुलेटर</span><small>सीरीज और पैरेलल सर्किट की गणना</small></a>
+      <a href="ohm-law-calculator.html" class="tool-card"><span>ओम का नियम कैलकुलेटर</span><small>वोल्टेज, करंट, प्रतिरोध और शक्ति</small></a>
+      <a href="power-consumption-calculator.html" class="tool-card"><span>बिजली की खपत और लागत</span><small>ऊर्जा की खपत और बिजली बिल निकालें</small></a>
+      <a href="rlc-calc.html" class="tool-card"><span>RLC सर्किट कैलकुलेटर</span><small>प्रतिबाधा (Impedance) और वेक्टर आरेख</small></a>
+      <a href="ac-power-calculator.html" class="tool-card"><span>AC पावर कैलकुलेटर</span><small>सक्रिय, प्रतिक्रियाशील और स्पष्ट शक्ति</small></a>
+      <a href="logic-circuit-simulator.html" class="tool-card"><span>लॉजिक सर्किट सिम्युलेटर</span><small>डिजिटल सर्किट का डिजिटल प्रयोग</small></a>
+    </div>
+  </section>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>HaruTools Lab की विशेषताएं: हमें क्यों चुनें?</h2>
+    <p>"HaruTools Lab" 50 से अधिक ऑनलाइन उपकरणों का एक संग्रह है जो वेब डिजाइनरों, डेवलपर्स, इंजीनियरों, छात्रों और सामान्य पीसी/स्मार्टफोन उपयोगकर्ताओं के दैनिक कार्यों को तुरंत हल करने में मदद करता है।</p>
+    
+    <h3>1. ब्राउज़र के भीतर सुरक्षित प्रसंस्करण (गोपनीयता पहले)</h3>
+    <p>सामान्य ऑनलाइन टूल के विपरीत, सभी प्रोसेसिंग आपके ब्राउज़र (क्लाइंट-साइड) पर ही की जाती है। <strong>आपकी छवियां, पीडीएफ या गोपनीय कोड कभी भी किसी बाहरी सर्वर पर नहीं भेजे जाते हैं।</strong> आप कंपनी या स्कूल के काम के लिए भी इसका सुरक्षित रूप से उपयोग कर सकते हैं।</p>
+    
+    <h3>2. कोई पंजीकरण आवश्यक नहीं, व्यावसायिक उपयोग के लिए पूरी तरह मुफ़्त</h3>
+    <p>किसी सदस्यता पंजीकरण या लॉगिन की आवश्यकता नहीं है। हम बिना किसी सीमा के सभी सुविधाएँ मुफ्त में प्रदान करते हैं। आपके द्वारा बनाए गए या संसाधित किए गए डेटा का उपयोग व्यावसायिक उद्देश्यों के लिए किया जा सकता है, और इसके लिए क्रेडिट देने की भी आवश्यकता नहीं है।</p>
+    
+    <h3>3. कोई इंस्टॉलेशन नहीं, स्मार्टफोन के अनुकूल</h3>
+    <p>किसी विशेष सॉफ़्टवेयर को इंस्टॉल करने की आवश्यकता नहीं है। जब तक आपके पास ब्राउज़र है, यह विंडोज, मैक, आईफोन और एंड्रॉइड जैसे सभी उपकरणों पर सुचारू रूप से काम करता है।</p>
+
+   <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या इस सेवा का उपयोग करने के लिए कोई शुल्क लिया जाता है?</span>
+      <p>उ. नहीं, आप सभी उपकरणों का उपयोग पूरी तरह से मुफ्त में कर सकते हैं। कोई अतिरिक्त शुल्क या विशिष्ट सुविधाओं का उपयोग करने के लिए कोई सशुल्क योजना नहीं है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या मुझे पंजीकरण या लॉगिन करने की आवश्यकता है?</span>
+      <p>उ. नहीं, इसकी कोई आवश्यकता नहीं है। बस वेबसाइट पर आएं और अपनी पसंद का उपकरण चुनकर तुरंत काम शुरू करें। हम ईमेल आईडी जैसी कोई भी व्यक्तिगत जानकारी एकत्र नहीं करते हैं।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. मेरे द्वारा अपलोड की गई फ़ाइलें कहाँ सहेजी जाती हैं?</span>
+      <p>उ. वे कहीं भी सहेजी नहीं जाती हैं। हमारी साइट के उपकरण जावास्क्रिप्ट (JavaScript) का उपयोग करके ब्राउज़र के भीतर काम करते हैं, इसलिए फ़ाइलें सर्वर पर स्थानांतरित नहीं होती हैं। जैसे ही प्रसंस्करण समाप्त होता है, डेटा केवल आपके डिवाइस पर मौजूद रहता है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या बनाई गई या संसाधित की गई छवियों का उपयोग व्यावसायिक उद्देश्यों के लिए किया जा सकता है?</span>
+      <p>उ. हाँ, यह संभव है। आप इसका उपयोग व्यावसायिक दस्तावेज़, ब्लॉग, सोशल मीडिया पोस्ट, उत्पाद पैकेजिंग आदि जैसे किसी भी व्यावसायिक दृश्य में स्वतंत्र रूप से कर सकते हैं।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या मैं इसे अपने स्मार्टफोन (iPhone/Android) पर उपयोग कर सकता हूँ?</span>
+      <p>उ. हाँ, सभी उपकरण रिस्पॉन्सिव डिज़ाइन के साथ बनाए गए हैं। आप स्मार्टफोन या टैबलेट के ब्राउज़र से भी पीसी संस्करण की तरह पूरी सुविधाओं का उपयोग कर सकते हैं।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. यदि प्रसंस्करण विफल हो जाता है या सही ढंग से प्रदर्शित नहीं होता है तो क्या करें?</span>
+      <p>उ. कृपया सुनिश्चित करें कि आपके ब्राउज़र का संस्करण नवीनतम है। इसके अलावा, प्राइवेट मोड (Incognito) या कुछ ब्राउज़र एक्सटेंशन (जैसे एड-ब्लॉकर) इसके काम में बाधा डाल सकते हैं। यदि समस्या बनी रहती है, तो कृपया किसी अन्य ब्राउज़र का प्रयास करें।</p>
+    </div>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label"> विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO設定 -->
+<title>संख्या प्रणाली परिवर्तक (नंबर सिस्टम कनवर्टर) | मुफ़्त ऑनलाइन टूल</title>
+<meta name="description" content="बाइनरी, ऑक्टल, डेसिमल और हेक्साडेसिमल संख्याओं को रीयल-टाइम में एक दूसरे में बदलें। प्रोग्रामिंग और कंप्यूटर साइंस की परीक्षाओं के लिए एक सुविधाजनक संख्या परिवर्तन टूल। किसी इंस्टॉलेशन की आवश्यकता नहीं, मोबाइल फ्रेंडली और सुरक्षित।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 進数変換入力エリア */
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: left;
+}
+@media (max-width: 600px) { .input-grid { grid-template-columns: 1fr; } }
+
+.input-group { margin-bottom: 5px; }
+label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; color: #475569; }
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fcfcff;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+.error { border-color: #ef4444 !important; background: #fef2f2; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.formula {
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: monospace;
+    display: block;
+    margin: 10px 0;
+}
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ़्त ऑनलाइन टूल्स का संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>संख्या प्रणाली बहु-कैलकुलेटर</h1>
+    <p class="tagline">बाइनरी, ऑक्टल, डेसिमल और हेक्साडेसिमल का रीयल-टाइम पारस्परिक परिवर्तन</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <div class="main-card">
+    <div class="input-grid">
+        <div class="input-group">
+            <label for="dec">डेसिमल (Decimal - 10 आधार)</label>
+            <input type="text" id="dec" placeholder="0-9" oninput="convert(this, 10)" inputmode="numeric">
+        </div>
+        <div class="input-group">
+            <label for="bin">बाइनरी (Binary - 2 आधार)</label>
+            <input type="text" id="bin" placeholder="0, 1" oninput="convert(this, 2)" inputmode="numeric">
+        </div>
+        <div class="input-group">
+            <label for="oct">ऑक्टल (Octal - 8 आधार)</label>
+            <input type="text" id="oct" placeholder="0-7" oninput="convert(this, 8)" inputmode="numeric">
+        </div>
+        <div class="input-group">
+            <label for="hex">हेक्साडेसिमल (Hexadecimal - 16 आधार)</label>
+            <input type="text" id="hex" placeholder="0-F" oninput="convert(this, 16)" spellcheck="false" autocapitalize="off" autocorrect="off">
+        </div>
+    </div>
+    <button onclick="clearAll()" style="width:100%; margin-top:25px; background:none; border:none; color:#94a3b8; cursor:pointer; font-size:0.85rem; text-decoration: underline;">सभी इनपुट रीसेट करें</button>
+  </div>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>संख्या प्रणाली परिवर्तन (नंबर सिस्टम कन्वर्शन) क्या है? इसके तंत्र और महत्व की व्याख्या</h2>
+    <p>संख्या प्रणाली परिवर्तन का अर्थ है किसी एक संख्या को दूसरे आधार (Base) में पुनः व्यक्त करना। दैनिक जीवन में हम 10 के समूह वाली डेसिमल प्रणाली का उपयोग करते हैं, लेकिन डिजिटल उपकरणों के आंतरिक प्रसंस्करण में, बिजली के चालू/बंद (ON/OFF) की स्थिति के आधार पर बाइनरी प्रणाली मूल आधार होती है।</p>
+    <p>प्रोग्रामिंग, नेटवर्क कॉन्फ़िगरेशन और कंप्यूटर विज्ञान परीक्षाओं की तैयारी में इन प्रणालियों के बीच त्वरित और सटीक पारस्परिक परिवर्तन करना एक आवश्यक कौशल है। चूंकि यह टूल ब्राउज़र के भीतर काम करता है, इसलिए इसके लिए किसी इंस्टॉलेशन की आवश्यकता नहीं है, और आप सुरक्षित एवं तेज़ी से परिवर्तन के परिणाम देख सकते हैं।</p>
+
+    <h3>प्रत्येक संख्या प्रणाली की विशेषताएँ और विशिष्ट उपयोग के मामले</h3>
+    <ul>
+        <li><strong>बाइनरी (Binary):</strong> कंप्यूटर की सबसे छोटी इकाई। यह बिट (Bit) संचालन, फ्लैग प्रबंधन और हार्डवेयर नियंत्रण का आधार है।</li>
+        <li><strong>ऑक्टल (Octal):</strong> बाइनरी के 3 अंकों को 1 अंक में व्यक्त करता है। पारंपरिक रूप से इसका उपयोग Linux फ़ाइल अनुमतियों (chmod) को सेट करने आदि में किया जाता है।</li>
+        <li><strong>डेसिमल (Decimal):</strong> वह रूप जिसे मनुष्य सहजता से समझ सकते हैं। इसका उपयोग मौद्रिक गणनाओं और सामान्य काउंटरों में किया जाता है।</li>
+        <li><strong>हेक्साडेसिमल (Hexadecimal):</strong> बाइनरी के 4 अंकों को 1 अंक में संक्षिप्त रूप से व्यक्त करता है। यह वेब डिज़ाइन के रंग कोड (#FFFFFF आदि) और मेमोरी एड्रेस को निर्दिष्ट करने के लिए आदर्श है।</li>
+    </ul>
+
+    <h2>गणना विधि की विस्तृत व्याख्या</h2>
+    <h3>n-आधार संख्या से डेसिमल संख्या में परिवर्तन</h3>
+    <p>प्रत्येक अंक की संख्या को उसके "भार (आधार का n-वाँ घात)" से गुणा करके कुल योग निकाला जाता है। इस गणना को समझकर आप डेटा के आकार को स्पष्ट रूप से समझ सकते हैं।</p>
+    <span class="formula">उदाहरण (बाइनरी 1011): (1 × 2³) + (0 × 2²) + (1 × 2¹) + (1 × 2⁰) = 8 + 0 + 2 + 1 = 11</span>
+
+    <h3>डेसिमल संख्या से n-आधार संख्या में परिवर्तन</h3>
+    <p>डेसिमल संख्या को उस आधार (जैसे 2 या 16) से लगातार विभाजित किया जाता है जिसमें आप बदलना चाहते हैं, और प्राप्त "शेषफल" को उल्टे क्रम में लिखकर इसकी गणना की जाती है। मैन्युअल रूप से गणना करते समय अपने उत्तरों की जाँच के लिए भी आप इस टूल का उपयोग कर सकते हैं।</p>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्र. हेक्साडेसिमल में A से F का क्या अर्थ है?</span>
+      <p>उ. यह क्रमशः A=10, B=11, C=12, D=13, E=14, F=15 को दर्शाता है। डेसिमल में दो अंकों वाली संख्याओं को एक अंक में व्यक्त करने के लिए वर्णमाला (अक्षरों) का उपयोग किया जाता है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या यह बड़ी संख्याओं (अंकों) को भी सपोर्ट करता है?</span>
+      <p>उ. यह टूल जावास्क्रिप्ट के मानक संख्या प्रकार (Number) का उपयोग करता है और सुरक्षित गणना सीमा (Number.MAX_SAFE_INTEGER: लगभग 9007 ट्रिलियन) तक सटीकता की गारंटी देता है। कृपया ध्यान दें कि इससे बेहद बड़ी संख्याओं के मामले में निचले अंकों में त्रुटि हो सकती है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. क्या इसके लिए कोई शुल्क लिया जाता है?</span>
+      <p>उ. नहीं, हमारी साइट के सभी टूल पूरी तरह से मुफ़्त दिए जाते हैं। इसके लिए किसी सदस्यता पंजीकरण या सॉफ़्टवेयर इंस्टॉलेशन की बिल्कुल आवश्यकता नहीं है, कोई भी इसका तुरंत उपयोग कर सकता है।</p>
+    </div>
+    <div class="faq-item">
+        <span class="faq-q">प्र. क्या मेरे द्वारा दर्ज किया गया डेटा सहेज कर रखा जाता है?</span>
+        <p>उ. नहीं, सभी गणना प्रक्रियाएँ पूरी तरह से उपयोगकर्ता के ब्राउज़र (लोकल वातावरण) के भीतर ही पूरी होती हैं। चूंकि दर्ज की गई जानकारी किसी बाहरी सर्वर पर नहीं भेजी जाती है, इसलिए आप अत्यधिक गोपनीय संख्याओं का भी निश्चिंत होकर परिवर्तन कर सकते हैं।</p>
+    </div>
+<h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="time-calc.html">समय और संख्या हाइब्रिड कैलकुलेटर</a>: समय जोड़ने और इकाइयों के परिवर्तन को कुशल बनाएं</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+    function convert(el, base) {
+        // 入力開始時にまずエラー表示をクリアする（UX改善）
+        el.classList.remove('error');
+
+        const val = el.value.trim();
+        const inputs = {
+            10: document.getElementById('dec'),
+            2: document.getElementById('bin'),
+            8: document.getElementById('oct'),
+            16: document.getElementById('hex')
+        };
+
+        if (val === "") {
+            Object.values(inputs).forEach(input => {
+                input.value = "";
+                input.classList.remove('error');
+            });
+            return;
+        }
+
+        try {
+            // 入力チェック用正規表現
+            const regex = {
+                2: /^[01]+$/,
+                8: /^[0-7]+$/,
+                10: /^[0-9]+$/,
+                16: /^[0-9a-fA-F]+$/
+            };
+
+            if (!regex[base].test(val)) {
+                el.classList.add('error');
+                return;
+            }
+
+            const num = parseInt(val, base);
+
+            if (isNaN(num)) {
+                el.classList.add('error');
+                return;
+            }
+
+            // 全入力欄のエラー解除と値反映
+            Object.keys(inputs).forEach(key => {
+                inputs[key].classList.remove('error');
+                if (key != base) {
+                    inputs[key].value = num.toString(key).toUpperCase();
+                }
+            });
+        } catch (e) {
+            el.classList.add('error');
+        }
+    }
+
+    function clearAll() {
+        ['dec', 'bin', 'oct', 'hex'].forEach(id => {
+            const el = document.getElementById(id);
+            el.value = "";
+            el.classList.remove('error');
+        });
+    }
+</script>
+
+</body>
+</html>

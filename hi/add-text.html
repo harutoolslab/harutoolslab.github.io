@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+      <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+  
+<!-- ★SEO設定：はるツール 画像に文字入れ・テキスト追加用 -->
+<title>छवि पर टेक्स्ट जोड़ें | मुफ़्त ऑनलाइन बल्क संपादन "HaruTools Lab"</title>
+<meta name="description" content="एक मुफ़्त टूल जो आपको छवियों पर मनचाहा टेक्स्ट जोड़ने की अनुमति देता है। फ़ॉन्ट, रंग, आकार और स्थिति को ड्रैग करके स्वतंत्र रूप से समायोजित करें। कई छवियों को एक साथ लोड करें और केवल ब्राउज़र में सुंदर टेक्स्ट प्रोसेसिंग पूरी करें।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height:  auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* アップロードエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: rgba(0, 123, 255, 0.02);
+  margin-bottom: 20px;
+}
+#drop-area:hover { background: rgba(0, 123, 255, 0.05); }
+
+/* コントロールパネル */
+.controls {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+input[type="text"] { padding: 10px; border: 1px solid #ddd; border-radius: 8px; flex: 1; min-width: 200px; }
+input[type="number"] { width: 70px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+select { padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+input[type="color"] { border: none; width: 40px; height: 40px; padding: 0; cursor: pointer; background: none; }
+
+.btn-add { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.btn-undo { background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.btn-download { background: var(--success); color: white; border: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 20px; }
+
+/* プレビューエリア */
+#preview-container { margin-top: 20px; }
+.preview-item { 
+  background: #eee; 
+  padding: 10px; 
+  border-radius: 12px; 
+  margin-bottom: 20px; 
+  overflow: auto;
+  position: relative;
+}
+.preview-item canvas { 
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
+  margin: 0 auto; 
+  background: white; 
+  cursor: crosshair;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  touch-action: none; /* スマホスクロール干渉防止 */
+}
+.canvas-hint { font-size: 0.8rem; color: var(--text-sub); margin-top: 5px; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; margin-top: 25px; color: #444; }
+.info-section p { margin-bottom: 15px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ़्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>छवि पर टेक्स्ट जोड़ें</h1>
+    <p class="tagline">आप अपनी पसंद के अनुसार अपलोड की गई छवियों पर टेक्स्ट को स्वतंत्र रूप से व्यवस्थित कर सकते हैं।</p>
+  </header>
+
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area" onclick="document.getElementById('file-input').click()">
+      <div style="font-size: 1.1rem; font-weight: bold;">छवि को ड्रैग और ड्रॉप करें, या क्लिक करें</div>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
+
+    <div class="controls">
+      <input type="text" id="new-text" placeholder="जोड़ने के लिए टेक्स्ट दर्ज करें...">
+      <select id="font-family">
+        <option value="sans-serif">गॉथिक (Sans-Serif)</option>
+        <option value="serif">मिंचो (Serif)</option>
+        <option value="monospace">मोनोस्पेस (Monospace)</option>
+      </select>
+      <input type="color" id="font-color" value="#ffffff" title="टेक्स्ट का रंग">
+      <input type="number" id="font-size" value="60" min="10" max="500" title="आकार">
+      <button class="btn-add" onclick="addText()">टेक्स्ट जोड़ें</button>
+      <button class="btn-undo" onclick="undoLastText()">एक हटाएं</button>
+    </div>
+
+    <div id="preview-container"></div>
+
+    <button class="btn-download" onclick="downloadAll()">छवि सहेजें</button>
+    <p class="canvas-hint">※ स्थिति को समायोजित करने के लिए टेक्स्ट को ड्रैग करें, व्यक्तिगत रूप से हटाने के लिए डबल-क्लिक करें।</p>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <article class="info-section">
+    <h2>छवि पर टेक्स्ट जोड़ने वाले टूल का उपयोग कैसे करें</h2>
+    <p>
+      यह टूल एक मुफ़्त ऑनलाइन संपादन टूल है जो आपको बिना किसी विशेष सॉफ़्टवेयर को इंस्टॉल किए ब्राउज़र में छवियों पर आसानी से टेक्स्ट जोड़ने की अनुमति देता है।
+      सहज ज्ञान युक्त संचालन के साथ, इसका उपयोग विभिन्न उद्देश्यों के लिए किया जा सकता है जैसे बैनर बनाना, सोशल मीडिया पोस्ट छवियों पर एनोटेशन जोड़ना, और यादों की तस्वीरों पर तारीखें डालना।
+    </p>
+
+    <h3>स्पष्ट रूप से दिखने वाले टेक्स्ट को जोड़ने के टिप्स</h3>
+    <p>
+      छवि पर टेक्स्ट जोड़ते समय, यदि पृष्ठभूमि का रंग और टेक्स्ट का रंग समान है, तो इसे पढ़ना कठिन हो जाता है।
+      हमारा टूल स्वचालित रूप से "टेक्स्ट आउटलाइन" लागू करता है ताकि टेक्स्ट किसी भी पृष्ठभूमि में छिपा न रहे।
+      अधिक पेशेवर परिणाम के लिए सफेद पृष्ठभूमि पर काले या गहरे नीले रंग के टेक्स्ट, और डार्क तस्वीरों पर सफेद या पीले रंग के टेक्स्ट का चयन करें।
+    </p>
+
+    <h3>मुख्य विशेषताएं और लाभ</h3>
+    <ul>
+      <li><strong>सहज ड्रैग ऑपरेशन:</strong> जोड़े गए टेक्स्ट को माउस या उंगली से सीधे पकड़कर मनचाही जगह पर ले जाया जा सकता है।</li>
+      <li><strong>बल्क संपादन:</strong> एक ही स्थिति में कुशलतापूर्वक एक ही टेक्स्ट को रखने के लिए कई छवियों को एक साथ लोड करना भी संभव है।</li>
+      <li><strong>पूर्ण गोपनीयता सुरक्षा:</strong> छवि डेटा सर्वर पर बिल्कुल भी नहीं भेजा जाता है। सभी छवि प्रोसेसिंग आपके कंप्यूटर या स्मार्टफोन के ब्राउज़र के भीतर की जाती है, इसलिए आप गोपनीय जानकारी वाले दस्तावेजों या पारिवारिक तस्वीरों को भी सुरक्षित रूप से संपादित कर सकते हैं।</li>
+      <li><strong>इंस्टॉलेशन की आवश्यकता नहीं:</strong> किसी सदस्यता पंजीकरण या लॉगिन की आवश्यकता नहीं है, और आप टूल खोलते ही तुरंत इसका उपयोग शुरू कर सकते हैं।</li>
+    </ul>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न</h2>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. संपादित छवि की गुणवत्ता का क्या होता है?</strong>
+      <p>A. टेक्स्ट को मूल छवि के रिज़ॉल्यूशन को बनाए रखते हुए संयोजित किया जाता है। हालांकि, ब्राउज़र की मेमोरी सीमाओं के कारण बेहद विशाल छवियों का आकार छोटा किया जा सकता है।</p>
+    </div>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. मैं फ़ॉन्ट के प्रकार बढ़ाना चाहता हूँ।</strong>
+      <p>A. वर्तमान में, यह डिवाइस पर मानक रूप से इंस्टॉल "गॉथिक" और "मिंचो" आदि का समर्थन करता है। भविष्य में, हम Google Fonts आदि से जुड़े अधिक डिज़ाइनर फ़ॉन्ट जोड़ने की सुविधा पर विचार कर रहे हैं।</p>
+    </div>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. क्या इसका उपयोग स्मार्टफोन पर किया जा सकता है?</strong>
+      <p>A. हाँ, यह iPhone और Android के मानक ब्राउज़रों पर काम करता है। उंगली से स्पर्श करके टेक्स्ट को स्थानांतरित करना भी संभव है।</p>
+    </div>
+
+    <h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="image-resize.html">छवि का आकार बदलें</a>: रिज़ॉल्यूशन निर्दिष्ट करके आकार बदलें</li>
+      <li><a href="image-compress.html">छवि संपीड़ित करें</a>: फ़ाइल का आकार कम करें</li>
+      <li><a href="png-to-jpg.html">PNG को JPG में बदलें</a>: प्रारूप बदलकर सहेजें</li>
+    </ul>
+  </article>
+
+ <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+const fileInput = document.getElementById('file-input');
+const previewContainer = document.getElementById('preview-container');
+const newTextInput = document.getElementById('new-text');
+const fontFamilyInput = document.getElementById('font-family');
+const fontColorInput = document.getElementById('font-color');
+const fontSizeInput = document.getElementById('font-size');
+
+let originalImages = [];
+let textData = []; // [{canvasIdx, text, x, y, size, color, font}]
+let filenames = [];
+
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+async function handleFiles(files) {
+  originalImages = [];
+  textData = [];
+  filenames = [];
+  previewContainer.innerHTML = "";
+  
+  const fileArray = Array.from(files).filter(file => file.type.startsWith('image/'));
+  
+  // 画像の読み込み順序を保証するためにPromise.allを使用
+  const loadPromises = fileArray.map((file, idx) => {
+    return new Promise((resolve) => {
+      filenames[idx] = file.name;
+      const reader = new FileReader();
+      reader.onload = e => {
+        const img = new Image();
+        img.src = e.target.result;
+        img.onload = () => {
+          originalImages[idx] = img;
+          resolve();
+        };
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+
+  await Promise.all(loadPromises);
+  
+  // 読み込み完了後に順番通りCanvasを作成
+  originalImages.forEach((_, idx) => {
+    createCanvas(idx);
+  });
+}
+
+function createCanvas(idx) {
+  const div = document.createElement("div");
+  div.className = "preview-item";
+  const canvas = document.createElement("canvas");
+  canvas.dataset.idx = idx;
+  div.appendChild(canvas);
+  previewContainer.appendChild(div);
+  
+  draw(idx);
+  enableDrag(canvas, idx);
+}
+
+function draw(idx) {
+  const canvas = previewContainer.querySelector(`canvas[data-idx='${idx}']`);
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const img = originalImages[idx];
+  
+  canvas.width = img.width;
+  canvas.height = img.height;
+  ctx.drawImage(img, 0, 0);
+  
+  textData.filter(t => t.canvasIdx === idx).forEach(t => {
+    ctx.font = `bold ${t.size}px ${t.font}`;
+    ctx.fillStyle = t.color;
+    ctx.textBaseline = "top";
+    
+    // 文字の縁取り（読みやすくするため）
+    ctx.strokeStyle = "rgba(0,0,0,0.5)";
+    ctx.lineWidth = t.size / 15;
+    ctx.strokeText(t.text, t.x, t.y);
+    
+    ctx.fillText(t.text, t.x, t.y);
+  });
+}
+
+function addText() {
+  const text = newTextInput.value.trim();
+  if (!text) return alert("कृपया टेक्स्ट दर्ज करें");
+  if (originalImages.length === 0) return alert("कृपया पहले एक छवि अपलोड करें");
+
+  // すべての画像に同じテキストを追加
+  originalImages.forEach((_, idx) => {
+    textData.push({
+      canvasIdx: idx,
+      text: text,
+      x: 50,
+      y: 50,
+      size: parseInt(fontSizeInput.value),
+      color: fontColorInput.value,
+      font: fontFamilyInput.value
+    });
+    draw(idx);
+  });
+  newTextInput.value = "";
+}
+
+function undoLastText() {
+  if (textData.length === 0) return;
+  
+  // 一括追加された文字は textData の末尾に originalImages.length 分ある
+  const count = originalImages.length;
+  if (count > 0) {
+    textData.splice(-count);
+    originalImages.forEach((_, idx) => draw(idx));
+  }
+}
+
+function enableDrag(canvas, idx) {
+  let isDragging = false;
+  let targetText = null;
+  let startX, startY;
+
+  const getPos = e => {
+    const rect = canvas.getBoundingClientRect();
+    const clientX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+    const clientY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
+    return {
+      x: (clientX - rect.left) * (canvas.width / rect.width),
+      y: (clientY - rect.top) * (canvas.height / rect.height)
+    };
+  };
+
+  const start = e => {
+    const pos = getPos(e);
+    targetText = textData.filter(t => t.canvasIdx === idx).slice().reverse().find(t => {
+      const ctx = canvas.getContext("2d");
+      ctx.font = `${t.size}px ${t.font}`;
+      const metrics = ctx.measureText(t.text);
+      return pos.x >= t.x && pos.x <= t.x + metrics.width && pos.y >= t.y && pos.y <= t.y + t.size;
+    });
+    if (targetText) {
+      isDragging = true;
+      startX = pos.x - targetText.x;
+      startY = pos.y - targetText.y;
+      if (e.cancelable) e.preventDefault();
+    }
+  };
+
+  const move = e => {
+    if (!isDragging || !targetText) return;
+    const pos = getPos(e);
+    targetText.x = pos.x - startX;
+    targetText.y = pos.y - startY;
+    draw(idx);
+    if (e.cancelable) e.preventDefault();
+  };
+
+  const end = () => { isDragging = false; targetText = null; };
+
+  const dblClickDelete = e => {
+    const pos = getPos(e);
+    const textToDelete = textData.filter(t => t.canvasIdx === idx).slice().reverse().find(t => {
+      const ctx = canvas.getContext("2d");
+      ctx.font = `${t.size}px ${t.font}`;
+      const metrics = ctx.measureText(t.text);
+      return pos.x >= t.x && pos.x <= t.x + metrics.width && pos.y >= t.y && pos.y <= t.y + t.size;
+    });
+    
+    if (textToDelete) {
+      const targetIdx = textData.indexOf(textToDelete);
+      if (targetIdx > -1) {
+        textData.splice(targetIdx, 1);
+        draw(idx);
+      }
+    }
+  };
+
+  // 個別のCanvasに直接イベントを付与（windowへの重複登録を避けるため）
+  canvas.addEventListener("mousedown", start);
+  canvas.addEventListener("mousemove", move);
+  canvas.addEventListener("mouseup", end);
+  canvas.addEventListener("mouseleave", end);
+  canvas.addEventListener("dblclick", dblClickDelete);
+  
+  canvas.addEventListener("touchstart", start, {passive: false});
+  canvas.addEventListener("touchmove", move, {passive: false});
+  canvas.addEventListener("touchend", end);
+}
+
+function downloadAll() {
+  const canvases = previewContainer.querySelectorAll("canvas");
+  if (canvases.length === 0) return;
+  
+  canvases.forEach((canvas, idx) => {
+    const link = document.createElement("a");
+    link.href = canvas.toDataURL("image/png");
+    link.download = filenames[idx].replace(/\.[^/.]+$/, "") + "-edited.png";
+    link.click();
+  });
+}
+</script>
+
+</body>
+</html>

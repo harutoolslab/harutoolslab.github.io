@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+<!-- ★SEO設定 -->
+<title>Ferramenta para Remover Dados Exif | Apagar Localização de Fotos Online Grátis 「HaruTools Lab」</title>
+<meta name="description" content="Ferramenta online gratuita para remover completamente dados Exif, como localização (GPS) e data de captura de fotos. Processamento seguro no navegador para proteger sua privacidade. Suporta remoção em lote e dispositivos móveis.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 50px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+  transform: scale(1.01);
+}
+.btn-select {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+  margin-top: 15px;
+}
+
+/* プレビュー＆操作エリア */
+#preview-zone { display: none; margin-top: 30px; }
+#preview-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.preview-item {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  position: relative;
+}
+.preview-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  /* 画像の向き補正 */
+  image-orientation: from-image;
+}
+.file-info { font-size: 10px; color: #888; margin-top: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.btn-run {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 15px 50px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(40,167,69,0.2);
+  transition: transform 0.2s;
+}
+.btn-run:active { transform: scale(0.98); }
+
+/* 結果表示 */
+#result-area { margin-top: 30px; display: none; text-align: left; background: #f0fff4; padding: 20px; border-radius: 12px; }
+.download-link {
+  display: block;
+  background: #fff;
+  color: var(--success);
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid var(--success);
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.download-link:hover { background: var(--success); color: #fff; }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+        Coleção de Ferramentas Online Gratuitas "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Ferramenta para Remover Dados Exif</h1>
+    <p class="tagline">Remova metadados como informações de localização e data de captura de suas fotos em lote.</p>
+  </header>
+
+  <!-- 上部広告 -->
+  <div class="ad-slot">
+    <span class="ad-label">Anúncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <main class="main-card">
+    <!-- 画像入力エリア -->
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">Arraste e solte as imagens aqui</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">ou</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">Selecionar Arquivos</button>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none;">
+    </div>
+
+    <!-- プレビュー＆操作エリア -->
+    <div id="preview-zone">
+      <div id="preview-container"></div>
+      
+      <div style="margin: 20px 0;">
+        <p style="font-size: 0.9rem; color: var(--text-sub);">Clique no botão "Executar" para gerar as imagens com todos os metadados removidos.</p>
+        <button class="btn-run" onclick="run()">Executar Remoção</button>
+      </div>
+
+      <div id="status" style="margin-top:15px; font-weight:bold; color:var(--primary);"></div>
+      
+      <div id="result-area">
+        <h3 style="margin-top:0; font-size:1.1rem; color:#2c7a7b;">✨ Remoção Concluída! Por favor, salve as imagens</h3>
+        <div id="download-list"></div>
+        <button onclick="location.reload()" style="margin-top:15px; background:none; border:none; color:#666; text-decoration:underline; cursor:pointer; font-size:0.8rem;">Processar outras fotos</button>
+      </div>
+    </div>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anúncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>A Importância de Remover Dados Exif</h2>
+    <p>As fotos tiradas com smartphones ou câmeras digitais contêm metadados embutidos automaticamente chamados de <strong>dados Exif</strong>. Isso inclui informações de localização GPS do exato momento em que a foto foi tirada, data e hora, modelo da câmera e até as configurações da lente.</p>
+    
+    <h3>Proteção de Privacidade Digital e Gestão de Riscos</h3>
+    <p>Esta ferramenta vai além da simples exclusão de dados, oferecendo uma solução profissional para apoiar o compartilhamento seguro de informações na Web. Na segurança cibernética moderna, os metadados contidos em imagens formam uma grande parte da sua "pegada digital". A exposição não intencional dessas informações traz o risco de ser mal utilizada por perseguidores (stalkers) ou na seleção de alvos para furtos residenciais. Ao utilizar esta ferramenta, é possível prevenir esses riscos antecipadamente.</p>
+
+    <h3>Por Que Você Deve Apagar as Informações de Localização?</h3>
+    <p>Ao fazer o upload de fotos que ainda contêm dados de localização em redes sociais, blogs ou aplicativos de vendas de usados, existe o <strong>risco de que a localização da sua casa seja identificada ou que sua rotina diária seja vazada para terceiros</strong>. Para proteger sua privacidade, é altamente recomendável remover completamente essas informações antes de publicar as imagens.</p>
+
+    <h3>Como Funciona Nossa Ferramenta: Método de Renderização Compartilhada</h3>
+    <p>Diferente dos softwares comuns de remoção de Exif, esta ferramenta utiliza a "Canvas API" do próprio navegador para extrair apenas os dados puros de cor (pixels) da imagem. Com base nisso, ela reconstrói e redesenha a imagem como um arquivo totalmente novo. Através deste "método de renderização", cortamos 100% da conexão física com os metadados ocultos nos dados binários originais, garantindo uma <strong>eliminação de informações totalmente confiável</strong>.</p>
+
+    <h2>Destaques desta Ferramenta</h2>
+    <ul>
+      <li><strong>Proteção de Privacidade:</strong> Todo o processamento de imagem é feito diretamente no seu navegador. Suas fotos nunca são enviadas para o servidor deste site.</li>
+      <li><strong>Processamento em Lote:</strong> Você pode selecionar várias fotos de uma vez e remover as informações Exif de todas elas juntas.</li>
+      <li><strong>Salvamento em Alta Qualidade:</strong> A exportação é feita em formato JPG de alta qualidade para minimizar qualquer perda de nitidez.</li>
+    </ul>
+
+    <h2>Perguntas Frequentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">P. Como posso confirmar se os dados foram realmente removidos?</span>
+      <p>R. Verifique as propriedades (informações detalhadas) da imagem salva. Se campos como "Localização" ou "Modelo da Câmera" estiverem completamente em branco, o processo foi um sucesso.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. Posso usar no Android ou iPhone?</span>
+      <p>R. Sim. Como a ferramenta funciona diretamente no navegador, você pode utilizá-la em qualquer navegador mobile atualizado.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">P. A qualidade da foto diminui?</span>
+      <p>R. Ocorre uma leve compressão ao redesenhar a imagem, mas para publicações normais em redes sociais ou visualização na Web, quase não há perda perceptível a olho nu.</p>
+    </div>
+
+    <h3>Ferramentas Relacionadas</h3>
+    <ul>
+      <li><a href="qr-generator.html">Gerador de Código QR</a> : Transforme URLs ou textos em QR instantaneamente</li>
+      <li><a href="favicon-generator.html">Gerador de Favicon</a> : Crie ícones para sites facilmente</li>
+      <li><a href="image-compress.html">Ferramenta de Compressão de Imagem</a> : Reduza o tamanho mantendo a qualidade da imagem</li>
+      <li><a href="png-to-jpg.html">Converter PNG para JPG</a> : Conversão rápida e em lote de formatos de imagem</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Anúncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+ <footer> &copy; 2024 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Uso</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const previewZone = document.getElementById('preview-zone');
+const previewContainer = document.getElementById('preview-container');
+const resultArea = document.getElementById('result-area');
+const downloadList = document.getElementById('download-list');
+const status = document.getElementById('status');
+
+let files = [];
+
+// ドラッグ&ドロップ処理
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea.addEventListener(eventName, e => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, false);
+});
+
+dropArea.addEventListener('dragover', () => dropArea.classList.add('active'));
+dropArea.addEventListener('dragleave', () => dropArea.classList.remove('active'));
+
+dropArea.addEventListener('drop', (e) => {
+  dropArea.classList.remove('active');
+  handleFiles(e.dataTransfer.files);
+});
+
+fileInput.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(selectedFiles) {
+  files = Array.from(selectedFiles).filter(file => file.type.startsWith('image/'));
+  if (files.length === 0) return;
+
+  previewContainer.innerHTML = "";
+  dropArea.style.display = 'none';
+  previewZone.style.display = 'block';
+
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const div = document.createElement("div");
+      div.className = "preview-item";
+      div.innerHTML = `
+        <img src="${e.target.result}">
+        <div class="file-info">${file.name}</div>
+      `;
+      previewContainer.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+async function run() {
+  if (files.length === 0) return;
+  
+  downloadList.innerHTML = "";
+  resultArea.style.display = "none";
+
+  let count = 1;
+  for (const file of files) {
+    status.textContent = `処理中... (${count} / ${files.length})`;
+    await processImage(file);
+    count++;
+  }
+
+  status.textContent = "処理が完了しました。";
+  resultArea.style.display = "block";
+}
+
+async function processImage(file) {
+  return new Promise(resolve => {
+    const img = new Image();
+    const objectURL = URL.createObjectURL(file);
+    
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      // Canvasに描画することでメタデータを物理的に遮断
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+      // 元の形式を維持しつつ出力（不明な場合はjpeg）
+      const mimeType = file.type || "image/jpeg";
+      const quality = mimeType === "image/jpeg" ? 0.92 : undefined;
+      const dataUrl = canvas.toDataURL(mimeType, quality);
+      
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.className = "download-link";
+      
+      // ファイル名の安全化（記号の置換）
+      const safeName = file.name.replace(/[^a-z0-9.-]/gi, '_');
+      const nameParts = safeName.split('.');
+      const ext = nameParts.pop();
+      link.download = `cleaned_${nameParts.join('.')}.${ext}`;
+      link.innerHTML = `⬇️ ${file.name} を保存`;
+      
+      downloadList.appendChild(link);
+      
+      URL.revokeObjectURL(objectURL);
+      resolve();
+    };
+    img.src = objectURL;
+  });
+}
+</script>
+
+</body>
+</html>

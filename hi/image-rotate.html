@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<title>इमेज रोटेट टूल | मुफ्त और ऑनलाइन फोटो की दिशा आसानी से बदलें - "HaruTools Lab"</title>
+<meta name="description" content="यह एक मुफ्त ऑनलाइन टूल है जिससे आप छवियों को 90, 180 और 270 डिग्री पर घुमा सकते हैं। मोबाइल से ली गई तस्वीरों की दिशा को एक क्लिक में ठीक करें। बिना इंस्टॉल किए ब्राउज़र में सुरक्षित रूप से काम करता है।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ドラッグ&ドロップエリア */
+#drop-area {
+  border: 3px dashed var(--primary);
+  padding: 60px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 123, 255, 0.02);
+}
+#drop-area.active {
+  background: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-hover);
+}
+
+.btn-select {
+  background: var(--primary);
+  color: white; border: none;
+  padding: 12px 30px; border-radius: 50px;
+  font-weight: bold; cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+}
+
+/* プレビュー＆操作エリア */
+#work-zone { display: none; margin-top: 20px; }
+.preview-container {
+  display: inline-block;
+  max-width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  background: #eee;
+  border-radius: 8px;
+  line-height: 0;
+}
+#image-preview {
+  max-width: 100%;
+  max-height: 500px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.rotate-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+.btn-rotate {
+  background: #fff; border: 2px solid var(--primary); color: var(--primary);
+  padding: 10px 15px; border-radius: 8px; font-weight: bold; cursor: pointer;
+  transition: 0.2s; min-width: 100px;
+}
+.btn-rotate:hover { background: var(--primary); color: #fff; }
+
+.btn-download {
+  background: var(--success);
+  color: white; border: none; padding: 15px 40px;
+  border-radius: 50px; font-weight: bold; font-size: 1.1rem;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ्त ऑनलाइन टूल्स का संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>इमेज रोटेट टूल</h1>
+    <p class="tagline">एक क्लिक में फोटो की दिशा ठीक करें। ब्राउज़र में 90 डिग्री और 180 डिग्री घुमाएं।</p>
+  </header>
+
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <div id="drop-area">
+      <div style="font-size: 1.2rem; font-weight: bold;">छवि को यहां ड्रैग और ड्रॉप करें</div>
+      <p style="color: var(--text-sub); margin: 10px 0;">या</p>
+      <button type="button" class="btn-select" onclick="document.getElementById('file-input').click()">फ़ाइल चुनें</button>
+      <input type="file" id="file-input" accept="image/*" style="display:none;">
+    </div>
+
+    <div id="work-zone">
+      <div class="preview-container">
+        <img id="image-preview" src="" alt="रोटेशन पूर्वावलोकन">
+      </div>
+
+      <div class="rotate-controls">
+        <button class="btn-rotate" onclick="rotate(-90)">↺ बाएं 90°</button>
+        <button class="btn-rotate" onclick="rotate(90)">↻ दाएं 90°</button>
+        <button class="btn-rotate" onclick="rotate(180)">⇅ 180°</button>
+      </div>
+
+      <div>
+        <button class="btn-download" onclick="downloadImage()">घुमाई गई छवि सहेजें</button>
+      </div>
+
+      <div style="margin-top:20px;">
+        <button onclick="location.reload()" style="background:none; border:none; color:#999; text-decoration:underline; cursor:pointer;">दूसरी छवि चुनें</button>
+      </div>
+    </div>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <article class="info-section">
+    <h2>इमेज रोटेट टूल क्या है?</h2>
+    <p>"इमेज रोटेट टूल" एक मुफ्त टूल है जो आपको अपने ब्राउज़र में तस्वीरों या चित्रों की दिशा आसानी से बदलने की अनुमति देता है। जब आप स्मार्टफोन से फोटो लेते हैं और वह अनजाने में तिरछी हो जाती है, या उल्टी तस्वीरों को सही दिशा में लाना चाहते हैं, तो यह टूल उसे ठीक कर सकता है। किसी इंस्टॉलेशन की आवश्यकता नहीं है, और इसे पीसी या स्मार्टफोन दोनों से तुरंत उपयोग किया जा सकता है।</p>
+
+    <h3>मुख्य उपयोग के मामले</h3>
+    <p>दैनिक जीवन की विभिन्न स्थितियों में यह टूल आपकी छवियों की दिशा को तुरंत ठीक करने में मदद करता है।</p>
+    <ul>
+      <li><strong>सोशल मीडिया और ब्लॉग पोस्ट के लिए:</strong> Instagram या X (पुराना Twitter) पर अपलोड करने से पहले आड़ी-तिरछी तस्वीरों को सही दिशा में लाएं।</li>
+      <li><strong>ऑनलाइन मार्केटप्लेस पर उत्पाद बेचने के लिए:</strong> eBay या अन्य फ्ली मार्केट ऐप्स पर अपनी उत्पाद तस्वीरों को आसानी से देखने योग्य कोण पर समायोजित करें।</li>
+      <li><strong>व्यावसायिक दस्तावेज़ बनाने के लिए:</strong> अपने दस्तावेज़ों में संलग्न स्क्रीनशॉट या आरेखों की दिशा को व्यवस्थित करें ताकि वे पेशेवर दिखें।</li>
+    </ul>
+
+    <h3>तकनीकी लाभ: Canvas API द्वारा तेज़ प्रोसेसिंग</h3>
+    <p>यह टूल आधुनिक वेब तकनीक <strong>JavaScript के Canvas API</strong> का उपयोग करता है। पारंपरिक तरीकों के विपरीत, जहां छवियों को अपलोड किया जाता है और सर्वर-साइड पर प्रोसेस किया जाता है, यह टूल आपके डिवाइस (पीसी या स्मार्टफोन) की कंप्यूटिंग शक्ति का उपयोग करके ऑन-द-स्पॉट रोटेशन करता है। इसके कारण, बड़ी छवियों के लिए भी कोई संचार प्रतीक्षा समय नहीं होता है और तत्काल प्रोसेसिंग संभव होती है।</p>
+
+    <h3>सर्वोच्च गोपनीयता सुरक्षा: सर्वर पर छवियां न भेजने का आश्वासन</h3>
+    <p>सुरक्षा के मामले में भी यह टूल अत्यधिक सुरक्षित है। लोड किया गया इमेज डेटा <strong>किसी भी बाहरी सर्वर पर नहीं भेजा जाता है</strong>। सभी प्रोसेसिंग आपके ब्राउज़र (मेमोरी) के भीतर पूरी होती है, और पेज बंद होते ही डेटा पूरी तरह से मिटा दिया जाता है। आप गोपनीय दस्तावेज़ों के स्कैन या व्यक्तिगत निजी तस्वीरों को भी बिना किसी चिंता के प्रोसेस कर सकते हैं</p>
+
+    <h2>उपयोग करने के चरण</h2>
+    <ol>
+      <li>ऊपर दिए गए क्षेत्र में छवि को ड्रैग और ड्रॉप करें, या बटन से फ़ाइल चुनें।</li>
+      <li>छवि की दिशा को समायोजित करने के लिए "दाएं 90°", "बाएं 90°", या "180°" बटन का उपयोग करें।</li>
+      <li>एक बार दिशा तय हो जाने पर, डाउनलोड करने के लिए "घुमाई गई छवि सहेजें" बटन पर क्लिक करें।</li>
+    </ol>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">प्र. क्या मैं इसे iPhone या Android पर उपयोग कर सकता हूँ?</strong>
+      <p>उ. हां, चूंकि यह ब्राउज़र पर काम करता है, आप अपने स्मार्टफोन की फोटो लाइब्रेरी से एक छवि चुन सकते हैं और इसे सीधे घुमाकर सहेज सकते हैं।</p>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <strong style="color:var(--primary);">प्र. क्या मैं एक साथ कई छवियों को घुमा सकता हूँ?</strong>
+      <p>उ. वर्तमान में, यह एक बार में केवल एक ही छवि की प्रोसेसिंग का समर्थन करता है। यह उच्च सटीकता के साथ दिशा की जांच करते हुए सहेजने के लिए सबसे उपयुक्त है।</p>
+    </div>
+     
+    <h3>संबंधित टूल्स</h3>
+    <ul>
+      <li><a href="image-flip.html">इमेज फ्लिप टूल</a> : मिरर इमेज की तरह बाएं-दाएं या ऊपर-नीचे पलटें</li>
+      <li><a href="image-overlay.html">इमेज ओवरले टूल</a> : दो छवियों को पारदर्शी बनाकर एक में संयोजित करें</li>
+      <li><a href="brightness-contrast.html">इमेज ब्राइटनेस और कंट्रास्ट एडजस्टमेंट</a> : धुंधली या अंधेरी तस्वीरों को स्पष्ट और देखने में आसान बनाएं</li>
+      <li><a href="mosaic-blur.html">मोज़ेक और ब्लर प्रोसेसिंग टूल</a> : गोपनीयता की रक्षा के लिए उन हिस्सों को छुपाएं जिन्हें आप छिपाना चाहते हैं</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+
+</div>
+
+<script>
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-input');
+const workZone = document.getElementById('work-zone');
+const imagePreview = document.getElementById('image-preview');
+
+let originalImg = new Image();
+let currentAngle = 0;
+
+// イベント防止と視覚効果
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+
+['dragenter', 'dragover'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.add('active'), false);
+});
+
+['dragleave', 'drop'].forEach(name => {
+  dropArea.addEventListener(name, () => dropArea.classList.remove('active'), false);
+});
+
+dropArea.addEventListener('drop', e => {
+  handleFiles(e.dataTransfer.files);
+}, false);
+
+fileInput.addEventListener('change', function() {
+  handleFiles(this.files);
+});
+
+function handleFiles(files) {
+  const file = files[0];
+  if (file && file.type.startsWith('image/')) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      originalImg = new Image(); // インスタンスをクリア
+      originalImg.onload = () => {
+        currentAngle = 0;
+        renderCanvas();
+        dropArea.style.display = 'none';
+        workZone.style.display = 'block';
+      };
+      originalImg.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+// 回転処理
+function rotate(deg) {
+  currentAngle = (currentAngle + deg) % 360;
+  if (currentAngle < 0) currentAngle += 360;
+  renderCanvas();
+}
+
+// キャンバス描画
+function renderCanvas() {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+
+  if (currentAngle === 90 || currentAngle === 270) {
+    canvas.width = originalImg.height;
+    canvas.height = originalImg.width;
+  } else {
+    canvas.width = originalImg.width;
+    canvas.height = originalImg.height;
+  }
+
+  ctx.translate(canvas.width / 2, canvas.height / 2);
+  ctx.rotate(currentAngle * Math.PI / 180);
+  ctx.drawImage(originalImg, -originalImg.width / 2, -originalImg.height / 2);
+
+  // toDataURLの代わりにBlob URLを使用して高速化とメモリ節約
+  canvas.toBlob((blob) => {
+    const url = URL.createObjectURL(blob);
+    if (imagePreview.src.startsWith('blob:')) {
+      URL.revokeObjectURL(imagePreview.src);
+    }
+    imagePreview.src = url;
+  }, 'image/png');
+}
+
+// 保存
+function downloadImage() {
+  const link = document.createElement('a');
+  link.download = 'rotated-' + Date.now() + '.png';
+  link.href = imagePreview.src;
+  link.click();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+
+<title>बिजली खपत, कैलोरी मान और बिजली बिल कैलकुलेटर | J / Wh / kWh परस्पर रूपांतरण | HaruTools Lab</title>
+<meta name="description" content="बिजली (W/kW) और समय से बिजली की खपत (Wh/kWh), ऊष्मा मान (J), और अनुमानित बिजली बिल की एक साथ गणना करें। सेकंड, मिनट, घंटे और दिनों की इकाई चयन का समर्थन करता है। सॉफ़्टवेयर इंस्टॉलेशन की आवश्यकता नहीं, स्मार्टफोन के अनुकूल, गोपनीयता-केंद्रित सुरक्षित डिज़ाइन।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --accent-color: #e74c3c;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --border-color: #e1e4e8;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 入力グループ */
+.input-group { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 10px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-group label { flex: 1; font-weight: bold; font-size: 0.9em; text-align: right; }
+
+input[type="number"], select {
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+input[type="number"] { flex: 2; min-width: 100px; }
+select { flex: 1; background-color: #fff; cursor: pointer; min-width: 100px; }
+
+/* プレビューエリア（結果表示として利用） */
+.result-display {
+    background: #fffafa;
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.res-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+.res-item:last-child { border-bottom: none; }
+.res-label { font-size: 0.85em; color: #666; font-weight: bold; }
+.res-val { font-size: 1.6rem; font-weight: bold; color: var(--accent-color); }
+.res-unit { font-size: 0.9rem; margin-left: 5px; color: var(--text-main); }
+
+/* 電気代の強調表示用 */
+.res-cost { color: var(--success); }
+
+
+
+.btn-reset {
+  background: #eee;
+  color: #333;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+    .input-group { flex-direction: column; align-items: stretch; }
+    .input-group label { text-align: left; }
+    .res-item { flex-direction: column; align-items: flex-start; }
+    .res-val { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ़्त ऑनलाइन टूल्स का संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>बिजली खपत, कैलोरी मान और बिजली बिल कैलकुलेटर</h1>
+    <p class="tagline">बिजली और उपयोग के समय से जूल (J), वाट-घंटा (Wh) और बिजली लागत की तुरंत गणना करें</p>
+  </header>
+
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <!-- AdSense ディスプレイ広告ユニット (上部) -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <div class="main-card">
+    <div id="tool-ui">
+        <div class="input-group">
+            <label>बिजली (पावर)</label>
+            <input type="number" id="pVal" placeholder="उदा: 100" oninput="calc()" min="0">
+            <select id="pUnit" onchange="calc()">
+                <option value="w" selected>W (वाट)</option>
+                <option value="kw">kW (किलोवाट)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>उपयोग का समय</label>
+            <input type="number" id="tVal" step="any" placeholder="उदा: 1" oninput="calc()" min="0">
+            <select id="tUnit" onchange="calc()">
+                <option value="s">सेकंड (s)</option>
+                <option value="m">मिनट (m)</option>
+                <option value="h" selected>घंटा (h)</option>
+                <option value="d">दिन (d)</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>बिजली दर प्रति यूनिट</label>
+            <input type="number" id="unitPrice" placeholder="उदा: 31" value="31" oninput="calc()" min="0">
+            <div style="flex: 1; text-align: left; font-size: 0.9em;">INR/kWh</div>
+        </div>
+        <button class="btn-reset" onclick="resetAll()">साफ करें</button>
+    </div>
+
+    <div class="result-display" id="res-box">
+        <div class="res-item">
+            <span class="res-label">ऊष्मा मान (J / जूल)</span>
+            <span><span class="res-val" id="resJ">0</span><span class="res-unit">J</span></span>
+        </div>
+        <div class="res-item">
+            <span class="res-label">बिजली की खपत (Wh / वाट-घंटा)</span>
+            <span><span class="res-val" id="resWh">0</span><span class="res-unit">Wh</span></span>
+        </div>
+        <div class="res-item">
+            <span class="res-label">बिजली की खपत (kWh / किलोवाट-घंटा)</span>
+            <span><span class="res-val" id="resKWh">0</span><span class="res-unit">kWh</span></span>
+        </div>
+        <div class="res-item" style="border-top: 2px solid #eee; margin-top: 5px;">
+            <span class="res-label">अनुमानित बिजली लागत</span>
+            <span><span class="res-val res-cost" id="resCost">0</span><span class="res-unit">INR</span></span>
+        </div>
+    </div>
+<div style="margin-top: 15px; padding: 15px; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 12px; font-size: 0.85rem; color: #744210; text-align: left; line-height: 1.5;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-weight: bold; color: #975a16;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <span>गणना परिणामों के संबंध में ध्यान दें</span>
+    </div>
+    <ul style="margin: 0; padding-left: 20px; list-style-type: disc;">
+        <li>इस टूल के गणना परिणाम दर्ज किए गए बिजली मूल्य पर आधारित अनुमान हैं। वास्तविक बिजली बिल में बुनियादी शुल्क, ईंधन लागत समायोजन राशि, नवीकरणीय ऊर्जा लेवी आदि शामिल होते हैं, इसलिए यह पावर कंपनी द्वारा बिल की गई राशि से भिन्न हो सकता है।</li>
+        <li>ऊष्मा मान की गणना में, आसपास के तापमान वातावरण, उपकरण की थर्मल दक्षता, गर्मी के नुकसान आदि के कारण सैद्धांतिक रूप से गणना किए गए मान और वास्तविक उत्पन्न ऊष्मा मान के बीच अंतर हो सकता है।</li>
+        <li>यह साइट इस टूल के गणना परिणामों (बिजली बिलों के अनुमान आदि) के आधार पर होने वाले किसी भी नुकसान या क्षति के लिए कोई ज़िम्मेदारी स्वीकार नहीं करती है। घरेलू बजट अनुमान या उपकरण योजना बनाते समय कृपया इसे केवल एक मार्गदर्शिका के रूप में उपयोग करें, और अंतिम निर्णय अपने जोखिम पर लें।</li>
+    </ul>
+</div>
+  </div>
+  
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>बिजली खपत, कैलोरी मान और बिजली बिल कैलकुलेटर क्या है?</h2>
+    <p>यह एक ऐसा टूल है जो आपको किसी घरेलू उपकरण की बिजली खपत (W) और उपयोग के समय से ऊर्जा की मात्रा यानी "ऊष्मा मान (J)" या "बिजली खपत (Wh/kWh)" और "बिजली बिल" की एक साथ गणना करने की अनुमति देता है। कृपया घरेलू उपकरणों के लिए बिजली बचत उपाय करने, विज्ञान सीखने, या बिजली शुल्क का सिमुलेशन करने के लिए इसका उपयोग करें।</p>
+
+    <h3>व्यावसायिक पृष्ठभूमि और उपयोगिता</h3>
+    <p>आधुनिक समाज में, ऊर्जा दक्षता को समझना न केवल घरेलू बजट प्रबंधन के लिए बल्कि पर्यावरण के लिए भी महत्वपूर्ण है। यह टूल भौतिकी में बुनियादी ऊर्जा रूपांतरण सूत्रों पर आधारित है और जटिल इकाई रूपांतरणों को सरल बनाता है। विशेष रूप से, सेकंड-आधारित जूल से व्यावसायिक बिजली की इकाई kWh में रूपांतरण मैन्युअल गणनाओं में त्रुटियों का कारण बन सकता है, इसलिए इस टूल का उपयोग करके त्वरित और सटीक अनुमान संभव हो जाता है।</p>
+
+    <h3>इकाइयों की परिभाषा और गणना सूत्र</h3>
+    <ul>
+        <li><strong>जूल (J):</strong> यह 1 सेकंड के लिए 1W बिजली की खपत होने पर ऊर्जा की मात्रा है। यह भौतिकी में ऊष्मा मान की मूल इकाई है।</li>
+        <li><strong>वाट-घंटा (Wh):</strong> यह 1 घंटे के लिए 1W बिजली की खपत होने पर ऊर्जा की मात्रा है। यह अक्सर घरेलू उपकरणों के बिजली खपत डिस्प्ले पर उपयोग किया जाता है।</li>
+        <li><strong>किलोवाट-घंटा (kWh):</strong> यह 1,000 Wh के बराबर है और सामान्य बिजली बिल मीटर रीडिंग पर दिखाई देने वाली बिलिंग इकाई है।</li>
+        <li><strong>बिजली बिल:</strong> इसकी गणना बिजली की मात्रा (kWh) × बिजली दर प्रति यूनिट (INR/kWh) द्वारा की जाती है। इस टूल में आप कोई भी मनचाही इकाई दर निर्धारित कर सकते हैं।</li>
+    </ul>
+    <p><strong>गणना की कार्यप्रणाली:</strong> यह स्वचालित रूप से समय की इकाइयों (मिनट, घंटे, दिन) को $W (\text{बिजली}) \times t (\text{सेकंड}) = J (\text{ऊर्जा})$ के मूल सूत्र के आधार पर परिवर्तित करता है। 1Wh का मान 3,600J के बराबर होता है।</p>
+
+    <h3>इस टूल की विशेषताएं</h3>
+    <ul>
+      <li><strong>बिजली बिल की एक साथ गणना:</strong> आप न केवल बिजली की मात्रा बल्कि वर्तमान बिजली इकाई दर के आधार पर लागत की तुरंत जांच कर सकते हैं।</li>
+      <li><strong>पूरी तरह से मुफ़्त:</strong> आप सभी सुविधाओं का उपयोग मुफ्त में कर सकते हैं।</li>
+      <li><strong>पंजीकरण की आवश्यकता नहीं:</strong> कोई परेशानी भरा सदस्य पंजीकरण या लॉगिन की आवश्यकता नहीं है।</li>
+      <li><strong>सुरक्षित डिज़ाइन:</strong> चूंकि डेटा को ब्राउज़र के भीतर ही प्रोसेस किया जाता है, इसलिए दर्ज किए गए मान कभी भी सर्वर पर नहीं भेजे जाते हैं। यह आपकी गोपनीयता को पूरी तरह से सुरक्षित रखता है।</li>
+    </ul>
+
+    <h2>उपयोग के चरण</h2>
+    <ol>
+      <li>"बिजली (पावर)" फ़ील्ड में उपकरण का विनिर्देश मान दर्ज करें और इकाई (W या kW) चुनें।</li>
+      <li>"उपयोग का समय" फ़ील्ड में परिचालन समय दर्ज करें और उपयुक्त इकाई (सेकंड, मिनट, घंटे, दिन) चुनें।</li>
+      <li>"बिजली दर प्रति यूनिट" दर्ज करें। कृपया अपने क्षेत्र की बिजली कंपनी की मूल्य योजना की जांच करें।</li>
+      <li>आपके इनपुट के अनुसार, ऊष्मा मान (J), बिजली की मात्रा (Wh/kWh), और अनुमानित बिजली लागत वास्तविक समय में स्वचालित रूप से अपडेट हो जाएगी।</li>
+    </ol>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">प्र. मुझे बिजली दर प्रति यूनिट की गणना किस मान से करनी चाहिए?</span>
+      <p>उ. उदाहरण के तौर पर वर्तमान में कई स्थानों पर मानक संदर्भ दर का उपयोग किया जाता है। हालांकि, हालिया ऊर्जा स्थितियों के कारण दरों में उतार-चढ़ाव होता रहता है, इसलिए यदि आप अपने वास्तविक बिल में दिखाई देने वाली इकाई दर दर्ज करते हैं, तो अधिक सटीक सिमुलेशन संभव है।</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">प्र. 1kWh बिजली की कितनी मात्रा होती है?</span>
+      <p>उ. जब 1000W (1kW) का घरेलू उपकरण 1 घंटे के लिए उपयोग किया जाता है, तो इसकी मात्रा 1kWh होती है। उदाहरण के लिए, यदि 1200W का हेयर ड्रायर 5 मिनट के लिए उपयोग किया जाता है, तो बिजली की खपत लगभग 0.1kWh होगी।</p>
+    </div>
+
+<h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="resistor-color-code.html">प्रतिरोधक रंग कोड कैलकुलेटर (4 बैंड)</a>: रंग बैंड से तुरंत प्रतिरोध मान निर्धारित करें</li>
+      <li><a href="resistor-color-code-5band.html">प्रतिरोधक रंग कोड कैलकुलेटर (5 बैंड)</a>: उच्च परिशुद्धता 5-बैंड प्रतिरोध मान की गणना करें</li>
+      <li><a href="composite-resistance.html">संयुक्त प्रतिरोध कैलकुलेटर</a>: श्रृंखला और समानांतर में जटिल प्रतिरोध मानों की गणना करें</li>
+      <li><a href="ohm-law-calculator.html">ओह्म का नियम और बिजली कैलकुलेटर</a>: वोल्टेज, करंट और प्रतिरोध के लिए बुनियादी गणना उपकरण</li>
+      <li><a href="rlc-calc.html">RLC सर्किट प्रतिबाधा कैलकुलेटर</a>: AC सर्किट की जटिल प्रतिबाधा की गणना करें</li>
+      <li><a href="ac-power-calculator.html">AC पावर मल्टी कैलकुलेटर</a>: सक्रिय/निष्क्रिय शक्ति और शक्ति कारक की व्यापक गणना करें</li>
+      <li><a href="logic-circuit-simulator.html">लॉजिक सर्किट सिम्युलेटर</a>: संचालन को सत्यापित करने के लिए बुनियादी गेट्स को संयोजित करें</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">広告枠：下部</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<script>
+    function calc() {
+        const pInput = parseFloat(document.getElementById('pVal').value);
+        const pUnit = document.getElementById('pUnit').value;
+        const tInput = parseFloat(document.getElementById('tVal').value);
+        const tUnit = document.getElementById('tUnit').value;
+        const priceInput = parseFloat(document.getElementById('unitPrice').value);
+
+        if (!isNaN(pInput) && !isNaN(tInput)) {
+            // 負数入力の防止
+            let cleanP = Math.max(0, pInput);
+            let cleanT = Math.max(0, tInput);
+
+            // 電力を「W」に統一
+            let watts = (pUnit === 'kw') ? cleanP * 1000 : cleanP;
+
+            // 時間を「秒(s)」に統一してジュールを計算
+            let seconds = cleanT;
+            switch (tUnit) {
+                case 'm': seconds = cleanT * 60; break;
+                case 'h': seconds = cleanT * 3600; break;
+                case 'd': seconds = cleanT * 86400; break;
+            }
+
+            const joules = watts * seconds;
+            const wh = joules / 3600;
+            const kwh = wh / 1000;
+
+            document.getElementById('resJ').innerText = formatNum(joules);
+            document.getElementById('resWh').innerText = formatNum(wh);
+            document.getElementById('resKWh').innerText = formatNum(kwh);
+            
+            // 電気代の計算
+            if (!isNaN(priceInput) && priceInput >= 0) {
+                const cost = kwh * priceInput;
+                document.getElementById('resCost').innerText = formatNum(cost);
+            } else {
+                document.getElementById('resCost').innerText = "0";
+            }
+            
+            document.getElementById('res-box').style.borderColor = "var(--primary)";
+        } else {
+            // 入力が不完全な場合はリセット
+            document.getElementById('resJ').innerText = "0";
+            document.getElementById('resWh').innerText = "0";
+            document.getElementById('resKWh').innerText = "0";
+            document.getElementById('resCost').innerText = "0";
+            document.getElementById('res-box').style.borderColor = "#ddd";
+        }
+    }
+
+    function formatNum(num) {
+        if (num === 0) return "0";
+        // 桁数が多い場合はカンマ区切り、小数点第4位まで
+        return parseFloat(num.toFixed(4)).toLocaleString();
+    }
+
+    function resetAll() {
+        document.getElementById('pVal').value = '';
+        document.getElementById('tVal').value = '';
+        document.getElementById('unitPrice').value = '31';
+        document.getElementById('resJ').innerText = "0";
+        document.getElementById('resWh').innerText = "0";
+        document.getElementById('resKWh').innerText = "0";
+        document.getElementById('resCost').innerText = "0";
+        document.getElementById('res-box').style.borderColor = "#ddd";
+    }
+</script>
+
+</body>
+</html>

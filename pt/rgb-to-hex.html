@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO設定 -->
+<title>Conversor de RGB para HEX | Ferramenta de Conversão de Código de Cores - HaruTools Lab</title>
+<meta name="description" content="Ferramenta online gratuita para converter valores RGB (0-255) em códigos de cores HEX hexadecimais (#RRGGBB). Ideal para web design e criação de CSS. Inclui função de visualização de cores em tempo real.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --success: #28a745;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* ツールメインエリア */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 入力エリア */
+.rgb-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-field label {
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  color: var(--text-sub);
+}
+
+.input-field input {
+  width: 70px;
+  padding: 12px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.input-field input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+/* プレビューエリア */
+#color-preview {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border-radius: 50%;
+  border: 4px solid white;
+  outline: 1px solid #eeeeee; /* 白色プレビュー時の境界線対策 */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background-color: #007bff;
+  transition: background-color 0.1s ease;
+}
+
+/* 結果表示 */
+.result-box {
+  margin: 30px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  display: inline-block;
+  min-width: 250px;
+}
+
+#hex-result {
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  color: #111;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.btn-copy {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-copy:hover { background: var(--primary-hover); }
+
+/* SEO解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; color: #444; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-q { font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 500px) {
+  .rgb-inputs { gap: 8px; }
+  .input-field input { width: 60px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+        Coleção de Ferramentas Online Gratuitas "HaruTools Lab"
+    </a>
+  </div>
+    <h1>Conversor de RGB para HEX</h1>
+    <p class="tagline">Converta valores de cores do formato RGB para o código HEX (hexadecimal) padrão da Web.</p>
+  </header>
+
+  <!-- 広告枠：上部 -->
+  <div class="ad-slot">
+    <span class="ad-label">Anúncios</span>
+    <!-- AdSense ディスプレイ広告ユニット -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <div class="rgb-inputs">
+      <div class="input-field">
+        <label>VERMELHO (R)</label>
+        <input type="number" id="r" value="0" min="0" max="255" oninput="updateColor()">
+      </div>
+      <div class="input-field">
+        <label>VERDE (G)</label>
+        <input type="number" id="g" value="123" min="0" max="255" oninput="updateColor()">
+      </div>
+      <div class="input-field">
+        <label>AZUL (B)</label>
+        <input type="number" id="b" value="255" min="0" max="255" oninput="updateColor()">
+      </div>
+    </div>
+
+    <div id="color-preview"></div>
+
+    <div class="result-box">
+      <span id="hex-result">#007bff</span>
+      <button class="btn-copy" onclick="copyToClipboard()">Copiar HEX</button>
+    </div>
+    
+    <p style="font-size: 0.8rem; color: #999;">A conversão é feita em tempo real conforme você insere os valores.</p>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">Anúncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <!-- SEOコンテンツ -->
+  <article class="info-section">
+    <h2>Como funciona a conversão de RGB para HEX</h2>
+    <p>Existem várias maneiras de os computadores processarem cores, sendo as mais representativas o <strong>RGB</strong> e o <strong>HEX</strong>. No desenvolvimento web e na programação, é necessário alternar entre eles, e esta ferramenta faz essa ponte instantaneamente.</p>
+
+    <h3>O que é RGB?</h3>
+    <p>Representa as componentes de cada uma das três cores primárias da luz: "Red (Vermelho)", "Green (Verde)" e "Blue (Azul)", em 256 níveis que vão de 0 a 255. Se todos forem 0 (0, 0, 0), o resultado é "Preto"; se todos forem 255 (255, 255, 255), o resultado é "Branco".</p>
+
+    <h3>O que é HEX (Código de Cor Hexadecimal)?</h3>
+    <p>É um formato que converte cada valor RGB em hexadecimal (0-9, a-f), organizando-os em pares de dois dígitos precedidos por um símbolo "#" (ex: #ff0000). É o formato mais comumente utilizado para especificar cores em HTML e CSS.</p>
+
+    <h3>Por que a conversão é necessária? (Contexto Profissional)</h3>
+    <p>No ambiente de web design, é comum converter os valores RGB obtidos no Photoshop ou em ferramentas de design de UI para o formato HEX ao escrevê-los em arquivos CSS. O formato HEX é preferido por muitos desenvolvedores porque o código é mais curto e menos suscetível a variações causadas por diferentes perfis de cores. Como esta ferramenta realiza os cálculos utilizando apenas JavaScript no navegador, os dados inseridos não são enviados para servidores externos, tornando-a segura para uso mesmo em projetos de design altamente confidenciais.</p>
+
+    <h3>Método de Cálculo da Conversão</h3>
+    <p>Cada número RGB é dividido por 16, e o quociente e o resto são usados para substituí-lo pelo correspondente hexadecimal.</p>
+    <ul>
+      <li>Exemplo: Quando R (Vermelho) é 255</li>
+      <li>255 ÷ 16 = 15 com resto 15</li>
+      <li>Como 15 em hexadecimal é "f", 255 torna-se "ff".</li>
+    </ul>
+
+    <h2>Como usar esta ferramenta</h2>
+    <ol>
+      <li><strong>Insira os valores RGB:</strong> Digite um número de 0 a 255 nos campos correspondentes a R, G e B.</li>
+      <li><strong>Verifique a cor:</strong> A cor da visualização circular mudará em tempo real de acordo com a sua entrada.</li>
+      <li><strong>Copiar o HEX:</strong> Clique no botão de cópia localizado abaixo do código gerado que começa com "#" e cole-o em seus códigos, como no CSS.</li>
+    </ol>
+
+    <h2>Perguntas Frequentes (FAQ)</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q. Existe algum custo para usar a ferramenta?</span>
+      <p>R. Não, todas as ferramentas deste site são fornecidas gratuitamente. Não é necessário registro de usuário, e você pode utilizá-la livremente para web design e desenvolvimento.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. As cores que eu inserir serão enviadas para fora?</span>
+      <p>R. Não. Esta ferramenta realiza todos os cálculos no "lado do cliente (no seu navegador)". Sua privacidade está totalmente protegida.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q. Posso utilizá-la no meu smartphone?</span>
+      <p>R. Sim, ela pode ser utilizada a partir de smartphones como iPhone e Android, ou tablets, sem a necessidade de qualquer instalação.</p>
+    </div>
+     <h3>Ferramentas Relacionadas</h3>
+    <ul>
+      <li><a href="hex-to-rgb.html">Conversor de HEX para RGB</a> : Conversão inversa de HEX para RGB</li>
+      <li><a href="color-picker.html">Seletor de Cores</a> : Selecione e extraia cores visualmente</li>
+      <li><a href="image-measure.html">Régua e Transferidor de Imagem</a> : Meça ângulos e distâncias dentro de imagens</li>
+      <li><a href="image-compare.html">Comparador de Imagens</a> : Compare duas imagens lado a lado para verificar diferenças</li>
+      <li><a href="color-code-list.html">Lista de Códigos de Cores (HEX)</a> : Lista abrangente com as combinações de cores mais clássicas</li>
+    </ul>
+  </article>
+
+  <!--下部
+  <div class="ad-slot">
+    <span class="ad-label">Anúncios</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+<footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">Termos de Uso</a> | <a href="privacy.html" style="color:#999;">Política de Privacidade</a> </footer>
+
+</div>
+
+<script>
+function toHex(value) {
+  // 数値が空や範囲外の場合のバリデーション
+  let num = parseInt(value);
+  if (isNaN(num)) num = 0;
+  if (num < 0) num = 0;
+  if (num > 255) num = 255;
+  
+  const hex = num.toString(16);
+  return hex.length === 1 ? "0" + hex : hex;
+}
+
+function updateColor() {
+  const rInput = document.getElementById("r");
+  const gInput = document.getElementById("g");
+  const bInput = document.getElementById("b");
+
+  // 入力された値を0-255の範囲に強制修正（UI側の数値も同期）
+  if (rInput.value !== "" && rInput.value > 255) rInput.value = 255;
+  if (rInput.value !== "" && rInput.value < 0) rInput.value = 0;
+  if (gInput.value !== "" && gInput.value > 255) gInput.value = 255;
+  if (gInput.value !== "" && gInput.value < 0) gInput.value = 0;
+  if (bInput.value !== "" && bInput.value > 255) bInput.value = 255;
+  if (bInput.value !== "" && bInput.value < 0) bInput.value = 0;
+
+  const r = rInput.value;
+  const g = gInput.value;
+  const b = bInput.value;
+
+  const hex = "#" + toHex(r) + toHex(g) + toHex(b);
+  
+  // プレビューと結果を更新
+  document.getElementById("hex-result").textContent = hex;
+  document.getElementById("color-preview").style.backgroundColor = hex;
+}
+
+function copyToClipboard() {
+  const hexText = document.getElementById("hex-result").textContent;
+  
+  navigator.clipboard.writeText(hexText).then(() => {
+    const btn = document.querySelector(".btn-copy");
+    const originalText = btn.textContent;
+    btn.textContent = "Copiado!";
+    btn.style.backgroundColor = "#28a745";
+    
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.backgroundColor = "";
+    }, 2000);
+  });
+}
+
+// 初期表示の反映
+window.onload = updateColor;
+</script>
+
+</body>
+</html>

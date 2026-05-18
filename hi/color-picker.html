@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2295804002960949"
+      crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2295804002960949">
+
+<!-- ★SEO設定：はるツール カラーピッカー用 -->
+<title>ऑनलाइन कलर पिकर | HEX और RGB कलर कोड प्राप्त करें "HaruTools Lab"</title>
+<meta name="description" content="आसानी से रंग चुनने और तुरंत HEX (हेक्साडेसिमल) या RGB प्रारूप में कलर कोड प्राप्त करने के लिए एक मुफ़्त ऑनलाइन टूल। कॉपी करने की सुविधा के साथ वेब डेवलपमेंट और डिज़ाइन के काम को आसान बनाएं।">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --bg-color: #f4f7f9;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0; padding: 0; line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* 広告枠 */
+.ad-slot {
+  margin: 40px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa; /* 枠をうっすら見せて誤クリック防止 */
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  /* 広告読み込み前のガタつきを抑える */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ad-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* ヘッダー */
+header { text-align: center; margin: 40px 0 20px; }
+h1 { font-size: 1.8rem; color: #111; margin-bottom: 10px; }
+.tagline { color: var(--text-sub); font-size: 1rem; }
+
+/* メインコンテンツ */
+.main-card {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* カラー表示エリア */
+.picker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.color-preview-big {
+  width: 100%;
+  max-width: 400px;
+  height: 150px;
+  border-radius: var(--radius);
+  border: 4px solid #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1), inset 0 0 1px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.1s ease;
+}
+
+#picker-input {
+  width: 180px;
+  height: 50px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 5px;
+  background: #fff;
+}
+
+/* コード表示とコピーボタン */
+.code-display-area {
+  width: 100%;
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 15px;
+  align-items: center;
+}
+
+.code-box {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: left;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: 1px solid #eee;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-copy {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+.btn-copy:hover { background: var(--primary-hover); }
+.btn-copy:active { transform: scale(0.95); }
+
+/* コピー通知 */
+#copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 50px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 1000;
+  font-size: 0.9rem;
+}
+
+/* 解説セクション */
+.info-section { background: var(--card-bg); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 30px; text-align: left; }
+.info-section h2 { border-left: 6px solid var(--primary); padding-left: 15px; font-size: 1.5rem; margin: 30px 0 20px; }
+.info-section h3 { font-size: 1.2rem; margin-top: 25px; color: #111; }
+.info-section p { margin-bottom: 15px; }
+
+footer { margin-top: 50px; padding: 30px; color: #999; font-size: 0.8rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .code-display-area { grid-template-columns: 1fr; }
+  .btn-copy { width: 100%; padding: 12px; }
+  .code-box { text-align: center; font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+    <a href="index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">
+      मुफ़्त ऑनलाइन टूल संग्रह "HaruTools Lab"
+    </a>
+  </div>
+    <h1>कलर पिकर</h1>
+    <p class="tagline">आसानी से अपनी पसंद का रंग चुनें और तुरंत HEX व RGB कोड प्राप्त करें।</p>
+  </header>
+
+  <!-- 上部広告 -->
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="2569812848"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main class="main-card">
+    <div class="picker-container">
+      <div id="preview-bg" class="color-preview-big" style="background-color: #ff0000;">
+      </div>
+
+      <div>
+        <label for="picker-input" style="display:block; margin-bottom:10px; font-weight:bold; color:var(--text-sub);">कृपया रंग चुनें:</label>
+        <input type="color" id="picker-input" value="#ff0000" aria-label="रंग चुनें">
+      </div>
+
+      <div class="code-display-area">
+        <div class="code-box" id="hex-output">#FF0000</div>
+        <button class="btn-copy" onclick="copy('hex-output')">HEX कॉपी</button>
+
+        <div class="code-box" id="rgb-output">rgb(255, 0, 0)</div>
+        <button class="btn-copy" onclick="copy('rgb-output')">RGB कॉपी</button>
+      </div>
+    </div>
+  </main>
+
+  <!--中部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="9211315223"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <article class="info-section">
+    <h2>कलर पिकर और रंग संयोजन का महत्व</h2>
+    <p>
+      वेबसाइट या एप्लिकेशन डिज़ाइन में, रंग केवल सजावट से कहीं अधिक भूमिका निभाते हैं। सही रंगों का उपयोग उपयोगकर्ताओं का ध्यान आकर्षित करने, विश्वास बढ़ाने और ब्रांड के संदेश को प्रभावी ढंग से पहुंचाने के लिए एक शक्तिशाली साधन है।
+    </p>
+
+    <h3>रंगों के मनोवैज्ञानिक प्रभाव और उनके उपयोग</h3>
+    <p>आपके द्वारा चुने गए रंग उपयोगकर्ताओं पर गहरा प्रभाव छोड़ते हैं। अपनी आवश्यकता के अनुसार सही रंग चुनने का प्रयास करें।</p>
+    <ul>
+      <li><strong>नीला (Blue):</strong> विश्वास, बुद्धिमत्ता, ईमानदारी। यह अक्सर कॉर्पोरेट वेबसाइटों और सोशल मीडिया पर उपयोग किया जाता है।</li>
+      <li><strong>लाल (Red):</strong> जुनून, तात्कालिकता, चेतावनी। यह सेल (Sale) की जानकारी या "अभी खरीदें" बटन के लिए अत्यधिक प्रभावी है।</li>
+      <li><strong>हरा (Green):</strong> स्वास्थ्य, शांति, विकास। यह पर्यावरण से जुड़े प्रोजेक्ट्स या रिलैक्सेशन सेवाओं के लिए उपयुक्त है।</li>
+      <li><strong>नारंगी (Orange):</strong> ऊर्जा, मित्रता, रचनात्मकता। यह सकारात्मक कार्रवाई को प्रोत्साहित करने में सहायक है।</li>
+    </ul>
+
+    <h3>वेब डेवलपमेंट में उपयोग होने वाले कोड प्रारूप</h3>
+    <p>इस टूल द्वारा प्रदान किए जाने वाले दो मुख्य प्रारूपों के बारे में विस्तार से समझें।</p>
+    <ul>
+      <li><strong>HEX प्रारूप (हेक्साडेसिमल):</strong> यह 0 से 9 और A से F के संयोजन से बनता है। CSS आदि में यह सबसे अधिक उपयोग किया जाने वाला प्रारूप है।</li>
+      <li><strong>RGB प्रारूप:</strong> यह प्रकाश के तीन प्राथमिक रंगों (लाल, हरा, नीला) को 0 से 255 के मानों में दर्शाता है। पारदर्शिता (Opacity) जोड़ने पर यह RGBA का आधार बनता है।</li>
+    </ul>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न</h2>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. क्या मैं स्क्रीन से सीधे रंग चुन सकता हूँ?</strong>
+      <p>A. यदि आपका ऑपरेटिंग सिस्टम (OS) या ब्राउज़र कलर डायलॉग के भीतर "आईड्रॉपर / आईपिपेट टूल" का समर्थन करता है, तो आप इस टूल के माध्यम से स्क्रीन पर मौजूद किसी भी रंग को चुन सकते हैं।</p>
+    </div>
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+      <strong style="color: var(--primary);">Q. क्या मैं HSV प्रारूप प्राप्त कर सकता हूँ?</strong>
+      <p>A. वर्तमान में यह टूल वेब मानकों के अनुसार HEX और RGB प्रारूपों का समर्थन करता है। आने वाले अपडेट में हम HSV/HSL प्रारूपों को भी जोड़ेंगे, जिससे रंग की चमक (Brightness) और संतृप्ति (Saturation) को समायोजित करना आसान हो जाएगा।</p>
+    </div>
+
+    <h3>संबंधित टूल</h3>
+    <ul>
+      <li><a href="rgb-to-hex.html">RGB → HEX कनवर्टर</a>：(R,G,B) मानों को वेब मानक कोड में बदलें।</li>
+      <li><a href="hex-to-rgb.html">HEX → RGB कनवर्टर</a>：हेक्साडेसिमल कोड से RGB मानों की गणना करें।</li>
+      <li><a href="image-measure.html">इमेज रूलर और चांदा (Protractor)</a>：छवियों के भीतर कोण और दूरी को मापें और तुलना करें।</li>
+      <li><a href="image-compare.html">इमेज तुलना</a>：दो अलग-अलग डिज़ाइन प्रस्तावों के रंगों की अगल-बगल रखकर तुलना करें।</li>
+      <li><a href="color-code-list.html">कलर कोड सूची (HEX)</a>：वेब पर अक्सर उपयोग किए जाने वाले बुनियादी रंगों की सूची देखें।</li>
+    </ul>
+  </article>
+
+<!--下部
+  <div class="ad-slot">
+    <span class="ad-label">विज्ञापन</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2295804002960949"
+         data-ad-slot="7109491951"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+ -->
+
+  <footer> &copy; 2026 HaruTools Lab | <a href="terms.html" style="color:#999;">उपयोग की शर्तें</a> | <a href="privacy.html" style="color:#999;">गोपनीयता नीति</a> </footer>
+</div>
+
+<div id="copy-toast">कॉपी कर लिया गया है!</div>
+
+<script>
+const picker = document.getElementById('picker-input');
+const previewBg = document.getElementById('preview-bg');
+const hexOut = document.getElementById('hex-output');
+const rgbOut = document.getElementById('rgb-output');
+const toast = document.getElementById('copy-toast');
+
+picker.addEventListener('input', () => {
+  const hex = picker.value.toUpperCase();
+  
+  // プレビュー更新
+  previewBg.style.backgroundColor = hex;
+  
+  // HEX更新
+  hexOut.textContent = hex;
+  
+  // RGB計算
+  const r = parseInt(hex.substring(1,3), 16);
+  const g = parseInt(hex.substring(3,5), 16);
+  const b = parseInt(hex.substring(5,7), 16);
+  rgbOut.textContent = `rgb(${r}, ${g}, ${b})`;
+});
+
+function copy(id) {
+  const text = document.getElementById(id).textContent;
+  if (!navigator.clipboard) {
+    alert("यह ब्राउज़र कॉपी सुविधा का समर्थन नहीं करता है। कृपया मैन्युअल रूप से कॉपी करें: " + text);
+    return;
+  }
+  navigator.clipboard.writeText(text).then(() => {
+    toast.textContent = `${text} कॉपी कर लिया गया है`;
+    toast.style.background = "#333";
+    toast.style.opacity = '1';
+    setTimeout(() => {
+      toast.style.opacity = '0';
+    }, 2000);
+  }).catch(() => {
+    toast.textContent = "कॉपी करने में विफल";
+    toast.style.background = "#dc3545";
+    toast.style.opacity = '1';
+    setTimeout(() => {
+      toast.style.opacity = '0';
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
